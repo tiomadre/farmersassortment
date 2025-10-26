@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "com.doltandtio.farmersassortment.mixin",
+  "package": "com.tiomadre.farmersassortment.mixin",
   "compatibilityLevel": "JAVA_17",
   "refmap": "farmersassortment.refmap.json",
   "mixins": [],
