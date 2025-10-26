@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "farmersassortment:block/oak_cutting_board",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "farmersassortment:block/oak_cutting_board"
+    },
+    "facing=south": {
+      "model": "farmersassortment:block/oak_cutting_board",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "farmersassortment:block/oak_cutting_board",
+      "y": 270
+    }
+  }
+}
