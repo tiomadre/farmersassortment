@@ -1,3 +1,14 @@
 {
-  "itemGroup.farmersassortment": "Farmer's Assortment"
+  "itemGroup.farmersassortment": "Farmer's Assortment",
+  "block.farmersassortment.oak_cutting_board": "Oak Cutting Board",
+  "block.farmersassortment.spruce_cutting_board": "Spruce Cutting Board",
+  "block.farmersassortment.birch_cutting_board": "Birch Cutting Board",
+  "block.farmersassortment.jungle_cutting_board": "Jungle Cutting Board",
+  "block.farmersassortment.acacia_cutting_board": "Acacia Cutting Board",
+  "block.farmersassortment.dark_oak_cutting_board": "Dark Oak Cutting Board",
+  "block.farmersassortment.mangrove_cutting_board": "Mangrove Cutting Board",
+  "block.farmersassortment.cherry_cutting_board": "Cherry Cutting Board",
+  "block.farmersassortment.bamboo_cutting_board": "Bamboo Cutting Board",
+  "block.farmersassortment.crimson_cutting_board": "Crimson Cutting Board",
+  "block.farmersassortment.warped_cutting_board": "Warped Cutting Board"
 }
