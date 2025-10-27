@@ -17,6 +17,7 @@ public final class FADatagen {
         DataGenerator generator = event.getGenerator();
         if (event.includeServer()) {
             generator.addProvider(true, new FACrafting(generator.getPackOutput()));
+
         }
     }
 }

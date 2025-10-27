@@ -26,9 +26,6 @@ public final class FABlocks {
     public static final RegistryObject<CuttingBoardBlock> CRIMSON_CUTTING_BOARD = registerCuttingBoard("crimson", Blocks.CRIMSON_PLANKS);
     public static final RegistryObject<CuttingBoardBlock> WARPED_CUTTING_BOARD = registerCuttingBoard("warped", Blocks.WARPED_PLANKS);
 
-    private FABlocks() {
-    }
-
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
     }
