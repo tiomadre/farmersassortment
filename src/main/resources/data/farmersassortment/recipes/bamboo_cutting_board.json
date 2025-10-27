@@ -5,13 +5,13 @@
     "#": {
       "item": "minecraft:bamboo_planks"
     },
-    "/": {
+    "S": {
       "item": "minecraft:stick"
     }
   },
   "pattern": [
-    "/##",
-    "/##"
+    "S##",
+    "S##"
   ],
   "result": {
     "item": "farmersassortment:bamboo_cutting_board"

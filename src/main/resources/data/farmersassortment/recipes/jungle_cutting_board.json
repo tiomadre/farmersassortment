@@ -5,13 +5,13 @@
     "#": {
       "item": "minecraft:jungle_planks"
     },
-    "/": {
+    "S": {
       "item": "minecraft:stick"
     }
   },
   "pattern": [
-    "/##",
-    "/##"
+    "S##",
+    "S##"
   ],
   "result": {
     "item": "farmersassortment:jungle_cutting_board"

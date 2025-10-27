@@ -5,13 +5,13 @@
     "#": {
       "item": "minecraft:acacia_planks"
     },
-    "/": {
+    "S": {
       "item": "minecraft:stick"
     }
   },
   "pattern": [
-    "/##",
-    "/##"
+    "S##",
+    "S##"
   ],
   "result": {
     "item": "farmersassortment:acacia_cutting_board"
