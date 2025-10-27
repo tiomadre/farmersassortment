@@ -5,13 +5,13 @@
     "#": {
       "item": "minecraft:mangrove_planks"
     },
-    "/": {
+    "S": {
       "item": "minecraft:stick"
     }
   },
   "pattern": [
-    "/##",
-    "/##"
+    "S##",
+    "S##"
   ],
   "result": {
     "item": "farmersassortment:mangrove_cutting_board"

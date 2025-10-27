@@ -5,13 +5,13 @@
     "#": {
       "item": "minecraft:birch_planks"
     },
-    "/": {
+    "S": {
       "item": "minecraft:stick"
     }
   },
   "pattern": [
-    "/##",
-    "/##"
+    "S##",
+    "S##"
   ],
   "result": {
     "item": "farmersassortment:birch_cutting_board"
