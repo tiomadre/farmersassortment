@@ -1,4 +1,4 @@
-package com.tiomadre.farmersassortment;
+package com.tiomadre.farmersassortment.core;
 
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import com.tiomadre.farmersassortment.core.registry.FACrafting;

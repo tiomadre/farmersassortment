@@ -1,6 +1,6 @@
 package com.tiomadre.farmersassortment.core.registry;
 
-import com.tiomadre.farmersassortment.FarmersAssortment;
+import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;

@@ -1,6 +1,6 @@
 package com.tiomadre.farmersassortment.core.registry;
 
-import com.tiomadre.farmersassortment.FarmersAssortment;
+import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
