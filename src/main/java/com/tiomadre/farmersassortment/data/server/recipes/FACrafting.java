@@ -1,4 +1,4 @@
-package com.tiomadre.farmersassortment.core.registry;
+package com.tiomadre.farmersassortment.data.server.recipes;
 
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import net.minecraft.world.item.crafting.RecipeSerializer;
