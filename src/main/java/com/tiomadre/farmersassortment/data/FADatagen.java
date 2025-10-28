@@ -1,6 +1,7 @@
 package com.tiomadre.farmersassortment.data;
 
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
+import com.tiomadre.farmersassortment.data.client.FABlockStates;
 import com.tiomadre.farmersassortment.data.server.recipes.FACrafting;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.data.event.GatherDataEvent;
@@ -18,6 +19,9 @@ public final class FADatagen {
         if (event.includeServer()) {
             generator.addProvider(true, new FACrafting(generator.getPackOutput()));
 
+        }
+        if (event.includeClient()) {
+            generator.addProvider(true, new FABlockStates(generator.getPackOutput(), event.getExistingFileHelper()));
         }
     }
 }
