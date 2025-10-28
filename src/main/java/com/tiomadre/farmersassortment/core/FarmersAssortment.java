@@ -1,8 +1,9 @@
 package com.tiomadre.farmersassortment.core;
 
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
-import com.tiomadre.farmersassortment.data.server.recipes.FACrafting;
 import com.tiomadre.farmersassortment.core.registry.FAItems;
+import com.tiomadre.farmersassortment.core.registry.FATab;
+import com.tiomadre.farmersassortment.data.server.recipes.FACrafting;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -19,6 +20,7 @@ public class FarmersAssortment {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         FABlocks.register(modEventBus);
         FAItems.register(modEventBus);
+        FATab.register(modEventBus);
         FACrafting.register(modEventBus);
     }
 }
