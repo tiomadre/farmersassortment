@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:dark_oak_planks"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "S##",
+    "S##"
+  ],
+  "result": {
+    "item": "farmersassortment:dark_oak_cutting_board"
+  },
+  "show_notification": true
+}

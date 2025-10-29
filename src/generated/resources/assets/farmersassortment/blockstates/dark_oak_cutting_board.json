@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,waterlogged=false": {
+      "model": "farmersassortment:block/dark_oak_cutting_board",
+      "y": 270
+    },
+    "facing=east,waterlogged=true": {
+      "model": "farmersassortment:block/dark_oak_cutting_board",
+      "y": 270
+    },
+    "facing=north,waterlogged=false": {
+      "model": "farmersassortment:block/dark_oak_cutting_board",
+      "y": 180
+    },
+    "facing=north,waterlogged=true": {
+      "model": "farmersassortment:block/dark_oak_cutting_board",
+      "y": 180
+    },
+    "facing=south,waterlogged=false": {
+      "model": "farmersassortment:block/dark_oak_cutting_board"
+    },
+    "facing=south,waterlogged=true": {
+      "model": "farmersassortment:block/dark_oak_cutting_board"
+    },
+    "facing=west,waterlogged=false": {
+      "model": "farmersassortment:block/dark_oak_cutting_board",
+      "y": 90
+    },
+    "facing=west,waterlogged=true": {
+      "model": "farmersassortment:block/dark_oak_cutting_board",
+      "y": 90
+    }
+  }
+}
