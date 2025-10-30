@@ -2,7 +2,7 @@
   "parent": "farmersdelight:block/cutting_board",
   "render_type": "minecraft:cutout",
   "textures": {
-    "particle": "minecraft:block/dark_oak_planks",
-    "top": "minecraft:block/dark_oak_planks"
+    "particle": "farmersassortment:block/dark_oak_cutting_board",
+    "top": "farmersassortment:block/dark_oak_cutting_board"
   }
 }

@@ -32,7 +32,12 @@ public class FABlockStates extends BlockStateProvider {
 
     private void registerCuttingBoard(RegistryObject<CuttingBoardBlock> block) {
         String name = Objects.requireNonNull(block.getId()).getPath();
-        ModelFile model = models().getExistingFile(modLoc("block/" + name));
+        ModelFile model = models()
+                .getBuilder(name)
+                .parent(new ModelFile.UncheckedModelFile("farmersdelight:block/cutting_board"))
+                .texture("particle", modLoc("block/" + name))
+                .texture("top", modLoc("block/" + name))
+                .renderType("minecraft:cutout");
         FABlockStateHelper.horizontalFacingBlock(this, block.get(), model);
     }
 }

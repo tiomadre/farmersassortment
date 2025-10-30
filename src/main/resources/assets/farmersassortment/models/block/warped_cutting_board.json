@@ -2,7 +2,7 @@
   "parent": "farmersdelight:block/cutting_board",
   "render_type": "minecraft:cutout",
   "textures": {
-    "particle": "minecraft:block/warped_planks",
-    "top": "minecraft:block/warped_planks"
+    "particle": "farmersassortment:block/warped_cutting_board",
+    "top": "farmersassortment:block/warped_cutting_board"
   }
 }
