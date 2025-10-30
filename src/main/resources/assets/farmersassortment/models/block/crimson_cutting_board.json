@@ -2,7 +2,7 @@
   "parent": "farmersdelight:block/cutting_board",
   "render_type": "minecraft:cutout",
   "textures": {
-    "particle": "minecraft:block/crimson_planks",
-    "top": "minecraft:block/crimson_planks"
+    "particle": "farmersassortment:block/crimson_cutting_board",
+    "top": "farmersassortment:block/crimson_cutting_board"
   }
 }

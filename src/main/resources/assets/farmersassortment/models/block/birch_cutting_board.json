@@ -2,7 +2,7 @@
   "parent": "farmersdelight:block/cutting_board",
   "render_type": "minecraft:cutout",
   "textures": {
-    "particle": "minecraft:block/birch_planks",
-    "top": "minecraft:block/birch_planks"
+    "particle": "farmersassortment:block/birch_cutting_board",
+    "top": "farmersassortment:block/birch_cutting_board"
   }
 }
