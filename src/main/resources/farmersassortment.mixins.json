@@ -4,7 +4,8 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "farmersassortment.refmap.json",
   "mixins": [
-    "BlockEntityTypeAccessor"
+    "BlockEntityTypeAccessor",
+    "CookingPotBlockEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
