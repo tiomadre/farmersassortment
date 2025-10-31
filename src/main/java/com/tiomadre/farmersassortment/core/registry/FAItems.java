@@ -4,7 +4,6 @@ import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tiers;
 import net.minecraftforge.registries.RegistryObject;
-import vectorwing.farmersdelight.common.item.CookingPotItem;
 import vectorwing.farmersdelight.common.item.KnifeItem;
 import com.teamabnormals.blueprint.core.util.registry.ItemSubRegistryHelper;
 import static com.tiomadre.farmersassortment.core.registry.FABlocks.*;
@@ -16,8 +15,6 @@ public final class FAItems {
             () -> new KnifeItem(Tiers.IRON, 0.5F, -2.0F, new Item.Properties()));
     public static final RegistryObject<Item> QUARTZ_KNIFE = ITEMS.createItem("quartz_knife",
             () -> new KnifeItem(Tiers.IRON, 0.5F, -2.0F, new Item.Properties()));
-    public static final RegistryObject<Item> COPPER_COOKING_POT = FAItems.ITEMS.createItem("copper_cooking_pot",
-            () -> new CookingPotItem(FABlocks.COPPER_COOKING_POT.get(), new Item.Properties().stacksTo(1)));
     private FAItems() {
     }
 }
