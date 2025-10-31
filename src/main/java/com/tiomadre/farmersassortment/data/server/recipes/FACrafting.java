@@ -2,11 +2,13 @@ package com.tiomadre.farmersassortment.data.server.recipes;
 
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
+import com.tiomadre.farmersassortment.core.registry.FAItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
@@ -38,6 +40,9 @@ public final class FACrafting extends RecipeProvider {
         cuttingBoard(output, FABlocks.BAMBOO_CUTTING_BOARD, Blocks.BAMBOO_PLANKS);
         cuttingBoard(output, FABlocks.CRIMSON_CUTTING_BOARD, Blocks.CRIMSON_PLANKS);
         cuttingBoard(output, FABlocks.WARPED_CUTTING_BOARD, Blocks.WARPED_PLANKS);
+        copperCookingPot(output);
+        knife(output, FAItems.AMETHYST_KNIFE, Items.AMETHYST_SHARD);
+        knife(output, FAItems.QUARTZ_KNIFE, Items.QUARTZ);
     }
 
     private void cuttingBoard(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> board, ItemLike planks) {
@@ -47,6 +52,28 @@ public final class FACrafting extends RecipeProvider {
                 .pattern("S##")
                 .pattern("S##")
                 .unlockedBy(getHasName(planks), has(planks))
+                .save(output);
+    }
+
+    private void copperCookingPot(Consumer<FinishedRecipe> output) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, FABlocks.COPPER_COOKING_POT.get())
+                .define('C', Items.COPPER_INGOT)
+                .define('B', Items.BRICK)
+                .define('W', Items.WATER_BUCKET)
+                .pattern("C C")
+                .pattern("CWC")
+                .pattern("BBB")
+                .unlockedBy(getHasName(Items.COPPER_INGOT), has(Items.COPPER_INGOT))
+                .save(output);
+    }
+
+    private void knife(Consumer<FinishedRecipe> output, RegistryObject<? extends Item> knife, ItemLike material) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, knife.get())
+                .define('M', material)
+                .define('S', Items.STICK)
+                .pattern(" M")
+                .pattern(" S")
+                .unlockedBy(getHasName(material), has(material))
                 .save(output);
     }
 

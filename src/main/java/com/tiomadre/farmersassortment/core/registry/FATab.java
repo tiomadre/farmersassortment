@@ -24,9 +24,9 @@ public final class FATab {
             .icon(() -> new ItemStack(FABlocks.SPRUCE_CUTTING_BOARD.get()))
             .displayItems((parameters, output) ->
                     Stream.concat(
-                                    FABlocks.BLOCKS.getEntries().stream()
+                                    FABlocks.BLOCKS.getDeferredRegister().getEntries().stream()
                                             .map(registryObject -> Map.entry(registryObject.getId(), (Supplier<? extends ItemLike>) registryObject)),
-                                    FAItems.ITEMS.getEntries().stream()
+                                    FAItems.ITEMS.getDeferredRegister().getEntries().stream()
                                             .map(registryObject -> Map.entry(registryObject.getId(), (Supplier<? extends ItemLike>) registryObject)))
                             .sorted(Comparator.comparing(entry -> entry.getKey().getPath()))
                             .map(Map.Entry::getValue)

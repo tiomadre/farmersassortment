@@ -1,19 +1,21 @@
 package com.tiomadre.farmersassortment.core.registry;
 
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.registries.RegistryObject;
 import vectorwing.farmersdelight.common.block.CuttingBoardBlock;
+import vectorwing.farmersdelight.common.block.CookingPotBlock;
+import vectorwing.farmersdelight.common.item.CookingPotItem;
 
-import java.util.function.Supplier;
+import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 
 public final class FABlocks {
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, FarmersAssortment.MOD_ID);
+    public static final BlockSubRegistryHelper BLOCKS = FarmersAssortment.REGISTRY_HELPER.getBlockSubHelper();
 
     public static final RegistryObject<CuttingBoardBlock> SPRUCE_CUTTING_BOARD = registerCuttingBoard("spruce", Blocks.SPRUCE_PLANKS);
     public static final RegistryObject<CuttingBoardBlock> BIRCH_CUTTING_BOARD = registerCuttingBoard("birch", Blocks.BIRCH_PLANKS);
@@ -25,18 +27,12 @@ public final class FABlocks {
     public static final RegistryObject<CuttingBoardBlock> BAMBOO_CUTTING_BOARD = registerCuttingBoard("bamboo", Blocks.BAMBOO_PLANKS);
     public static final RegistryObject<CuttingBoardBlock> CRIMSON_CUTTING_BOARD = registerCuttingBoard("crimson", Blocks.CRIMSON_PLANKS);
     public static final RegistryObject<CuttingBoardBlock> WARPED_CUTTING_BOARD = registerCuttingBoard("warped", Blocks.WARPED_PLANKS);
-
-    public static void register(IEventBus eventBus) {
-        BLOCKS.register(eventBus);
-    }
+    public static final RegistryObject<CookingPotBlock> COPPER_COOKING_POT = BLOCKS.createBlockWithItem("copper_cooking_pot",
+            () -> new CookingPotBlock(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(0.5F, 6.0F).sound(SoundType.LANTERN)),
+            () -> new CookingPotItem(COPPER_COOKING_POT.get(), new Item.Properties().stacksTo(1)));
 
     private static RegistryObject<CuttingBoardBlock> registerCuttingBoard(String woodType, Block baseBlock) {
-        return registerBlock(woodType + "_cutting_board", () -> new CuttingBoardBlock(BlockBehaviour.Properties.copy(baseBlock)));
-    }
-
-    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> blockSupplier) {
-        RegistryObject<T> block = BLOCKS.register(name, blockSupplier);
-        FAItems.registerBlockItem(name, block);
-        return block;
+        return BLOCKS.createBlock(woodType + "_cutting_board", () -> new CuttingBoardBlock(BlockBehaviour.Properties.copy(baseBlock)),
+                new Item.Properties());
     }
 }
