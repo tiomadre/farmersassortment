@@ -17,6 +17,7 @@ import vectorwing.farmersdelight.common.item.CookingPotItem;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 
 import java.util.Objects;
+import java.util.stream.Stream;
 
 public final class FABlocks {
     public static final BlockSubRegistryHelper BLOCKS = FarmersAssortment.REGISTRY_HELPER.getBlockSubHelper();
@@ -36,6 +37,21 @@ public final class FABlocks {
     public static final RegistryObject<CookingPotBlock> COPPER_COOKING_POT = BLOCKS.createBlockWithItem("copper_cooking_pot",
             () -> new CookingPotBlock(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(0.5F, 6.0F).sound(SoundType.LANTERN)),
             () -> new CookingPotItem(Objects.requireNonNull(ForgeRegistries.BLOCKS.getValue(COPPER_COOKING_POT_ID)), new Item.Properties().stacksTo(1)));
+
+    public static Stream<RegistryObject<CuttingBoardBlock>> cuttingBoards() {
+        return Stream.of(
+                SPRUCE_CUTTING_BOARD,
+                BIRCH_CUTTING_BOARD,
+                JUNGLE_CUTTING_BOARD,
+                ACACIA_CUTTING_BOARD,
+                DARK_OAK_CUTTING_BOARD,
+                MANGROVE_CUTTING_BOARD,
+                CHERRY_CUTTING_BOARD,
+                BAMBOO_CUTTING_BOARD,
+                CRIMSON_CUTTING_BOARD,
+                WARPED_CUTTING_BOARD
+        );
+    }
 
     private static RegistryObject<CuttingBoardBlock> registerCuttingBoard(String woodType, Block baseBlock) {
         return BLOCKS.createBlock(woodType + "_cutting_board", () -> new CuttingBoardBlock(BlockBehaviour.Properties.copy(baseBlock)),
