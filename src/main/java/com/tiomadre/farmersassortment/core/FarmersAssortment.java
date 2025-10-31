@@ -1,9 +1,8 @@
 package com.tiomadre.farmersassortment.core;
 
-import com.tiomadre.farmersassortment.core.registry.FABlocks;
-import com.tiomadre.farmersassortment.core.registry.FAItems;
 import com.tiomadre.farmersassortment.core.registry.FATab;
 import com.tiomadre.farmersassortment.data.server.recipes.FACrafting;
+import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -14,12 +13,12 @@ import org.apache.logging.log4j.Logger;
 public class FarmersAssortment {
     public static final String MOD_ID = "farmersassortment";
     private static final Logger LOGGER = LogManager.getLogger();
+    public static final RegistryHelper REGISTRY_HELPER = new RegistryHelper(MOD_ID);
 
     public FarmersAssortment() {
         LOGGER.info("Loading Farmer's Assortment");
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        FABlocks.register(modEventBus);
-        FAItems.register(modEventBus);
+        REGISTRY_HELPER.register(modEventBus);
         FATab.register(modEventBus);
         FACrafting.register(modEventBus);
     }
