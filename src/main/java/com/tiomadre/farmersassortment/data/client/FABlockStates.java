@@ -25,7 +25,7 @@ public class FABlockStates extends BlockStateProvider {
         registerCuttingBoard(FABlocks.SPRUCE_CUTTING_BOARD);
         registerCuttingBoard(FABlocks.BIRCH_CUTTING_BOARD);
         registerCuttingBoard(FABlocks.JUNGLE_CUTTING_BOARD);
-        registerCuttingBoard(FABlocks.ACACIA_CUTTING_BOARD);
+        registerExistingCuttingBoard(FABlocks.ACACIA_CUTTING_BOARD);
         registerCuttingBoard(FABlocks.DARK_OAK_CUTTING_BOARD);
         registerCuttingBoard(FABlocks.MANGROVE_CUTTING_BOARD);
         registerCuttingBoard(FABlocks.CHERRY_CUTTING_BOARD);
@@ -43,6 +43,12 @@ public class FABlockStates extends BlockStateProvider {
                 .texture("particle", modLoc("block/" + name))
                 .texture("top", modLoc("block/" + name))
                 .renderType("minecraft:cutout");
+        FABlockStateHelper.horizontalFacingBlock(this, block.get(), model);
+    }
+
+    private void registerExistingCuttingBoard(RegistryObject<CuttingBoardBlock> block) {
+        String name = Objects.requireNonNull(block.getId()).getPath();
+        ModelFile model = models().getExistingFile(modLoc("block/" + name));
         FABlockStateHelper.horizontalFacingBlock(this, block.get(), model);
     }
 

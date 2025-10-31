@@ -17,4 +17,8 @@ public final class FAItems {
             () -> new KnifeItem(Tiers.IRON, 0.5F, -2.0F, new Item.Properties()));
     private FAItems() {
     }
+    public static void init() {
+    }
 }
+
+

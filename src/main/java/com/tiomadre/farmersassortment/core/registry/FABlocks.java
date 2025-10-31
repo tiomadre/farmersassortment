@@ -57,4 +57,6 @@ public final class FABlocks {
         return BLOCKS.createBlock(woodType + "_cutting_board", () -> new CuttingBoardBlock(BlockBehaviour.Properties.copy(baseBlock)),
                 new Item.Properties());
     }
+    public static void init() {
+    }
 }
