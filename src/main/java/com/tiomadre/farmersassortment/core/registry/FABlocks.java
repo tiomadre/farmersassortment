@@ -27,9 +27,8 @@ public final class FABlocks {
     public static final RegistryObject<CuttingBoardBlock> BAMBOO_CUTTING_BOARD = registerCuttingBoard("bamboo", Blocks.BAMBOO_PLANKS);
     public static final RegistryObject<CuttingBoardBlock> CRIMSON_CUTTING_BOARD = registerCuttingBoard("crimson", Blocks.CRIMSON_PLANKS);
     public static final RegistryObject<CuttingBoardBlock> WARPED_CUTTING_BOARD = registerCuttingBoard("warped", Blocks.WARPED_PLANKS);
-    public static final RegistryObject<CookingPotBlock> COPPER_COOKING_POT = BLOCKS.createBlockWithItem("copper_cooking_pot",
-            () -> new CookingPotBlock(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(0.5F, 6.0F).sound(SoundType.LANTERN)),
-            () -> new CookingPotItem(COPPER_COOKING_POT.get(), new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<CookingPotBlock> COPPER_COOKING_POT = BLOCKS.createBlock("copper_cooking_pot",
+            () -> new CookingPotBlock(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(0.5F, 6.0F).sound(SoundType.LANTERN)));
 
     private static RegistryObject<CuttingBoardBlock> registerCuttingBoard(String woodType, Block baseBlock) {
         return BLOCKS.createBlock(woodType + "_cutting_board", () -> new CuttingBoardBlock(BlockBehaviour.Properties.copy(baseBlock)),
