@@ -24,11 +24,11 @@ public class FABlockStates extends BlockStateProvider {
     protected void registerStatesAndModels() {
         registerCuttingBoard(FABlocks.SPRUCE_CUTTING_BOARD);
         registerCuttingBoard(FABlocks.BIRCH_CUTTING_BOARD);
-        registerCuttingBoard(FABlocks.JUNGLE_CUTTING_BOARD);
-        registerExistingCuttingBoard(FABlocks.ACACIA_CUTTING_BOARD);
+        registerSolidCuttingBoard(FABlocks.JUNGLE_CUTTING_BOARD);
+        registerSolidCuttingBoard(FABlocks.ACACIA_CUTTING_BOARD);
         registerCuttingBoard(FABlocks.DARK_OAK_CUTTING_BOARD);
-        registerCuttingBoard(FABlocks.MANGROVE_CUTTING_BOARD);
-        registerCuttingBoard(FABlocks.CHERRY_CUTTING_BOARD);
+        registerSolidCuttingBoard(FABlocks.MANGROVE_CUTTING_BOARD);
+        registerSolidCuttingBoard(FABlocks.CHERRY_CUTTING_BOARD);
         registerCuttingBoard(FABlocks.BAMBOO_CUTTING_BOARD);
         registerCuttingBoard(FABlocks.CRIMSON_CUTTING_BOARD);
         registerCuttingBoard(FABlocks.WARPED_CUTTING_BOARD);
@@ -46,9 +46,13 @@ public class FABlockStates extends BlockStateProvider {
         FABlockStateHelper.horizontalFacingBlock(this, block.get(), model);
     }
 
-    private void registerExistingCuttingBoard(RegistryObject<CuttingBoardBlock> block) {
+    private void registerSolidCuttingBoard(RegistryObject<CuttingBoardBlock> block) {
         String name = Objects.requireNonNull(block.getId()).getPath();
-        ModelFile model = models().getExistingFile(modLoc("block/" + name));
+        ModelFile model = models()
+                .getBuilder(name)
+                .parent(new ModelFile.UncheckedModelFile("farmersdelight:block/cutting_board"))
+                .texture("particle", modLoc("block/" + name))
+                .texture("top", modLoc("block/" + name));
         FABlockStateHelper.horizontalFacingBlock(this, block.get(), model);
     }
 
