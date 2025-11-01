@@ -1,8 +1,0 @@
-{
-  "parent": "farmersdelight:block/cutting_board",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "particle": "minecraft:block/oak_planks",
-    "top": "minecraft:block/oak_planks"
-  }
-}

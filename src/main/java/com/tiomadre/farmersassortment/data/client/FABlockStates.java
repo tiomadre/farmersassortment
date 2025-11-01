@@ -22,9 +22,9 @@ public class FABlockStates extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        registerCuttingBoard(FABlocks.SPRUCE_CUTTING_BOARD);
+        registerSolidCuttingBoard(FABlocks.SPRUCE_CUTTING_BOARD);
         registerCuttingBoard(FABlocks.BIRCH_CUTTING_BOARD);
-        registerSolidCuttingBoard(FABlocks.JUNGLE_CUTTING_BOARD);
+        registerCuttingBoard(FABlocks.JUNGLE_CUTTING_BOARD);
         registerSolidCuttingBoard(FABlocks.ACACIA_CUTTING_BOARD);
         registerCuttingBoard(FABlocks.DARK_OAK_CUTTING_BOARD);
         registerSolidCuttingBoard(FABlocks.MANGROVE_CUTTING_BOARD);

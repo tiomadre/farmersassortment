@@ -1,22 +1,26 @@
 package com.tiomadre.farmersassortment.core.registry;
 
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
+import com.tiomadre.farmersassortment.core.mixin.BlockEntityTypeAccessor;
+import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
-import net.minecraftforge.registries.RegistryObject;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 import vectorwing.farmersdelight.common.block.CuttingBoardBlock;
 import vectorwing.farmersdelight.common.block.CookingPotBlock;
 import vectorwing.farmersdelight.common.item.CookingPotItem;
-
-import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
+import vectorwing.farmersdelight.common.registry.ModBlockEntityTypes;
 
 import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Stream;
 
 public final class FABlocks {
@@ -58,5 +62,13 @@ public final class FABlocks {
                 new Item.Properties());
     }
     public static void init() {
+    }
+
+    public static void onCommonSetup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+            BlockEntityType<?> cuttingBoardEntity = ModBlockEntityTypes.CUTTING_BOARD.get();
+            Set<Block> validBlocks = ((BlockEntityTypeAccessor) cuttingBoardEntity).farmersassortment$getValidBlocks();
+            cuttingBoards().map(RegistryObject::get).forEach(validBlocks::add);
+        });
     }
 }
