@@ -5,7 +5,8 @@
   "refmap": "farmersassortment.refmap.json",
   "mixins": [
     "BlockEntityTypeAccessor",
-    "CookingPotBlockEntityMixin"
+    "CookingPotBlockEntityMixin",
+    "VariantPotMenu"
   ],
   "injectors": {
     "defaultRequire": 1
