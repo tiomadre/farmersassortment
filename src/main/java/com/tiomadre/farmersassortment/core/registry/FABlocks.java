@@ -19,6 +19,7 @@ import vectorwing.farmersdelight.common.block.CookingPotBlock;
 import vectorwing.farmersdelight.common.item.CookingPotItem;
 import vectorwing.farmersdelight.common.registry.ModBlockEntityTypes;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Stream;
@@ -66,12 +67,19 @@ public final class FABlocks {
 
     public static void onCommonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            BlockEntityType<?> cuttingBoardEntity = ModBlockEntityTypes.CUTTING_BOARD.get();
-            Set<Block> cuttingBoardValidBlocks = ((BlockEntityTypeAccessor) cuttingBoardEntity).farmersassortment$getValidBlocks();
-            cuttingBoards().map(RegistryObject::get).forEach(cuttingBoardValidBlocks::add);
-            BlockEntityType<?> cookingPotEntity = ModBlockEntityTypes.COOKING_POT.get();
-            Set<Block> cookingPotValidBlocks = ((BlockEntityTypeAccessor) cookingPotEntity).farmersassortment$getValidBlocks();
-            cookingPotValidBlocks.add(COPPER_COOKING_POT.get());
+            BlockEntityTypeAccessor cuttingBoardAccessor = (BlockEntityTypeAccessor) ModBlockEntityTypes.CUTTING_BOARD.get();
+            Set<Block> cuttingBoardValidBlocks = cuttingBoardAccessor.farmersassortment$getValidBlocks();
+            Set<Block> updatedCuttingBoardBlocks = new HashSet<>(cuttingBoardValidBlocks);
+            cuttingBoards().map(RegistryObject::get).forEach(updatedCuttingBoardBlocks::add);
+            cuttingBoardAccessor.farmersassortment$setValidBlocks(updatedCuttingBoardBlocks);
+
+            BlockEntityTypeAccessor cookingPotAccessor = (BlockEntityTypeAccessor) ModBlockEntityTypes.COOKING_POT.get();
+            Set<Block> cookingPotValidBlocks = cookingPotAccessor.farmersassortment$getValidBlocks();
+            if (!cookingPotValidBlocks.contains(COPPER_COOKING_POT.get())) {
+                Set<Block> updatedCookingPotBlocks = new HashSet<>(cookingPotValidBlocks);
+                updatedCookingPotBlocks.add(COPPER_COOKING_POT.get());
+                cookingPotAccessor.farmersassortment$setValidBlocks(updatedCookingPotBlocks);
+            }
         });
     }
 }

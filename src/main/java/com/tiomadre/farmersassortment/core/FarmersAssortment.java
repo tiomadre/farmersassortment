@@ -6,6 +6,7 @@ import com.tiomadre.farmersassortment.core.registry.FAItems;
 import com.tiomadre.farmersassortment.core.registry.FATab;
 import com.tiomadre.farmersassortment.data.server.recipes.FACrafting;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -13,6 +14,9 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import vectorwing.farmersdelight.common.registry.ModBlockEntityTypes;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Mod(FarmersAssortment.MOD_ID)
 public class FarmersAssortment {
@@ -33,8 +37,14 @@ public class FarmersAssortment {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> ((BlockEntityTypeAccessor) ModBlockEntityTypes.COOKING_POT.get())
-                .farmersassortment$getValidBlocks()
-                .add(FABlocks.COPPER_COOKING_POT.get()));
+        event.enqueueWork(() -> {
+            BlockEntityTypeAccessor cookingPotAccessor = (BlockEntityTypeAccessor) ModBlockEntityTypes.COOKING_POT.get();
+            Set<Block> validBlocks = cookingPotAccessor.farmersassortment$getValidBlocks();
+            if (!validBlocks.contains(FABlocks.COPPER_COOKING_POT.get())) {
+                Set<Block> updatedValidBlocks = new HashSet<>(validBlocks);
+                updatedValidBlocks.add(FABlocks.COPPER_COOKING_POT.get());
+                cookingPotAccessor.farmersassortment$setValidBlocks(updatedValidBlocks);
+            }
+        });
     }
 }

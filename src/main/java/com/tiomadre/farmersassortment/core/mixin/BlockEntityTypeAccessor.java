@@ -11,4 +11,7 @@ import java.util.Set;
 public interface BlockEntityTypeAccessor {
     @Accessor("validBlocks")
     Set<Block> farmersassortment$getValidBlocks();
+
+    @Accessor("validBlocks")
+    void farmersassortment$setValidBlocks(Set<Block> validBlocks);
 }
