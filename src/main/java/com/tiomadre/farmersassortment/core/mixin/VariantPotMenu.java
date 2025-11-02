@@ -14,9 +14,9 @@ import vectorwing.farmersdelight.common.block.entity.container.CookingPotMenu;
 @Mixin(CookingPotMenu.class)
 public abstract class VariantPotMenu {
 
-    @Shadow(remap = false)
+    @Shadow
     @Final
-    private ContainerLevelAccess access;
+    private ContainerLevelAccess canInteractWithCallable;
 
     @Inject(method = "stillValid", at = @At("RETURN"), cancellable = true)
     private void farmersassortment$keepCopperCookingPotOpen(Player player, CallbackInfoReturnable<Boolean> cir) {
@@ -24,7 +24,7 @@ public abstract class VariantPotMenu {
             return;
         }
 
-        boolean isCopperCookingPot = this.access.evaluate((level, pos) ->
+        boolean isCopperCookingPot = this.canInteractWithCallable.evaluate((level, pos) ->
                 level.getBlockState(pos).is(FABlocks.COPPER_COOKING_POT.get()), false);
 
         if (isCopperCookingPot) {
