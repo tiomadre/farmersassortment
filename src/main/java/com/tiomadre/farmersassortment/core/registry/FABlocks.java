@@ -67,8 +67,11 @@ public final class FABlocks {
     public static void onCommonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             BlockEntityType<?> cuttingBoardEntity = ModBlockEntityTypes.CUTTING_BOARD.get();
-            Set<Block> validBlocks = ((BlockEntityTypeAccessor) cuttingBoardEntity).farmersassortment$getValidBlocks();
-            cuttingBoards().map(RegistryObject::get).forEach(validBlocks::add);
+            Set<Block> cuttingBoardValidBlocks = ((BlockEntityTypeAccessor) cuttingBoardEntity).farmersassortment$getValidBlocks();
+            cuttingBoards().map(RegistryObject::get).forEach(cuttingBoardValidBlocks::add);
+            BlockEntityType<?> cookingPotEntity = ModBlockEntityTypes.COOKING_POT.get();
+            Set<Block> cookingPotValidBlocks = ((BlockEntityTypeAccessor) cookingPotEntity).farmersassortment$getValidBlocks();
+            cookingPotValidBlocks.add(COPPER_COOKING_POT.get());
         });
     }
 }
