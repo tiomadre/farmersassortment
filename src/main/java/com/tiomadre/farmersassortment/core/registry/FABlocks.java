@@ -81,9 +81,9 @@ public final class FABlocks {
         BlockBehaviour.Properties properties = BlockBehaviour.Properties.copy(Blocks.BARREL)
                 .mapColor(baseBlock.defaultMapColor())
                 .sound(soundType);
-        return BLOCKS.createBlockWithItem(woodType + "_butcher_block_cabinet",
+        return BLOCKS.createBlock(woodType + "_butcher_block_cabinet",
                 () -> new ButcherBlockCabinetBlock(properties),
-                () -> new Item.Properties());
+                new Item.Properties());
     }
     public static void init() {
     }
