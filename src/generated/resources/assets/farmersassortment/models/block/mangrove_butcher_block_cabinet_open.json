@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "front": "farmersassortment:block/mangrove_butcher_block_cabinet_front_open",
+    "side": "farmersassortment:block/mangrove_butcher_block_cabinet_side",
+    "top": "farmersassortment:block/mangrove_butcher_block_cabinet_top",
+    "bottom": "minecraft:block/mangrove_planks"
+  }
+}

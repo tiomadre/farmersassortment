@@ -1,6 +1,7 @@
 package com.tiomadre.farmersassortment.core.registry;
 
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
+import com.tiomadre.farmersassortment.core.block.ButcherBlockCabinetBlock;
 import com.tiomadre.farmersassortment.core.mixin.BlockEntityTypeAccessor;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import net.minecraft.resources.ResourceLocation;
@@ -26,6 +27,18 @@ import java.util.stream.Stream;
 
 public final class FABlocks {
     public static final BlockSubRegistryHelper BLOCKS = FarmersAssortment.REGISTRY_HELPER.getBlockSubHelper();
+
+    public static final RegistryObject<ButcherBlockCabinetBlock> OAK_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("oak", Blocks.OAK_PLANKS);
+    public static final RegistryObject<ButcherBlockCabinetBlock> SPRUCE_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("spruce", Blocks.SPRUCE_PLANKS);
+    public static final RegistryObject<ButcherBlockCabinetBlock> BIRCH_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("birch", Blocks.BIRCH_PLANKS);
+    public static final RegistryObject<ButcherBlockCabinetBlock> JUNGLE_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("jungle", Blocks.JUNGLE_PLANKS);
+    public static final RegistryObject<ButcherBlockCabinetBlock> ACACIA_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("acacia", Blocks.ACACIA_PLANKS);
+    public static final RegistryObject<ButcherBlockCabinetBlock> DARK_OAK_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("dark_oak", Blocks.DARK_OAK_PLANKS);
+    public static final RegistryObject<ButcherBlockCabinetBlock> MANGROVE_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("mangrove", Blocks.MANGROVE_PLANKS);
+    public static final RegistryObject<ButcherBlockCabinetBlock> CHERRY_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("cherry", Blocks.CHERRY_PLANKS);
+    public static final RegistryObject<ButcherBlockCabinetBlock> BAMBOO_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("bamboo", Blocks.BAMBOO_PLANKS);
+    public static final RegistryObject<ButcherBlockCabinetBlock> CRIMSON_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("crimson", Blocks.CRIMSON_PLANKS);
+    public static final RegistryObject<ButcherBlockCabinetBlock> WARPED_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("warped", Blocks.WARPED_PLANKS);
 
     public static final RegistryObject<CuttingBoardBlock> SPRUCE_CUTTING_BOARD = registerCuttingBoard("spruce", Blocks.SPRUCE_PLANKS);
     public static final RegistryObject<CuttingBoardBlock> BIRCH_CUTTING_BOARD = registerCuttingBoard("birch", Blocks.BIRCH_PLANKS);
@@ -61,6 +74,16 @@ public final class FABlocks {
     private static RegistryObject<CuttingBoardBlock> registerCuttingBoard(String woodType, Block baseBlock) {
         return BLOCKS.createBlock(woodType + "_cutting_board", () -> new CuttingBoardBlock(BlockBehaviour.Properties.copy(baseBlock)),
                 new Item.Properties());
+    }
+
+    private static RegistryObject<ButcherBlockCabinetBlock> registerButcherBlockCabinet(String woodType, Block baseBlock) {
+        SoundType soundType = baseBlock.defaultBlockState().getSoundType();
+        BlockBehaviour.Properties properties = BlockBehaviour.Properties.copy(Blocks.BARREL)
+                .mapColor(baseBlock.defaultMapColor())
+                .sound(soundType);
+        return BLOCKS.createBlockWithItem(woodType + "_butcher_block_cabinet",
+                () -> new ButcherBlockCabinetBlock(properties),
+                () -> new Item.Properties());
     }
     public static void init() {
     }

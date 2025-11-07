@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "front": "farmersassortment:block/dark_oak_butcher_block_cabinet_front_open",
+    "side": "farmersassortment:block/dark_oak_butcher_block_cabinet_side",
+    "top": "farmersassortment:block/dark_oak_butcher_block_cabinet_top",
+    "bottom": "minecraft:block/dark_oak_planks"
+  }
+}

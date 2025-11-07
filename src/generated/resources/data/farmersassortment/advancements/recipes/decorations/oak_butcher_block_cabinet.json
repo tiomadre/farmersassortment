@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "farmersassortment:oak_butcher_block_cabinet"
+      }
+    },
+    "has_cabinet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "farmersdelight:oak_cabinet"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_recipe",
+      "has_cabinet"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "farmersassortment:oak_butcher_block_cabinet"
+    ]
+  }
+}
