@@ -1,6 +1,7 @@
 package com.tiomadre.farmersassortment.core;
 
 import com.tiomadre.farmersassortment.core.mixin.BlockEntityTypeAccessor;
+import com.tiomadre.farmersassortment.core.registry.FABlockEntityTypes;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import com.tiomadre.farmersassortment.core.registry.FAItems;
 import com.tiomadre.farmersassortment.core.registry.FATab;
@@ -31,6 +32,7 @@ public class FarmersAssortment {
         FABlocks.init();
         FAItems.init();
         REGISTRY_HELPER.register(modEventBus);
+        FABlockEntityTypes.register(modEventBus);
         FATab.register(modEventBus);
         FACrafting.register(modEventBus);
         modEventBus.addListener(FABlocks::onCommonSetup);
