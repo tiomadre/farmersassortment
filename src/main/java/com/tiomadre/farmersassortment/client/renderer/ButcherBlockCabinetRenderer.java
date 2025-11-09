@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.entity.ItemRenderer;
+import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
@@ -16,6 +17,7 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.TridentItem;
+import org.jetbrains.annotations.NotNull;
 import vectorwing.farmersdelight.common.tag.ModTags;
 
 public class ButcherBlockCabinetRenderer implements BlockEntityRenderer<ButcherBlockCabinetBlockEntity> {
@@ -24,7 +26,7 @@ public class ButcherBlockCabinetRenderer implements BlockEntityRenderer<ButcherB
     }
 
     @Override
-    public void render(ButcherBlockCabinetBlockEntity entity, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
+    public void render(ButcherBlockCabinetBlockEntity entity, float partialTicks, @NotNull PoseStack poseStack, @NotNull MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
         ItemStack boardStack = entity.getBoardItem();
         if (boardStack.isEmpty()) {
             return;
@@ -35,10 +37,8 @@ public class ButcherBlockCabinetRenderer implements BlockEntityRenderer<ButcherB
 
         poseStack.pushPose();
         ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
-        poseStack.pushPose();
-        boolean isBlockItem = itemRenderer.getModel(boardStack, entity.getLevel(), null, seed)
-                .applyTransform(ItemDisplayContext.FIXED, poseStack, false).isGui3d();
-        poseStack.popPose();
+        BakedModel model = itemRenderer.getModel(boardStack, entity.getLevel(), null, seed);
+        boolean isBlockItem = model.isGui3d();
 
         if (entity.isItemCarvingBoard()) {
             renderItemCarved(poseStack, direction, boardStack.getItem());
@@ -48,8 +48,7 @@ public class ButcherBlockCabinetRenderer implements BlockEntityRenderer<ButcherB
             renderItemLayingDown(poseStack, direction);
         }
 
-        itemRenderer.renderStatic(boardStack, ItemDisplayContext.FIXED, combinedLight, combinedOverlay, poseStack, buffer, entity.getLevel(), seed);
-        poseStack.popPose();
+        itemRenderer.renderStatic(boardStack, ItemDisplayContext.NONE, combinedLight, combinedOverlay, poseStack, buffer, entity.getLevel(), seed);
     }
 
     private void renderItemLayingDown(PoseStack poseStack, Direction direction) {

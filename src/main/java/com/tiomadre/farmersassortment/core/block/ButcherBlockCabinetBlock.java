@@ -32,10 +32,6 @@ import vectorwing.farmersdelight.common.tag.ModTags;
 
 import javax.annotation.Nullable;
 
-/**
- * A hybrid block that combines the storage of a {@link CabinetBlock} with the
- * cutting interactions from Farmer's Delight's {@code CuttingBoardBlock}.
- */
 @SuppressWarnings("deprecation")
 public class ButcherBlockCabinetBlock extends CabinetBlock implements EntityBlock {
 
