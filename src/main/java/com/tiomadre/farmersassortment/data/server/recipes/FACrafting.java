@@ -17,6 +17,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Consumer;
 
@@ -29,7 +30,7 @@ public final class FACrafting extends RecipeProvider {
     }
 
     @Override
-    protected void buildRecipes(Consumer<FinishedRecipe> output) {
+    protected void buildRecipes(@NotNull Consumer<FinishedRecipe> output) {
         cuttingBoard(output, FABlocks.SPRUCE_CUTTING_BOARD, Blocks.SPRUCE_PLANKS);
         cuttingBoard(output, FABlocks.BIRCH_CUTTING_BOARD, Blocks.BIRCH_PLANKS);
         cuttingBoard(output, FABlocks.JUNGLE_CUTTING_BOARD, Blocks.JUNGLE_PLANKS);
