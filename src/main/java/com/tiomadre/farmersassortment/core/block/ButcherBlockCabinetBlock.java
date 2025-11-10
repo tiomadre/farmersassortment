@@ -21,18 +21,18 @@ import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.item.TridentItem;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 import vectorwing.farmersdelight.common.block.CabinetBlock;
 import vectorwing.farmersdelight.common.tag.ModTags;
 
 import javax.annotation.Nullable;
 
-@SuppressWarnings("deprecation")
 public class ButcherBlockCabinetBlock extends CabinetBlock implements EntityBlock {
 
     public ButcherBlockCabinetBlock(Properties properties) {
@@ -40,9 +40,12 @@ public class ButcherBlockCabinetBlock extends CabinetBlock implements EntityBloc
     }
 
     @Override
-    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, BlockHitResult hit) {
         Direction face = hit.getDirection();
         if (face == Direction.UP) {
+            if (!isOnCuttingBoard(state, hit)) {
+                return InteractionResult.PASS;
+            }
             BlockEntity blockEntity = level.getBlockEntity(pos);
             if (blockEntity instanceof ButcherBlockCabinetBlockEntity cabinet) {
                 ItemStack heldStack = player.getItemInHand(hand);
@@ -60,7 +63,14 @@ public class ButcherBlockCabinetBlock extends CabinetBlock implements EntityBloc
                     }
                     if (!offhandStack.isEmpty()) {
                         if (hand == InteractionHand.MAIN_HAND && !offhandStack.is(ModTags.OFFHAND_EQUIPMENT) && !(heldStack.getItem() instanceof BlockItem)) {
-                            return InteractionResult.PASS;
+                            if (offhandStack.getItem() instanceof BlockItem) {
+                                ItemStack offhandStackForBoard = player.getAbilities().instabuild ? offhandStack.copy() : offhandStack;
+                                if (cabinet.addBoardItem(offhandStackForBoard)) {
+                                    return InteractionResult.sidedSuccess(level.isClientSide);
+                                }
+                            } else {
+                                return InteractionResult.PASS;
+                            }
                         }
                         if (hand == InteractionHand.OFF_HAND && offhandStack.is(ModTags.OFFHAND_EQUIPMENT)) {
                             return InteractionResult.PASS;
@@ -106,7 +116,7 @@ public class ButcherBlockCabinetBlock extends CabinetBlock implements EntityBloc
     }
 
     @Override
-    public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
+    public void onRemove(BlockState state, @NotNull Level level, @NotNull BlockPos pos, BlockState newState, boolean isMoving) {
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = level.getBlockEntity(pos);
             if (blockEntity instanceof ButcherBlockCabinetBlockEntity cabinet) {
@@ -120,7 +130,7 @@ public class ButcherBlockCabinetBlock extends CabinetBlock implements EntityBloc
     }
 
     @Override
-    public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+    public void tick(@NotNull BlockState state, ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (blockEntity instanceof ButcherBlockCabinetBlockEntity cabinet) {
             cabinet.recheckOpen();
@@ -128,12 +138,12 @@ public class ButcherBlockCabinetBlock extends CabinetBlock implements EntityBloc
     }
 
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
+    public @NotNull BlockState getStateForPlacement(BlockPlaceContext context) {
         return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
     }
 
     @Override
-    public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
+    public void setPlacedBy(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @Nullable LivingEntity placer, @NotNull ItemStack stack) {
         super.setPlacedBy(level, pos, state, placer, stack);
         if (stack.hasCustomHoverName()) {
             BlockEntity blockEntity = level.getBlockEntity(pos);
@@ -144,7 +154,7 @@ public class ButcherBlockCabinetBlock extends CabinetBlock implements EntityBloc
     }
 
     @Override
-    public int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
+    public int getAnalogOutputSignal(@NotNull BlockState state, Level level, @NotNull BlockPos pos) {
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (blockEntity instanceof ButcherBlockCabinetBlockEntity cabinet) {
             return AbstractContainerMenu.getRedstoneSignalFromContainer(cabinet);
@@ -153,13 +163,27 @@ public class ButcherBlockCabinetBlock extends CabinetBlock implements EntityBloc
     }
 
     @Override
-    public RenderShape getRenderShape(BlockState state) {
+    public @NotNull RenderShape getRenderShape(@NotNull BlockState state) {
         return RenderShape.MODEL;
     }
 
     @Nullable
     @Override
-    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+    public BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
         return new ButcherBlockCabinetBlockEntity(pos, state);
+    }
+
+    private boolean isOnCuttingBoard(BlockState state, BlockHitResult hit) {
+        Vec3 localHit = hit.getLocation().subtract(hit.getBlockPos().getX(), hit.getBlockPos().getY(), hit.getBlockPos().getZ());
+        Direction facing = state.getValue(FACING);
+        double depth;
+        switch (facing) {
+            case NORTH -> depth = localHit.z;
+            case SOUTH -> depth = 1.0D - localHit.z;
+            case WEST -> depth = localHit.x;
+            case EAST -> depth = 1.0D - localHit.x;
+            default -> depth = 0.0D;
+        }
+        return depth <= 0.5D;
     }
 }
