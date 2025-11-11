@@ -6,10 +6,12 @@ import com.tiomadre.farmersassortment.core.block.ButcherBlockCabinetBlock;
 import com.tiomadre.farmersassortment.core.block.entity.ButcherBlockCabinetBlockEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.LevelRenderer;
+import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.entity.ItemRenderer;
-import net.minecraft.client.resources.model.BakedModel;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
@@ -34,6 +36,16 @@ public class ButcherBlockCabinetRenderer implements BlockEntityRenderer<ButcherB
 
         Direction direction = entity.getBlockState().getValue(ButcherBlockCabinetBlock.FACING).getOpposite();
         int seed = (int) entity.getBlockPos().asLong();
+        int light = combinedLight;
+        if (entity.getLevel() != null) {
+            BlockPos blockPos = entity.getBlockPos();
+            int topLight = LevelRenderer.getLightColor(entity.getLevel(), blockPos.above());
+            BlockPos boardPos = blockPos.relative(direction.getOpposite()).above();
+            int boardLight = LevelRenderer.getLightColor(entity.getLevel(), boardPos);
+            int blockLight = Math.max(LightTexture.block(topLight), LightTexture.block(boardLight));
+            int skyLight = Math.max(LightTexture.sky(topLight), LightTexture.sky(boardLight));
+            light = LightTexture.pack(blockLight, skyLight);
+        }
 
         poseStack.pushPose();
         ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
@@ -51,7 +63,7 @@ public class ButcherBlockCabinetRenderer implements BlockEntityRenderer<ButcherB
             renderItemLayingDown(poseStack, direction);
         }
         try {
-            itemRenderer.renderStatic(boardStack, ItemDisplayContext.FIXED, combinedLight, combinedOverlay, poseStack, buffer, entity.getLevel(), seed);
+            itemRenderer.renderStatic(boardStack, ItemDisplayContext.FIXED, light, combinedOverlay, poseStack, buffer, entity.getLevel(), seed);
         } finally {
             poseStack.popPose();
         }
