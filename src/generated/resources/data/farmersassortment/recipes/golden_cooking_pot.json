@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:brick"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "W": {
+      "item": "minecraft:water_bucket"
+    }
+  },
+  "pattern": [
+    "G G",
+    "GWG",
+    "BBB"
+  ],
+  "result": {
+    "item": "farmersassortment:golden_cooking_pot"
+  },
+  "show_notification": true
+}

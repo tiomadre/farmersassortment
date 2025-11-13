@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "M": {
+      "item": "minecraft:quartz"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " M",
+    " S"
+  ],
+  "result": {
+    "item": "farmersassortment:quartz_knife"
+  },
+  "show_notification": true
+}
