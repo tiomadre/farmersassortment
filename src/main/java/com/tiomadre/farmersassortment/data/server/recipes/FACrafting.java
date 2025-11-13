@@ -41,7 +41,7 @@ public final class FACrafting extends RecipeProvider {
         cuttingBoard(output, FABlocks.BAMBOO_CUTTING_BOARD, Blocks.BAMBOO_PLANKS);
         cuttingBoard(output, FABlocks.CRIMSON_CUTTING_BOARD, Blocks.CRIMSON_PLANKS);
         cuttingBoard(output, FABlocks.WARPED_CUTTING_BOARD, Blocks.WARPED_PLANKS);
-        copperCookingPot(output);
+        goldenCookingPot(output);
         knife(output, FAItems.AMETHYST_KNIFE, Items.AMETHYST_SHARD);
         knife(output, FAItems.QUARTZ_KNIFE, Items.QUARTZ);
     }
@@ -65,6 +65,18 @@ public final class FACrafting extends RecipeProvider {
                 .pattern("CWC")
                 .pattern("BBB")
                 .unlockedBy(getHasName(Items.COPPER_INGOT), has(Items.COPPER_INGOT))
+                .save(output);
+    }
+
+    private void goldenCookingPot(Consumer<FinishedRecipe> output) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, FABlocks.GOLDEN_COOKING_POT.get())
+                .define('G', Items.GOLD_INGOT)
+                .define('B', Items.BRICK)
+                .define('W', Items.WATER_BUCKET)
+                .pattern("G G")
+                .pattern("GWG")
+                .pattern("BBB")
+                .unlockedBy(getHasName(Items.GOLD_INGOT), has(Items.GOLD_INGOT))
                 .save(output);
     }
 

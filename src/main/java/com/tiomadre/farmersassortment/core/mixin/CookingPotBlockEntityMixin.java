@@ -21,8 +21,10 @@ public abstract class CookingPotBlockEntityMixin {
         }
 
         BlockState state = self.getBlockState();
-        if (state.getBlock() == FABlocks.COPPER_COOKING_POT.get()) {
+        if (state.is(FABlocks.COPPER_COOKING_POT.get())) {
             cir.setReturnValue(Component.translatable("container.farmersassortment.copper_cooking_pot"));
+        } else if (state.is(FABlocks.GOLDEN_COOKING_POT.get())) {
+            cir.setReturnValue(Component.translatable("container.farmersassortment.golden_cooking_pot"));
         }
     }
 }

@@ -46,7 +46,8 @@ public class FABlockStates extends BlockStateProvider {
         registerCuttingBoard(FABlocks.BAMBOO_CUTTING_BOARD);
         registerCuttingBoard(FABlocks.CRIMSON_CUTTING_BOARD);
         registerCuttingBoard(FABlocks.WARPED_CUTTING_BOARD);
-        registerCopperCookingPot();
+        registerCookingPot(FABlocks.COPPER_COOKING_POT, "copper");
+        registerCookingPot(FABlocks.GOLDEN_COOKING_POT, "golden");
     }
 
     private void registerCuttingBoard(RegistryObject<CuttingBoardBlock> block) {
@@ -96,12 +97,12 @@ public class FABlockStates extends BlockStateProvider {
         FABlockStateHelper.horizontalFacingBlock(this, block.get(), model);
     }
 
-    private void registerCopperCookingPot() {
-        ModelFile pot = models().getExistingFile(modLoc("block/copper_cooking_pot"));
-        ModelFile tray = models().getExistingFile(modLoc("block/copper_cooking_pot_tray"));
-        ModelFile handle = models().getExistingFile(modLoc("block/copper_cooking_pot_handle"));
+    private void registerCookingPot(RegistryObject<CookingPotBlock> block, String materialName) {
+        ModelFile pot = models().getExistingFile(modLoc("block/" + materialName + "_cooking_pot"));
+        ModelFile tray = models().getExistingFile(modLoc("block/" + materialName + "_cooking_pot_tray"));
+        ModelFile handle = models().getExistingFile(modLoc("block/" + materialName + "_cooking_pot_handle"));
 
-        getVariantBuilder(FABlocks.COPPER_COOKING_POT.get()).forAllStates(state -> {
+        getVariantBuilder(block.get()).forAllStates(state -> {
             Direction direction = state.getValue(CookingPotBlock.FACING);
             CookingPotSupport support = state.getValue(CookingPotBlock.SUPPORT);
             ModelFile model = switch (support) {

@@ -42,9 +42,17 @@ public class FarmersAssortment {
         event.enqueueWork(() -> {
             BlockEntityTypeAccessor cookingPotAccessor = (BlockEntityTypeAccessor) ModBlockEntityTypes.COOKING_POT.get();
             Set<Block> validBlocks = cookingPotAccessor.farmersassortment$getValidBlocks();
-            if (!validBlocks.contains(FABlocks.COPPER_COOKING_POT.get())) {
-                Set<Block> updatedValidBlocks = new HashSet<>(validBlocks);
-                updatedValidBlocks.add(FABlocks.COPPER_COOKING_POT.get());
+            Set<Block> updatedValidBlocks = new HashSet<>(validBlocks);
+            boolean changed = false;
+
+            for (Block block : new Block[]{FABlocks.COPPER_COOKING_POT.get(), FABlocks.GOLDEN_COOKING_POT.get()}) {
+                if (!updatedValidBlocks.contains(block)) {
+                    updatedValidBlocks.add(block);
+                    changed = true;
+                }
+            }
+
+            if (changed) {
                 cookingPotAccessor.farmersassortment$setValidBlocks(updatedValidBlocks);
             }
         });

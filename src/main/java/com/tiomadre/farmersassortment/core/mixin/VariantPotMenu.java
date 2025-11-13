@@ -3,6 +3,7 @@ package com.tiomadre.farmersassortment.core.mixin;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -24,10 +25,12 @@ public abstract class VariantPotMenu {
             return;
         }
 
-        boolean isCopperCookingPot = this.canInteractWithCallable.evaluate((level, pos) ->
-                level.getBlockState(pos).is(FABlocks.COPPER_COOKING_POT.get()), false);
+        boolean isVariantCookingPot = this.canInteractWithCallable.evaluate((level, pos) -> {
+            BlockState state = level.getBlockState(pos);
+            return state.is(FABlocks.COPPER_COOKING_POT.get()) || state.is(FABlocks.GOLDEN_COOKING_POT.get());
+        }, false);
 
-        if (isCopperCookingPot) {
+        if (isVariantCookingPot) {
             cir.setReturnValue(true);
         }
     }

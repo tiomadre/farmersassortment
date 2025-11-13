@@ -9,7 +9,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -51,11 +50,10 @@ public final class FABlocks {
     public static final RegistryObject<CuttingBoardBlock> CRIMSON_CUTTING_BOARD = registerCuttingBoard("crimson", Blocks.CRIMSON_PLANKS);
     public static final RegistryObject<CuttingBoardBlock> WARPED_CUTTING_BOARD = registerCuttingBoard("warped", Blocks.WARPED_PLANKS);
     private static final ResourceLocation COPPER_COOKING_POT_ID = new ResourceLocation(FarmersAssortment.MOD_ID, "copper_cooking_pot");
+    private static final ResourceLocation GOLDEN_COOKING_POT_ID = new ResourceLocation(FarmersAssortment.MOD_ID, "golden_cooking_pot");
 
-    public static final RegistryObject<CookingPotBlock> COPPER_COOKING_POT = BLOCKS.createBlockWithItem("copper_cooking_pot",
-            () -> new CookingPotBlock(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(0.5F, 6.0F).sound(SoundType.LANTERN)),
-            () -> new CookingPotItem(Objects.requireNonNull(ForgeRegistries.BLOCKS.getValue(COPPER_COOKING_POT_ID)), new Item.Properties().stacksTo(1)));
-
+    public static final RegistryObject<CookingPotBlock> COPPER_COOKING_POT = registerCookingPot("copper_cooking_pot", MapColor.METAL, COPPER_COOKING_POT_ID);
+    public static final RegistryObject<CookingPotBlock> GOLDEN_COOKING_POT = registerCookingPot("golden_cooking_pot", MapColor.GOLD, GOLDEN_COOKING_POT_ID);
     public static Stream<RegistryObject<CuttingBoardBlock>> cuttingBoards() {
         return Stream.of(
                 SPRUCE_CUTTING_BOARD,
@@ -98,11 +96,33 @@ public final class FABlocks {
 
             BlockEntityTypeAccessor cookingPotAccessor = (BlockEntityTypeAccessor) ModBlockEntityTypes.COOKING_POT.get();
             Set<Block> cookingPotValidBlocks = cookingPotAccessor.farmersassortment$getValidBlocks();
-            if (!cookingPotValidBlocks.contains(COPPER_COOKING_POT.get())) {
-                Set<Block> updatedCookingPotBlocks = new HashSet<>(cookingPotValidBlocks);
-                updatedCookingPotBlocks.add(COPPER_COOKING_POT.get());
+            Set<Block> updatedCookingPotBlocks = new HashSet<>(cookingPotValidBlocks);
+            boolean changed = false;
+
+            {
+                Block block = COPPER_COOKING_POT.get();
+                if (!updatedCookingPotBlocks.contains(block)) {
+                    updatedCookingPotBlocks.add(block);
+                    changed = true;
+                }
+            }
+            {
+                Block block = GOLDEN_COOKING_POT.get();
+                if (!updatedCookingPotBlocks.contains(block)) {
+                    updatedCookingPotBlocks.add(block);
+                    changed = true;
+                }
+            }
+
+            if (changed) {
                 cookingPotAccessor.farmersassortment$setValidBlocks(updatedCookingPotBlocks);
             }
         });
+    }
+
+    private static RegistryObject<CookingPotBlock> registerCookingPot(String name, MapColor mapColor, ResourceLocation id) {
+        return BLOCKS.createBlockWithItem(name,
+                () -> new CookingPotBlock(BlockBehaviour.Properties.of().mapColor(mapColor).strength(0.5F, 6.0F).sound(SoundType.LANTERN)),
+                () -> new CookingPotItem(Objects.requireNonNull(ForgeRegistries.BLOCKS.getValue(id)), new Item.Properties().stacksTo(1)));
     }
 }
