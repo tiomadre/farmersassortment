@@ -36,16 +36,20 @@ public class ButcherBlockCabinetRenderer implements BlockEntityRenderer<ButcherB
 
         Direction direction = entity.getBlockState().getValue(ButcherBlockCabinetBlock.FACING).getOpposite();
         int seed = (int) entity.getBlockPos().asLong();
-        int light = combinedLight;
+        int blockLight = LightTexture.block(combinedLight);
+        int skyLight = LightTexture.sky(combinedLight);
         if (entity.getLevel() != null) {
             BlockPos blockPos = entity.getBlockPos();
             int topLight = LevelRenderer.getLightColor(entity.getLevel(), blockPos.above());
             BlockPos boardPos = blockPos.relative(direction.getOpposite()).above();
             int boardLight = LevelRenderer.getLightColor(entity.getLevel(), boardPos);
-            int blockLight = Math.max(LightTexture.block(topLight), LightTexture.block(boardLight));
-            int skyLight = Math.max(LightTexture.sky(topLight), LightTexture.sky(boardLight));
-            light = LightTexture.pack(blockLight, skyLight);
+
+            blockLight = Math.max(blockLight, LightTexture.block(topLight));
+            blockLight = Math.max(blockLight, LightTexture.block(boardLight));
+            skyLight = Math.max(skyLight, LightTexture.sky(topLight));
+            skyLight = Math.max(skyLight, LightTexture.sky(boardLight));
         }
+        int light = LightTexture.pack(blockLight, skyLight);
 
         poseStack.pushPose();
         ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
