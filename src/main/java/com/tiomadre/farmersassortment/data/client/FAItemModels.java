@@ -2,6 +2,7 @@ package com.tiomadre.farmersassortment.data.client;
 
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
+import com.tiomadre.farmersassortment.core.registry.FAItems;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -17,11 +18,21 @@ public class FAItemModels extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        cookingPotItem(FABlocks.COPPER_COOKING_POT);
-        cookingPotItem(FABlocks.GOLDEN_COOKING_POT);
+        //Items
+        item(FAItems.AMETHYST_KNIFE);
+        item(FAItems.QUARTZ_KNIFE);
+        //Block Items
+        block(FABlocks.COPPER_COOKING_POT);
+        block(FABlocks.GOLDEN_COOKING_POT);
     }
 
-    private void cookingPotItem(RegistryObject<? extends Block> block) {
+    private void item(RegistryObject<?> item) {
+        String name = Objects.requireNonNull(item.getId()).getPath();
+        withExistingParent(name, modLoc("item/" + name));
+    }
+
+
+    private void block(RegistryObject<? extends Block> block) {
         String name = Objects.requireNonNull(block.getId()).getPath();
         withExistingParent(name, modLoc("block/" + name));
     }

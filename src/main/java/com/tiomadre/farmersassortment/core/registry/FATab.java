@@ -21,7 +21,7 @@ public final class FATab {
 
     public static final RegistryObject<CreativeModeTab> FA_TAB = TABS.register("fa_tab", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.farmersassortment"))
-            .icon(() -> new ItemStack(FABlocks.SPRUCE_CUTTING_BOARD.get()))
+            .icon(() -> new ItemStack(FABlocks.OAK_BUTCHER_BLOCK_CABINET.get()))
             .displayItems((parameters, output) ->
                     Stream.concat(
                                     FABlocks.BLOCKS.getDeferredRegister().getEntries().stream()
