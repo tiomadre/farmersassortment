@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/orientable_with_bottom",
   "textures": {
+    "bottom": "minecraft:block/acacia_planks",
     "front": "farmersassortment:block/acacia_butcher_block_cabinet_front",
     "side": "farmersassortment:block/acacia_butcher_block_cabinet_side",
-    "top": "farmersassortment:block/acacia_butcher_block_cabinet_top",
-    "bottom": "minecraft:block/acacia_planks"
+    "top": "farmersassortment:block/acacia_butcher_block_cabinet_top"
   }
 }

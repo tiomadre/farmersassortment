@@ -15,7 +15,7 @@ import vectorwing.farmersdelight.common.block.entity.container.CookingPotMenu;
 @Mixin(CookingPotMenu.class)
 public abstract class VariantPotMenu {
 
-    @Shadow
+    @Shadow(remap = false)
     @Final
     private ContainerLevelAccess canInteractWithCallable;
 

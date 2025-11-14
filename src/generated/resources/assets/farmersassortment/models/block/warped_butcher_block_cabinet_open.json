@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/orientable_with_bottom",
   "textures": {
+    "bottom": "minecraft:block/warped_planks",
     "front": "farmersassortment:block/warped_butcher_block_cabinet_front_open",
     "side": "farmersassortment:block/warped_butcher_block_cabinet_side",
-    "top": "farmersassortment:block/warped_butcher_block_cabinet_top",
-    "bottom": "minecraft:block/warped_planks"
+    "top": "farmersassortment:block/warped_butcher_block_cabinet_top"
   }
 }

@@ -6,10 +6,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.client.model.generators.BlockModelBuilder;
-import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.client.model.generators.ModelFile;
+import net.minecraftforge.client.model.generators.*;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 import com.tiomadre.farmersassortment.core.block.ButcherBlockCabinetBlock;
@@ -182,8 +179,8 @@ public class FABlockStates extends BlockStateProvider {
                 .face(Direction.NORTH).uvs(10, 0, 12, 2).texture("#parts").end()
                 .face(Direction.EAST).uvs(4, 2, 10, 4).texture("#parts").end()
                 .face(Direction.SOUTH).uvs(2, 0, 4, 2).texture("#parts").end()
-                .face(Direction.UP).uvs(4, 0, 10, 2).rotation(90).texture("#parts").end()
-                .face(Direction.DOWN).uvs(4, 2, 10, 4).rotation(90).texture("#parts").end()
+                .face(Direction.UP).uvs(4, 0, 10, 2).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#parts").end()
+                .face(Direction.DOWN).uvs(4, 2, 10, 4).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#parts").end()
                 .end();
 
         builder.element()
@@ -192,8 +189,8 @@ public class FABlockStates extends BlockStateProvider {
                 .face(Direction.NORTH).uvs(2, 0, 4, 2).texture("#parts").end()
                 .face(Direction.SOUTH).uvs(10, 0, 12, 2).texture("#parts").end()
                 .face(Direction.WEST).uvs(4, 2, 10, 4).texture("#parts").end()
-                .face(Direction.UP).uvs(4, 0, 10, 2).rotation(270).texture("#parts").end()
-                .face(Direction.DOWN).uvs(4, 2, 10, 4).rotation(270).texture("#parts").end()
+                .face(Direction.UP).uvs(4, 0, 10, 2).rotation(ModelBuilder.FaceRotation.COUNTERCLOCKWISE_90).texture("#parts").end()
+                .face(Direction.DOWN).uvs(4, 2, 10, 4).rotation(ModelBuilder.FaceRotation.COUNTERCLOCKWISE_90).texture("#parts").end()
                 .end();
     }
 
