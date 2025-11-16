@@ -6,7 +6,7 @@ import net.minecraft.world.item.Tiers;
 import net.minecraftforge.registries.RegistryObject;
 import vectorwing.farmersdelight.common.item.KnifeItem;
 import com.teamabnormals.blueprint.core.util.registry.ItemSubRegistryHelper;
-import static com.tiomadre.farmersassortment.core.registry.FABlocks.*;
+
 
 public final class FAItems {
     public static final ItemSubRegistryHelper ITEMS = FarmersAssortment.REGISTRY_HELPER.getItemSubHelper();
