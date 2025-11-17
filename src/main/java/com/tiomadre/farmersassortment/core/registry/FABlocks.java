@@ -54,26 +54,32 @@ public final class FABlocks {
 
     public static final RegistryObject<CookingPotBlock> COPPER_COOKING_POT = registerCookingPot("copper_cooking_pot", MapColor.METAL, COPPER_COOKING_POT_ID);
     public static final RegistryObject<CookingPotBlock> GOLDEN_COOKING_POT = registerCookingPot("golden_cooking_pot", MapColor.GOLD, GOLDEN_COOKING_POT_ID);
+
+
     public static Stream<RegistryObject<CuttingBoardBlock>> cuttingBoards() {
-        return Stream.of(
-                SPRUCE_CUTTING_BOARD,
-                BIRCH_CUTTING_BOARD,
-                JUNGLE_CUTTING_BOARD,
-                ACACIA_CUTTING_BOARD,
-                DARK_OAK_CUTTING_BOARD,
-                MANGROVE_CUTTING_BOARD,
-                CHERRY_CUTTING_BOARD,
-                BAMBOO_CUTTING_BOARD,
-                CRIMSON_CUTTING_BOARD,
-                WARPED_CUTTING_BOARD
-        );
+        return Stream.of(SPRUCE_CUTTING_BOARD, BIRCH_CUTTING_BOARD, JUNGLE_CUTTING_BOARD, ACACIA_CUTTING_BOARD, DARK_OAK_CUTTING_BOARD, MANGROVE_CUTTING_BOARD,
+                CHERRY_CUTTING_BOARD, BAMBOO_CUTTING_BOARD, CRIMSON_CUTTING_BOARD, WARPED_CUTTING_BOARD);
     }
 
     private static RegistryObject<CuttingBoardBlock> registerCuttingBoard(String woodType, Block baseBlock) {
         return BLOCKS.createBlock(woodType + "_cutting_board", () -> new CuttingBoardBlock(BlockBehaviour.Properties.copy(baseBlock)),
                 new Item.Properties());
     }
-
+    public static Stream<RegistryObject<ButcherBlockCabinetBlock>> butcherBlockCabinets() {
+        return Stream.of(
+                OAK_BUTCHER_BLOCK_CABINET,
+                SPRUCE_BUTCHER_BLOCK_CABINET,
+                BIRCH_BUTCHER_BLOCK_CABINET,
+                JUNGLE_BUTCHER_BLOCK_CABINET,
+                ACACIA_BUTCHER_BLOCK_CABINET,
+                DARK_OAK_BUTCHER_BLOCK_CABINET,
+                MANGROVE_BUTCHER_BLOCK_CABINET,
+                CHERRY_BUTCHER_BLOCK_CABINET,
+                BAMBOO_BUTCHER_BLOCK_CABINET,
+                CRIMSON_BUTCHER_BLOCK_CABINET,
+                WARPED_BUTCHER_BLOCK_CABINET
+        );
+    }
     private static RegistryObject<ButcherBlockCabinetBlock> registerButcherBlockCabinet(String woodType, Block baseBlock) {
         SoundType soundType = baseBlock.defaultBlockState().getSoundType();
         BlockBehaviour.Properties properties = BlockBehaviour.Properties.copy(Blocks.BARREL)
@@ -93,6 +99,7 @@ public final class FABlocks {
             Set<Block> updatedCuttingBoardBlocks = new HashSet<>(cuttingBoardValidBlocks);
             cuttingBoards().map(RegistryObject::get).forEach(updatedCuttingBoardBlocks::add);
             cuttingBoardAccessor.farmersassortment$setValidBlocks(updatedCuttingBoardBlocks);
+            butcherBlockCabinets().map(RegistryObject::get).forEach(updatedCuttingBoardBlocks::add);
 
             BlockEntityTypeAccessor cookingPotAccessor = (BlockEntityTypeAccessor) ModBlockEntityTypes.COOKING_POT.get();
             Set<Block> cookingPotValidBlocks = cookingPotAccessor.farmersassortment$getValidBlocks();

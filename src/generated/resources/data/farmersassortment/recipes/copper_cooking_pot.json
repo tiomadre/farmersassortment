@@ -6,7 +6,7 @@
       "item": "minecraft:brick"
     },
     "M": {
-      "item": "minecraft:gold_ingot"
+      "item": "minecraft:copper_ingot"
     },
     "S": {
       "item": "minecraft:wooden_shovel"
@@ -21,7 +21,7 @@
     "MMM"
   ],
   "result": {
-    "item": "farmersassortment:golden_cooking_pot"
+    "item": "farmersassortment:copper_cooking_pot"
   },
   "show_notification": true
 }

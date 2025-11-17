@@ -18,6 +18,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
+import vectorwing.farmersdelight.common.block.CookingPotBlock;
 
 import java.util.function.Consumer;
 
@@ -41,7 +42,8 @@ public final class FACrafting extends RecipeProvider {
         cuttingBoard(output, FABlocks.BAMBOO_CUTTING_BOARD, Blocks.BAMBOO_PLANKS);
         cuttingBoard(output, FABlocks.CRIMSON_CUTTING_BOARD, Blocks.CRIMSON_PLANKS);
         cuttingBoard(output, FABlocks.WARPED_CUTTING_BOARD, Blocks.WARPED_PLANKS);
-        goldenCookingPot(output);
+        variantCookingPot(output, FABlocks.GOLDEN_COOKING_POT, Items.GOLD_INGOT);
+        variantCookingPot(output, FABlocks.COPPER_COOKING_POT,Items.COPPER_INGOT);
         knife(output, FAItems.AMETHYST_KNIFE, Items.AMETHYST_SHARD);
         knife(output, FAItems.QUARTZ_KNIFE, Items.QUARTZ);
     }
@@ -56,27 +58,16 @@ public final class FACrafting extends RecipeProvider {
                 .save(output);
     }
 
-    private void copperCookingPot(Consumer<FinishedRecipe> output) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, FABlocks.COPPER_COOKING_POT.get())
-                .define('C', Items.COPPER_INGOT)
+    private void variantCookingPot(Consumer<FinishedRecipe> output, RegistryObject<CookingPotBlock> variantCookingPot, ItemLike material) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, variantCookingPot.get())
+                .define('M', material)
+                .define('S', Items.WOODEN_SHOVEL)
                 .define('B', Items.BRICK)
                 .define('W', Items.WATER_BUCKET)
-                .pattern("C C")
-                .pattern("CWC")
-                .pattern("BBB")
-                .unlockedBy(getHasName(Items.COPPER_INGOT), has(Items.COPPER_INGOT))
-                .save(output);
-    }
-
-    private void goldenCookingPot(Consumer<FinishedRecipe> output) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, FABlocks.GOLDEN_COOKING_POT.get())
-                .define('G', Items.GOLD_INGOT)
-                .define('B', Items.BRICK)
-                .define('W', Items.WATER_BUCKET)
-                .pattern("G G")
-                .pattern("GWG")
-                .pattern("BBB")
-                .unlockedBy(getHasName(Items.GOLD_INGOT), has(Items.GOLD_INGOT))
+                .pattern("BSB")
+                .pattern("MWM")
+                .pattern("MMM")
+                .unlockedBy(getHasName(material), has(material))
                 .save(output);
     }
 

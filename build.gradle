@@ -126,3 +126,7 @@ jar {
         ])
     }
 }
+
+tasks.withType(Copy).configureEach {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}

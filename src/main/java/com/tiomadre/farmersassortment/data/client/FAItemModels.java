@@ -24,6 +24,8 @@ public class FAItemModels extends ItemModelProvider {
         //Block Items
         block(FABlocks.COPPER_COOKING_POT);
         block(FABlocks.GOLDEN_COOKING_POT);
+        FABlocks.cuttingBoards().forEach(this::block);
+        FABlocks.butcherBlockCabinets().forEach(this::block);
     }
 
     private void item(RegistryObject<?> item) {

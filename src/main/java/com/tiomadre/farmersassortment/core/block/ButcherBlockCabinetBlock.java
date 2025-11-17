@@ -139,7 +139,7 @@ public class ButcherBlockCabinetBlock extends CabinetBlock implements EntityBloc
 
     @Override
     public @NotNull BlockState getStateForPlacement(BlockPlaceContext context) {
-        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
+        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection());
     }
 
     @Override
