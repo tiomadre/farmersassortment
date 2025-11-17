@@ -14,6 +14,7 @@ import vectorwing.farmersdelight.common.block.CuttingBoardBlock;
 import vectorwing.farmersdelight.common.block.CookingPotBlock;
 import vectorwing.farmersdelight.common.block.state.CookingPotSupport;
 
+import java.util.List;
 import java.util.Objects;
 
 public class FABlockStates extends BlockStateProvider {
@@ -23,29 +24,60 @@ public class FABlockStates extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        registerButcherBlockCabinet(FABlocks.OAK_BUTCHER_BLOCK_CABINET, "oak", "minecraft:block/oak_planks", modLoc("block/oak_butcher_block_cabinet_top"));
-        registerButcherBlockCabinet(FABlocks.SPRUCE_BUTCHER_BLOCK_CABINET, "spruce", "minecraft:block/spruce_planks", modLoc("block/spruce_butcher_block_cabinet_top"));
-        registerButcherBlockCabinet(FABlocks.BIRCH_BUTCHER_BLOCK_CABINET, "birch", "minecraft:block/birch_planks", modLoc("block/birch_butcher_block_cabinet_top"));
-        registerButcherBlockCabinet(FABlocks.JUNGLE_BUTCHER_BLOCK_CABINET, "jungle", "minecraft:block/jungle_planks", modLoc("block/jungle_butcher_block_cabinet_top"));
-        registerButcherBlockCabinet(FABlocks.ACACIA_BUTCHER_BLOCK_CABINET, "acacia", "minecraft:block/acacia_planks", modLoc("block/acacia_butcher_block_cabinet_top"));
-        registerButcherBlockCabinet(FABlocks.DARK_OAK_BUTCHER_BLOCK_CABINET, "dark_oak", "minecraft:block/dark_oak_planks", modLoc("block/dark_oak_butcher_block_cabinet_top"));
-        registerButcherBlockCabinet(FABlocks.MANGROVE_BUTCHER_BLOCK_CABINET, "mangrove", "minecraft:block/mangrove_planks", modLoc("block/mangrove_butcher_block_cabinet_top"));
-        registerButcherBlockCabinet(FABlocks.CHERRY_BUTCHER_BLOCK_CABINET, "cherry", "minecraft:block/cherry_planks", modLoc("block/cherry_butcher_block_cabinet_top"));
-        registerButcherBlockCabinet(FABlocks.BAMBOO_BUTCHER_BLOCK_CABINET, "bamboo", "minecraft:block/bamboo_planks", modLoc("block/bamboo_butcher_block_cabinet_top"));
-        registerButcherBlockCabinet(FABlocks.CRIMSON_BUTCHER_BLOCK_CABINET, "crimson", "minecraft:block/crimson_planks", modLoc("block/crimson_butcher_block_cabinet_front_top"));
-        registerButcherBlockCabinet(FABlocks.WARPED_BUTCHER_BLOCK_CABINET, "warped", "minecraft:block/warped_planks", modLoc("block/warped_butcher_block_cabinet_top"));
-        registerSolidCuttingBoard(FABlocks.SPRUCE_CUTTING_BOARD);
-        registerCuttingBoard(FABlocks.BIRCH_CUTTING_BOARD);
-        registerCuttingBoard(FABlocks.JUNGLE_CUTTING_BOARD);
-        registerSolidCuttingBoard(FABlocks.ACACIA_CUTTING_BOARD);
-        registerCuttingBoard(FABlocks.DARK_OAK_CUTTING_BOARD);
-        registerSolidCuttingBoard(FABlocks.MANGROVE_CUTTING_BOARD);
-        registerSolidCuttingBoard(FABlocks.CHERRY_CUTTING_BOARD);
-        registerCuttingBoard(FABlocks.BAMBOO_CUTTING_BOARD);
-        registerCuttingBoard(FABlocks.CRIMSON_CUTTING_BOARD);
-        registerCuttingBoard(FABlocks.WARPED_CUTTING_BOARD);
-        registerCookingPot(FABlocks.COPPER_COOKING_POT, "copper", modLoc("block/copper_cooking_pot_side"));
-        registerCookingPot(FABlocks.GOLDEN_COOKING_POT, "golden", modLoc("block/golden_cooking_pot_bottom"));
+        registerCabinets();
+        registerCuttingBoards();
+        registerCookingPots();
+    }
+
+    private void registerCabinets() {
+        List<CabinetDefinition> cabinets = List.of(
+                new CabinetDefinition(FABlocks.OAK_BUTCHER_BLOCK_CABINET, "oak", "minecraft:block/oak_planks", "block/oak_butcher_block_cabinet_top"),
+                new CabinetDefinition(FABlocks.SPRUCE_BUTCHER_BLOCK_CABINET, "spruce", "minecraft:block/spruce_planks", "block/spruce_butcher_block_cabinet_top"),
+                new CabinetDefinition(FABlocks.BIRCH_BUTCHER_BLOCK_CABINET, "birch", "minecraft:block/birch_planks", "block/birch_butcher_block_cabinet_top"),
+                new CabinetDefinition(FABlocks.JUNGLE_BUTCHER_BLOCK_CABINET, "jungle", "minecraft:block/jungle_planks", "block/jungle_butcher_block_cabinet_top"),
+                new CabinetDefinition(FABlocks.ACACIA_BUTCHER_BLOCK_CABINET, "acacia", "minecraft:block/acacia_planks", "block/acacia_butcher_block_cabinet_top"),
+                new CabinetDefinition(FABlocks.DARK_OAK_BUTCHER_BLOCK_CABINET, "dark_oak", "minecraft:block/dark_oak_planks", "block/dark_oak_butcher_block_cabinet_top"),
+                new CabinetDefinition(FABlocks.MANGROVE_BUTCHER_BLOCK_CABINET, "mangrove", "minecraft:block/mangrove_planks", "block/mangrove_butcher_block_cabinet_top"),
+                new CabinetDefinition(FABlocks.CHERRY_BUTCHER_BLOCK_CABINET, "cherry", "minecraft:block/cherry_planks", "block/cherry_butcher_block_cabinet_top"),
+                new CabinetDefinition(FABlocks.BAMBOO_BUTCHER_BLOCK_CABINET, "bamboo", "minecraft:block/bamboo_planks", "block/bamboo_butcher_block_cabinet_top"),
+                new CabinetDefinition(FABlocks.CRIMSON_BUTCHER_BLOCK_CABINET, "crimson", "minecraft:block/crimson_planks", "block/crimson_butcher_block_cabinet_front_top"),
+                new CabinetDefinition(FABlocks.WARPED_BUTCHER_BLOCK_CABINET, "warped", "minecraft:block/warped_planks", "block/warped_butcher_block_cabinet_top")
+        );
+
+        cabinets.forEach(cabinet -> registerButcherBlockCabinet(
+                cabinet.block(),
+                cabinet.woodType(),
+                cabinet.bottomTexturePath(),
+                modLoc(cabinet.topTexturePath())
+        ));
+    }
+
+    private void registerCuttingBoards() {
+        List<RegistryObject<CuttingBoardBlock>> standardBoards = List.of(
+                FABlocks.BIRCH_CUTTING_BOARD,
+                FABlocks.JUNGLE_CUTTING_BOARD,
+                FABlocks.DARK_OAK_CUTTING_BOARD,
+                FABlocks.BAMBOO_CUTTING_BOARD,
+                FABlocks.CRIMSON_CUTTING_BOARD,
+                FABlocks.WARPED_CUTTING_BOARD
+        );
+        List<RegistryObject<CuttingBoardBlock>> solidBoards = List.of(
+                FABlocks.SPRUCE_CUTTING_BOARD,
+                FABlocks.ACACIA_CUTTING_BOARD,
+                FABlocks.MANGROVE_CUTTING_BOARD,
+                FABlocks.CHERRY_CUTTING_BOARD
+        );
+
+        standardBoards.forEach(this::registerCuttingBoard);
+        solidBoards.forEach(this::registerSolidCuttingBoard);
+    }
+
+    private void registerCookingPots() {
+        List<CookingPotDefinition> cookingPots = List.of(
+                new CookingPotDefinition(FABlocks.COPPER_COOKING_POT, "copper", "block/copper_cooking_pot_side"),
+                new CookingPotDefinition(FABlocks.GOLDEN_COOKING_POT, "golden", "block/golden_cooking_pot_bottom")
+        );
+        cookingPots.forEach(pot -> registerCookingPot(pot.block(), pot.materialName(), modLoc(pot.bottomTexturePath())));
     }
 
     private void registerCuttingBoard(RegistryObject<CuttingBoardBlock> block) {
@@ -279,5 +311,11 @@ public class FABlockStates extends BlockStateProvider {
                 .face(Direction.UP).uvs(2, 0, 16, 2).texture("#handle").end()
                 .face(Direction.DOWN).uvs(2, 0, 16, 2).texture("#handle").end()
                 .end();
+    }
+
+    private record CabinetDefinition(RegistryObject<? extends Block> block, String woodType, String bottomTexturePath, String topTexturePath) {
+    }
+
+    private record CookingPotDefinition(RegistryObject<CookingPotBlock> block, String materialName, String bottomTexturePath) {
     }
 }
