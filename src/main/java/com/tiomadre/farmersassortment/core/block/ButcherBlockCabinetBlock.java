@@ -184,6 +184,6 @@ public class ButcherBlockCabinetBlock extends CabinetBlock implements EntityBloc
             case EAST -> depth = 1.0D - localHit.x;
             default -> depth = 0.0D;
         }
-        return depth <= 0.5D;
+        return depth <= 1.0D;
     }
 }
