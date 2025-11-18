@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "farmersassortment:cherry_cutting_board"
+    },
+    "C": {
+      "item": "farmersdelight:cherry_cabinet"
+    }
+  },
+  "pattern": [
+    "#",
+    "C"
+  ],
+  "result": {
+    "item": "farmersassortment:cherry_butcher_block_cabinet"
+  },
+  "show_notification": true
+}

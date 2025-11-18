@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "farmersassortment:crimson_cutting_board"
+    },
+    "C": {
+      "item": "farmersdelight:crimson_cabinet"
+    }
+  },
+  "pattern": [
+    "#",
+    "C"
+  ],
+  "result": {
+    "item": "farmersassortment:crimson_butcher_block_cabinet"
+  },
+  "show_notification": true
+}
