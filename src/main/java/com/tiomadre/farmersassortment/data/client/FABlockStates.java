@@ -59,9 +59,7 @@ public class FABlockStates extends BlockStateProvider {
                 FABlocks.DARK_OAK_CUTTING_BOARD,
                 FABlocks.BAMBOO_CUTTING_BOARD,
                 FABlocks.CRIMSON_CUTTING_BOARD,
-                FABlocks.WARPED_CUTTING_BOARD
-        );
-        List<RegistryObject<CuttingBoardBlock>> solidBoards = List.of(
+                FABlocks.WARPED_CUTTING_BOARD,
                 FABlocks.SPRUCE_CUTTING_BOARD,
                 FABlocks.ACACIA_CUTTING_BOARD,
                 FABlocks.MANGROVE_CUTTING_BOARD,
@@ -69,12 +67,11 @@ public class FABlockStates extends BlockStateProvider {
         );
 
         standardBoards.forEach(this::registerCuttingBoard);
-        solidBoards.forEach(this::registerSolidCuttingBoard);
     }
 
     private void registerCookingPots() {
         List<CookingPotDefinition> cookingPots = List.of(
-                new CookingPotDefinition(FABlocks.COPPER_COOKING_POT, "copper", "block/copper_cooking_pot_side"),
+                new CookingPotDefinition(FABlocks.COPPER_COOKING_POT, "copper", "block/copper_cooking_pot_bottom"),
                 new CookingPotDefinition(FABlocks.GOLDEN_COOKING_POT, "golden", "block/golden_cooking_pot_bottom")
         );
         cookingPots.forEach(pot -> registerCookingPot(pot.block(), pot.materialName(), modLoc(pot.bottomTexturePath())));
@@ -90,7 +87,6 @@ public class FABlockStates extends BlockStateProvider {
                 .renderType("minecraft:cutout");
         FABlockStateHelper.horizontalFacingBlock(this, block.get(), model);
     }
-
     private void registerButcherBlockCabinet(RegistryObject<? extends Block> block, String woodType, String bottomTexture, ResourceLocation topTexture) {
         String name = block.getId().getPath();
         ModelFile closed = models().getBuilder(name)
@@ -115,16 +111,6 @@ public class FABlockStates extends BlockStateProvider {
                     .rotationY(((int) direction.toYRot()) % 360)
                     .build();
         });
-    }
-
-    private void registerSolidCuttingBoard(RegistryObject<CuttingBoardBlock> block) {
-        String name = Objects.requireNonNull(block.getId()).getPath();
-        ModelFile model = models()
-                .getBuilder(name)
-                .parent(new ModelFile.UncheckedModelFile("farmersdelight:block/cutting_board"))
-                .texture("particle", modLoc("block/" + name))
-                .texture("top", modLoc("block/" + name));
-        FABlockStateHelper.horizontalFacingBlock(this, block.get(), model);
     }
 
     private void registerCookingPot(RegistryObject<CookingPotBlock> block, String materialName, ResourceLocation bottomTexture) {

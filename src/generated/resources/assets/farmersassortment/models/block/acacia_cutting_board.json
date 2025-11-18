@@ -1,5 +1,6 @@
 {
   "parent": "farmersdelight:block/cutting_board",
+  "render_type": "minecraft:cutout",
   "textures": {
     "particle": "farmersassortment:block/acacia_cutting_board",
     "top": "farmersassortment:block/acacia_cutting_board"

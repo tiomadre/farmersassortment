@@ -236,7 +236,7 @@
   ],
   "render_type": "minecraft:cutout",
   "textures": {
-    "bottom": "farmersassortment:block/copper_cooking_pot_side",
+    "bottom": "farmersassortment:block/copper_cooking_pot_bottom",
     "particle": "farmersassortment:block/copper_cooking_pot_side",
     "parts": "farmersassortment:block/copper_cooking_pot_parts",
     "side": "farmersassortment:block/copper_cooking_pot_side",
