@@ -22,6 +22,7 @@ import net.minecraft.world.item.TridentItem;
 import org.jetbrains.annotations.NotNull;
 import vectorwing.farmersdelight.common.tag.ModTags;
 
+@SuppressWarnings("ALL")
 public class ButcherBlockCabinetRenderer implements BlockEntityRenderer<ButcherBlockCabinetBlockEntity> {
 
     public ButcherBlockCabinetRenderer(BlockEntityRendererProvider.Context context) {
@@ -34,14 +35,14 @@ public class ButcherBlockCabinetRenderer implements BlockEntityRenderer<ButcherB
             return;
         }
 
-        Direction direction = entity.getBlockState().getValue(ButcherBlockCabinetBlock.FACING).getOpposite();
+        Direction blockFacing = entity.getBlockState().getValue(ButcherBlockCabinetBlock.FACING);
         int seed = (int) entity.getBlockPos().asLong();
         int blockLight = LightTexture.block(combinedLight);
         int skyLight = LightTexture.sky(combinedLight);
         if (entity.getLevel() != null) {
             BlockPos blockPos = entity.getBlockPos();
             int topLight = LevelRenderer.getLightColor(entity.getLevel(), blockPos.above());
-            BlockPos boardPos = blockPos.relative(direction.getOpposite()).above();
+            BlockPos boardPos = blockPos.relative(blockFacing).above();
             int boardLight = LevelRenderer.getLightColor(entity.getLevel(), boardPos);
 
             blockLight = Math.max(blockLight, LightTexture.block(topLight));
@@ -60,11 +61,11 @@ public class ButcherBlockCabinetRenderer implements BlockEntityRenderer<ButcherB
         poseStack.popPose();
 
         if (entity.isItemCarvingBoard()) {
-            renderItemCarved(poseStack, direction, boardStack.getItem());
+            renderItemCarved(poseStack, blockFacing, boardStack.getItem());
         } else if (isBlockItem && !boardStack.is(ModTags.FLAT_ON_CUTTING_BOARD)) {
-            renderBlock(poseStack, direction);
+            renderBlock(poseStack, blockFacing);
         } else {
-            renderItemLayingDown(poseStack, direction);
+            renderItemLayingDown(poseStack, blockFacing);
         }
         try {
             itemRenderer.renderStatic(boardStack, ItemDisplayContext.FIXED, light, combinedOverlay, poseStack, buffer, entity.getLevel(), seed);

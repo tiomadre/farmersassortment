@@ -57,9 +57,7 @@ import vectorwing.farmersdelight.common.utility.TextUtils;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Block entity that stores a cabinet inventory and a single cutting-board slot.
- */
+@SuppressWarnings("ALL")
 public class ButcherBlockCabinetBlockEntity extends RandomizableContainerBlockEntity {
     private NonNullList<ItemStack> contents = NonNullList.withSize(27, ItemStack.EMPTY);
     private final ItemStackHandler boardInventory = createHandler();

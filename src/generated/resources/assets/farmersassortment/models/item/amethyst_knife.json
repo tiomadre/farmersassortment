@@ -1,3 +1,6 @@
 {
-  "parent": "farmersassortment:item/amethyst_knife"
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "farmersassortment:item/amethyst_knife"
+  }
 }

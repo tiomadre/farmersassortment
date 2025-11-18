@@ -3,6 +3,7 @@ package com.tiomadre.farmersassortment.core.registry;
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
@@ -15,6 +16,7 @@ import java.util.Map;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
+@SuppressWarnings("unchecked")
 public final class FATab {
     public static final DeferredRegister<CreativeModeTab> TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, FarmersAssortment.MOD_ID);
@@ -28,7 +30,10 @@ public final class FATab {
                                             .map(registryObject -> Map.entry(registryObject.getId(), (Supplier<? extends ItemLike>) registryObject)),
                                     FAItems.ITEMS.getDeferredRegister().getEntries().stream()
                                             .map(registryObject -> Map.entry(registryObject.getId(), (Supplier<? extends ItemLike>) registryObject)))
-                            .sorted(Comparator.comparing(entry -> entry.getKey().getPath()))
+                            .sorted((Comparator<? super Map.Entry<ResourceLocation, ? extends Supplier<? extends ItemLike>>>) Comparator
+                                    .comparingInt((Map.Entry<ResourceLocation, Supplier<? extends ItemLike>> entry) ->
+                                            categoryOrder(entry.getKey().getPath()))
+                                    .thenComparing(entry -> entry.getKey().getPath()))
                             .map(Map.Entry::getValue)
                             .map(Supplier::get)
                             .map(ItemStack::new)
@@ -40,5 +45,18 @@ public final class FATab {
 
     public static void register(IEventBus eventBus) {
         TABS.register(eventBus);
+    }
+
+    private static int categoryOrder(String path) {
+        if (path.contains("butcher_block")) {
+            return 0;
+        }
+        if (path.contains("cutting_board")) {
+            return 1;
+        }
+        if (path.endsWith("_knife")) {
+            return 2;
+        }
+        return 3;
     }
 }

@@ -42,8 +42,10 @@ public class ButcherBlockCabinetBlock extends CabinetBlock implements EntityBloc
     @Override
     public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, BlockHitResult hit) {
         Direction face = hit.getDirection();
-        boolean onCuttingBoard = isOnCuttingBoard(state, hit);
-        if ((face == Direction.UP || face.getAxis().isHorizontal()) && onCuttingBoard) {
+        if (face == Direction.UP) {
+            if (!isOnCuttingBoard(state, hit)) {
+                return InteractionResult.PASS;
+            }
             BlockEntity blockEntity = level.getBlockEntity(pos);
             if (blockEntity instanceof ButcherBlockCabinetBlockEntity cabinet) {
                 ItemStack heldStack = player.getItemInHand(hand);
@@ -102,8 +104,6 @@ public class ButcherBlockCabinetBlock extends CabinetBlock implements EntityBloc
                 }
             }
             return InteractionResult.sidedSuccess(level.isClientSide);
-        } else if (face == Direction.UP) {
-            return InteractionResult.PASS;
         }
 
         if (!level.isClientSide) {
@@ -175,9 +175,6 @@ public class ButcherBlockCabinetBlock extends CabinetBlock implements EntityBloc
 
     private boolean isOnCuttingBoard(BlockState state, BlockHitResult hit) {
         Vec3 localHit = hit.getLocation().subtract(hit.getBlockPos().getX(), hit.getBlockPos().getY(), hit.getBlockPos().getZ());
-        if (localHit.y < 0.9375D) {
-            return false;
-        }
         Direction facing = state.getValue(FACING);
         double depth;
         switch (facing) {
