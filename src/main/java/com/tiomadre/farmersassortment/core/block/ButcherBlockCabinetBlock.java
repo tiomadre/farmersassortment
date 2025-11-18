@@ -1,5 +1,6 @@
 package com.tiomadre.farmersassortment.core.block;
 
+import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.block.entity.ButcherBlockCabinetBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -27,6 +28,9 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import org.jetbrains.annotations.NotNull;
 import vectorwing.farmersdelight.common.block.CabinetBlock;
 import vectorwing.farmersdelight.common.tag.ModTags;
@@ -185,5 +189,37 @@ public class ButcherBlockCabinetBlock extends CabinetBlock implements EntityBloc
             default -> depth = 0.0D;
         }
         return depth <= 1.0D;
+    }
+
+    @Mod.EventBusSubscriber(modid = FarmersAssortment.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+    public static class ToolCarvingEvent {
+        @SubscribeEvent
+        @SuppressWarnings("unused")
+        public static void onSneakPlaceTool(PlayerInteractEvent.RightClickBlock event) {
+            Level level = event.getLevel();
+            BlockPos pos = event.getPos();
+            Player player = event.getEntity();
+            ItemStack heldStack = player.getMainHandItem();
+            BlockEntity tileEntity = level.getBlockEntity(pos);
+            if (player.isSecondaryUseActive() && !heldStack.isEmpty()) {
+                if (tileEntity instanceof ButcherBlockCabinetBlockEntity cabinet) {
+                    if (heldStack.getItem() instanceof TieredItem ||
+                            heldStack.getItem() instanceof TridentItem ||
+                            heldStack.getItem() instanceof ShearsItem) {
+
+                        boolean success = cabinet.carveToolOnBoard(
+                                player.getAbilities().instabuild ? heldStack.copy() : heldStack);
+
+                        if (success) {
+                            level.playSound(null, pos, SoundEvents.WOOD_PLACE, SoundSource.BLOCKS, 1.0F, 0.8F);
+
+                            // Cancel + return SUCCESS
+                            event.setCanceled(true);
+                            event.setCancellationResult(InteractionResult.SUCCESS);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

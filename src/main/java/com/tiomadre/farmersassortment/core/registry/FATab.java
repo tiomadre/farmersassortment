@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
-@SuppressWarnings("unchecked")
+
 public final class FATab {
     public static final DeferredRegister<CreativeModeTab> TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, FarmersAssortment.MOD_ID);
@@ -27,10 +27,12 @@ public final class FATab {
             .displayItems((parameters, output) ->
                     Stream.concat(
                                     FABlocks.BLOCKS.getDeferredRegister().getEntries().stream()
-                                            .map(registryObject -> Map.entry(registryObject.getId(), (Supplier<? extends ItemLike>) registryObject)),
+                                            .map(registryObject -> Map.<ResourceLocation, Supplier<? extends ItemLike>>entry(
+                                                    registryObject.getId(), registryObject)),
                                     FAItems.ITEMS.getDeferredRegister().getEntries().stream()
-                                            .map(registryObject -> Map.entry(registryObject.getId(), (Supplier<? extends ItemLike>) registryObject)))
-                            .sorted((Comparator<? super Map.Entry<ResourceLocation, ? extends Supplier<? extends ItemLike>>>) Comparator
+                                            .map(registryObject -> Map.<ResourceLocation, Supplier<? extends ItemLike>>entry(
+                                                    registryObject.getId(), registryObject)))
+                            .sorted(Comparator
                                     .comparingInt((Map.Entry<ResourceLocation, Supplier<? extends ItemLike>> entry) ->
                                             categoryOrder(entry.getKey().getPath()))
                                     .thenComparing(entry -> entry.getKey().getPath()))
@@ -51,12 +53,15 @@ public final class FATab {
         if (path.contains("butcher_block")) {
             return 0;
         }
-        if (path.contains("cutting_board")) {
+        if (path.contains("_cooking_pot")) {
             return 1;
         }
-        if (path.endsWith("_knife")) {
+        if (path.contains("cutting_board")) {
             return 2;
         }
-        return 3;
+        if (path.endsWith("_knife")) {
+            return 3;
+        }
+        return 4;
     }
 }

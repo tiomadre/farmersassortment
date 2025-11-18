@@ -61,7 +61,7 @@ public class ButcherBlockCabinetRenderer implements BlockEntityRenderer<ButcherB
         poseStack.popPose();
 
         if (entity.isItemCarvingBoard()) {
-            renderItemCarved(poseStack, blockFacing, boardStack.getItem());
+            renderItemCarved(poseStack, blockFacing, boardStack.getItem().getDefaultInstance());
         } else if (isBlockItem && !boardStack.is(ModTags.FLAT_ON_CUTTING_BOARD)) {
             renderBlock(poseStack, blockFacing);
         } else {
@@ -87,19 +87,21 @@ public class ButcherBlockCabinetRenderer implements BlockEntityRenderer<ButcherB
         poseStack.scale(0.8F, 0.8F, 0.8F);
     }
 
-    private void renderItemCarved(PoseStack poseStack, Direction direction, Item item) {
-        poseStack.translate(0.5D, 1.17D, 0.5D);
-        float angle = -direction.toYRot() + 180.0F;
-        poseStack.mulPose(Axis.YP.rotationDegrees(angle));
+    public void renderItemCarved(PoseStack matrixStackIn, Direction direction, ItemStack itemStack) {
+        matrixStackIn.translate(0.5D, 0.23D, 0.5D);
+        float f = -direction.toYRot() + 180;
+        matrixStackIn.mulPose(Axis.YP.rotationDegrees(f));
+        Item toolItem = itemStack.getItem();
         float poseAngle;
-        if (item instanceof PickaxeItem || item instanceof HoeItem) {
+        if (toolItem instanceof PickaxeItem || toolItem instanceof HoeItem) {
             poseAngle = 225.0F;
-        } else if (item instanceof TridentItem) {
+        } else if (toolItem instanceof TridentItem) {
             poseAngle = 135.0F;
         } else {
             poseAngle = 180.0F;
         }
-        poseStack.mulPose(Axis.ZP.rotationDegrees(poseAngle));
-        poseStack.scale(0.6F, 0.6F, 0.6F);
+        matrixStackIn.mulPose(Axis.ZP.rotationDegrees(poseAngle));
+
+        matrixStackIn.scale(0.6F, 0.6F, 0.6F);
     }
 }
