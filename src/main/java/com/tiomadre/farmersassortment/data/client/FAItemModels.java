@@ -19,8 +19,8 @@ public class FAItemModels extends ItemModelProvider {
     @Override
     protected void registerModels() {
         //Items
-        item(FAItems.AMETHYST_KNIFE);
-        item(FAItems.QUARTZ_KNIFE);
+        handheldItem(FAItems.AMETHYST_KNIFE);
+        handheldItem(FAItems.QUARTZ_KNIFE);
         //Block Items
         block(FABlocks.COPPER_COOKING_POT);
         block(FABlocks.GOLDEN_COOKING_POT);
@@ -28,9 +28,10 @@ public class FAItemModels extends ItemModelProvider {
         FABlocks.butcherBlockCabinets().forEach(this::block);
     }
 
-    private void item(RegistryObject<?> item) {
+    private void handheldItem(RegistryObject<?> item) {
         String name = Objects.requireNonNull(item.getId()).getPath();
-        withExistingParent(name, modLoc("item/" + name));
+        withExistingParent(name, mcLoc("item/handheld"))
+                .texture("layer0", modLoc("item/" + name));
     }
 
 
