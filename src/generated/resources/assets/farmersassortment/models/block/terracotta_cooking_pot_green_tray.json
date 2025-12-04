@@ -1,0 +1,575 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "cullface": "down",
+          "texture": "#bottom"
+        },
+        "east": {
+          "texture": "#side"
+        },
+        "north": {
+          "texture": "#side"
+        },
+        "south": {
+          "texture": "#side"
+        },
+        "up": {
+          "texture": "#top"
+        },
+        "west": {
+          "texture": "#side"
+        }
+      },
+      "from": [
+        2,
+        0,
+        2
+      ],
+      "to": [
+        14,
+        10,
+        14
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#parts",
+          "uv": [
+            0.0,
+            0.0,
+            2.0,
+            2.0
+          ]
+        },
+        "east": {
+          "texture": "#parts",
+          "uv": [
+            0.0,
+            2.0,
+            2.0,
+            14.0
+          ]
+        },
+        "north": {
+          "texture": "#parts",
+          "uv": [
+            2.0,
+            2.0,
+            0.0,
+            14.0
+          ]
+        },
+        "south": {
+          "texture": "#parts",
+          "uv": [
+            2.0,
+            2.0,
+            0.0,
+            14.0
+          ]
+        },
+        "up": {
+          "texture": "#parts",
+          "uv": [
+            0.0,
+            0.0,
+            2.0,
+            2.0
+          ]
+        },
+        "west": {
+          "texture": "#parts",
+          "uv": [
+            0.0,
+            2.0,
+            2.0,
+            14.0
+          ]
+        }
+      },
+      "from": [
+        7,
+        3,
+        7
+      ],
+      "rotation": {
+        "angle": -22.5,
+        "axis": "z",
+        "origin": [
+          8,
+          3,
+          8
+        ]
+      },
+      "to": [
+        9,
+        15,
+        9
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "rotation": 90,
+          "texture": "#parts",
+          "uv": [
+            4.0,
+            2.0,
+            10.0,
+            4.0
+          ]
+        },
+        "east": {
+          "texture": "#parts",
+          "uv": [
+            4.0,
+            2.0,
+            10.0,
+            4.0
+          ]
+        },
+        "north": {
+          "texture": "#parts",
+          "uv": [
+            10.0,
+            0.0,
+            12.0,
+            2.0
+          ]
+        },
+        "south": {
+          "texture": "#parts",
+          "uv": [
+            2.0,
+            0.0,
+            4.0,
+            2.0
+          ]
+        },
+        "up": {
+          "rotation": 90,
+          "texture": "#parts",
+          "uv": [
+            4.0,
+            0.0,
+            10.0,
+            2.0
+          ]
+        }
+      },
+      "from": [
+        14,
+        7,
+        5
+      ],
+      "to": [
+        16,
+        9,
+        11
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "rotation": 270,
+          "texture": "#parts",
+          "uv": [
+            4.0,
+            2.0,
+            10.0,
+            4.0
+          ]
+        },
+        "north": {
+          "texture": "#parts",
+          "uv": [
+            2.0,
+            0.0,
+            4.0,
+            2.0
+          ]
+        },
+        "south": {
+          "texture": "#parts",
+          "uv": [
+            10.0,
+            0.0,
+            12.0,
+            2.0
+          ]
+        },
+        "up": {
+          "rotation": 270,
+          "texture": "#parts",
+          "uv": [
+            4.0,
+            0.0,
+            10.0,
+            2.0
+          ]
+        },
+        "west": {
+          "texture": "#parts",
+          "uv": [
+            4.0,
+            2.0,
+            10.0,
+            4.0
+          ]
+        }
+      },
+      "from": [
+        0,
+        7,
+        5
+      ],
+      "to": [
+        2,
+        9,
+        11
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#tray_top"
+        },
+        "east": {
+          "texture": "#tray_side",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            1.0
+          ]
+        },
+        "north": {
+          "texture": "#tray_side",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            1.0
+          ]
+        },
+        "south": {
+          "texture": "#tray_side",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            1.0
+          ]
+        },
+        "up": {
+          "texture": "#tray_top"
+        },
+        "west": {
+          "texture": "#tray_side",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            1.0
+          ]
+        }
+      },
+      "from": [
+        0,
+        -1,
+        0
+      ],
+      "to": [
+        16,
+        0,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#tray_side",
+          "uv": [
+            0.0,
+            0.0,
+            0.5,
+            0.5
+          ]
+        },
+        "east": {
+          "texture": "#tray_side",
+          "uv": [
+            0.0,
+            1.0,
+            1.0,
+            16.0
+          ]
+        },
+        "north": {
+          "texture": "#tray_side",
+          "uv": [
+            0.0,
+            1.0,
+            1.0,
+            16.0
+          ]
+        },
+        "south": {
+          "texture": "#tray_side",
+          "uv": [
+            15.0,
+            1.0,
+            16.0,
+            16.0
+          ]
+        },
+        "up": {
+          "texture": "#tray_side",
+          "uv": [
+            0.0,
+            0.0,
+            0.5,
+            0.5
+          ]
+        },
+        "west": {
+          "texture": "#tray_side",
+          "uv": [
+            15.0,
+            1.0,
+            16.0,
+            16.0
+          ]
+        }
+      },
+      "from": [
+        15,
+        -16,
+        15
+      ],
+      "to": [
+        16,
+        -1,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#tray_side",
+          "uv": [
+            0.0,
+            0.0,
+            0.5,
+            0.5
+          ]
+        },
+        "east": {
+          "texture": "#tray_side",
+          "uv": [
+            0.0,
+            1.0,
+            1.0,
+            16.0
+          ]
+        },
+        "north": {
+          "texture": "#tray_side",
+          "uv": [
+            15.0,
+            1.0,
+            16.0,
+            16.0
+          ]
+        },
+        "south": {
+          "texture": "#tray_side",
+          "uv": [
+            0.0,
+            1.0,
+            1.0,
+            16.0
+          ]
+        },
+        "up": {
+          "texture": "#tray_side",
+          "uv": [
+            0.0,
+            0.0,
+            0.5,
+            0.5
+          ]
+        },
+        "west": {
+          "texture": "#tray_side",
+          "uv": [
+            15.0,
+            1.0,
+            16.0,
+            16.0
+          ]
+        }
+      },
+      "from": [
+        0,
+        -16,
+        15
+      ],
+      "to": [
+        1,
+        -1,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#tray_side",
+          "uv": [
+            0.0,
+            0.0,
+            0.5,
+            0.5
+          ]
+        },
+        "east": {
+          "texture": "#tray_side",
+          "uv": [
+            15.0,
+            1.0,
+            16.0,
+            16.0
+          ]
+        },
+        "north": {
+          "texture": "#tray_side",
+          "uv": [
+            0.0,
+            1.0,
+            1.0,
+            16.0
+          ]
+        },
+        "south": {
+          "texture": "#tray_side",
+          "uv": [
+            15.0,
+            1.0,
+            16.0,
+            16.0
+          ]
+        },
+        "up": {
+          "texture": "#tray_side",
+          "uv": [
+            0.0,
+            0.0,
+            0.5,
+            0.5
+          ]
+        },
+        "west": {
+          "texture": "#tray_side",
+          "uv": [
+            0.0,
+            1.0,
+            1.0,
+            16.0
+          ]
+        }
+      },
+      "from": [
+        15,
+        -16,
+        0
+      ],
+      "to": [
+        16,
+        -1,
+        1
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#tray_side",
+          "uv": [
+            0.0,
+            0.0,
+            0.5,
+            0.5
+          ]
+        },
+        "east": {
+          "texture": "#tray_side",
+          "uv": [
+            15.0,
+            1.0,
+            16.0,
+            16.0
+          ]
+        },
+        "north": {
+          "texture": "#tray_side",
+          "uv": [
+            15.0,
+            1.0,
+            16.0,
+            16.0
+          ]
+        },
+        "south": {
+          "texture": "#tray_side",
+          "uv": [
+            0.0,
+            1.0,
+            1.0,
+            16.0
+          ]
+        },
+        "up": {
+          "texture": "#tray_side",
+          "uv": [
+            0.0,
+            0.0,
+            0.5,
+            0.5
+          ]
+        },
+        "west": {
+          "texture": "#tray_side",
+          "uv": [
+            0.0,
+            1.0,
+            1.0,
+            16.0
+          ]
+        }
+      },
+      "from": [
+        0,
+        -16,
+        0
+      ],
+      "to": [
+        1,
+        -1,
+        1
+      ]
+    }
+  ],
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "bottom": "minecraft:block/green_terracotta",
+    "particle": "minecraft:block/green_terracotta",
+    "parts": "farmersdelight:block/cooking_pot_parts",
+    "side": "minecraft:block/green_terracotta",
+    "top": "minecraft:block/green_terracotta",
+    "tray_side": "farmersdelight:block/cooking_pot_tray_side",
+    "tray_top": "farmersdelight:block/cooking_pot_tray_top"
+  }
+}

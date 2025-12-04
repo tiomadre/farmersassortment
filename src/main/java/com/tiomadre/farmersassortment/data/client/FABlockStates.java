@@ -1,6 +1,8 @@
 package com.tiomadre.farmersassortment.data.client;
 
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
+import com.tiomadre.farmersassortment.core.block.TerracottaCookingPotBlock;
+import com.tiomadre.farmersassortment.core.block.state.TerracottaCookingPotColor;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
@@ -14,8 +16,7 @@ import vectorwing.farmersdelight.common.block.CuttingBoardBlock;
 import vectorwing.farmersdelight.common.block.CookingPotBlock;
 import vectorwing.farmersdelight.common.block.state.CookingPotSupport;
 
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class FABlockStates extends BlockStateProvider {
     public FABlockStates(PackOutput output, ExistingFileHelper existingFileHelper) {
@@ -75,6 +76,44 @@ public class FABlockStates extends BlockStateProvider {
                 new CookingPotDefinition(FABlocks.GOLDEN_COOKING_POT, "golden", "block/golden_cooking_pot_bottom")
         );
         cookingPots.forEach(pot -> registerCookingPot(pot.block(), pot.materialName(), modLoc(pot.bottomTexturePath())));
+        registerTerracottaCookingPot();
+    }
+
+    private void registerTerracottaCookingPot() {
+        RegistryObject<CookingPotBlock> block = FABlocks.TERRACOTTA_COOKING_POT;
+        ResourceLocation partsTexture = new ResourceLocation("farmersdelight", "block/cooking_pot_parts");
+        ResourceLocation handleTexture = new ResourceLocation("farmersdelight", "block/cooking_pot_handle");
+        ResourceLocation trayTop = new ResourceLocation("farmersdelight", "block/cooking_pot_tray_top");
+        ResourceLocation traySide = new ResourceLocation("farmersdelight", "block/cooking_pot_tray_side");
+
+        Map<TerracottaCookingPotColor, ModelFile> baseModels = new EnumMap<>(TerracottaCookingPotColor.class);
+        Map<TerracottaCookingPotColor, ModelFile> trayModels = new EnumMap<>(TerracottaCookingPotColor.class);
+        Map<TerracottaCookingPotColor, ModelFile> handleModels = new EnumMap<>(TerracottaCookingPotColor.class);
+
+        for (TerracottaCookingPotColor color : TerracottaCookingPotColor.values()) {
+            ResourceLocation colorTexture = color.texture();
+            String suffix = color.getSerializedName();
+            String modelBaseName = suffix.equals(TerracottaCookingPotColor.NONE.getSerializedName()) ? "terracotta_cooking_pot" : "terracotta_cooking_pot_" + suffix;
+
+            baseModels.put(color, terracottaCookingPotModel(modelBaseName, colorTexture, partsTexture));
+            trayModels.put(color, terracottaCookingPotTrayModel(modelBaseName + "_tray", colorTexture, partsTexture, trayTop, traySide));
+            handleModels.put(color, terracottaCookingPotHandleModel(modelBaseName + "_handle", colorTexture, partsTexture, handleTexture));
+        }
+
+        getVariantBuilder(block.get()).forAllStates(state -> {
+            Direction direction = state.getValue(CookingPotBlock.FACING);
+            CookingPotSupport support = state.getValue(CookingPotBlock.SUPPORT);
+            TerracottaCookingPotColor color = state.getValue(TerracottaCookingPotBlock.COLOR);
+            ModelFile model = switch (support) {
+                case TRAY -> trayModels.get(color);
+                case HANDLE -> handleModels.get(color);
+                default -> baseModels.get(color);
+            };
+            return ConfiguredModel.builder()
+                    .modelFile(model)
+                    .rotationY((int) direction.toYRot())
+                    .build();
+        });
     }
 
     private void registerCuttingBoard(RegistryObject<CuttingBoardBlock> block) {
@@ -157,13 +196,43 @@ public class FABlockStates extends BlockStateProvider {
     }
 
     private BlockModelBuilder baseCookingPotModel(String name, String materialName, ResourceLocation bottomTexture) {
+        ResourceLocation sideTexture = modLoc("block/" + materialName + "_cooking_pot_side");
+        ResourceLocation topTexture = modLoc("block/" + materialName + "_cooking_pot_top");
+        ResourceLocation partsTexture = modLoc("block/" + materialName + "_cooking_pot_parts");
+        return baseCookingPotModel(name, sideTexture, topTexture, bottomTexture, partsTexture);
+    }
+
+    private BlockModelBuilder terracottaCookingPotModel(String name, ResourceLocation colorTexture, ResourceLocation partsTexture) {
+        BlockModelBuilder builder = baseCookingPotModel(name, colorTexture, colorTexture, colorTexture, partsTexture);
+        addCoreCookingPotElements(builder);
+        return builder;
+    }
+
+    private BlockModelBuilder terracottaCookingPotTrayModel(String name, ResourceLocation colorTexture, ResourceLocation partsTexture, ResourceLocation trayTop, ResourceLocation traySide) {
+        BlockModelBuilder builder = baseCookingPotModel(name, colorTexture, colorTexture, colorTexture, partsTexture)
+                .texture("tray_top", trayTop)
+                .texture("tray_side", traySide);
+        addCoreCookingPotElements(builder);
+        addCookingPotTrayElements(builder);
+        return builder;
+    }
+
+    private BlockModelBuilder terracottaCookingPotHandleModel(String name, ResourceLocation colorTexture, ResourceLocation partsTexture, ResourceLocation handleTexture) {
+        BlockModelBuilder builder = baseCookingPotModel(name, colorTexture, colorTexture, colorTexture, partsTexture)
+                .texture("handle", handleTexture);
+        addCoreCookingPotElements(builder);
+        addCookingPotHandleElements(builder);
+        return builder;
+    }
+
+    private BlockModelBuilder baseCookingPotModel(String name, ResourceLocation sideTexture, ResourceLocation topTexture, ResourceLocation bottomTexture, ResourceLocation partsTexture) {
         return models().getBuilder(name)
                 .parent(new ModelFile.UncheckedModelFile("block/block"))
                 .renderType("minecraft:cutout")
-                .texture("particle", modLoc("block/" + materialName + "_cooking_pot_side"))
-                .texture("side", modLoc("block/" + materialName + "_cooking_pot_side"))
-                .texture("top", modLoc("block/" + materialName + "_cooking_pot_top"))
-                .texture("parts", modLoc("block/" + materialName + "_cooking_pot_parts"))
+                .texture("particle", sideTexture)
+                .texture("side", sideTexture)
+                .texture("top", topTexture)
+                .texture("parts", partsTexture)
                 .texture("bottom", bottomTexture);
     }
 

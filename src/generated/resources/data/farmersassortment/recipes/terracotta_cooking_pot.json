@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:brick"
+    },
+    "M": {
+      "item": "minecraft:terracotta"
+    },
+    "S": {
+      "item": "minecraft:wooden_shovel"
+    },
+    "W": {
+      "item": "minecraft:water_bucket"
+    }
+  },
+  "pattern": [
+    "BSB",
+    "MWM",
+    "MMM"
+  ],
+  "result": {
+    "item": "farmersassortment:terracotta_cooking_pot"
+  },
+  "show_notification": true
+}

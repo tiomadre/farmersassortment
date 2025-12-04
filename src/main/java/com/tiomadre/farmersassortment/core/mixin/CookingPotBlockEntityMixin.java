@@ -25,6 +25,8 @@ public abstract class CookingPotBlockEntityMixin {
             cir.setReturnValue(Component.translatable("container.farmersassortment.copper_cooking_pot"));
         } else if (state.is(FABlocks.GOLDEN_COOKING_POT.get())) {
             cir.setReturnValue(Component.translatable("container.farmersassortment.golden_cooking_pot"));
+        } else if (state.is(FABlocks.TERRACOTTA_COOKING_POT.get())) {
+            cir.setReturnValue(Component.translatable("container.farmersassortment.terracotta_cooking_pot"));
         }
     }
 }
