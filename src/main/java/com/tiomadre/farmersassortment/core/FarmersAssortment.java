@@ -45,7 +45,7 @@ public class FarmersAssortment {
             Set<Block> updatedValidBlocks = new HashSet<>(validBlocks);
             boolean changed = false;
 
-            for (Block block : new Block[]{FABlocks.COPPER_COOKING_POT.get(), FABlocks.GOLDEN_COOKING_POT.get()}) {
+            for (Block block : new Block[]{FABlocks.COPPER_COOKING_POT.get(), FABlocks.GOLDEN_COOKING_POT.get(), FABlocks.TERRACOTTA_COOKING_POT.get()}) {
                 if (!updatedValidBlocks.contains(block)) {
                     updatedValidBlocks.add(block);
                     changed = true;
