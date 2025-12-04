@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "farmersassortment:terracotta_cooking_pot",
+          "functions": [
+            {
+              "function": "minecraft:copy_state",
+              "block": "farmersassortment:terracotta_cooking_pot",
+              "properties": [
+                "color"
+              ]
+            }
+          ]
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ]
+    }
+  ]
+}

@@ -57,6 +57,7 @@ public final class FACrafting extends RecipeProvider {
         butcherBlockCabinet(output, FABlocks.WARPED_BUTCHER_BLOCK_CABINET, FABlocks.WARPED_CUTTING_BOARD.get(), blockItem("farmersdelight", "warped_cabinet"));
         variantCookingPot(output, FABlocks.GOLDEN_COOKING_POT, Items.GOLD_INGOT);
         variantCookingPot(output, FABlocks.COPPER_COOKING_POT,Items.COPPER_INGOT);
+        variantCookingPot(output, FABlocks.TERRACOTTA_COOKING_POT, Blocks.TERRACOTTA);
         knife(output, FAItems.AMETHYST_KNIFE, Items.AMETHYST_SHARD);
         knife(output, FAItems.QUARTZ_KNIFE, Items.QUARTZ);
     }

@@ -2,7 +2,9 @@ package com.tiomadre.farmersassortment.core.registry;
 
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.block.ButcherBlockCabinetBlock;
+import com.tiomadre.farmersassortment.core.block.TerracottaCookingPotBlock;
 import com.tiomadre.farmersassortment.core.mixin.BlockEntityTypeAccessor;
+import com.tiomadre.farmersassortment.core.item.TerracottaCookingPotItem;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -51,9 +53,11 @@ public final class FABlocks {
     public static final RegistryObject<CuttingBoardBlock> WARPED_CUTTING_BOARD = registerCuttingBoard("warped", Blocks.WARPED_PLANKS);
     private static final ResourceLocation COPPER_COOKING_POT_ID = new ResourceLocation(FarmersAssortment.MOD_ID, "copper_cooking_pot");
     private static final ResourceLocation GOLDEN_COOKING_POT_ID = new ResourceLocation(FarmersAssortment.MOD_ID, "golden_cooking_pot");
+    private static final ResourceLocation TERRACOTTA_COOKING_POT_ID = new ResourceLocation(FarmersAssortment.MOD_ID, "terracotta_cooking_pot");
 
     public static final RegistryObject<CookingPotBlock> COPPER_COOKING_POT = registerCookingPot("copper_cooking_pot", MapColor.METAL, COPPER_COOKING_POT_ID);
     public static final RegistryObject<CookingPotBlock> GOLDEN_COOKING_POT = registerCookingPot("golden_cooking_pot", MapColor.GOLD, GOLDEN_COOKING_POT_ID);
+    public static final RegistryObject<CookingPotBlock> TERRACOTTA_COOKING_POT = registerTerracottaCookingPot();
 
 
     public static Stream<RegistryObject<CuttingBoardBlock>> cuttingBoards() {
@@ -120,6 +124,13 @@ public final class FABlocks {
                     changed = true;
                 }
             }
+            {
+                Block block = TERRACOTTA_COOKING_POT.get();
+                if (!updatedCookingPotBlocks.contains(block)) {
+                    updatedCookingPotBlocks.add(block);
+                    changed = true;
+                }
+            }
 
             if (changed) {
                 cookingPotAccessor.farmersassortment$setValidBlocks(updatedCookingPotBlocks);
@@ -131,5 +142,11 @@ public final class FABlocks {
         return BLOCKS.createBlockWithItem(name,
                 () -> new CookingPotBlock(BlockBehaviour.Properties.of().mapColor(mapColor).strength(0.5F, 6.0F).sound(SoundType.LANTERN)),
                 () -> new CookingPotItem(Objects.requireNonNull(ForgeRegistries.BLOCKS.getValue(id)), new Item.Properties().stacksTo(1)));
+    }
+
+    private static RegistryObject<CookingPotBlock> registerTerracottaCookingPot() {
+        return BLOCKS.createBlockWithItem("terracotta_cooking_pot",
+                () -> new TerracottaCookingPotBlock(BlockBehaviour.Properties.of().mapColor(Blocks.TERRACOTTA.defaultMapColor()).strength(0.5F, 6.0F).sound(SoundType.DECORATED_POT)),
+                () -> new TerracottaCookingPotItem(Objects.requireNonNull(ForgeRegistries.BLOCKS.getValue(TERRACOTTA_COOKING_POT_ID)), new Item.Properties().stacksTo(1)));
     }
 }
