@@ -81,8 +81,7 @@ public class FABlockStates extends BlockStateProvider {
 
     private void registerTerracottaCookingPot() {
         RegistryObject<CookingPotBlock> block = FABlocks.TERRACOTTA_COOKING_POT;
-        ResourceLocation partsTexture = new ResourceLocation("farmersdelight", "block/cooking_pot_parts");
-        ResourceLocation handleTexture = new ResourceLocation("farmersdelight", "block/cooking_pot_handle");
+        ResourceLocation handleTexture = modLoc("block/terracotta_cooking_pot_handle");
         ResourceLocation trayTop = new ResourceLocation("farmersdelight", "block/cooking_pot_tray_top");
         ResourceLocation traySide = new ResourceLocation("farmersdelight", "block/cooking_pot_tray_side");
 
@@ -91,13 +90,17 @@ public class FABlockStates extends BlockStateProvider {
         Map<TerracottaCookingPotColor, ModelFile> handleModels = new EnumMap<>(TerracottaCookingPotColor.class);
 
         for (TerracottaCookingPotColor color : TerracottaCookingPotColor.values()) {
-            ResourceLocation colorTexture = color.texture();
             String suffix = color.getSerializedName();
             String modelBaseName = suffix.equals(TerracottaCookingPotColor.NONE.getSerializedName()) ? "terracotta_cooking_pot" : "terracotta_cooking_pot_" + suffix;
 
-            baseModels.put(color, terracottaCookingPotModel(modelBaseName, colorTexture, partsTexture));
-            trayModels.put(color, terracottaCookingPotTrayModel(modelBaseName + "_tray", colorTexture, partsTexture, trayTop, traySide));
-            handleModels.put(color, terracottaCookingPotHandleModel(modelBaseName + "_handle", colorTexture, partsTexture, handleTexture));
+            ResourceLocation sideTexture = color.sideTexture();
+            ResourceLocation topTexture = color.topTexture();
+            ResourceLocation bottomTexture = color.bottomTexture();
+            ResourceLocation partsTexture = color.partsTexture();
+
+            baseModels.put(color, terracottaCookingPotModel(modelBaseName, sideTexture, topTexture, bottomTexture, partsTexture));
+            trayModels.put(color, terracottaCookingPotTrayModel(modelBaseName + "_tray", sideTexture, topTexture, bottomTexture, partsTexture, trayTop, traySide));
+            handleModels.put(color, terracottaCookingPotHandleModel(modelBaseName + "_handle", sideTexture, topTexture, bottomTexture, partsTexture, handleTexture));
         }
 
         getVariantBuilder(block.get()).forAllStates(state -> {
@@ -202,14 +205,14 @@ public class FABlockStates extends BlockStateProvider {
         return baseCookingPotModel(name, sideTexture, topTexture, bottomTexture, partsTexture);
     }
 
-    private BlockModelBuilder terracottaCookingPotModel(String name, ResourceLocation colorTexture, ResourceLocation partsTexture) {
-        BlockModelBuilder builder = baseCookingPotModel(name, colorTexture, colorTexture, colorTexture, partsTexture);
+    private BlockModelBuilder terracottaCookingPotModel(String name, ResourceLocation sideTexture, ResourceLocation topTexture, ResourceLocation bottomTexture, ResourceLocation partsTexture) {
+        BlockModelBuilder builder = baseCookingPotModel(name, sideTexture, topTexture, bottomTexture, partsTexture);
         addCoreCookingPotElements(builder);
         return builder;
     }
 
-    private BlockModelBuilder terracottaCookingPotTrayModel(String name, ResourceLocation colorTexture, ResourceLocation partsTexture, ResourceLocation trayTop, ResourceLocation traySide) {
-        BlockModelBuilder builder = baseCookingPotModel(name, colorTexture, colorTexture, colorTexture, partsTexture)
+    private BlockModelBuilder terracottaCookingPotTrayModel(String name, ResourceLocation sideTexture, ResourceLocation topTexture, ResourceLocation bottomTexture, ResourceLocation partsTexture, ResourceLocation trayTop, ResourceLocation traySide) {
+        BlockModelBuilder builder = baseCookingPotModel(name, sideTexture, topTexture, bottomTexture, partsTexture)
                 .texture("tray_top", trayTop)
                 .texture("tray_side", traySide);
         addCoreCookingPotElements(builder);
@@ -217,8 +220,8 @@ public class FABlockStates extends BlockStateProvider {
         return builder;
     }
 
-    private BlockModelBuilder terracottaCookingPotHandleModel(String name, ResourceLocation colorTexture, ResourceLocation partsTexture, ResourceLocation handleTexture) {
-        BlockModelBuilder builder = baseCookingPotModel(name, colorTexture, colorTexture, colorTexture, partsTexture)
+    private BlockModelBuilder terracottaCookingPotHandleModel(String name, ResourceLocation sideTexture, ResourceLocation topTexture, ResourceLocation bottomTexture, ResourceLocation partsTexture, ResourceLocation handleTexture) {
+        BlockModelBuilder builder = baseCookingPotModel(name, sideTexture, topTexture, bottomTexture, partsTexture)
                 .texture("handle", handleTexture);
         addCoreCookingPotElements(builder);
         addCookingPotHandleElements(builder);
