@@ -1,5 +1,6 @@
 package com.tiomadre.farmersassortment.core.block.state;
 
+import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.item.DyeColor;
@@ -50,9 +51,24 @@ public enum TerracottaCookingPotColor implements StringRepresentable {
         return this.dyeColor;
     }
 
-    public ResourceLocation texture() {
-        String textureName = this == NONE ? "terracotta" : this.name + "_terracotta";
-        return new ResourceLocation("minecraft", "block/" + textureName);
+    public String textureName() {
+        return this == NONE ? "terracotta_cooking_pot" : this.name + "_terracotta_cooking_pot";
+    }
+
+    public ResourceLocation sideTexture() {
+        return new ResourceLocation(FarmersAssortment.MOD_ID, "block/" + textureName() + "_side");
+    }
+
+    public ResourceLocation topTexture() {
+        return new ResourceLocation(FarmersAssortment.MOD_ID, "block/" + textureName() + "_top");
+    }
+
+    public ResourceLocation bottomTexture() {
+        return new ResourceLocation(FarmersAssortment.MOD_ID, "block/" + textureName() + "_bottom");
+    }
+
+    public ResourceLocation partsTexture() {
+        return new ResourceLocation(FarmersAssortment.MOD_ID, "block/" + textureName() + "_parts");
     }
 
     public static TerracottaCookingPotColor fromDyeColor(DyeColor dyeColor) {

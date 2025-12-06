@@ -236,10 +236,10 @@
   ],
   "render_type": "minecraft:cutout",
   "textures": {
-    "bottom": "minecraft:block/cyan_terracotta",
-    "particle": "minecraft:block/cyan_terracotta",
-    "parts": "farmersdelight:block/cooking_pot_parts",
-    "side": "minecraft:block/cyan_terracotta",
-    "top": "minecraft:block/cyan_terracotta"
+    "bottom": "farmersassortment:block/terracotta_cooking_pot_cyan_bottom",
+    "particle": "farmersassortment:block/terracotta_cooking_pot_cyan_side",
+    "parts": "farmersassortment:block/terracotta_cooking_pot_cyan_parts",
+    "side": "farmersassortment:block/terracotta_cooking_pot_cyan_side",
+    "top": "farmersassortment:block/terracotta_cooking_pot_cyan_top"
   }
 }
