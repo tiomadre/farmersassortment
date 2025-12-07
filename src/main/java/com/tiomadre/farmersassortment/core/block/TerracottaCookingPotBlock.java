@@ -45,11 +45,8 @@ public class TerracottaCookingPotBlock extends CookingPotBlock {
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         BlockState state = super.getStateForPlacement(context);
-        if (state != null) {
-            TerracottaCookingPotColor color = TerracottaCookingPotItem.getColor(context.getItemInHand());
-            return state.setValue(COLOR, color);
-        }
-        return null;
+        TerracottaCookingPotColor color = TerracottaCookingPotItem.getColor(context.getItemInHand());
+        return state.setValue(COLOR, color);
     }
 
     @NotNull
@@ -75,7 +72,7 @@ public class TerracottaCookingPotBlock extends CookingPotBlock {
     }
 
     @Override
-    public ItemStack getCloneItemStack(BlockGetter level, BlockPos pos, BlockState state) {
+    public @NotNull ItemStack getCloneItemStack(BlockGetter level, BlockPos pos, BlockState state) {
         ItemStack stack = super.getCloneItemStack(level, pos, state);
         return TerracottaCookingPotItem.applyColorToStack(stack, state.getValue(COLOR));
     }
