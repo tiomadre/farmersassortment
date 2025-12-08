@@ -190,6 +190,7 @@ public class ButcherBlockCabinetBlockEntity extends RandomizableContainerBlockEn
     public boolean carveToolOnBoard(ItemStack tool) {
         if (addBoardItem(tool)) {
             isItemCarvingBoard = true;
+            inventoryChanged();
             return true;
         }
         return false;
