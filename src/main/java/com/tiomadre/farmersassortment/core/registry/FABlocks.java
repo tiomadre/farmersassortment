@@ -3,6 +3,7 @@ package com.tiomadre.farmersassortment.core.registry;
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.block.ButcherBlockCabinetBlock;
 import com.tiomadre.farmersassortment.core.block.TerracottaCookingPotBlock;
+import com.tiomadre.farmersassortment.core.block.UniqueStoveBlock;
 import com.tiomadre.farmersassortment.core.mixin.BlockEntityTypeAccessor;
 import com.tiomadre.farmersassortment.core.item.TerracottaCookingPotItem;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
@@ -18,10 +19,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import vectorwing.farmersdelight.common.block.CuttingBoardBlock;
 import vectorwing.farmersdelight.common.block.CookingPotBlock;
-import vectorwing.farmersdelight.common.block.StoveBlock;
 import vectorwing.farmersdelight.common.item.CookingPotItem;
 import vectorwing.farmersdelight.common.registry.ModBlockEntityTypes;
-import vectorwing.farmersdelight.common.registry.ModBlocks;
+
 
 import java.util.HashSet;
 import java.util.Objects;
@@ -62,10 +62,7 @@ public final class FABlocks {
     public static final RegistryObject<CookingPotBlock> GOLDEN_COOKING_POT = registerCookingPot("golden_cooking_pot", MapColor.GOLD, SoundType.LANTERN, GOLDEN_COOKING_POT_ID);
     public static final RegistryObject<CookingPotBlock> ALABASTER_COOKING_POT = registerCookingPot("alabaster_cooking_pot", MapColor.TERRACOTTA_WHITE, SoundType.CALCITE, ALABASTER_COOKING_POT_ID);
     public static final RegistryObject<CookingPotBlock> TERRACOTTA_COOKING_POT = registerTerracottaCookingPot();
-    public static final RegistryObject<StoveBlock> ALABASTER_STOVE = BLOCKS.createBlock("alabaster_stove",
-            () -> new StoveBlock(BlockBehaviour.Properties.copy(ModBlocks.STOVE.get())),
-            new Item.Properties());
-
+    public static final RegistryObject<UniqueStoveBlock> ALABASTER_STOVE = BLOCKS.createBlock("alabaster_stove", UniqueStoveBlock::new, new Item.Properties());
 
     public static Stream<RegistryObject<CuttingBoardBlock>> cuttingBoards() {
         return Stream.of(SPRUCE_CUTTING_BOARD, BIRCH_CUTTING_BOARD, JUNGLE_CUTTING_BOARD, ACACIA_CUTTING_BOARD, DARK_OAK_CUTTING_BOARD, MANGROVE_CUTTING_BOARD,

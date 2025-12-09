@@ -59,7 +59,7 @@ public final class FACrafting extends RecipeProvider {
         variantCookingPot(output, FABlocks.COPPER_COOKING_POT, Items.COPPER_INGOT, Items.WOODEN_SHOVEL, Items.BRICK);
         variantCookingPot(output, FABlocks.ALABASTER_COOKING_POT, Items.QUARTZ, Items.WOODEN_SHOVEL, Items.GOLD_INGOT);
         variantCookingPot(output, FABlocks.TERRACOTTA_COOKING_POT, Blocks.TERRACOTTA, Items.WOODEN_SHOVEL, Items.BRICK);
-        variantStove(output, FABlocks.ALABASTER_STOVE, Blocks.QUARTZ_BLOCK, Items.IRON_INGOT, Blocks.CAMPFIRE);
+        variantStove(output, (RegistryObject<? extends ItemLike>) FABlocks.ALABASTER_STOVE, Blocks.QUARTZ_BLOCK, Items.GOLD_INGOT, Items.FLINT_AND_STEEL);
         knife(output, FAItems.AMETHYST_KNIFE, Items.AMETHYST_SHARD);
         knife(output, FAItems.QUARTZ_KNIFE, Items.QUARTZ);
     }
@@ -108,14 +108,14 @@ public final class FACrafting extends RecipeProvider {
     }
 
     private void variantStove(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> stove, ItemLike material,
-                              ItemLike accent, ItemLike fuel) {
+                              ItemLike ingot, ItemLike fuel) {
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, stove.get())
-                .define('Q', material)
-                .define('I', accent)
-                .define('C', fuel)
-                .pattern("QIQ")
-                .pattern("QCQ")
-                .pattern("QQQ")
+                .define('M', material)
+                .define('I', ingot)
+                .define('F', fuel)
+                .pattern("III")
+                .pattern("M M")
+                .pattern("MFM")
                 .unlockedBy(getHasName(material), has(material))
                 .save(output);
     }

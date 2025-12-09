@@ -83,7 +83,7 @@ public class FABlockStates extends BlockStateProvider {
     }
 
     private void registerStoves() {
-        RegistryObject<StoveBlock> stove = FABlocks.ALABASTER_STOVE;
+        RegistryObject<? extends StoveBlock> stove = (RegistryObject<? extends StoveBlock>) FABlocks.ALABASTER_STOVE;
         ModelFile offModel = models().orientableWithBottom(stove.getId().getPath(),
                 modLoc("block/alabaster_stove_side"),
                 modLoc("block/alabaster_stove_front"),
