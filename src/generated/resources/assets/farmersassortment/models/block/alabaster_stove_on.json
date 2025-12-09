@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "top": "farmersassortment:block/alabaster_stove_top_on",
+    "front": "farmersassortment:block/alabaster_stove_on",
+    "side": "farmersassortment:block/alabaster_stove_side",
+    "bottom": "farmersassortment:block/alabaster_stove_bottom"
+  }
+}

@@ -53,15 +53,18 @@ public final class FATab {
         if (path.contains("butcher_block")) {
             return 0;
         }
-        if (path.contains("_cooking_pot")) {
+        if (path.contains("_stove")) {
             return 1;
         }
-        if (path.contains("cutting_board")) {
+        if (path.contains("_cooking_pot")) {
             return 2;
         }
-        if (path.endsWith("_knife")) {
+        if (path.contains("cutting_board")) {
             return 3;
         }
-        return 4;
+        if (path.endsWith("_knife")) {
+            return 4;
+        }
+        return 5;
     }
 }
