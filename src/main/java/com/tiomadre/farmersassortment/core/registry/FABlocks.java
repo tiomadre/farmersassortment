@@ -154,9 +154,10 @@ public final class FABlocks {
 
     private static RegistryObject<CookingPotBlock> registerCookingPot(String name, MapColor mapColor, SoundType soundType, ResourceLocation id) {
         return BLOCKS.createBlockWithItem(name,
-                () -> new CookingPotBlock(BlockBehaviour.Properties.of().mapColor(mapColor).strength(0.5F, 6.0F).sound(SoundType.LANTERN)),
+                () -> new CookingPotBlock(BlockBehaviour.Properties.of().mapColor(mapColor).strength(0.5F, 6.0F).sound(soundType)),
                 () -> new CookingPotItem(Objects.requireNonNull(ForgeRegistries.BLOCKS.getValue(id)), new Item.Properties().stacksTo(1)));
     }
+
 
     private static RegistryObject<CookingPotBlock> registerTerracottaCookingPot() {
         return BLOCKS.createBlockWithItem("terracotta_cooking_pot",

@@ -5,11 +5,11 @@
     "B": {
       "item": "minecraft:gold_ingot"
     },
-      "M": {
-        "item": "minecraft:quartz"
-      },
+    "M": {
+      "item": "minecraft:quartz"
+    },
     "S": {
-      "item": "minecraft:golden_shovel"
+      "item": "minecraft:wooden_shovel"
     },
     "W": {
       "item": "minecraft:water_bucket"
