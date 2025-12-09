@@ -97,7 +97,7 @@ public class FABlockStates extends BlockStateProvider {
 
         getVariantBuilder(stove.get()).forAllStates(state -> ConfiguredModel.builder()
                 .modelFile(state.getValue(StoveBlock.LIT) ? onModel : offModel)
-                .rotationY(((int) state.getValue(StoveBlock.FACING).toYRot()) % 360)
+                .rotationY(((int) state.getValue(StoveBlock.FACING).toYRot() + 180) % 360)
                 .build());
     }
 
