@@ -27,7 +27,8 @@ public abstract class VariantPotMenu {
 
         boolean isVariantCookingPot = this.canInteractWithCallable.evaluate((level, pos) -> {
             BlockState state = level.getBlockState(pos);
-            return state.is(FABlocks.COPPER_COOKING_POT.get()) || state.is(FABlocks.GOLDEN_COOKING_POT.get()) || state.is(FABlocks.TERRACOTTA_COOKING_POT.get());
+            return state.is(FABlocks.COPPER_COOKING_POT.get()) || state.is(FABlocks.ALABASTER_COOKING_POT.get())
+            || state.is(FABlocks.GOLDEN_COOKING_POT.get()) || state.is(FABlocks.TERRACOTTA_COOKING_POT.get());
         }, false);
 
         if (isVariantCookingPot) {
