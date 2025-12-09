@@ -88,7 +88,7 @@ public class ButcherBlockCabinetRenderer implements BlockEntityRenderer<ButcherB
     }
 
     public void renderItemCarved(PoseStack matrixStackIn, Direction direction, ItemStack itemStack) {
-        matrixStackIn.translate(0.5D, 0.23D, 0.5D);
+        matrixStackIn.translate(0.5D, 1.17D, 0.5D);
         float f = -direction.toYRot() + 180;
         matrixStackIn.mulPose(Axis.YP.rotationDegrees(f));
         Item toolItem = itemStack.getItem();

@@ -52,10 +52,14 @@ public class ButcherBlockCabinetBlock extends CabinetBlock implements EntityBloc
             }
             BlockEntity blockEntity = level.getBlockEntity(pos);
             if (blockEntity instanceof ButcherBlockCabinetBlockEntity cabinet) {
+                boolean hasBlockAbove = !level.isEmptyBlock(pos.above());
                 ItemStack heldStack = player.getItemInHand(hand);
                 ItemStack offhandStack = player.getOffhandItem();
 
                 if (cabinet.isBoardEmpty()) {
+                    if (hasBlockAbove) {
+                        return InteractionResult.PASS;
+                    }
                     if (player.isSecondaryUseActive() && !heldStack.isEmpty()) {
                         Item item = heldStack.getItem();
                         if (item instanceof TieredItem || item instanceof TridentItem || item instanceof ShearsItem) {
