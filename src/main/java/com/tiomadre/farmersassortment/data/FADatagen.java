@@ -4,6 +4,8 @@ import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.data.client.FABlockStates;
 import com.tiomadre.farmersassortment.data.client.FAItemModels;
 import com.tiomadre.farmersassortment.data.server.recipes.FACrafting;
+import com.tiomadre.farmersassortment.data.server.tags.FABlockTags;
+import com.tiomadre.farmersassortment.data.server.tags.FAItemTags;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -18,6 +20,9 @@ public final class FADatagen {
     public static void gatherData(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
         if (event.includeServer()) {
+            FABlockTags blockTags = new FABlockTags(event);
+            generator.addProvider(true, blockTags);
+            generator.addProvider(true, new FAItemTags(event, blockTags));
             generator.addProvider(true, new FACrafting(generator.getPackOutput()));
 
         }
