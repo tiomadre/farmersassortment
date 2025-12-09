@@ -15,6 +15,7 @@ import com.tiomadre.farmersassortment.core.block.ButcherBlockCabinetBlock;
 import vectorwing.farmersdelight.common.block.CuttingBoardBlock;
 import vectorwing.farmersdelight.common.block.CookingPotBlock;
 import vectorwing.farmersdelight.common.block.state.CookingPotSupport;
+import vectorwing.farmersdelight.common.block.StoveBlock;
 
 import java.util.*;
 
@@ -28,6 +29,7 @@ public class FABlockStates extends BlockStateProvider {
         registerCabinets();
         registerCuttingBoards();
         registerCookingPots();
+        registerStoves();
     }
 
     private void registerCabinets() {
@@ -73,10 +75,30 @@ public class FABlockStates extends BlockStateProvider {
     private void registerCookingPots() {
         List<CookingPotDefinition> cookingPots = List.of(
                 new CookingPotDefinition(FABlocks.COPPER_COOKING_POT, "copper", "block/copper_cooking_pot_bottom"),
-                new CookingPotDefinition(FABlocks.GOLDEN_COOKING_POT, "golden", "block/golden_cooking_pot_bottom")
+                new CookingPotDefinition(FABlocks.GOLDEN_COOKING_POT, "golden", "block/golden_cooking_pot_bottom"),
+                new CookingPotDefinition(FABlocks.ALABASTER_COOKING_POT, "alabaster", "block/alabaster_cooking_pot_bottom")
         );
         cookingPots.forEach(pot -> registerCookingPot(pot.block(), pot.materialName(), modLoc(pot.bottomTexturePath())));
         registerTerracottaCookingPot();
+    }
+
+    private void registerStoves() {
+        RegistryObject<StoveBlock> stove = FABlocks.ALABASTER_STOVE;
+        ModelFile offModel = models().orientableWithBottom(stove.getId().getPath(),
+                modLoc("block/alabaster_stove_side"),
+                modLoc("block/alabaster_stove_front"),
+                modLoc("block/alabaster_stove_top"),
+                modLoc("block/alabaster_stove_bottom"));
+        ModelFile onModel = models().orientableWithBottom(stove.getId().getPath() + "_on",
+                modLoc("block/alabaster_stove_side"),
+                modLoc("block/alabaster_stove_on"),
+                modLoc("block/alabaster_stove_top_on"),
+                modLoc("block/alabaster_stove_bottom"));
+
+        getVariantBuilder(stove.get()).forAllStates(state -> ConfiguredModel.builder()
+                .modelFile(state.getValue(StoveBlock.LIT) ? onModel : offModel)
+                .rotationY(((int) state.getValue(StoveBlock.FACING).toYRot()) % 360)
+                .build());
     }
 
     private void registerTerracottaCookingPot() {

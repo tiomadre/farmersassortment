@@ -18,8 +18,10 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import vectorwing.farmersdelight.common.block.CuttingBoardBlock;
 import vectorwing.farmersdelight.common.block.CookingPotBlock;
+import vectorwing.farmersdelight.common.block.StoveBlock;
 import vectorwing.farmersdelight.common.item.CookingPotItem;
 import vectorwing.farmersdelight.common.registry.ModBlockEntityTypes;
+import vectorwing.farmersdelight.common.registry.ModBlocks;
 
 import java.util.HashSet;
 import java.util.Objects;
@@ -53,11 +55,16 @@ public final class FABlocks {
     public static final RegistryObject<CuttingBoardBlock> WARPED_CUTTING_BOARD = registerCuttingBoard("warped", Blocks.WARPED_PLANKS);
     private static final ResourceLocation COPPER_COOKING_POT_ID = new ResourceLocation(FarmersAssortment.MOD_ID, "copper_cooking_pot");
     private static final ResourceLocation GOLDEN_COOKING_POT_ID = new ResourceLocation(FarmersAssortment.MOD_ID, "golden_cooking_pot");
+    private static final ResourceLocation ALABASTER_COOKING_POT_ID = new ResourceLocation(FarmersAssortment.MOD_ID, "alabaster_cooking_pot");
     private static final ResourceLocation TERRACOTTA_COOKING_POT_ID = new ResourceLocation(FarmersAssortment.MOD_ID, "terracotta_cooking_pot");
 
     public static final RegistryObject<CookingPotBlock> COPPER_COOKING_POT = registerCookingPot("copper_cooking_pot", MapColor.METAL, COPPER_COOKING_POT_ID);
     public static final RegistryObject<CookingPotBlock> GOLDEN_COOKING_POT = registerCookingPot("golden_cooking_pot", MapColor.GOLD, GOLDEN_COOKING_POT_ID);
+    public static final RegistryObject<CookingPotBlock> ALABASTER_COOKING_POT = registerCookingPot("alabaster_cooking_pot", MapColor.TERRACOTTA_WHITE, ALABASTER_COOKING_POT_ID);
     public static final RegistryObject<CookingPotBlock> TERRACOTTA_COOKING_POT = registerTerracottaCookingPot();
+    public static final RegistryObject<StoveBlock> ALABASTER_STOVE = BLOCKS.createBlock("alabaster_stove",
+            () -> new StoveBlock(BlockBehaviour.Properties.copy(ModBlocks.STOVE.get())),
+            new Item.Properties());
 
 
     public static Stream<RegistryObject<CuttingBoardBlock>> cuttingBoards() {
@@ -126,6 +133,13 @@ public final class FABlocks {
             }
             {
                 Block block = TERRACOTTA_COOKING_POT.get();
+                if (!updatedCookingPotBlocks.contains(block)) {
+                    updatedCookingPotBlocks.add(block);
+                    changed = true;
+                }
+            }
+            {
+                Block block = ALABASTER_COOKING_POT.get();
                 if (!updatedCookingPotBlocks.contains(block)) {
                     updatedCookingPotBlocks.add(block);
                     changed = true;

@@ -55,9 +55,10 @@ public final class FACrafting extends RecipeProvider {
         butcherBlockCabinet(output, FABlocks.BAMBOO_BUTCHER_BLOCK_CABINET, FABlocks.BAMBOO_CUTTING_BOARD.get(), blockItem("farmersdelight", "bamboo_cabinet"));
         butcherBlockCabinet(output, FABlocks.CRIMSON_BUTCHER_BLOCK_CABINET, FABlocks.CRIMSON_CUTTING_BOARD.get(), blockItem("farmersdelight", "crimson_cabinet"));
         butcherBlockCabinet(output, FABlocks.WARPED_BUTCHER_BLOCK_CABINET, FABlocks.WARPED_CUTTING_BOARD.get(), blockItem("farmersdelight", "warped_cabinet"));
-        variantCookingPot(output, FABlocks.GOLDEN_COOKING_POT, Items.GOLD_INGOT);
-        variantCookingPot(output, FABlocks.COPPER_COOKING_POT,Items.COPPER_INGOT);
-        variantCookingPot(output, FABlocks.TERRACOTTA_COOKING_POT, Blocks.TERRACOTTA);
+        variantCookingPot(output, FABlocks.GOLDEN_COOKING_POT, Items.GOLD_INGOT, Items.WOODEN_SHOVEL, Items.BRICK);
+        variantCookingPot(output, FABlocks.COPPER_COOKING_POT, Items.COPPER_INGOT, Items.WOODEN_SHOVEL, Items.BRICK);
+        variantCookingPot(output, FABlocks.ALABASTER_COOKING_POT, Items.QUARTZ, Items.GOLDEN_SHOVEL, Items.GOLD_INGOT);
+        variantCookingPot(output, FABlocks.TERRACOTTA_COOKING_POT, Blocks.TERRACOTTA, Items.WOODEN_SHOVEL, Items.BRICK);
         knife(output, FAItems.AMETHYST_KNIFE, Items.AMETHYST_SHARD);
         knife(output, FAItems.QUARTZ_KNIFE, Items.QUARTZ);
     }
@@ -72,11 +73,11 @@ public final class FACrafting extends RecipeProvider {
                 .save(output);
     }
 
-    private void variantCookingPot(Consumer<FinishedRecipe> output, RegistryObject<CookingPotBlock> variantCookingPot, ItemLike material) {
+    private void variantCookingPot(Consumer<FinishedRecipe> output, RegistryObject<CookingPotBlock> variantCookingPot, ItemLike material, ItemLike shovel, ItemLike base) {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, variantCookingPot.get())
                 .define('M', material)
-                .define('S', Items.WOODEN_SHOVEL)
-                .define('B', Items.BRICK)
+                .define('S', shovel)
+                .define('B', base)
                 .define('W', Items.WATER_BUCKET)
                 .pattern("BSB")
                 .pattern("MWM")
