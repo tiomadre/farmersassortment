@@ -7,11 +7,9 @@ import net.minecraft.tags.BlockTags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.data.event.GatherDataEvent;
 import org.jetbrains.annotations.NotNull;
+import vectorwing.farmersdelight.common.tag.ModTags;
 
-import static com.tiomadre.farmersassortment.data.server.tags.FATags.Blocks.BUTCHER_BLOCK_CABINETS;
-import static com.tiomadre.farmersassortment.data.server.tags.FATags.Blocks.COOKING_POTS;
-import static com.tiomadre.farmersassortment.data.server.tags.FATags.Blocks.CUTTING_BOARDS;
-
+import static com.tiomadre.farmersassortment.data.server.tags.FATags.Blocks.*;
 public class FABlockTags extends BlockTagsProvider {
     public FABlockTags(GatherDataEvent event) {
         super(event.getGenerator().getPackOutput(), event.getLookupProvider(), FarmersAssortment.MOD_ID, event.getExistingFileHelper());
@@ -54,5 +52,8 @@ public class FABlockTags extends BlockTagsProvider {
                 .add(FABlocks.COPPER_COOKING_POT.get(), FABlocks.GOLDEN_COOKING_POT.get(),
                         FABlocks.ALABASTER_COOKING_POT.get(), FABlocks.TERRACOTTA_COOKING_POT.get(),
                         FABlocks.ALABASTER_STOVE.get());
+
+        this.tag(ModTags.HEAT_SOURCES)
+                .add(FABlocks.ALABASTER_STOVE.get());
     }
 }

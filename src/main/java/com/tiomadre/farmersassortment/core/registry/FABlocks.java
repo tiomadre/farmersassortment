@@ -58,9 +58,9 @@ public final class FABlocks {
     private static final ResourceLocation ALABASTER_COOKING_POT_ID = new ResourceLocation(FarmersAssortment.MOD_ID, "alabaster_cooking_pot");
     private static final ResourceLocation TERRACOTTA_COOKING_POT_ID = new ResourceLocation(FarmersAssortment.MOD_ID, "terracotta_cooking_pot");
 
-    public static final RegistryObject<CookingPotBlock> COPPER_COOKING_POT = registerCookingPot("copper_cooking_pot", MapColor.METAL, COPPER_COOKING_POT_ID);
-    public static final RegistryObject<CookingPotBlock> GOLDEN_COOKING_POT = registerCookingPot("golden_cooking_pot", MapColor.GOLD, GOLDEN_COOKING_POT_ID);
-    public static final RegistryObject<CookingPotBlock> ALABASTER_COOKING_POT = registerCookingPot("alabaster_cooking_pot", MapColor.TERRACOTTA_WHITE, ALABASTER_COOKING_POT_ID);
+    public static final RegistryObject<CookingPotBlock> COPPER_COOKING_POT = registerCookingPot("copper_cooking_pot", MapColor.METAL, SoundType.COPPER, COPPER_COOKING_POT_ID);
+    public static final RegistryObject<CookingPotBlock> GOLDEN_COOKING_POT = registerCookingPot("golden_cooking_pot", MapColor.GOLD, SoundType.LANTERN, GOLDEN_COOKING_POT_ID);
+    public static final RegistryObject<CookingPotBlock> ALABASTER_COOKING_POT = registerCookingPot("alabaster_cooking_pot", MapColor.TERRACOTTA_WHITE, SoundType.CALCITE, ALABASTER_COOKING_POT_ID);
     public static final RegistryObject<CookingPotBlock> TERRACOTTA_COOKING_POT = registerTerracottaCookingPot();
     public static final RegistryObject<StoveBlock> ALABASTER_STOVE = BLOCKS.createBlock("alabaster_stove",
             () -> new StoveBlock(BlockBehaviour.Properties.copy(ModBlocks.STOVE.get())),
@@ -152,7 +152,7 @@ public final class FABlocks {
         });
     }
 
-    private static RegistryObject<CookingPotBlock> registerCookingPot(String name, MapColor mapColor, ResourceLocation id) {
+    private static RegistryObject<CookingPotBlock> registerCookingPot(String name, MapColor mapColor, SoundType soundType, ResourceLocation id) {
         return BLOCKS.createBlockWithItem(name,
                 () -> new CookingPotBlock(BlockBehaviour.Properties.of().mapColor(mapColor).strength(0.5F, 6.0F).sound(SoundType.LANTERN)),
                 () -> new CookingPotItem(Objects.requireNonNull(ForgeRegistries.BLOCKS.getValue(id)), new Item.Properties().stacksTo(1)));
