@@ -2,20 +2,20 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "C": {
-      "item": "minecraft:campfire"
+    "F": {
+      "item": "minecraft:flint_and_steel"
     },
     "I": {
-      "item": "minecraft:iron_ingot"
+      "item": "minecraft:gold_ingot"
     },
-    "Q": {
+    "M": {
       "item": "minecraft:quartz_block"
     }
   },
   "pattern": [
-    "QIQ",
-    "QCQ",
-    "QQQ"
+    "III",
+    "M M",
+    "MFM"
   ],
   "result": {
     "item": "farmersassortment:alabaster_stove"
