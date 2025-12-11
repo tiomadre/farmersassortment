@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import vectorwing.farmersdelight.common.block.entity.CookingPotBlockEntity;
 
-@Mixin(CookingPotBlockEntity.class)
+@Mixin(value = CookingPotBlockEntity.class, remap = false)
 public abstract class CookingPotCookingAccelerator {
 
     @Unique
