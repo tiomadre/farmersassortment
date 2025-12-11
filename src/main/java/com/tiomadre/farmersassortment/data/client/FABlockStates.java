@@ -117,8 +117,8 @@ public class FABlockStates extends BlockStateProvider {
             ResourceLocation topTexture = color.topTexture();
             ResourceLocation bottomTexture = color.bottomTexture();
             ResourceLocation partsTexture = color.partsTexture();
-            ResourceLocation trayTop = new ResourceLocation("farmersdelight", "block/cooking_pot_tray_top");
-            ResourceLocation traySide = new ResourceLocation("farmersdelight", "block/cooking_pot_tray_side");
+            ResourceLocation trayTop = modLoc("block/cooking_pot_tray_top");
+            ResourceLocation traySide = modLoc("block/cooking_pot_tray_side");
 
             baseModels.put(color, terracottaCookingPotModel(modelBaseName, sideTexture, topTexture, bottomTexture, partsTexture));
             trayModels.put(color, terracottaCookingPotTrayModel(modelBaseName + "_tray", sideTexture, topTexture, bottomTexture, partsTexture, trayTop, traySide));

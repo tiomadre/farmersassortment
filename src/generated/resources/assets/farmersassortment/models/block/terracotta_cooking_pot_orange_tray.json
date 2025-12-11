@@ -569,7 +569,7 @@
     "parts": "farmersassortment:block/terracotta_cooking_pot_orange_parts",
     "side": "farmersassortment:block/terracotta_cooking_pot_orange_side",
     "top": "farmersassortment:block/terracotta_cooking_pot_orange_top",
-    "tray_side": "farmersdelight:block/cooking_pot_tray_side",
-    "tray_top": "farmersdelight:block/cooking_pot_tray_top"
+    "tray_side": "farmersassortment:block/cooking_pot_tray_side",
+    "tray_top": "farmersassortment:block/cooking_pot_tray_top"
   }
 }

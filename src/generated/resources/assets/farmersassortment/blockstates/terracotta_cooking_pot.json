@@ -1,1510 +1,12 @@
 {
   "variants": {
-    "color=none,facing=south,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot"
-    },
-    "color=none,facing=south,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot"
-    },
-    "color=none,facing=south,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_tray"
-    },
-    "color=none,facing=south,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_tray"
-    },
-    "color=none,facing=south,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_handle"
-    },
-    "color=none,facing=south,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_handle"
-    },
-    "color=none,facing=west,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot",
-      "y": 90
-    },
-    "color=none,facing=west,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot",
-      "y": 90
-    },
-    "color=none,facing=west,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_tray",
-      "y": 90
-    },
-    "color=none,facing=west,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_tray",
-      "y": 90
-    },
-    "color=none,facing=west,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_handle",
-      "y": 90
-    },
-    "color=none,facing=west,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_handle",
-      "y": 90
-    },
-    "color=none,facing=north,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot",
-      "y": 180
-    },
-    "color=none,facing=north,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot",
-      "y": 180
-    },
-    "color=none,facing=north,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_tray",
-      "y": 180
-    },
-    "color=none,facing=north,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_tray",
-      "y": 180
-    },
-    "color=none,facing=north,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_handle",
-      "y": 180
-    },
-    "color=none,facing=north,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_handle",
-      "y": 180
-    },
-    "color=none,facing=east,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot",
-      "y": 270
-    },
-    "color=none,facing=east,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot",
-      "y": 270
-    },
-    "color=none,facing=east,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_tray",
-      "y": 270
-    },
-    "color=none,facing=east,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_tray",
-      "y": 270
-    },
-    "color=none,facing=east,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_handle",
-      "y": 270
-    },
-    "color=none,facing=east,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_handle",
-      "y": 270
-    },
-    "color=white,facing=south,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_white"
-    },
-    "color=white,facing=south,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_white"
-    },
-    "color=white,facing=south,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_white_tray"
-    },
-    "color=white,facing=south,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_white_tray"
-    },
-    "color=white,facing=south,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_white_handle"
-    },
-    "color=white,facing=south,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_white_handle"
-    },
-    "color=white,facing=west,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_white",
-      "y": 90
-    },
-    "color=white,facing=west,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_white",
-      "y": 90
-    },
-    "color=white,facing=west,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_white_tray",
-      "y": 90
-    },
-    "color=white,facing=west,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_white_tray",
-      "y": 90
-    },
-    "color=white,facing=west,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_white_handle",
-      "y": 90
-    },
-    "color=white,facing=west,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_white_handle",
-      "y": 90
-    },
-    "color=white,facing=north,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_white",
-      "y": 180
-    },
-    "color=white,facing=north,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_white",
-      "y": 180
-    },
-    "color=white,facing=north,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_white_tray",
-      "y": 180
-    },
-    "color=white,facing=north,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_white_tray",
-      "y": 180
-    },
-    "color=white,facing=north,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_white_handle",
-      "y": 180
-    },
-    "color=white,facing=north,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_white_handle",
-      "y": 180
-    },
-    "color=white,facing=east,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_white",
-      "y": 270
-    },
-    "color=white,facing=east,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_white",
-      "y": 270
-    },
-    "color=white,facing=east,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_white_tray",
-      "y": 270
-    },
-    "color=white,facing=east,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_white_tray",
-      "y": 270
-    },
-    "color=white,facing=east,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_white_handle",
-      "y": 270
-    },
-    "color=white,facing=east,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_white_handle",
-      "y": 270
-    },
-    "color=orange,facing=south,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_orange"
-    },
-    "color=orange,facing=south,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_orange"
-    },
-    "color=orange,facing=south,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_orange_tray"
-    },
-    "color=orange,facing=south,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_orange_tray"
-    },
-    "color=orange,facing=south,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_orange_handle"
-    },
-    "color=orange,facing=south,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_orange_handle"
-    },
-    "color=orange,facing=west,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_orange",
-      "y": 90
-    },
-    "color=orange,facing=west,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_orange",
-      "y": 90
-    },
-    "color=orange,facing=west,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_orange_tray",
-      "y": 90
-    },
-    "color=orange,facing=west,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_orange_tray",
-      "y": 90
-    },
-    "color=orange,facing=west,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_orange_handle",
-      "y": 90
-    },
-    "color=orange,facing=west,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_orange_handle",
-      "y": 90
-    },
-    "color=orange,facing=north,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_orange",
-      "y": 180
-    },
-    "color=orange,facing=north,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_orange",
-      "y": 180
-    },
-    "color=orange,facing=north,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_orange_tray",
-      "y": 180
-    },
-    "color=orange,facing=north,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_orange_tray",
-      "y": 180
-    },
-    "color=orange,facing=north,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_orange_handle",
-      "y": 180
-    },
-    "color=orange,facing=north,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_orange_handle",
-      "y": 180
-    },
-    "color=orange,facing=east,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_orange",
-      "y": 270
-    },
-    "color=orange,facing=east,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_orange",
-      "y": 270
-    },
-    "color=orange,facing=east,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_orange_tray",
-      "y": 270
-    },
-    "color=orange,facing=east,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_orange_tray",
-      "y": 270
-    },
-    "color=orange,facing=east,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_orange_handle",
-      "y": 270
-    },
-    "color=orange,facing=east,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_orange_handle",
-      "y": 270
-    },
-    "color=magenta,facing=south,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_magenta"
-    },
-    "color=magenta,facing=south,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_magenta"
-    },
-    "color=magenta,facing=south,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_tray"
-    },
-    "color=magenta,facing=south,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_tray"
-    },
-    "color=magenta,facing=south,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_handle"
-    },
-    "color=magenta,facing=south,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_handle"
-    },
-    "color=magenta,facing=west,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_magenta",
-      "y": 90
-    },
-    "color=magenta,facing=west,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_magenta",
-      "y": 90
-    },
-    "color=magenta,facing=west,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_tray",
-      "y": 90
-    },
-    "color=magenta,facing=west,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_tray",
-      "y": 90
-    },
-    "color=magenta,facing=west,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_handle",
-      "y": 90
-    },
-    "color=magenta,facing=west,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_handle",
-      "y": 90
-    },
-    "color=magenta,facing=north,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_magenta",
-      "y": 180
-    },
-    "color=magenta,facing=north,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_magenta",
-      "y": 180
-    },
-    "color=magenta,facing=north,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_tray",
-      "y": 180
-    },
-    "color=magenta,facing=north,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_tray",
-      "y": 180
-    },
-    "color=magenta,facing=north,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_handle",
-      "y": 180
-    },
-    "color=magenta,facing=north,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_handle",
-      "y": 180
-    },
-    "color=magenta,facing=east,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_magenta",
-      "y": 270
-    },
-    "color=magenta,facing=east,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_magenta",
-      "y": 270
-    },
-    "color=magenta,facing=east,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_tray",
-      "y": 270
-    },
-    "color=magenta,facing=east,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_tray",
-      "y": 270
-    },
-    "color=magenta,facing=east,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_handle",
-      "y": 270
-    },
-    "color=magenta,facing=east,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_handle",
-      "y": 270
-    },
-    "color=light_blue,facing=south,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue"
-    },
-    "color=light_blue,facing=south,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue"
-    },
-    "color=light_blue,facing=south,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_tray"
-    },
-    "color=light_blue,facing=south,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_tray"
-    },
-    "color=light_blue,facing=south,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_handle"
-    },
-    "color=light_blue,facing=south,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_handle"
-    },
-    "color=light_blue,facing=west,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue",
-      "y": 90
-    },
-    "color=light_blue,facing=west,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue",
-      "y": 90
-    },
-    "color=light_blue,facing=west,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_tray",
-      "y": 90
-    },
-    "color=light_blue,facing=west,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_tray",
-      "y": 90
-    },
-    "color=light_blue,facing=west,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_handle",
-      "y": 90
-    },
-    "color=light_blue,facing=west,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_handle",
-      "y": 90
-    },
-    "color=light_blue,facing=north,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue",
-      "y": 180
-    },
-    "color=light_blue,facing=north,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue",
-      "y": 180
-    },
-    "color=light_blue,facing=north,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_tray",
-      "y": 180
-    },
-    "color=light_blue,facing=north,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_tray",
-      "y": 180
-    },
-    "color=light_blue,facing=north,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_handle",
-      "y": 180
-    },
-    "color=light_blue,facing=north,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_handle",
-      "y": 180
-    },
-    "color=light_blue,facing=east,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue",
-      "y": 270
-    },
-    "color=light_blue,facing=east,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue",
-      "y": 270
-    },
-    "color=light_blue,facing=east,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_tray",
-      "y": 270
-    },
-    "color=light_blue,facing=east,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_tray",
-      "y": 270
-    },
-    "color=light_blue,facing=east,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_handle",
-      "y": 270
-    },
-    "color=light_blue,facing=east,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_handle",
-      "y": 270
-    },
-    "color=yellow,facing=south,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_yellow"
-    },
-    "color=yellow,facing=south,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_yellow"
-    },
-    "color=yellow,facing=south,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_tray"
-    },
-    "color=yellow,facing=south,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_tray"
-    },
-    "color=yellow,facing=south,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_handle"
-    },
-    "color=yellow,facing=south,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_handle"
-    },
-    "color=yellow,facing=west,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_yellow",
-      "y": 90
-    },
-    "color=yellow,facing=west,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_yellow",
-      "y": 90
-    },
-    "color=yellow,facing=west,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_tray",
-      "y": 90
-    },
-    "color=yellow,facing=west,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_tray",
-      "y": 90
-    },
-    "color=yellow,facing=west,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_handle",
-      "y": 90
-    },
-    "color=yellow,facing=west,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_handle",
-      "y": 90
-    },
-    "color=yellow,facing=north,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_yellow",
-      "y": 180
-    },
-    "color=yellow,facing=north,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_yellow",
-      "y": 180
-    },
-    "color=yellow,facing=north,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_tray",
-      "y": 180
-    },
-    "color=yellow,facing=north,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_tray",
-      "y": 180
-    },
-    "color=yellow,facing=north,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_handle",
-      "y": 180
-    },
-    "color=yellow,facing=north,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_handle",
-      "y": 180
-    },
-    "color=yellow,facing=east,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_yellow",
-      "y": 270
-    },
-    "color=yellow,facing=east,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_yellow",
-      "y": 270
-    },
-    "color=yellow,facing=east,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_tray",
-      "y": 270
-    },
-    "color=yellow,facing=east,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_tray",
-      "y": 270
-    },
-    "color=yellow,facing=east,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_handle",
-      "y": 270
-    },
-    "color=yellow,facing=east,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_handle",
-      "y": 270
-    },
-    "color=lime,facing=south,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_lime"
-    },
-    "color=lime,facing=south,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_lime"
-    },
-    "color=lime,facing=south,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_lime_tray"
-    },
-    "color=lime,facing=south,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_lime_tray"
-    },
-    "color=lime,facing=south,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_lime_handle"
-    },
-    "color=lime,facing=south,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_lime_handle"
-    },
-    "color=lime,facing=west,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_lime",
-      "y": 90
-    },
-    "color=lime,facing=west,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_lime",
-      "y": 90
-    },
-    "color=lime,facing=west,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_lime_tray",
-      "y": 90
-    },
-    "color=lime,facing=west,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_lime_tray",
-      "y": 90
-    },
-    "color=lime,facing=west,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_lime_handle",
-      "y": 90
-    },
-    "color=lime,facing=west,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_lime_handle",
-      "y": 90
-    },
-    "color=lime,facing=north,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_lime",
-      "y": 180
-    },
-    "color=lime,facing=north,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_lime",
-      "y": 180
-    },
-    "color=lime,facing=north,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_lime_tray",
-      "y": 180
-    },
-    "color=lime,facing=north,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_lime_tray",
-      "y": 180
-    },
-    "color=lime,facing=north,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_lime_handle",
-      "y": 180
-    },
-    "color=lime,facing=north,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_lime_handle",
-      "y": 180
-    },
-    "color=lime,facing=east,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_lime",
-      "y": 270
-    },
-    "color=lime,facing=east,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_lime",
-      "y": 270
-    },
-    "color=lime,facing=east,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_lime_tray",
-      "y": 270
-    },
-    "color=lime,facing=east,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_lime_tray",
-      "y": 270
-    },
-    "color=lime,facing=east,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_lime_handle",
-      "y": 270
-    },
-    "color=lime,facing=east,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_lime_handle",
-      "y": 270
-    },
-    "color=pink,facing=south,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_pink"
-    },
-    "color=pink,facing=south,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_pink"
-    },
-    "color=pink,facing=south,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_pink_tray"
-    },
-    "color=pink,facing=south,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_pink_tray"
-    },
-    "color=pink,facing=south,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_pink_handle"
-    },
-    "color=pink,facing=south,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_pink_handle"
-    },
-    "color=pink,facing=west,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_pink",
-      "y": 90
-    },
-    "color=pink,facing=west,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_pink",
-      "y": 90
-    },
-    "color=pink,facing=west,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_pink_tray",
-      "y": 90
-    },
-    "color=pink,facing=west,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_pink_tray",
-      "y": 90
-    },
-    "color=pink,facing=west,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_pink_handle",
-      "y": 90
-    },
-    "color=pink,facing=west,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_pink_handle",
-      "y": 90
-    },
-    "color=pink,facing=north,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_pink",
-      "y": 180
-    },
-    "color=pink,facing=north,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_pink",
-      "y": 180
-    },
-    "color=pink,facing=north,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_pink_tray",
-      "y": 180
-    },
-    "color=pink,facing=north,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_pink_tray",
-      "y": 180
-    },
-    "color=pink,facing=north,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_pink_handle",
-      "y": 180
-    },
-    "color=pink,facing=north,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_pink_handle",
-      "y": 180
-    },
-    "color=pink,facing=east,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_pink",
-      "y": 270
-    },
-    "color=pink,facing=east,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_pink",
-      "y": 270
-    },
-    "color=pink,facing=east,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_pink_tray",
-      "y": 270
-    },
-    "color=pink,facing=east,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_pink_tray",
-      "y": 270
-    },
-    "color=pink,facing=east,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_pink_handle",
-      "y": 270
-    },
-    "color=pink,facing=east,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_pink_handle",
-      "y": 270
-    },
-    "color=gray,facing=south,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_gray"
-    },
-    "color=gray,facing=south,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_gray"
-    },
-    "color=gray,facing=south,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_gray_tray"
-    },
-    "color=gray,facing=south,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_gray_tray"
-    },
-    "color=gray,facing=south,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_gray_handle"
-    },
-    "color=gray,facing=south,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_gray_handle"
-    },
-    "color=gray,facing=west,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_gray",
-      "y": 90
-    },
-    "color=gray,facing=west,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_gray",
-      "y": 90
-    },
-    "color=gray,facing=west,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_gray_tray",
-      "y": 90
-    },
-    "color=gray,facing=west,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_gray_tray",
-      "y": 90
-    },
-    "color=gray,facing=west,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_gray_handle",
-      "y": 90
-    },
-    "color=gray,facing=west,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_gray_handle",
-      "y": 90
-    },
-    "color=gray,facing=north,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_gray",
-      "y": 180
-    },
-    "color=gray,facing=north,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_gray",
-      "y": 180
-    },
-    "color=gray,facing=north,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_gray_tray",
-      "y": 180
-    },
-    "color=gray,facing=north,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_gray_tray",
-      "y": 180
-    },
-    "color=gray,facing=north,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_gray_handle",
-      "y": 180
-    },
-    "color=gray,facing=north,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_gray_handle",
-      "y": 180
-    },
-    "color=gray,facing=east,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_gray",
-      "y": 270
-    },
-    "color=gray,facing=east,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_gray",
-      "y": 270
-    },
-    "color=gray,facing=east,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_gray_tray",
-      "y": 270
-    },
-    "color=gray,facing=east,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_gray_tray",
-      "y": 270
-    },
-    "color=gray,facing=east,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_gray_handle",
-      "y": 270
-    },
-    "color=gray,facing=east,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_gray_handle",
-      "y": 270
-    },
-    "color=light_gray,facing=south,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray"
-    },
-    "color=light_gray,facing=south,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray"
-    },
-    "color=light_gray,facing=south,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_tray"
-    },
-    "color=light_gray,facing=south,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_tray"
-    },
-    "color=light_gray,facing=south,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_handle"
-    },
-    "color=light_gray,facing=south,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_handle"
-    },
-    "color=light_gray,facing=west,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray",
-      "y": 90
-    },
-    "color=light_gray,facing=west,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray",
-      "y": 90
-    },
-    "color=light_gray,facing=west,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_tray",
-      "y": 90
-    },
-    "color=light_gray,facing=west,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_tray",
-      "y": 90
-    },
-    "color=light_gray,facing=west,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_handle",
-      "y": 90
-    },
-    "color=light_gray,facing=west,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_handle",
-      "y": 90
-    },
-    "color=light_gray,facing=north,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray",
-      "y": 180
-    },
-    "color=light_gray,facing=north,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray",
-      "y": 180
-    },
-    "color=light_gray,facing=north,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_tray",
-      "y": 180
-    },
-    "color=light_gray,facing=north,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_tray",
-      "y": 180
-    },
-    "color=light_gray,facing=north,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_handle",
-      "y": 180
-    },
-    "color=light_gray,facing=north,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_handle",
-      "y": 180
-    },
-    "color=light_gray,facing=east,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray",
-      "y": 270
-    },
-    "color=light_gray,facing=east,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray",
-      "y": 270
-    },
-    "color=light_gray,facing=east,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_tray",
-      "y": 270
-    },
-    "color=light_gray,facing=east,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_tray",
-      "y": 270
-    },
-    "color=light_gray,facing=east,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_handle",
-      "y": 270
-    },
-    "color=light_gray,facing=east,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_handle",
-      "y": 270
-    },
-    "color=cyan,facing=south,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_cyan"
-    },
-    "color=cyan,facing=south,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_cyan"
-    },
-    "color=cyan,facing=south,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_tray"
-    },
-    "color=cyan,facing=south,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_tray"
-    },
-    "color=cyan,facing=south,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_handle"
-    },
-    "color=cyan,facing=south,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_handle"
-    },
-    "color=cyan,facing=west,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_cyan",
-      "y": 90
-    },
-    "color=cyan,facing=west,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_cyan",
-      "y": 90
-    },
-    "color=cyan,facing=west,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_tray",
-      "y": 90
-    },
-    "color=cyan,facing=west,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_tray",
-      "y": 90
-    },
-    "color=cyan,facing=west,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_handle",
-      "y": 90
-    },
-    "color=cyan,facing=west,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_handle",
-      "y": 90
-    },
-    "color=cyan,facing=north,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_cyan",
-      "y": 180
-    },
-    "color=cyan,facing=north,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_cyan",
-      "y": 180
-    },
-    "color=cyan,facing=north,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_tray",
-      "y": 180
-    },
-    "color=cyan,facing=north,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_tray",
-      "y": 180
-    },
-    "color=cyan,facing=north,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_handle",
-      "y": 180
-    },
-    "color=cyan,facing=north,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_handle",
-      "y": 180
-    },
-    "color=cyan,facing=east,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_cyan",
-      "y": 270
-    },
-    "color=cyan,facing=east,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_cyan",
-      "y": 270
-    },
-    "color=cyan,facing=east,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_tray",
-      "y": 270
-    },
-    "color=cyan,facing=east,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_tray",
-      "y": 270
-    },
-    "color=cyan,facing=east,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_handle",
-      "y": 270
-    },
-    "color=cyan,facing=east,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_handle",
-      "y": 270
-    },
-    "color=purple,facing=south,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_purple"
-    },
-    "color=purple,facing=south,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_purple"
-    },
-    "color=purple,facing=south,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_purple_tray"
-    },
-    "color=purple,facing=south,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_purple_tray"
-    },
-    "color=purple,facing=south,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_purple_handle"
-    },
-    "color=purple,facing=south,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_purple_handle"
-    },
-    "color=purple,facing=west,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_purple",
-      "y": 90
-    },
-    "color=purple,facing=west,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_purple",
-      "y": 90
-    },
-    "color=purple,facing=west,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_purple_tray",
-      "y": 90
-    },
-    "color=purple,facing=west,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_purple_tray",
-      "y": 90
-    },
-    "color=purple,facing=west,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_purple_handle",
-      "y": 90
-    },
-    "color=purple,facing=west,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_purple_handle",
-      "y": 90
-    },
-    "color=purple,facing=north,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_purple",
-      "y": 180
-    },
-    "color=purple,facing=north,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_purple",
-      "y": 180
-    },
-    "color=purple,facing=north,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_purple_tray",
-      "y": 180
-    },
-    "color=purple,facing=north,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_purple_tray",
-      "y": 180
-    },
-    "color=purple,facing=north,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_purple_handle",
-      "y": 180
-    },
-    "color=purple,facing=north,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_purple_handle",
-      "y": 180
-    },
-    "color=purple,facing=east,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_purple",
-      "y": 270
-    },
-    "color=purple,facing=east,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_purple",
-      "y": 270
-    },
-    "color=purple,facing=east,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_purple_tray",
-      "y": 270
-    },
-    "color=purple,facing=east,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_purple_tray",
-      "y": 270
-    },
-    "color=purple,facing=east,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_purple_handle",
-      "y": 270
-    },
-    "color=purple,facing=east,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_purple_handle",
-      "y": 270
-    },
-    "color=blue,facing=south,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_blue"
-    },
-    "color=blue,facing=south,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_blue"
-    },
-    "color=blue,facing=south,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_blue_tray"
-    },
-    "color=blue,facing=south,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_blue_tray"
-    },
-    "color=blue,facing=south,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_blue_handle"
-    },
-    "color=blue,facing=south,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_blue_handle"
-    },
-    "color=blue,facing=west,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_blue",
-      "y": 90
-    },
-    "color=blue,facing=west,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_blue",
-      "y": 90
-    },
-    "color=blue,facing=west,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_blue_tray",
-      "y": 90
-    },
-    "color=blue,facing=west,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_blue_tray",
-      "y": 90
-    },
-    "color=blue,facing=west,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_blue_handle",
-      "y": 90
-    },
-    "color=blue,facing=west,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_blue_handle",
-      "y": 90
-    },
-    "color=blue,facing=north,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_blue",
-      "y": 180
-    },
-    "color=blue,facing=north,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_blue",
-      "y": 180
-    },
-    "color=blue,facing=north,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_blue_tray",
-      "y": 180
-    },
-    "color=blue,facing=north,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_blue_tray",
-      "y": 180
-    },
-    "color=blue,facing=north,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_blue_handle",
-      "y": 180
-    },
-    "color=blue,facing=north,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_blue_handle",
-      "y": 180
-    },
-    "color=blue,facing=east,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_blue",
-      "y": 270
-    },
-    "color=blue,facing=east,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_blue",
-      "y": 270
-    },
-    "color=blue,facing=east,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_blue_tray",
-      "y": 270
-    },
-    "color=blue,facing=east,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_blue_tray",
-      "y": 270
-    },
-    "color=blue,facing=east,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_blue_handle",
-      "y": 270
-    },
-    "color=blue,facing=east,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_blue_handle",
-      "y": 270
-    },
-    "color=brown,facing=south,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_brown"
-    },
-    "color=brown,facing=south,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_brown"
-    },
-    "color=brown,facing=south,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_brown_tray"
-    },
-    "color=brown,facing=south,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_brown_tray"
-    },
-    "color=brown,facing=south,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_brown_handle"
-    },
-    "color=brown,facing=south,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_brown_handle"
-    },
-    "color=brown,facing=west,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_brown",
-      "y": 90
-    },
-    "color=brown,facing=west,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_brown",
-      "y": 90
-    },
-    "color=brown,facing=west,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_brown_tray",
-      "y": 90
-    },
-    "color=brown,facing=west,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_brown_tray",
-      "y": 90
-    },
-    "color=brown,facing=west,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_brown_handle",
-      "y": 90
-    },
-    "color=brown,facing=west,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_brown_handle",
-      "y": 90
-    },
-    "color=brown,facing=north,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_brown",
-      "y": 180
-    },
-    "color=brown,facing=north,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_brown",
-      "y": 180
-    },
-    "color=brown,facing=north,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_brown_tray",
-      "y": 180
-    },
-    "color=brown,facing=north,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_brown_tray",
-      "y": 180
-    },
-    "color=brown,facing=north,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_brown_handle",
-      "y": 180
-    },
-    "color=brown,facing=north,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_brown_handle",
-      "y": 180
-    },
-    "color=brown,facing=east,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_brown",
-      "y": 270
-    },
-    "color=brown,facing=east,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_brown",
-      "y": 270
-    },
-    "color=brown,facing=east,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_brown_tray",
-      "y": 270
-    },
-    "color=brown,facing=east,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_brown_tray",
-      "y": 270
-    },
-    "color=brown,facing=east,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_brown_handle",
-      "y": 270
-    },
-    "color=brown,facing=east,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_brown_handle",
-      "y": 270
-    },
-    "color=green,facing=south,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_green"
-    },
-    "color=green,facing=south,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_green"
-    },
-    "color=green,facing=south,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_green_tray"
-    },
-    "color=green,facing=south,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_green_tray"
-    },
-    "color=green,facing=south,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_green_handle"
-    },
-    "color=green,facing=south,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_green_handle"
-    },
-    "color=green,facing=west,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_green",
-      "y": 90
-    },
-    "color=green,facing=west,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_green",
-      "y": 90
-    },
-    "color=green,facing=west,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_green_tray",
-      "y": 90
-    },
-    "color=green,facing=west,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_green_tray",
-      "y": 90
-    },
-    "color=green,facing=west,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_green_handle",
-      "y": 90
-    },
-    "color=green,facing=west,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_green_handle",
-      "y": 90
-    },
-    "color=green,facing=north,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_green",
-      "y": 180
-    },
-    "color=green,facing=north,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_green",
-      "y": 180
-    },
-    "color=green,facing=north,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_green_tray",
-      "y": 180
-    },
-    "color=green,facing=north,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_green_tray",
-      "y": 180
-    },
-    "color=green,facing=north,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_green_handle",
-      "y": 180
-    },
-    "color=green,facing=north,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_green_handle",
-      "y": 180
-    },
-    "color=green,facing=east,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_green",
-      "y": 270
-    },
-    "color=green,facing=east,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_green",
-      "y": 270
-    },
-    "color=green,facing=east,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_green_tray",
-      "y": 270
-    },
-    "color=green,facing=east,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_green_tray",
-      "y": 270
-    },
-    "color=green,facing=east,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_green_handle",
-      "y": 270
-    },
-    "color=green,facing=east,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_green_handle",
-      "y": 270
-    },
-    "color=red,facing=south,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_red"
-    },
-    "color=red,facing=south,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_red"
-    },
-    "color=red,facing=south,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_red_tray"
-    },
-    "color=red,facing=south,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_red_tray"
-    },
-    "color=red,facing=south,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_red_handle"
-    },
-    "color=red,facing=south,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_red_handle"
-    },
-    "color=red,facing=west,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_red",
-      "y": 90
-    },
-    "color=red,facing=west,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_red",
-      "y": 90
-    },
-    "color=red,facing=west,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_red_tray",
-      "y": 90
-    },
-    "color=red,facing=west,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_red_tray",
-      "y": 90
-    },
-    "color=red,facing=west,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_red_handle",
-      "y": 90
-    },
-    "color=red,facing=west,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_red_handle",
-      "y": 90
-    },
-    "color=red,facing=north,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_red",
-      "y": 180
-    },
-    "color=red,facing=north,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_red",
-      "y": 180
-    },
-    "color=red,facing=north,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_red_tray",
-      "y": 180
-    },
-    "color=red,facing=north,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_red_tray",
-      "y": 180
-    },
-    "color=red,facing=north,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_red_handle",
-      "y": 180
-    },
-    "color=red,facing=north,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_red_handle",
-      "y": 180
-    },
-    "color=red,facing=east,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_red",
-      "y": 270
-    },
-    "color=red,facing=east,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_red",
-      "y": 270
-    },
-    "color=red,facing=east,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_red_tray",
-      "y": 270
-    },
-    "color=red,facing=east,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_red_tray",
-      "y": 270
-    },
-    "color=red,facing=east,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_red_handle",
-      "y": 270
-    },
-    "color=red,facing=east,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_red_handle",
-      "y": 270
-    },
-    "color=black,facing=south,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_black"
-    },
-    "color=black,facing=south,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_black"
-    },
-    "color=black,facing=south,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_black_tray"
-    },
-    "color=black,facing=south,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_black_tray"
-    },
-    "color=black,facing=south,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_black_handle"
-    },
-    "color=black,facing=south,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_black_handle"
-    },
-    "color=black,facing=west,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_black",
-      "y": 90
-    },
-    "color=black,facing=west,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_black",
-      "y": 90
-    },
-    "color=black,facing=west,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_black_tray",
-      "y": 90
-    },
-    "color=black,facing=west,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_black_tray",
-      "y": 90
-    },
-    "color=black,facing=west,support=handle,waterlogged=false": {
+    "color=black,facing=east,support=handle,waterlogged=false": {
       "model": "farmersassortment:block/terracotta_cooking_pot_black_handle",
-      "y": 90
+      "y": 270
     },
-    "color=black,facing=west,support=handle,waterlogged=true": {
+    "color=black,facing=east,support=handle,waterlogged=true": {
       "model": "farmersassortment:block/terracotta_cooking_pot_black_handle",
-      "y": 90
-    },
-    "color=black,facing=north,support=none,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_black",
-      "y": 180
-    },
-    "color=black,facing=north,support=none,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_black",
-      "y": 180
-    },
-    "color=black,facing=north,support=tray,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_black_tray",
-      "y": 180
-    },
-    "color=black,facing=north,support=tray,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_black_tray",
-      "y": 180
-    },
-    "color=black,facing=north,support=handle,waterlogged=false": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_black_handle",
-      "y": 180
-    },
-    "color=black,facing=north,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_black_handle",
-      "y": 180
+      "y": 270
     },
     "color=black,facing=east,support=none,waterlogged=false": {
       "model": "farmersassortment:block/terracotta_cooking_pot_black",
@@ -1522,13 +24,1511 @@
       "model": "farmersassortment:block/terracotta_cooking_pot_black_tray",
       "y": 270
     },
-    "color=black,facing=east,support=handle,waterlogged=false": {
+    "color=black,facing=north,support=handle,waterlogged=false": {
       "model": "farmersassortment:block/terracotta_cooking_pot_black_handle",
+      "y": 180
+    },
+    "color=black,facing=north,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_black_handle",
+      "y": 180
+    },
+    "color=black,facing=north,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_black",
+      "y": 180
+    },
+    "color=black,facing=north,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_black",
+      "y": 180
+    },
+    "color=black,facing=north,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_black_tray",
+      "y": 180
+    },
+    "color=black,facing=north,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_black_tray",
+      "y": 180
+    },
+    "color=black,facing=south,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_black_handle"
+    },
+    "color=black,facing=south,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_black_handle"
+    },
+    "color=black,facing=south,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_black"
+    },
+    "color=black,facing=south,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_black"
+    },
+    "color=black,facing=south,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_black_tray"
+    },
+    "color=black,facing=south,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_black_tray"
+    },
+    "color=black,facing=west,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_black_handle",
+      "y": 90
+    },
+    "color=black,facing=west,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_black_handle",
+      "y": 90
+    },
+    "color=black,facing=west,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_black",
+      "y": 90
+    },
+    "color=black,facing=west,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_black",
+      "y": 90
+    },
+    "color=black,facing=west,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_black_tray",
+      "y": 90
+    },
+    "color=black,facing=west,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_black_tray",
+      "y": 90
+    },
+    "color=blue,facing=east,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_blue_handle",
       "y": 270
     },
-    "color=black,facing=east,support=handle,waterlogged=true": {
-      "model": "farmersassortment:block/terracotta_cooking_pot_black_handle",
+    "color=blue,facing=east,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_blue_handle",
       "y": 270
+    },
+    "color=blue,facing=east,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_blue",
+      "y": 270
+    },
+    "color=blue,facing=east,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_blue",
+      "y": 270
+    },
+    "color=blue,facing=east,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_blue_tray",
+      "y": 270
+    },
+    "color=blue,facing=east,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_blue_tray",
+      "y": 270
+    },
+    "color=blue,facing=north,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_blue_handle",
+      "y": 180
+    },
+    "color=blue,facing=north,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_blue_handle",
+      "y": 180
+    },
+    "color=blue,facing=north,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_blue",
+      "y": 180
+    },
+    "color=blue,facing=north,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_blue",
+      "y": 180
+    },
+    "color=blue,facing=north,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_blue_tray",
+      "y": 180
+    },
+    "color=blue,facing=north,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_blue_tray",
+      "y": 180
+    },
+    "color=blue,facing=south,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_blue_handle"
+    },
+    "color=blue,facing=south,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_blue_handle"
+    },
+    "color=blue,facing=south,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_blue"
+    },
+    "color=blue,facing=south,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_blue"
+    },
+    "color=blue,facing=south,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_blue_tray"
+    },
+    "color=blue,facing=south,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_blue_tray"
+    },
+    "color=blue,facing=west,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_blue_handle",
+      "y": 90
+    },
+    "color=blue,facing=west,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_blue_handle",
+      "y": 90
+    },
+    "color=blue,facing=west,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_blue",
+      "y": 90
+    },
+    "color=blue,facing=west,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_blue",
+      "y": 90
+    },
+    "color=blue,facing=west,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_blue_tray",
+      "y": 90
+    },
+    "color=blue,facing=west,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_blue_tray",
+      "y": 90
+    },
+    "color=brown,facing=east,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_brown_handle",
+      "y": 270
+    },
+    "color=brown,facing=east,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_brown_handle",
+      "y": 270
+    },
+    "color=brown,facing=east,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_brown",
+      "y": 270
+    },
+    "color=brown,facing=east,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_brown",
+      "y": 270
+    },
+    "color=brown,facing=east,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_brown_tray",
+      "y": 270
+    },
+    "color=brown,facing=east,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_brown_tray",
+      "y": 270
+    },
+    "color=brown,facing=north,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_brown_handle",
+      "y": 180
+    },
+    "color=brown,facing=north,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_brown_handle",
+      "y": 180
+    },
+    "color=brown,facing=north,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_brown",
+      "y": 180
+    },
+    "color=brown,facing=north,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_brown",
+      "y": 180
+    },
+    "color=brown,facing=north,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_brown_tray",
+      "y": 180
+    },
+    "color=brown,facing=north,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_brown_tray",
+      "y": 180
+    },
+    "color=brown,facing=south,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_brown_handle"
+    },
+    "color=brown,facing=south,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_brown_handle"
+    },
+    "color=brown,facing=south,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_brown"
+    },
+    "color=brown,facing=south,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_brown"
+    },
+    "color=brown,facing=south,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_brown_tray"
+    },
+    "color=brown,facing=south,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_brown_tray"
+    },
+    "color=brown,facing=west,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_brown_handle",
+      "y": 90
+    },
+    "color=brown,facing=west,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_brown_handle",
+      "y": 90
+    },
+    "color=brown,facing=west,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_brown",
+      "y": 90
+    },
+    "color=brown,facing=west,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_brown",
+      "y": 90
+    },
+    "color=brown,facing=west,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_brown_tray",
+      "y": 90
+    },
+    "color=brown,facing=west,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_brown_tray",
+      "y": 90
+    },
+    "color=cyan,facing=east,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_handle",
+      "y": 270
+    },
+    "color=cyan,facing=east,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_handle",
+      "y": 270
+    },
+    "color=cyan,facing=east,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_cyan",
+      "y": 270
+    },
+    "color=cyan,facing=east,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_cyan",
+      "y": 270
+    },
+    "color=cyan,facing=east,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_tray",
+      "y": 270
+    },
+    "color=cyan,facing=east,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_tray",
+      "y": 270
+    },
+    "color=cyan,facing=north,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_handle",
+      "y": 180
+    },
+    "color=cyan,facing=north,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_handle",
+      "y": 180
+    },
+    "color=cyan,facing=north,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_cyan",
+      "y": 180
+    },
+    "color=cyan,facing=north,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_cyan",
+      "y": 180
+    },
+    "color=cyan,facing=north,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_tray",
+      "y": 180
+    },
+    "color=cyan,facing=north,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_tray",
+      "y": 180
+    },
+    "color=cyan,facing=south,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_handle"
+    },
+    "color=cyan,facing=south,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_handle"
+    },
+    "color=cyan,facing=south,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_cyan"
+    },
+    "color=cyan,facing=south,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_cyan"
+    },
+    "color=cyan,facing=south,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_tray"
+    },
+    "color=cyan,facing=south,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_tray"
+    },
+    "color=cyan,facing=west,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_handle",
+      "y": 90
+    },
+    "color=cyan,facing=west,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_handle",
+      "y": 90
+    },
+    "color=cyan,facing=west,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_cyan",
+      "y": 90
+    },
+    "color=cyan,facing=west,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_cyan",
+      "y": 90
+    },
+    "color=cyan,facing=west,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_tray",
+      "y": 90
+    },
+    "color=cyan,facing=west,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_cyan_tray",
+      "y": 90
+    },
+    "color=gray,facing=east,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_gray_handle",
+      "y": 270
+    },
+    "color=gray,facing=east,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_gray_handle",
+      "y": 270
+    },
+    "color=gray,facing=east,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_gray",
+      "y": 270
+    },
+    "color=gray,facing=east,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_gray",
+      "y": 270
+    },
+    "color=gray,facing=east,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_gray_tray",
+      "y": 270
+    },
+    "color=gray,facing=east,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_gray_tray",
+      "y": 270
+    },
+    "color=gray,facing=north,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_gray_handle",
+      "y": 180
+    },
+    "color=gray,facing=north,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_gray_handle",
+      "y": 180
+    },
+    "color=gray,facing=north,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_gray",
+      "y": 180
+    },
+    "color=gray,facing=north,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_gray",
+      "y": 180
+    },
+    "color=gray,facing=north,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_gray_tray",
+      "y": 180
+    },
+    "color=gray,facing=north,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_gray_tray",
+      "y": 180
+    },
+    "color=gray,facing=south,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_gray_handle"
+    },
+    "color=gray,facing=south,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_gray_handle"
+    },
+    "color=gray,facing=south,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_gray"
+    },
+    "color=gray,facing=south,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_gray"
+    },
+    "color=gray,facing=south,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_gray_tray"
+    },
+    "color=gray,facing=south,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_gray_tray"
+    },
+    "color=gray,facing=west,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_gray_handle",
+      "y": 90
+    },
+    "color=gray,facing=west,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_gray_handle",
+      "y": 90
+    },
+    "color=gray,facing=west,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_gray",
+      "y": 90
+    },
+    "color=gray,facing=west,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_gray",
+      "y": 90
+    },
+    "color=gray,facing=west,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_gray_tray",
+      "y": 90
+    },
+    "color=gray,facing=west,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_gray_tray",
+      "y": 90
+    },
+    "color=green,facing=east,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_green_handle",
+      "y": 270
+    },
+    "color=green,facing=east,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_green_handle",
+      "y": 270
+    },
+    "color=green,facing=east,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_green",
+      "y": 270
+    },
+    "color=green,facing=east,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_green",
+      "y": 270
+    },
+    "color=green,facing=east,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_green_tray",
+      "y": 270
+    },
+    "color=green,facing=east,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_green_tray",
+      "y": 270
+    },
+    "color=green,facing=north,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_green_handle",
+      "y": 180
+    },
+    "color=green,facing=north,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_green_handle",
+      "y": 180
+    },
+    "color=green,facing=north,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_green",
+      "y": 180
+    },
+    "color=green,facing=north,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_green",
+      "y": 180
+    },
+    "color=green,facing=north,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_green_tray",
+      "y": 180
+    },
+    "color=green,facing=north,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_green_tray",
+      "y": 180
+    },
+    "color=green,facing=south,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_green_handle"
+    },
+    "color=green,facing=south,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_green_handle"
+    },
+    "color=green,facing=south,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_green"
+    },
+    "color=green,facing=south,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_green"
+    },
+    "color=green,facing=south,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_green_tray"
+    },
+    "color=green,facing=south,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_green_tray"
+    },
+    "color=green,facing=west,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_green_handle",
+      "y": 90
+    },
+    "color=green,facing=west,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_green_handle",
+      "y": 90
+    },
+    "color=green,facing=west,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_green",
+      "y": 90
+    },
+    "color=green,facing=west,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_green",
+      "y": 90
+    },
+    "color=green,facing=west,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_green_tray",
+      "y": 90
+    },
+    "color=green,facing=west,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_green_tray",
+      "y": 90
+    },
+    "color=light_blue,facing=east,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_handle",
+      "y": 270
+    },
+    "color=light_blue,facing=east,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_handle",
+      "y": 270
+    },
+    "color=light_blue,facing=east,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue",
+      "y": 270
+    },
+    "color=light_blue,facing=east,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue",
+      "y": 270
+    },
+    "color=light_blue,facing=east,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_tray",
+      "y": 270
+    },
+    "color=light_blue,facing=east,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_tray",
+      "y": 270
+    },
+    "color=light_blue,facing=north,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_handle",
+      "y": 180
+    },
+    "color=light_blue,facing=north,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_handle",
+      "y": 180
+    },
+    "color=light_blue,facing=north,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue",
+      "y": 180
+    },
+    "color=light_blue,facing=north,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue",
+      "y": 180
+    },
+    "color=light_blue,facing=north,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_tray",
+      "y": 180
+    },
+    "color=light_blue,facing=north,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_tray",
+      "y": 180
+    },
+    "color=light_blue,facing=south,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_handle"
+    },
+    "color=light_blue,facing=south,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_handle"
+    },
+    "color=light_blue,facing=south,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue"
+    },
+    "color=light_blue,facing=south,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue"
+    },
+    "color=light_blue,facing=south,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_tray"
+    },
+    "color=light_blue,facing=south,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_tray"
+    },
+    "color=light_blue,facing=west,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_handle",
+      "y": 90
+    },
+    "color=light_blue,facing=west,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_handle",
+      "y": 90
+    },
+    "color=light_blue,facing=west,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue",
+      "y": 90
+    },
+    "color=light_blue,facing=west,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue",
+      "y": 90
+    },
+    "color=light_blue,facing=west,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_tray",
+      "y": 90
+    },
+    "color=light_blue,facing=west,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_blue_tray",
+      "y": 90
+    },
+    "color=light_gray,facing=east,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_handle",
+      "y": 270
+    },
+    "color=light_gray,facing=east,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_handle",
+      "y": 270
+    },
+    "color=light_gray,facing=east,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray",
+      "y": 270
+    },
+    "color=light_gray,facing=east,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray",
+      "y": 270
+    },
+    "color=light_gray,facing=east,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_tray",
+      "y": 270
+    },
+    "color=light_gray,facing=east,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_tray",
+      "y": 270
+    },
+    "color=light_gray,facing=north,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_handle",
+      "y": 180
+    },
+    "color=light_gray,facing=north,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_handle",
+      "y": 180
+    },
+    "color=light_gray,facing=north,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray",
+      "y": 180
+    },
+    "color=light_gray,facing=north,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray",
+      "y": 180
+    },
+    "color=light_gray,facing=north,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_tray",
+      "y": 180
+    },
+    "color=light_gray,facing=north,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_tray",
+      "y": 180
+    },
+    "color=light_gray,facing=south,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_handle"
+    },
+    "color=light_gray,facing=south,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_handle"
+    },
+    "color=light_gray,facing=south,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray"
+    },
+    "color=light_gray,facing=south,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray"
+    },
+    "color=light_gray,facing=south,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_tray"
+    },
+    "color=light_gray,facing=south,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_tray"
+    },
+    "color=light_gray,facing=west,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_handle",
+      "y": 90
+    },
+    "color=light_gray,facing=west,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_handle",
+      "y": 90
+    },
+    "color=light_gray,facing=west,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray",
+      "y": 90
+    },
+    "color=light_gray,facing=west,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray",
+      "y": 90
+    },
+    "color=light_gray,facing=west,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_tray",
+      "y": 90
+    },
+    "color=light_gray,facing=west,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_light_gray_tray",
+      "y": 90
+    },
+    "color=lime,facing=east,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_lime_handle",
+      "y": 270
+    },
+    "color=lime,facing=east,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_lime_handle",
+      "y": 270
+    },
+    "color=lime,facing=east,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_lime",
+      "y": 270
+    },
+    "color=lime,facing=east,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_lime",
+      "y": 270
+    },
+    "color=lime,facing=east,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_lime_tray",
+      "y": 270
+    },
+    "color=lime,facing=east,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_lime_tray",
+      "y": 270
+    },
+    "color=lime,facing=north,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_lime_handle",
+      "y": 180
+    },
+    "color=lime,facing=north,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_lime_handle",
+      "y": 180
+    },
+    "color=lime,facing=north,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_lime",
+      "y": 180
+    },
+    "color=lime,facing=north,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_lime",
+      "y": 180
+    },
+    "color=lime,facing=north,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_lime_tray",
+      "y": 180
+    },
+    "color=lime,facing=north,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_lime_tray",
+      "y": 180
+    },
+    "color=lime,facing=south,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_lime_handle"
+    },
+    "color=lime,facing=south,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_lime_handle"
+    },
+    "color=lime,facing=south,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_lime"
+    },
+    "color=lime,facing=south,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_lime"
+    },
+    "color=lime,facing=south,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_lime_tray"
+    },
+    "color=lime,facing=south,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_lime_tray"
+    },
+    "color=lime,facing=west,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_lime_handle",
+      "y": 90
+    },
+    "color=lime,facing=west,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_lime_handle",
+      "y": 90
+    },
+    "color=lime,facing=west,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_lime",
+      "y": 90
+    },
+    "color=lime,facing=west,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_lime",
+      "y": 90
+    },
+    "color=lime,facing=west,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_lime_tray",
+      "y": 90
+    },
+    "color=lime,facing=west,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_lime_tray",
+      "y": 90
+    },
+    "color=magenta,facing=east,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_handle",
+      "y": 270
+    },
+    "color=magenta,facing=east,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_handle",
+      "y": 270
+    },
+    "color=magenta,facing=east,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_magenta",
+      "y": 270
+    },
+    "color=magenta,facing=east,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_magenta",
+      "y": 270
+    },
+    "color=magenta,facing=east,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_tray",
+      "y": 270
+    },
+    "color=magenta,facing=east,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_tray",
+      "y": 270
+    },
+    "color=magenta,facing=north,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_handle",
+      "y": 180
+    },
+    "color=magenta,facing=north,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_handle",
+      "y": 180
+    },
+    "color=magenta,facing=north,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_magenta",
+      "y": 180
+    },
+    "color=magenta,facing=north,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_magenta",
+      "y": 180
+    },
+    "color=magenta,facing=north,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_tray",
+      "y": 180
+    },
+    "color=magenta,facing=north,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_tray",
+      "y": 180
+    },
+    "color=magenta,facing=south,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_handle"
+    },
+    "color=magenta,facing=south,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_handle"
+    },
+    "color=magenta,facing=south,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_magenta"
+    },
+    "color=magenta,facing=south,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_magenta"
+    },
+    "color=magenta,facing=south,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_tray"
+    },
+    "color=magenta,facing=south,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_tray"
+    },
+    "color=magenta,facing=west,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_handle",
+      "y": 90
+    },
+    "color=magenta,facing=west,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_handle",
+      "y": 90
+    },
+    "color=magenta,facing=west,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_magenta",
+      "y": 90
+    },
+    "color=magenta,facing=west,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_magenta",
+      "y": 90
+    },
+    "color=magenta,facing=west,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_tray",
+      "y": 90
+    },
+    "color=magenta,facing=west,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_magenta_tray",
+      "y": 90
+    },
+    "color=none,facing=east,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_handle",
+      "y": 270
+    },
+    "color=none,facing=east,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_handle",
+      "y": 270
+    },
+    "color=none,facing=east,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot",
+      "y": 270
+    },
+    "color=none,facing=east,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot",
+      "y": 270
+    },
+    "color=none,facing=east,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_tray",
+      "y": 270
+    },
+    "color=none,facing=east,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_tray",
+      "y": 270
+    },
+    "color=none,facing=north,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_handle",
+      "y": 180
+    },
+    "color=none,facing=north,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_handle",
+      "y": 180
+    },
+    "color=none,facing=north,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot",
+      "y": 180
+    },
+    "color=none,facing=north,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot",
+      "y": 180
+    },
+    "color=none,facing=north,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_tray",
+      "y": 180
+    },
+    "color=none,facing=north,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_tray",
+      "y": 180
+    },
+    "color=none,facing=south,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_handle"
+    },
+    "color=none,facing=south,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_handle"
+    },
+    "color=none,facing=south,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot"
+    },
+    "color=none,facing=south,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot"
+    },
+    "color=none,facing=south,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_tray"
+    },
+    "color=none,facing=south,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_tray"
+    },
+    "color=none,facing=west,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_handle",
+      "y": 90
+    },
+    "color=none,facing=west,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_handle",
+      "y": 90
+    },
+    "color=none,facing=west,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot",
+      "y": 90
+    },
+    "color=none,facing=west,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot",
+      "y": 90
+    },
+    "color=none,facing=west,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_tray",
+      "y": 90
+    },
+    "color=none,facing=west,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_tray",
+      "y": 90
+    },
+    "color=orange,facing=east,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_orange_handle",
+      "y": 270
+    },
+    "color=orange,facing=east,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_orange_handle",
+      "y": 270
+    },
+    "color=orange,facing=east,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_orange",
+      "y": 270
+    },
+    "color=orange,facing=east,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_orange",
+      "y": 270
+    },
+    "color=orange,facing=east,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_orange_tray",
+      "y": 270
+    },
+    "color=orange,facing=east,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_orange_tray",
+      "y": 270
+    },
+    "color=orange,facing=north,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_orange_handle",
+      "y": 180
+    },
+    "color=orange,facing=north,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_orange_handle",
+      "y": 180
+    },
+    "color=orange,facing=north,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_orange",
+      "y": 180
+    },
+    "color=orange,facing=north,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_orange",
+      "y": 180
+    },
+    "color=orange,facing=north,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_orange_tray",
+      "y": 180
+    },
+    "color=orange,facing=north,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_orange_tray",
+      "y": 180
+    },
+    "color=orange,facing=south,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_orange_handle"
+    },
+    "color=orange,facing=south,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_orange_handle"
+    },
+    "color=orange,facing=south,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_orange"
+    },
+    "color=orange,facing=south,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_orange"
+    },
+    "color=orange,facing=south,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_orange_tray"
+    },
+    "color=orange,facing=south,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_orange_tray"
+    },
+    "color=orange,facing=west,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_orange_handle",
+      "y": 90
+    },
+    "color=orange,facing=west,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_orange_handle",
+      "y": 90
+    },
+    "color=orange,facing=west,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_orange",
+      "y": 90
+    },
+    "color=orange,facing=west,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_orange",
+      "y": 90
+    },
+    "color=orange,facing=west,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_orange_tray",
+      "y": 90
+    },
+    "color=orange,facing=west,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_orange_tray",
+      "y": 90
+    },
+    "color=pink,facing=east,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_pink_handle",
+      "y": 270
+    },
+    "color=pink,facing=east,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_pink_handle",
+      "y": 270
+    },
+    "color=pink,facing=east,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_pink",
+      "y": 270
+    },
+    "color=pink,facing=east,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_pink",
+      "y": 270
+    },
+    "color=pink,facing=east,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_pink_tray",
+      "y": 270
+    },
+    "color=pink,facing=east,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_pink_tray",
+      "y": 270
+    },
+    "color=pink,facing=north,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_pink_handle",
+      "y": 180
+    },
+    "color=pink,facing=north,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_pink_handle",
+      "y": 180
+    },
+    "color=pink,facing=north,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_pink",
+      "y": 180
+    },
+    "color=pink,facing=north,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_pink",
+      "y": 180
+    },
+    "color=pink,facing=north,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_pink_tray",
+      "y": 180
+    },
+    "color=pink,facing=north,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_pink_tray",
+      "y": 180
+    },
+    "color=pink,facing=south,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_pink_handle"
+    },
+    "color=pink,facing=south,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_pink_handle"
+    },
+    "color=pink,facing=south,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_pink"
+    },
+    "color=pink,facing=south,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_pink"
+    },
+    "color=pink,facing=south,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_pink_tray"
+    },
+    "color=pink,facing=south,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_pink_tray"
+    },
+    "color=pink,facing=west,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_pink_handle",
+      "y": 90
+    },
+    "color=pink,facing=west,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_pink_handle",
+      "y": 90
+    },
+    "color=pink,facing=west,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_pink",
+      "y": 90
+    },
+    "color=pink,facing=west,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_pink",
+      "y": 90
+    },
+    "color=pink,facing=west,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_pink_tray",
+      "y": 90
+    },
+    "color=pink,facing=west,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_pink_tray",
+      "y": 90
+    },
+    "color=purple,facing=east,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_purple_handle",
+      "y": 270
+    },
+    "color=purple,facing=east,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_purple_handle",
+      "y": 270
+    },
+    "color=purple,facing=east,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_purple",
+      "y": 270
+    },
+    "color=purple,facing=east,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_purple",
+      "y": 270
+    },
+    "color=purple,facing=east,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_purple_tray",
+      "y": 270
+    },
+    "color=purple,facing=east,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_purple_tray",
+      "y": 270
+    },
+    "color=purple,facing=north,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_purple_handle",
+      "y": 180
+    },
+    "color=purple,facing=north,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_purple_handle",
+      "y": 180
+    },
+    "color=purple,facing=north,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_purple",
+      "y": 180
+    },
+    "color=purple,facing=north,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_purple",
+      "y": 180
+    },
+    "color=purple,facing=north,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_purple_tray",
+      "y": 180
+    },
+    "color=purple,facing=north,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_purple_tray",
+      "y": 180
+    },
+    "color=purple,facing=south,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_purple_handle"
+    },
+    "color=purple,facing=south,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_purple_handle"
+    },
+    "color=purple,facing=south,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_purple"
+    },
+    "color=purple,facing=south,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_purple"
+    },
+    "color=purple,facing=south,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_purple_tray"
+    },
+    "color=purple,facing=south,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_purple_tray"
+    },
+    "color=purple,facing=west,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_purple_handle",
+      "y": 90
+    },
+    "color=purple,facing=west,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_purple_handle",
+      "y": 90
+    },
+    "color=purple,facing=west,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_purple",
+      "y": 90
+    },
+    "color=purple,facing=west,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_purple",
+      "y": 90
+    },
+    "color=purple,facing=west,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_purple_tray",
+      "y": 90
+    },
+    "color=purple,facing=west,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_purple_tray",
+      "y": 90
+    },
+    "color=red,facing=east,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_red_handle",
+      "y": 270
+    },
+    "color=red,facing=east,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_red_handle",
+      "y": 270
+    },
+    "color=red,facing=east,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_red",
+      "y": 270
+    },
+    "color=red,facing=east,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_red",
+      "y": 270
+    },
+    "color=red,facing=east,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_red_tray",
+      "y": 270
+    },
+    "color=red,facing=east,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_red_tray",
+      "y": 270
+    },
+    "color=red,facing=north,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_red_handle",
+      "y": 180
+    },
+    "color=red,facing=north,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_red_handle",
+      "y": 180
+    },
+    "color=red,facing=north,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_red",
+      "y": 180
+    },
+    "color=red,facing=north,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_red",
+      "y": 180
+    },
+    "color=red,facing=north,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_red_tray",
+      "y": 180
+    },
+    "color=red,facing=north,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_red_tray",
+      "y": 180
+    },
+    "color=red,facing=south,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_red_handle"
+    },
+    "color=red,facing=south,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_red_handle"
+    },
+    "color=red,facing=south,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_red"
+    },
+    "color=red,facing=south,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_red"
+    },
+    "color=red,facing=south,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_red_tray"
+    },
+    "color=red,facing=south,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_red_tray"
+    },
+    "color=red,facing=west,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_red_handle",
+      "y": 90
+    },
+    "color=red,facing=west,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_red_handle",
+      "y": 90
+    },
+    "color=red,facing=west,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_red",
+      "y": 90
+    },
+    "color=red,facing=west,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_red",
+      "y": 90
+    },
+    "color=red,facing=west,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_red_tray",
+      "y": 90
+    },
+    "color=red,facing=west,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_red_tray",
+      "y": 90
+    },
+    "color=white,facing=east,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_white_handle",
+      "y": 270
+    },
+    "color=white,facing=east,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_white_handle",
+      "y": 270
+    },
+    "color=white,facing=east,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_white",
+      "y": 270
+    },
+    "color=white,facing=east,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_white",
+      "y": 270
+    },
+    "color=white,facing=east,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_white_tray",
+      "y": 270
+    },
+    "color=white,facing=east,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_white_tray",
+      "y": 270
+    },
+    "color=white,facing=north,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_white_handle",
+      "y": 180
+    },
+    "color=white,facing=north,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_white_handle",
+      "y": 180
+    },
+    "color=white,facing=north,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_white",
+      "y": 180
+    },
+    "color=white,facing=north,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_white",
+      "y": 180
+    },
+    "color=white,facing=north,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_white_tray",
+      "y": 180
+    },
+    "color=white,facing=north,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_white_tray",
+      "y": 180
+    },
+    "color=white,facing=south,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_white_handle"
+    },
+    "color=white,facing=south,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_white_handle"
+    },
+    "color=white,facing=south,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_white"
+    },
+    "color=white,facing=south,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_white"
+    },
+    "color=white,facing=south,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_white_tray"
+    },
+    "color=white,facing=south,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_white_tray"
+    },
+    "color=white,facing=west,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_white_handle",
+      "y": 90
+    },
+    "color=white,facing=west,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_white_handle",
+      "y": 90
+    },
+    "color=white,facing=west,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_white",
+      "y": 90
+    },
+    "color=white,facing=west,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_white",
+      "y": 90
+    },
+    "color=white,facing=west,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_white_tray",
+      "y": 90
+    },
+    "color=white,facing=west,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_white_tray",
+      "y": 90
+    },
+    "color=yellow,facing=east,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_handle",
+      "y": 270
+    },
+    "color=yellow,facing=east,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_handle",
+      "y": 270
+    },
+    "color=yellow,facing=east,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_yellow",
+      "y": 270
+    },
+    "color=yellow,facing=east,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_yellow",
+      "y": 270
+    },
+    "color=yellow,facing=east,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_tray",
+      "y": 270
+    },
+    "color=yellow,facing=east,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_tray",
+      "y": 270
+    },
+    "color=yellow,facing=north,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_handle",
+      "y": 180
+    },
+    "color=yellow,facing=north,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_handle",
+      "y": 180
+    },
+    "color=yellow,facing=north,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_yellow",
+      "y": 180
+    },
+    "color=yellow,facing=north,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_yellow",
+      "y": 180
+    },
+    "color=yellow,facing=north,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_tray",
+      "y": 180
+    },
+    "color=yellow,facing=north,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_tray",
+      "y": 180
+    },
+    "color=yellow,facing=south,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_handle"
+    },
+    "color=yellow,facing=south,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_handle"
+    },
+    "color=yellow,facing=south,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_yellow"
+    },
+    "color=yellow,facing=south,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_yellow"
+    },
+    "color=yellow,facing=south,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_tray"
+    },
+    "color=yellow,facing=south,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_tray"
+    },
+    "color=yellow,facing=west,support=handle,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_handle",
+      "y": 90
+    },
+    "color=yellow,facing=west,support=handle,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_handle",
+      "y": 90
+    },
+    "color=yellow,facing=west,support=none,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_yellow",
+      "y": 90
+    },
+    "color=yellow,facing=west,support=none,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_yellow",
+      "y": 90
+    },
+    "color=yellow,facing=west,support=tray,waterlogged=false": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_tray",
+      "y": 90
+    },
+    "color=yellow,facing=west,support=tray,waterlogged=true": {
+      "model": "farmersassortment:block/terracotta_cooking_pot_yellow_tray",
+      "y": 90
     }
   }
 }
