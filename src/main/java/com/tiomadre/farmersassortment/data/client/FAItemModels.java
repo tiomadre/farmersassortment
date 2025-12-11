@@ -3,8 +3,10 @@ package com.tiomadre.farmersassortment.data.client;
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import com.tiomadre.farmersassortment.core.registry.FAItems;
+import com.tiomadre.farmersassortment.core.block.state.TerracottaCookingPotColor;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
+import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraft.world.level.block.Block;
@@ -25,7 +27,7 @@ public class FAItemModels extends ItemModelProvider {
         block(FABlocks.COPPER_COOKING_POT);
         block(FABlocks.GOLDEN_COOKING_POT);
         block(FABlocks.ALABASTER_COOKING_POT);
-        block(FABlocks.TERRACOTTA_COOKING_POT);
+        terracottaCookingPot();
         block(FABlocks.ALABASTER_STOVE);
         FABlocks.cuttingBoards().forEach(this::block);
         FABlocks.butcherBlockCabinets().forEach(this::block);
@@ -41,5 +43,20 @@ public class FAItemModels extends ItemModelProvider {
     private void block(RegistryObject<? extends Block> block) {
         String name = Objects.requireNonNull(block.getId()).getPath();
         withExistingParent(name, modLoc("block/" + name));
+    }
+
+    private void terracottaCookingPot() {
+        ItemModelBuilder builder = withExistingParent("terracotta_cooking_pot", modLoc("block/terracotta_cooking_pot"));
+
+        for (TerracottaCookingPotColor color : TerracottaCookingPotColor.values()) {
+            if (color == TerracottaCookingPotColor.NONE) {
+                continue;
+            }
+
+            builder.override()
+                    .predicate(modLoc("color"), (float) color.ordinal())
+                    .model(modLoc("block/" + color.textureName()))
+                    .end();
+        }
     }
 }

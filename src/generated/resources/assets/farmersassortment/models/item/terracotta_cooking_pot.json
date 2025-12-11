@@ -1,3 +1,21 @@
 {
-  "parent": "farmersassortment:block/terracotta_cooking_pot"
+  "parent": "farmersassortment:block/terracotta_cooking_pot",
+  "overrides": [
+    { "predicate": { "farmersassortment:color": 1 }, "model": "farmersassortment:block/terracotta_cooking_pot_white" },
+    { "predicate": { "farmersassortment:color": 2 }, "model": "farmersassortment:block/terracotta_cooking_pot_orange" },
+    { "predicate": { "farmersassortment:color": 3 }, "model": "farmersassortment:block/terracotta_cooking_pot_magenta" },
+    { "predicate": { "farmersassortment:color": 4 }, "model": "farmersassortment:block/terracotta_cooking_pot_light_blue" },
+    { "predicate": { "farmersassortment:color": 5 }, "model": "farmersassortment:block/terracotta_cooking_pot_yellow" },
+    { "predicate": { "farmersassortment:color": 6 }, "model": "farmersassortment:block/terracotta_cooking_pot_lime" },
+    { "predicate": { "farmersassortment:color": 7 }, "model": "farmersassortment:block/terracotta_cooking_pot_pink" },
+    { "predicate": { "farmersassortment:color": 8 }, "model": "farmersassortment:block/terracotta_cooking_pot_gray" },
+    { "predicate": { "farmersassortment:color": 9 }, "model": "farmersassortment:block/terracotta_cooking_pot_light_gray" },
+    { "predicate": { "farmersassortment:color": 10 }, "model": "farmersassortment:block/terracotta_cooking_pot_cyan" },
+    { "predicate": { "farmersassortment:color": 11 }, "model": "farmersassortment:block/terracotta_cooking_pot_purple" },
+    { "predicate": { "farmersassortment:color": 12 }, "model": "farmersassortment:block/terracotta_cooking_pot_blue" },
+    { "predicate": { "farmersassortment:color": 13 }, "model": "farmersassortment:block/terracotta_cooking_pot_brown" },
+    { "predicate": { "farmersassortment:color": 14 }, "model": "farmersassortment:block/terracotta_cooking_pot_green" },
+    { "predicate": { "farmersassortment:color": 15 }, "model": "farmersassortment:block/terracotta_cooking_pot_red" },
+    { "predicate": { "farmersassortment:color": 16 }, "model": "farmersassortment:block/terracotta_cooking_pot_black" }
+  ]
 }
