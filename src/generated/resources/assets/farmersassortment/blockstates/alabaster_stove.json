@@ -2,33 +2,33 @@
   "variants": {
     "facing=east,lit=false": {
       "model": "farmersassortment:block/alabaster_stove",
-      "y": 90
+      "y": 270
     },
     "facing=east,lit=true": {
       "model": "farmersassortment:block/alabaster_stove_on",
-      "y": 90
+      "y": 270
     },
     "facing=north,lit=false": {
-      "model": "farmersassortment:block/alabaster_stove"
-    },
-    "facing=north,lit=true": {
-      "model": "farmersassortment:block/alabaster_stove_on"
-    },
-    "facing=south,lit=false": {
       "model": "farmersassortment:block/alabaster_stove",
       "y": 180
     },
-    "facing=south,lit=true": {
+    "facing=north,lit=true": {
       "model": "farmersassortment:block/alabaster_stove_on",
       "y": 180
+    },
+    "facing=south,lit=false": {
+      "model": "farmersassortment:block/alabaster_stove"
+    },
+    "facing=south,lit=true": {
+      "model": "farmersassortment:block/alabaster_stove_on"
     },
     "facing=west,lit=false": {
       "model": "farmersassortment:block/alabaster_stove",
-      "y": 270
+      "y": 90
     },
     "facing=west,lit=true": {
       "model": "farmersassortment:block/alabaster_stove_on",
-      "y": 270
+      "y": 90
     }
   }
 }
