@@ -53,7 +53,7 @@ public enum TerracottaCookingPotColor implements StringRepresentable {
     }
 
     public String textureName() {
-        return this == NONE ? "terracotta_cooking_pot" : this.name + "_terracotta_cooking_pot";
+        return this == NONE ? "terracotta_cooking_pot" : "terracotta_cooking_pot_" + this.name;
     }
 
     public ResourceLocation sideTexture() {
