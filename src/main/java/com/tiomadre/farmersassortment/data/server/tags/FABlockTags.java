@@ -33,7 +33,7 @@ public class FABlockTags extends BlockTagsProvider {
 
         this.tag(COOKING_POTS)
                 .add(FABlocks.COPPER_COOKING_POT.get(), FABlocks.GOLDEN_COOKING_POT.get(), FABlocks.ALABASTER_COOKING_POT.get(),
-                        FABlocks.TERRACOTTA_COOKING_POT.get(), FABlocks.ALABASTER_STOVE.get());
+                        FABlocks.TERRACOTTA_COOKING_POT.get());
 
         this.tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(FABlocks.OAK_BUTCHER_BLOCK_CABINET.get(), FABlocks.SPRUCE_BUTCHER_BLOCK_CABINET.get(),
