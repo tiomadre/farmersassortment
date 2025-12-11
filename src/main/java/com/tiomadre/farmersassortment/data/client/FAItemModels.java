@@ -7,6 +7,7 @@ import com.tiomadre.farmersassortment.core.block.state.TerracottaCookingPotColor
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraft.world.level.block.Block;
@@ -55,8 +56,11 @@ public class FAItemModels extends ItemModelProvider {
 
             builder.override()
                     .predicate(modLoc("color"), (float) color.ordinal())
-                    .model(modLoc("block/" + color.textureName()))
+                    .model(getModelForTerracottaColor(color))
                     .end();
         }
+    }
+    private ModelFile getModelForTerracottaColor(TerracottaCookingPotColor color) {
+        return getExistingFile(modLoc("block/" + color.textureName()));
     }
 }
