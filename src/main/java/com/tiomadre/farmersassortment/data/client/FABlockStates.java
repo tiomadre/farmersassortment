@@ -87,17 +87,17 @@ public class FABlockStates extends BlockStateProvider {
         ModelFile offModel = models().orientableWithBottom(stove.getId().getPath(),
                 modLoc("block/alabaster_stove_side"),
                 modLoc("block/alabaster_stove_front"),
-                modLoc("block/alabaster_stove_top"),
-                modLoc("block/alabaster_stove_bottom"));
+                modLoc("block/alabaster_stove_bottom"),
+                modLoc("block/alabaster_stove_top"));
         ModelFile onModel = models().orientableWithBottom(stove.getId().getPath() + "_on",
                 modLoc("block/alabaster_stove_side"),
                 modLoc("block/alabaster_stove_on"),
-                modLoc("block/alabaster_stove_top_on"),
-                modLoc("block/alabaster_stove_bottom"));
+                modLoc("block/alabaster_stove_bottom"),
+                modLoc("block/alabaster_stove_top_on"));
 
         getVariantBuilder(stove.get()).forAllStates(state -> ConfiguredModel.builder()
                 .modelFile(state.getValue(StoveBlock.LIT) ? onModel : offModel)
-                .rotationY(((int) state.getValue(StoveBlock.FACING).toYRot()))
+                .rotationY(((int) state.getValue(StoveBlock.FACING).toYRot() + 180) % 360)
                 .build());
     }
 
