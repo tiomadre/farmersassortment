@@ -83,7 +83,7 @@ public class FABlockStates extends BlockStateProvider {
     }
 
     private void registerStoves() {
-        RegistryObject<? extends StoveBlock> stove = (RegistryObject<? extends StoveBlock>) FABlocks.ALABASTER_STOVE;
+        RegistryObject<? extends StoveBlock> stove = FABlocks.ALABASTER_STOVE;
         ModelFile offModel = models().orientableWithBottom(stove.getId().getPath(),
                 modLoc("block/alabaster_stove_side"),
                 modLoc("block/alabaster_stove_front"),
@@ -104,8 +104,6 @@ public class FABlockStates extends BlockStateProvider {
     private void registerTerracottaCookingPot() {
         RegistryObject<CookingPotBlock> block = FABlocks.TERRACOTTA_COOKING_POT;
         ResourceLocation handleTexture = modLoc("block/terracotta_cooking_pot_handle");
-        ResourceLocation trayTop = new ResourceLocation("farmersdelight", "block/cooking_pot_tray_top");
-        ResourceLocation traySide = new ResourceLocation("farmersdelight", "block/cooking_pot_tray_side");
 
         Map<TerracottaCookingPotColor, ModelFile> baseModels = new EnumMap<>(TerracottaCookingPotColor.class);
         Map<TerracottaCookingPotColor, ModelFile> trayModels = new EnumMap<>(TerracottaCookingPotColor.class);
@@ -119,6 +117,8 @@ public class FABlockStates extends BlockStateProvider {
             ResourceLocation topTexture = color.topTexture();
             ResourceLocation bottomTexture = color.bottomTexture();
             ResourceLocation partsTexture = color.partsTexture();
+            ResourceLocation trayTop = new ResourceLocation("farmersdelight", "block/cooking_pot_tray_top");
+            ResourceLocation traySide = new ResourceLocation("farmersdelight", "block/cooking_pot_tray_side");
 
             baseModels.put(color, terracottaCookingPotModel(modelBaseName, sideTexture, topTexture, bottomTexture, partsTexture));
             trayModels.put(color, terracottaCookingPotTrayModel(modelBaseName + "_tray", sideTexture, topTexture, bottomTexture, partsTexture, trayTop, traySide));
