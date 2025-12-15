@@ -6,6 +6,7 @@ import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraftforge.data.event.GatherDataEvent;
 import org.jetbrains.annotations.NotNull;
 
+import static com.tiomadre.farmersassortment.data.server.tags.FATags.Items.FARMERS_ASSORTMENT_KNIVES;
 import static com.tiomadre.farmersassortment.data.server.tags.FATags.Items.FARMERS_DELIGHT_KNIVES;
 import static com.tiomadre.farmersassortment.data.server.tags.FATags.Items.KNIVES;
 
@@ -17,6 +18,7 @@ public class FAItemTags extends ItemTagsProvider {
     @Override
     protected void addTags(@NotNull HolderLookup.Provider provider) {
         this.tag(KNIVES).add(FAItems.AMETHYST_KNIFE.get(), FAItems.QUARTZ_KNIFE.get());
+        this.tag(FARMERS_ASSORTMENT_KNIVES).addTag(KNIVES);
         this.tag(FARMERS_DELIGHT_KNIVES).addTag(KNIVES);
     }
 }

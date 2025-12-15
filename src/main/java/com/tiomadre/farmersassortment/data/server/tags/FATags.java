@@ -13,6 +13,7 @@ public final class FATags {
     public static final class Items {
         public static final TagKey<Item> KNIVES = TagUtil.itemTag("forge", "tools/knives");
         public static final TagKey<Item> FARMERS_DELIGHT_KNIVES = TagUtil.itemTag("farmersdelight", "tools/knives");
+        public static final TagKey<Item> FARMERS_ASSORTMENT_KNIVES = TagUtil.itemTag(FarmersAssortment.MOD_ID, "tools/knives");
 
         private Items() {
         }
