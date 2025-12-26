@@ -42,3 +42,10 @@ license = "https://github.com/team-abnormals/template-mod/blob/main/LICENSE.txt"
     versionRange = "[1.2.0,)"
     ordering = "AFTER"
     side = "BOTH"
+
+[[dependencies.farmersassortment]]
+modId = "crabbersdelight"
+mandatory = false
+versionRange = "[1.2.3,)"
+ordering = "AFTER"
+side = "BOTH"
