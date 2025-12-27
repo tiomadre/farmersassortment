@@ -5,6 +5,7 @@ import com.tiomadre.farmersassortment.core.block.TerracottaCookingPotBlock;
 import com.tiomadre.farmersassortment.core.block.state.TerracottaCookingPotColor;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
+import net.minecraftforge.common.data.ExistingFileHelper.ResourceType;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
@@ -34,7 +35,7 @@ public class FABlockStates extends BlockStateProvider {
     }
 
     private void registerCabinets() {
-        List<CabinetDefinition> cabinets = List.of(
+        List<CabinetDefinition> cabinets = new ArrayList<>(List.of(
                 new CabinetDefinition(FABlocks.OAK_BUTCHER_BLOCK_CABINET, "oak", "minecraft:block/oak_planks", "block/oak_butcher_block_cabinet_top"),
                 new CabinetDefinition(FABlocks.SPRUCE_BUTCHER_BLOCK_CABINET, "spruce", "minecraft:block/spruce_planks", "block/spruce_butcher_block_cabinet_top"),
                 new CabinetDefinition(FABlocks.BIRCH_BUTCHER_BLOCK_CABINET, "birch", "minecraft:block/birch_planks", "block/birch_butcher_block_cabinet_top"),
@@ -45,9 +46,12 @@ public class FABlockStates extends BlockStateProvider {
                 new CabinetDefinition(FABlocks.CHERRY_BUTCHER_BLOCK_CABINET, "cherry", "minecraft:block/cherry_planks", "block/cherry_butcher_block_cabinet_top"),
                 new CabinetDefinition(FABlocks.BAMBOO_BUTCHER_BLOCK_CABINET, "bamboo", "minecraft:block/bamboo_planks", "block/bamboo_butcher_block_cabinet_top"),
                 new CabinetDefinition(FABlocks.CRIMSON_BUTCHER_BLOCK_CABINET, "crimson", "minecraft:block/crimson_planks", "block/crimson_butcher_block_cabinet_front_top"),
-                new CabinetDefinition(FABlocks.WARPED_BUTCHER_BLOCK_CABINET, "warped", "minecraft:block/warped_planks", "block/warped_butcher_block_cabinet_top"),
-                new CabinetDefinition(FAxCrabbersBlocks.PALM_BUTCHER_BLOCK_CABINET, "palm", "crabbersdelight:block/palm_planks", "block/palm_butcher_block_cabinet_top")
-        );
+                new CabinetDefinition(FABlocks.WARPED_BUTCHER_BLOCK_CABINET, "warped", "minecraft:block/warped_planks", "block/warped_butcher_block_cabinet_top")
+        ));
+
+        if (hasCrabbersDelightPalmPlanksTexture()) {
+            cabinets.add(new CabinetDefinition(FAxCrabbersBlocks.PALM_BUTCHER_BLOCK_CABINET, "palm", "crabbersdelight:block/palm_planks", "block/palm_butcher_block_cabinet_top"));
+        }
 
         cabinets.forEach(cabinet -> registerButcherBlockCabinet(
                 cabinet.block(),
@@ -55,6 +59,10 @@ public class FABlockStates extends BlockStateProvider {
                 cabinet.bottomTexturePath(),
                 modLoc(cabinet.topTexturePath())
         ));
+    }
+
+    private boolean hasCrabbersDelightPalmPlanksTexture() {
+        return existingFileHelper.exists(new ResourceLocation("crabbersdelight", "block/palm_planks"), ResourceType.TEXTURES);
     }
 
     private void registerCuttingBoards() {
