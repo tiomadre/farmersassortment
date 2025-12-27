@@ -16,14 +16,14 @@ import vectorwing.farmersdelight.common.block.CuttingBoardBlock;
 import java.util.Objects;
 import java.util.stream.Stream;
 
-public final class FACrabbersDelightBlocks {
+public final class FAxCrabbersBlocks {
     private static final String MOD_ID = "crabbersdelight";
     private static final BlockSubRegistryHelper BLOCKS = FarmersAssortment.REGISTRY_HELPER.getBlockSubHelper();
 
     public static final RegistryObject<CuttingBoardBlock> PALM_CUTTING_BOARD = registerCuttingBoard("palm");
     public static final RegistryObject<ButcherBlockCabinetBlock> PALM_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("palm");
 
-    private FACrabbersDelightBlocks() {
+    private FAxCrabbersBlocks() {
     }
 
     public static void init() {

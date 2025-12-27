@@ -3,7 +3,7 @@ package com.tiomadre.farmersassortment.data.server.recipes;
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import com.tiomadre.farmersassortment.core.registry.FAItems;
-import com.tiomadre.farmersassortment.core.registry.compat.FACrabbersDelightBlocks;
+import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -47,7 +47,7 @@ public final class FACrafting extends RecipeProvider {
         cuttingBoard(output, FABlocks.CRIMSON_CUTTING_BOARD, Blocks.CRIMSON_PLANKS);
         cuttingBoard(output, FABlocks.WARPED_CUTTING_BOARD, Blocks.WARPED_PLANKS);
         if (ModList.get().isLoaded("crabbersdelight")) {
-            cuttingBoard(output, FACrabbersDelightBlocks.PALM_CUTTING_BOARD, blockItem("crabbersdelight", "palm_planks"));
+            cuttingBoard(output, FAxCrabbersBlocks.PALM_CUTTING_BOARD, blockItem("crabbersdelight", "palm_planks"));
         }
         butcherBlockCabinet(output, FABlocks.OAK_BUTCHER_BLOCK_CABINET, blockItem("farmersdelight", "cutting_board"), blockItem("farmersdelight", "oak_cabinet"));
         butcherBlockCabinet(output, FABlocks.SPRUCE_BUTCHER_BLOCK_CABINET, FABlocks.SPRUCE_CUTTING_BOARD.get(), blockItem("farmersdelight", "spruce_cabinet"));
@@ -62,7 +62,7 @@ public final class FACrafting extends RecipeProvider {
         butcherBlockCabinet(output, FABlocks.WARPED_BUTCHER_BLOCK_CABINET, FABlocks.WARPED_CUTTING_BOARD.get(), blockItem("farmersdelight", "warped_cabinet"));
         //Crabber's Delight
         if (ModList.get().isLoaded("crabbersdelight")) {
-            butcherBlockCabinet(output, FACrabbersDelightBlocks.PALM_BUTCHER_BLOCK_CABINET, FACrabbersDelightBlocks.PALM_CUTTING_BOARD.get(), blockItem("crabbersdelight", "palm_cabinet"));
+            butcherBlockCabinet(output, FAxCrabbersBlocks.PALM_BUTCHER_BLOCK_CABINET, FAxCrabbersBlocks.PALM_CUTTING_BOARD.get(), blockItem("crabbersdelight", "palm_cabinet"));
         }
         variantCookingPot(output, FABlocks.GOLDEN_COOKING_POT, Items.GOLD_INGOT, Items.WOODEN_SHOVEL, Items.BRICK);
         variantCookingPot(output, FABlocks.COPPER_COOKING_POT, Items.COPPER_INGOT, Items.WOODEN_SHOVEL, Items.BRICK);

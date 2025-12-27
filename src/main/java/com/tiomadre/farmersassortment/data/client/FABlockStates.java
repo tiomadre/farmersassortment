@@ -4,7 +4,7 @@ import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.block.TerracottaCookingPotBlock;
 import com.tiomadre.farmersassortment.core.block.state.TerracottaCookingPotColor;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
-import com.tiomadre.farmersassortment.core.registry.compat.FACrabbersDelightBlocks;
+import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
@@ -46,7 +46,7 @@ public class FABlockStates extends BlockStateProvider {
                 new CabinetDefinition(FABlocks.BAMBOO_BUTCHER_BLOCK_CABINET, "bamboo", "minecraft:block/bamboo_planks", "block/bamboo_butcher_block_cabinet_top"),
                 new CabinetDefinition(FABlocks.CRIMSON_BUTCHER_BLOCK_CABINET, "crimson", "minecraft:block/crimson_planks", "block/crimson_butcher_block_cabinet_front_top"),
                 new CabinetDefinition(FABlocks.WARPED_BUTCHER_BLOCK_CABINET, "warped", "minecraft:block/warped_planks", "block/warped_butcher_block_cabinet_top"),
-                new CabinetDefinition(FACrabbersDelightBlocks.PALM_BUTCHER_BLOCK_CABINET, "palm", "crabbersdelight:block/palm_planks", "block/palm_butcher_block_cabinet_top")
+                new CabinetDefinition(FAxCrabbersBlocks.PALM_BUTCHER_BLOCK_CABINET, "palm", "crabbersdelight:block/palm_planks", "block/palm_butcher_block_cabinet_top")
         );
 
         cabinets.forEach(cabinet -> registerButcherBlockCabinet(

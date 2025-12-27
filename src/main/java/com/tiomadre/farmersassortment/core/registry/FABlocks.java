@@ -7,7 +7,7 @@ import com.tiomadre.farmersassortment.core.block.UniqueStoveBlock;
 import com.tiomadre.farmersassortment.core.mixin.BlockEntityTypeAccessor;
 import com.tiomadre.farmersassortment.core.item.TerracottaCookingPotItem;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
-import com.tiomadre.farmersassortment.core.registry.compat.FACrabbersDelightBlocks;
+import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -91,10 +91,10 @@ public final class FABlocks {
         );
     }
     public static Stream<RegistryObject<ButcherBlockCabinetBlock>> allButcherBlockCabinets() {
-        return Stream.concat(butcherBlockCabinets(), FACrabbersDelightBlocks.butcherBlockCabinets());
+        return Stream.concat(butcherBlockCabinets(), FAxCrabbersBlocks.butcherBlockCabinets());
     }
     public static Stream<RegistryObject<CuttingBoardBlock>> allCuttingBoards() {
-        return Stream.concat(cuttingBoards(), FACrabbersDelightBlocks.cuttingBoards());
+        return Stream.concat(cuttingBoards(), FAxCrabbersBlocks.cuttingBoards());
     }
 
     private static RegistryObject<ButcherBlockCabinetBlock> registerButcherBlockCabinet(String woodType, Block baseBlock) {

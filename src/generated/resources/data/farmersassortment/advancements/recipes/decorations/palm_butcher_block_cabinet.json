@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_palm_cutting_board": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "farmersassortment:palm_cutting_board"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "farmersassortment:palm_butcher_block_cabinet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_palm_cutting_board",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "farmersassortment:palm_butcher_block_cabinet"
+    ]
+  },
+  "sends_telemetry_event": false
+}

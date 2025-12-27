@@ -5,6 +5,7 @@ import com.tiomadre.farmersassortment.core.registry.FABlockEntityTypes;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import com.tiomadre.farmersassortment.core.registry.FAItems;
 import com.tiomadre.farmersassortment.core.registry.FATab;
+import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
 import com.tiomadre.farmersassortment.data.server.recipes.FACrafting;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraft.world.level.block.Block;
@@ -29,6 +30,7 @@ public class FarmersAssortment {
         LOGGER.info("Loading Farmer's Assortment");
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
+        FAxCrabbersBlocks.init();
         FABlocks.init();
         FAItems.init();
         REGISTRY_HELPER.register(modEventBus);
