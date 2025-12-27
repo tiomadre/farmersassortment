@@ -7,6 +7,7 @@ import com.tiomadre.farmersassortment.core.block.UniqueStoveBlock;
 import com.tiomadre.farmersassortment.core.mixin.BlockEntityTypeAccessor;
 import com.tiomadre.farmersassortment.core.item.TerracottaCookingPotItem;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
+import com.tiomadre.farmersassortment.core.registry.compat.FACrabbersDelightBlocks;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -89,6 +90,13 @@ public final class FABlocks {
                 WARPED_BUTCHER_BLOCK_CABINET
         );
     }
+    public static Stream<RegistryObject<ButcherBlockCabinetBlock>> allButcherBlockCabinets() {
+        return Stream.concat(butcherBlockCabinets(), FACrabbersDelightBlocks.butcherBlockCabinets());
+    }
+    public static Stream<RegistryObject<CuttingBoardBlock>> allCuttingBoards() {
+        return Stream.concat(cuttingBoards(), FACrabbersDelightBlocks.cuttingBoards());
+    }
+
     private static RegistryObject<ButcherBlockCabinetBlock> registerButcherBlockCabinet(String woodType, Block baseBlock) {
         SoundType soundType = baseBlock.defaultBlockState().getSoundType();
         BlockBehaviour.Properties properties = BlockBehaviour.Properties.copy(Blocks.BARREL)
@@ -109,6 +117,9 @@ public final class FABlocks {
             cuttingBoards().map(RegistryObject::get).forEach(updatedCuttingBoardBlocks::add);
             cuttingBoardAccessor.farmersassortment$setValidBlocks(updatedCuttingBoardBlocks);
             butcherBlockCabinets().map(RegistryObject::get).forEach(updatedCuttingBoardBlocks::add);
+            allCuttingBoards().map(RegistryObject::get).forEach(updatedCuttingBoardBlocks::add);
+            cuttingBoardAccessor.farmersassortment$setValidBlocks(updatedCuttingBoardBlocks);
+            allButcherBlockCabinets().map(RegistryObject::get).forEach(updatedCuttingBoardBlocks::add);
 
             BlockEntityTypeAccessor cookingPotAccessor = (BlockEntityTypeAccessor) ModBlockEntityTypes.COOKING_POT.get();
             Set<Block> cookingPotValidBlocks = cookingPotAccessor.farmersassortment$getValidBlocks();

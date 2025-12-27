@@ -31,8 +31,8 @@ public class FALoot extends LootTableProvider {
 
         @Override
         protected void generate() {
-            FABlocks.cuttingBoards().forEach(cuttingBoard -> this.dropSelf(cuttingBoard.get()));
-            FABlocks.butcherBlockCabinets().forEach(cabinet -> this.add(cabinet.get(), this.createSingleItemTable(cabinet.get())
+            FABlocks.allCuttingBoards().forEach(cuttingBoard -> this.dropSelf(cuttingBoard.get()));
+            FABlocks.allButcherBlockCabinets().forEach(cabinet -> this.add(cabinet.get(), this.createSingleItemTable(cabinet.get())
                     .apply(CopyNameFunction.copyName(CopyNameFunction.NameSource.BLOCK_ENTITY))));
 
             this.dropSelf(FABlocks.COPPER_COOKING_POT.get());

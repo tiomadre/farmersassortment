@@ -4,6 +4,7 @@ import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.block.TerracottaCookingPotBlock;
 import com.tiomadre.farmersassortment.core.block.state.TerracottaCookingPotColor;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
+import com.tiomadre.farmersassortment.core.registry.compat.FACrabbersDelightBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
@@ -44,7 +45,8 @@ public class FABlockStates extends BlockStateProvider {
                 new CabinetDefinition(FABlocks.CHERRY_BUTCHER_BLOCK_CABINET, "cherry", "minecraft:block/cherry_planks", "block/cherry_butcher_block_cabinet_top"),
                 new CabinetDefinition(FABlocks.BAMBOO_BUTCHER_BLOCK_CABINET, "bamboo", "minecraft:block/bamboo_planks", "block/bamboo_butcher_block_cabinet_top"),
                 new CabinetDefinition(FABlocks.CRIMSON_BUTCHER_BLOCK_CABINET, "crimson", "minecraft:block/crimson_planks", "block/crimson_butcher_block_cabinet_front_top"),
-                new CabinetDefinition(FABlocks.WARPED_BUTCHER_BLOCK_CABINET, "warped", "minecraft:block/warped_planks", "block/warped_butcher_block_cabinet_top")
+                new CabinetDefinition(FABlocks.WARPED_BUTCHER_BLOCK_CABINET, "warped", "minecraft:block/warped_planks", "block/warped_butcher_block_cabinet_top"),
+                new CabinetDefinition(FACrabbersDelightBlocks.PALM_BUTCHER_BLOCK_CABINET, "palm", "crabbersdelight:block/palm_planks", "block/palm_butcher_block_cabinet_top")
         );
 
         cabinets.forEach(cabinet -> registerButcherBlockCabinet(
@@ -56,20 +58,7 @@ public class FABlockStates extends BlockStateProvider {
     }
 
     private void registerCuttingBoards() {
-        List<RegistryObject<CuttingBoardBlock>> standardBoards = List.of(
-                FABlocks.BIRCH_CUTTING_BOARD,
-                FABlocks.JUNGLE_CUTTING_BOARD,
-                FABlocks.DARK_OAK_CUTTING_BOARD,
-                FABlocks.BAMBOO_CUTTING_BOARD,
-                FABlocks.CRIMSON_CUTTING_BOARD,
-                FABlocks.WARPED_CUTTING_BOARD,
-                FABlocks.SPRUCE_CUTTING_BOARD,
-                FABlocks.ACACIA_CUTTING_BOARD,
-                FABlocks.MANGROVE_CUTTING_BOARD,
-                FABlocks.CHERRY_CUTTING_BOARD
-        );
-
-        standardBoards.forEach(this::registerCuttingBoard);
+        FABlocks.allCuttingBoards().forEach(this::registerCuttingBoard);
     }
 
     private void registerCookingPots() {

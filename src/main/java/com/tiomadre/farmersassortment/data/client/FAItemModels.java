@@ -30,8 +30,8 @@ public class FAItemModels extends ItemModelProvider {
         block(FABlocks.ALABASTER_COOKING_POT);
         terracottaCookingPot();
         block(FABlocks.ALABASTER_STOVE);
-        FABlocks.cuttingBoards().forEach(this::block);
-        FABlocks.butcherBlockCabinets().forEach(this::block);
+        FABlocks.allCuttingBoards().forEach(this::block);
+        FABlocks.allButcherBlockCabinets().forEach(this::block);
     }
 
     private void handheldItem(RegistryObject<?> item) {
