@@ -7,6 +7,7 @@ import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
+import net.minecraft.server.packs.PackType;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.model.generators.*;
@@ -21,8 +22,11 @@ import vectorwing.farmersdelight.common.block.StoveBlock;
 import java.util.*;
 
 public class FABlockStates extends BlockStateProvider {
+    private final ExistingFileHelper fileHelper;
+
     public FABlockStates(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, FarmersAssortment.MOD_ID, existingFileHelper);
+        this.fileHelper = existingFileHelper;
     }
 
     @Override
@@ -46,7 +50,10 @@ public class FABlockStates extends BlockStateProvider {
                 new CabinetDefinition(FABlocks.BAMBOO_BUTCHER_BLOCK_CABINET, "bamboo", new ResourceLocation("minecraft", "block/bamboo_planks"), modLoc("block/bamboo_butcher_block_cabinet_top")),
                 new CabinetDefinition(FABlocks.CRIMSON_BUTCHER_BLOCK_CABINET, "crimson", new ResourceLocation("minecraft", "block/crimson_planks"), modLoc("block/crimson_butcher_block_cabinet_front_top")),
                 new CabinetDefinition(FABlocks.WARPED_BUTCHER_BLOCK_CABINET, "warped", new ResourceLocation("minecraft", "block/warped_planks"), modLoc("block/warped_butcher_block_cabinet_top")),
-                new CabinetDefinition(FAxCrabbersBlocks.PALM_BUTCHER_BLOCK_CABINET, "palm", new ResourceLocation("crabbersdelight", "block/palm_planks"), modLoc("block/palm_butcher_block_cabinet_top"))
+                new CabinetDefinition(FAxCrabbersBlocks.PALM_BUTCHER_BLOCK_CABINET, "palm", fallbackTexture(
+                        new ResourceLocation("crabbersdelight", "block/palm_planks"),
+                        new ResourceLocation("minecraft", "block/oak_planks")
+                ), modLoc("block/palm_butcher_block_cabinet_top"))
         );
 
         cabinets.forEach(cabinet -> registerButcherBlockCabinet(
@@ -56,6 +63,13 @@ public class FABlockStates extends BlockStateProvider {
                 cabinet.topTexture()
         ));
     }
+    private ResourceLocation fallbackTexture(ResourceLocation primary, ResourceLocation fallback) {
+        return fileHelper != null && fileHelper.exists(primary, PackType.CLIENT_RESOURCES, ".png", "textures")
+                ? primary
+                : fallback;
+    }
+
+
 
 
     private void registerCuttingBoards() {
