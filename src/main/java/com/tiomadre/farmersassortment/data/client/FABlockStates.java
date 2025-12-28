@@ -5,7 +5,6 @@ import com.tiomadre.farmersassortment.core.block.TerracottaCookingPotBlock;
 import com.tiomadre.farmersassortment.core.block.state.TerracottaCookingPotColor;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
-import net.minecraftforge.common.data.ExistingFileHelper.ResourceType;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
@@ -35,35 +34,29 @@ public class FABlockStates extends BlockStateProvider {
     }
 
     private void registerCabinets() {
-        List<CabinetDefinition> cabinets = new ArrayList<>(List.of(
-                new CabinetDefinition(FABlocks.OAK_BUTCHER_BLOCK_CABINET, "oak", "minecraft:block/oak_planks", "block/oak_butcher_block_cabinet_top"),
-                new CabinetDefinition(FABlocks.SPRUCE_BUTCHER_BLOCK_CABINET, "spruce", "minecraft:block/spruce_planks", "block/spruce_butcher_block_cabinet_top"),
-                new CabinetDefinition(FABlocks.BIRCH_BUTCHER_BLOCK_CABINET, "birch", "minecraft:block/birch_planks", "block/birch_butcher_block_cabinet_top"),
-                new CabinetDefinition(FABlocks.JUNGLE_BUTCHER_BLOCK_CABINET, "jungle", "minecraft:block/jungle_planks", "block/jungle_butcher_block_cabinet_top"),
-                new CabinetDefinition(FABlocks.ACACIA_BUTCHER_BLOCK_CABINET, "acacia", "minecraft:block/acacia_planks", "block/acacia_butcher_block_cabinet_top"),
-                new CabinetDefinition(FABlocks.DARK_OAK_BUTCHER_BLOCK_CABINET, "dark_oak", "minecraft:block/dark_oak_planks", "block/dark_oak_butcher_block_cabinet_top"),
-                new CabinetDefinition(FABlocks.MANGROVE_BUTCHER_BLOCK_CABINET, "mangrove", "minecraft:block/mangrove_planks", "block/mangrove_butcher_block_cabinet_top"),
-                new CabinetDefinition(FABlocks.CHERRY_BUTCHER_BLOCK_CABINET, "cherry", "minecraft:block/cherry_planks", "block/cherry_butcher_block_cabinet_top"),
-                new CabinetDefinition(FABlocks.BAMBOO_BUTCHER_BLOCK_CABINET, "bamboo", "minecraft:block/bamboo_planks", "block/bamboo_butcher_block_cabinet_top"),
-                new CabinetDefinition(FABlocks.CRIMSON_BUTCHER_BLOCK_CABINET, "crimson", "minecraft:block/crimson_planks", "block/crimson_butcher_block_cabinet_front_top"),
-                new CabinetDefinition(FABlocks.WARPED_BUTCHER_BLOCK_CABINET, "warped", "minecraft:block/warped_planks", "block/warped_butcher_block_cabinet_top")
-        ));
-
-        if (hasCrabbersDelightPalmPlanksTexture()) {
-            cabinets.add(new CabinetDefinition(FAxCrabbersBlocks.PALM_BUTCHER_BLOCK_CABINET, "palm", "crabbersdelight:block/palm_planks", "block/palm_butcher_block_cabinet_top"));
-        }
+        List<CabinetDefinition> cabinets = List.of(
+                new CabinetDefinition(FABlocks.OAK_BUTCHER_BLOCK_CABINET, "oak", new ResourceLocation("minecraft", "block/oak_planks"), modLoc("block/oak_butcher_block_cabinet_top")),
+                new CabinetDefinition(FABlocks.SPRUCE_BUTCHER_BLOCK_CABINET, "spruce", new ResourceLocation("minecraft", "block/spruce_planks"), modLoc("block/spruce_butcher_block_cabinet_top")),
+                new CabinetDefinition(FABlocks.BIRCH_BUTCHER_BLOCK_CABINET, "birch", new ResourceLocation("minecraft", "block/birch_planks"), modLoc("block/birch_butcher_block_cabinet_top")),
+                new CabinetDefinition(FABlocks.JUNGLE_BUTCHER_BLOCK_CABINET, "jungle", new ResourceLocation("minecraft", "block/jungle_planks"), modLoc("block/jungle_butcher_block_cabinet_top")),
+                new CabinetDefinition(FABlocks.ACACIA_BUTCHER_BLOCK_CABINET, "acacia", new ResourceLocation("minecraft", "block/acacia_planks"), modLoc("block/acacia_butcher_block_cabinet_top")),
+                new CabinetDefinition(FABlocks.DARK_OAK_BUTCHER_BLOCK_CABINET, "dark_oak", new ResourceLocation("minecraft", "block/dark_oak_planks"), modLoc("block/dark_oak_butcher_block_cabinet_top")),
+                new CabinetDefinition(FABlocks.MANGROVE_BUTCHER_BLOCK_CABINET, "mangrove", new ResourceLocation("minecraft", "block/mangrove_planks"), modLoc("block/mangrove_butcher_block_cabinet_top")),
+                new CabinetDefinition(FABlocks.CHERRY_BUTCHER_BLOCK_CABINET, "cherry", new ResourceLocation("minecraft", "block/cherry_planks"), modLoc("block/cherry_butcher_block_cabinet_top")),
+                new CabinetDefinition(FABlocks.BAMBOO_BUTCHER_BLOCK_CABINET, "bamboo", new ResourceLocation("minecraft", "block/bamboo_planks"), modLoc("block/bamboo_butcher_block_cabinet_top")),
+                new CabinetDefinition(FABlocks.CRIMSON_BUTCHER_BLOCK_CABINET, "crimson", new ResourceLocation("minecraft", "block/crimson_planks"), modLoc("block/crimson_butcher_block_cabinet_front_top")),
+                new CabinetDefinition(FABlocks.WARPED_BUTCHER_BLOCK_CABINET, "warped", new ResourceLocation("minecraft", "block/warped_planks"), modLoc("block/warped_butcher_block_cabinet_top")),
+                new CabinetDefinition(FAxCrabbersBlocks.PALM_BUTCHER_BLOCK_CABINET, "palm", new ResourceLocation("crabbersdelight", "block/palm_planks"), modLoc("block/palm_butcher_block_cabinet_top"))
+        );
 
         cabinets.forEach(cabinet -> registerButcherBlockCabinet(
                 cabinet.block(),
                 cabinet.woodType(),
-                cabinet.bottomTexturePath(),
-                modLoc(cabinet.topTexturePath())
+                cabinet.bottomTexture(),
+                cabinet.topTexture()
         ));
     }
 
-    private boolean hasCrabbersDelightPalmPlanksTexture() {
-        return existingFileHelper.exists(new ResourceLocation("crabbersdelight", "block/palm_planks"), ResourceType.TEXTURES);
-    }
 
     private void registerCuttingBoards() {
         FABlocks.allCuttingBoards().forEach(this::registerCuttingBoard);
@@ -148,7 +141,7 @@ public class FABlockStates extends BlockStateProvider {
                 .renderType("minecraft:cutout");
         FABlockStateHelper.horizontalFacingBlock(this, block.get(), model);
     }
-    private void registerButcherBlockCabinet(RegistryObject<? extends Block> block, String woodType, String bottomTexture, ResourceLocation topTexture) {
+    private void registerButcherBlockCabinet(RegistryObject<? extends Block> block, String woodType, ResourceLocation bottomTexture, ResourceLocation topTexture) {
         String name = block.getId().getPath();
         ModelFile closed = models().getBuilder(name)
                 .parent(new ModelFile.UncheckedModelFile("minecraft:block/orientable_with_bottom"))
@@ -390,7 +383,7 @@ public class FABlockStates extends BlockStateProvider {
                 .end();
     }
 
-    private record CabinetDefinition(RegistryObject<? extends Block> block, String woodType, String bottomTexturePath, String topTexturePath) {
+    private record CabinetDefinition(RegistryObject<? extends Block> block, String woodType, ResourceLocation bottomTexture, ResourceLocation topTexture) {
     }
 
     private record CookingPotDefinition(RegistryObject<CookingPotBlock> block, String materialName, String bottomTexturePath) {
