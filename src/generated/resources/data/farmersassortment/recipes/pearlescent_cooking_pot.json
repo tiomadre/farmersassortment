@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "crabbersdelight:pearl"
+    },
+    "M": {
+      "item": "crabbersdelight:pearl_block"
+    },
+    "S": {
+      "item": "minecraft:wooden_shovel"
+    },
+    "W": {
+      "item": "minecraft:water_bucket"
+    }
+  },
+  "pattern": [
+    "BSB",
+    "MWM",
+    "MMM"
+  ],
+  "result": {
+    "item": "farmersassortment:pearlescent_cooking_pot"
+  },
+  "show_notification": true
+}

@@ -1,5 +1,7 @@
 package com.tiomadre.farmersassortment.data.server.recipes;
 
+import alabaster.crabbersdelight.common.registry.CDModBlocks;
+import alabaster.crabbersdelight.common.registry.CDModItems;
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import com.tiomadre.farmersassortment.core.registry.FAItems;
@@ -53,6 +55,8 @@ public final class FACrafting extends RecipeProvider {
         variantCookingPot(output, FABlocks.COPPER_COOKING_POT, Items.COPPER_INGOT, Items.WOODEN_SHOVEL, Items.BRICK);
         variantCookingPot(output, FABlocks.ALABASTER_COOKING_POT, Items.QUARTZ, Items.WOODEN_SHOVEL, Items.GOLD_INGOT);
         variantCookingPot(output, FABlocks.TERRACOTTA_COOKING_POT, Blocks.TERRACOTTA, Items.WOODEN_SHOVEL, Items.BRICK);
+
+        //Stoves + Heat Sources
         variantStove(output, FABlocks.ALABASTER_STOVE, Blocks.QUARTZ_BLOCK, Items.GOLD_INGOT, Items.FLINT_AND_STEEL);
 
         //Knives
@@ -75,12 +79,30 @@ public final class FACrafting extends RecipeProvider {
 
         //Crabber's Delight Compat
         if (ModList.get().isLoaded("crabbersdelight")) {
-            butcherBlockCabinet(output, FAxCrabbersBlocks.PALM_BUTCHER_BLOCK_CABINET, FAxCrabbersBlocks.PALM_CUTTING_BOARD.get(), blockItem("crabbersdelight", "palm_cabinet"));
-            knife(output, FAItems.CLAMSHELL_KNIFE, item("crabbersdelight", "clam"));
-            cuttingBoard(output, FAxCrabbersBlocks.PALM_CUTTING_BOARD, blockItem("crabbersdelight", "palm_planks"));
+          //Cutting Board and Butcher Block Cabinets
+            cuttingBoard(output, FAxCrabbersBlocks.PALM_CUTTING_BOARD, CDModBlocks.PALM_PLANKS.get());
+            butcherBlockCabinet(output, FAxCrabbersBlocks.PALM_BUTCHER_BLOCK_CABINET, FAxCrabbersBlocks.PALM_CUTTING_BOARD.get(), CDModBlocks.PALM_CABINET.get());
+          //Knives
+            knife(output, FAItems.CLAMSHELL_KNIFE, CDModItems.CLAM.get());
+
+          //Cooking Pot
+            variantCookingPot(output, FAxCrabbersBlocks.PEARLESCENT_COOKING_POT, CDModBlocks.PEARL_BLOCK.get(), Items.WOODEN_SHOVEL, CDModItems.PEARL.get());
+          //Crab Trap Variants
+            crabTrap(output, blockItem("crabbersdelight", "crab_trap"), Blocks.OAK_SLAB, new ResourceLocation("crabbersdelight", "crab_trap")); //overrides base CrD recipe
+            crabTrap(output, FAxCrabbersBlocks.SPRUCE_CRAB_TRAP, Blocks.SPRUCE_SLAB);
+            crabTrap(output, FAxCrabbersBlocks.BIRCH_CRAB_TRAP, Blocks.BIRCH_SLAB);
+            crabTrap(output, FAxCrabbersBlocks.JUNGLE_CRAB_TRAP, Blocks.JUNGLE_SLAB);
+            crabTrap(output, FAxCrabbersBlocks.ACACIA_CRAB_TRAP, Blocks.ACACIA_SLAB);
+            crabTrap(output, FAxCrabbersBlocks.DARK_OAK_CRAB_TRAP, Blocks.DARK_OAK_SLAB);
+            crabTrap(output, FAxCrabbersBlocks.MANGROVE_CRAB_TRAP, Blocks.MANGROVE_SLAB);
+            crabTrap(output, FAxCrabbersBlocks.CHERRY_CRAB_TRAP, Blocks.CHERRY_SLAB);
+            crabTrap(output, FAxCrabbersBlocks.BAMBOO_CRAB_TRAP, Blocks.BAMBOO_SLAB);
+            crabTrap(output, FAxCrabbersBlocks.CRIMSON_CRAB_TRAP, Blocks.CRIMSON_SLAB);
+            crabTrap(output, FAxCrabbersBlocks.WARPED_CRAB_TRAP, Blocks.WARPED_SLAB);
+            crabTrap(output, FAxCrabbersBlocks.PALM_CRAB_TRAP, CDModBlocks.PALM_SLAB.get());
         }
 
-
+    //Recipe Definitions
     }
 
     private void cuttingBoard(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> board, ItemLike planks) {
@@ -137,6 +159,21 @@ public final class FACrafting extends RecipeProvider {
                 .pattern("MFM")
                 .unlockedBy(getHasName(material), has(material))
                 .save(output);
+    }
+    private void crabTrap(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> trap, ItemLike slab) {
+        crabTrap(output, trap.get(), slab, trap.getId());
+    }
+
+    private void crabTrap(Consumer<FinishedRecipe> output, ItemLike trap, ItemLike slab, ResourceLocation id) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, trap)
+                .define('n', item("farmersdelight", "safety_net"))
+                .define('s', Items.STICK)
+                .define('w', slab)
+                .pattern("nsn")
+                .pattern("s s")
+                .pattern("www")
+                .unlockedBy(getHasName(slab), has(slab))
+                .save(output, id);
     }
     private ItemLike item(String namespace, String path) {
         ResourceLocation id = new ResourceLocation(namespace, path);

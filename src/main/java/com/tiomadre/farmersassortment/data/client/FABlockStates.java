@@ -1,5 +1,6 @@
 package com.tiomadre.farmersassortment.data.client;
 
+import alabaster.crabbersdelight.common.block.CrabTrapBlock;
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.block.TerracottaCookingPotBlock;
 import com.tiomadre.farmersassortment.core.block.state.TerracottaCookingPotColor;
@@ -35,8 +36,9 @@ public class FABlockStates extends BlockStateProvider {
         registerCuttingBoards();
         registerCookingPots();
         registerStoves();
+        registerCrabTraps();
     }
-
+    //CABINET VARIANTS
     private void registerCabinets() {
         List<CabinetDefinition> cabinets = List.of(
                 new CabinetDefinition(FABlocks.OAK_BUTCHER_BLOCK_CABINET, "oak", new ResourceLocation("minecraft", "block/oak_planks"), modLoc("block/oak_butcher_block_cabinet_top")),
@@ -70,8 +72,6 @@ public class FABlockStates extends BlockStateProvider {
     }
 
 
-
-
     private void registerCuttingBoards() {
         FABlocks.allCuttingBoards().forEach(this::registerCuttingBoard);
     }
@@ -80,11 +80,13 @@ public class FABlockStates extends BlockStateProvider {
         List<CookingPotDefinition> cookingPots = List.of(
                 new CookingPotDefinition(FABlocks.COPPER_COOKING_POT, "copper", "block/copper_cooking_pot_bottom"),
                 new CookingPotDefinition(FABlocks.GOLDEN_COOKING_POT, "golden", "block/golden_cooking_pot_bottom"),
-                new CookingPotDefinition(FABlocks.ALABASTER_COOKING_POT, "alabaster", "block/alabaster_cooking_pot_bottom")
+                new CookingPotDefinition(FABlocks.ALABASTER_COOKING_POT, "alabaster", "block/alabaster_cooking_pot_bottom"),
+                new CookingPotDefinition(FAxCrabbersBlocks.PEARLESCENT_COOKING_POT, "pearlescent", "block/pearlescent_cooking_pot_bottom")
         );
         cookingPots.forEach(pot -> registerCookingPot(pot.block(), pot.materialName(), modLoc(pot.bottomTexturePath())));
         registerTerracottaCookingPot();
     }
+    //STOVE VARIANTS
 
     private void registerStoves() {
         RegistryObject<? extends StoveBlock> stove = FABlocks.ALABASTER_STOVE;
@@ -104,7 +106,7 @@ public class FABlockStates extends BlockStateProvider {
                 .rotationY(((int) state.getValue(StoveBlock.FACING).toYRot() + 180) % 360)
                 .build());
     }
-
+    //TERRACOTTA COOKING POT
     private void registerTerracottaCookingPot() {
         RegistryObject<CookingPotBlock> block = FABlocks.TERRACOTTA_COOKING_POT;
         ResourceLocation handleTexture = modLoc("block/terracotta_cooking_pot_handle");
@@ -144,7 +146,7 @@ public class FABlockStates extends BlockStateProvider {
                     .build();
         });
     }
-
+    //CUTTING BOARD VARIANTS
     private void registerCuttingBoard(RegistryObject<CuttingBoardBlock> block) {
         String name = Objects.requireNonNull(block.getId()).getPath();
         ModelFile model = models()
@@ -155,6 +157,7 @@ public class FABlockStates extends BlockStateProvider {
                 .renderType("minecraft:cutout");
         FABlockStateHelper.horizontalFacingBlock(this, block.get(), model);
     }
+    //BUTCHER BLOCK VARIANTS
     private void registerButcherBlockCabinet(RegistryObject<? extends Block> block, String woodType, ResourceLocation bottomTexture, ResourceLocation topTexture) {
         String name = block.getId().getPath();
         ModelFile closed = models().getBuilder(name)
@@ -180,7 +183,7 @@ public class FABlockStates extends BlockStateProvider {
                     .build();
         });
     }
-
+    //COOKING POT VARIANT STUFF
     private void registerCookingPot(RegistryObject<CookingPotBlock> block, String materialName, ResourceLocation bottomTexture) {
         ModelFile pot = cookingPotModel(materialName, bottomTexture);
         ModelFile tray = cookingPotTrayModel(materialName, bottomTexture);
@@ -199,6 +202,7 @@ public class FABlockStates extends BlockStateProvider {
                     .rotationY(((int) direction.toYRot()) % 360)
                     .build();
         });
+
     }
 
     private BlockModelBuilder cookingPotModel(String materialName, ResourceLocation bottomTexture) {
@@ -401,5 +405,22 @@ public class FABlockStates extends BlockStateProvider {
     }
 
     private record CookingPotDefinition(RegistryObject<CookingPotBlock> block, String materialName, String bottomTexturePath) {
+    }
+    //CRABBERSDELIGHT CRAB TRAP VARIANTS
+    private void registerCrabTraps() {
+        ResourceLocation trapModel = new ResourceLocation("crabbersdelight", "block/crab_trap");
+        ResourceLocation hangingModel = new ResourceLocation("crabbersdelight", "block/crab_trap_chain");
+
+        FAxCrabbersBlocks.crabTraps().forEach(trap -> getVariantBuilder(trap.get()).forAllStates(state -> {
+            Direction direction = state.getValue(CrabTrapBlock.FACING);
+            boolean hanging = state.getValue(CrabTrapBlock.HANGING);
+            ResourceLocation modelLocation = hanging ? hangingModel : trapModel;
+            ModelFile model = new ModelFile.UncheckedModelFile(modelLocation);
+
+            return ConfiguredModel.builder()
+                    .modelFile(model)
+                    .rotationY(((int) direction.toYRot()) % 360)
+                    .build();
+        }));
     }
 }

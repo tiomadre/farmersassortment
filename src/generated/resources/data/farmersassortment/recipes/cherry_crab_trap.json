@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "n": {
+      "item": "farmersdelight:safety_net"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "w": {
+      "item": "minecraft:cherry_slab"
+    }
+  },
+  "pattern": [
+    "nsn",
+    "s s",
+    "www"
+  ],
+  "result": {
+    "item": "farmersassortment:cherry_crab_trap"
+  },
+  "show_notification": true
+}

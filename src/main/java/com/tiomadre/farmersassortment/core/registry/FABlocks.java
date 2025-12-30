@@ -96,6 +96,13 @@ public final class FABlocks {
     public static Stream<RegistryObject<CuttingBoardBlock>> allCuttingBoards() {
         return Stream.concat(cuttingBoards(), FAxCrabbersBlocks.cuttingBoards());
     }
+    public static Stream<RegistryObject<CookingPotBlock>> cookingPots() {
+        return Stream.of(COPPER_COOKING_POT, GOLDEN_COOKING_POT, ALABASTER_COOKING_POT, TERRACOTTA_COOKING_POT);
+    }
+
+    public static Stream<RegistryObject<CookingPotBlock>> allCookingPots() {
+        return Stream.concat(cookingPots(), FAxCrabbersBlocks.cookingPots());
+    }
 
     private static RegistryObject<ButcherBlockCabinetBlock> registerButcherBlockCabinet(String woodType, Block baseBlock) {
         SoundType soundType = baseBlock.defaultBlockState().getSoundType();
@@ -123,29 +130,8 @@ public final class FABlocks {
             Set<Block> updatedCookingPotBlocks = new HashSet<>(cookingPotValidBlocks);
             boolean changed = false;
 
-            {
-                Block block = COPPER_COOKING_POT.get();
-                if (!updatedCookingPotBlocks.contains(block)) {
-                    updatedCookingPotBlocks.add(block);
-                    changed = true;
-                }
-            }
-            {
-                Block block = GOLDEN_COOKING_POT.get();
-                if (!updatedCookingPotBlocks.contains(block)) {
-                    updatedCookingPotBlocks.add(block);
-                    changed = true;
-                }
-            }
-            {
-                Block block = TERRACOTTA_COOKING_POT.get();
-                if (!updatedCookingPotBlocks.contains(block)) {
-                    updatedCookingPotBlocks.add(block);
-                    changed = true;
-                }
-            }
-            {
-                Block block = ALABASTER_COOKING_POT.get();
+            for (RegistryObject<CookingPotBlock> cookingPot : allCookingPots().toList()) {
+                Block block = cookingPot.get();
                 if (!updatedCookingPotBlocks.contains(block)) {
                     updatedCookingPotBlocks.add(block);
                     changed = true;

@@ -1,10 +1,13 @@
 package com.tiomadre.farmersassortment.data.client;
 
+import alabaster.crabbersdelight.common.registry.CDModBlocks;
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import com.tiomadre.farmersassortment.core.registry.FAItems;
 import com.tiomadre.farmersassortment.core.block.state.TerracottaCookingPotColor;
+import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
 import net.minecraft.data.PackOutput;
+
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -29,10 +32,12 @@ public class FAItemModels extends ItemModelProvider {
         block(FABlocks.COPPER_COOKING_POT);
         block(FABlocks.GOLDEN_COOKING_POT);
         block(FABlocks.ALABASTER_COOKING_POT);
+        block(FAxCrabbersBlocks.PEARLESCENT_COOKING_POT);
         terracottaCookingPot();
         block(FABlocks.ALABASTER_STOVE);
         FABlocks.allCuttingBoards().forEach(this::block);
         FABlocks.allButcherBlockCabinets().forEach(this::block);
+        FAxCrabbersBlocks.crabTraps().forEach(this::crabTrap);
     }
 
     private void handheldItem(RegistryObject<?> item) {
@@ -40,7 +45,10 @@ public class FAItemModels extends ItemModelProvider {
         withExistingParent(name, mcLoc("item/handheld"))
                 .texture("layer0", modLoc("item/" + name));
     }
-
+    private void crabTrap(RegistryObject<? extends Block> block) {
+        String name = Objects.requireNonNull(block.getId()).getPath();
+        withExistingParent(CDModBlocks.CRAB_TRAP.get());
+    }
 
     private void block(RegistryObject<? extends Block> block) {
         String name = Objects.requireNonNull(block.getId()).getPath();
@@ -63,5 +71,7 @@ public class FAItemModels extends ItemModelProvider {
     }
     private ModelFile getModelForTerracottaColor(TerracottaCookingPotColor color) {
         return getExistingFile(modLoc("block/" + color.textureName()));
+    }
+    private void withExistingParent(Block block) {
     }
 }

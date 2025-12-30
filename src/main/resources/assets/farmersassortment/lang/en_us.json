@@ -17,8 +17,6 @@
   "block.farmersassortment.crimson_cutting_board": "Crimson Cutting Board",
   "block.farmersassortment.warped_cutting_board": "Warped Cutting Board",
 
-  "block.farmersassortment.palm_cutting_board": "Palm Cutting Board",
-
   "block.farmersassortment.oak_butcher_block_cabinet": "Oak Butcher Block Cabinet",
   "block.farmersassortment.spruce_butcher_block_cabinet": "Spruce Butcher Block Cabinet",
   "block.farmersassortment.birch_butcher_block_cabinet": "Birch Butcher Block Cabinet",
@@ -30,8 +28,6 @@
   "block.farmersassortment.bamboo_butcher_block_cabinet": "Bamboo Butcher Block Cabinet",
   "block.farmersassortment.crimson_butcher_block_cabinet": "Crimson Butcher Block Cabinet",
   "block.farmersassortment.warped_butcher_block_cabinet": "Warped Butcher Block Cabinet",
-
-  "block.farmersassortment.palm_butcher_block_cabinet": "Palm Butcher Block Cabinet",
 
   "block.farmersassortment.copper_cooking_pot": "Copper Cooking Pot",
   "item.farmersassortment.copper_cooking_pot": "Copper Cooking Pot",
@@ -51,6 +47,11 @@
   "container.farmersassortment.copper_cooking_pot": "Copper Cooking Pot",
   "container.farmersassortment.golden_cooking_pot": "Golden Cooking Pot",
   "container.farmersassortment.terracotta_cooking_pot": "Terracotta Cooking Pot",
-  "container.farmersassortment.butcher_block_cabinet": "Butcher Block Cabinet"
+  "container.farmersassortment.butcher_block_cabinet": "Butcher Block Cabinet",
 
+  "block.farmersassortment.palm_butcher_block_cabinet": "Palm Butcher Block Cabinet",
+  "block.farmersassortment.palm_cutting_board": "Palm Cutting Board",
+  "block.farmersassortment.pearlescent_cooking_pot": "Pearlescent Cooking Pot",
+  "item.farmersassortment.pearlescent_cooking_pot": "Pearlescent Cooking Pot",
+  "container.farmersassortment.pearlescent_cooking_pot": "Pearlescent Cooking Pot"
 }

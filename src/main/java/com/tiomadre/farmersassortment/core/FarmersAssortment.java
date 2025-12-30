@@ -13,12 +13,14 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.RegistryObject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import vectorwing.farmersdelight.common.registry.ModBlockEntityTypes;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 @Mod(FarmersAssortment.MOD_ID)
 public class FarmersAssortment {
@@ -45,16 +47,18 @@ public class FarmersAssortment {
             BlockEntityTypeAccessor cookingPotAccessor = (BlockEntityTypeAccessor) ModBlockEntityTypes.COOKING_POT.get();
             Set<Block> validBlocks = cookingPotAccessor.farmersassortment$getValidBlocks();
             Set<Block> updatedValidBlocks = new HashSet<>(validBlocks);
-            boolean changed = false;
+            AtomicBoolean changed = new AtomicBoolean(false);
 
-            for (Block block : new Block[]{FABlocks.COPPER_COOKING_POT.get(), FABlocks.GOLDEN_COOKING_POT.get(), FABlocks.TERRACOTTA_COOKING_POT.get()}) {
-                if (!updatedValidBlocks.contains(block)) {
-                    updatedValidBlocks.add(block);
-                    changed = true;
-                }
-            }
+            FABlocks.allCookingPots()
+                    .map(RegistryObject::get)
+                    .forEach(block -> {
+                        if (!updatedValidBlocks.contains(block)) {
+                            updatedValidBlocks.add(block);
+                            changed.set(true);
+                        }
+                    });
 
-            if (changed) {
+            if (changed.get()) {
                 cookingPotAccessor.farmersassortment$setValidBlocks(updatedValidBlocks);
             }
         });

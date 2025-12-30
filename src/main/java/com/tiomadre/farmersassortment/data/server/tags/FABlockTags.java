@@ -26,17 +26,15 @@ public class FABlockTags extends BlockTagsProvider {
                 .add(FABlocks.allButcherBlockCabinets().map(RegistryObject::get).toArray(Block[]::new));
 
         this.tag(COOKING_POTS)
-                .add(FABlocks.COPPER_COOKING_POT.get(), FABlocks.GOLDEN_COOKING_POT.get(), FABlocks.ALABASTER_COOKING_POT.get(),
-                        FABlocks.TERRACOTTA_COOKING_POT.get());
+                .add(FABlocks.allCookingPots().map(RegistryObject::get).toArray(Block[]::new));
 
         this.tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(FABlocks.allButcherBlockCabinets().map(RegistryObject::get).toArray(Block[]::new))
                 .add(FABlocks.allCuttingBoards().map(RegistryObject::get).toArray(Block[]::new));
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(FABlocks.COPPER_COOKING_POT.get(), FABlocks.GOLDEN_COOKING_POT.get(),
-                        FABlocks.ALABASTER_COOKING_POT.get(), FABlocks.TERRACOTTA_COOKING_POT.get(),
-                        FABlocks.ALABASTER_STOVE.get());
+                .add(FABlocks.allCookingPots().map(RegistryObject::get).toArray(Block[]::new))
+                .add(FABlocks.ALABASTER_STOVE.get());
 
         this.tag(ModTags.HEAT_SOURCES)
                 .add(FABlocks.ALABASTER_STOVE.get());
