@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "M": {
+      "item": "crabbersdelight:clam"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " M",
+    " S"
+  ],
+  "result": {
+    "item": "farmersassortment:clamshell_knife"
+  },
+  "show_notification": true
+}

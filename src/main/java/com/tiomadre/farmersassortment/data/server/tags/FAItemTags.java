@@ -15,7 +15,7 @@ public class FAItemTags extends ItemTagsProvider {
 
     @Override
     protected void addTags(@NotNull HolderLookup.Provider provider) {
-    tag(ModTags.KNIVES).add(FAItems.AMETHYST_KNIFE.get(), FAItems.QUARTZ_KNIFE.get());
+    tag(ModTags.KNIVES).add(FAItems.AMETHYST_KNIFE.get(), FAItems.CLAMSHELL_KNIFE.get(), FAItems.QUARTZ_KNIFE.get());
 
     }
 }

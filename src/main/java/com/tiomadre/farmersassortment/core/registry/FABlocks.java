@@ -114,12 +114,9 @@ public final class FABlocks {
             BlockEntityTypeAccessor cuttingBoardAccessor = (BlockEntityTypeAccessor) ModBlockEntityTypes.CUTTING_BOARD.get();
             Set<Block> cuttingBoardValidBlocks = cuttingBoardAccessor.farmersassortment$getValidBlocks();
             Set<Block> updatedCuttingBoardBlocks = new HashSet<>(cuttingBoardValidBlocks);
-            cuttingBoards().map(RegistryObject::get).forEach(updatedCuttingBoardBlocks::add);
-            cuttingBoardAccessor.farmersassortment$setValidBlocks(updatedCuttingBoardBlocks);
-            butcherBlockCabinets().map(RegistryObject::get).forEach(updatedCuttingBoardBlocks::add);
             allCuttingBoards().map(RegistryObject::get).forEach(updatedCuttingBoardBlocks::add);
-            cuttingBoardAccessor.farmersassortment$setValidBlocks(updatedCuttingBoardBlocks);
             allButcherBlockCabinets().map(RegistryObject::get).forEach(updatedCuttingBoardBlocks::add);
+            cuttingBoardAccessor.farmersassortment$setValidBlocks(updatedCuttingBoardBlocks);
 
             BlockEntityTypeAccessor cookingPotAccessor = (BlockEntityTypeAccessor) ModBlockEntityTypes.COOKING_POT.get();
             Set<Block> cookingPotValidBlocks = cookingPotAccessor.farmersassortment$getValidBlocks();

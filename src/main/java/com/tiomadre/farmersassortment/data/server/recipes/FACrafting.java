@@ -36,6 +36,7 @@ public final class FACrafting extends RecipeProvider {
 
     @Override
     protected void buildRecipes(@NotNull Consumer<FinishedRecipe> output) {
+        //Cutting Boards
         cuttingBoard(output, FABlocks.SPRUCE_CUTTING_BOARD, Blocks.SPRUCE_PLANKS);
         cuttingBoard(output, FABlocks.BIRCH_CUTTING_BOARD, Blocks.BIRCH_PLANKS);
         cuttingBoard(output, FABlocks.JUNGLE_CUTTING_BOARD, Blocks.JUNGLE_PLANKS);
@@ -46,9 +47,19 @@ public final class FACrafting extends RecipeProvider {
         cuttingBoard(output, FABlocks.BAMBOO_CUTTING_BOARD, Blocks.BAMBOO_PLANKS);
         cuttingBoard(output, FABlocks.CRIMSON_CUTTING_BOARD, Blocks.CRIMSON_PLANKS);
         cuttingBoard(output, FABlocks.WARPED_CUTTING_BOARD, Blocks.WARPED_PLANKS);
-        if (ModList.get().isLoaded("crabbersdelight")) {
-            cuttingBoard(output, FAxCrabbersBlocks.PALM_CUTTING_BOARD, blockItem("crabbersdelight", "palm_planks"));
-        }
+
+        //Cooking Pots
+        variantCookingPot(output, FABlocks.GOLDEN_COOKING_POT, Items.GOLD_INGOT, Items.WOODEN_SHOVEL, Items.BRICK);
+        variantCookingPot(output, FABlocks.COPPER_COOKING_POT, Items.COPPER_INGOT, Items.WOODEN_SHOVEL, Items.BRICK);
+        variantCookingPot(output, FABlocks.ALABASTER_COOKING_POT, Items.QUARTZ, Items.WOODEN_SHOVEL, Items.GOLD_INGOT);
+        variantCookingPot(output, FABlocks.TERRACOTTA_COOKING_POT, Blocks.TERRACOTTA, Items.WOODEN_SHOVEL, Items.BRICK);
+        variantStove(output, FABlocks.ALABASTER_STOVE, Blocks.QUARTZ_BLOCK, Items.GOLD_INGOT, Items.FLINT_AND_STEEL);
+
+        //Knives
+        knife(output, FAItems.AMETHYST_KNIFE, Items.AMETHYST_SHARD);
+        knife(output, FAItems.QUARTZ_KNIFE, Items.QUARTZ);
+
+        //Butcher Block Cabinets
         butcherBlockCabinet(output, FABlocks.OAK_BUTCHER_BLOCK_CABINET, blockItem("farmersdelight", "cutting_board"), blockItem("farmersdelight", "oak_cabinet"));
         butcherBlockCabinet(output, FABlocks.SPRUCE_BUTCHER_BLOCK_CABINET, FABlocks.SPRUCE_CUTTING_BOARD.get(), blockItem("farmersdelight", "spruce_cabinet"));
         butcherBlockCabinet(output, FABlocks.BIRCH_BUTCHER_BLOCK_CABINET, FABlocks.BIRCH_CUTTING_BOARD.get(), blockItem("farmersdelight", "birch_cabinet"));
@@ -60,17 +71,16 @@ public final class FACrafting extends RecipeProvider {
         butcherBlockCabinet(output, FABlocks.BAMBOO_BUTCHER_BLOCK_CABINET, FABlocks.BAMBOO_CUTTING_BOARD.get(), blockItem("farmersdelight", "bamboo_cabinet"));
         butcherBlockCabinet(output, FABlocks.CRIMSON_BUTCHER_BLOCK_CABINET, FABlocks.CRIMSON_CUTTING_BOARD.get(), blockItem("farmersdelight", "crimson_cabinet"));
         butcherBlockCabinet(output, FABlocks.WARPED_BUTCHER_BLOCK_CABINET, FABlocks.WARPED_CUTTING_BOARD.get(), blockItem("farmersdelight", "warped_cabinet"));
-        //Crabber's Delight
+
+
+        //Crabber's Delight Compat
         if (ModList.get().isLoaded("crabbersdelight")) {
             butcherBlockCabinet(output, FAxCrabbersBlocks.PALM_BUTCHER_BLOCK_CABINET, FAxCrabbersBlocks.PALM_CUTTING_BOARD.get(), blockItem("crabbersdelight", "palm_cabinet"));
+            knife(output, FAItems.CLAMSHELL_KNIFE, item("crabbersdelight", "clam"));
+            cuttingBoard(output, FAxCrabbersBlocks.PALM_CUTTING_BOARD, blockItem("crabbersdelight", "palm_planks"));
         }
-        variantCookingPot(output, FABlocks.GOLDEN_COOKING_POT, Items.GOLD_INGOT, Items.WOODEN_SHOVEL, Items.BRICK);
-        variantCookingPot(output, FABlocks.COPPER_COOKING_POT, Items.COPPER_INGOT, Items.WOODEN_SHOVEL, Items.BRICK);
-        variantCookingPot(output, FABlocks.ALABASTER_COOKING_POT, Items.QUARTZ, Items.WOODEN_SHOVEL, Items.GOLD_INGOT);
-        variantCookingPot(output, FABlocks.TERRACOTTA_COOKING_POT, Blocks.TERRACOTTA, Items.WOODEN_SHOVEL, Items.BRICK);
-        variantStove(output, FABlocks.ALABASTER_STOVE, Blocks.QUARTZ_BLOCK, Items.GOLD_INGOT, Items.FLINT_AND_STEEL);
-        knife(output, FAItems.AMETHYST_KNIFE, Items.AMETHYST_SHARD);
-        knife(output, FAItems.QUARTZ_KNIFE, Items.QUARTZ);
+
+
     }
 
     private void cuttingBoard(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> board, ItemLike planks) {
@@ -127,6 +137,10 @@ public final class FACrafting extends RecipeProvider {
                 .pattern("MFM")
                 .unlockedBy(getHasName(material), has(material))
                 .save(output);
+    }
+    private ItemLike item(String namespace, String path) {
+        ResourceLocation id = new ResourceLocation(namespace, path);
+        return Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(id), () -> "Missing item " + id);
     }
 
     private ItemLike blockItem(String namespace, String path) {

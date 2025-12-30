@@ -13,7 +13,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import vectorwing.farmersdelight.common.block.CuttingBoardBlock;
 
-import java.util.Objects;
 import java.util.stream.Stream;
 
 public final class FAxCrabbersBlocks {
@@ -56,6 +55,7 @@ public final class FAxCrabbersBlocks {
 
     private static Block compatBlock(String path) {
         ResourceLocation id = new ResourceLocation(MOD_ID, path);
-        return Objects.requireNonNullElse(ForgeRegistries.BLOCKS.getValue(id), Blocks.OAK_PLANKS);
+        Block block = ForgeRegistries.BLOCKS.getValue(id);
+        return block == null || block.equals(Blocks.AIR) ? Blocks.OAK_PLANKS : block;
     }
 }

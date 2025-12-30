@@ -24,6 +24,7 @@ public class FAItemModels extends ItemModelProvider {
         //Items
         handheldItem(FAItems.AMETHYST_KNIFE);
         handheldItem(FAItems.QUARTZ_KNIFE);
+        handheldItem(FAItems.CLAMSHELL_KNIFE);
         //Block Items
         block(FABlocks.COPPER_COOKING_POT);
         block(FABlocks.GOLDEN_COOKING_POT);

@@ -2,6 +2,7 @@ package com.tiomadre.farmersassortment.core.registry;
 
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.block.entity.ButcherBlockCabinetBlockEntity;
+import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -25,7 +26,8 @@ public final class FABlockEntityTypes {
                     FABlocks.CHERRY_BUTCHER_BLOCK_CABINET.get(),
                     FABlocks.BAMBOO_BUTCHER_BLOCK_CABINET.get(),
                     FABlocks.CRIMSON_BUTCHER_BLOCK_CABINET.get(),
-                    FABlocks.WARPED_BUTCHER_BLOCK_CABINET.get()
+                    FABlocks.WARPED_BUTCHER_BLOCK_CABINET.get(),
+                    FAxCrabbersBlocks.PALM_BUTCHER_BLOCK_CABINET.get()
             ).build(null));
 
     private FABlockEntityTypes() {

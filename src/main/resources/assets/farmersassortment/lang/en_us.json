@@ -1,5 +1,10 @@
 {
   "itemGroup.farmersassortment": "Farmer's Assortment",
+
+  "item.farmersassortment.amethyst_knife": "Amethyst Knife",
+  "item.farmersassortment.quartz_knife": "Quartz Knife",
+  "item.farmersassortment.clamshell_knife": "Clamshell Knife",
+
   "block.farmersassortment.oak_cutting_board": "Oak Cutting Board",
   "block.farmersassortment.spruce_cutting_board": "Spruce Cutting Board",
   "block.farmersassortment.birch_cutting_board": "Birch Cutting Board",
@@ -30,20 +35,22 @@
 
   "block.farmersassortment.copper_cooking_pot": "Copper Cooking Pot",
   "item.farmersassortment.copper_cooking_pot": "Copper Cooking Pot",
-  "container.farmersassortment.copper_cooking_pot": "Copper Cooking Pot",
   "block.farmersassortment.golden_cooking_pot": "Golden Cooking Pot",
   "item.farmersassortment.golden_cooking_pot": "Golden Cooking Pot",
-  "container.farmersassortment.golden_cooking_pot": "Golden Cooking Pot",
   "block.farmersassortment.alabaster_cooking_pot": "Alabaster Cooking Pot",
   "item.farmersassortment.alabaster_cooking_pot": "Alabaster Cooking Pot",
-  "container.farmersassortment.alabaster_cooking_pot": "Alabaster Cooking Pot",
   "block.farmersassortment.terracotta_cooking_pot": "Terracotta Cooking Pot",
   "item.farmersassortment.terracotta_cooking_pot": "Terracotta Cooking Pot",
-  "container.farmersassortment.terracotta_cooking_pot": "Terracotta Cooking Pot",
+
+  "block.farmersassortment.alabaster_stove": "Alabaster Stove",
+
   "tooltip.farmersassortment.terracotta_cooking_pot.undyed": "Undyed",
   "tooltip.farmersassortment.terracotta_cooking_pot.dyed": "Dyed: %s",
-  "block.farmersassortment.alabaster_stove": "Alabaster Stove",
-  "container.farmersassortment.butcher_block_cabinet": "Butcher Block Cabinet",
-  "item.farmersassortment.amethyst_knife": "Amethyst Knife",
-  "item.farmersassortment.quartz_knife": "Quartz Knife"
+
+  "container.farmersassortment.alabaster_cooking_pot": "Alabaster Cooking Pot",
+  "container.farmersassortment.copper_cooking_pot": "Copper Cooking Pot",
+  "container.farmersassortment.golden_cooking_pot": "Golden Cooking Pot",
+  "container.farmersassortment.terracotta_cooking_pot": "Terracotta Cooking Pot",
+  "container.farmersassortment.butcher_block_cabinet": "Butcher Block Cabinet"
+
 }

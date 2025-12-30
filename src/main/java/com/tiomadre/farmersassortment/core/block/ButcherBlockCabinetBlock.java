@@ -74,6 +74,7 @@ public class ButcherBlockCabinetBlock extends CabinetBlock implements EntityBloc
                             if (offhandStack.getItem() instanceof BlockItem) {
                                 ItemStack offhandStackForBoard = player.getAbilities().instabuild ? offhandStack.copy() : offhandStack;
                                 if (cabinet.addBoardItem(offhandStackForBoard)) {
+                                    level.playSound(null, pos, SoundEvents.WOOD_PLACE, SoundSource.BLOCKS, 1.0F, 0.8F);
                                     return InteractionResult.sidedSuccess(level.isClientSide);
                                 }
                             } else {
@@ -89,6 +90,7 @@ public class ButcherBlockCabinetBlock extends CabinetBlock implements EntityBloc
                     }
 
                     if (cabinet.addBoardItem(player.getAbilities().instabuild ? heldStack.copy() : heldStack)) {
+                        level.playSound(null, pos, SoundEvents.WOOD_PLACE, SoundSource.BLOCKS, 1.0F, 0.8F);
                         return InteractionResult.sidedSuccess(level.isClientSide);
                     }
                 } else if (!heldStack.isEmpty()) {
