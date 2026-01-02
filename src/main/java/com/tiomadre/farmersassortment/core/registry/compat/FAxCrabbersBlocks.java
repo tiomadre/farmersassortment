@@ -19,7 +19,10 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import vectorwing.farmersdelight.common.block.CookingPotBlock;
 import vectorwing.farmersdelight.common.block.CuttingBoardBlock;
+import vectorwing.farmersdelight.common.block.SkilletBlock;
 import vectorwing.farmersdelight.common.item.CookingPotItem;
+import vectorwing.farmersdelight.common.item.SkilletItem;
+import vectorwing.farmersdelight.common.registry.ModBlockEntityTypes;
 
 import java.util.HashSet;
 import java.util.List;
@@ -33,7 +36,9 @@ public final class FAxCrabbersBlocks {
     private static final BlockSubRegistryHelper BLOCKS = FarmersAssortment.REGISTRY_HELPER.getBlockSubHelper();
 
     private static final ResourceLocation PEARLESCENT_COOKING_POT_ID = new ResourceLocation(FarmersAssortment.MOD_ID, "pearlescent_cooking_pot");
+    private static final ResourceLocation PEARLESCENT_SKILLET_ID = new ResourceLocation(FarmersAssortment.MOD_ID, "pearlescent_skillet");
     public static final RegistryObject<CookingPotBlock> PEARLESCENT_COOKING_POT = registerCookingPot();
+    public static final RegistryObject<SkilletBlock> PEARLESCENT_SKILLET = registerSkillet();
     public static final RegistryObject<CuttingBoardBlock> PALM_CUTTING_BOARD = registerCuttingBoard("palm");
     public static final RegistryObject<ButcherBlockCabinetBlock> PALM_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("palm");
     public static final RegistryObject<CrabTrapBlock> SPRUCE_CRAB_TRAP = registerCrabTrap("spruce");
@@ -63,6 +68,9 @@ public final class FAxCrabbersBlocks {
     }
     public static Stream<RegistryObject<CookingPotBlock>> cookingPots() {
         return Stream.of(PEARLESCENT_COOKING_POT);
+    }
+    public static Stream<RegistryObject<SkilletBlock>> skillets() {
+        return Stream.of(PEARLESCENT_SKILLET);
     }
 
     public static Stream<RegistryObject<CrabTrapBlock>> crabTraps() {
@@ -102,7 +110,11 @@ public final class FAxCrabbersBlocks {
                 () -> new CookingPotBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(0.5F, 6.0F).sound(SoundType.AMETHYST)),
                 () -> new CookingPotItem(Objects.requireNonNull(ForgeRegistries.BLOCKS.getValue(PEARLESCENT_COOKING_POT_ID)), new Item.Properties().stacksTo(1)));
     }
-
+    private static RegistryObject<SkilletBlock> registerSkillet() {
+        return BLOCKS.createBlockWithItem("pearlescent_skillet",
+                () -> new SkilletBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(0.5F, 6.0F).sound(SoundType.AMETHYST)),
+                () -> new SkilletItem(Objects.requireNonNull(ForgeRegistries.BLOCKS.getValue(PEARLESCENT_SKILLET_ID)), new Item.Properties().stacksTo(1)));
+    }
 
     private static RegistryObject<CrabTrapBlock> registerCrabTrap(String woodType) {
         return BLOCKS.createBlock(woodType + "_crab_trap",
@@ -123,27 +135,35 @@ public final class FAxCrabbersBlocks {
             Set<Block> updatedValidBlocks = new HashSet<>(validBlocks);
 
             boolean changed = addBlocksToSet(updatedValidBlocks, List.of(
-                    CDModBlocks.CRAB_TRAP.get(),
-                    SPRUCE_CRAB_TRAP.get(),
-                    BIRCH_CRAB_TRAP.get(),
-                    JUNGLE_CRAB_TRAP.get(),
-                    ACACIA_CRAB_TRAP.get(),
-                    DARK_OAK_CRAB_TRAP.get(),
-                    MANGROVE_CRAB_TRAP.get(),
-                    CHERRY_CRAB_TRAP.get(),
-                    BAMBOO_CRAB_TRAP.get(),
-                    CRIMSON_CRAB_TRAP.get(),
-                    WARPED_CRAB_TRAP.get(),
-                    PALM_CRAB_TRAP.get()
             ));
 
             if (changed) {
                 crabTrapAccessor.farmersassortment$setValidBlocks(updatedValidBlocks);
             }
+            BlockEntityTypeAccessor cookingPotAccessor = (BlockEntityTypeAccessor) ModBlockEntityTypes.COOKING_POT.get();
+            Set<Block> cookingPotValidBlocks = cookingPotAccessor.farmersassortment$getValidBlocks();
+            Set<Block> updatedCookingPotBlocks = new HashSet<>(cookingPotValidBlocks);
+
+            boolean updatedCookingPots = addBlocksToSet(updatedCookingPotBlocks, List.of());
+
+            if (updatedCookingPots) {
+                cookingPotAccessor.farmersassortment$setValidBlocks(updatedCookingPotBlocks);
+            }
+
+            BlockEntityTypeAccessor skilletAccessor = (BlockEntityTypeAccessor) ModBlockEntityTypes.SKILLET.get();
+            Set<Block> skilletValidBlocks = skilletAccessor.farmersassortment$getValidBlocks();
+            Set<Block> updatedSkilletBlocks = new HashSet<>(skilletValidBlocks);
+
+            boolean updatedSkillets = addBlocksToSet(updatedSkilletBlocks, List.of(PEARLESCENT_SKILLET.get()));
+
+            if (updatedSkillets) {
+                skilletAccessor.farmersassortment$setValidBlocks(updatedSkilletBlocks);
+            }
         });
     }
 
-    private static boolean addBlocksToSet(Set<Block> blocks, List<Block> newBlocks) {
+
+    public static boolean addBlocksToSet(Set<Block> blocks, List<SkilletBlock> newBlocks) {
         boolean changed = false;
         for (Block block : newBlocks) {
             if (!blocks.contains(block)) {

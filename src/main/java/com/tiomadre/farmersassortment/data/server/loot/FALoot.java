@@ -41,7 +41,9 @@ public class FALoot extends LootTableProvider {
             this.dropSelf(FABlocks.ALABASTER_COOKING_POT.get());
             this.dropSelf(FABlocks.TERRACOTTA_COOKING_POT.get());
             this.dropSelf(FAxCrabbersBlocks.PEARLESCENT_COOKING_POT.get());
+            this.dropSelf(FAxCrabbersBlocks.PEARLESCENT_SKILLET.get());
             this.dropSelf(FABlocks.ALABASTER_STOVE.get());
+
             FAxCrabbersBlocks.crabTraps().forEach(trap -> this.add(trap.get(), this.createSingleItemTable(trap.get())
                     .apply(CopyNameFunction.copyName(CopyNameFunction.NameSource.BLOCK_ENTITY))));
         }

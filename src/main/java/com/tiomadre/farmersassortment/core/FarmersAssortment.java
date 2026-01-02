@@ -40,6 +40,7 @@ public class FarmersAssortment {
         FATab.register(modEventBus);
         FACrafting.register(modEventBus);
         modEventBus.addListener(FABlocks::onCommonSetup);
+        modEventBus.addListener(FAxCrabbersBlocks::onCommonSetup);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -60,6 +61,24 @@ public class FarmersAssortment {
 
             if (changed.get()) {
                 cookingPotAccessor.farmersassortment$setValidBlocks(updatedValidBlocks);
+            }
+
+            BlockEntityTypeAccessor skilletAccessor = (BlockEntityTypeAccessor) ModBlockEntityTypes.SKILLET.get();
+            Set<Block> validSkilletBlocks = skilletAccessor.farmersassortment$getValidBlocks();
+            Set<Block> updatedSkilletBlocks = new HashSet<>(validSkilletBlocks);
+            AtomicBoolean skilletChanged = new AtomicBoolean(false);
+
+            FAxCrabbersBlocks.skillets()
+                    .map(RegistryObject::get)
+                    .forEach(block -> {
+                        if (!updatedSkilletBlocks.contains(block)) {
+                            updatedSkilletBlocks.add(block);
+                            skilletChanged.set(true);
+                        }
+                    });
+
+            if (skilletChanged.get()) {
+                skilletAccessor.farmersassortment$setValidBlocks(updatedSkilletBlocks);
             }
         });
     }

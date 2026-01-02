@@ -1,6 +1,5 @@
 package com.tiomadre.farmersassortment.data.client;
 
-import alabaster.crabbersdelight.common.registry.CDModBlocks;
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import com.tiomadre.farmersassortment.core.registry.FAItems;
@@ -46,7 +45,7 @@ public class FAItemModels extends ItemModelProvider {
     }
     private void crabTrap(RegistryObject<? extends Block> block) {
         String name = Objects.requireNonNull(block.getId()).getPath();
-        withExistingParent(CDModBlocks.CRAB_TRAP.get());
+        withExistingParent(name, modLoc("block/" + name));
     }
 
     private void block(RegistryObject<? extends Block> block) {

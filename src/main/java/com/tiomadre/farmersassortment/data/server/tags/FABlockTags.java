@@ -2,6 +2,7 @@ package com.tiomadre.farmersassortment.data.server.tags;
 
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
+import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.RegistryObject;
@@ -28,12 +29,16 @@ public class FABlockTags extends BlockTagsProvider {
         this.tag(COOKING_POTS)
                 .add(FABlocks.allCookingPots().map(RegistryObject::get).toArray(Block[]::new));
 
+        this.tag(SKILLETS)
+                .add(FAxCrabbersBlocks.skillets().map(RegistryObject::get).toArray(Block[]::new));
+
         this.tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(FABlocks.allButcherBlockCabinets().map(RegistryObject::get).toArray(Block[]::new))
                 .add(FABlocks.allCuttingBoards().map(RegistryObject::get).toArray(Block[]::new));
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(FABlocks.allCookingPots().map(RegistryObject::get).toArray(Block[]::new))
+                .add(FAxCrabbersBlocks.skillets().map(RegistryObject::get).toArray(Block[]::new))
                 .add(FABlocks.ALABASTER_STOVE.get());
 
         this.tag(ModTags.HEAT_SOURCES)

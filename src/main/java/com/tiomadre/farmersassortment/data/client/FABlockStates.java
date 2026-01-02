@@ -17,6 +17,7 @@ import net.minecraftforge.registries.RegistryObject;
 import com.tiomadre.farmersassortment.core.block.ButcherBlockCabinetBlock;
 import vectorwing.farmersdelight.common.block.CuttingBoardBlock;
 import vectorwing.farmersdelight.common.block.CookingPotBlock;
+import vectorwing.farmersdelight.common.block.SkilletBlock;
 import vectorwing.farmersdelight.common.block.state.CookingPotSupport;
 import vectorwing.farmersdelight.common.block.StoveBlock;
 
@@ -37,6 +38,7 @@ public class FABlockStates extends BlockStateProvider {
         registerCookingPots();
         registerStoves();
         registerCrabTraps();
+        registerSkillets();
     }
     //CABINET VARIANTS
     private void registerCabinets() {
@@ -86,8 +88,11 @@ public class FABlockStates extends BlockStateProvider {
         cookingPots.forEach(pot -> registerCookingPot(pot.block(), pot.materialName(), modLoc(pot.bottomTexturePath())));
         registerTerracottaCookingPot();
     }
-    //STOVE VARIANTS
 
+    private void registerSkillets() {
+        FAxCrabbersBlocks.skillets().forEach(this::registerSkillet);
+    }
+    //STOVE VARIANTS
     private void registerStoves() {
         RegistryObject<? extends StoveBlock> stove = FABlocks.ALABASTER_STOVE;
         ModelFile offModel = models().orientableWithBottom(stove.getId().getPath(),
@@ -401,6 +406,25 @@ public class FABlockStates extends BlockStateProvider {
                 .end();
     }
 
+    private void registerSkillet(RegistryObject<? extends Block> skillet) {
+        ResourceLocation skilletModel = new ResourceLocation("farmersdelight", "block/skillet");
+        ResourceLocation skilletTrayModel = new ResourceLocation("farmersdelight", "block/skillet_tray");
+
+        ModelFile defaultModel = new ModelFile.UncheckedModelFile(skilletModel);
+        ModelFile trayModel = new ModelFile.UncheckedModelFile(skilletTrayModel);
+
+        getVariantBuilder(skillet.get()).forAllStatesExcept(state -> {
+            Direction direction = state.getValue(SkilletBlock.FACING);
+            boolean support = state.getValue(SkilletBlock.SUPPORT);
+            int rotation = (int) direction.toYRot();
+
+            return ConfiguredModel.builder()
+                    .modelFile(support ? trayModel : defaultModel)
+                    .rotationY(rotation)
+                    .build();
+        }, SkilletBlock.WATERLOGGED);
+    }
+
     private record CabinetDefinition(RegistryObject<? extends Block> block, String woodType, ResourceLocation bottomTexture, ResourceLocation topTexture) {
     }
 
@@ -408,20 +432,25 @@ public class FABlockStates extends BlockStateProvider {
     }
     //CRABBERSDELIGHT CRAB TRAP VARIANTS
     private void registerCrabTraps() {
-        ResourceLocation trapModel = new ResourceLocation("crabbersdelight", "block/crab_trap");
-        ResourceLocation hangingModel = new ResourceLocation("crabbersdelight", "block/crab_trap_chain");
+        ResourceLocation trapParent = new ResourceLocation("crabbersdelight", "block/crab_trap");
+        ResourceLocation hangingParent = new ResourceLocation("crabbersdelight", "block/crab_trap_chain");
 
-        FAxCrabbersBlocks.crabTraps().forEach(trap -> getVariantBuilder(trap.get()).forAllStates(state -> {
-            Direction direction = state.getValue(CrabTrapBlock.FACING);
-            boolean hanging = state.getValue(CrabTrapBlock.HANGING);
-            ResourceLocation modelLocation = hanging ? hangingModel : trapModel;
-            ModelFile model = new ModelFile.UncheckedModelFile(modelLocation);
+        FAxCrabbersBlocks.crabTraps().forEach(trap -> {
+            String name = Objects.requireNonNull(trap.getId()).getPath();
+            ModelFile trapModel = crabTrapModel(name, false, trapParent);
+            ModelFile hangingModel = crabTrapModel(name, true, hangingParent);
 
-            return ConfiguredModel.builder()
-                    .modelFile(model)
-                    .rotationY(((int) direction.toYRot()) % 360)
-                    .build();
-        }));
+            getVariantBuilder(trap.get()).forAllStates(state -> {
+                Direction direction = state.getValue(CrabTrapBlock.FACING);
+                boolean hanging = state.getValue(CrabTrapBlock.HANGING);
+                ModelFile model = hanging ? hangingModel : trapModel;
+
+                return ConfiguredModel.builder()
+                        .modelFile(model)
+                        .rotationY(((int) direction.toYRot()) % 360)
+                        .build();
+            });
+        });
     }
     private ModelFile crabTrapModel(String name, boolean hanging, ResourceLocation parent) {
         String modelName = hanging ? name + "_chain" : name;
@@ -434,3 +463,4 @@ public class FABlockStates extends BlockStateProvider {
                 .texture("particle", modLoc("block/" + name + "_side"));
     }
 }
+
