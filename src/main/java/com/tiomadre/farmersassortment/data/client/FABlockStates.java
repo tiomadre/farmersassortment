@@ -423,4 +423,14 @@ public class FABlockStates extends BlockStateProvider {
                     .build();
         }));
     }
+    private ModelFile crabTrapModel(String name, boolean hanging, ResourceLocation parent) {
+        String modelName = hanging ? name + "_chain" : name;
+        return models().withExistingParent(modelName, parent)
+                .texture("bottom", modLoc("block/" + name + "_bottom"))
+                .texture("front", modLoc("block/" + name + "_front"))
+                .texture("handles", modLoc("block/" + name + "_handles"))
+                .texture("side", modLoc("block/" + name + "_side"))
+                .texture("top", modLoc("block/" + name + "_top"))
+                .texture("particle", modLoc("block/" + name + "_side"));
+    }
 }
