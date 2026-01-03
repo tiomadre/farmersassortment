@@ -29,8 +29,6 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import static com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks.addBlocksToSet;
-
 public final class FABlocks {
     public static final BlockSubRegistryHelper BLOCKS = FarmersAssortment.REGISTRY_HELPER.getBlockSubHelper();
 
@@ -144,14 +142,6 @@ public final class FABlocks {
                 cookingPotAccessor.farmersassortment$setValidBlocks(updatedCookingPotBlocks);
             }
 
-            BlockEntityTypeAccessor skilletAccessor = (BlockEntityTypeAccessor) ModBlockEntityTypes.SKILLET.get();
-            Set<Block> skilletValidBlocks = skilletAccessor.farmersassortment$getValidBlocks();
-            Set<Block> updatedSkilletBlocks = new HashSet<>(skilletValidBlocks);
-            boolean updatedSkillets = addBlocksToSet(updatedSkilletBlocks, FAxCrabbersBlocks.skillets().map(RegistryObject::get).toList());
-
-            if (updatedSkillets) {
-                skilletAccessor.farmersassortment$setValidBlocks(updatedSkilletBlocks);
-            }
         });
     }
 

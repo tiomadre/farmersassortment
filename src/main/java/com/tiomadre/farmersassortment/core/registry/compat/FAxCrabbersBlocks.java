@@ -135,6 +135,18 @@ public final class FAxCrabbersBlocks {
             Set<Block> updatedValidBlocks = new HashSet<>(validBlocks);
 
             boolean changed = addBlocksToSet(updatedValidBlocks, List.of(
+                    CDModBlocks.CRAB_TRAP.get(),
+                    SPRUCE_CRAB_TRAP.get(),
+                    BIRCH_CRAB_TRAP.get(),
+                    JUNGLE_CRAB_TRAP.get(),
+                    ACACIA_CRAB_TRAP.get(),
+                    DARK_OAK_CRAB_TRAP.get(),
+                    MANGROVE_CRAB_TRAP.get(),
+                    CHERRY_CRAB_TRAP.get(),
+                    BAMBOO_CRAB_TRAP.get(),
+                    CRIMSON_CRAB_TRAP.get(),
+                    WARPED_CRAB_TRAP.get(),
+                    PALM_CRAB_TRAP.get()
             ));
 
             if (changed) {
@@ -144,7 +156,7 @@ public final class FAxCrabbersBlocks {
             Set<Block> cookingPotValidBlocks = cookingPotAccessor.farmersassortment$getValidBlocks();
             Set<Block> updatedCookingPotBlocks = new HashSet<>(cookingPotValidBlocks);
 
-            boolean updatedCookingPots = addBlocksToSet(updatedCookingPotBlocks, List.of());
+            boolean updatedCookingPots = addBlocksToSet(updatedCookingPotBlocks, List.of(PEARLESCENT_COOKING_POT.get()));
 
             if (updatedCookingPots) {
                 cookingPotAccessor.farmersassortment$setValidBlocks(updatedCookingPotBlocks);
@@ -163,7 +175,7 @@ public final class FAxCrabbersBlocks {
     }
 
 
-    public static boolean addBlocksToSet(Set<Block> blocks, List<SkilletBlock> newBlocks) {
+    private static boolean addBlocksToSet(Set<Block> blocks, List<Block> newBlocks) {
         boolean changed = false;
         for (Block block : newBlocks) {
             if (!blocks.contains(block)) {

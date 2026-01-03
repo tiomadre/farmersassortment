@@ -1,0 +1,11 @@
+{
+  "parent": "crabbersdelight:block/crab_trap",
+  "textures": {
+    "bottom": "farmersassortment:block/acacia_crab_trap_bottom",
+    "front": "farmersassortment:block/acacia_crab_trap_front",
+    "handles": "farmersassortment:block/acacia_crab_trap_handles",
+    "particle": "farmersassortment:block/acacia_crab_trap_side",
+    "side": "farmersassortment:block/acacia_crab_trap_side",
+    "top": "farmersassortment:block/acacia_crab_trap_top"
+  }
+}

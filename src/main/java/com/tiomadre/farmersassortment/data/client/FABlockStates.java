@@ -454,7 +454,10 @@ public class FABlockStates extends BlockStateProvider {
     }
     private ModelFile crabTrapModel(String name, boolean hanging, ResourceLocation parent) {
         String modelName = hanging ? name + "_chain" : name;
-        return models().withExistingParent(modelName, parent)
+        ModelFile parentModel = new ModelFile.UncheckedModelFile(parent);
+
+        return models().getBuilder(modelName)
+                .parent(parentModel)
                 .texture("bottom", modLoc("block/" + name + "_bottom"))
                 .texture("front", modLoc("block/" + name + "_front"))
                 .texture("handles", modLoc("block/" + name + "_handles"))
