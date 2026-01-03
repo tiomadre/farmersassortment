@@ -1,0 +1,11 @@
+{
+  "parent": "farmersdelight:block/skillet_tray",
+  "textures": {
+    "bottom": "farmersassortment:block/pearlescent_skillet_bottom",
+    "particle": "farmersassortment:block/pearlescent_skillet_side",
+    "side": "farmersassortment:block/pearlescent_skillet_side",
+    "top": "farmersassortment:block/pearlescent_skillet_top",
+    "tray_side": "farmersassortment:block/pearlescent_cooking_pot_tray_side",
+    "tray_top": "farmersassortment:block/pearlescent_cooking_pot_tray_top"
+  }
+}

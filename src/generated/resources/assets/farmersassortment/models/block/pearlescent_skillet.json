@@ -1,0 +1,9 @@
+{
+  "parent": "farmersdelight:block/skillet",
+  "textures": {
+    "bottom": "farmersassortment:block/pearlescent_skillet_bottom",
+    "particle": "farmersassortment:block/pearlescent_skillet_top",
+    "side": "farmersassortment:block/pearlescent_skillet_side",
+    "top": "farmersassortment:block/pearlescent_skillet_top"
+  }
+}

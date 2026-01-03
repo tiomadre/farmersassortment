@@ -407,11 +407,24 @@ public class FABlockStates extends BlockStateProvider {
     }
 
     private void registerSkillet(RegistryObject<? extends Block> skillet) {
-        ResourceLocation skilletModel = new ResourceLocation("farmersdelight", "block/skillet");
-        ResourceLocation skilletTrayModel = new ResourceLocation("farmersdelight", "block/skillet_tray");
+        String name = Objects.requireNonNull(skillet.getId()).getPath();
+        ResourceLocation skilletModel = modLoc("block/" + name);
+        ResourceLocation skilletTrayModel = modLoc("block/" + name + "_tray");
 
-        ModelFile defaultModel = new ModelFile.UncheckedModelFile(skilletModel);
-        ModelFile trayModel = new ModelFile.UncheckedModelFile(skilletTrayModel);
+        ModelFile defaultModel = models().getBuilder(name)
+                .parent(new ModelFile.UncheckedModelFile(new ResourceLocation("farmersdelight", "block/skillet")))
+                .texture("particle", modLoc("block/" + name + "_top"))
+                .texture("side", modLoc("block/" + name + "_side"))
+                .texture("top", modLoc("block/" + name + "_top"))
+                .texture("bottom", modLoc("block/" + name + "_bottom"));
+        ModelFile trayModel = models().getBuilder(name + "_tray")
+                .parent(new ModelFile.UncheckedModelFile(new ResourceLocation("farmersdelight", "block/skillet_tray")))
+                .texture("particle", modLoc("block/" + name + "_side"))
+                .texture("side", modLoc("block/" + name + "_side"))
+                .texture("top", modLoc("block/" + name + "_top"))
+                .texture("bottom", modLoc("block/" + name + "_bottom"))
+                .texture("tray_top", modLoc("block/pearlescent_cooking_pot_tray_top"))
+                .texture("tray_side", modLoc("block/pearlescent_cooking_pot_tray_side"));
 
         getVariantBuilder(skillet.get()).forAllStatesExcept(state -> {
             Direction direction = state.getValue(SkilletBlock.FACING);
@@ -432,8 +445,8 @@ public class FABlockStates extends BlockStateProvider {
     }
     //CRABBERSDELIGHT CRAB TRAP VARIANTS
     private void registerCrabTraps() {
-        ResourceLocation trapParent = new ResourceLocation("crabbersdelight", "block/crab_trap");
-        ResourceLocation hangingParent = new ResourceLocation("crabbersdelight", "block/crab_trap_chain");
+        ResourceLocation trapParent = modLoc("block/crab_trap");
+        ResourceLocation hangingParent = modLoc("block/crab_trap_chain");
 
         FAxCrabbersBlocks.crabTraps().forEach(trap -> {
             String name = Objects.requireNonNull(trap.getId()).getPath();

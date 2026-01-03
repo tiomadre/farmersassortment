@@ -36,6 +36,7 @@ public class FAItemModels extends ItemModelProvider {
         FABlocks.allCuttingBoards().forEach(this::block);
         FABlocks.allButcherBlockCabinets().forEach(this::block);
         FAxCrabbersBlocks.crabTraps().forEach(this::crabTrap);
+        FAxCrabbersBlocks.skillets().forEach(this::block);
     }
 
     private void handheldItem(RegistryObject<?> item) {

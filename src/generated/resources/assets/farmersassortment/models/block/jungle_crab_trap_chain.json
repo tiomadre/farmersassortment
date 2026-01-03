@@ -1,5 +1,5 @@
 {
-  "parent": "crabbersdelight:block/crab_trap_chain",
+  "parent": "farmersassortment:block/crab_trap_chain",
   "textures": {
     "bottom": "farmersassortment:block/jungle_crab_trap_bottom",
     "front": "farmersassortment:block/jungle_crab_trap_front",
