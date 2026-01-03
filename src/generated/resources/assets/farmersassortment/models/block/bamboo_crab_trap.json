@@ -1,8 +1,10 @@
 {
-  "parent": "farmersassortment:block/crab_trap",
+  "parent": "crabbersdelight:block/crab_trap",
   "textures": {
     "bottom": "farmersassortment:block/bamboo_crab_trap_bottom",
     "front": "farmersassortment:block/bamboo_crab_trap_front",
+    "handle": "farmersassortment:block/bamboo_crab_trap_handles",
+    "handle_chain": "farmersassortment:block/bamboo_crab_trap_handle_chain",
     "handles": "farmersassortment:block/bamboo_crab_trap_handles",
     "particle": "farmersassortment:block/bamboo_crab_trap_side",
     "side": "farmersassortment:block/bamboo_crab_trap_side",

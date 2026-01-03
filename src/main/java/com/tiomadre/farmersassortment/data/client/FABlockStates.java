@@ -445,9 +445,8 @@ public class FABlockStates extends BlockStateProvider {
     }
     //CRABBERSDELIGHT CRAB TRAP VARIANTS
     private void registerCrabTraps() {
-        ResourceLocation trapParent = modLoc("block/crab_trap");
-        ResourceLocation hangingParent = modLoc("block/crab_trap_chain");
-
+        ResourceLocation trapParent = new ResourceLocation("crabbersdelight", "block/crab_trap");
+        ResourceLocation hangingParent = new ResourceLocation("crabbersdelight", "block/crab_trap_chain");
         FAxCrabbersBlocks.crabTraps().forEach(trap -> {
             String name = Objects.requireNonNull(trap.getId()).getPath();
             ModelFile trapModel = crabTrapModel(name, false, trapParent);
@@ -474,6 +473,8 @@ public class FABlockStates extends BlockStateProvider {
                 .texture("bottom", modLoc("block/" + name + "_bottom"))
                 .texture("front", modLoc("block/" + name + "_front"))
                 .texture("handles", modLoc("block/" + name + "_handles"))
+                .texture("handle", modLoc("block/" + name + "_handles"))
+                .texture("handle_chain", modLoc("block/" + name + "_handle_chain"))
                 .texture("side", modLoc("block/" + name + "_side"))
                 .texture("top", modLoc("block/" + name + "_top"))
                 .texture("particle", modLoc("block/" + name + "_side"));
