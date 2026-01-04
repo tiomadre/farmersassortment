@@ -2,33 +2,33 @@
   "variants": {
     "facing=east,support=false": {
       "model": "farmersassortment:block/pearlescent_skillet",
-      "y": 270
+      "y": 90
     },
     "facing=east,support=true": {
       "model": "farmersassortment:block/pearlescent_skillet_tray",
-      "y": 270
+      "y": 90
     },
     "facing=north,support=false": {
+      "model": "farmersassortment:block/pearlescent_skillet"
+    },
+    "facing=north,support=true": {
+      "model": "farmersassortment:block/pearlescent_skillet_tray"
+    },
+    "facing=south,support=false": {
       "model": "farmersassortment:block/pearlescent_skillet",
       "y": 180
     },
-    "facing=north,support=true": {
+    "facing=south,support=true": {
       "model": "farmersassortment:block/pearlescent_skillet_tray",
       "y": 180
-    },
-    "facing=south,support=false": {
-      "model": "farmersassortment:block/pearlescent_skillet"
-    },
-    "facing=south,support=true": {
-      "model": "farmersassortment:block/pearlescent_skillet_tray"
     },
     "facing=west,support=false": {
       "model": "farmersassortment:block/pearlescent_skillet",
-      "y": 90
+      "y": 270
     },
     "facing=west,support=true": {
       "model": "farmersassortment:block/pearlescent_skillet_tray",
-      "y": 90
+      "y": 270
     }
   }
 }

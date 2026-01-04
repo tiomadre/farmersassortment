@@ -6,6 +6,7 @@ import com.tiomadre.farmersassortment.core.registry.FAItems;
 import com.tiomadre.farmersassortment.core.block.state.TerracottaCookingPotColor;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -36,7 +37,7 @@ public class FAItemModels extends ItemModelProvider {
         FABlocks.allCuttingBoards().forEach(this::block);
         FABlocks.allButcherBlockCabinets().forEach(this::block);
         FAxCrabbersBlocks.crabTraps().forEach(this::crabTrap);
-        FAxCrabbersBlocks.skillets().forEach(this::block);
+        FAxCrabbersBlocks.skillets().forEach(this::skillet);
     }
 
     private void handheldItem(RegistryObject<?> item) {
@@ -53,6 +54,15 @@ public class FAItemModels extends ItemModelProvider {
         String name = Objects.requireNonNull(block.getId()).getPath();
         withExistingParent(name, modLoc("block/" + name));
     }
+
+    private void skillet(RegistryObject<? extends Block> block) {
+        String name = Objects.requireNonNull(block.getId()).getPath();
+        withExistingParent(name, new ResourceLocation("farmersdelight", "item/skillet"))
+                .texture("top", modLoc("block/" + name + "_top"))
+                .texture("side", modLoc("block/" + name + "_side"))
+                .texture("bottom", modLoc("block/" + name + "_bottom"));
+    }
+
 
     private void terracottaCookingPot() {
         ItemModelBuilder builder = withExistingParent("terracotta_cooking_pot", modLoc("block/terracotta_cooking_pot"));

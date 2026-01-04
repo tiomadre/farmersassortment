@@ -1,13 +1,11 @@
 {
   "parent": "crabbersdelight:block/crab_trap",
   "textures": {
-    "bottom": "farmersassortment:block/birch_crab_trap_bottom",
-    "front": "farmersassortment:block/birch_crab_trap_front",
-    "handle": "farmersassortment:block/birch_crab_trap_handles",
-    "handle_chain": "farmersassortment:block/birch_crab_trap_handle_chain",
-    "handles": "farmersassortment:block/birch_crab_trap_handles",
-    "particle": "farmersassortment:block/birch_crab_trap_side",
-    "side": "farmersassortment:block/birch_crab_trap_side",
-    "top": "farmersassortment:block/birch_crab_trap_top"
+    "0": "farmersassortment:block/birch_crab_trap_bottom",
+    "1": "farmersassortment:block/birch_crab_trap_front",
+    "3": "farmersassortment:block/birch_crab_trap_side",
+    "4": "farmersassortment:block/birch_crab_trap_top",
+    "7": "farmersassortment:block/birch_crab_trap_handles",
+    "particle": "farmersassortment:block/birch_crab_trap_side"
   }
 }
