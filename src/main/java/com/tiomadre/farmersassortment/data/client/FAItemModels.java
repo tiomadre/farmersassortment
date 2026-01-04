@@ -56,8 +56,8 @@ public class FAItemModels extends ItemModelProvider {
     }
 
     private void skillet(RegistryObject<? extends Block> block) {
-        String name = Objects.requireNonNull(block.getId()).getPath();
-        withExistingParent(name, new ResourceLocation("farmersdelight", "item/skillet"))
+        String name = Objects.requireNonNull(block.getId()).getPath();getBuilder(name)
+                .parent(new ModelFile.UncheckedModelFile(new ResourceLocation("farmersdelight", "item/skillet")))
                 .texture("top", modLoc("block/" + name + "_top"))
                 .texture("side", modLoc("block/" + name + "_side"))
                 .texture("bottom", modLoc("block/" + name + "_bottom"));

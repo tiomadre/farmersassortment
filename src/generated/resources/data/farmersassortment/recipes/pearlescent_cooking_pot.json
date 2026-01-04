@@ -3,10 +3,10 @@
   "category": "misc",
   "key": {
     "B": {
-      "item": "crabbersdelight:pearl"
+      "item": "minecraft:brick"
     },
     "M": {
-      "item": "crabbersdelight:pearl_block"
+      "item": "crabbersdelight:pearl"
     },
     "S": {
       "item": "minecraft:wooden_shovel"

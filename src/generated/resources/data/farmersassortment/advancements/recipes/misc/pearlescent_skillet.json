@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "farmersassortment:pearlescent_cooking_pot"
+        "recipe": "farmersassortment:pearlescent_skillet"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "farmersassortment:pearlescent_cooking_pot"
+      "farmersassortment:pearlescent_skillet"
     ]
   },
   "sends_telemetry_event": false

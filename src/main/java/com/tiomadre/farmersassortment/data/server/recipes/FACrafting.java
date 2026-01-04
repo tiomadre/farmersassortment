@@ -24,6 +24,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 import vectorwing.farmersdelight.common.block.CookingPotBlock;
+import vectorwing.farmersdelight.common.block.SkilletBlock;
 
 import java.util.Objects;
 import java.util.function.Consumer;
@@ -86,7 +87,7 @@ public final class FACrafting extends RecipeProvider {
             knife(output, FAItems.CLAMSHELL_KNIFE, CDModItems.CLAM.get());
 
           //Cooking Pot
-            variantCookingPot(output, FAxCrabbersBlocks.PEARLESCENT_COOKING_POT, CDModBlocks.PEARL_BLOCK.get(), Items.WOODEN_SHOVEL, CDModItems.PEARL.get());
+            variantCookingPot(output, FAxCrabbersBlocks.PEARLESCENT_COOKING_POT, CDModItems.PEARL.get(), Items.WOODEN_SHOVEL, Items.BRICK);
           //Crab Trap Variants
             crabTrap(output, blockItem("crabbersdelight", "crab_trap"), Blocks.OAK_SLAB, new ResourceLocation("crabbersdelight", "crab_trap")); //overrides base CrD recipe
             crabTrap(output, FAxCrabbersBlocks.SPRUCE_CRAB_TRAP, Blocks.SPRUCE_SLAB);
@@ -100,6 +101,8 @@ public final class FACrafting extends RecipeProvider {
             crabTrap(output, FAxCrabbersBlocks.CRIMSON_CRAB_TRAP, Blocks.CRIMSON_SLAB);
             crabTrap(output, FAxCrabbersBlocks.WARPED_CRAB_TRAP, Blocks.WARPED_SLAB);
             crabTrap(output, FAxCrabbersBlocks.PALM_CRAB_TRAP, CDModBlocks.PALM_SLAB.get());
+            //Skillet Variants
+            variantSkillet(output, FAxCrabbersBlocks.PEARLESCENT_SKILLET, CDModItems.PEARL.get(), Items.BRICK);
         }
 
     //Recipe Definitions
@@ -112,6 +115,16 @@ public final class FACrafting extends RecipeProvider {
                 .pattern("S##")
                 .pattern("S##")
                 .unlockedBy(getHasName(planks), has(planks))
+                .save(output);
+    }
+    private void variantSkillet(Consumer<FinishedRecipe> output, RegistryObject<SkilletBlock> skillet, ItemLike material, ItemLike handle) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, skillet.get())
+                .define('#', material)
+                .define('H', handle)
+                .pattern(" ##")
+                .pattern(" ##")
+                .pattern("H  ")
+                .unlockedBy(getHasName(material), has(material))
                 .save(output);
     }
 

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "crabbersdelight:pearl"
+    },
+    "H": {
+      "item": "minecraft:brick"
+    }
+  },
+  "pattern": [
+    " ##",
+    " ##",
+    "H  "
+  ],
+  "result": {
+    "item": "farmersassortment:pearlescent_skillet"
+  },
+  "show_notification": true
+}

@@ -15,6 +15,7 @@ import vectorwing.farmersdelight.common.registry.ModBlocks;
 @JeiPlugin
 public class FAxJEI implements IModPlugin {
     private static final RecipeType<Object> CUTTING = RecipeType.create("farmersdelight", "cutting", Object.class);
+    private static final RecipeType<Object> COOKING = RecipeType.create("farmersdelight", "cooking", Object.class);
     private static final RecipeType<Object> CRAB_TRAP = RecipeType.create("crabbersdelight", "crab_trap", Object.class);
     private static final RecipeType<Object> CRAB_TRAPPING = RecipeType.create("crabbersdelight", "crab_trapping", Object.class);
     private static final ResourceLocation ID = new ResourceLocation(FarmersAssortment.MOD_ID, "jei_plugin");
@@ -31,6 +32,10 @@ public class FAxJEI implements IModPlugin {
         FABlocks.allButcherBlockCabinets().forEach(cabinet -> registration.addRecipeCatalyst(new ItemStack(cabinet.get()), CUTTING));
         FAxCrabbersBlocks.cuttingBoards().forEach(board -> registration.addRecipeCatalyst(new ItemStack(board.get()), CUTTING));
         FAxCrabbersBlocks.butcherBlockCabinets().forEach(cabinet -> registration.addRecipeCatalyst(new ItemStack(cabinet.get()), CUTTING));
+
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.COOKING_POT.get()), COOKING);
+        FABlocks.allCookingPots().forEach(pot -> registration.addRecipeCatalyst(new ItemStack(pot.get()), COOKING));
+        FAxCrabbersBlocks.cookingPots().forEach(pot -> registration.addRecipeCatalyst(new ItemStack(pot.get()), COOKING));
 
         registration.addRecipeCatalyst(new ItemStack(CDModBlocks.CRAB_TRAP.get()), CRAB_TRAP, CRAB_TRAPPING);
         FAxCrabbersBlocks.crabTraps().forEach(trap -> registration.addRecipeCatalyst(new ItemStack(trap.get()), CRAB_TRAP, CRAB_TRAPPING));
