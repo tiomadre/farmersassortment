@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -91,17 +92,26 @@ public final class FABlocks {
         );
     }
     public static Stream<RegistryObject<ButcherBlockCabinetBlock>> allButcherBlockCabinets() {
-        return Stream.concat(butcherBlockCabinets(), FAxCrabbersBlocks.butcherBlockCabinets());
+        if (ModList.get().isLoaded("crabbersdelight")) {
+            return Stream.concat(butcherBlockCabinets(), FAxCrabbersBlocks.butcherBlockCabinets());
+        }
+        return butcherBlockCabinets();
     }
     public static Stream<RegistryObject<CuttingBoardBlock>> allCuttingBoards() {
-        return Stream.concat(cuttingBoards(), FAxCrabbersBlocks.cuttingBoards());
+        if (ModList.get().isLoaded("crabbersdelight")) {
+            return Stream.concat(cuttingBoards(), FAxCrabbersBlocks.cuttingBoards());
+        }
+        return cuttingBoards();
     }
     public static Stream<RegistryObject<CookingPotBlock>> cookingPots() {
         return Stream.of(COPPER_COOKING_POT, GOLDEN_COOKING_POT, ALABASTER_COOKING_POT, TERRACOTTA_COOKING_POT);
     }
 
     public static Stream<RegistryObject<CookingPotBlock>> allCookingPots() {
-        return Stream.concat(cookingPots(), FAxCrabbersBlocks.cookingPots());
+        if (ModList.get().isLoaded("crabbersdelight")) {
+            return Stream.concat(cookingPots(), FAxCrabbersBlocks.cookingPots());
+        }
+        return cookingPots();
     }
 
     private static RegistryObject<ButcherBlockCabinetBlock> registerButcherBlockCabinet(String woodType, Block baseBlock) {

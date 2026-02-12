@@ -5,6 +5,7 @@ import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.fml.ModList;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -30,7 +31,7 @@ public abstract class VariantPotMenu {
             BlockState state = level.getBlockState(pos);
             return state.is(FABlocks.COPPER_COOKING_POT.get()) || state.is(FABlocks.ALABASTER_COOKING_POT.get())
                     || state.is(FABlocks.GOLDEN_COOKING_POT.get()) || state.is(FABlocks.TERRACOTTA_COOKING_POT.get())
-                    || state.is(FAxCrabbersBlocks.PEARLESCENT_COOKING_POT.get());
+                    || (ModList.get().isLoaded("crabbersdelight") && state.is(FAxCrabbersBlocks.PEARLESCENT_COOKING_POT.get()));
         }, false);
 
         if (isVariantCookingPot) {

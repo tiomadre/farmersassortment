@@ -4,6 +4,7 @@ import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.fml.ModList;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -26,7 +27,7 @@ public abstract class CookingPotBlockEntityMixin {
             cir.setReturnValue(Component.translatable("container.farmersassortment.copper_cooking_pot"));
         } else if (state.is(FABlocks.GOLDEN_COOKING_POT.get())) {
             cir.setReturnValue(Component.translatable("container.farmersassortment.golden_cooking_pot"));
-        } else if (state.is(FAxCrabbersBlocks.PEARLESCENT_COOKING_POT.get())) {
+        } else if (ModList.get().isLoaded("crabbersdelight") && state.is(FAxCrabbersBlocks.PEARLESCENT_COOKING_POT.get())) {
             cir.setReturnValue(Component.translatable("container.farmersassortment.pearlescent_cooking_pot"));
         } else if (state.is(FABlocks.TERRACOTTA_COOKING_POT.get())) {
             cir.setReturnValue(Component.translatable("container.farmersassortment.terracotta_cooking_pot"));

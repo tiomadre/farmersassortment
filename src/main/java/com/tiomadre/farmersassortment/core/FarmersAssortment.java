@@ -10,6 +10,7 @@ import com.tiomadre.farmersassortment.data.server.recipes.FACrafting;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -32,7 +33,10 @@ public class FarmersAssortment {
         LOGGER.info("Loading Farmer's Assortment");
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
-        FAxCrabbersBlocks.init();
+        boolean crabbersLoaded = ModList.get().isLoaded("crabbersdelight");
+        if (crabbersLoaded) {
+            FAxCrabbersBlocks.init();
+        }
         FABlocks.init();
         FAItems.init();
         REGISTRY_HELPER.register(modEventBus);
@@ -40,7 +44,9 @@ public class FarmersAssortment {
         FATab.register(modEventBus);
         FACrafting.register(modEventBus);
         modEventBus.addListener(FABlocks::onCommonSetup);
-        modEventBus.addListener(FAxCrabbersBlocks::onCommonSetup);
+        if (crabbersLoaded) {
+            modEventBus.addListener(FAxCrabbersBlocks::onCommonSetup);
+        }
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -68,14 +74,16 @@ public class FarmersAssortment {
             Set<Block> updatedSkilletBlocks = new HashSet<>(validSkilletBlocks);
             AtomicBoolean skilletChanged = new AtomicBoolean(false);
 
-            FAxCrabbersBlocks.skillets()
-                    .map(RegistryObject::get)
-                    .forEach(block -> {
-                        if (!updatedSkilletBlocks.contains(block)) {
-                            updatedSkilletBlocks.add(block);
-                            skilletChanged.set(true);
-                        }
-                    });
+            if (ModList.get().isLoaded("crabbersdelight")) {
+                FAxCrabbersBlocks.skillets()
+                        .map(RegistryObject::get)
+                        .forEach(block -> {
+                            if (!updatedSkilletBlocks.contains(block)) {
+                                updatedSkilletBlocks.add(block);
+                                skilletChanged.set(true);
+                            }
+                        });
+            }
 
             if (skilletChanged.get()) {
                 skilletAccessor.farmersassortment$setValidBlocks(updatedSkilletBlocks);
