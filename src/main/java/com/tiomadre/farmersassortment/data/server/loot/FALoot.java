@@ -3,6 +3,7 @@ package com.tiomadre.farmersassortment.data.server.loot;
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
+import com.tiomadre.farmersassortment.core.registry.compat.FAxForagersBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.BlockLootSubProvider;
@@ -43,6 +44,7 @@ public class FALoot extends LootTableProvider {
             this.dropSelf(FAxCrabbersBlocks.PEARLESCENT_COOKING_POT.get());
             this.dropSelf(FAxCrabbersBlocks.PEARLESCENT_SKILLET.get());
             this.dropSelf(FABlocks.ALABASTER_STOVE.get());
+            FAxForagersBlocks.diffusers().forEach(diffuser -> this.dropSelf(diffuser.get()));
 
             FAxCrabbersBlocks.crabTraps().forEach(trap -> this.add(trap.get(), this.createSingleItemTable(trap.get())
                     .apply(CopyNameFunction.copyName(CopyNameFunction.NameSource.BLOCK_ENTITY))));
