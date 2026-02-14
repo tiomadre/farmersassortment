@@ -6,6 +6,7 @@ import com.tiomadre.farmersassortment.core.block.TerracottaCookingPotBlock;
 import com.tiomadre.farmersassortment.core.block.state.TerracottaCookingPotColor;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
+import com.tiomadre.farmersassortment.core.registry.compat.FAxForagersBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.server.packs.PackType;
@@ -39,6 +40,7 @@ public class FABlockStates extends BlockStateProvider {
         registerStoves();
         registerCrabTraps();
         registerSkillets();
+        registerDiffusers();
     }
 
     //CABINET VARIANTS
@@ -55,10 +57,9 @@ public class FABlockStates extends BlockStateProvider {
                 new CabinetDefinition(FABlocks.BAMBOO_BUTCHER_BLOCK_CABINET, "bamboo", new ResourceLocation("minecraft", "block/bamboo_planks"), modLoc("block/bamboo_butcher_block_cabinet_top")),
                 new CabinetDefinition(FABlocks.CRIMSON_BUTCHER_BLOCK_CABINET, "crimson", new ResourceLocation("minecraft", "block/crimson_planks"), modLoc("block/crimson_butcher_block_cabinet_front_top")),
                 new CabinetDefinition(FABlocks.WARPED_BUTCHER_BLOCK_CABINET, "warped", new ResourceLocation("minecraft", "block/warped_planks"), modLoc("block/warped_butcher_block_cabinet_top")),
-                new CabinetDefinition(FAxCrabbersBlocks.PALM_BUTCHER_BLOCK_CABINET, "palm", fallbackTexture(
-                        new ResourceLocation("crabbersdelight", "block/palm_planks"),
-                        new ResourceLocation("minecraft", "block/oak_planks")
-                ), modLoc("block/palm_butcher_block_cabinet_top"))
+                //Other Mods
+                new CabinetDefinition(FAxCrabbersBlocks.PALM_BUTCHER_BLOCK_CABINET, "palm", fallbackTexture(new ResourceLocation("crabbersdelight", "block/palm_planks"), new ResourceLocation("minecraft", "block/oak_planks")), modLoc("block/palm_butcher_block_cabinet_top")),
+                new CabinetDefinition(FAxForagersBlocks.LILAC_BUTCHER_BLOCK_CABINET, "lilac", fallbackTexture(new ResourceLocation("foragersinsight", "block/lilac_planks"), new ResourceLocation("minecraft", "block/oak_planks")), modLoc("block/lilac_butcher_block_cabinet_top"))
         );
 
         cabinets.forEach(cabinet -> registerButcherBlockCabinet(
@@ -73,6 +74,20 @@ public class FABlockStates extends BlockStateProvider {
         return fileHelper != null && fileHelper.exists(primary, PackType.CLIENT_RESOURCES, ".png", "textures")
                 ? primary
                 : fallback;
+    }
+    private void registerDiffusers() {
+        FAxForagersBlocks.diffusers().forEach(this::registerDiffuser);
+    }
+
+    private void registerDiffuser(RegistryObject<? extends Block> diffuser) {
+        String name = Objects.requireNonNull(diffuser.getId()).getPath();
+        ModelFile model = models().getBuilder(name)
+                .parent(new ModelFile.UncheckedModelFile(new ResourceLocation("foragersinsight", "block/diffuser")))
+                .texture("1", modLoc("block/" + name + "_bottom"))
+                .texture("2", modLoc("block/" + name + "_side"))
+                .texture("3", modLoc("block/" + name + "_top"))
+                .texture("particle", modLoc("block/" + name + "_side"));
+        simpleBlock(diffuser.get(), model);
     }
 
 

@@ -8,6 +8,7 @@ import com.tiomadre.farmersassortment.core.mixin.BlockEntityTypeAccessor;
 import com.tiomadre.farmersassortment.core.item.TerracottaCookingPotItem;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
+import com.tiomadre.farmersassortment.core.registry.compat.FAxForagersBlocks;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -92,16 +93,24 @@ public final class FABlocks {
         );
     }
     public static Stream<RegistryObject<ButcherBlockCabinetBlock>> allButcherBlockCabinets() {
+        Stream<RegistryObject<ButcherBlockCabinetBlock>> cabinets = butcherBlockCabinets();
         if (ModList.get().isLoaded("crabbersdelight")) {
-            return Stream.concat(butcherBlockCabinets(), FAxCrabbersBlocks.butcherBlockCabinets());
+            cabinets = Stream.concat(cabinets, FAxCrabbersBlocks.butcherBlockCabinets());
         }
-        return butcherBlockCabinets();
+        if (ModList.get().isLoaded("foragersinsight")) {
+            cabinets = Stream.concat(cabinets, FAxForagersBlocks.butcherBlockCabinets());
+        }
+        return cabinets;
     }
     public static Stream<RegistryObject<CuttingBoardBlock>> allCuttingBoards() {
+        Stream<RegistryObject<CuttingBoardBlock>> boards = cuttingBoards();
         if (ModList.get().isLoaded("crabbersdelight")) {
-            return Stream.concat(cuttingBoards(), FAxCrabbersBlocks.cuttingBoards());
+            boards = Stream.concat(boards, FAxCrabbersBlocks.cuttingBoards());
         }
-        return cuttingBoards();
+        if (ModList.get().isLoaded("foragersinsight")) {
+            boards = Stream.concat(boards, FAxForagersBlocks.cuttingBoards());
+        }
+        return boards;
     }
     public static Stream<RegistryObject<CookingPotBlock>> cookingPots() {
         return Stream.of(COPPER_COOKING_POT, GOLDEN_COOKING_POT, ALABASTER_COOKING_POT, TERRACOTTA_COOKING_POT);

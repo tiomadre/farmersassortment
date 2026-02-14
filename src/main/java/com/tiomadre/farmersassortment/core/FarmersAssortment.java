@@ -6,6 +6,7 @@ import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import com.tiomadre.farmersassortment.core.registry.FAItems;
 import com.tiomadre.farmersassortment.core.registry.FATab;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
+import com.tiomadre.farmersassortment.core.registry.compat.FAxForagersBlocks;
 import com.tiomadre.farmersassortment.data.server.recipes.FACrafting;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraft.world.level.block.Block;
@@ -34,8 +35,12 @@ public class FarmersAssortment {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
         boolean crabbersLoaded = ModList.get().isLoaded("crabbersdelight");
+        boolean foragersLoaded = ModList.get().isLoaded("foragersinsight");
         if (crabbersLoaded) {
             FAxCrabbersBlocks.init();
+        }
+        if (foragersLoaded) {
+            FAxForagersBlocks.init();
         }
         FABlocks.init();
         FAItems.init();
@@ -46,6 +51,9 @@ public class FarmersAssortment {
         modEventBus.addListener(FABlocks::onCommonSetup);
         if (crabbersLoaded) {
             modEventBus.addListener(FAxCrabbersBlocks::onCommonSetup);
+        }
+        if (foragersLoaded) {
+            modEventBus.addListener(FAxForagersBlocks::onCommonSetup);
         }
     }
 

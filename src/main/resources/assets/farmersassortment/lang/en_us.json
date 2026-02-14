@@ -66,6 +66,11 @@
   "block.farmersassortment.bamboo_crab_trap": "Bamboo Crab Trap",
   "block.farmersassortment.crimson_crab_trap": "Crimson Crab Trap",
   "block.farmersassortment.warped_crab_trap": "Warped Crab Trap",
-  "block.farmersassortment.palm_crab_trap": "Palm Crab Trap"
+  "block.farmersassortment.palm_crab_trap": "Palm Crab Trap",
+
+  "block.farmersassortment.lilac_cutting_board": "Lilac Cutting Board",
+  "block.farmersassortment.lilac_butcher_block_cabinet": "Lilac Butcher Block Cabinet",
+  "block.farmersassortment.amethyst_diffuser": "Amethyst Diffuser",
+  "item.farmersassortment.amethyst_diffuser": "Amethyst Diffuser"
 }
 

@@ -25,6 +25,8 @@ import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 import vectorwing.farmersdelight.common.block.CookingPotBlock;
 import vectorwing.farmersdelight.common.block.SkilletBlock;
+import com.tiomadre.farmersassortment.core.registry.compat.FAxForagersBlocks;
+import com.tiomadre.foragersinsight.core.registry.FIBlocks;
 
 import java.util.Objects;
 import java.util.function.Consumer;
@@ -105,8 +107,28 @@ public final class FACrafting extends RecipeProvider {
             variantSkillet(output, FAxCrabbersBlocks.PEARLESCENT_SKILLET, CDModItems.PEARL.get(), Items.BRICK);
         }
 
-    //Recipe Definitions
+        if (ModList.get().isLoaded("foragersinsight")) {
+            cuttingBoard(output, FAxForagersBlocks.LILAC_CUTTING_BOARD, FIBlocks.LILAC_PLANKS.get());
+            butcherBlockCabinet(output, FAxForagersBlocks.LILAC_BUTCHER_BLOCK_CABINET, FAxForagersBlocks.LILAC_CUTTING_BOARD.get(), FIBlocks.LILAC_CABINET.get());
+            diffuser(output, FAxForagersBlocks.AMETHYST_DIFFUSER, Items.AMETHYST_SHARD);
+        }
+
+        //Recipe Definitions
     }
+
+    private void diffuser(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> diffuser, ItemLike material) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, diffuser.get())
+                .define('B', Items.HONEYCOMB)
+                .define('M', material)
+                .define('G', Items.GLASS_BOTTLE)
+                .define('T', Items.TORCH)
+                .pattern("BMB")
+                .pattern("MGM")
+                .pattern("MTM")
+                .unlockedBy(getHasName(material), has(material))
+                .save(output);
+    }
+
 
     private void cuttingBoard(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> board, ItemLike planks) {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, board.get())
