@@ -36,12 +36,7 @@ public class FALoot extends LootTableProvider {
             FABlocks.allCuttingBoards().forEach(cuttingBoard -> this.dropSelf(cuttingBoard.get()));
             FABlocks.allButcherBlockCabinets().forEach(cabinet -> this.add(cabinet.get(), this.createSingleItemTable(cabinet.get())
                     .apply(CopyNameFunction.copyName(CopyNameFunction.NameSource.BLOCK_ENTITY))));
-
-            this.dropSelf(FABlocks.COPPER_COOKING_POT.get());
-            this.dropSelf(FABlocks.GOLDEN_COOKING_POT.get());
-            this.dropSelf(FABlocks.ALABASTER_COOKING_POT.get());
-            this.dropSelf(FABlocks.TERRACOTTA_COOKING_POT.get());
-            this.dropSelf(FAxCrabbersBlocks.PEARLESCENT_COOKING_POT.get());
+            FABlocks.allCookingPots().forEach(cookingPot -> this.dropSelf(cookingPot.get()));
             this.dropSelf(FAxCrabbersBlocks.PEARLESCENT_SKILLET.get());
             this.dropSelf(FABlocks.ALABASTER_STOVE.get());
             FAxForagersBlocks.diffusers().forEach(diffuser -> this.dropSelf(diffuser.get()));

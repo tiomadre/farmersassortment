@@ -1,0 +1,9 @@
+{
+  "parent": "foragersinsight:block/diffuser",
+  "textures": {
+    "1": "farmersassortment:block/amethyst_diffuser_bottom",
+    "2": "farmersassortment:block/amethyst_diffuser_side",
+    "3": "farmersassortment:block/amethyst_diffuser_top",
+    "particle": "farmersassortment:block/amethyst_diffuser_side"
+  }
+}

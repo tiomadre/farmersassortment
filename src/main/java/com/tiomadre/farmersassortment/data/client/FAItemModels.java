@@ -5,6 +5,7 @@ import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import com.tiomadre.farmersassortment.core.registry.FAItems;
 import com.tiomadre.farmersassortment.core.block.state.TerracottaCookingPotColor;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
+import com.tiomadre.farmersassortment.core.registry.compat.FAxForagersBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
@@ -34,8 +35,12 @@ public class FAItemModels extends ItemModelProvider {
         block(FAxCrabbersBlocks.PEARLESCENT_COOKING_POT);
         terracottaCookingPot();
         block(FABlocks.ALABASTER_STOVE);
-        FABlocks.allCuttingBoards().forEach(this::block);
-        FABlocks.allButcherBlockCabinets().forEach(this::block);
+        FABlocks.cuttingBoards().forEach(this::block);
+        FAxForagersBlocks.cuttingBoards().forEach(this::block);
+        FABlocks.butcherBlockCabinets().forEach(this::block);
+        FAxCrabbersBlocks.butcherBlockCabinets().forEach(this::block);
+        FAxForagersBlocks.butcherBlockCabinets().forEach(this::block);
+        FAxForagersBlocks.diffusers().forEach(this::block);
         FAxCrabbersBlocks.crabTraps().forEach(this::crabTrap);
         FAxCrabbersBlocks.skillets().forEach(this::skillet);
     }

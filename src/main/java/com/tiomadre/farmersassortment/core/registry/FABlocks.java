@@ -16,7 +16,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -56,6 +55,7 @@ public final class FABlocks {
     public static final RegistryObject<CuttingBoardBlock> BAMBOO_CUTTING_BOARD = registerCuttingBoard("bamboo", Blocks.BAMBOO_PLANKS);
     public static final RegistryObject<CuttingBoardBlock> CRIMSON_CUTTING_BOARD = registerCuttingBoard("crimson", Blocks.CRIMSON_PLANKS);
     public static final RegistryObject<CuttingBoardBlock> WARPED_CUTTING_BOARD = registerCuttingBoard("warped", Blocks.WARPED_PLANKS);
+
     private static final ResourceLocation COPPER_COOKING_POT_ID = new ResourceLocation(FarmersAssortment.MOD_ID, "copper_cooking_pot");
     private static final ResourceLocation GOLDEN_COOKING_POT_ID = new ResourceLocation(FarmersAssortment.MOD_ID, "golden_cooking_pot");
     private static final ResourceLocation ALABASTER_COOKING_POT_ID = new ResourceLocation(FarmersAssortment.MOD_ID, "alabaster_cooking_pot");
@@ -93,34 +93,17 @@ public final class FABlocks {
         );
     }
     public static Stream<RegistryObject<ButcherBlockCabinetBlock>> allButcherBlockCabinets() {
-        Stream<RegistryObject<ButcherBlockCabinetBlock>> cabinets = butcherBlockCabinets();
-        if (ModList.get().isLoaded("crabbersdelight")) {
-            cabinets = Stream.concat(cabinets, FAxCrabbersBlocks.butcherBlockCabinets());
-        }
-        if (ModList.get().isLoaded("foragersinsight")) {
-            cabinets = Stream.concat(cabinets, FAxForagersBlocks.butcherBlockCabinets());
-        }
-        return cabinets;
+        return Stream.concat(Stream.concat(butcherBlockCabinets(), FAxCrabbersBlocks.butcherBlockCabinets()), FAxForagersBlocks.butcherBlockCabinets());
     }
     public static Stream<RegistryObject<CuttingBoardBlock>> allCuttingBoards() {
-        Stream<RegistryObject<CuttingBoardBlock>> boards = cuttingBoards();
-        if (ModList.get().isLoaded("crabbersdelight")) {
-            boards = Stream.concat(boards, FAxCrabbersBlocks.cuttingBoards());
-        }
-        if (ModList.get().isLoaded("foragersinsight")) {
-            boards = Stream.concat(boards, FAxForagersBlocks.cuttingBoards());
-        }
-        return boards;
+        return Stream.concat(Stream.concat(cuttingBoards(), FAxCrabbersBlocks.cuttingBoards()), FAxForagersBlocks.cuttingBoards());
     }
     public static Stream<RegistryObject<CookingPotBlock>> cookingPots() {
         return Stream.of(COPPER_COOKING_POT, GOLDEN_COOKING_POT, ALABASTER_COOKING_POT, TERRACOTTA_COOKING_POT);
     }
 
     public static Stream<RegistryObject<CookingPotBlock>> allCookingPots() {
-        if (ModList.get().isLoaded("crabbersdelight")) {
-            return Stream.concat(cookingPots(), FAxCrabbersBlocks.cookingPots());
-        }
-        return cookingPots();
+        return Stream.concat(cookingPots(), FAxCrabbersBlocks.cookingPots());
     }
 
     private static RegistryObject<ButcherBlockCabinetBlock> registerButcherBlockCabinet(String woodType, Block baseBlock) {
