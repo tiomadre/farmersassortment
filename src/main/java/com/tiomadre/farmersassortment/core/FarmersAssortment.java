@@ -6,7 +6,6 @@ import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import com.tiomadre.farmersassortment.core.registry.FAItems;
 import com.tiomadre.farmersassortment.core.registry.FATab;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
-import com.tiomadre.farmersassortment.core.registry.compat.FAxForagersBlocks;
 import com.tiomadre.farmersassortment.data.server.recipes.FACrafting;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraft.world.level.block.Block;
@@ -20,6 +19,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import vectorwing.farmersdelight.common.registry.ModBlockEntityTypes;
 
+import java.lang.reflect.Method;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -29,7 +29,7 @@ public class FarmersAssortment {
     public static final String MOD_ID = "farmersassortment";
     private static final Logger LOGGER = LogManager.getLogger();
     public static final RegistryHelper REGISTRY_HELPER = new RegistryHelper(MOD_ID);
-
+    private static final String FORAGERS_COMPAT_CLASS = "com.tiomadre.farmersassortment.core.registry.compat.FAxForagersBlocks";
     private static boolean crabbersCompatEnabled;
     private static boolean foragersCompatEnabled;
 
@@ -38,7 +38,7 @@ public class FarmersAssortment {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
         crabbersCompatEnabled = initializeCompat("crabbersdelight", FAxCrabbersBlocks::init);
-        foragersCompatEnabled = initializeCompat("foragersinsight", FAxForagersBlocks::init);
+        foragersCompatEnabled = initializeCompat("foragersinsight", FarmersAssortment::initializeForagersCompat);
         FABlocks.init();
         FAItems.init();
         REGISTRY_HELPER.register(modEventBus);
@@ -50,7 +50,7 @@ public class FarmersAssortment {
             modEventBus.addListener(FAxCrabbersBlocks::onCommonSetup);
         }
         if (foragersCompatEnabled) {
-            modEventBus.addListener(FAxForagersBlocks::onCommonSetup);
+            modEventBus.addListener(FarmersAssortment::onForagersCommonSetup);
         }
     }
 
@@ -75,7 +75,31 @@ public class FarmersAssortment {
             return false;
         }
     }
+    private static void initializeForagersCompat() {
+        invokeCompatStatic(FORAGERS_COMPAT_CLASS, "init");
+    }
 
+    private static void onForagersCommonSetup(FMLCommonSetupEvent event) {
+        invokeCompatStatic(FORAGERS_COMPAT_CLASS, "onCommonSetup", FMLCommonSetupEvent.class, event);
+    }
+
+    private static void invokeCompatStatic(String className, String methodName) {
+        invokeCompatStatic(className, methodName, new Class<?>[0]);
+    }
+
+    private static void invokeCompatStatic(String className, String methodName, Class<?> parameterType, Object argument) {
+        invokeCompatStatic(className, methodName, new Class<?>[]{parameterType}, argument);
+    }
+
+    private static void invokeCompatStatic(String className, String methodName, Class<?>[] parameterTypes, Object... arguments) {
+        try {
+            Class<?> compatClass = Class.forName(className);
+            Method method = compatClass.getMethod(methodName, parameterTypes);
+            method.invoke(null, arguments);
+        } catch (ReflectiveOperationException exception) {
+            throw new RuntimeException("Failed to invoke compat method " + className + "#" + methodName, exception);
+        }
+    }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
