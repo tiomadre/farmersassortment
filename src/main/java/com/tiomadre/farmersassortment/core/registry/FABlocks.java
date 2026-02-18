@@ -2,6 +2,7 @@ package com.tiomadre.farmersassortment.core.registry;
 
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.block.ButcherBlockCabinetBlock;
+import com.tiomadre.farmersassortment.core.block.FloatingCounterBlock;
 import com.tiomadre.farmersassortment.core.block.TerracottaCookingPotBlock;
 import com.tiomadre.farmersassortment.core.block.UniqueStoveBlock;
 import com.tiomadre.farmersassortment.core.mixin.BlockEntityTypeAccessor;
@@ -44,6 +45,19 @@ public final class FABlocks {
     public static final RegistryObject<ButcherBlockCabinetBlock> BAMBOO_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("bamboo", Blocks.BAMBOO_PLANKS);
     public static final RegistryObject<ButcherBlockCabinetBlock> CRIMSON_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("crimson", Blocks.CRIMSON_PLANKS);
     public static final RegistryObject<ButcherBlockCabinetBlock> WARPED_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("warped", Blocks.WARPED_PLANKS);
+
+    public static final RegistryObject<FloatingCounterBlock> OAK_FLOATING_COUNTER = registerFloatingCounter("oak", Blocks.OAK_PLANKS);
+    public static final RegistryObject<FloatingCounterBlock> SPRUCE_FLOATING_COUNTER = registerFloatingCounter("spruce", Blocks.SPRUCE_PLANKS);
+    public static final RegistryObject<FloatingCounterBlock> BIRCH_FLOATING_COUNTER = registerFloatingCounter("birch", Blocks.BIRCH_PLANKS);
+    public static final RegistryObject<FloatingCounterBlock> JUNGLE_FLOATING_COUNTER = registerFloatingCounter("jungle", Blocks.JUNGLE_PLANKS);
+    public static final RegistryObject<FloatingCounterBlock> ACACIA_FLOATING_COUNTER = registerFloatingCounter("acacia", Blocks.ACACIA_PLANKS);
+    public static final RegistryObject<FloatingCounterBlock> DARK_OAK_FLOATING_COUNTER = registerFloatingCounter("dark_oak", Blocks.DARK_OAK_PLANKS);
+    public static final RegistryObject<FloatingCounterBlock> MANGROVE_FLOATING_COUNTER = registerFloatingCounter("mangrove", Blocks.MANGROVE_PLANKS);
+    public static final RegistryObject<FloatingCounterBlock> CHERRY_FLOATING_COUNTER = registerFloatingCounter("cherry", Blocks.CHERRY_PLANKS);
+    public static final RegistryObject<FloatingCounterBlock> BAMBOO_FLOATING_COUNTER = registerFloatingCounter("bamboo", Blocks.BAMBOO_PLANKS);
+    public static final RegistryObject<FloatingCounterBlock> CRIMSON_FLOATING_COUNTER = registerFloatingCounter("crimson", Blocks.CRIMSON_PLANKS);
+    public static final RegistryObject<FloatingCounterBlock> WARPED_FLOATING_COUNTER = registerFloatingCounter("warped", Blocks.WARPED_PLANKS);
+
 
     public static final RegistryObject<CuttingBoardBlock> SPRUCE_CUTTING_BOARD = registerCuttingBoard("spruce", Blocks.SPRUCE_PLANKS);
     public static final RegistryObject<CuttingBoardBlock> BIRCH_CUTTING_BOARD = registerCuttingBoard("birch", Blocks.BIRCH_PLANKS);
@@ -92,6 +106,7 @@ public final class FABlocks {
                 WARPED_BUTCHER_BLOCK_CABINET
         );
     }
+
     public static Stream<RegistryObject<ButcherBlockCabinetBlock>> allButcherBlockCabinets() {
         Stream<RegistryObject<ButcherBlockCabinetBlock>> cabinets = butcherBlockCabinets();
         if (FarmersAssortment.isCrabbersCompatEnabled()) {
@@ -175,5 +190,27 @@ public final class FABlocks {
         return BLOCKS.createBlockWithItem("terracotta_cooking_pot",
                 () -> new TerracottaCookingPotBlock(BlockBehaviour.Properties.of().mapColor(Blocks.TERRACOTTA.defaultMapColor()).strength(0.5F, 6.0F).sound(SoundType.DECORATED_POT)),
                 () -> new TerracottaCookingPotItem(Objects.requireNonNull(ForgeRegistries.BLOCKS.getValue(TERRACOTTA_COOKING_POT_ID)), new Item.Properties().stacksTo(1)));
+    }
+
+    private static RegistryObject<FloatingCounterBlock> registerFloatingCounter(String woodType, Block baseBlock) {
+        return BLOCKS.createBlock(woodType + "_floating_counter",
+                () -> new FloatingCounterBlock(BlockBehaviour.Properties.copy(baseBlock)),
+                new Item.Properties());
+    }
+
+    public static Stream<RegistryObject<FloatingCounterBlock>> floatingCounters() {
+        return Stream.of(
+                OAK_FLOATING_COUNTER,
+                SPRUCE_FLOATING_COUNTER,
+                BIRCH_FLOATING_COUNTER,
+                JUNGLE_FLOATING_COUNTER,
+                ACACIA_FLOATING_COUNTER,
+                DARK_OAK_FLOATING_COUNTER,
+                MANGROVE_FLOATING_COUNTER,
+                CHERRY_FLOATING_COUNTER,
+                BAMBOO_FLOATING_COUNTER,
+                CRIMSON_FLOATING_COUNTER,
+                WARPED_FLOATING_COUNTER
+        );
     }
 }

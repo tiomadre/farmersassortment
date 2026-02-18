@@ -59,6 +59,19 @@ public final class FACrafting extends RecipeProvider {
         variantCookingPot(output, FABlocks.ALABASTER_COOKING_POT, Items.QUARTZ, Items.WOODEN_SHOVEL, Items.GOLD_INGOT);
         variantCookingPot(output, FABlocks.TERRACOTTA_COOKING_POT, Blocks.TERRACOTTA, Items.WOODEN_SHOVEL, Items.BRICK);
 
+        //Counters
+        floatingCounter(output, FABlocks.OAK_FLOATING_COUNTER, Blocks.OAK_SLAB);
+        floatingCounter(output, FABlocks.SPRUCE_FLOATING_COUNTER, Blocks.SPRUCE_SLAB);
+        floatingCounter(output, FABlocks.BIRCH_FLOATING_COUNTER, Blocks.BIRCH_SLAB);
+        floatingCounter(output, FABlocks.JUNGLE_FLOATING_COUNTER, Blocks.JUNGLE_SLAB);
+        floatingCounter(output, FABlocks.ACACIA_FLOATING_COUNTER, Blocks.ACACIA_SLAB);
+        floatingCounter(output, FABlocks.DARK_OAK_FLOATING_COUNTER, Blocks.DARK_OAK_SLAB);
+        floatingCounter(output, FABlocks.MANGROVE_FLOATING_COUNTER, Blocks.MANGROVE_SLAB);
+        floatingCounter(output, FABlocks.CHERRY_FLOATING_COUNTER, Blocks.CHERRY_SLAB);
+        floatingCounter(output, FABlocks.BAMBOO_FLOATING_COUNTER, Blocks.BAMBOO_SLAB);
+        floatingCounter(output, FABlocks.CRIMSON_FLOATING_COUNTER, Blocks.CRIMSON_SLAB);
+        floatingCounter(output, FABlocks.WARPED_FLOATING_COUNTER, Blocks.WARPED_SLAB);
+
         //Stoves + Heat Sources
         variantStove(output, FABlocks.ALABASTER_STOVE, Blocks.QUARTZ_BLOCK, Items.GOLD_INGOT, Items.FLINT_AND_STEEL);
 
@@ -115,6 +128,14 @@ public final class FACrafting extends RecipeProvider {
 
         //Recipe Definitions
     }
+    private void floatingCounter(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> counter, ItemLike slab) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, counter.get(), 2)
+                .define('#', slab)
+                .pattern("###")
+                .unlockedBy(getHasName(slab), has(slab))
+                .save(output);
+    }
+
 
     private void diffuser(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> diffuser, ItemLike material) {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, diffuser.get())

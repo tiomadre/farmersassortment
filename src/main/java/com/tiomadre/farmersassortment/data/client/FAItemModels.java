@@ -33,6 +33,10 @@ public class FAItemModels extends ItemModelProvider {
         registerDiffusers();
         registerCrabTraps();
         registerSkillets();
+        registerFloatingCounters();
+    }
+    private void registerFloatingCounters() {
+        FABlocks.floatingCounters().forEach(this::block);
     }
 
     private void registerKnives() {

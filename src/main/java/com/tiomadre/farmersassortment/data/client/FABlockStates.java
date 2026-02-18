@@ -41,6 +41,7 @@ public class FABlockStates extends BlockStateProvider {
         registerCrabTraps();
         registerSkillets();
         registerDiffusers();
+        registerFloatingCounters();
     }
 
     //CABINET VARIANTS
@@ -68,6 +69,47 @@ public class FABlockStates extends BlockStateProvider {
                 cabinet.bottomTexture(),
                 cabinet.topTexture()
         ));
+    }
+    private void registerFloatingCounters() {
+        List<FloatingCounterDefinition> floatingCounters = List.of(
+                new FloatingCounterDefinition(FABlocks.OAK_FLOATING_COUNTER, "oak", new ResourceLocation("minecraft", "block/oak_planks")),
+                new FloatingCounterDefinition(FABlocks.SPRUCE_FLOATING_COUNTER, "spruce", new ResourceLocation("minecraft", "block/spruce_planks")),
+                new FloatingCounterDefinition(FABlocks.BIRCH_FLOATING_COUNTER, "birch", new ResourceLocation("minecraft", "block/birch_planks")),
+                new FloatingCounterDefinition(FABlocks.JUNGLE_FLOATING_COUNTER, "jungle", new ResourceLocation("minecraft", "block/jungle_planks")),
+                new FloatingCounterDefinition(FABlocks.ACACIA_FLOATING_COUNTER, "acacia", new ResourceLocation("minecraft", "block/acacia_planks")),
+                new FloatingCounterDefinition(FABlocks.DARK_OAK_FLOATING_COUNTER, "dark_oak", new ResourceLocation("minecraft", "block/dark_oak_planks")),
+                new FloatingCounterDefinition(FABlocks.MANGROVE_FLOATING_COUNTER, "mangrove", new ResourceLocation("minecraft", "block/mangrove_planks")),
+                new FloatingCounterDefinition(FABlocks.CHERRY_FLOATING_COUNTER, "cherry", new ResourceLocation("minecraft", "block/cherry_planks")),
+                new FloatingCounterDefinition(FABlocks.BAMBOO_FLOATING_COUNTER, "bamboo", new ResourceLocation("minecraft", "block/bamboo_planks")),
+                new FloatingCounterDefinition(FABlocks.CRIMSON_FLOATING_COUNTER, "crimson", new ResourceLocation("minecraft", "block/crimson_planks")),
+                new FloatingCounterDefinition(FABlocks.WARPED_FLOATING_COUNTER, "warped", new ResourceLocation("minecraft", "block/warped_planks"))
+        );
+
+        floatingCounters.forEach(counter -> registerFloatingCounter(counter.block(), counter.woodType(), counter.bottomTexture()));
+    }
+
+    private void registerFloatingCounter(RegistryObject<? extends Block> block, String woodType, ResourceLocation bottomTexture) {
+        String name = block.getId().getPath();
+        ModelFile model = models().getBuilder(name)
+                .texture("2", modLoc("block/" + woodType + "_butcher_block_cabinet_top"))
+                .texture("12", modLoc("block/" + woodType + "_counter_side"))
+                .texture("13", modLoc("block/" + woodType + "_counter_front"))
+                .texture("particle", modLoc("block/" + woodType + "_butcher_block_cabinet_top"))
+                .texture("missing", bottomTexture)
+                .element()
+                .from(0.0F, 8.0F, 0.0F)
+                .to(16.0F, 16.0F, 16.0F)
+                .face(Direction.NORTH).uvs(0.0F, 0.0F, 16.0F, 8.0F).texture("#13").end()
+                .face(Direction.EAST).uvs(0.0F, 0.0F, 16.0F, 8.0F).texture("#12").end()
+                .face(Direction.SOUTH).uvs(0.0F, 0.0F, 16.0F, 8.0F).texture("#12").end()
+                .face(Direction.WEST).uvs(0.0F, 0.0F, 16.0F, 8.0F).texture("#12").end()
+                .face(Direction.UP).uvs(0.0F, 0.0F, 16.0F, 16.0F).texture("#2").end()
+                .face(Direction.DOWN).uvs(0.0F, 0.0F, 16.0F, 16.0F).texture("#missing").end()
+                .end();
+
+        FABlockStateHelper.horizontalFacingBlock(this, block.get(), model);
+    }
+    private record FloatingCounterDefinition(RegistryObject<? extends Block> block, String woodType, ResourceLocation bottomTexture) {
     }
 
     private ResourceLocation fallbackTexture(ResourceLocation primary, ResourceLocation fallback) {
