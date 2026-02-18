@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "farmersassortment:block/mangrove_floating_counter",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "farmersassortment:block/mangrove_floating_counter",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "farmersassortment:block/mangrove_floating_counter"
+    },
+    "facing=west": {
+      "model": "farmersassortment:block/mangrove_floating_counter",
+      "y": 90
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "texture": "#missing"
+        },
+        "east": {
+          "texture": "#12"
+        },
+        "north": {
+          "texture": "#13"
+        },
+        "south": {
+          "texture": "#12"
+        },
+        "up": {
+          "texture": "#2"
+        },
+        "west": {
+          "texture": "#12"
+        }
+      },
+      "from": [
+        0,
+        8,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ]
+    }
+  ],
+  "textures": {
+    "12": "farmersassortment:block/acacia_counter_side",
+    "13": "farmersassortment:block/acacia_counter_front",
+    "2": "farmersassortment:block/acacia_butcher_block_cabinet_top",
+    "missing": "minecraft:block/acacia_planks",
+    "particle": "farmersassortment:block/acacia_butcher_block_cabinet_top"
+  }
+}

@@ -90,11 +90,18 @@ public class FABlockStates extends BlockStateProvider {
 
     private void registerFloatingCounter(RegistryObject<? extends Block> block, String woodType, ResourceLocation bottomTexture) {
         String name = block.getId().getPath();
+        ResourceLocation topTexture = fallbackTexture(
+                modLoc("block/" + woodType + "_butcher_block_cabinet_top"),
+                modLoc("block/oak_butcher_block_cabinet_top")
+        );
+        ResourceLocation sideTexture = floatingCounterSideTexture(woodType);
+        ResourceLocation frontTexture = floatingCounterFrontTexture(woodType);
+
         ModelFile model = models().getBuilder(name)
-                .texture("2", modLoc("block/" + woodType + "_butcher_block_cabinet_top"))
-                .texture("12", modLoc("block/" + woodType + "_counter_side"))
-                .texture("13", modLoc("block/" + woodType + "_counter_front"))
-                .texture("particle", modLoc("block/" + woodType + "_butcher_block_cabinet_top"))
+                .texture("2", topTexture)
+                .texture("12", sideTexture)
+                .texture("13", frontTexture)
+                .texture("particle", topTexture)
                 .texture("missing", bottomTexture)
                 .element()
                 .from(0.0F, 8.0F, 0.0F)
@@ -110,6 +117,29 @@ public class FABlockStates extends BlockStateProvider {
         FABlockStateHelper.horizontalFacingBlock(this, block.get(), model);
     }
     private record FloatingCounterDefinition(RegistryObject<? extends Block> block, String woodType, ResourceLocation bottomTexture) {
+    }
+
+    private ResourceLocation floatingCounterSideTexture(String woodType) {
+        return fallbackTexture(
+                modLoc("block/" + woodType + "_counter_side"),
+                fallbackTexture(
+                        modLoc("block/" + woodType + "_counter_front_side"),
+                        fallbackTexture(
+                                modLoc("block/" + woodType + "_butcher_block_cabinet_side"),
+                                modLoc("block/oak_counter_side")
+                        )
+                )
+        );
+    }
+
+    private ResourceLocation floatingCounterFrontTexture(String woodType) {
+        return fallbackTexture(
+                modLoc("block/" + woodType + "_counter_front"),
+                fallbackTexture(
+                        modLoc("block/" + woodType + "_butcher_block_cabinet_front"),
+                        modLoc("block/oak_counter_front")
+                )
+        );
     }
 
     private ResourceLocation fallbackTexture(ResourceLocation primary, ResourceLocation fallback) {
