@@ -30,18 +30,15 @@ public class FarmersAssortment {
     private static final Logger LOGGER = LogManager.getLogger();
     public static final RegistryHelper REGISTRY_HELPER = new RegistryHelper(MOD_ID);
 
+    private static boolean crabbersCompatEnabled;
+    private static boolean foragersCompatEnabled;
+
     public FarmersAssortment() {
         LOGGER.info("Loading Farmer's Assortment");
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
-        boolean crabbersLoaded = ModList.get().isLoaded("crabbersdelight");
-        boolean foragersLoaded = ModList.get().isLoaded("foragersinsight");
-        if (crabbersLoaded) {
-            FAxCrabbersBlocks.init();
-        }
-        if (foragersLoaded) {
-            FAxForagersBlocks.init();
-        }
+        crabbersCompatEnabled = initializeCompat("crabbersdelight", FAxCrabbersBlocks::init);
+        foragersCompatEnabled = initializeCompat("foragersinsight", FAxForagersBlocks::init);
         FABlocks.init();
         FAItems.init();
         REGISTRY_HELPER.register(modEventBus);
@@ -49,13 +46,36 @@ public class FarmersAssortment {
         FATab.register(modEventBus);
         FACrafting.register(modEventBus);
         modEventBus.addListener(FABlocks::onCommonSetup);
-        if (crabbersLoaded) {
+        if (crabbersCompatEnabled) {
             modEventBus.addListener(FAxCrabbersBlocks::onCommonSetup);
         }
-        if (foragersLoaded) {
+        if (foragersCompatEnabled) {
             modEventBus.addListener(FAxForagersBlocks::onCommonSetup);
         }
     }
+
+    public static boolean isCrabbersCompatEnabled() {
+        return crabbersCompatEnabled;
+    }
+
+    public static boolean isForagersCompatEnabled() {
+        return foragersCompatEnabled;
+    }
+
+    private boolean initializeCompat(String modId, Runnable compatInitializer) {
+        if (!ModList.get().isLoaded(modId)) {
+            return false;
+        }
+
+        try {
+            compatInitializer.run();
+            return true;
+        } catch (Throwable throwable) {
+            LOGGER.error("Failed to initialize {} compat, disabling integration.", modId, throwable);
+            return false;
+        }
+    }
+
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
@@ -82,7 +102,7 @@ public class FarmersAssortment {
             Set<Block> updatedSkilletBlocks = new HashSet<>(validSkilletBlocks);
             AtomicBoolean skilletChanged = new AtomicBoolean(false);
 
-            if (ModList.get().isLoaded("crabbersdelight")) {
+            if (isCrabbersCompatEnabled()) {
                 FAxCrabbersBlocks.skillets()
                         .map(RegistryObject::get)
                         .forEach(block -> {

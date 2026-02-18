@@ -93,16 +93,33 @@ public final class FABlocks {
         );
     }
     public static Stream<RegistryObject<ButcherBlockCabinetBlock>> allButcherBlockCabinets() {
-        return Stream.concat(Stream.concat(butcherBlockCabinets(), FAxCrabbersBlocks.butcherBlockCabinets()), FAxForagersBlocks.butcherBlockCabinets());
+        Stream<RegistryObject<ButcherBlockCabinetBlock>> cabinets = butcherBlockCabinets();
+        if (FarmersAssortment.isCrabbersCompatEnabled()) {
+            cabinets = Stream.concat(cabinets, FAxCrabbersBlocks.butcherBlockCabinets());
+        }
+        if (FarmersAssortment.isForagersCompatEnabled()) {
+            cabinets = Stream.concat(cabinets, FAxForagersBlocks.butcherBlockCabinets());
+        }
+        return cabinets;
     }
     public static Stream<RegistryObject<CuttingBoardBlock>> allCuttingBoards() {
-        return Stream.concat(Stream.concat(cuttingBoards(), FAxCrabbersBlocks.cuttingBoards()), FAxForagersBlocks.cuttingBoards());
+        Stream<RegistryObject<CuttingBoardBlock>> boards = cuttingBoards();
+        if (FarmersAssortment.isCrabbersCompatEnabled()) {
+            boards = Stream.concat(boards, FAxCrabbersBlocks.cuttingBoards());
+        }
+        if (FarmersAssortment.isForagersCompatEnabled()) {
+            boards = Stream.concat(boards, FAxForagersBlocks.cuttingBoards());
+        }
+        return boards;
     }
     public static Stream<RegistryObject<CookingPotBlock>> cookingPots() {
         return Stream.of(COPPER_COOKING_POT, GOLDEN_COOKING_POT, ALABASTER_COOKING_POT, TERRACOTTA_COOKING_POT);
     }
 
     public static Stream<RegistryObject<CookingPotBlock>> allCookingPots() {
+        if (!FarmersAssortment.isCrabbersCompatEnabled()) {
+            return cookingPots();
+        }
         return Stream.concat(cookingPots(), FAxCrabbersBlocks.cookingPots());
     }
 

@@ -8,11 +8,13 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Comparator;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
@@ -66,5 +68,26 @@ public final class FATab {
             return 4;
         }
         return 5;
+    }
+    private static final Set<String> CRABBERS_ITEMS = Set.of(
+            "clamshell_knife",
+            "palm_cutting_board",
+            "palm_butcher_block_cabinet",
+            "palm_crab_trap",
+            "pearlescent_cooking_pot",
+            "pearlescent_skillet"
+    );
+    private static final Set<String> FORAGERS_ITEMS = Set.of(
+            "lilac_cutting_board",
+            "lilac_butcher_block_cabinet",
+            "amethyst_diffuser"
+    );
+
+    private static boolean shouldDisplay(ResourceLocation id) {
+        String path = id.getPath();
+        if ((CRABBERS_ITEMS.contains(path) || path.endsWith("_crab_trap")) && !ModList.get().isLoaded("crabbersdelight")) {
+            return false;
+        }
+        return !FORAGERS_ITEMS.contains(path) || ModList.get().isLoaded("foragersinsight");
     }
 }
