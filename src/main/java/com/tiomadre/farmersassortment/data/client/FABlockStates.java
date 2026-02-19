@@ -12,6 +12,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.client.model.generators.*;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
@@ -114,7 +115,10 @@ public class FABlockStates extends BlockStateProvider {
                 .face(Direction.DOWN).uvs(0.0F, 0.0F, 16.0F, 16.0F).texture("#missing").end()
                 .end();
 
-        FABlockStateHelper.horizontalFacingBlock(this, block.get(), model);
+        getVariantBuilder(block.get()).forAllStates(state -> ConfiguredModel.builder()
+                .modelFile(model)
+                .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360)
+                .build());
     }
     private record FloatingCounterDefinition(RegistryObject<? extends Block> block, String woodType, ResourceLocation bottomTexture) {
     }

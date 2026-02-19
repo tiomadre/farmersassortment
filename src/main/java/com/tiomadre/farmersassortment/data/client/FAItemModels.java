@@ -8,6 +8,7 @@ import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxForagersBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
@@ -36,7 +37,29 @@ public class FAItemModels extends ItemModelProvider {
         registerFloatingCounters();
     }
     private void registerFloatingCounters() {
-        FABlocks.floatingCounters().forEach(this::block);
+        FABlocks.floatingCounters().forEach(this::floatingCounterItem);
+    }
+
+    private void floatingCounterItem(RegistryObject<? extends Block> block) {
+        String name = Objects.requireNonNull(block.getId()).getPath();
+        withExistingParent(name, modLoc("block/" + name))
+                .transforms()
+                .transform(ItemDisplayContext.GUI)
+                .rotation(30.0F, 225.0F, 0.0F)
+                .translation(0.0F, 0.0F, 0.0F)
+                .scale(0.625F, 0.625F, 0.625F)
+                .end()
+                .transform(ItemDisplayContext.GROUND)
+                .rotation(0.0F, 0.0F, 0.0F)
+                .translation(0.0F, 3.0F, 0.0F)
+                .scale(0.25F, 0.25F, 0.25F)
+                .end()
+                .transform(ItemDisplayContext.FIXED)
+                .rotation(0.0F, 0.0F, 0.0F)
+                .translation(0.0F, 0.0F, 0.0F)
+                .scale(0.5F, 0.5F, 0.5F)
+                .end()
+                .end();
     }
 
     private void registerKnives() {

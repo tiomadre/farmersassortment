@@ -2,18 +2,18 @@
   "variants": {
     "facing=east": {
       "model": "farmersassortment:block/jungle_floating_counter",
-      "y": 270
+      "y": 90
     },
     "facing=north": {
+      "model": "farmersassortment:block/jungle_floating_counter"
+    },
+    "facing=south": {
       "model": "farmersassortment:block/jungle_floating_counter",
       "y": 180
     },
-    "facing=south": {
-      "model": "farmersassortment:block/jungle_floating_counter"
-    },
     "facing=west": {
       "model": "farmersassortment:block/jungle_floating_counter",
-      "y": 90
+      "y": 270
     }
   }
 }
