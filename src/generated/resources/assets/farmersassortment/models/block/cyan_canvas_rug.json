@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/carpet",
+  "textures": {
+    "wool": "farmersassortment:block/cyan_canvas_rug"
+  }
+}
