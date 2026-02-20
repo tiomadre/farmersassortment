@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "minecraft:red_dye"
+    },
+    "R": {
+      "item": "farmersdelight:canvas_rug"
+    }
+  },
+  "pattern": [
+    "RRR",
+    "RDR",
+    "RRR"
+  ],
+  "result": {
+    "count": 8,
+    "item": "farmersassortment:red_canvas_rug"
+  },
+  "show_notification": true
+}

@@ -2,6 +2,7 @@ package com.tiomadre.farmersassortment.data.server.loot;
 
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
+import com.tiomadre.farmersassortment.core.registry.FARugs;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxForagersBlocks;
 import net.minecraft.core.HolderLookup;
@@ -39,6 +40,7 @@ public class FALoot extends LootTableProvider {
             FABlocks.allCookingPots().forEach(cookingPot -> this.dropSelf(cookingPot.get()));
             this.dropSelf(FAxCrabbersBlocks.PEARLESCENT_SKILLET.get());
             FABlocks.floatingCounters().forEach(counter -> this.dropSelf(counter.get()));
+            FARugs.canvasRugs().forEach(rug -> this.dropSelf(rug.get()));
             this.dropSelf(FABlocks.ALABASTER_STOVE.get());
             FAxForagersBlocks.diffusers().forEach(diffuser -> this.dropSelf(diffuser.get()));
 

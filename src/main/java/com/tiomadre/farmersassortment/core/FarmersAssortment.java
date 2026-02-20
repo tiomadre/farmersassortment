@@ -1,10 +1,7 @@
 package com.tiomadre.farmersassortment.core;
 
 import com.tiomadre.farmersassortment.core.mixin.BlockEntityTypeAccessor;
-import com.tiomadre.farmersassortment.core.registry.FABlockEntityTypes;
-import com.tiomadre.farmersassortment.core.registry.FABlocks;
-import com.tiomadre.farmersassortment.core.registry.FAItems;
-import com.tiomadre.farmersassortment.core.registry.FATab;
+import com.tiomadre.farmersassortment.core.registry.*;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
 import com.tiomadre.farmersassortment.data.server.recipes.FACrafting;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
@@ -41,6 +38,7 @@ public class FarmersAssortment {
         foragersCompatEnabled = initializeCompat("foragersinsight", FarmersAssortment::initializeForagersCompat);
         FABlocks.init();
         FAItems.init();
+        FARugs.init();
         REGISTRY_HELPER.register(modEventBus);
         FABlockEntityTypes.register(modEventBus);
         FATab.register(modEventBus);

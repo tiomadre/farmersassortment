@@ -5,6 +5,7 @@ import alabaster.crabbersdelight.common.registry.CDModItems;
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import com.tiomadre.farmersassortment.core.registry.FAItems;
+import com.tiomadre.farmersassortment.core.registry.FARugs;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -92,6 +93,23 @@ public final class FACrafting extends RecipeProvider {
         butcherBlockCabinet(output, FABlocks.CRIMSON_BUTCHER_BLOCK_CABINET, FABlocks.CRIMSON_CUTTING_BOARD.get(), blockItem("farmersdelight", "crimson_cabinet"));
         butcherBlockCabinet(output, FABlocks.WARPED_BUTCHER_BLOCK_CABINET, FABlocks.WARPED_CUTTING_BOARD.get(), blockItem("farmersdelight", "warped_cabinet"));
 
+        //Canvas Rugs
+        canvasRug(output, FARugs.WHITE_CANVAS_RUG, Items.WHITE_DYE);
+        canvasRug(output, FARugs.ORANGE_CANVAS_RUG, Items.ORANGE_DYE);
+        canvasRug(output, FARugs.MAGENTA_CANVAS_RUG, Items.MAGENTA_DYE);
+        canvasRug(output, FARugs.LIGHT_BLUE_CANVAS_RUG, Items.LIGHT_BLUE_DYE);
+        canvasRug(output, FARugs.YELLOW_CANVAS_RUG, Items.YELLOW_DYE);
+        canvasRug(output, FARugs.LIME_CANVAS_RUG, Items.LIME_DYE);
+        canvasRug(output, FARugs.PINK_CANVAS_RUG, Items.PINK_DYE);
+        canvasRug(output, FARugs.GRAY_CANVAS_RUG, Items.GRAY_DYE);
+        canvasRug(output, FARugs.LIGHT_GRAY_CANVAS_RUG, Items.LIGHT_GRAY_DYE);
+        canvasRug(output, FARugs.CYAN_CANVAS_RUG, Items.CYAN_DYE);
+        canvasRug(output, FARugs.PURPLE_CANVAS_RUG, Items.PURPLE_DYE);
+        canvasRug(output, FARugs.BLUE_CANVAS_RUG, Items.BLUE_DYE);
+        canvasRug(output, FARugs.BROWN_CANVAS_RUG, Items.BROWN_DYE);
+        canvasRug(output, FARugs.GREEN_CANVAS_RUG, Items.GREEN_DYE);
+        canvasRug(output, FARugs.RED_CANVAS_RUG, Items.RED_DYE);
+        canvasRug(output, FARugs.BLACK_CANVAS_RUG, Items.BLACK_DYE);
 
         //Crabber's Delight Compat
         if (ModList.get().isLoaded("crabbersdelight")) {
@@ -135,7 +153,16 @@ public final class FACrafting extends RecipeProvider {
                 .unlockedBy(getHasName(slab), has(slab))
                 .save(output);
     }
-
+    private void canvasRug(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> rug, ItemLike dye) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, rug.get(), 8)
+                .define('R', item("farmersdelight", "canvas_rug"))
+                .define('D', dye)
+                .pattern("RRR")
+                .pattern("RDR")
+                .pattern("RRR")
+                .unlockedBy(getHasName(dye), has(dye))
+                .save(output);
+    }
 
     private void diffuser(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> diffuser, ItemLike material) {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, diffuser.get())

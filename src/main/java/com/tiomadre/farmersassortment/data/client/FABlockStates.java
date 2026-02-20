@@ -5,6 +5,7 @@ import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.block.TerracottaCookingPotBlock;
 import com.tiomadre.farmersassortment.core.block.state.TerracottaCookingPotColor;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
+import com.tiomadre.farmersassortment.core.registry.FARugs;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxForagersBlocks;
 import net.minecraft.core.Direction;
@@ -43,6 +44,7 @@ public class FABlockStates extends BlockStateProvider {
         registerSkillets();
         registerDiffusers();
         registerFloatingCounters();
+        registerCanvasRugs();
     }
 
     //CABINET VARIANTS
@@ -87,6 +89,13 @@ public class FABlockStates extends BlockStateProvider {
         );
 
         floatingCounters.forEach(counter -> registerFloatingCounter(counter.block(), counter.woodType(), counter.bottomTexture()));
+    }
+    private void registerCanvasRugs() {
+        FARugs.canvasRugs().forEach(rug -> {
+            String name = Objects.requireNonNull(rug.getId()).getPath();
+            ModelFile model = models().singleTexture(name, mcLoc("block/carpet"), "wool", modLoc("block/" + name));
+            simpleBlock(rug.get(), model);
+        });
     }
 
     private void registerFloatingCounter(RegistryObject<? extends Block> block, String woodType, ResourceLocation bottomTexture) {
