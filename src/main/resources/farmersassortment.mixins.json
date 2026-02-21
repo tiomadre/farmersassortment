@@ -8,6 +8,7 @@
     "CookingPotBlockEntityMixin",
     "CookingPotCookingAccelerator",
     "DiffuserMenu",
+    "SlabBlockMixin",
     "VariantPotMenu"
   ],
   "injectors": {

@@ -2,6 +2,7 @@ package com.tiomadre.farmersassortment.core.registry;
 
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.block.*;
+import com.tiomadre.farmersassortment.core.item.StoolItem;
 import com.tiomadre.farmersassortment.core.mixin.BlockEntityTypeAccessor;
 import com.tiomadre.farmersassortment.core.item.TerracottaCookingPotItem;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
@@ -224,9 +225,11 @@ public final class FABlocks {
     }
 
     private static RegistryObject<StoolBlock> registerStool(String woodType, Block baseBlock) {
-        return BLOCKS.createBlock(woodType + "_stool",
+        String name = woodType + "_stool";
+        ResourceLocation id = new ResourceLocation(FarmersAssortment.MOD_ID, name);
+        return BLOCKS.createBlockWithItem(name,
                 () -> new StoolBlock(BlockBehaviour.Properties.copy(baseBlock).noOcclusion()),
-                new Item.Properties());
+                () -> new StoolItem(Objects.requireNonNull(ForgeRegistries.BLOCKS.getValue(id)), new Item.Properties()));
     }
 
     public static Stream<RegistryObject<StoolBlock>> stools() {

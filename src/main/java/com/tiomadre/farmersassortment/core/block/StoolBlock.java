@@ -30,9 +30,12 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
+import com.tiomadre.farmersassortment.core.item.StoolItem;
+import net.minecraft.world.level.storage.loot.LootParams;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StoolBlock extends HorizontalDirectionalBlock {
     public static final EnumProperty<StoolRugType> RUG = EnumProperty.create("rug", StoolRugType.class);
@@ -104,6 +107,18 @@ public class StoolBlock extends HorizontalDirectionalBlock {
             }
         }
         super.onRemove(state, level, pos, newState, isMoving);
+    }
+    @Override
+    public @NotNull List<ItemStack> getDrops(@NotNull BlockState state, LootParams.@NotNull Builder builder) {
+        return super.getDrops(state, builder).stream()
+                .map(stack -> stack.is(this.asItem()) ? StoolItem.applyRugToStack(stack, state.getValue(RUG)) : stack)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public @NotNull ItemStack getCloneItemStack(@NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull BlockState state) {
+        ItemStack stack = super.getCloneItemStack(level, pos, state);
+        return StoolItem.applyRugToStack(stack, state.getValue(RUG));
     }
 
     @Override
