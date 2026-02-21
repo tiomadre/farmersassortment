@@ -126,7 +126,6 @@ public class StoolBlock extends HorizontalDirectionalBlock {
             seat.setNoGravity(true);
             seat.setInvulnerable(true);
             seat.setSilent(true);
-            seat.setMarker(false);
             seat.getPersistentData().putBoolean(STOOL_SEAT_TAG, true);
             seat.getPersistentData().putLong("stool_pos", pos.asLong());
             level.addFreshEntity(seat);

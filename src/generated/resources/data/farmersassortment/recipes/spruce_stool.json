@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:spruce_slab"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "###",
+    "s s"
+  ],
+  "result": {
+    "count": 2,
+    "item": "farmersassortment:spruce_stool"
+  },
+  "show_notification": true
+}

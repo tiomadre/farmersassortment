@@ -14,13 +14,16 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.functions.CopyNameFunction;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class FALoot extends LootTableProvider {
     public FALoot(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
@@ -34,18 +37,40 @@ public class FALoot extends LootTableProvider {
 
         @Override
         protected void generate() {
-            FABlocks.allCuttingBoards().forEach(cuttingBoard -> this.dropSelf(cuttingBoard.get()));
-            FABlocks.allButcherBlockCabinets().forEach(cabinet -> this.add(cabinet.get(), this.createSingleItemTable(cabinet.get())
-                    .apply(CopyNameFunction.copyName(CopyNameFunction.NameSource.BLOCK_ENTITY))));
-            FABlocks.allCookingPots().forEach(cookingPot -> this.dropSelf(cookingPot.get()));
-            this.dropSelf(FAxCrabbersBlocks.PEARLESCENT_SKILLET.get());
-            FABlocks.floatingCounters().forEach(counter -> this.dropSelf(counter.get()));
-            FARugs.canvasRugs().forEach(rug -> this.dropSelf(rug.get()));
-            this.dropSelf(FABlocks.ALABASTER_STOVE.get());
-            FAxForagersBlocks.diffusers().forEach(diffuser -> this.dropSelf(diffuser.get()));
+            Set<Block> generated = new HashSet<>();
 
-            FAxCrabbersBlocks.crabTraps().forEach(trap -> this.add(trap.get(), this.createSingleItemTable(trap.get())
-                    .apply(CopyNameFunction.copyName(CopyNameFunction.NameSource.BLOCK_ENTITY))));
+            registerDropSelf(FABlocks.allCuttingBoards(), generated);
+            registerCopyName(FABlocks.allButcherBlockCabinets(), generated);
+            registerDropSelf(FABlocks.allCookingPots(), generated);
+            registerDropSelf(FABlocks.stools(), generated);
+            registerDropSelf(Stream.of(FAxCrabbersBlocks.PEARLESCENT_SKILLET), generated);
+            registerDropSelf(FABlocks.floatingCounters(), generated);
+            registerDropSelf(FARugs.canvasRugs(), generated);
+            registerDropSelf(Stream.of(FABlocks.ALABASTER_STOVE), generated);
+            registerDropSelf(FAxForagersBlocks.diffusers(), generated);
+            registerCopyName(FAxCrabbersBlocks.crabTraps(), generated);
+
+            getKnownBlocks().forEach(block -> {
+                if (generated.add(block)) {
+                    this.dropSelf(block);
+                }
+            });
+        }
+
+        private <T extends Block> void registerDropSelf(Stream<? extends RegistryObject<T>> blocks, Set<Block> generated) {
+            blocks.map(RegistryObject::get).forEach(block -> {
+                generated.add(block);
+                this.dropSelf(block);
+            });
+        }
+
+        private <T extends Block> void registerCopyName(Stream<? extends RegistryObject<T>> blocks, Set<Block> generated) {
+            blocks.map(RegistryObject::get).forEach(block -> {
+                generated.add(block);
+                this.add(block, this.createSingleItemTable(block)
+                        .apply(CopyNameFunction.copyName(CopyNameFunction.NameSource.BLOCK_ENTITY)));
+            });
+
         }
 
         @Override

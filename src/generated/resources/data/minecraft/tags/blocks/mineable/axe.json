@@ -35,6 +35,17 @@
     "farmersassortment:cherry_floating_counter",
     "farmersassortment:bamboo_floating_counter",
     "farmersassortment:crimson_floating_counter",
-    "farmersassortment:warped_floating_counter"
+    "farmersassortment:warped_floating_counter",
+    "farmersassortment:oak_stool",
+    "farmersassortment:spruce_stool",
+    "farmersassortment:birch_stool",
+    "farmersassortment:jungle_stool",
+    "farmersassortment:acacia_stool",
+    "farmersassortment:dark_oak_stool",
+    "farmersassortment:mangrove_stool",
+    "farmersassortment:cherry_stool",
+    "farmersassortment:bamboo_stool",
+    "farmersassortment:crimson_stool",
+    "farmersassortment:warped_stool"
   ]
 }
