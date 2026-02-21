@@ -3,6 +3,8 @@ package com.tiomadre.farmersassortment.core.registry.compat;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.block.ButcherBlockCabinetBlock;
+import com.tiomadre.farmersassortment.core.block.StoolBlock;
+import com.tiomadre.farmersassortment.core.item.StoolItem;
 import com.tiomadre.farmersassortment.core.mixin.BlockEntityTypeAccessor;
 import com.tiomadre.foragersinsight.common.block.DiffuserBlock;
 import com.tiomadre.foragersinsight.common.item.DiffuserBlockItem;
@@ -31,6 +33,7 @@ public final class FAxForagersBlocks {
     public static final RegistryObject<CuttingBoardBlock> LILAC_CUTTING_BOARD = registerCuttingBoard("lilac");
     public static final RegistryObject<ButcherBlockCabinetBlock> LILAC_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("lilac");
     public static final RegistryObject<DiffuserBlock> AMETHYST_DIFFUSER = registerDiffuser();
+    public static final RegistryObject<StoolBlock> LILAC_STOOL = registerStool("lilac");
 
     private FAxForagersBlocks() {
     }
@@ -44,6 +47,9 @@ public final class FAxForagersBlocks {
 
     public static Stream<RegistryObject<ButcherBlockCabinetBlock>> butcherBlockCabinets() {
         return Stream.of(LILAC_BUTCHER_BLOCK_CABINET);
+    }
+    public static Stream<RegistryObject<StoolBlock>> stools() {
+        return Stream.of(LILAC_STOOL);
     }
 
     public static Stream<RegistryObject<DiffuserBlock>> diffusers() {
@@ -66,6 +72,14 @@ public final class FAxForagersBlocks {
                 () -> new ButcherBlockCabinetBlock(properties),
                 new Item.Properties());
     }
+    private static RegistryObject<StoolBlock> registerStool(String woodType) {
+        String name = woodType + "_stool";
+        ResourceLocation id = new ResourceLocation(FarmersAssortment.MOD_ID, name);
+        return BLOCKS.createBlockWithItem(name,
+                () -> new StoolBlock(BlockBehaviour.Properties.copy(compatBlock(woodType + "_planks")).noOcclusion()),
+                () -> new StoolItem(Objects.requireNonNull(ForgeRegistries.BLOCKS.getValue(id)), new Item.Properties()));
+    }
+
 
     private static RegistryObject<DiffuserBlock> registerDiffuser() {
         return BLOCKS.createBlockWithItem("amethyst_diffuser",

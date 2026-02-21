@@ -42,7 +42,7 @@ public class FALoot extends LootTableProvider {
             registerDropSelf(FABlocks.allCuttingBoards(), generated);
             registerCopyName(FABlocks.allButcherBlockCabinets(), generated);
             registerDropSelf(FABlocks.allCookingPots(), generated);
-            registerDropSelf(FABlocks.stools(), generated);
+            registerDropSelf(FABlocks.allStools(), generated);
             registerDropSelf(Stream.of(FAxCrabbersBlocks.PEARLESCENT_SKILLET), generated);
             registerDropSelf(FABlocks.floatingCounters(), generated);
             registerDropSelf(FARugs.canvasRugs(), generated);

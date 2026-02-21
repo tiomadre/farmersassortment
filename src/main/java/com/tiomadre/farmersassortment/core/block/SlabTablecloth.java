@@ -34,6 +34,10 @@ public final class SlabTablecloth {
     @SubscribeEvent
     public static void onRightClickSlab(PlayerInteractEvent.RightClickBlock event) {
         Level level = event.getLevel();
+        if (level.isClientSide) {
+            return;
+        }
+
         BlockPos pos = event.getPos();
         BlockState state = level.getBlockState(pos);
 
@@ -51,30 +55,26 @@ public final class SlabTablecloth {
         StoolRugType heldRug = rugTypeFromItem(heldStack.getItem());
 
         if (heldRug != null && heldRug != currentRug) {
-            if (!level.isClientSide) {
-                if (currentRug.hasRug()) {
-                    dropRug(level, pos, currentRug);
-                }
-                level.setBlock(pos, state.setValue(SlabRugState.RUG, heldRug), 3);
-                level.playSound(null, pos, SoundEvents.WOOL_PLACE, SoundSource.BLOCKS, 1.0F, 1.0F);
-                if (!player.getAbilities().instabuild) {
-                    heldStack.shrink(1);
-                }
+            if (currentRug.hasRug()) {
+                dropRug(level, pos, currentRug);
+            }
+            level.setBlock(pos, state.setValue(SlabRugState.RUG, heldRug), 3);
+            level.playSound(null, pos, SoundEvents.WOOL_PLACE, SoundSource.BLOCKS, 1.0F, 1.0F);
+            if (!player.getAbilities().instabuild) {
+                heldStack.shrink(1);
             }
             event.setCanceled(true);
-            event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide));
+            event.setCancellationResult(InteractionResult.SUCCESS);
             return;
         }
 
         if (heldStack.getItem() instanceof ShearsItem && currentRug.hasRug()) {
-            if (!level.isClientSide) {
-                level.setBlock(pos, state.setValue(SlabRugState.RUG, StoolRugType.NONE), 3);
-                dropRug(level, pos, currentRug);
-                heldStack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(event.getHand()));
-                level.playSound(null, pos, SoundEvents.SHEEP_SHEAR, SoundSource.BLOCKS, 1.0F, 1.0F);
-            }
+            level.setBlock(pos, state.setValue(SlabRugState.RUG, StoolRugType.NONE), 3);
+            dropRug(level, pos, currentRug);
+            heldStack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(event.getHand()));
+            level.playSound(null, pos, SoundEvents.SHEEP_SHEAR, SoundSource.BLOCKS, 1.0F, 1.0F);
             event.setCanceled(true);
-            event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide));
+            event.setCancellationResult(InteractionResult.SUCCESS);
         }
     }
 

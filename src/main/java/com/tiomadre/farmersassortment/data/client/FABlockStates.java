@@ -6,6 +6,7 @@ import com.tiomadre.farmersassortment.core.block.StoolBlock;
 import com.tiomadre.farmersassortment.core.block.TerracottaCookingPotBlock;
 import com.tiomadre.farmersassortment.core.block.state.TerracottaCookingPotColor;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
+import com.tiomadre.farmersassortment.core.registry.FADynamicStools;
 import com.tiomadre.farmersassortment.core.registry.FARugs;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxForagersBlocks;
@@ -619,29 +620,29 @@ public class FABlockStates extends BlockStateProvider {
         stools.forEach(this::registerStool);
     }
 
-    private void registerStool(StoolDefinition stool) {
-        String name = Objects.requireNonNull(stool.block().getId()).getPath();
-        ModelFile baseModel = stoolModel(name, stool.planksTexture(), stool.seatTexture());
-        Map<StoolRugType, ModelFile> rugModels = new EnumMap<>(StoolRugType.class);
-
-        for (StoolRugType rugType : StoolRugType.values()) {
-            if (!rugType.hasRug() || rugType.texturePath() == null) {
-                continue;
-            }
-            String modelName = name + "_" + rugType.getSerializedName();
-            rugModels.put(rugType, stoolRugModel(modelName, stool.planksTexture(), rugType));
-        }
-
-        getVariantBuilder(stool.block().get()).forAllStates(state -> {
-            Direction direction = state.getValue(StoolBlock.FACING);
-            StoolRugType rugType = state.getValue(StoolBlock.RUG);
-            ModelFile model = rugType == StoolRugType.NONE ? baseModel : rugModels.getOrDefault(rugType, baseModel);
-
-            return ConfiguredModel.builder()
-                    .modelFile(model)
-                    .rotationY(((int) direction.toYRot()) % 360)
-                    .build();
-        });
+    private void registerStools() {
+        List<StoolDefinition> stools = new ArrayList<>(List.of(
+                new StoolDefinition(FABlocks.OAK_STOOL, "oak", new ResourceLocation("minecraft", "block/oak_planks"), new ResourceLocation("minecraft", "block/stripped_oak_log")),
+                new StoolDefinition(FABlocks.SPRUCE_STOOL, "spruce", new ResourceLocation("minecraft", "block/spruce_planks"), new ResourceLocation("minecraft", "block/stripped_spruce_log")),
+                new StoolDefinition(FABlocks.BIRCH_STOOL, "birch", new ResourceLocation("minecraft", "block/birch_planks"), new ResourceLocation("minecraft", "block/stripped_birch_log")),
+                new StoolDefinition(FABlocks.JUNGLE_STOOL, "jungle", new ResourceLocation("minecraft", "block/jungle_planks"), new ResourceLocation("minecraft", "block/stripped_jungle_log")),
+                new StoolDefinition(FABlocks.ACACIA_STOOL, "acacia", new ResourceLocation("minecraft", "block/acacia_planks"), new ResourceLocation("minecraft", "block/stripped_acacia_log")),
+                new StoolDefinition(FABlocks.DARK_OAK_STOOL, "dark_oak", new ResourceLocation("minecraft", "block/dark_oak_planks"), new ResourceLocation("minecraft", "block/stripped_dark_oak_log")),
+                new StoolDefinition(FABlocks.MANGROVE_STOOL, "mangrove", new ResourceLocation("minecraft", "block/mangrove_planks"), new ResourceLocation("minecraft", "block/stripped_mangrove_log")),
+                new StoolDefinition(FABlocks.CHERRY_STOOL, "cherry", new ResourceLocation("minecraft", "block/cherry_planks"), new ResourceLocation("minecraft", "block/stripped_cherry_log")),
+                new StoolDefinition(FABlocks.BAMBOO_STOOL, "bamboo", new ResourceLocation("minecraft", "block/bamboo_planks"), new ResourceLocation("minecraft", "block/stripped_bamboo_block")),
+                new StoolDefinition(FABlocks.CRIMSON_STOOL, "crimson", new ResourceLocation("minecraft", "block/crimson_planks"), new ResourceLocation("minecraft", "block/stripped_crimson_stem")),
+                new StoolDefinition(FABlocks.WARPED_STOOL, "warped", new ResourceLocation("minecraft", "block/warped_planks"), new ResourceLocation("minecraft", "block/stripped_warped_stem")),
+                new StoolDefinition(FAxCrabbersBlocks.PALM_STOOL, "palm", fallbackTexture(new ResourceLocation("crabbersdelight", "block/palm_planks"), new ResourceLocation("minecraft", "block/oak_planks")), fallbackTexture(new ResourceLocation("crabbersdelight", "block/stripped_palm_log"), new ResourceLocation("minecraft", "block/stripped_oak_log"))),
+                new StoolDefinition(FAxForagersBlocks.LILAC_STOOL, "lilac", fallbackTexture(new ResourceLocation("foragersinsight", "block/lilac_planks"), new ResourceLocation("minecraft", "block/oak_planks")), fallbackTexture(new ResourceLocation("foragersinsight", "block/stripped_lilac_log"), new ResourceLocation("minecraft", "block/stripped_oak_log")))
+        ));
+        FADynamicStools.stoolDefinitions().forEach(definition -> stools.add(new StoolDefinition(
+                definition.block(),
+                Objects.requireNonNull(definition.block().getId()).getPath(),
+                fallbackTexture(new ResourceLocation(definition.planksId().getNamespace(), "block/" + definition.planksId().getPath()), new ResourceLocation("minecraft", "block/oak_planks")),
+                fallbackTexture(definition.seatTexture(), new ResourceLocation("minecraft", "block/stripped_oak_log"))
+        )));
+        stools.forEach(this::registerStool);
     }
 
     private BlockModelBuilder stoolModel(String name, ResourceLocation planksTexture, ResourceLocation seatTexture) {

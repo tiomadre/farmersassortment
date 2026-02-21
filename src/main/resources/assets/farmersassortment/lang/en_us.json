@@ -84,6 +84,7 @@
 
   "tooltip.farmersassortment.terracotta_cooking_pot.undyed": "Undyed",
   "tooltip.farmersassortment.terracotta_cooking_pot.dyed": "Dyed: %s",
+  "tooltip.farmersassortment.stool.covered": "Covered with: %s",
 
   "container.farmersassortment.alabaster_cooking_pot": "Alabaster Cooking Pot",
   "container.farmersassortment.copper_cooking_pot": "Copper Cooking Pot",

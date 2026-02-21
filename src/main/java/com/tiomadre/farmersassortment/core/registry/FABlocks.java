@@ -231,6 +231,18 @@ public final class FABlocks {
                 () -> new StoolBlock(BlockBehaviour.Properties.copy(baseBlock).noOcclusion()),
                 () -> new StoolItem(Objects.requireNonNull(ForgeRegistries.BLOCKS.getValue(id)), new Item.Properties()));
     }
+    public static Stream<RegistryObject<StoolBlock>> allStools() {
+        Stream<RegistryObject<StoolBlock>> stools = stools();
+        if (FarmersAssortment.isCrabbersCompatEnabled()) {
+            stools = Stream.concat(stools, FAxCrabbersBlocks.stools());
+        }
+        if (FarmersAssortment.isForagersCompatEnabled()) {
+            stools = Stream.concat(stools, FAxForagersBlocks.stools());
+        }
+        stools = Stream.concat(stools, FADynamicStools.stools());
+        return stools;
+    }
+
 
     public static Stream<RegistryObject<StoolBlock>> stools() {
         return Stream.of(

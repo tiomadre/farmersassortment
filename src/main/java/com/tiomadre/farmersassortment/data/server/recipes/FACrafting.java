@@ -4,6 +4,7 @@ import alabaster.crabbersdelight.common.registry.CDModBlocks;
 import alabaster.crabbersdelight.common.registry.CDModItems;
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
+import com.tiomadre.farmersassortment.core.registry.FADynamicStools;
 import com.tiomadre.farmersassortment.core.registry.FAItems;
 import com.tiomadre.farmersassortment.core.registry.FARugs;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
@@ -86,6 +87,9 @@ public final class FACrafting extends RecipeProvider {
         stool(output, FABlocks.CRIMSON_STOOL, Blocks.CRIMSON_SLAB);
         stool(output, FABlocks.WARPED_STOOL, Blocks.WARPED_SLAB);
 
+        FADynamicStools.stoolDefinitions().forEach(definition ->
+                stool(output, definition.block(), blockItem(definition.slabId().getNamespace(), definition.slabId().getPath())));
+
         //Stoves + Heat Sources
         variantStove(output, FABlocks.ALABASTER_STOVE, Blocks.QUARTZ_BLOCK, Items.GOLD_INGOT, Items.FLINT_AND_STEEL);
 
@@ -129,6 +133,7 @@ public final class FACrafting extends RecipeProvider {
           //Cutting Board and Butcher Block Cabinets
             cuttingBoard(output, FAxCrabbersBlocks.PALM_CUTTING_BOARD, CDModBlocks.PALM_PLANKS.get());
             butcherBlockCabinet(output, FAxCrabbersBlocks.PALM_BUTCHER_BLOCK_CABINET, FAxCrabbersBlocks.PALM_CUTTING_BOARD.get(), CDModBlocks.PALM_CABINET.get());
+            stool(output, FAxCrabbersBlocks.PALM_STOOL, CDModBlocks.PALM_SLAB.get());
           //Knives
             knife(output, FAItems.CLAMSHELL_KNIFE, CDModItems.CLAM.get());
 
@@ -153,6 +158,7 @@ public final class FACrafting extends RecipeProvider {
 
         if (ModList.get().isLoaded("foragersinsight")) {
             cuttingBoard(output, FAxForagersBlocks.LILAC_CUTTING_BOARD, FIBlocks.LILAC_PLANKS.get());
+            stool(output, FAxForagersBlocks.LILAC_STOOL, FIBlocks.LILAC_SLAB.get());
             butcherBlockCabinet(output, FAxForagersBlocks.LILAC_BUTCHER_BLOCK_CABINET, FAxForagersBlocks.LILAC_CUTTING_BOARD.get(), FIBlocks.LILAC_CABINET.get());
             diffuser(output, FAxForagersBlocks.AMETHYST_DIFFUSER, Items.AMETHYST_SHARD);
         }

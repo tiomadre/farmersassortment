@@ -37,13 +37,13 @@ public class FABlockTags extends BlockTagsProvider {
                 .add(FABlocks.floatingCounters().map(RegistryObject::get).toArray(Block[]::new));
 
         this.tag(STOOLS)
-                .add(FABlocks.stools().map(RegistryObject::get).toArray(Block[]::new));
+                .add(FABlocks.allStools().map(RegistryObject::get).toArray(Block[]::new));
 
         this.tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(FABlocks.allButcherBlockCabinets().map(RegistryObject::get).toArray(Block[]::new))
                 .add(FABlocks.allCuttingBoards().map(RegistryObject::get).toArray(Block[]::new))
                 .add(FABlocks.floatingCounters().map(RegistryObject::get).toArray(Block[]::new))
-                .add(FABlocks.stools().map(RegistryObject::get).toArray(Block[]::new));
+                .add(FABlocks.allStools().map(RegistryObject::get).toArray(Block[]::new));
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(FABlocks.allCookingPots().map(RegistryObject::get).toArray(Block[]::new))

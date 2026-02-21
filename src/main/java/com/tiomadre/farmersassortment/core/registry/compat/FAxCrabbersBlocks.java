@@ -6,6 +6,8 @@ import alabaster.crabbersdelight.common.block.CrabTrapBlock;
 import alabaster.crabbersdelight.common.registry.CDModBlockEntity;
 import alabaster.crabbersdelight.common.registry.CDModBlocks;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
+import com.tiomadre.farmersassortment.core.item.StoolItem;
+import com.tiomadre.farmersassortment.core.block.StoolBlock;
 import com.tiomadre.farmersassortment.core.mixin.BlockEntityTypeAccessor;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -52,6 +54,7 @@ public final class FAxCrabbersBlocks {
     public static final RegistryObject<CrabTrapBlock> CRIMSON_CRAB_TRAP = registerCrabTrap("crimson");
     public static final RegistryObject<CrabTrapBlock> WARPED_CRAB_TRAP = registerCrabTrap("warped");
     public static final RegistryObject<CrabTrapBlock> PALM_CRAB_TRAP = registerCrabTrap("palm");
+    public static final RegistryObject<StoolBlock> PALM_STOOL = registerStool("palm");
 
     private FAxCrabbersBlocks() {
     }
@@ -65,6 +68,10 @@ public final class FAxCrabbersBlocks {
 
     public static Stream<RegistryObject<ButcherBlockCabinetBlock>> butcherBlockCabinets() {
         return Stream.of(PALM_BUTCHER_BLOCK_CABINET);
+    }
+
+    public static Stream<RegistryObject<StoolBlock>> stools() {
+        return Stream.of(PALM_STOOL);
     }
     public static Stream<RegistryObject<CookingPotBlock>> cookingPots() {
         return Stream.of(PEARLESCENT_COOKING_POT);
@@ -105,6 +112,15 @@ public final class FAxCrabbersBlocks {
                 () -> new ButcherBlockCabinetBlock(properties),
                 new Item.Properties());
     }
+
+    private static RegistryObject<StoolBlock> registerStool(String woodType) {
+        String name = woodType + "_stool";
+        ResourceLocation id = new ResourceLocation(FarmersAssortment.MOD_ID, name);
+        return BLOCKS.createBlockWithItem(name,
+                () -> new StoolBlock(BlockBehaviour.Properties.copy(compatBlock(woodType + "_planks")).noOcclusion()),
+                () -> new StoolItem(Objects.requireNonNull(ForgeRegistries.BLOCKS.getValue(id)), new Item.Properties()));
+    }
+
     private static RegistryObject<CookingPotBlock> registerCookingPot() {
         return BLOCKS.createBlockWithItem("pearlescent_cooking_pot",
                 () -> new CookingPotBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(0.5F, 6.0F).sound(SoundType.AMETHYST)),

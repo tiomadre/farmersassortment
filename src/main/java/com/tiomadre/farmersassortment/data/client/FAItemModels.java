@@ -44,11 +44,26 @@ public class FAItemModels extends ItemModelProvider {
         FABlocks.floatingCounters().forEach(this::floatingCounterItem);
     }
     private void registerStools() {
-        FABlocks.stools().forEach(this::stoolItem);
+        FABlocks.allStools().forEach(this::stoolItem);
     }
     private void stoolItem(RegistryObject<? extends Block> block) {
         String name = Objects.requireNonNull(block.getId()).getPath();
-        ItemModelBuilder builder = withExistingParent(name, modLoc("block/" + name))
+        ItemModelBuilder builder = stoolTransforms(withExistingParent(name, modLoc("block/" + name)));
+        for (StoolRugType rugType : StoolRugType.values()) {
+            if (!rugType.hasRug()) {
+                continue;
+            }
+            String coveredName = name + "_" + rugType.getSerializedName();
+            stoolTransforms(withExistingParent(coveredName, modLoc("block/" + coveredName)));
+            builder.override()
+                    .predicate(modLoc("rug"), (float) rugType.ordinal())
+                    .model(getExistingFile(modLoc("item/" + coveredName)))
+                    .end();
+        }
+    }
+
+    private ItemModelBuilder stoolTransforms(ItemModelBuilder builder) {
+        return builder
                 .transforms()
                 .transform(ItemDisplayContext.GUI)
                 .rotation(30.0F, 45.0F, 0.0F)
@@ -86,15 +101,6 @@ public class FAItemModels extends ItemModelProvider {
                 .scale(0.55F, 0.55F, 0.55F)
                 .end()
                 .end();
-        for (StoolRugType rugType : StoolRugType.values()) {
-            if (!rugType.hasRug()) {
-                continue;
-            }
-            builder.override()
-                    .predicate(modLoc("rug"), (float) rugType.ordinal())
-                    .model(getExistingFile(modLoc("block/" + name + "_" + rugType.getSerializedName())))
-                    .end();
-        }
     }
 
     private void floatingCounterItem(RegistryObject<? extends Block> block) {
