@@ -43,9 +43,49 @@ public class FAItemModels extends ItemModelProvider {
         FABlocks.floatingCounters().forEach(this::floatingCounterItem);
     }
     private void registerStools() {
-        FABlocks.stools().forEach(this::block);
+        FABlocks.stools().forEach(this::stoolItem);
     }
-
+    private void stoolItem(RegistryObject<? extends Block> block) {
+        String name = Objects.requireNonNull(block.getId()).getPath();
+        withExistingParent(name, modLoc("block/" + name))
+                .transforms()
+                .transform(ItemDisplayContext.GUI)
+                .rotation(30.0F, 45.0F, 0.0F)
+                .translation(0.0F, 0.0F, 0.0F)
+                .scale(0.85F, 0.85F, 0.85F)
+                .end()
+                .transform(ItemDisplayContext.GROUND)
+                .rotation(0.0F, 0.0F, 0.0F)
+                .translation(0.0F, 2.0F, 0.0F)
+                .scale(0.5F, 0.5F, 0.5F)
+                .end()
+                .transform(ItemDisplayContext.FIXED)
+                .rotation(0.0F, 0.0F, 0.0F)
+                .translation(0.0F, 0.0F, 0.0F)
+                .scale(0.6F, 0.6F, 0.6F)
+                .end()
+                .transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND)
+                .rotation(75.0F, 45.0F, 0.0F)
+                .translation(0.0F, 2.5F, 0.0F)
+                .scale(0.45F, 0.45F, 0.45F)
+                .end()
+                .transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND)
+                .rotation(75.0F, 225.0F, 0.0F)
+                .translation(0.0F, 2.5F, 0.0F)
+                .scale(0.45F, 0.45F, 0.45F)
+                .end()
+                .transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND)
+                .rotation(0.0F, 45.0F, 0.0F)
+                .translation(1.13F, 3.2F, 1.13F)
+                .scale(0.68F, 0.68F, 0.68F)
+                .end()
+                .transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND)
+                .rotation(0.0F, 225.0F, 0.0F)
+                .translation(1.13F, 3.2F, 1.13F)
+                .scale(0.68F, 0.68F, 0.68F)
+                .end()
+                .end();
+    }
 
     private void floatingCounterItem(RegistryObject<? extends Block> block) {
         String name = Objects.requireNonNull(block.getId()).getPath();

@@ -697,6 +697,7 @@
       ]
     }
   ],
+  "render_type": "minecraft:cutout",
   "textures": {
     "0": "minecraft:block/cherry_planks",
     "1": "farmersassortment:block/light_blue_canvas_rug",

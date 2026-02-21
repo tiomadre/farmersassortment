@@ -1,9 +1,9 @@
 {
   "parent": "farmersdelight:block/canvas_rug",
+  "render_type": "minecraft:cutout",
   "textures": {
-    "canvas": "farmersassortment:block/magenta_canvas_rug",
+    "body": "farmersassortment:block/magenta_canvas_rug",
     "extrudes": "farmersassortment:block/magenta_canvas_rug_extrudes",
-    "particle": "farmersassortment:block/magenta_canvas_rug",
-    "wool": "farmersassortment:block/magenta_canvas_rug"
+    "particle": "farmersassortment:block/magenta_canvas_rug"
   }
 }

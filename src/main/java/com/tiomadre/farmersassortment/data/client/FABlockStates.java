@@ -98,8 +98,8 @@ public class FABlockStates extends BlockStateProvider {
             String name = Objects.requireNonNull(rug.getId()).getPath();
             ModelFile model = models().getBuilder(name)
                     .parent(new ModelFile.UncheckedModelFile(new ResourceLocation("farmersdelight", "block/canvas_rug")))
-                    .texture("canvas", modLoc("block/" + name))
-                    .texture("wool", modLoc("block/" + name))
+                    .renderType("minecraft:cutout")
+                    .texture("body", modLoc("block/" + name))
                     .texture("extrudes", modLoc("block/" + name + "_extrudes"))
                     .texture("particle", modLoc("block/" + name));
             simpleBlock(rug.get(), model);
@@ -655,6 +655,7 @@ public class FABlockStates extends BlockStateProvider {
 
     private BlockModelBuilder stoolRugModel(String name, ResourceLocation planksTexture, StoolRugType rugType) {
         BlockModelBuilder builder = models().getBuilder(name)
+                .renderType("minecraft:cutout")
                 .texture("0", planksTexture)
                 .texture("1", fallbackTexture(new ResourceLocation(Objects.requireNonNull(rugType.texturePath())), modLoc("block/white_canvas_rug")))
                 .texture("2", fallbackTexture(new ResourceLocation(rugType.extrudeTexturePath()), modLoc("block/white_canvas_rug_extrudes")))

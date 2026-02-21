@@ -697,6 +697,7 @@
       ]
     }
   ],
+  "render_type": "minecraft:cutout",
   "textures": {
     "0": "minecraft:block/crimson_planks",
     "1": "farmersassortment:block/yellow_canvas_rug",

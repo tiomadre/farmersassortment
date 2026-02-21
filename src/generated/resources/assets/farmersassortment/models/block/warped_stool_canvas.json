@@ -697,6 +697,7 @@
       ]
     }
   ],
+  "render_type": "minecraft:cutout",
   "textures": {
     "0": "minecraft:block/warped_planks",
     "1": "farmersassortment:block/white_canvas_rug",

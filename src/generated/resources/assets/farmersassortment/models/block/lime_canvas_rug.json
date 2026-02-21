@@ -1,9 +1,9 @@
 {
   "parent": "farmersdelight:block/canvas_rug",
+  "render_type": "minecraft:cutout",
   "textures": {
-    "canvas": "farmersassortment:block/lime_canvas_rug",
+    "body": "farmersassortment:block/lime_canvas_rug",
     "extrudes": "farmersassortment:block/lime_canvas_rug_extrudes",
-    "particle": "farmersassortment:block/lime_canvas_rug",
-    "wool": "farmersassortment:block/lime_canvas_rug"
+    "particle": "farmersassortment:block/lime_canvas_rug"
   }
 }

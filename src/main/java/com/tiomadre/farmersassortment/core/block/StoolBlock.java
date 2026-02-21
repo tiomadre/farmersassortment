@@ -3,6 +3,7 @@ package com.tiomadre.farmersassortment.core.block;
 import com.tiomadre.farmersassortment.core.block.state.StoolRugType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -127,11 +128,12 @@ public class StoolBlock extends HorizontalDirectionalBlock {
 
         ArmorStand seat = getSeat(level, pos);
         if (seat == null) {
-            seat = new ArmorStand(level, pos.getX() + 0.5D, pos.getY() + 0.1D, pos.getZ() + 0.5D);
+            seat = new ArmorStand(level, pos.getX() + 0.5D, pos.getY() - 0.35D, pos.getZ() + 0.5D);
             seat.setInvisible(true);
             seat.setNoGravity(true);
             seat.setInvulnerable(true);
             seat.setSilent(true);
+            applyMarkerSeatFlag(seat);
             seat.getPersistentData().putBoolean(STOOL_SEAT_TAG, true);
             seat.getPersistentData().putLong("stool_pos", pos.asLong());
             level.addFreshEntity(seat);
@@ -143,6 +145,12 @@ public class StoolBlock extends HorizontalDirectionalBlock {
 
         player.startRiding(seat, false);
         return InteractionResult.CONSUME;
+    }
+    private void applyMarkerSeatFlag(ArmorStand seat) {
+        CompoundTag data = new CompoundTag();
+        seat.saveWithoutId(data);
+        data.putBoolean("Marker", true);
+        seat.load(data);
     }
 
     @Nullable
