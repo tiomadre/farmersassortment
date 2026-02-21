@@ -657,7 +657,7 @@ public class FABlockStates extends BlockStateProvider {
         BlockModelBuilder builder = models().getBuilder(name)
                 .texture("0", planksTexture)
                 .texture("1", fallbackTexture(new ResourceLocation(Objects.requireNonNull(rugType.texturePath())), modLoc("block/white_canvas_rug")))
-                .texture("2", new ResourceLocation(rugType.extrudeTexturePath()))
+                .texture("2", fallbackTexture(new ResourceLocation(rugType.extrudeTexturePath()), modLoc("block/white_canvas_rug_extrudes")))
                 .texture("particle", planksTexture);
         addStoolCoreElements(builder, true);
         return builder;
