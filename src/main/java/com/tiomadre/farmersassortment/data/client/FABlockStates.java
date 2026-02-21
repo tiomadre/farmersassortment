@@ -2,6 +2,7 @@ package com.tiomadre.farmersassortment.data.client;
 
 import alabaster.crabbersdelight.common.block.CrabTrapBlock;
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
+import com.tiomadre.farmersassortment.core.block.StoolBlock;
 import com.tiomadre.farmersassortment.core.block.TerracottaCookingPotBlock;
 import com.tiomadre.farmersassortment.core.block.state.TerracottaCookingPotColor;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
@@ -23,6 +24,7 @@ import vectorwing.farmersdelight.common.block.CookingPotBlock;
 import vectorwing.farmersdelight.common.block.SkilletBlock;
 import vectorwing.farmersdelight.common.block.state.CookingPotSupport;
 import vectorwing.farmersdelight.common.block.StoveBlock;
+import com.tiomadre.farmersassortment.core.block.state.StoolRugType;
 
 import java.util.*;
 
@@ -45,6 +47,7 @@ public class FABlockStates extends BlockStateProvider {
         registerDiffusers();
         registerFloatingCounters();
         registerCanvasRugs();
+        registerStools();
     }
 
     //CABINET VARIANTS
@@ -93,7 +96,12 @@ public class FABlockStates extends BlockStateProvider {
     private void registerCanvasRugs() {
         FARugs.canvasRugs().forEach(rug -> {
             String name = Objects.requireNonNull(rug.getId()).getPath();
-            ModelFile model = models().singleTexture(name, mcLoc("block/carpet"), "wool", modLoc("block/" + name));
+            ModelFile model = models().getBuilder(name)
+                    .parent(new ModelFile.UncheckedModelFile(new ResourceLocation("farmersdelight", "block/canvas_rug")))
+                    .texture("canvas", modLoc("block/" + name))
+                    .texture("wool", modLoc("block/" + name))
+                    .texture("extrudes", modLoc("block/" + name + "_extrudes"))
+                    .texture("particle", modLoc("block/" + name));
             simpleBlock(rug.get(), model);
         });
     }
@@ -593,5 +601,167 @@ public class FABlockStates extends BlockStateProvider {
         }
 
         return builder;
+    }
+    private void registerStools() {
+        List<StoolDefinition> stools = List.of(
+                new StoolDefinition(FABlocks.OAK_STOOL, "oak", new ResourceLocation("minecraft", "block/oak_planks"), new ResourceLocation("minecraft", "block/stripped_oak_log")),
+                new StoolDefinition(FABlocks.SPRUCE_STOOL, "spruce", new ResourceLocation("minecraft", "block/spruce_planks"), new ResourceLocation("minecraft", "block/stripped_spruce_log")),
+                new StoolDefinition(FABlocks.BIRCH_STOOL, "birch", new ResourceLocation("minecraft", "block/birch_planks"), new ResourceLocation("minecraft", "block/stripped_birch_log")),
+                new StoolDefinition(FABlocks.JUNGLE_STOOL, "jungle", new ResourceLocation("minecraft", "block/jungle_planks"), new ResourceLocation("minecraft", "block/stripped_jungle_log")),
+                new StoolDefinition(FABlocks.ACACIA_STOOL, "acacia", new ResourceLocation("minecraft", "block/acacia_planks"), new ResourceLocation("minecraft", "block/stripped_acacia_log")),
+                new StoolDefinition(FABlocks.DARK_OAK_STOOL, "dark_oak", new ResourceLocation("minecraft", "block/dark_oak_planks"), new ResourceLocation("minecraft", "block/stripped_dark_oak_log")),
+                new StoolDefinition(FABlocks.MANGROVE_STOOL, "mangrove", new ResourceLocation("minecraft", "block/mangrove_planks"), new ResourceLocation("minecraft", "block/stripped_mangrove_log")),
+                new StoolDefinition(FABlocks.CHERRY_STOOL, "cherry", new ResourceLocation("minecraft", "block/cherry_planks"), new ResourceLocation("minecraft", "block/stripped_cherry_log")),
+                new StoolDefinition(FABlocks.BAMBOO_STOOL, "bamboo", new ResourceLocation("minecraft", "block/bamboo_planks"), new ResourceLocation("minecraft", "block/stripped_bamboo_block")),
+                new StoolDefinition(FABlocks.CRIMSON_STOOL, "crimson", new ResourceLocation("minecraft", "block/crimson_planks"), new ResourceLocation("minecraft", "block/stripped_crimson_stem")),
+                new StoolDefinition(FABlocks.WARPED_STOOL, "warped", new ResourceLocation("minecraft", "block/warped_planks"), new ResourceLocation("minecraft", "block/stripped_warped_stem"))
+        );
+        stools.forEach(this::registerStool);
+    }
+
+    private void registerStool(StoolDefinition stool) {
+        String name = Objects.requireNonNull(stool.block().getId()).getPath();
+        ModelFile baseModel = stoolModel(name, stool.planksTexture(), stool.seatTexture());
+        Map<StoolRugType, ModelFile> rugModels = new EnumMap<>(StoolRugType.class);
+
+        for (StoolRugType rugType : StoolRugType.values()) {
+            if (!rugType.hasRug() || rugType.texturePath() == null) {
+                continue;
+            }
+            String modelName = name + "_" + rugType.getSerializedName();
+            rugModels.put(rugType, stoolRugModel(modelName, stool.planksTexture(), rugType));
+        }
+
+        getVariantBuilder(stool.block().get()).forAllStates(state -> {
+            Direction direction = state.getValue(StoolBlock.FACING);
+            StoolRugType rugType = state.getValue(StoolBlock.RUG);
+            ModelFile model = rugType == StoolRugType.NONE ? baseModel : rugModels.getOrDefault(rugType, baseModel);
+
+            return ConfiguredModel.builder()
+                    .modelFile(model)
+                    .rotationY(((int) direction.toYRot()) % 360)
+                    .build();
+        });
+    }
+
+    private BlockModelBuilder stoolModel(String name, ResourceLocation planksTexture, ResourceLocation seatTexture) {
+        BlockModelBuilder builder = models().getBuilder(name)
+                .texture("0", planksTexture)
+                .texture("4", seatTexture)
+                .texture("particle", planksTexture);
+        addStoolCoreElements(builder, false);
+        return builder;
+    }
+
+    private BlockModelBuilder stoolRugModel(String name, ResourceLocation planksTexture, StoolRugType rugType) {
+        BlockModelBuilder builder = models().getBuilder(name)
+                .texture("0", planksTexture)
+                .texture("1", new ResourceLocation(Objects.requireNonNull(rugType.texturePath())))
+                .texture("2", new ResourceLocation(rugType.extrudeTexturePath()))
+                .texture("particle", planksTexture);
+        addStoolCoreElements(builder, true);
+        return builder;
+    }
+
+    private void addStoolCoreElements(BlockModelBuilder builder, boolean rugged) {
+        builder.element().from(0, 3, 0).to(16, 4, 16)
+                .face(Direction.NORTH).uvs(0, 7, 16, 8).texture("#0").end()
+                .face(Direction.EAST).uvs(0, 7, 16, 8).texture("#0").end()
+                .face(Direction.SOUTH).uvs(0, 7, 16, 8).texture("#0").end()
+                .face(Direction.WEST).uvs(0, 7, 16, 8).texture("#0").end()
+                .face(Direction.UP).uvs(0, 0, 16, 16).texture("#0").end()
+                .face(Direction.DOWN).uvs(0, 0, 16, 16).texture("#0").end()
+                .end();
+
+        String seatTexture = rugged ? "#1" : "#4";
+        builder.element().from(0, 4, 0).to(16, 8, 16)
+                .face(Direction.NORTH).uvs(0, rugged ? 12 : 7, 16, rugged ? 16 : 11).texture(seatTexture).end()
+                .face(Direction.EAST).uvs(16, 11, 0, 15).texture(seatTexture).end()
+                .face(Direction.SOUTH).uvs(rugged ? 0 : 16, rugged ? 12 : 7, rugged ? 16 : 0, rugged ? 16 : 11).texture(seatTexture).end()
+                .face(Direction.WEST).uvs(16, 11, 0, 15).texture(seatTexture).end()
+                .face(Direction.UP).uvs(0, 0, 16, 16).texture(seatTexture).end()
+                .face(Direction.DOWN).uvs(0, 0, 16, 16).texture(rugged ? "#1" : "#0").end()
+                .end();
+
+        if (rugged) {
+            addStoolRugExtrudes(builder);
+        }
+
+        builder.element().from(0, 0, 14).to(2, 3, 16)
+                .face(Direction.NORTH).uvs(14, 9, 16, 12).texture("#0").end()
+                .face(Direction.EAST).uvs(14, 9, 16, 12).texture("#0").end()
+                .face(Direction.SOUTH).uvs(14, 9, 16, 12).texture("#0").end()
+                .face(Direction.WEST).uvs(14, 9, 16, 12).texture("#0").end()
+                .face(Direction.UP).uvs(14, 9, 16, 12).texture("#0").end()
+                .face(Direction.DOWN).uvs(14, 9, 16, 12).texture("#0").end()
+                .end();
+
+        builder.element().from(14, 0, 14).to(16, 3, 16)
+                .face(Direction.NORTH).uvs(14, 9, 16, 12).texture("#0").end()
+                .face(Direction.EAST).uvs(14, 9, 16, 12).texture("#0").end()
+                .face(Direction.SOUTH).uvs(14, 9, 16, 12).texture("#0").end()
+                .face(Direction.WEST).uvs(14, 9, 16, 12).texture("#0").end()
+                .face(Direction.UP).uvs(14, 9, 16, 12).texture("#0").end()
+                .face(Direction.DOWN).uvs(14, 9, 16, 12).texture("#0").end()
+                .end();
+
+        builder.element().from(14, 0, 0).to(16, 3, 2)
+                .face(Direction.NORTH).uvs(14, 9, 16, 12).texture("#0").end()
+                .face(Direction.EAST).uvs(14, 9, 16, 12).texture("#0").end()
+                .face(Direction.SOUTH).uvs(14, 9, 16, 12).texture("#0").end()
+                .face(Direction.WEST).uvs(14, 9, 16, 12).texture("#0").end()
+                .face(Direction.UP).uvs(14, 9, 16, 12).texture("#0").end()
+                .face(Direction.DOWN).uvs(14, 9, 16, 12).texture("#0").end()
+                .end();
+
+        builder.element().from(0, 0, 0).to(2, 3, 2)
+                .face(Direction.NORTH).uvs(14, 9, 16, 12).texture("#0").end()
+                .face(Direction.EAST).uvs(14, 9, 16, 12).texture("#0").end()
+                .face(Direction.SOUTH).uvs(14, 9, 16, 12).texture("#0").end()
+                .face(Direction.WEST).uvs(14, 9, 16, 12).texture("#0").end()
+                .face(Direction.UP).uvs(14, 9, 16, 12).texture("#0").end()
+                .face(Direction.DOWN).uvs(14, 9, 16, 12).texture("#0").end()
+                .end();
+    }
+
+    private void addStoolRugExtrudes(BlockModelBuilder builder) {
+        builder.element().from(0, 4, -2).to(16, 4, 0).rotation().angle(-45).axis(Direction.Axis.X).origin(0, 4, 0).end()
+                .face(Direction.NORTH).uvs(0, 2, 16, 2).texture("#2").end()
+                .face(Direction.EAST).uvs(0, 2, 2, 2).texture("#2").end()
+                .face(Direction.SOUTH).uvs(0, 2, 16, 2).texture("#2").end()
+                .face(Direction.WEST).uvs(0, 2, 2, 2).texture("#2").end()
+                .face(Direction.UP).uvs(0, 2, 16, 0).texture("#2").end()
+                .face(Direction.DOWN).uvs(0, 0, 16, 2).texture("#2").end()
+                .end();
+
+        builder.element().from(-2, 4, 0).to(0, 4, 16).rotation().angle(45).axis(Direction.Axis.Z).origin(0, 4, 0).end()
+                .face(Direction.NORTH).uvs(0, 2, 2, 2).texture("#2").end()
+                .face(Direction.EAST).uvs(0, 2, 16, 2).texture("#2").end()
+                .face(Direction.SOUTH).uvs(0, 2, 2, 2).texture("#2").end()
+                .face(Direction.WEST).uvs(0, 2, 16, 2).texture("#2").end()
+                .face(Direction.UP).uvs(0, 0, 16, 2).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#2").end()
+                .face(Direction.DOWN).uvs(0, 0, 16, 2).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#2").end()
+                .end();
+
+        builder.element().from(16, 4, 0).to(18, 4, 16).rotation().angle(-45).axis(Direction.Axis.Z).origin(16, 4, 0).end()
+                .face(Direction.NORTH).uvs(0, 2, 2, 2).texture("#2").end()
+                .face(Direction.EAST).uvs(0, 2, 16, 2).texture("#2").end()
+                .face(Direction.SOUTH).uvs(0, 2, 2, 2).texture("#2").end()
+                .face(Direction.WEST).uvs(0, 2, 16, 2).texture("#2").end()
+                .face(Direction.UP).uvs(0, 2, 16, 0).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#2").end()
+                .face(Direction.DOWN).uvs(0, 2, 16, 0).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#2").end()
+                .end();
+
+        builder.element().from(0, 4, 16).to(16, 4, 18).rotation().angle(45).axis(Direction.Axis.X).origin(0, 4, 16).end()
+                .face(Direction.NORTH).uvs(0, 2, 16, 2).texture("#2").end()
+                .face(Direction.EAST).uvs(0, 2, 2, 2).texture("#2").end()
+                .face(Direction.SOUTH).uvs(0, 2, 16, 2).texture("#2").end()
+                .face(Direction.WEST).uvs(0, 2, 2, 2).texture("#2").end()
+                .face(Direction.UP).uvs(0, 0, 16, 2).texture("#2").end()
+                .face(Direction.DOWN).uvs(0, 2, 16, 0).texture("#2").end()
+                .end();
+    }
+    private record StoolDefinition(RegistryObject<StoolBlock> block, String woodType,
+                                   ResourceLocation planksTexture, ResourceLocation seatTexture) {
     }
 }

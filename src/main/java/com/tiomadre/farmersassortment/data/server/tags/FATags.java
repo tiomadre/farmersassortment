@@ -23,6 +23,7 @@ public final class FATags {
         public static final TagKey<Block> COOKING_POTS = TagUtil.blockTag(FarmersAssortment.MOD_ID, "cooking_pots");
         public static final TagKey<Block> SKILLETS = TagUtil.blockTag(FarmersAssortment.MOD_ID, "skillets");
         public static final TagKey<Block> FLOATING_COUNTERS = TagUtil.blockTag(FarmersAssortment.MOD_ID, "floating_counters");
+        public static final TagKey<Block> STOOLS = TagUtil.blockTag(FarmersAssortment.MOD_ID, "stools");
         private Blocks() {
         }
     }

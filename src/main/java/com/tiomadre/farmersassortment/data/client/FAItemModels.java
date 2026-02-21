@@ -4,6 +4,7 @@ import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.block.state.TerracottaCookingPotColor;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import com.tiomadre.farmersassortment.core.registry.FAItems;
+import com.tiomadre.farmersassortment.core.registry.FARugs;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxForagersBlocks;
 import net.minecraft.data.PackOutput;
@@ -35,10 +36,15 @@ public class FAItemModels extends ItemModelProvider {
         registerCrabTraps();
         registerSkillets();
         registerFloatingCounters();
+        registerStools();
     }
     private void registerFloatingCounters() {
         FABlocks.floatingCounters().forEach(this::floatingCounterItem);
     }
+    private void registerStools() {
+        FABlocks.stools().forEach(this::block);
+    }
+
 
     private void floatingCounterItem(RegistryObject<? extends Block> block) {
         String name = Objects.requireNonNull(block.getId()).getPath();
@@ -80,6 +86,9 @@ public class FAItemModels extends ItemModelProvider {
                 .scale(0.35F, 0.35F, 0.35F)
                 .end()
                 .end();
+    }
+    private void registerCanvasRugs() {
+        FARugs.canvasRugs().forEach(this::block);
     }
 
     private void registerKnives() {

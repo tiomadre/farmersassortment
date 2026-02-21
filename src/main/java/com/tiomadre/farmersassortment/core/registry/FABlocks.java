@@ -1,10 +1,7 @@
 package com.tiomadre.farmersassortment.core.registry;
 
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
-import com.tiomadre.farmersassortment.core.block.ButcherBlockCabinetBlock;
-import com.tiomadre.farmersassortment.core.block.FloatingCounterBlock;
-import com.tiomadre.farmersassortment.core.block.TerracottaCookingPotBlock;
-import com.tiomadre.farmersassortment.core.block.UniqueStoveBlock;
+import com.tiomadre.farmersassortment.core.block.*;
 import com.tiomadre.farmersassortment.core.mixin.BlockEntityTypeAccessor;
 import com.tiomadre.farmersassortment.core.item.TerracottaCookingPotItem;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
@@ -33,6 +30,7 @@ import java.util.stream.Stream;
 
 public final class FABlocks {
     public static final BlockSubRegistryHelper BLOCKS = FarmersAssortment.REGISTRY_HELPER.getBlockSubHelper();
+
 
     public static final RegistryObject<ButcherBlockCabinetBlock> OAK_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("oak", Blocks.OAK_PLANKS);
     public static final RegistryObject<ButcherBlockCabinetBlock> SPRUCE_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("spruce", Blocks.SPRUCE_PLANKS);
@@ -81,6 +79,17 @@ public final class FABlocks {
     public static final RegistryObject<CookingPotBlock> TERRACOTTA_COOKING_POT = registerTerracottaCookingPot();
 
     public static final RegistryObject<UniqueStoveBlock> ALABASTER_STOVE = BLOCKS.createBlock("alabaster_stove", () -> new UniqueStoveBlock(BlockBehaviour.Properties.copy(Blocks.FURNACE)), new Item.Properties());
+    public static final RegistryObject<StoolBlock> OAK_STOOL = registerStool("oak", Blocks.OAK_PLANKS);
+    public static final RegistryObject<StoolBlock> SPRUCE_STOOL = registerStool("spruce", Blocks.SPRUCE_PLANKS);
+    public static final RegistryObject<StoolBlock> BIRCH_STOOL = registerStool("birch", Blocks.BIRCH_PLANKS);
+    public static final RegistryObject<StoolBlock> JUNGLE_STOOL = registerStool("jungle", Blocks.JUNGLE_PLANKS);
+    public static final RegistryObject<StoolBlock> ACACIA_STOOL = registerStool("acacia", Blocks.ACACIA_PLANKS);
+    public static final RegistryObject<StoolBlock> DARK_OAK_STOOL = registerStool("dark_oak", Blocks.DARK_OAK_PLANKS);
+    public static final RegistryObject<StoolBlock> MANGROVE_STOOL = registerStool("mangrove", Blocks.MANGROVE_PLANKS);
+    public static final RegistryObject<StoolBlock> CHERRY_STOOL = registerStool("cherry", Blocks.CHERRY_PLANKS);
+    public static final RegistryObject<StoolBlock> BAMBOO_STOOL = registerStool("bamboo", Blocks.BAMBOO_PLANKS);
+    public static final RegistryObject<StoolBlock> CRIMSON_STOOL = registerStool("crimson", Blocks.CRIMSON_PLANKS);
+    public static final RegistryObject<StoolBlock> WARPED_STOOL = registerStool("warped", Blocks.WARPED_PLANKS);
 
     public static Stream<RegistryObject<CuttingBoardBlock>> cuttingBoards() {
         return Stream.of(SPRUCE_CUTTING_BOARD, BIRCH_CUTTING_BOARD, JUNGLE_CUTTING_BOARD, ACACIA_CUTTING_BOARD, DARK_OAK_CUTTING_BOARD, MANGROVE_CUTTING_BOARD,
@@ -211,6 +220,28 @@ public final class FABlocks {
                 BAMBOO_FLOATING_COUNTER,
                 CRIMSON_FLOATING_COUNTER,
                 WARPED_FLOATING_COUNTER
+        );
+    }
+
+    private static RegistryObject<StoolBlock> registerStool(String woodType, Block baseBlock) {
+        return BLOCKS.createBlock(woodType + "_stool",
+                () -> new StoolBlock(BlockBehaviour.Properties.copy(baseBlock)),
+                new Item.Properties());
+    }
+
+    public static Stream<RegistryObject<StoolBlock>> stools() {
+        return Stream.of(
+                OAK_STOOL,
+                SPRUCE_STOOL,
+                BIRCH_STOOL,
+                JUNGLE_STOOL,
+                ACACIA_STOOL,
+                DARK_OAK_STOOL,
+                MANGROVE_STOOL,
+                CHERRY_STOOL,
+                BAMBOO_STOOL,
+                CRIMSON_STOOL,
+                WARPED_STOOL
         );
     }
 }

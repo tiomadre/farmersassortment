@@ -73,6 +73,19 @@ public final class FACrafting extends RecipeProvider {
         floatingCounter(output, FABlocks.CRIMSON_FLOATING_COUNTER, Blocks.CRIMSON_SLAB);
         floatingCounter(output, FABlocks.WARPED_FLOATING_COUNTER, Blocks.WARPED_SLAB);
 
+        //Stools
+        stool(output, FABlocks.OAK_STOOL, Blocks.OAK_SLAB);
+        stool(output, FABlocks.SPRUCE_STOOL, Blocks.SPRUCE_SLAB);
+        stool(output, FABlocks.BIRCH_STOOL, Blocks.BIRCH_SLAB);
+        stool(output, FABlocks.JUNGLE_STOOL, Blocks.JUNGLE_SLAB);
+        stool(output, FABlocks.ACACIA_STOOL, Blocks.ACACIA_SLAB);
+        stool(output, FABlocks.DARK_OAK_STOOL, Blocks.DARK_OAK_SLAB);
+        stool(output, FABlocks.MANGROVE_STOOL, Blocks.MANGROVE_SLAB);
+        stool(output, FABlocks.CHERRY_STOOL, Blocks.CHERRY_SLAB);
+        stool(output, FABlocks.BAMBOO_STOOL, Blocks.BAMBOO_SLAB);
+        stool(output, FABlocks.CRIMSON_STOOL, Blocks.CRIMSON_SLAB);
+        stool(output, FABlocks.WARPED_STOOL, Blocks.WARPED_SLAB);
+
         //Stoves + Heat Sources
         variantStove(output, FABlocks.ALABASTER_STOVE, Blocks.QUARTZ_BLOCK, Items.GOLD_INGOT, Items.FLINT_AND_STEEL);
 
@@ -197,6 +210,16 @@ public final class FACrafting extends RecipeProvider {
                 .unlockedBy(getHasName(material), has(material))
                 .save(output);
     }
+    private void stool(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> stool, ItemLike slab) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, stool.get(), 2)
+                .define('#', slab)
+                .define('s', Items.STICK)
+                .pattern("###")
+                .pattern("s s")
+                .unlockedBy(getHasName(slab), has(slab))
+                .save(output);
+    }
+
 
     private void variantCookingPot(Consumer<FinishedRecipe> output, RegistryObject<CookingPotBlock> variantCookingPot, ItemLike material, ItemLike shovel, ItemLike base) {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, variantCookingPot.get())
