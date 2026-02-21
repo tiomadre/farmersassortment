@@ -18,6 +18,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.SlabType;
+import net.minecraft.world.phys.AABB;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -42,6 +43,9 @@ public final class SlabTablecloth {
         BlockState state = level.getBlockState(pos);
 
         if (!(state.getBlock() instanceof SlabBlock) || state.getValue(SlabBlock.TYPE) != SlabType.TOP) {
+            return;
+        }
+        if (!isTopHalfSlabShape(state, level, pos)) {
             return;
         }
 
@@ -118,4 +122,9 @@ public final class SlabTablecloth {
         }
         return null;
     }
+    private static boolean isTopHalfSlabShape(BlockState state, Level level, BlockPos pos) {
+        AABB slabBounds = state.getShape(level, pos).bounds();
+        return slabBounds.minY >= 0.5D;
+    }
+
 }
