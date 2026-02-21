@@ -64,7 +64,7 @@ public enum StoolRugType implements StringRepresentable {
 
     public String extrudeTexturePath() {
         if (this == CANVAS) {
-            return FarmersAssortment.MOD_ID + ":block/white_canvas_rug_extrudes";
+            return "farmersdelight:block/canvas_rug_extrudes";
         }
         return FarmersAssortment.MOD_ID + ":block/" + this.name + "_canvas_rug_extrudes";
     }

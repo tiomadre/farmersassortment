@@ -225,7 +225,7 @@ public final class FABlocks {
 
     private static RegistryObject<StoolBlock> registerStool(String woodType, Block baseBlock) {
         return BLOCKS.createBlock(woodType + "_stool",
-                () -> new StoolBlock(BlockBehaviour.Properties.copy(baseBlock)),
+                () -> new StoolBlock(BlockBehaviour.Properties.copy(baseBlock).noOcclusion()),
                 new Item.Properties());
     }
 

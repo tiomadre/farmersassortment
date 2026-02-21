@@ -26,6 +26,7 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
@@ -34,7 +35,12 @@ import java.util.List;
 
 public class StoolBlock extends HorizontalDirectionalBlock {
     public static final EnumProperty<StoolRugType> RUG = EnumProperty.create("rug", StoolRugType.class);
-    private static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
+    private static final VoxelShape SHAPE = Block.box(0.0D, 3.0D, 0.0D, 16.0D, 8.0D, 16.0D);
+    private static final VoxelShape LEG_NW = Block.box(0.0D, 0.0D, 0.0D, 2.0D, 3.0D, 2.0D);
+    private static final VoxelShape LEG_NE = Block.box(14.0D, 0.0D, 0.0D, 16.0D, 3.0D, 2.0D);
+    private static final VoxelShape LEG_SW = Block.box(0.0D, 0.0D, 14.0D, 2.0D, 3.0D, 16.0D);
+    private static final VoxelShape LEG_SE = Block.box(14.0D, 0.0D, 14.0D, 16.0D, 3.0D, 16.0D);
+    private static final VoxelShape FULL_SHAPE = Shapes.or(SHAPE, LEG_NW, LEG_NE, LEG_SW, LEG_SE);
     private static final String STOOL_SEAT_TAG = "farmersassortment_stool_seat";
 
     public StoolBlock(Properties properties) {
@@ -106,12 +112,12 @@ public class StoolBlock extends HorizontalDirectionalBlock {
 
     @Override
     public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
-        return SHAPE;
+        return FULL_SHAPE;
     }
 
     @Override
     public @NotNull VoxelShape getCollisionShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
-        return SHAPE;
+        return FULL_SHAPE;
     }
 
     private InteractionResult sit(Level level, BlockPos pos, Player player) {

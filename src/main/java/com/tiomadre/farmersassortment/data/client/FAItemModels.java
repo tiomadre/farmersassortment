@@ -36,6 +36,7 @@ public class FAItemModels extends ItemModelProvider {
         registerCrabTraps();
         registerSkillets();
         registerFloatingCounters();
+        registerCanvasRugs();
         registerStools();
     }
     private void registerFloatingCounters() {
