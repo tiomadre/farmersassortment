@@ -1,6 +1,9 @@
 {
-  "parent": "minecraft:block/carpet",
+  "parent": "farmersdelight:block/canvas_rug",
   "textures": {
+    "canvas": "farmersassortment:block/green_canvas_rug",
+    "extrudes": "farmersassortment:block/green_canvas_rug_extrudes",
+    "particle": "farmersassortment:block/green_canvas_rug",
     "wool": "farmersassortment:block/green_canvas_rug"
   }
 }
