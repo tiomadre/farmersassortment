@@ -387,7 +387,7 @@
   ],
   "textures": {
     "0": "minecraft:block/oak_planks",
-    "4": "minecraft:block/stripped_oak_log",
+    "4": "farmersassortment:block/stripped_lilac_log_big",
     "particle": "minecraft:block/oak_planks"
   }
 }

@@ -101,10 +101,7 @@ public class StoolBlock extends HorizontalDirectionalBlock {
     public void onRemove(BlockState state, @NotNull Level level, @NotNull BlockPos pos, BlockState newState, boolean isMoving) {
         if (!state.is(newState.getBlock())) {
             clearSeat(level, pos);
-            StoolRugType rug = state.getValue(RUG);
-            if (rug.hasRug()) {
-                dropRug(level, pos, rug);
-            }
+
         }
         super.onRemove(state, level, pos, newState, isMoving);
     }
@@ -143,7 +140,7 @@ public class StoolBlock extends HorizontalDirectionalBlock {
 
         ArmorStand seat = getSeat(level, pos);
         if (seat == null) {
-            seat = new ArmorStand(level, pos.getX() + 0.5D, pos.getY() - 0.35D, pos.getZ() + 0.5D);
+            seat = new ArmorStand(level, pos.getX() + 0.5D, pos.getY() + 0.15D, pos.getZ() + 0.5D);
             seat.setInvisible(true);
             seat.setNoGravity(true);
             seat.setInvulnerable(true);

@@ -617,8 +617,11 @@ public class FABlockStates extends BlockStateProvider {
                 new StoolDefinition(FABlocks.BAMBOO_STOOL, "bamboo", new ResourceLocation("minecraft", "block/bamboo_planks"), new ResourceLocation("minecraft", "block/stripped_bamboo_block")),
                 new StoolDefinition(FABlocks.CRIMSON_STOOL, "crimson", new ResourceLocation("minecraft", "block/crimson_planks"), new ResourceLocation("minecraft", "block/stripped_crimson_stem")),
                 new StoolDefinition(FABlocks.WARPED_STOOL, "warped", new ResourceLocation("minecraft", "block/warped_planks"), new ResourceLocation("minecraft", "block/stripped_warped_stem")),
-                new StoolDefinition(FAxCrabbersBlocks.PALM_STOOL, "palm", new ResourceLocation("crabbersdelight", "block/palm_planks"), new ResourceLocation("crabbersdelight", "block/stripped_palm_log")),
-                new StoolDefinition(FAxForagersBlocks.LILAC_STOOL, "lilac", new ResourceLocation("foragersinsight", "block/lilac_planks"), new ResourceLocation("farmersassortment", "block/stripped_lilac_log_big"))));
+                new StoolDefinition(FAxCrabbersBlocks.PALM_STOOL, "palm", fallbackTexture(new ResourceLocation("crabbersdelight", "block/palm_planks"), new ResourceLocation("minecraft", "block/oak_planks")),
+                        fallbackTexture(new ResourceLocation("crabbersdelight", "block/stripped_palm_log"), new ResourceLocation("minecraft", "block/stripped_oak_log"))),
+                new StoolDefinition(FAxForagersBlocks.LILAC_STOOL, "lilac", fallbackTexture(new ResourceLocation("foragersinsight", "block/lilac_planks"), new ResourceLocation("minecraft", "block/oak_planks")),
+                        fallbackTexture(new ResourceLocation("farmersassortment", "block/stripped_lilac_log_big"), new ResourceLocation("minecraft", "block/stripped_oak_log"))
+                )));
 
         FADynamicStools.stoolDefinitions().forEach(definition -> stools.add(new StoolDefinition(
                 definition.block(),

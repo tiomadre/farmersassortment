@@ -2,8 +2,8 @@
   "parent": "minecraft:block/cube",
   "textures": {
     "0": "minecraft:block/acacia_planks",
-    "1": "farmersdelight:block/canvas_rug",
-    "2": "farmersdelight:block/canvas_rug_extrudes",
+    "1": "farmersassortment:block/white_canvas_rug",
+    "2": "farmersassortment:block/white_canvas_rug_extrudes",
     "particle": "minecraft:block/acacia_planks"
   },
   "elements": [
