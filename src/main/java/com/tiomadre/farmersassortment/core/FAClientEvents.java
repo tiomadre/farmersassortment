@@ -1,6 +1,7 @@
 package com.tiomadre.farmersassortment.core;
 
 import com.tiomadre.farmersassortment.client.renderer.ButcherBlockCabinetRenderer;
+import com.tiomadre.farmersassortment.core.item.StoolItem;
 import com.tiomadre.farmersassortment.core.item.TerracottaCookingPotItem;
 import com.tiomadre.farmersassortment.core.registry.FABlockEntityTypes;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
@@ -25,8 +26,14 @@ public final class FAClientEvents {
 
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
-        event.enqueueWork(() -> ItemProperties.register(Item.byBlock(FABlocks.TERRACOTTA_COOKING_POT.get()),
-                new ResourceLocation(FarmersAssortment.MOD_ID, "color"),
-                (stack, level, entity, seed) -> TerracottaCookingPotItem.getColor(stack).ordinal()));
+        event.enqueueWork(() -> {
+            ItemProperties.register(Item.byBlock(FABlocks.TERRACOTTA_COOKING_POT.get()),
+                    new ResourceLocation(FarmersAssortment.MOD_ID, "color"),
+                    (stack, level, entity, seed) -> TerracottaCookingPotItem.getColor(stack).ordinal());
+
+            FABlocks.stools().forEach(stool -> ItemProperties.register(Item.byBlock(stool.get()),
+                    new ResourceLocation(FarmersAssortment.MOD_ID, "rug"),
+                    (stack, level, entity, seed) -> StoolItem.getRug(stack).ordinal()));
+        });
     }
 }

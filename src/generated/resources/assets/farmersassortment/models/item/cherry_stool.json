@@ -61,9 +61,9 @@
         0
       ],
       "scale": [
-        0.7,
-        0.7,
-        0.7
+        0.62,
+        0.62,
+        0.62
       ]
     },
     "thirdperson_lefthand": {
@@ -100,5 +100,109 @@
         0
       ]
     }
-  }
+  },
+  "overrides": [
+    {
+      "model": "farmersassortment:block/cherry_stool_canvas",
+      "predicate": {
+        "farmersassortment:rug": 1.0
+      }
+    },
+    {
+      "model": "farmersassortment:block/cherry_stool_white",
+      "predicate": {
+        "farmersassortment:rug": 2.0
+      }
+    },
+    {
+      "model": "farmersassortment:block/cherry_stool_orange",
+      "predicate": {
+        "farmersassortment:rug": 3.0
+      }
+    },
+    {
+      "model": "farmersassortment:block/cherry_stool_magenta",
+      "predicate": {
+        "farmersassortment:rug": 4.0
+      }
+    },
+    {
+      "model": "farmersassortment:block/cherry_stool_light_blue",
+      "predicate": {
+        "farmersassortment:rug": 5.0
+      }
+    },
+    {
+      "model": "farmersassortment:block/cherry_stool_yellow",
+      "predicate": {
+        "farmersassortment:rug": 6.0
+      }
+    },
+    {
+      "model": "farmersassortment:block/cherry_stool_lime",
+      "predicate": {
+        "farmersassortment:rug": 7.0
+      }
+    },
+    {
+      "model": "farmersassortment:block/cherry_stool_pink",
+      "predicate": {
+        "farmersassortment:rug": 8.0
+      }
+    },
+    {
+      "model": "farmersassortment:block/cherry_stool_gray",
+      "predicate": {
+        "farmersassortment:rug": 9.0
+      }
+    },
+    {
+      "model": "farmersassortment:block/cherry_stool_light_gray",
+      "predicate": {
+        "farmersassortment:rug": 10.0
+      }
+    },
+    {
+      "model": "farmersassortment:block/cherry_stool_cyan",
+      "predicate": {
+        "farmersassortment:rug": 11.0
+      }
+    },
+    {
+      "model": "farmersassortment:block/cherry_stool_purple",
+      "predicate": {
+        "farmersassortment:rug": 12.0
+      }
+    },
+    {
+      "model": "farmersassortment:block/cherry_stool_blue",
+      "predicate": {
+        "farmersassortment:rug": 13.0
+      }
+    },
+    {
+      "model": "farmersassortment:block/cherry_stool_brown",
+      "predicate": {
+        "farmersassortment:rug": 14.0
+      }
+    },
+    {
+      "model": "farmersassortment:block/cherry_stool_green",
+      "predicate": {
+        "farmersassortment:rug": 15.0
+      }
+    },
+    {
+      "model": "farmersassortment:block/cherry_stool_red",
+      "predicate": {
+        "farmersassortment:rug": 16.0
+      }
+    },
+    {
+      "model": "farmersassortment:block/cherry_stool_black",
+      "predicate": {
+        "farmersassortment:rug": 17.0
+      }
+    }
+  ]
 }

@@ -1,6 +1,7 @@
 package com.tiomadre.farmersassortment.data.client;
 
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
+import com.tiomadre.farmersassortment.core.block.state.StoolRugType;
 import com.tiomadre.farmersassortment.core.block.state.TerracottaCookingPotColor;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import com.tiomadre.farmersassortment.core.registry.FAItems;
@@ -47,12 +48,12 @@ public class FAItemModels extends ItemModelProvider {
     }
     private void stoolItem(RegistryObject<? extends Block> block) {
         String name = Objects.requireNonNull(block.getId()).getPath();
-        withExistingParent(name, modLoc("block/" + name))
+        ItemModelBuilder builder = withExistingParent(name, modLoc("block/" + name))
                 .transforms()
                 .transform(ItemDisplayContext.GUI)
                 .rotation(30.0F, 45.0F, 0.0F)
                 .translation(0.0F, 0.0F, 0.0F)
-                .scale(0.7F, 0.7F, 0.7F)
+                .scale(0.62F, 0.62F, 0.62F)
                 .end()
                 .transform(ItemDisplayContext.GROUND)
                 .rotation(0.0F, 0.0F, 0.0F)
@@ -85,6 +86,15 @@ public class FAItemModels extends ItemModelProvider {
                 .scale(0.55F, 0.55F, 0.55F)
                 .end()
                 .end();
+        for (StoolRugType rugType : StoolRugType.values()) {
+            if (!rugType.hasRug()) {
+                continue;
+            }
+            builder.override()
+                    .predicate(modLoc("rug"), (float) rugType.ordinal())
+                    .model(getExistingFile(modLoc("block/" + name + "_" + rugType.getSerializedName())))
+                    .end();
+        }
     }
 
     private void floatingCounterItem(RegistryObject<? extends Block> block) {
