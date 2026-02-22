@@ -21,6 +21,7 @@ import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.level.BlockEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -45,6 +46,9 @@ public final class SlabTablecloth {
         if (!(state.getBlock() instanceof SlabBlock) || state.getValue(SlabBlock.TYPE) != SlabType.TOP) {
             return;
         }
+        if (!state.hasProperty(SlabRugState.RUG)) {
+            return;
+        }
         if (!isTopHalfSlabShape(state, level, pos)) {
             return;
         }
@@ -62,21 +66,29 @@ public final class SlabTablecloth {
             if (currentRug.hasRug()) {
                 dropRug(level, pos, currentRug);
             }
-            level.setBlock(pos, state.setValue(SlabRugState.RUG, heldRug), 3);
+            BlockState updatedState = state.setValue(SlabRugState.RUG, heldRug);
+            level.setBlockAndUpdate(pos, updatedState);
+            level.sendBlockUpdated(pos, state, updatedState, 3);
             level.playSound(null, pos, SoundEvents.WOOL_PLACE, SoundSource.BLOCKS, 1.0F, 1.0F);
             if (!player.getAbilities().instabuild) {
                 heldStack.shrink(1);
             }
+            event.setUseItem(Event.Result.DENY);
+            event.setUseBlock(Event.Result.DENY);
             event.setCanceled(true);
             event.setCancellationResult(InteractionResult.SUCCESS);
             return;
         }
 
         if (heldStack.getItem() instanceof ShearsItem && currentRug.hasRug()) {
-            level.setBlock(pos, state.setValue(SlabRugState.RUG, StoolRugType.NONE), 3);
+            BlockState updatedState = state.setValue(SlabRugState.RUG, StoolRugType.NONE);
+            level.setBlockAndUpdate(pos, updatedState);
+            level.sendBlockUpdated(pos, state, updatedState, 3);
             dropRug(level, pos, currentRug);
             heldStack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(event.getHand()));
             level.playSound(null, pos, SoundEvents.SHEEP_SHEAR, SoundSource.BLOCKS, 1.0F, 1.0F);
+            event.setUseItem(Event.Result.DENY);
+            event.setUseBlock(Event.Result.DENY);
             event.setCanceled(true);
             event.setCancellationResult(InteractionResult.SUCCESS);
         }
@@ -90,7 +102,9 @@ public final class SlabTablecloth {
         if (!(state.getBlock() instanceof SlabBlock)) {
             return;
         }
-
+        if (!state.hasProperty(SlabRugState.RUG)) {
+            return;
+        }
         StoolRugType rugType = state.getValue(SlabRugState.RUG);
         if (rugType.hasRug() && !level.isClientSide) {
             dropRug(level, pos, rugType);

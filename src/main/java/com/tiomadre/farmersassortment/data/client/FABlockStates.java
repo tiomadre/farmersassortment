@@ -49,6 +49,7 @@ public class FABlockStates extends BlockStateProvider {
         registerFloatingCounters();
         registerCanvasRugs();
         registerStools();
+        registerSlabTableclothModels();
     }
 
     //CABINET VARIANTS
@@ -77,6 +78,7 @@ public class FABlockStates extends BlockStateProvider {
                 cabinet.topTexture()
         ));
     }
+
     private void registerFloatingCounters() {
         List<FloatingCounterDefinition> floatingCounters = List.of(
                 new FloatingCounterDefinition(FABlocks.OAK_FLOATING_COUNTER, "oak", new ResourceLocation("minecraft", "block/oak_planks")),
@@ -93,6 +95,20 @@ public class FABlockStates extends BlockStateProvider {
         );
 
         floatingCounters.forEach(counter -> registerFloatingCounter(counter.block(), counter.woodType(), counter.bottomTexture()));
+    }
+    private void registerSlabTableclothModels() {
+        ResourceLocation canvasRugTexture = fallbackTexture(new ResourceLocation("farmersdelight", "block/canvas_rug"), modLoc("block/white_canvas_rug"));
+        models().withExistingParent("slab_tablecloth_canvas", modLoc("block/slab_tablecloth_overlay_template"))
+                .texture("1", canvasRugTexture)
+                .texture("2", modLoc("block/white_canvas_rug_extrudes"))
+                .texture("particle", canvasRugTexture);
+
+        Arrays.stream(StoolRugType.values())
+                .filter(StoolRugType::hasRug)
+                .forEach(rugType -> models().withExistingParent("slab_tablecloth_" + rugType.getSerializedName(), modLoc("block/slab_tablecloth_overlay_template"))
+                        .texture("1", fallbackTexture(new ResourceLocation(Objects.requireNonNull(rugType.texturePath())), modLoc("block/white_canvas_rug")))
+                        .texture("2", fallbackTexture(new ResourceLocation(rugType.extrudeTexturePath()), modLoc("block/white_canvas_rug_extrudes")))
+                        .texture("particle", fallbackTexture(new ResourceLocation(Objects.requireNonNull(rugType.texturePath())), modLoc("block/white_canvas_rug"))));
     }
     private void registerCanvasRugs() {
         FARugs.canvasRugs().forEach(rug -> {
