@@ -1,8 +1,0 @@
-{
-  "parent": "farmersassortment:block/slab_tablecloth_overlay_template",
-  "textures": {
-    "1": "farmersassortment:block/lime_canvas_rug",
-    "2": "farmersassortment:block/lime_canvas_rug_extrudes",
-    "particle": "farmersassortment:block/lime_canvas_rug"
-  }
-}
