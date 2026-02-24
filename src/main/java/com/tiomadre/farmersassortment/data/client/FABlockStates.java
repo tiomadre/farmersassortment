@@ -618,8 +618,10 @@ private void registerStools() {
                 new StoolDefinition(FABlocks.BAMBOO_STOOL, "bamboo", new ResourceLocation("minecraft", "block/bamboo_block"), new ResourceLocation("minecraft", "block/stripped_bamboo_block")),
                 new StoolDefinition(FABlocks.CRIMSON_STOOL, "crimson", new ResourceLocation("minecraft", "block/crimson_stem"), new ResourceLocation("minecraft", "block/stripped_crimson_stem")),
                 new StoolDefinition(FABlocks.WARPED_STOOL, "warped", new ResourceLocation("minecraft", "block/warped_stem"), new ResourceLocation("minecraft", "block/stripped_warped_stem")),
-                new StoolDefinition(FAxCrabbersBlocks.PALM_STOOL, "palm", fallbackTexture(new ResourceLocation("crabbersdelight", "block/palm_log"), new ResourceLocation("minecraft", "block/oak_log")),
-                        fallbackTexture(new ResourceLocation("crabbersdelight", "block/stripped_palm_log"), new ResourceLocation("minecraft", "block/stripped_oak_log"))),
+                new StoolDefinition(FAxCrabbersBlocks.PALM_STOOL, "palm", fallbackTexture(new ResourceLocation("crabbersdelight", "block/palm_wood"),
+                        fallbackTexture(new ResourceLocation("crabbersdelight", "block/palm_log"), new ResourceLocation("minecraft", "block/oak_log"))),
+                        fallbackTexture(new ResourceLocation("crabbersdelight", "block/stripped_palm_wood"),
+                                fallbackTexture(new ResourceLocation("crabbersdelight", "block/stripped_palm_log"), new ResourceLocation("minecraft", "block/stripped_oak_log")))),
                 new StoolDefinition(FAxForagersBlocks.LILAC_STOOL, "lilac", fallbackTexture(new ResourceLocation("foragersinsight", "block/lilac_log"), new ResourceLocation("minecraft", "block/oak_log")),
                         fallbackTexture(new ResourceLocation("farmersassortment", "block/stripped_lilac_log_big"), new ResourceLocation("minecraft", "block/stripped_oak_log"))
                 )));
@@ -679,12 +681,20 @@ private void registerStools() {
         if (rugged) {
             String rugTexture = "#" + (strippedTexture.equals("#2") ? "5" : "4");
             builder.element().from(0, 5, 6).to(16, 8, 16)
-                    .face(Direction.NORTH).uvs(0, 0, 3, 16).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(rugTexture).end()
-                    .face(Direction.EAST).uvs(0, 6, 3, 16).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(rugTexture).end()
-                    .face(Direction.SOUTH).uvs(0, 0, 4, 16).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(rugTexture).end()
-                    .face(Direction.WEST).uvs(0, 6, 3, 16).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(rugTexture).end()
-                    .face(Direction.UP).uvs(0, 0, 16, 9).texture(rugTexture).end()
-                    .face(Direction.DOWN).uvs(0, 7, 16, 16).texture(rugTexture).end()
+                    .face(Direction.NORTH).uvs(0, 13, 16, 16).texture(rugTexture).end()
+                    .face(Direction.EAST).uvs(0, 16, 10, 13).rotation(ModelBuilder.FaceRotation.UPSIDE_DOWN).texture(rugTexture).end()
+                    .face(Direction.SOUTH).uvs(0, 16, 16, 13).rotation(ModelBuilder.FaceRotation.UPSIDE_DOWN).texture(rugTexture).end()
+                    .face(Direction.WEST).uvs(0, 13, 10, 16).texture(rugTexture).end()
+                    .face(Direction.UP).uvs(0, 0, 16, 10).texture(rugTexture).end()
+                    .face(Direction.DOWN).uvs(0, 0, 16, 10).texture(rugTexture).end()
+                    .end();
+            builder.element().from(0, 4, 6).to(16, 5, 16)
+                    .face(Direction.NORTH).uvs(16, 1, 0, 0).rotation(ModelBuilder.FaceRotation.UPSIDE_DOWN).texture(strippedTexture).end()
+                    .face(Direction.EAST).uvs(4, 10, 3, 0).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(strippedTexture).end()
+                    .face(Direction.SOUTH).uvs(4, 16, 3, 0).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(strippedTexture).end()
+                    .face(Direction.WEST).uvs(3, 0, 4, 10).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(strippedTexture).end()
+                    .face(Direction.UP).uvs(0, 0, 16, 10).texture(strippedTexture).end()
+                    .face(Direction.DOWN).uvs(0, 0, 16, 10).texture(strippedTexture).end()
                     .end();
         } else {
             builder.element().from(0, 4, 6).to(16, 8, 16)
