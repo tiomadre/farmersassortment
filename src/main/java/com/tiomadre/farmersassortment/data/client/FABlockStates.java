@@ -662,7 +662,7 @@ private void registerStools() {
         return builder;
     }
 
-    private BlockModelBuilder stoolRugModel(String name, String woodType, ResourceLocation legTexture, ResourceLocation seatTexture, StoolRugType rugType) {
+       private BlockModelBuilder stoolRugModel(String name, String woodType, ResourceLocation legTexture, ResourceLocation seatTexture, StoolRugType rugType) {
         boolean bamboo = "bamboo".equals(woodType);
         BlockModelBuilder builder = models().getBuilder(name)
                 .renderType("minecraft:cutout")
@@ -670,20 +670,32 @@ private void registerStools() {
                 .texture(bamboo ? "3" : "5", legTexture)
                 .texture(bamboo ? "4" : "3", fallbackTexture(new ResourceLocation(rugType.extrudeTexturePath()), modLoc("block/white_canvas_rug_extrudes")))
                 .texture(bamboo ? "5" : "4", fallbackTexture(new ResourceLocation(Objects.requireNonNull(rugType.texturePath())), modLoc("block/white_canvas_rug")))
-                .texture("particle", bamboo ? fallbackTexture(new ResourceLocation(rugType.extrudeTexturePath()), modLoc("block/white_canvas_rug_extrudes")) : seatTexture);
+                .texture("particle", legTexture);
         addStoolCoreElements(builder, true, bamboo ? "#2" : "#6", bamboo ? "#3" : "#5");
         return builder;
     }
 
     private void addStoolCoreElements(BlockModelBuilder builder, boolean rugged, String strippedTexture, String logTexture) {
-        builder.element().from(0, 4, 6).to(16, rugged ? 5 : 8, 16)
-                .face(Direction.NORTH).uvs(0, 0, 4, 16).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(rugged ? ("#" + (strippedTexture.equals("#2") ? "5" : "4")) : strippedTexture).end()
-                .face(Direction.EAST).uvs(0, 6, 4, 16).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(rugged ? ("#" + (strippedTexture.equals("#2") ? "5" : "4")) : strippedTexture).end()
-                .face(Direction.SOUTH).uvs(0, 0, 4, 16).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(rugged ? ("#" + (strippedTexture.equals("#2") ? "5" : "4")) : strippedTexture).end()
-                .face(Direction.WEST).uvs(0, 6, 4, 16).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(rugged ? ("#" + (strippedTexture.equals("#2") ? "5" : "4")) : strippedTexture).end()
-                .face(Direction.UP).uvs(0, 0, 16, rugged ? 9 : 10).texture(rugged ? ("#" + (strippedTexture.equals("#2") ? "5" : "4")) : strippedTexture).end()
-                .face(Direction.DOWN).uvs(0, rugged ? 7 : 6, 16, 16).texture(rugged ? ("#" + (strippedTexture.equals("#2") ? "5" : "4")) : strippedTexture).end()
-                .end();
+        if (rugged) {
+            String rugTexture = "#" + (strippedTexture.equals("#2") ? "5" : "4");
+            builder.element().from(0, 5, 6).to(16, 8, 16)
+                    .face(Direction.NORTH).uvs(0, 0, 3, 16).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(rugTexture).end()
+                    .face(Direction.EAST).uvs(0, 6, 3, 16).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(rugTexture).end()
+                    .face(Direction.SOUTH).uvs(0, 0, 4, 16).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(rugTexture).end()
+                    .face(Direction.WEST).uvs(0, 6, 3, 16).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(rugTexture).end()
+                    .face(Direction.UP).uvs(0, 0, 16, 9).texture(rugTexture).end()
+                    .face(Direction.DOWN).uvs(0, 7, 16, 16).texture(rugTexture).end()
+                    .end();
+        } else {
+            builder.element().from(0, 4, 6).to(16, 8, 16)
+                    .face(Direction.NORTH).uvs(0, 0, 4, 16).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(strippedTexture).end()
+                    .face(Direction.EAST).uvs(0, 6, 4, 16).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(strippedTexture).end()
+                    .face(Direction.SOUTH).uvs(0, 0, 4, 16).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(strippedTexture).end()
+                    .face(Direction.WEST).uvs(0, 6, 4, 16).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(strippedTexture).end()
+                    .face(Direction.UP).uvs(0, 0, 16, 10).texture(strippedTexture).end()
+                    .face(Direction.DOWN).uvs(0, 6, 16, 16).texture(strippedTexture).end()
+                    .end();
+        }
 
         builder.element().from(0, 3, 6).to(16, 4, 16)
                 .face(Direction.NORTH).uvs(0, 7, 16, 8).texture(logTexture).end()

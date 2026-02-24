@@ -17,7 +17,7 @@
           "uv": [
             0.0,
             6.0,
-            4.0,
+            3.0,
             16.0
           ]
         },
@@ -27,7 +27,7 @@
           "uv": [
             0.0,
             0.0,
-            4.0,
+            3.0,
             16.0
           ]
         },
@@ -56,19 +56,19 @@
           "uv": [
             0.0,
             6.0,
-            4.0,
+            3.0,
             16.0
           ]
         }
       },
       "from": [
         0,
-        4,
+        5,
         6
       ],
       "to": [
         16,
-        5,
+        8,
         16
       ]
     },
@@ -1011,6 +1011,6 @@
     "4": "farmersassortment:block/pink_canvas_rug",
     "5": "minecraft:block/jungle_log",
     "6": "minecraft:block/stripped_jungle_log",
-    "particle": "minecraft:block/stripped_jungle_log"
+    "particle": "minecraft:block/jungle_log"
   }
 }

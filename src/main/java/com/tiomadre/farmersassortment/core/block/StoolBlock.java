@@ -5,6 +5,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
@@ -34,9 +36,7 @@ import com.tiomadre.farmersassortment.core.item.StoolItem;
 import net.minecraft.world.level.storage.loot.LootParams;
 
 import javax.annotation.Nullable;
-import java.util.EnumMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 public class StoolBlock extends HorizontalDirectionalBlock {
@@ -56,8 +56,7 @@ public class StoolBlock extends HorizontalDirectionalBlock {
     private static final VoxelShape RUG_EXTRUDE_EAST = Block.box(16.0D, 4.0D, 6.0D, 18.0D, 5.0D, 16.0D);
     private static final VoxelShape RUG_EXTRUDE_SOUTH = Block.box(0.0D, 4.0D, 16.0D, 16.0D, 5.0D, 18.0D);
     private static final VoxelShape RUGGED_SHAPE = Shapes.or(BASE_SHAPE, RUG_EXTRUDE_NORTH, RUG_EXTRUDE_WEST, RUG_EXTRUDE_EAST, RUG_EXTRUDE_SOUTH);
-    private static final Map<Direction, VoxelShape> BASE_SHAPES_BY_FACING = createShapesByFacing(BASE_SHAPE);
-    private static final Map<Direction, VoxelShape> RUGGED_SHAPES_BY_FACING = createShapesByFacing(RUGGED_SHAPE);
+    private static final VoxelShape HITBOX_SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
     private static final String STOOL_SEAT_TAG = "farmersassortment_stool_seat";
     public StoolBlock(Properties properties) {
         super(properties);
@@ -106,6 +105,15 @@ public class StoolBlock extends HorizontalDirectionalBlock {
             return sit(level, pos, player);
         }
 
+        if (heldStack.isEmpty()) {
+            if (!level.isClientSide) {
+                clearSeat(level, pos);
+                level.setBlock(pos, state.setValue(FACING, state.getValue(FACING).getOpposite()), Block.UPDATE_ALL);
+                level.playSound(null, pos, SoundEvents.BARREL_OPEN, SoundSource.BLOCKS, 0.9F, .75F);
+            }
+            return InteractionResult.sidedSuccess(level.isClientSide);
+        }
+
         return InteractionResult.PASS;
     }
 
@@ -135,41 +143,14 @@ public class StoolBlock extends HorizontalDirectionalBlock {
         return RenderShape.MODEL;
     }
 
-    @Override
+      @Override
     public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
-        return getShapeForState(state);
+        return HITBOX_SHAPE;
     }
 
     @Override
     public @NotNull VoxelShape getCollisionShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
-        return getShapeForState(state);
-    }
-
-    private VoxelShape getShapeForState(BlockState state) {
-        Direction facing = state.getValue(FACING);
-        boolean rugged = state.getValue(RUG).hasRug();
-        return rugged ? RUGGED_SHAPES_BY_FACING.get(facing) : BASE_SHAPES_BY_FACING.get(facing);
-    }
-
-    private static Map<Direction, VoxelShape> createShapesByFacing(VoxelShape baseShape) {
-        EnumMap<Direction, VoxelShape> shapes = new EnumMap<>(Direction.class);
-        shapes.put(Direction.NORTH, baseShape);
-        shapes.put(Direction.EAST, rotateShapeY(baseShape, 1));
-        shapes.put(Direction.SOUTH, rotateShapeY(baseShape, 2));
-        shapes.put(Direction.WEST, rotateShapeY(baseShape, 3));
-        return shapes;
-    }
-
-    private static VoxelShape rotateShapeY(VoxelShape shape, int rotations) {
-        VoxelShape rotated = shape;
-        for (int i = 0; i < rotations; i++) {
-            VoxelShape current = rotated;
-            VoxelShape[] next = {Shapes.empty()};
-            current.forAllBoxes((minX, minY, minZ, maxX, maxY, maxZ) ->
-                    next[0] = Shapes.or(next[0], Block.box(16.0D - maxZ, minY, minX, 16.0D - minZ, maxY, maxX)));
-            rotated = next[0];
-        }
-        return rotated;
+        return HITBOX_SHAPE;
     }
 
     private InteractionResult sit(Level level, BlockPos pos, Player player) {
@@ -248,4 +229,5 @@ public class StoolBlock extends HorizontalDirectionalBlock {
         }
         return null;
     }
+
 }

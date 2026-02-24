@@ -17,7 +17,7 @@
           "uv": [
             0.0,
             6.0,
-            4.0,
+            3.0,
             16.0
           ]
         },
@@ -27,7 +27,7 @@
           "uv": [
             0.0,
             0.0,
-            4.0,
+            3.0,
             16.0
           ]
         },
@@ -56,19 +56,19 @@
           "uv": [
             0.0,
             6.0,
-            4.0,
+            3.0,
             16.0
           ]
         }
       },
       "from": [
         0,
-        4,
+        5,
         6
       ],
       "to": [
         16,
-        5,
+        8,
         16
       ]
     },
@@ -1011,6 +1011,6 @@
     "4": "farmersassortment:block/light_blue_canvas_rug",
     "5": "minecraft:block/warped_stem",
     "6": "minecraft:block/stripped_warped_stem",
-    "particle": "minecraft:block/stripped_warped_stem"
+    "particle": "minecraft:block/warped_stem"
   }
 }
