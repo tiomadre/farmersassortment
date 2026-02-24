@@ -43,19 +43,10 @@ import java.util.stream.Collectors;
 
 public class StoolBlock extends HorizontalDirectionalBlock {
     public static final EnumProperty<StoolRugType> RUG = EnumProperty.create("rug", StoolRugType.class);
-    private static final VoxelShape SEAT_SHAPE = Block.box(0.0D, 3.0D, 6.0D, 16.0D, 8.0D, 16.0D);
-    private static final VoxelShape LEG_NW_UPPER = Block.box(0.0D, 1.0D, 6.0D, 2.0D, 3.0D, 8.0D);
-    private static final VoxelShape LEG_NW_LOWER = Block.box(0.0D, 0.0D, 6.0D, 2.0D, 1.0D, 8.0D);
-    private static final VoxelShape LEG_NE_UPPER = Block.box(14.0D, 1.0D, 6.0D, 16.0D, 3.0D, 8.0D);
-    private static final VoxelShape LEG_NE_LOWER = Block.box(14.0D, 0.0D, 6.0D, 16.0D, 1.0D, 8.0D);
-    private static final VoxelShape LEG_SW_UPPER = Block.box(0.0D, 1.0D, 14.0D, 2.0D, 3.0D, 16.0D);
-    private static final VoxelShape LEG_SW_LOWER = Block.box(0.0D, 0.0D, 14.0D, 2.0D, 1.0D, 16.0D);
-    private static final VoxelShape LEG_SE_UPPER = Block.box(14.0D, 1.0D, 14.0D, 16.0D, 3.0D, 16.0D);
-    private static final VoxelShape LEG_SE_LOWER = Block.box(14.0D, 0.0D, 14.0D, 16.0D, 1.0D, 16.0D);
-    private static final VoxelShape BASE_SHAPE = Shapes.or(SEAT_SHAPE, LEG_NW_UPPER, LEG_NW_LOWER, LEG_NE_UPPER, LEG_NE_LOWER, LEG_SW_UPPER, LEG_SW_LOWER, LEG_SE_UPPER, LEG_SE_LOWER);
-    private static final VoxelShape RUG_EXTRUDE_NORTH = Block.box(0.0D, 4.0D, 4.0D, 16.0D, 5.0D, 6.0D);
-    private static final VoxelShape RUG_EXTRUDE_WEST = Block.box(-2.0D, 4.0D, 6.0D, 0.0D, 5.0D, 16.0D);
-    private static final VoxelShape RUG_EXTRUDE_EAST = Block.box(16.0D, 4.0D, 6.0D, 18.0D, 5.0D, 16.0D);
+    private static final VoxelShape BASE_SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
+    private static final VoxelShape RUG_EXTRUDE_NORTH = Block.box(0.0D, 4.0D, -2.0D, 16.0D, 5.0D, 0.0D);
+    private static final VoxelShape RUG_EXTRUDE_WEST = Block.box(-2.0D, 4.0D, 0.0D, 0.0D, 5.0D, 16.0D);
+    private static final VoxelShape RUG_EXTRUDE_EAST = Block.box(16.0D, 4.0D, 0.0D, 18.0D, 5.0D, 16.0D);
     private static final VoxelShape RUG_EXTRUDE_SOUTH = Block.box(0.0D, 4.0D, 16.0D, 16.0D, 5.0D, 18.0D);
     private static final VoxelShape RUGGED_SHAPE = Shapes.or(BASE_SHAPE, RUG_EXTRUDE_NORTH, RUG_EXTRUDE_WEST, RUG_EXTRUDE_EAST, RUG_EXTRUDE_SOUTH);
     private static final Map<Direction, VoxelShape> BASE_SHAPES_BY_FACING = buildShapeMap(BASE_SHAPE);
