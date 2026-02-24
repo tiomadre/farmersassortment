@@ -35,8 +35,11 @@ import org.jetbrains.annotations.NotNull;
 import com.tiomadre.farmersassortment.core.item.StoolItem;
 import net.minecraft.world.level.storage.loot.LootParams;
 
+
 import javax.annotation.Nullable;
+import java.util.EnumMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class StoolBlock extends HorizontalDirectionalBlock {
@@ -52,11 +55,9 @@ public class StoolBlock extends HorizontalDirectionalBlock {
     private static final VoxelShape LEG_SE_LOWER = Block.box(14.0D, 0.0D, 14.0D, 16.0D, 1.0D, 16.0D);
     private static final VoxelShape BASE_SHAPE = Shapes.or(SEAT_SHAPE, LEG_NW_UPPER, LEG_NW_LOWER, LEG_NE_UPPER, LEG_NE_LOWER, LEG_SW_UPPER, LEG_SW_LOWER, LEG_SE_UPPER, LEG_SE_LOWER);
     private static final VoxelShape RUG_EXTRUDE_NORTH = Block.box(0.0D, 4.0D, 4.0D, 16.0D, 5.0D, 6.0D);
-    private static final VoxelShape RUG_EXTRUDE_WEST = Block.box(-2.0D, 4.0D, 6.0D, 0.0D, 5.0D, 16.0D);
-    private static final VoxelShape RUG_EXTRUDE_EAST = Block.box(16.0D, 4.0D, 6.0D, 18.0D, 5.0D, 16.0D);
-    private static final VoxelShape RUG_EXTRUDE_SOUTH = Block.box(0.0D, 4.0D, 16.0D, 16.0D, 5.0D, 18.0D);
-    private static final VoxelShape RUGGED_SHAPE = Shapes.or(BASE_SHAPE, RUG_EXTRUDE_NORTH, RUG_EXTRUDE_WEST, RUG_EXTRUDE_EAST, RUG_EXTRUDE_SOUTH);
-    private static final VoxelShape HITBOX_SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
+    private static final VoxelShape RUGGED_SHAPE = Shapes.or(BASE_SHAPE, RUG_EXTRUDE_NORTH);
+    private static final Map<Direction, VoxelShape> BASE_SHAPES = createDirectionalShapes(BASE_SHAPE);
+    private static final Map<Direction, VoxelShape> RUGGED_SHAPES = createDirectionalShapes(RUGGED_SHAPE);
     private static final String STOOL_SEAT_TAG = "farmersassortment_stool_seat";
     public StoolBlock(Properties properties) {
         super(properties);
@@ -145,12 +146,34 @@ public class StoolBlock extends HorizontalDirectionalBlock {
 
     @Override
     public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
-        return HITBOX_SHAPE;
+        return getHitboxShape(state);
     }
 
     @Override
     public @NotNull VoxelShape getCollisionShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
-        return HITBOX_SHAPE;
+        return getHitboxShape(state);
+    }
+
+    private VoxelShape getHitboxShape(BlockState state) {
+        Direction facing = state.getValue(FACING);
+        boolean rugged = state.getValue(RUG).hasRug();
+        return rugged ? RUGGED_SHAPES.get(facing) : BASE_SHAPES.get(facing);
+    }
+
+    private static Map<Direction, VoxelShape> createDirectionalShapes(VoxelShape northShape) {
+        EnumMap<Direction, VoxelShape> shapes = new EnumMap<>(Direction.class);
+        shapes.put(Direction.NORTH, northShape);
+        shapes.put(Direction.EAST, rotateShapeClockwise(northShape));
+        shapes.put(Direction.SOUTH, rotateShapeClockwise(shapes.get(Direction.EAST)));
+        shapes.put(Direction.WEST, rotateShapeClockwise(shapes.get(Direction.SOUTH)));
+        return shapes;
+    }
+
+    private static VoxelShape rotateShapeClockwise(VoxelShape shape) {
+        VoxelShape[] rotated = new VoxelShape[]{Shapes.empty()};
+        shape.forAllBoxes((minX, minY, minZ, maxX, maxY, maxZ) ->
+                rotated[0] = Shapes.or(rotated[0], Shapes.box(1.0D - maxZ, minY, minX, 1.0D - minZ, maxY, maxX)));
+        return rotated[0];
     }
 
     private InteractionResult sit(Level level, BlockPos pos, Player player) {
