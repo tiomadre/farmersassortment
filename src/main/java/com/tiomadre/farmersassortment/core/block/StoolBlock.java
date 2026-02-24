@@ -111,7 +111,9 @@ public class StoolBlock extends HorizontalDirectionalBlock {
         if (heldStack.isEmpty()) {
             if (!level.isClientSide) {
                 clearSeat(level, pos);
-                level.setBlock(pos, state.setValue(FACING, state.getValue(FACING).getOpposite()), Block.UPDATE_ALL);
+                BlockState flippedState = state.setValue(FACING, state.getValue(FACING).getOpposite());
+                level.setBlockAndUpdate(pos, flippedState);
+                level.sendBlockUpdated(pos, state, flippedState, Block.UPDATE_ALL_IMMEDIATE);
                 level.playSound(null, pos, SoundEvents.BARREL_OPEN, SoundSource.BLOCKS, 0.9F, .75F);
             }
             return InteractionResult.sidedSuccess(level.isClientSide);
@@ -189,7 +191,10 @@ public class StoolBlock extends HorizontalDirectionalBlock {
             seat.setNoGravity(true);
             seat.setInvulnerable(true);
             seat.setSilent(true);
-            applyMarkerSeatFlag(seat);
+    CompoundTag data = new CompoundTag();
+            seat.saveWithoutId(data);
+            data.putBoolean("Marker", true);
+            seat.load(data);
             seat.getPersistentData().putBoolean(STOOL_SEAT_TAG, true);
             seat.getPersistentData().putLong("stool_pos", pos.asLong());
             level.addFreshEntity(seat);
@@ -219,30 +224,26 @@ public class StoolBlock extends HorizontalDirectionalBlock {
         Direction clickedSide = Direction.getNearest(relativeX, 0.0D, relativeZ);
         return clickedSide.getOpposite();
     }
-    private void applyMarkerSeatFlag(ArmorStand seat) {
-        CompoundTag data = new CompoundTag();
-        seat.saveWithoutId(data);
-        data.putBoolean("Marker", true);
-        seat.load(data);
-    }
-
     @Nullable
     private ArmorStand getSeat(Level level, BlockPos pos) {
-        AABB box = new AABB(pos).inflate(0.3D, 0.5D, 0.3D);
-        List<ArmorStand> seats = level.getEntitiesOfClass(ArmorStand.class, box, entity ->
-                entity.getPersistentData().getBoolean(STOOL_SEAT_TAG)
-                        && entity.getPersistentData().getLong("stool_pos") == pos.asLong());
+        List<ArmorStand> seats = findSeats(level, pos);
         return seats.isEmpty() ? null : seats.get(0);
     }
 
     private void clearSeat(Level level, BlockPos pos) {
-        ArmorStand seat = getSeat(level, pos);
-        if (seat != null) {
+        for (ArmorStand seat : findSeats(level, pos)) {
             for (Entity passenger : seat.getPassengers()) {
                 passenger.stopRiding();
             }
             seat.discard();
         }
+    }
+
+    private List<ArmorStand> findSeats(Level level, BlockPos pos) {
+        AABB box = new AABB(pos).inflate(0.3D, 0.5D, 0.3D);
+        return level.getEntitiesOfClass(ArmorStand.class, box, entity ->
+                entity.getPersistentData().getBoolean(STOOL_SEAT_TAG)
+                        && entity.getPersistentData().getLong("stool_pos") == pos.asLong());
     }
 
     private void dropRug(Level level, BlockPos pos, StoolRugType rugType) {

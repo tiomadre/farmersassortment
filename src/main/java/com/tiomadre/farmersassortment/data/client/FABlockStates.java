@@ -680,6 +680,7 @@ private void registerStools() {
     private void addStoolCoreElements(BlockModelBuilder builder, boolean rugged, String strippedTexture, String logTexture) {
         if (rugged) {
             String rugTexture = "#" + (strippedTexture.equals("#2") ? "5" : "4");
+            boolean bamboo = strippedTexture.equals("#2");
             builder.element().from(0, 5, 6).to(16, 8, 16)
                     .face(Direction.NORTH).uvs(0, 13, 16, 16).texture(rugTexture).end()
                     .face(Direction.EAST).uvs(0, 16, 10, 13).rotation(ModelBuilder.FaceRotation.UPSIDE_DOWN).texture(rugTexture).end()
@@ -689,10 +690,10 @@ private void registerStools() {
                     .face(Direction.DOWN).uvs(0, 0, 16, 10).texture(rugTexture).end()
                     .end();
             builder.element().from(0, 4, 6).to(16, 5, 16)
-                    .face(Direction.NORTH).uvs(16, 1, 0, 0).rotation(ModelBuilder.FaceRotation.UPSIDE_DOWN).texture(strippedTexture).end()
+                    .face(Direction.NORTH).uvs(bamboo ? 4 : 16, bamboo ? 16 : 1, bamboo ? 3 : 0, 0).rotation(bamboo ? ModelBuilder.FaceRotation.CLOCKWISE_90 : ModelBuilder.FaceRotation.UPSIDE_DOWN).texture(strippedTexture).end()
                     .face(Direction.EAST).uvs(4, 10, 3, 0).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(strippedTexture).end()
                     .face(Direction.SOUTH).uvs(4, 16, 3, 0).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(strippedTexture).end()
-                    .face(Direction.WEST).uvs(3, 0, 4, 10).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(strippedTexture).end()
+                    .face(Direction.WEST).uvs(3, bamboo ? 6 : 0, 4, bamboo ? 16 : 10).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(strippedTexture).end()
                     .face(Direction.UP).uvs(0, 0, 16, 10).texture(strippedTexture).end()
                     .face(Direction.DOWN).uvs(0, 0, 16, 10).texture(strippedTexture).end()
                     .end();
@@ -717,8 +718,9 @@ private void registerStools() {
                 .end();
 
         if (rugged) {
-            addStoolRugExtrudes(builder, strippedTexture.equals("#2") ? "#4" : "#3", strippedTexture.equals("#2") ? 4 : 5);
+            addStoolRugExtrudes(builder, strippedTexture.equals("#2") ? "#4" : "#3", 5);
         }
+
 
         addStoolLeg(builder, 0, 1, 14, 2, 3, 16, strippedTexture, logTexture);
         addStoolLeg(builder, 0, 1, 6, 2, 3, 8, strippedTexture, logTexture);
