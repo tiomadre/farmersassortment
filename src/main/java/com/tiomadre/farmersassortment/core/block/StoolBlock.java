@@ -36,21 +36,27 @@ import com.tiomadre.farmersassortment.core.item.StoolItem;
 import net.minecraft.world.level.storage.loot.LootParams;
 
 import javax.annotation.Nullable;
-import java.util.EnumMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 public class StoolBlock extends HorizontalDirectionalBlock {
     public static final EnumProperty<StoolRugType> RUG = EnumProperty.create("rug", StoolRugType.class);
-    private static final VoxelShape BASE_SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
-    private static final VoxelShape RUG_EXTRUDE_NORTH = Block.box(0.0D, 4.0D, -2.0D, 16.0D, 5.0D, 0.0D);
-    private static final VoxelShape RUG_EXTRUDE_WEST = Block.box(-2.0D, 4.0D, 0.0D, 0.0D, 5.0D, 16.0D);
-    private static final VoxelShape RUG_EXTRUDE_EAST = Block.box(16.0D, 4.0D, 0.0D, 18.0D, 5.0D, 16.0D);
+    private static final VoxelShape SEAT_SHAPE = Block.box(0.0D, 3.0D, 6.0D, 16.0D, 8.0D, 16.0D);
+    private static final VoxelShape LEG_NW_UPPER = Block.box(0.0D, 1.0D, 6.0D, 2.0D, 3.0D, 8.0D);
+    private static final VoxelShape LEG_NW_LOWER = Block.box(0.0D, 0.0D, 6.0D, 2.0D, 1.0D, 8.0D);
+    private static final VoxelShape LEG_NE_UPPER = Block.box(14.0D, 1.0D, 6.0D, 16.0D, 3.0D, 8.0D);
+    private static final VoxelShape LEG_NE_LOWER = Block.box(14.0D, 0.0D, 6.0D, 16.0D, 1.0D, 8.0D);
+    private static final VoxelShape LEG_SW_UPPER = Block.box(0.0D, 1.0D, 14.0D, 2.0D, 3.0D, 16.0D);
+    private static final VoxelShape LEG_SW_LOWER = Block.box(0.0D, 0.0D, 14.0D, 2.0D, 1.0D, 16.0D);
+    private static final VoxelShape LEG_SE_UPPER = Block.box(14.0D, 1.0D, 14.0D, 16.0D, 3.0D, 16.0D);
+    private static final VoxelShape LEG_SE_LOWER = Block.box(14.0D, 0.0D, 14.0D, 16.0D, 1.0D, 16.0D);
+    private static final VoxelShape BASE_SHAPE = Shapes.or(SEAT_SHAPE, LEG_NW_UPPER, LEG_NW_LOWER, LEG_NE_UPPER, LEG_NE_LOWER, LEG_SW_UPPER, LEG_SW_LOWER, LEG_SE_UPPER, LEG_SE_LOWER);
+    private static final VoxelShape RUG_EXTRUDE_NORTH = Block.box(0.0D, 4.0D, 4.0D, 16.0D, 5.0D, 6.0D);
+    private static final VoxelShape RUG_EXTRUDE_WEST = Block.box(-2.0D, 4.0D, 6.0D, 0.0D, 5.0D, 16.0D);
+    private static final VoxelShape RUG_EXTRUDE_EAST = Block.box(16.0D, 4.0D, 6.0D, 18.0D, 5.0D, 16.0D);
     private static final VoxelShape RUG_EXTRUDE_SOUTH = Block.box(0.0D, 4.0D, 16.0D, 16.0D, 5.0D, 18.0D);
     private static final VoxelShape RUGGED_SHAPE = Shapes.or(BASE_SHAPE, RUG_EXTRUDE_NORTH, RUG_EXTRUDE_WEST, RUG_EXTRUDE_EAST, RUG_EXTRUDE_SOUTH);
-    private static final Map<Direction, VoxelShape> BASE_SHAPES_BY_FACING = buildShapeMap(BASE_SHAPE);
-    private static final Map<Direction, VoxelShape> RUGGED_SHAPES_BY_FACING = buildShapeMap(RUGGED_SHAPE);
+    private static final VoxelShape HITBOX_SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
     private static final String STOOL_SEAT_TAG = "farmersassortment_stool_seat";
     public StoolBlock(Properties properties) {
         super(properties);
@@ -96,15 +102,13 @@ public class StoolBlock extends HorizontalDirectionalBlock {
         }
 
         if (!player.isSecondaryUseActive()) {
-            return sit(level, pos, player, hit);
+            return sit(level, pos, player);
         }
 
         if (heldStack.isEmpty()) {
             if (!level.isClientSide) {
                 clearSeat(level, pos);
-                BlockState flippedState = state.setValue(FACING, state.getValue(FACING).getOpposite());
-                level.setBlockAndUpdate(pos, flippedState);
-                level.sendBlockUpdated(pos, state, flippedState, Block.UPDATE_ALL_IMMEDIATE);
+                level.setBlock(pos, state.setValue(FACING, state.getValue(FACING).getOpposite()), Block.UPDATE_ALL);
                 level.playSound(null, pos, SoundEvents.BARREL_OPEN, SoundSource.BLOCKS, 0.9F, .75F);
             }
             return InteractionResult.sidedSuccess(level.isClientSide);
@@ -141,36 +145,15 @@ public class StoolBlock extends HorizontalDirectionalBlock {
 
     @Override
     public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
-        return currentShape(state);
+        return HITBOX_SHAPE;
     }
 
     @Override
     public @NotNull VoxelShape getCollisionShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
-        return currentShape(state);
+        return HITBOX_SHAPE;
     }
 
-    private VoxelShape currentShape(BlockState state) {
-        Direction facing = state.getValue(FACING);
-        return state.getValue(RUG).hasRug() ? RUGGED_SHAPES_BY_FACING.get(facing) : BASE_SHAPES_BY_FACING.get(facing);
-    }
-
-    private static Map<Direction, VoxelShape> buildShapeMap(VoxelShape northShape) {
-        Map<Direction, VoxelShape> byFacing = new EnumMap<>(Direction.class);
-        byFacing.put(Direction.NORTH, northShape);
-        byFacing.put(Direction.EAST, rotateY(northShape));
-        byFacing.put(Direction.SOUTH, rotateY(byFacing.get(Direction.EAST)));
-        byFacing.put(Direction.WEST, rotateY(byFacing.get(Direction.SOUTH)));
-        return byFacing;
-    }
-
-    private static VoxelShape rotateY(VoxelShape shape) {
-        VoxelShape[] buffer = new VoxelShape[]{Shapes.empty()};
-        shape.forAllBoxes((minX, minY, minZ, maxX, maxY, maxZ) ->
-                buffer[0] = Shapes.or(buffer[0], Block.box(16.0D - maxZ, minY, minX, 16.0D - minZ, maxY, maxX)));
-        return buffer[0];
-    }
-
-    private InteractionResult sit(Level level, BlockPos pos, Player player, BlockHitResult hit) {
+    private InteractionResult sit(Level level, BlockPos pos, Player player) {
         if (level.isClientSide) {
             return InteractionResult.SUCCESS;
         }
@@ -182,59 +165,43 @@ public class StoolBlock extends HorizontalDirectionalBlock {
             seat.setNoGravity(true);
             seat.setInvulnerable(true);
             seat.setSilent(true);
-    CompoundTag data = new CompoundTag();
-            seat.saveWithoutId(data);
-            data.putBoolean("Marker", true);
-            seat.load(data);
+            applyMarkerSeatFlag(seat);
             seat.getPersistentData().putBoolean(STOOL_SEAT_TAG, true);
             seat.getPersistentData().putLong("stool_pos", pos.asLong());
             level.addFreshEntity(seat);
         }
 
-        Direction facing = getSeatFacingDirection(pos, player, hit);
-        float facingYaw = facing.toYRot();
-        seat.setYRot(facingYaw);
-        seat.setYHeadRot(facingYaw);
-        seat.setYBodyRot(facingYaw);
+        if (!seat.getPassengers().isEmpty()) {
+            return InteractionResult.PASS;
+        }
 
-        player.setYRot(facingYaw);
-        player.setYHeadRot(facingYaw);
-        player.setYBodyRot(facingYaw);
         player.startRiding(seat, false);
         return InteractionResult.CONSUME;
     }
-
-    private Direction getSeatFacingDirection(BlockPos pos, Player player, BlockHitResult hit) {
-        double relativeX = hit.getLocation().x - (pos.getX() + 0.5D);
-        double relativeZ = hit.getLocation().z - (pos.getZ() + 0.5D);
-
-        if (Math.abs(relativeX) < 0.001D && Math.abs(relativeZ) < 0.001D) {
-            return player.getDirection().getOpposite();
-        }
-
-        Direction clickedSide = Direction.getNearest(relativeX, 0.0D, relativeZ);
-        return clickedSide.getOpposite();
+    private void applyMarkerSeatFlag(ArmorStand seat) {
+        CompoundTag data = new CompoundTag();
+        seat.saveWithoutId(data);
+        data.putBoolean("Marker", true);
+        seat.load(data);
     }
+
     @Nullable
     private ArmorStand getSeat(Level level, BlockPos pos) {
-        List<ArmorStand> seats = findSeats(level, pos);
+        AABB box = new AABB(pos).inflate(0.3D, 0.5D, 0.3D);
+        List<ArmorStand> seats = level.getEntitiesOfClass(ArmorStand.class, box, entity ->
+                entity.getPersistentData().getBoolean(STOOL_SEAT_TAG)
+                        && entity.getPersistentData().getLong("stool_pos") == pos.asLong());
         return seats.isEmpty() ? null : seats.get(0);
     }
 
     private void clearSeat(Level level, BlockPos pos) {
-        for (ArmorStand seat : findSeats(level, pos)) {
+        ArmorStand seat = getSeat(level, pos);
+        if (seat != null) {
             for (Entity passenger : seat.getPassengers()) {
                 passenger.stopRiding();
             }
             seat.discard();
         }
-    }
-
-    private List<ArmorStand> findSeats(Level level, BlockPos pos) {
-        AABB box = new AABB(pos).inflate(0.3D, 0.5D, 0.3D);
-        return level.getEntitiesOfClass(ArmorStand.class, box, entity ->
-                entity.getPersistentData().getBoolean(STOOL_SEAT_TAG)
-                        && entity.getPersistentData().getLong("stool_pos") == pos.asLong());
     }
 
     private void dropRug(Level level, BlockPos pos, StoolRugType rugType) {
