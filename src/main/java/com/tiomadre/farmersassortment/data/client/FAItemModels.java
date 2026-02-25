@@ -39,9 +39,16 @@ public class FAItemModels extends ItemModelProvider {
         registerFloatingCounters();
         registerCanvasRugs();
         registerStools();
+        registerTables();
+        registerCanvasRugs();
+        registerStools();
     }
     private void registerFloatingCounters() {
         FABlocks.floatingCounters().forEach(this::floatingCounterItem);
+    }
+
+    private void registerTables() {
+        FABlocks.tables().forEach(this::tableItem);
     }
     private void registerStools() {
         FABlocks.allStools().forEach(this::stoolItem);
@@ -231,5 +238,9 @@ public class FAItemModels extends ItemModelProvider {
 
     private ModelFile getModelForTerracottaColor(TerracottaCookingPotColor color) {
         return getExistingFile(modLoc("block/" + color.textureName()));
+    }
+    private void tableItem(RegistryObject<? extends Block> block) {
+        String name = Objects.requireNonNull(block.getId()).getPath();
+        withExistingParent(name, modLoc("block/" + name));
     }
 }

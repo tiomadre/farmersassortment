@@ -128,6 +128,19 @@ public final class FACrafting extends RecipeProvider {
         canvasRug(output, FARugs.RED_CANVAS_RUG, Items.RED_DYE);
         canvasRug(output, FARugs.BLACK_CANVAS_RUG, Items.BLACK_DYE);
 
+        //Tables
+        table(output, FABlocks.OAK_TABLE, Blocks.OAK_SLAB);
+        table(output, FABlocks.SPRUCE_TABLE, Blocks.SPRUCE_SLAB);
+        table(output, FABlocks.BIRCH_TABLE, Blocks.BIRCH_SLAB);
+        table(output, FABlocks.JUNGLE_TABLE, Blocks.JUNGLE_SLAB);
+        table(output, FABlocks.ACACIA_TABLE, Blocks.ACACIA_SLAB);
+        table(output, FABlocks.DARK_OAK_TABLE, Blocks.DARK_OAK_SLAB);
+        table(output, FABlocks.MANGROVE_TABLE, Blocks.MANGROVE_SLAB);
+        table(output, FABlocks.CHERRY_TABLE, Blocks.CHERRY_SLAB);
+        table(output, FABlocks.BAMBOO_TABLE, Blocks.BAMBOO_SLAB);
+        table(output, FABlocks.CRIMSON_TABLE, Blocks.CRIMSON_SLAB);
+        table(output, FABlocks.WARPED_TABLE, Blocks.WARPED_SLAB);
+
         //Crabber's Delight Compat
         if (ModList.get().isLoaded("crabbersdelight")) {
           //Cutting Board and Butcher Block Cabinets
@@ -220,6 +233,16 @@ public final class FACrafting extends RecipeProvider {
                 .define('#', slab)
                 .define('s', Items.STICK)
                 .pattern("###")
+                .pattern("s s")
+                .unlockedBy(getHasName(slab), has(slab))
+                .save(output);
+    }
+    private void table(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> table, ItemLike slab) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, table.get(), 2)
+                .define('#', slab)
+                .define('s', Items.STICK)
+                .pattern("###")
+                .pattern("s s")
                 .pattern("s s")
                 .unlockedBy(getHasName(slab), has(slab))
                 .save(output);

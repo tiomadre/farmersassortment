@@ -73,7 +73,10 @@ public final class FATab {
         if (path.endsWith("_stool")) {
             return 6;
         }
-        return 7;
+        if (path.endsWith("_table")) {
+            return 7;
+        }
+        return 8;
     }
     private static final Set<String> CRABBERS_ITEMS = Set.of(
             "clamshell_knife",

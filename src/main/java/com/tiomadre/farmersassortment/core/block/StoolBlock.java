@@ -168,7 +168,7 @@ public class StoolBlock extends HorizontalDirectionalBlock {
 
     private VoxelShape getHitboxShape(BlockState state) {
         Direction facing = state.getValue(FACING);
-        return BASE_SHAPES.get(facing);
+        return state.getValue(PUSHED) ? PUSHED_BASE_SHAPES.get(facing) : BASE_SHAPES.get(facing);
     }
 
     private static Map<Direction, VoxelShape> createDirectionalShapes(VoxelShape northShape) {

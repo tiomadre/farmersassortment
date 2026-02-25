@@ -72,6 +72,18 @@
   "block.farmersassortment.palm_stool": "Palm Stool",
   "block.farmersassortment.lilac_stool": "Lilac Stool",
 
+  "block.farmersassortment.oak_table": "Oak Table",
+  "block.farmersassortment.spruce_table": "Spruce Table",
+  "block.farmersassortment.birch_table": "Birch Table",
+  "block.farmersassortment.jungle_table": "Jungle Table",
+  "block.farmersassortment.acacia_table": "Acacia Table",
+  "block.farmersassortment.dark_oak_table": "Dark Oak Table",
+  "block.farmersassortment.mangrove_table": "Mangrove Table",
+  "block.farmersassortment.cherry_table": "Cherry Table",
+  "block.farmersassortment.bamboo_table": "Bamboo Table",
+  "block.farmersassortment.crimson_table": "Crimson Table",
+  "block.farmersassortment.warped_table": "Warped Table",
+
 
   "block.farmersassortment.copper_cooking_pot": "Copper Cooking Pot",
   "item.farmersassortment.copper_cooking_pot": "Copper Cooking Pot",
