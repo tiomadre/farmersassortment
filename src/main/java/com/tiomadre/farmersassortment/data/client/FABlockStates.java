@@ -619,9 +619,6 @@ private void registerStools() {
                 new StoolDefinition(FABlocks.CRIMSON_STOOL, "crimson", new ResourceLocation("minecraft", "block/crimson_stem"), new ResourceLocation("minecraft", "block/stripped_crimson_stem")),
                 new StoolDefinition(FABlocks.WARPED_STOOL, "warped", new ResourceLocation("minecraft", "block/warped_stem"), new ResourceLocation("minecraft", "block/stripped_warped_stem")),
 
-                new StoolDefinition(FAxCrabbersBlocks.PALM_STOOL, "palm", fallbackTexture(new ResourceLocation("crabbersdelight", "block/palm_log"), new ResourceLocation("minecraft", "block/oak_log")),
-                        fallbackTexture(new ResourceLocation("minecraft", "block/stripped_oak_log"), new ResourceLocation("minecraft", "block/stripped_oak_log"))),
-
                 new StoolDefinition(FAxForagersBlocks.LILAC_STOOL, "lilac", fallbackTexture(new ResourceLocation("foragersinsight", "block/lilac_log"), new ResourceLocation("minecraft", "block/oak_log")),
                         fallbackTexture(new ResourceLocation("farmersassortment", "block/stripped_lilac_log_big"), new ResourceLocation("minecraft", "block/stripped_oak_log")))));
 
@@ -636,16 +633,28 @@ private void registerStools() {
     private void registerStool(StoolDefinition stool) {
         String name = Objects.requireNonNull(stool.block().getId()).getPath();
         ModelFile baseModel = stoolModel(name, stool.legTexture(), stool.seatTexture());
+        ModelFile pushedModel = stoolPushedModel(name + "_pushed", stool.legTexture(), stool.seatTexture());
         Map<StoolRugType, ModelFile> rugModels = Arrays.stream(StoolRugType.values())
                 .filter(StoolRugType::hasRug)
                 .collect(LinkedHashMap::new, (models, rugType) ->
                                 models.put(rugType, stoolRugModel(name + "_" + rugType.getSerializedName(), stool.woodType(), stool.legTexture(), stool.seatTexture(), rugType)),
                         Map::putAll);
+        Map<StoolRugType, ModelFile> pushedRugModels = Arrays.stream(StoolRugType.values())
+                .filter(StoolRugType::hasRug)
+                .collect(LinkedHashMap::new, (models, rugType) ->
+                                models.put(rugType, stoolPushedRugModel(name + "_" + rugType.getSerializedName() + "_pushed", stool.woodType(), stool.legTexture(), stool.seatTexture(), rugType)),
+                        Map::putAll);
 
         getVariantBuilder(stool.block().get()).forAllStates(state -> {
             Direction facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
             StoolRugType rugType = state.getValue(StoolBlock.RUG);
-            ModelFile selectedModel = rugType.hasRug() ? rugModels.getOrDefault(rugType, baseModel) : baseModel;
+         boolean pushed = state.getValue(StoolBlock.PUSHED);
+            ModelFile selectedModel;
+            if (pushed) {
+                selectedModel = rugType.hasRug() ? pushedRugModels.getOrDefault(rugType, pushedModel) : pushedModel;
+            } else {
+                selectedModel = rugType.hasRug() ? rugModels.getOrDefault(rugType, baseModel) : baseModel;
+            }
 
             return ConfiguredModel.builder()
                     .modelFile(selectedModel)
@@ -659,11 +668,20 @@ private void registerStools() {
                 .texture("5", seatTexture)
                 .texture("7", legTexture)
                 .texture("particle", seatTexture);
-        addStoolCoreElements(builder, false, "#5", "#7");
+        addStoolCoreElements(builder, false, false, "#5", "#7");
         return builder;
     }
 
-       private BlockModelBuilder stoolRugModel(String name, String woodType, ResourceLocation legTexture, ResourceLocation seatTexture, StoolRugType rugType) {
+    private BlockModelBuilder stoolPushedModel(String name, ResourceLocation legTexture, ResourceLocation seatTexture) {
+        BlockModelBuilder builder = models().getBuilder(name)
+                .texture("5", seatTexture)
+                .texture("7", legTexture)
+                .texture("particle", seatTexture);
+        addStoolCoreElements(builder, false, true, "#5", "#7");
+        return builder;
+    }
+
+    private BlockModelBuilder stoolRugModel(String name, String woodType, ResourceLocation legTexture, ResourceLocation seatTexture, StoolRugType rugType) {
         boolean bamboo = "bamboo".equals(woodType);
         BlockModelBuilder builder = models().getBuilder(name)
                 .renderType("minecraft:cutout")
@@ -672,15 +690,30 @@ private void registerStools() {
                 .texture(bamboo ? "4" : "3", fallbackTexture(new ResourceLocation(rugType.extrudeTexturePath()), modLoc("block/white_canvas_rug_extrudes")))
                 .texture(bamboo ? "5" : "4", fallbackTexture(new ResourceLocation(Objects.requireNonNull(rugType.texturePath())), modLoc("block/white_canvas_rug")))
                 .texture("particle", legTexture);
-        addStoolCoreElements(builder, true, bamboo ? "#2" : "#6", bamboo ? "#3" : "#5");
+        addStoolCoreElements(builder, true, false, bamboo ? "#2" : "#6", bamboo ? "#3" : "#5");
         return builder;
     }
 
-    private void addStoolCoreElements(BlockModelBuilder builder, boolean rugged, String strippedTexture, String logTexture) {
+    private BlockModelBuilder stoolPushedRugModel(String name, String woodType, ResourceLocation legTexture, ResourceLocation seatTexture, StoolRugType rugType) {
+        boolean bamboo = "bamboo".equals(woodType);
+        BlockModelBuilder builder = models().getBuilder(name)
+                .renderType("minecraft:cutout")
+                .texture(bamboo ? "2" : "6", seatTexture)
+                .texture(bamboo ? "3" : "5", legTexture)
+                .texture(bamboo ? "4" : "3", fallbackTexture(new ResourceLocation(rugType.extrudeTexturePath()), modLoc("block/white_canvas_rug_extrudes")))
+                .texture(bamboo ? "5" : "4", fallbackTexture(new ResourceLocation(Objects.requireNonNull(rugType.texturePath())), modLoc("block/white_canvas_rug")))
+                .texture("particle", legTexture);
+        addStoolCoreElements(builder, true, true, bamboo ? "#2" : "#6", bamboo ? "#3" : "#5");
+        return builder;
+    }
+
+    private void addStoolCoreElements(BlockModelBuilder builder, boolean rugged, boolean pushed, String strippedTexture, String logTexture) {
+        int seatStart = pushed ? 0 : 6;
+        int seatEnd = pushed ? 10 : 16;
         if (rugged) {
             String rugTexture = "#" + (strippedTexture.equals("#2") ? "5" : "4");
             boolean bamboo = strippedTexture.equals("#2");
-            builder.element().from(0, 5, 6).to(16, 8, 16)
+            builder.element().from(0, 5, seatStart).to(16, 8, seatEnd)
                     .face(Direction.NORTH).uvs(0, 13, 16, 16).texture(rugTexture).end()
                     .face(Direction.EAST).uvs(0, 16, 10, 13).rotation(ModelBuilder.FaceRotation.UPSIDE_DOWN).texture(rugTexture).end()
                     .face(Direction.SOUTH).uvs(0, 16, 16, 13).rotation(ModelBuilder.FaceRotation.UPSIDE_DOWN).texture(rugTexture).end()
@@ -688,7 +721,7 @@ private void registerStools() {
                     .face(Direction.UP).uvs(0, 0, 16, 10).texture(rugTexture).end()
                     .face(Direction.DOWN).uvs(0, 0, 16, 10).texture(rugTexture).end()
                     .end();
-            builder.element().from(0, 4, 6).to(16, 5, 16)
+            builder.element().from(0, 4, seatStart).to(16, 5, seatEnd)
                     .face(Direction.NORTH).uvs(bamboo ? 4 : 16, bamboo ? 16 : 1, bamboo ? 3 : 0, 0).rotation(bamboo ? ModelBuilder.FaceRotation.CLOCKWISE_90 : ModelBuilder.FaceRotation.UPSIDE_DOWN).texture(strippedTexture).end()
                     .face(Direction.EAST).uvs(4, 10, 3, 0).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(strippedTexture).end()
                     .face(Direction.SOUTH).uvs(4, 16, 3, 0).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(strippedTexture).end()
@@ -697,7 +730,7 @@ private void registerStools() {
                     .face(Direction.DOWN).uvs(0, 0, 16, 10).texture(strippedTexture).end()
                     .end();
         } else {
-            builder.element().from(0, 4, 6).to(16, 8, 16)
+            builder.element().from(0, 4, seatStart).to(16, 8, seatEnd)
                     .face(Direction.NORTH).uvs(0, 0, 4, 16).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(strippedTexture).end()
                     .face(Direction.EAST).uvs(0, 6, 4, 16).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(strippedTexture).end()
                     .face(Direction.SOUTH).uvs(0, 0, 4, 16).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(strippedTexture).end()
@@ -707,7 +740,7 @@ private void registerStools() {
                     .end();
         }
 
-        builder.element().from(0, 3, 6).to(16, 4, 16)
+        builder.element().from(0, 3, seatStart).to(16, 4, seatEnd)
                 .face(Direction.NORTH).uvs(0, 7, 16, 8).texture(logTexture).end()
                 .face(Direction.EAST).uvs(13, 3, 3, 4).texture(logTexture).end()
                 .face(Direction.SOUTH).uvs(0, 3, 16, 4).rotation(ModelBuilder.FaceRotation.UPSIDE_DOWN).texture(logTexture).end()
@@ -717,14 +750,13 @@ private void registerStools() {
                 .end();
 
         if (rugged) {
-            addStoolRugExtrudes(builder, strippedTexture.equals("#2") ? "#4" : "#3", 5);
+            addStoolRugExtrudes(builder, strippedTexture.equals("#2") ? "#4" : "#3", 5, seatStart);
         }
 
-
-        addStoolLeg(builder, 0, 1, 14, 2, 3, 16, strippedTexture, logTexture);
-        addStoolLeg(builder, 0, 1, 6, 2, 3, 8, strippedTexture, logTexture);
-        addStoolLeg(builder, 14, 1, 6, 16, 3, 8, strippedTexture, logTexture);
-        addStoolLeg(builder, 14, 1, 14, 16, 3, 16, strippedTexture, logTexture);
+        addStoolLeg(builder, 0, 1, seatEnd - 2, 2, 3, seatEnd, strippedTexture, logTexture);
+        addStoolLeg(builder, 0, 1, seatStart, 2, 3, seatStart + 2, strippedTexture, logTexture);
+        addStoolLeg(builder, 14, 1, seatStart, 16, 3, seatStart + 2, strippedTexture, logTexture);
+        addStoolLeg(builder, 14, 1, seatEnd - 2, 16, 3, seatEnd, strippedTexture, logTexture);
     }
 
     private void addStoolLeg(BlockModelBuilder builder, int fromX, int fromY, int fromZ, int toX, int toY, int toZ,
@@ -748,8 +780,8 @@ private void registerStools() {
                 .end();
     }
 
-    private void addStoolRugExtrudes(BlockModelBuilder builder, String extrudeTexture, int y) {
-        builder.element().from(0, y, 4).to(16, y, 6).rotation().angle(-45).axis(Direction.Axis.X).origin(0, y, 6).end()
+    private void addStoolRugExtrudes(BlockModelBuilder builder, String extrudeTexture, int y, int seatStart) {
+        builder.element().from(0, y, seatStart - 2).to(16, y, seatStart).rotation().angle(-45).axis(Direction.Axis.X).origin(0, y, seatStart).end()
                 .face(Direction.NORTH).uvs(0, 2, 16, 2).texture(extrudeTexture).end()
                 .face(Direction.EAST).uvs(0, 2, 2, 2).texture(extrudeTexture).end()
                 .face(Direction.SOUTH).uvs(0, 2, 16, 2).texture(extrudeTexture).end()

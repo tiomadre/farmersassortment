@@ -25,6 +25,7 @@ import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
@@ -43,6 +44,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class StoolBlock extends HorizontalDirectionalBlock {
+    public static final BooleanProperty PUSHED = BooleanProperty.create("pushed");
     public static final EnumProperty<StoolRugType> RUG = EnumProperty.create("rug", StoolRugType.class);
     private static final VoxelShape SEAT_SHAPE = Block.box(0.0D, 3.0D, 6.0D, 16.0D, 8.0D, 16.0D);
     private static final VoxelShape LEG_NW_UPPER = Block.box(0.0D, 1.0D, 6.0D, 2.0D, 3.0D, 8.0D);
@@ -54,24 +56,33 @@ public class StoolBlock extends HorizontalDirectionalBlock {
     private static final VoxelShape LEG_SE_UPPER = Block.box(14.0D, 1.0D, 14.0D, 16.0D, 3.0D, 16.0D);
     private static final VoxelShape LEG_SE_LOWER = Block.box(14.0D, 0.0D, 14.0D, 16.0D, 1.0D, 16.0D);
     private static final VoxelShape BASE_SHAPE = Shapes.or(SEAT_SHAPE, LEG_NW_UPPER, LEG_NW_LOWER, LEG_NE_UPPER, LEG_NE_LOWER, LEG_SW_UPPER, LEG_SW_LOWER, LEG_SE_UPPER, LEG_SE_LOWER);
-    private static final VoxelShape RUG_EXTRUDE_NORTH = Block.box(0.0D, 4.0D, 4.0D, 16.0D, 5.0D, 6.0D);
-    private static final VoxelShape RUGGED_SHAPE = Shapes.or(BASE_SHAPE, RUG_EXTRUDE_NORTH);
     private static final Map<Direction, VoxelShape> BASE_SHAPES = createDirectionalShapes(BASE_SHAPE);
-    private static final Map<Direction, VoxelShape> RUGGED_SHAPES = createDirectionalShapes(RUGGED_SHAPE);
+    private static final VoxelShape PUSHED_SEAT_SHAPE = Block.box(0.0D, 3.0D, 0.0D, 16.0D, 8.0D, 10.0D);
+    private static final VoxelShape PUSHED_LEG_NW_UPPER = Block.box(0.0D, 1.0D, 0.0D, 2.0D, 3.0D, 2.0D);
+    private static final VoxelShape PUSHED_LEG_NW_LOWER = Block.box(0.0D, 0.0D, 0.0D, 2.0D, 1.0D, 2.0D);
+    private static final VoxelShape PUSHED_LEG_NE_UPPER = Block.box(14.0D, 1.0D, 0.0D, 16.0D, 3.0D, 2.0D);
+    private static final VoxelShape PUSHED_LEG_NE_LOWER = Block.box(14.0D, 0.0D, 0.0D, 16.0D, 1.0D, 2.0D);
+    private static final VoxelShape PUSHED_LEG_SW_UPPER = Block.box(0.0D, 1.0D, 8.0D, 2.0D, 3.0D, 10.0D);
+    private static final VoxelShape PUSHED_LEG_SW_LOWER = Block.box(0.0D, 0.0D, 8.0D, 2.0D, 1.0D, 10.0D);
+    private static final VoxelShape PUSHED_LEG_SE_UPPER = Block.box(14.0D, 1.0D, 8.0D, 16.0D, 3.0D, 10.0D);
+    private static final VoxelShape PUSHED_LEG_SE_LOWER = Block.box(14.0D, 0.0D, 8.0D, 16.0D, 1.0D, 10.0D);
+    private static final VoxelShape PUSHED_BASE_SHAPE = Shapes.or(PUSHED_SEAT_SHAPE, PUSHED_LEG_NW_UPPER, PUSHED_LEG_NW_LOWER, PUSHED_LEG_NE_UPPER, PUSHED_LEG_NE_LOWER, PUSHED_LEG_SW_UPPER, PUSHED_LEG_SW_LOWER, PUSHED_LEG_SE_UPPER, PUSHED_LEG_SE_LOWER);
+    private static final Map<Direction, VoxelShape> PUSHED_BASE_SHAPES = createDirectionalShapes(PUSHED_BASE_SHAPE);
+
     private static final String STOOL_SEAT_TAG = "farmersassortment_stool_seat";
     public StoolBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(RUG, StoolRugType.NONE));
+        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(RUG, StoolRugType.NONE).setValue(PUSHED, false));
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING, RUG);
+        builder.add(FACING, RUG, PUSHED);
     }
 
     @Override
     public @NotNull BlockState getStateForPlacement(BlockPlaceContext context) {
-        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
+        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite()).setValue(PUSHED, false);
     }
 
     @Override
@@ -109,8 +120,9 @@ public class StoolBlock extends HorizontalDirectionalBlock {
         if (heldStack.isEmpty()) {
             if (!level.isClientSide) {
                 clearSeat(level, pos);
-                level.setBlock(pos, state.setValue(FACING, state.getValue(FACING).getOpposite()), Block.UPDATE_ALL);
-                level.playSound(null, pos, SoundEvents.BARREL_OPEN, SoundSource.BLOCKS, 0.9F, .75F);
+                boolean pushed = state.getValue(PUSHED);
+                level.setBlock(pos, state.setValue(PUSHED, !pushed), Block.UPDATE_ALL);
+                level.playSound(null, pos, SoundEvents.BARREL_OPEN, SoundSource.BLOCKS, 0.9F, .5F);
             }
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
@@ -156,8 +168,7 @@ public class StoolBlock extends HorizontalDirectionalBlock {
 
     private VoxelShape getHitboxShape(BlockState state) {
         Direction facing = state.getValue(FACING);
-        boolean rugged = state.getValue(RUG).hasRug();
-        return rugged ? RUGGED_SHAPES.get(facing) : BASE_SHAPES.get(facing);
+        return BASE_SHAPES.get(facing);
     }
 
     private static Map<Direction, VoxelShape> createDirectionalShapes(VoxelShape northShape) {

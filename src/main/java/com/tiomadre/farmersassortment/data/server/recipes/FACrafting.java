@@ -133,7 +133,6 @@ public final class FACrafting extends RecipeProvider {
           //Cutting Board and Butcher Block Cabinets
             cuttingBoard(output, FAxCrabbersBlocks.PALM_CUTTING_BOARD, CDModBlocks.PALM_PLANKS.get());
             butcherBlockCabinet(output, FAxCrabbersBlocks.PALM_BUTCHER_BLOCK_CABINET, FAxCrabbersBlocks.PALM_CUTTING_BOARD.get(), CDModBlocks.PALM_CABINET.get());
-            stool(output, FAxCrabbersBlocks.PALM_STOOL, CDModBlocks.PALM_SLAB.get());
           //Knives
             knife(output, FAItems.CLAMSHELL_KNIFE, CDModItems.CLAM.get());
 

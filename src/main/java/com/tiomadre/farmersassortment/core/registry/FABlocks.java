@@ -233,9 +233,6 @@ public final class FABlocks {
     }
     public static Stream<RegistryObject<StoolBlock>> allStools() {
         Stream<RegistryObject<StoolBlock>> stools = stools();
-        if (FarmersAssortment.isCrabbersCompatEnabled()) {
-            stools = Stream.concat(stools, FAxCrabbersBlocks.stools());
-        }
         if (FarmersAssortment.isForagersCompatEnabled()) {
             stools = Stream.concat(stools, FAxForagersBlocks.stools());
         }

@@ -38,6 +38,7 @@ public class FarmersAssortment {
         foragersCompatEnabled = initializeCompat("foragersinsight", FarmersAssortment::initializeForagersCompat);
         FABlocks.init();
         FAItems.init();
+        FADynamicStools.init();
         FARugs.init();
         REGISTRY_HELPER.register(modEventBus);
         FABlockEntityTypes.register(modEventBus);

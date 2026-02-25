@@ -24,7 +24,6 @@ public final class FADynamicStools {
     private static final BlockSubRegistryHelper BLOCKS = FarmersAssortment.REGISTRY_HELPER.getBlockSubHelper();
     private static final Set<String> EXCLUDED_NAMESPACES = Set.of("minecraft", FarmersAssortment.MOD_ID);
     private static final Set<ResourceLocation> EXCLUDED_PLANKS = Set.of(
-            new ResourceLocation("crabbersdelight", "palm_planks"),
             new ResourceLocation("foragersinsight", "lilac_planks")
     );
 
@@ -106,5 +105,7 @@ public final class FADynamicStools {
 
     public record DynamicStoolDefinition(RegistryObject<StoolBlock> block, ResourceLocation planksId,
                                          ResourceLocation slabId, ResourceLocation seatTexture) {
+    }
+    public static void init() {
     }
 }

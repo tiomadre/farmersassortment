@@ -1,273 +1,543 @@
 {
   "variants": {
-    "facing=east,rug=black": {
+    "facing=east,pushed=false,rug=black": {
       "model": "farmersassortment:block/cherry_stool_black",
       "y": 90
     },
-    "facing=east,rug=blue": {
+    "facing=east,pushed=false,rug=blue": {
       "model": "farmersassortment:block/cherry_stool_blue",
       "y": 90
     },
-    "facing=east,rug=brown": {
+    "facing=east,pushed=false,rug=brown": {
       "model": "farmersassortment:block/cherry_stool_brown",
       "y": 90
     },
-    "facing=east,rug=canvas": {
+    "facing=east,pushed=false,rug=canvas": {
       "model": "farmersassortment:block/cherry_stool_canvas",
       "y": 90
     },
-    "facing=east,rug=cyan": {
+    "facing=east,pushed=false,rug=cyan": {
       "model": "farmersassortment:block/cherry_stool_cyan",
       "y": 90
     },
-    "facing=east,rug=gray": {
+    "facing=east,pushed=false,rug=gray": {
       "model": "farmersassortment:block/cherry_stool_gray",
       "y": 90
     },
-    "facing=east,rug=green": {
+    "facing=east,pushed=false,rug=green": {
       "model": "farmersassortment:block/cherry_stool_green",
       "y": 90
     },
-    "facing=east,rug=light_blue": {
+    "facing=east,pushed=false,rug=light_blue": {
       "model": "farmersassortment:block/cherry_stool_light_blue",
       "y": 90
     },
-    "facing=east,rug=light_gray": {
+    "facing=east,pushed=false,rug=light_gray": {
       "model": "farmersassortment:block/cherry_stool_light_gray",
       "y": 90
     },
-    "facing=east,rug=lime": {
+    "facing=east,pushed=false,rug=lime": {
       "model": "farmersassortment:block/cherry_stool_lime",
       "y": 90
     },
-    "facing=east,rug=magenta": {
+    "facing=east,pushed=false,rug=magenta": {
       "model": "farmersassortment:block/cherry_stool_magenta",
       "y": 90
     },
-    "facing=east,rug=none": {
+    "facing=east,pushed=false,rug=none": {
       "model": "farmersassortment:block/cherry_stool",
       "y": 90
     },
-    "facing=east,rug=orange": {
+    "facing=east,pushed=false,rug=orange": {
       "model": "farmersassortment:block/cherry_stool_orange",
       "y": 90
     },
-    "facing=east,rug=pink": {
+    "facing=east,pushed=false,rug=pink": {
       "model": "farmersassortment:block/cherry_stool_pink",
       "y": 90
     },
-    "facing=east,rug=purple": {
+    "facing=east,pushed=false,rug=purple": {
       "model": "farmersassortment:block/cherry_stool_purple",
       "y": 90
     },
-    "facing=east,rug=red": {
+    "facing=east,pushed=false,rug=red": {
       "model": "farmersassortment:block/cherry_stool_red",
       "y": 90
     },
-    "facing=east,rug=white": {
+    "facing=east,pushed=false,rug=white": {
       "model": "farmersassortment:block/cherry_stool_white",
       "y": 90
     },
-    "facing=east,rug=yellow": {
+    "facing=east,pushed=false,rug=yellow": {
       "model": "farmersassortment:block/cherry_stool_yellow",
       "y": 90
     },
-    "facing=north,rug=black": {
+    "facing=east,pushed=true,rug=black": {
+      "model": "farmersassortment:block/cherry_stool_black_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=blue": {
+      "model": "farmersassortment:block/cherry_stool_blue_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=brown": {
+      "model": "farmersassortment:block/cherry_stool_brown_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=canvas": {
+      "model": "farmersassortment:block/cherry_stool_canvas_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=cyan": {
+      "model": "farmersassortment:block/cherry_stool_cyan_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=gray": {
+      "model": "farmersassortment:block/cherry_stool_gray_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=green": {
+      "model": "farmersassortment:block/cherry_stool_green_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=light_blue": {
+      "model": "farmersassortment:block/cherry_stool_light_blue_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=light_gray": {
+      "model": "farmersassortment:block/cherry_stool_light_gray_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=lime": {
+      "model": "farmersassortment:block/cherry_stool_lime_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=magenta": {
+      "model": "farmersassortment:block/cherry_stool_magenta_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=none": {
+      "model": "farmersassortment:block/cherry_stool_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=orange": {
+      "model": "farmersassortment:block/cherry_stool_orange_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=pink": {
+      "model": "farmersassortment:block/cherry_stool_pink_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=purple": {
+      "model": "farmersassortment:block/cherry_stool_purple_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=red": {
+      "model": "farmersassortment:block/cherry_stool_red_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=white": {
+      "model": "farmersassortment:block/cherry_stool_white_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=yellow": {
+      "model": "farmersassortment:block/cherry_stool_yellow_pushed",
+      "y": 90
+    },
+    "facing=north,pushed=false,rug=black": {
       "model": "farmersassortment:block/cherry_stool_black"
     },
-    "facing=north,rug=blue": {
+    "facing=north,pushed=false,rug=blue": {
       "model": "farmersassortment:block/cherry_stool_blue"
     },
-    "facing=north,rug=brown": {
+    "facing=north,pushed=false,rug=brown": {
       "model": "farmersassortment:block/cherry_stool_brown"
     },
-    "facing=north,rug=canvas": {
+    "facing=north,pushed=false,rug=canvas": {
       "model": "farmersassortment:block/cherry_stool_canvas"
     },
-    "facing=north,rug=cyan": {
+    "facing=north,pushed=false,rug=cyan": {
       "model": "farmersassortment:block/cherry_stool_cyan"
     },
-    "facing=north,rug=gray": {
+    "facing=north,pushed=false,rug=gray": {
       "model": "farmersassortment:block/cherry_stool_gray"
     },
-    "facing=north,rug=green": {
+    "facing=north,pushed=false,rug=green": {
       "model": "farmersassortment:block/cherry_stool_green"
     },
-    "facing=north,rug=light_blue": {
+    "facing=north,pushed=false,rug=light_blue": {
       "model": "farmersassortment:block/cherry_stool_light_blue"
     },
-    "facing=north,rug=light_gray": {
+    "facing=north,pushed=false,rug=light_gray": {
       "model": "farmersassortment:block/cherry_stool_light_gray"
     },
-    "facing=north,rug=lime": {
+    "facing=north,pushed=false,rug=lime": {
       "model": "farmersassortment:block/cherry_stool_lime"
     },
-    "facing=north,rug=magenta": {
+    "facing=north,pushed=false,rug=magenta": {
       "model": "farmersassortment:block/cherry_stool_magenta"
     },
-    "facing=north,rug=none": {
+    "facing=north,pushed=false,rug=none": {
       "model": "farmersassortment:block/cherry_stool"
     },
-    "facing=north,rug=orange": {
+    "facing=north,pushed=false,rug=orange": {
       "model": "farmersassortment:block/cherry_stool_orange"
     },
-    "facing=north,rug=pink": {
+    "facing=north,pushed=false,rug=pink": {
       "model": "farmersassortment:block/cherry_stool_pink"
     },
-    "facing=north,rug=purple": {
+    "facing=north,pushed=false,rug=purple": {
       "model": "farmersassortment:block/cherry_stool_purple"
     },
-    "facing=north,rug=red": {
+    "facing=north,pushed=false,rug=red": {
       "model": "farmersassortment:block/cherry_stool_red"
     },
-    "facing=north,rug=white": {
+    "facing=north,pushed=false,rug=white": {
       "model": "farmersassortment:block/cherry_stool_white"
     },
-    "facing=north,rug=yellow": {
+    "facing=north,pushed=false,rug=yellow": {
       "model": "farmersassortment:block/cherry_stool_yellow"
     },
-    "facing=south,rug=black": {
+    "facing=north,pushed=true,rug=black": {
+      "model": "farmersassortment:block/cherry_stool_black_pushed"
+    },
+    "facing=north,pushed=true,rug=blue": {
+      "model": "farmersassortment:block/cherry_stool_blue_pushed"
+    },
+    "facing=north,pushed=true,rug=brown": {
+      "model": "farmersassortment:block/cherry_stool_brown_pushed"
+    },
+    "facing=north,pushed=true,rug=canvas": {
+      "model": "farmersassortment:block/cherry_stool_canvas_pushed"
+    },
+    "facing=north,pushed=true,rug=cyan": {
+      "model": "farmersassortment:block/cherry_stool_cyan_pushed"
+    },
+    "facing=north,pushed=true,rug=gray": {
+      "model": "farmersassortment:block/cherry_stool_gray_pushed"
+    },
+    "facing=north,pushed=true,rug=green": {
+      "model": "farmersassortment:block/cherry_stool_green_pushed"
+    },
+    "facing=north,pushed=true,rug=light_blue": {
+      "model": "farmersassortment:block/cherry_stool_light_blue_pushed"
+    },
+    "facing=north,pushed=true,rug=light_gray": {
+      "model": "farmersassortment:block/cherry_stool_light_gray_pushed"
+    },
+    "facing=north,pushed=true,rug=lime": {
+      "model": "farmersassortment:block/cherry_stool_lime_pushed"
+    },
+    "facing=north,pushed=true,rug=magenta": {
+      "model": "farmersassortment:block/cherry_stool_magenta_pushed"
+    },
+    "facing=north,pushed=true,rug=none": {
+      "model": "farmersassortment:block/cherry_stool_pushed"
+    },
+    "facing=north,pushed=true,rug=orange": {
+      "model": "farmersassortment:block/cherry_stool_orange_pushed"
+    },
+    "facing=north,pushed=true,rug=pink": {
+      "model": "farmersassortment:block/cherry_stool_pink_pushed"
+    },
+    "facing=north,pushed=true,rug=purple": {
+      "model": "farmersassortment:block/cherry_stool_purple_pushed"
+    },
+    "facing=north,pushed=true,rug=red": {
+      "model": "farmersassortment:block/cherry_stool_red_pushed"
+    },
+    "facing=north,pushed=true,rug=white": {
+      "model": "farmersassortment:block/cherry_stool_white_pushed"
+    },
+    "facing=north,pushed=true,rug=yellow": {
+      "model": "farmersassortment:block/cherry_stool_yellow_pushed"
+    },
+    "facing=south,pushed=false,rug=black": {
       "model": "farmersassortment:block/cherry_stool_black",
       "y": 180
     },
-    "facing=south,rug=blue": {
+    "facing=south,pushed=false,rug=blue": {
       "model": "farmersassortment:block/cherry_stool_blue",
       "y": 180
     },
-    "facing=south,rug=brown": {
+    "facing=south,pushed=false,rug=brown": {
       "model": "farmersassortment:block/cherry_stool_brown",
       "y": 180
     },
-    "facing=south,rug=canvas": {
+    "facing=south,pushed=false,rug=canvas": {
       "model": "farmersassortment:block/cherry_stool_canvas",
       "y": 180
     },
-    "facing=south,rug=cyan": {
+    "facing=south,pushed=false,rug=cyan": {
       "model": "farmersassortment:block/cherry_stool_cyan",
       "y": 180
     },
-    "facing=south,rug=gray": {
+    "facing=south,pushed=false,rug=gray": {
       "model": "farmersassortment:block/cherry_stool_gray",
       "y": 180
     },
-    "facing=south,rug=green": {
+    "facing=south,pushed=false,rug=green": {
       "model": "farmersassortment:block/cherry_stool_green",
       "y": 180
     },
-    "facing=south,rug=light_blue": {
+    "facing=south,pushed=false,rug=light_blue": {
       "model": "farmersassortment:block/cherry_stool_light_blue",
       "y": 180
     },
-    "facing=south,rug=light_gray": {
+    "facing=south,pushed=false,rug=light_gray": {
       "model": "farmersassortment:block/cherry_stool_light_gray",
       "y": 180
     },
-    "facing=south,rug=lime": {
+    "facing=south,pushed=false,rug=lime": {
       "model": "farmersassortment:block/cherry_stool_lime",
       "y": 180
     },
-    "facing=south,rug=magenta": {
+    "facing=south,pushed=false,rug=magenta": {
       "model": "farmersassortment:block/cherry_stool_magenta",
       "y": 180
     },
-    "facing=south,rug=none": {
+    "facing=south,pushed=false,rug=none": {
       "model": "farmersassortment:block/cherry_stool",
       "y": 180
     },
-    "facing=south,rug=orange": {
+    "facing=south,pushed=false,rug=orange": {
       "model": "farmersassortment:block/cherry_stool_orange",
       "y": 180
     },
-    "facing=south,rug=pink": {
+    "facing=south,pushed=false,rug=pink": {
       "model": "farmersassortment:block/cherry_stool_pink",
       "y": 180
     },
-    "facing=south,rug=purple": {
+    "facing=south,pushed=false,rug=purple": {
       "model": "farmersassortment:block/cherry_stool_purple",
       "y": 180
     },
-    "facing=south,rug=red": {
+    "facing=south,pushed=false,rug=red": {
       "model": "farmersassortment:block/cherry_stool_red",
       "y": 180
     },
-    "facing=south,rug=white": {
+    "facing=south,pushed=false,rug=white": {
       "model": "farmersassortment:block/cherry_stool_white",
       "y": 180
     },
-    "facing=south,rug=yellow": {
+    "facing=south,pushed=false,rug=yellow": {
       "model": "farmersassortment:block/cherry_stool_yellow",
       "y": 180
     },
-    "facing=west,rug=black": {
+    "facing=south,pushed=true,rug=black": {
+      "model": "farmersassortment:block/cherry_stool_black_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=blue": {
+      "model": "farmersassortment:block/cherry_stool_blue_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=brown": {
+      "model": "farmersassortment:block/cherry_stool_brown_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=canvas": {
+      "model": "farmersassortment:block/cherry_stool_canvas_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=cyan": {
+      "model": "farmersassortment:block/cherry_stool_cyan_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=gray": {
+      "model": "farmersassortment:block/cherry_stool_gray_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=green": {
+      "model": "farmersassortment:block/cherry_stool_green_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=light_blue": {
+      "model": "farmersassortment:block/cherry_stool_light_blue_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=light_gray": {
+      "model": "farmersassortment:block/cherry_stool_light_gray_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=lime": {
+      "model": "farmersassortment:block/cherry_stool_lime_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=magenta": {
+      "model": "farmersassortment:block/cherry_stool_magenta_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=none": {
+      "model": "farmersassortment:block/cherry_stool_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=orange": {
+      "model": "farmersassortment:block/cherry_stool_orange_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=pink": {
+      "model": "farmersassortment:block/cherry_stool_pink_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=purple": {
+      "model": "farmersassortment:block/cherry_stool_purple_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=red": {
+      "model": "farmersassortment:block/cherry_stool_red_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=white": {
+      "model": "farmersassortment:block/cherry_stool_white_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=yellow": {
+      "model": "farmersassortment:block/cherry_stool_yellow_pushed",
+      "y": 180
+    },
+    "facing=west,pushed=false,rug=black": {
       "model": "farmersassortment:block/cherry_stool_black",
       "y": 270
     },
-    "facing=west,rug=blue": {
+    "facing=west,pushed=false,rug=blue": {
       "model": "farmersassortment:block/cherry_stool_blue",
       "y": 270
     },
-    "facing=west,rug=brown": {
+    "facing=west,pushed=false,rug=brown": {
       "model": "farmersassortment:block/cherry_stool_brown",
       "y": 270
     },
-    "facing=west,rug=canvas": {
+    "facing=west,pushed=false,rug=canvas": {
       "model": "farmersassortment:block/cherry_stool_canvas",
       "y": 270
     },
-    "facing=west,rug=cyan": {
+    "facing=west,pushed=false,rug=cyan": {
       "model": "farmersassortment:block/cherry_stool_cyan",
       "y": 270
     },
-    "facing=west,rug=gray": {
+    "facing=west,pushed=false,rug=gray": {
       "model": "farmersassortment:block/cherry_stool_gray",
       "y": 270
     },
-    "facing=west,rug=green": {
+    "facing=west,pushed=false,rug=green": {
       "model": "farmersassortment:block/cherry_stool_green",
       "y": 270
     },
-    "facing=west,rug=light_blue": {
+    "facing=west,pushed=false,rug=light_blue": {
       "model": "farmersassortment:block/cherry_stool_light_blue",
       "y": 270
     },
-    "facing=west,rug=light_gray": {
+    "facing=west,pushed=false,rug=light_gray": {
       "model": "farmersassortment:block/cherry_stool_light_gray",
       "y": 270
     },
-    "facing=west,rug=lime": {
+    "facing=west,pushed=false,rug=lime": {
       "model": "farmersassortment:block/cherry_stool_lime",
       "y": 270
     },
-    "facing=west,rug=magenta": {
+    "facing=west,pushed=false,rug=magenta": {
       "model": "farmersassortment:block/cherry_stool_magenta",
       "y": 270
     },
-    "facing=west,rug=none": {
+    "facing=west,pushed=false,rug=none": {
       "model": "farmersassortment:block/cherry_stool",
       "y": 270
     },
-    "facing=west,rug=orange": {
+    "facing=west,pushed=false,rug=orange": {
       "model": "farmersassortment:block/cherry_stool_orange",
       "y": 270
     },
-    "facing=west,rug=pink": {
+    "facing=west,pushed=false,rug=pink": {
       "model": "farmersassortment:block/cherry_stool_pink",
       "y": 270
     },
-    "facing=west,rug=purple": {
+    "facing=west,pushed=false,rug=purple": {
       "model": "farmersassortment:block/cherry_stool_purple",
       "y": 270
     },
-    "facing=west,rug=red": {
+    "facing=west,pushed=false,rug=red": {
       "model": "farmersassortment:block/cherry_stool_red",
       "y": 270
     },
-    "facing=west,rug=white": {
+    "facing=west,pushed=false,rug=white": {
       "model": "farmersassortment:block/cherry_stool_white",
       "y": 270
     },
-    "facing=west,rug=yellow": {
+    "facing=west,pushed=false,rug=yellow": {
       "model": "farmersassortment:block/cherry_stool_yellow",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=black": {
+      "model": "farmersassortment:block/cherry_stool_black_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=blue": {
+      "model": "farmersassortment:block/cherry_stool_blue_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=brown": {
+      "model": "farmersassortment:block/cherry_stool_brown_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=canvas": {
+      "model": "farmersassortment:block/cherry_stool_canvas_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=cyan": {
+      "model": "farmersassortment:block/cherry_stool_cyan_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=gray": {
+      "model": "farmersassortment:block/cherry_stool_gray_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=green": {
+      "model": "farmersassortment:block/cherry_stool_green_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=light_blue": {
+      "model": "farmersassortment:block/cherry_stool_light_blue_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=light_gray": {
+      "model": "farmersassortment:block/cherry_stool_light_gray_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=lime": {
+      "model": "farmersassortment:block/cherry_stool_lime_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=magenta": {
+      "model": "farmersassortment:block/cherry_stool_magenta_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=none": {
+      "model": "farmersassortment:block/cherry_stool_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=orange": {
+      "model": "farmersassortment:block/cherry_stool_orange_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=pink": {
+      "model": "farmersassortment:block/cherry_stool_pink_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=purple": {
+      "model": "farmersassortment:block/cherry_stool_purple_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=red": {
+      "model": "farmersassortment:block/cherry_stool_red_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=white": {
+      "model": "farmersassortment:block/cherry_stool_white_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=yellow": {
+      "model": "farmersassortment:block/cherry_stool_yellow_pushed",
       "y": 270
     }
   }
