@@ -129,17 +129,6 @@ public final class FACrafting extends RecipeProvider {
         canvasRug(output, FARugs.BLACK_CANVAS_RUG, Items.BLACK_DYE);
 
         //Tables
-        table(output, FABlocks.OAK_TABLE, Blocks.OAK_SLAB);
-        table(output, FABlocks.SPRUCE_TABLE, Blocks.SPRUCE_SLAB);
-        table(output, FABlocks.BIRCH_TABLE, Blocks.BIRCH_SLAB);
-        table(output, FABlocks.JUNGLE_TABLE, Blocks.JUNGLE_SLAB);
-        table(output, FABlocks.ACACIA_TABLE, Blocks.ACACIA_SLAB);
-        table(output, FABlocks.DARK_OAK_TABLE, Blocks.DARK_OAK_SLAB);
-        table(output, FABlocks.MANGROVE_TABLE, Blocks.MANGROVE_SLAB);
-        table(output, FABlocks.CHERRY_TABLE, Blocks.CHERRY_SLAB);
-        table(output, FABlocks.BAMBOO_TABLE, Blocks.BAMBOO_SLAB);
-        table(output, FABlocks.CRIMSON_TABLE, Blocks.CRIMSON_SLAB);
-        table(output, FABlocks.WARPED_TABLE, Blocks.WARPED_SLAB);
 
         //Crabber's Delight Compat
         if (ModList.get().isLoaded("crabbersdelight")) {

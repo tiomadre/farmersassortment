@@ -49,7 +49,6 @@ public class FABlockStates extends BlockStateProvider {
         registerFloatingCounters();
         registerCanvasRugs();
         registerStools();
-        registerTables();
     }
 
 
@@ -839,108 +838,4 @@ private void registerStools() {
                                    ResourceLocation legTexture, ResourceLocation seatTexture) {
     }
 
-    private void registerTables() {
-        List<TableDefinition> tables = List.of(
-                new TableDefinition(FABlocks.OAK_TABLE, "oak"),
-                new TableDefinition(FABlocks.SPRUCE_TABLE, "spruce"),
-                new TableDefinition(FABlocks.BIRCH_TABLE, "birch"),
-                new TableDefinition(FABlocks.JUNGLE_TABLE, "jungle"),
-                new TableDefinition(FABlocks.ACACIA_TABLE, "acacia"),
-                new TableDefinition(FABlocks.DARK_OAK_TABLE, "dark_oak"),
-                new TableDefinition(FABlocks.MANGROVE_TABLE, "mangrove"),
-                new TableDefinition(FABlocks.CHERRY_TABLE, "cherry"),
-                new TableDefinition(FABlocks.BAMBOO_TABLE, "bamboo"),
-                new TableDefinition(FABlocks.CRIMSON_TABLE, "crimson"),
-                new TableDefinition(FABlocks.WARPED_TABLE, "warped")
-        );
-
-        tables.forEach(table -> registerTable(table.block(), table.woodType()));
-    }
-
-    private void registerTable(RegistryObject<? extends Block> block, String woodType) {
-        String name = Objects.requireNonNull(block.getId()).getPath();
-        ResourceLocation sideTexture = woodType.equals("bamboo")
-                ? new ResourceLocation("minecraft", "block/stripped_bamboo_block")
-                : new ResourceLocation("minecraft", "block/stripped_" + woodType + "_log");
-        ResourceLocation topTexture = woodType.equals("bamboo")
-                ? new ResourceLocation("minecraft", "block/stripped_bamboo_block_top")
-                : new ResourceLocation("minecraft", "block/stripped_" + woodType + "_log_top");
-
-        BlockModelBuilder model = models().getBuilder(name)
-                .texture("1", sideTexture)
-                .texture("2", topTexture)
-                .texture("particle", topTexture);
-
-        addTableElement(model, 1, 10, 18, 15, 14, 32, true, false);
-        addTableElement(model, 1, 10, 0, 15, 14, 14, true, true);
-        addTableLeg(model, 13, 0, 30, 15, 8, 32);
-        addTableLeg(model, 1, 0, 30, 3, 8, 32);
-        addTableLeg(model, 13, 0, 0, 15, 8, 2);
-        addTableLeg(model, 1, 0, 0, 3, 8, 2);
-        addTableLeg(model, 1, 8, 30, 3, 10, 32);
-        addTableLeg(model, 13, 8, 30, 15, 10, 32);
-        addTableLeg(model, 1, 8, 0, 3, 10, 2);
-        addTableLeg(model, 13, 8, 0, 15, 10, 2);
-
-        model.element()
-                .from(1.0F, 10.0F, 14.0F)
-                .to(15.0F, 14.0F, 18.0F)
-                .face(Direction.NORTH).uvs(0.0F, 0.0F, 14.0F, 4.0F).texture("#1").end()
-                .face(Direction.EAST).uvs(3.0F, 0.0F, 5.0F, 4.0F).texture("#2").end()
-                .face(Direction.SOUTH).uvs(0.0F, 0.0F, 14.0F, 4.0F).texture("#1").end()
-                .face(Direction.WEST).uvs(3.0F, 0.0F, 5.0F, 4.0F).texture("#2").end()
-                .face(Direction.UP).uvs(1.0F, 6.0F, 15.0F, 10.0F).texture("#1").end()
-                .face(Direction.DOWN).uvs(1.0F, 4.0F, 15.0F, 8.0F).texture("#1").end()
-                .end();
-
-        getVariantBuilder(block.get()).forAllStates(state -> ConfiguredModel.builder()
-                .modelFile(model)
-                .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360)
-                .build());
-    }
-
-    private void addTableElement(BlockModelBuilder model, float fromX, float fromY, float fromZ,
-                                 float toX, float toY, float toZ, boolean rotateTop, boolean invertTop) {
-        var element = model.element()
-                .from(fromX, fromY, fromZ)
-                .to(toX, toY, toZ)
-                .face(Direction.NORTH).uvs(0.0F, 1.0F, 4.0F, 15.0F).texture("#2").rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).end()
-                .face(Direction.EAST).uvs(15.0F, 0.0F, 1.0F, 4.0F).texture("#2").end()
-                .face(Direction.SOUTH).uvs(0.0F, 1.0F, 4.0F, 15.0F).texture("#2").rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).end()
-                .face(Direction.WEST).uvs(1.0F, 0.0F, 15.0F, 4.0F).texture("#2").end();
-
-        if (rotateTop) {
-            if (invertTop) {
-                element.face(Direction.UP).uvs(15.0F, 2.0F, 1.0F, 16.0F).texture("#1").end();
-            } else {
-                element.face(Direction.UP).uvs(1.0F, 2.0F, 15.0F, 16.0F).texture("#1").end();
-            }
-        } else {
-            element.face(Direction.UP).uvs(1.0F, 2.0F, 15.0F, 16.0F).texture("#1").end();
-        }
-
-        if (invertTop) {
-            element.face(Direction.DOWN).uvs(1.0F, 2.0F, 15.0F, 16.0F).texture("#1").end();
-        } else {
-            element.face(Direction.DOWN).uvs(1.0F, 0.0F, 15.0F, 14.0F).texture("#1").end();
-        }
-        element.end();
-    }
-
-    private void addTableLeg(BlockModelBuilder model, float fromX, float fromY, float fromZ,
-                             float toX, float toY, float toZ) {
-        model.element()
-                .from(fromX, fromY, fromZ)
-                .to(toX, toY, toZ)
-                .face(Direction.NORTH).uvs(1.0F, 2.0F, 3.0F, 10.0F).texture("#2").end()
-                .face(Direction.EAST).uvs(1.0F, 2.0F, 3.0F, 10.0F).texture("#2").end()
-                .face(Direction.SOUTH).uvs(3.0F, 2.0F, 1.0F, 10.0F).texture("#2").end()
-                .face(Direction.WEST).uvs(1.0F, 2.0F, 3.0F, 10.0F).texture("#2").end()
-                .face(Direction.UP).uvs(1.0F, 2.0F, 3.0F, 10.0F).texture("#2").end()
-                .face(Direction.DOWN).uvs(1.0F, 2.0F, 3.0F, 4.0F).texture("#2").end()
-                .end();
-    }
-
-    private record TableDefinition(RegistryObject<? extends Block> block, String woodType) {
-    }
 }

@@ -92,17 +92,6 @@ public final class FABlocks {
     public static final RegistryObject<StoolBlock> CRIMSON_STOOL = registerStool("crimson", Blocks.CRIMSON_PLANKS);
     public static final RegistryObject<StoolBlock> WARPED_STOOL = registerStool("warped", Blocks.WARPED_PLANKS);
 
-    public static final RegistryObject<TableBlock> OAK_TABLE = registerTable("oak", Blocks.OAK_PLANKS);
-    public static final RegistryObject<TableBlock> SPRUCE_TABLE = registerTable("spruce", Blocks.SPRUCE_PLANKS);
-    public static final RegistryObject<TableBlock> BIRCH_TABLE = registerTable("birch", Blocks.BIRCH_PLANKS);
-    public static final RegistryObject<TableBlock> JUNGLE_TABLE = registerTable("jungle", Blocks.JUNGLE_PLANKS);
-    public static final RegistryObject<TableBlock> ACACIA_TABLE = registerTable("acacia", Blocks.ACACIA_PLANKS);
-    public static final RegistryObject<TableBlock> DARK_OAK_TABLE = registerTable("dark_oak", Blocks.DARK_OAK_PLANKS);
-    public static final RegistryObject<TableBlock> MANGROVE_TABLE = registerTable("mangrove", Blocks.MANGROVE_PLANKS);
-    public static final RegistryObject<TableBlock> CHERRY_TABLE = registerTable("cherry", Blocks.CHERRY_PLANKS);
-    public static final RegistryObject<TableBlock> BAMBOO_TABLE = registerTable("bamboo", Blocks.BAMBOO_PLANKS);
-    public static final RegistryObject<TableBlock> CRIMSON_TABLE = registerTable("crimson", Blocks.CRIMSON_PLANKS);
-    public static final RegistryObject<TableBlock> WARPED_TABLE = registerTable("warped", Blocks.WARPED_PLANKS);
 
     public static Stream<RegistryObject<CuttingBoardBlock>> cuttingBoards() {
         return Stream.of(SPRUCE_CUTTING_BOARD, BIRCH_CUTTING_BOARD, JUNGLE_CUTTING_BOARD, ACACIA_CUTTING_BOARD, DARK_OAK_CUTTING_BOARD, MANGROVE_CUTTING_BOARD,
@@ -266,26 +255,6 @@ public final class FABlocks {
                 BAMBOO_STOOL,
                 CRIMSON_STOOL,
                 WARPED_STOOL
-        );
-    }
-    private static RegistryObject<TableBlock> registerTable(String woodType, Block baseBlock) {
-        return BLOCKS.createBlock(woodType + "_table",
-                () -> new TableBlock(BlockBehaviour.Properties.copy(baseBlock).noOcclusion()),
-                new Item.Properties());
-    }
-    public static Stream<RegistryObject<TableBlock>> tables() {
-        return Stream.of(
-                OAK_TABLE,
-                SPRUCE_TABLE,
-                BIRCH_TABLE,
-                JUNGLE_TABLE,
-                ACACIA_TABLE,
-                DARK_OAK_TABLE,
-                MANGROVE_TABLE,
-                CHERRY_TABLE,
-                BAMBOO_TABLE,
-                CRIMSON_TABLE,
-                WARPED_TABLE
         );
     }
 }
