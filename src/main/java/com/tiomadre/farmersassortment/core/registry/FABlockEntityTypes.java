@@ -2,6 +2,7 @@ package com.tiomadre.farmersassortment.core.registry;
 
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.block.entity.ButcherBlockCabinetBlockEntity;
+import com.tiomadre.farmersassortment.core.block.entity.RackBlockEntity;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -20,6 +21,12 @@ public final class FABlockEntityTypes {
                     butcherBlockCabinetBlocks()
             ).build(null));
 
+    public static final RegistryObject<BlockEntityType<RackBlockEntity>> RACK =
+            BLOCK_ENTITY_TYPES.register("rack", () -> BlockEntityType.Builder.of(
+                    RackBlockEntity::new,
+                    rackBlocks()
+            ).build(null));
+
     private FABlockEntityTypes() {
     }
 
@@ -29,6 +36,12 @@ public final class FABlockEntityTypes {
 
     private static Block[] butcherBlockCabinetBlocks() {
         return FABlocks.allButcherBlockCabinets()
+                .map(RegistryObject::get)
+                .toArray(Block[]::new);
+    }
+
+    private static Block[] rackBlocks() {
+        return FABlocks.racks()
                 .map(RegistryObject::get)
                 .toArray(Block[]::new);
     }

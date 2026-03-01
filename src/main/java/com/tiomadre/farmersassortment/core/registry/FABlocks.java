@@ -92,7 +92,40 @@ public final class FABlocks {
     public static final RegistryObject<StoolBlock> CRIMSON_STOOL = registerStool("crimson", Blocks.CRIMSON_PLANKS);
     public static final RegistryObject<StoolBlock> WARPED_STOOL = registerStool("warped", Blocks.WARPED_PLANKS);
 
+    public static final RegistryObject<RackBlock> OAK_RACK = registerRack("oak", Blocks.OAK_PLANKS);
+    public static final RegistryObject<RackBlock> SPRUCE_RACK = registerRack("spruce", Blocks.SPRUCE_PLANKS);
+    public static final RegistryObject<RackBlock> BIRCH_RACK = registerRack("birch", Blocks.BIRCH_PLANKS);
+    public static final RegistryObject<RackBlock> JUNGLE_RACK = registerRack("jungle", Blocks.JUNGLE_PLANKS);
+    public static final RegistryObject<RackBlock> ACACIA_RACK = registerRack("acacia", Blocks.ACACIA_PLANKS);
+    public static final RegistryObject<RackBlock> DARK_OAK_RACK = registerRack("dark_oak", Blocks.DARK_OAK_PLANKS);
+    public static final RegistryObject<RackBlock> MANGROVE_RACK = registerRack("mangrove", Blocks.MANGROVE_PLANKS);
+    public static final RegistryObject<RackBlock> CHERRY_RACK = registerRack("cherry", Blocks.CHERRY_PLANKS);
+    public static final RegistryObject<RackBlock> BAMBOO_RACK = registerRack("bamboo", Blocks.BAMBOO_PLANKS);
+    public static final RegistryObject<RackBlock> CRIMSON_RACK = registerRack("crimson", Blocks.CRIMSON_PLANKS);
+    public static final RegistryObject<RackBlock> WARPED_RACK = registerRack("warped", Blocks.WARPED_PLANKS);
 
+
+    public static Stream<RegistryObject<RackBlock>> racks() {
+        return Stream.of(
+                OAK_RACK,
+                SPRUCE_RACK,
+                BIRCH_RACK,
+                JUNGLE_RACK,
+                ACACIA_RACK,
+                DARK_OAK_RACK,
+                MANGROVE_RACK,
+                CHERRY_RACK,
+                BAMBOO_RACK,
+                CRIMSON_RACK,
+                WARPED_RACK
+        );
+    }
+
+    private static RegistryObject<RackBlock> registerRack(String woodType, Block baseBlock) {
+        return BLOCKS.createBlock(woodType + "_rack",
+                () -> new RackBlock(BlockBehaviour.Properties.copy(baseBlock).noOcclusion()),
+                new Item.Properties());
+    }
     public static Stream<RegistryObject<CuttingBoardBlock>> cuttingBoards() {
         return Stream.of(SPRUCE_CUTTING_BOARD, BIRCH_CUTTING_BOARD, JUNGLE_CUTTING_BOARD, ACACIA_CUTTING_BOARD, DARK_OAK_CUTTING_BOARD, MANGROVE_CUTTING_BOARD,
                 CHERRY_CUTTING_BOARD, BAMBOO_CUTTING_BOARD, CRIMSON_CUTTING_BOARD, WARPED_CUTTING_BOARD);

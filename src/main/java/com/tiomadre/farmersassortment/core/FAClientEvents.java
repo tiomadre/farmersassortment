@@ -1,10 +1,14 @@
 package com.tiomadre.farmersassortment.core;
 
 import com.tiomadre.farmersassortment.client.renderer.ButcherBlockCabinetRenderer;
+import com.tiomadre.farmersassortment.client.renderer.RackRenderer;
+import com.tiomadre.farmersassortment.client.screen.RackScreen;
 import com.tiomadre.farmersassortment.core.item.StoolItem;
 import com.tiomadre.farmersassortment.core.item.TerracottaCookingPotItem;
 import com.tiomadre.farmersassortment.core.registry.FABlockEntityTypes;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
+import com.tiomadre.farmersassortment.core.registry.FAMenuTypes;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -22,6 +26,7 @@ public final class FAClientEvents {
     @SubscribeEvent
     public static void registerBlockEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(FABlockEntityTypes.BUTCHER_BLOCK_CABINET.get(), ButcherBlockCabinetRenderer::new);
+        event.registerBlockEntityRenderer(FABlockEntityTypes.RACK.get(), RackRenderer::new);
     }
 
     @SubscribeEvent
@@ -34,6 +39,8 @@ public final class FAClientEvents {
             FABlocks.stools().forEach(stool -> ItemProperties.register(Item.byBlock(stool.get()),
                     new ResourceLocation(FarmersAssortment.MOD_ID, "rug"),
                     (stack, level, entity, seed) -> StoolItem.getRug(stack).ordinal()));
+
+            MenuScreens.register(FAMenuTypes.RACK.get(), RackScreen::new);
         });
     }
 }

@@ -43,6 +43,7 @@ public class FarmersAssortment {
         REGISTRY_HELPER.register(modEventBus);
         FABlockEntityTypes.register(modEventBus);
         FATab.register(modEventBus);
+        FAMenuTypes.register(modEventBus);
         FACrafting.register(modEventBus);
         modEventBus.addListener(FABlocks::onCommonSetup);
         if (crabbersCompatEnabled) {

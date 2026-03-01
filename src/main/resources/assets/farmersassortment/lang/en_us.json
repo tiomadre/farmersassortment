@@ -84,6 +84,18 @@
   "block.farmersassortment.crimson_table": "Crimson Table",
   "block.farmersassortment.warped_table": "Warped Table",
 
+  "block.farmersassortment.oak_rack": "Oak Rack",
+  "block.farmersassortment.spruce_rack": "Spruce Rack",
+  "block.farmersassortment.birch_rack": "Birch Rack",
+  "block.farmersassortment.jungle_rack": "Jungle Rack",
+  "block.farmersassortment.acacia_rack": "Acacia Rack",
+  "block.farmersassortment.dark_oak_rack": "Dark Oak Rack",
+  "block.farmersassortment.mangrove_rack": "Mangrove Rack",
+  "block.farmersassortment.cherry_rack": "Cherry Rack",
+  "block.farmersassortment.bamboo_rack": "Bamboo Rack",
+  "block.farmersassortment.crimson_rack": "Crimson Rack",
+  "block.farmersassortment.warped_rack": "Warped Rack",
+  "container.farmersassortment.rack": "Rack",
 
   "block.farmersassortment.copper_cooking_pot": "Copper Cooking Pot",
   "item.farmersassortment.copper_cooking_pot": "Copper Cooking Pot",
