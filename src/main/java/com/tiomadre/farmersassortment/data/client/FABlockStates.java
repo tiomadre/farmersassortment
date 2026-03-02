@@ -121,14 +121,14 @@ public class FABlockStates extends BlockStateProvider {
 
         if (isBamboo) {
             element.face(Direction.NORTH).uvs(0.0F, 8.0F, 16.0F, 12.0F).texture("#5").end()
-                    .face(Direction.EAST).uvs(0.0F, 4.0F, 4.0F, 16.0F).rotation(FaceRotation.CLOCKWISE_90).texture("#4").end()
+                    .face(Direction.EAST).uvs(0.0F, 4.0F, 4.0F, 16.0F).rotation(90).texture("#4").end()
                     .face(Direction.SOUTH).uvs(16.0F, 8.0F, 0.0F, 12.0F).texture("#5").end()
                     .face(Direction.WEST).uvs(0.0F, 4.0F, 4.0F, 16.0F).rotation(90).texture("#4").end()
                     .face(Direction.UP).uvs(16.0F, 0.0F, 0.0F, 12.0F).texture("#4").end()
                     .face(Direction.DOWN).uvs(0.0F, 4.0F, 16.0F, 16.0F).texture("#4").end();
         } else {
             element.face(Direction.NORTH).uvs(0.0F, 6.0F, 16.0F, 10.0F).texture("#5").end()
-                    .face(Direction.EAST).uvs(2.0F, 6.0F, 14.0F, 10.0F).rotation(FaceRotation.CLOCKWISE_180).texture("#5").end()
+                    .face(Direction.EAST).uvs(2.0F, 6.0F, 14.0F, 10.0F).rotation(180).texture("#5").end()
                     .face(Direction.SOUTH).uvs(16.0F, 6.0F, 0.0F, 10.0F).texture("#5").end()
                     .face(Direction.WEST).uvs(2.0F, 6.0F, 14.0F, 10.0F).rotation(180).texture("#5").end()
                     .face(Direction.UP).uvs(16.0F, 2.0F, 0.0F, 14.0F).texture("#4").end()
