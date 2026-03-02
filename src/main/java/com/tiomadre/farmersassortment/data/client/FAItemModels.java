@@ -39,10 +39,14 @@ public class FAItemModels extends ItemModelProvider {
         registerFloatingCounters();
         registerCanvasRugs();
         registerStools();
-
         registerCanvasRugs();
         registerStools();
+        registerRacks();
     }
+    private void registerRacks() {
+        FABlocks.racks().forEach(this::block);
+    }
+
     private void registerFloatingCounters() {
         FABlocks.floatingCounters().forEach(this::floatingCounterItem);
     }

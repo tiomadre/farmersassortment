@@ -13,6 +13,7 @@ import com.tiomadre.farmersassortment.core.registry.compat.FAxForagersBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.server.packs.PackType;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -49,6 +50,7 @@ public class FABlockStates extends BlockStateProvider {
         registerFloatingCounters();
         registerCanvasRugs();
         registerStools();
+        registerRacks();
     }
 
 
@@ -77,6 +79,84 @@ public class FABlockStates extends BlockStateProvider {
                 cabinet.topTexture()
         ));
     }
+    private void registerRacks() {
+        List<RackDefinition> racks = List.of(
+                new RackDefinition(FABlocks.OAK_RACK, "oak", false),
+                new RackDefinition(FABlocks.SPRUCE_RACK, "spruce", false),
+                new RackDefinition(FABlocks.BIRCH_RACK, "birch", false),
+                new RackDefinition(FABlocks.JUNGLE_RACK, "jungle", false),
+                new RackDefinition(FABlocks.ACACIA_RACK, "acacia", false),
+                new RackDefinition(FABlocks.DARK_OAK_RACK, "dark_oak", false),
+                new RackDefinition(FABlocks.MANGROVE_RACK, "mangrove", false),
+                new RackDefinition(FABlocks.CHERRY_RACK, "cherry", false),
+                new RackDefinition(FABlocks.BAMBOO_RACK, "bamboo", true),
+                new RackDefinition(FABlocks.CRIMSON_RACK, "crimson", false),
+                new RackDefinition(FABlocks.WARPED_RACK, "warped", false)
+        );
+
+        racks.forEach(rack -> registerRack(rack.block(), rack.woodType(), rack.bamboo()));
+    }
+
+    private void registerRack(RegistryObject<? extends Block> block, String woodType, boolean isBamboo) {
+        String name = Objects.requireNonNull(block.getId()).getPath();
+        ResourceLocation sideTexture = isBamboo
+                ? new ResourceLocation("minecraft", "block/stripped_bamboo_block")
+                : new ResourceLocation("minecraft", "block/stripped_" + woodType + "_log");
+        ResourceLocation topTexture = isBamboo
+                ? new ResourceLocation("minecraft", "block/bamboo_block_top")
+                : new ResourceLocation("minecraft", "block/stripped_" + woodType + "_log_top");
+        ResourceLocation particleTexture = isBamboo
+                ? new ResourceLocation("minecraft", "block/stripped_bamboo_block_top")
+                : topTexture;
+
+        BlockModelBuilder model = models().getBuilder(name)
+                .texture("4", sideTexture)
+                .texture("5", topTexture)
+                .texture("particle", particleTexture);
+
+        BlockModelBuilder.ElementBuilder element = model.element()
+                .from(0.0F, 8.0F, 5.0F)
+                .to(16.0F, 12.0F, 17.0F)
+                .rotation().angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 8.0F, 5.0F).end();
+
+        if (isBamboo) {
+            element.face(Direction.NORTH).uvs(0.0F, 8.0F, 16.0F, 12.0F).texture("#5").end()
+                    .face(Direction.EAST).uvs(0.0F, 4.0F, 4.0F, 16.0F).rotation(FaceRotation.CLOCKWISE_90).texture("#4").end()
+                    .face(Direction.SOUTH).uvs(16.0F, 8.0F, 0.0F, 12.0F).texture("#5").end()
+                    .face(Direction.WEST).uvs(0.0F, 4.0F, 4.0F, 16.0F).rotation(90).texture("#4").end()
+                    .face(Direction.UP).uvs(16.0F, 0.0F, 0.0F, 12.0F).texture("#4").end()
+                    .face(Direction.DOWN).uvs(0.0F, 4.0F, 16.0F, 16.0F).texture("#4").end();
+        } else {
+            element.face(Direction.NORTH).uvs(0.0F, 6.0F, 16.0F, 10.0F).texture("#5").end()
+                    .face(Direction.EAST).uvs(2.0F, 6.0F, 14.0F, 10.0F).rotation(FaceRotation.CLOCKWISE_180).texture("#5").end()
+                    .face(Direction.SOUTH).uvs(16.0F, 6.0F, 0.0F, 10.0F).texture("#5").end()
+                    .face(Direction.WEST).uvs(2.0F, 6.0F, 14.0F, 10.0F).rotation(180).texture("#5").end()
+                    .face(Direction.UP).uvs(16.0F, 2.0F, 0.0F, 14.0F).texture("#4").end()
+                    .face(Direction.DOWN).uvs(0.0F, 2.0F, 16.0F, 14.0F).texture("#4").end();
+        }
+
+        element.end();
+
+        model.transforms()
+                .transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND).rotation(75.0F, 45.0F, 0.0F).translation(0.0F, 2.5F, 0.0F).scale(0.375F, 0.375F, 0.375F).end()
+                .transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND).rotation(75.0F, 45.0F, 0.0F).translation(0.0F, 2.5F, 0.0F).scale(0.375F, 0.375F, 0.375F).end()
+                .transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND).rotation(0.0F, 45.0F, 0.0F).scale(0.4F, 0.4F, 0.4F).end()
+                .transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND).rotation(0.0F, -135.0F, 0.0F).scale(0.4F, 0.4F, 0.4F).end()
+                .transform(ItemDisplayContext.GROUND).translation(0.0F, 3.0F, 0.0F).scale(0.25F, 0.25F, 0.25F).end()
+                .transform(ItemDisplayContext.GUI).rotation(30.0F, -135.0F, 0.0F).translation(1.25F, -4.0F, 0.0F).scale(0.625F, 0.625F, 0.625F).end()
+                .transform(ItemDisplayContext.FIXED).scale(0.5F, 0.5F, 0.5F).end()
+                .end();
+
+        getVariantBuilder(block.get()).forAllStates(state -> ConfiguredModel.builder()
+                .modelFile(model)
+                .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360)
+                .build());
+    }
+
+    private record RackDefinition(RegistryObject<? extends Block> block, String woodType, boolean bamboo) {
+    }
+
+
 
     private void registerFloatingCounters() {
         List<FloatingCounterDefinition> floatingCounters = List.of(
@@ -170,6 +250,7 @@ public class FABlockStates extends BlockStateProvider {
                 ? primary
                 : fallback;
     }
+
     private void registerDiffusers() {
         FAxForagersBlocks.diffusers().forEach(this::registerDiffuser);
     }
