@@ -21,9 +21,9 @@ import org.jetbrains.annotations.NotNull;
 public class RackRenderer implements BlockEntityRenderer<RackBlockEntity> {
     private static final float[][] SLOT_POSITIONS = new float[][]{
             {0.3125F, 0.4375F},
-            {0.6875F, 0.4375F},
+            {0.5625F, 0.4375F},
             {0.3125F, 0.8125F},
-            {0.6875F, 0.8125F}
+            {0.5625F, 0.8125F}
     };
 
     public RackRenderer(BlockEntityRendererProvider.Context context) {
@@ -56,12 +56,12 @@ public class RackRenderer implements BlockEntityRenderer<RackBlockEntity> {
 
             for (int i = 0; i < renderCount; i++) {
                 poseStack.pushPose();
-                poseStack.translate(0.5D, 0.78D + (isBlock ? 0.0D : i * 0.03D), 0.5D);
+                poseStack.translate(0.5D, 0.86D + (isBlock ? 0.0D : i * 0.03D), 0.5D);
                 poseStack.mulPose(Axis.YP.rotationDegrees(-facing.toYRot()));
                 poseStack.translate(slotPos[0] - 0.5D, 0.0D, slotPos[1] - 0.5D);
 
                 if (isBlock) {
-                    poseStack.scale(0.27F, 0.27F, 0.27F);
+                    poseStack.scale(0.32F, 0.32F, 0.32F);
                 } else {
                     poseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
                     poseStack.scale(0.25F, 0.25F, 0.25F);

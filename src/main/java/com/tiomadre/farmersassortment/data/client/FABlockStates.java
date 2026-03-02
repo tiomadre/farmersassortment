@@ -113,7 +113,7 @@ public class FABlockStates extends BlockStateProvider {
 
         BlockModelBuilder.ElementBuilder element = model.element()
                 .from(0.0F, 8.0F, 5.0F)
-                .to(16.0F, 12.0F, 17.0F)
+                .to(16.0F, 12.0F, 16.0F)
                 .rotation().angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 8.0F, 5.0F).end();
 
         if (isBamboo) {
