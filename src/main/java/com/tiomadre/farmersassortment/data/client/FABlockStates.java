@@ -99,12 +99,9 @@ public class FABlockStates extends BlockStateProvider {
 
     private void registerRack(RegistryObject<? extends Block> block, String woodType, boolean isBamboo) {
         String name = Objects.requireNonNull(block.getId()).getPath();
-        ResourceLocation sideTexture = isBamboo
-                ? new ResourceLocation("minecraft", "block/stripped_bamboo_block")
-                : new ResourceLocation("minecraft", "block/stripped_" + woodType + "_log");
-        ResourceLocation topTexture = isBamboo
-                ? new ResourceLocation("minecraft", "block/bamboo_block_top")
-                : new ResourceLocation("minecraft", "block/stripped_" + woodType + "_log_top");
+        ResourceLocation sideTexture = rackSideTexture(woodType, isBamboo);
+        ResourceLocation topTexture = rackTopTexture(woodType, isBamboo);
+
         ResourceLocation particleTexture = isBamboo
                 ? new ResourceLocation("minecraft", "block/stripped_bamboo_block_top")
                 : topTexture;
@@ -151,6 +148,29 @@ public class FABlockStates extends BlockStateProvider {
                 .modelFile(model)
                 .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360)
                 .build());
+    }
+    private ResourceLocation rackSideTexture(String woodType, boolean isBamboo) {
+        if (isBamboo) {
+            return new ResourceLocation("minecraft", "block/stripped_bamboo_block");
+        }
+
+        if ("crimson".equals(woodType) || "warped".equals(woodType)) {
+            return new ResourceLocation("minecraft", "block/stripped_" + woodType + "_stem");
+        }
+
+        return new ResourceLocation("minecraft", "block/stripped_" + woodType + "_log");
+    }
+
+    private ResourceLocation rackTopTexture(String woodType, boolean isBamboo) {
+        if (isBamboo) {
+            return new ResourceLocation("minecraft", "block/bamboo_block_top");
+        }
+
+        if ("crimson".equals(woodType) || "warped".equals(woodType)) {
+            return new ResourceLocation("minecraft", "block/stripped_" + woodType + "_stem_top");
+        }
+
+        return new ResourceLocation("minecraft", "block/stripped_" + woodType + "_log_top");
     }
 
     private record RackDefinition(RegistryObject<? extends Block> block, String woodType, boolean bamboo) {

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "farmersassortment:block/crimson_rack",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "farmersassortment:block/crimson_rack"
+    },
+    "facing=south": {
+      "model": "farmersassortment:block/crimson_rack",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "farmersassortment:block/crimson_rack",
+      "y": 270
+    }
+  }
+}

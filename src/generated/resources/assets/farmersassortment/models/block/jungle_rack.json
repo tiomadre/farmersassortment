@@ -1,0 +1,184 @@
+{
+  "display": {
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        -135,
+        0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        45,
+        0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    "fixed": {
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "ground": {
+      "scale": [
+        0.25,
+        0.25,
+        0.25
+      ],
+      "translation": [
+        0,
+        3,
+        0
+      ]
+    },
+    "gui": {
+      "rotation": [
+        30,
+        -135,
+        0
+      ],
+      "scale": [
+        0.625,
+        0.625,
+        0.625
+      ],
+      "translation": [
+        1.25,
+        -4,
+        0
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        75,
+        45,
+        0
+      ],
+      "scale": [
+        0.375,
+        0.375,
+        0.375
+      ],
+      "translation": [
+        0,
+        2.5,
+        0
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        75,
+        45,
+        0
+      ],
+      "scale": [
+        0.375,
+        0.375,
+        0.375
+      ],
+      "translation": [
+        0,
+        2.5,
+        0
+      ]
+    }
+  },
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "texture": "#4",
+          "uv": [
+            0.0,
+            2.0,
+            16.0,
+            14.0
+          ]
+        },
+        "east": {
+          "rotation": 180,
+          "texture": "#5",
+          "uv": [
+            2.0,
+            6.0,
+            14.0,
+            10.0
+          ]
+        },
+        "north": {
+          "texture": "#5",
+          "uv": [
+            0.0,
+            6.0,
+            16.0,
+            10.0
+          ]
+        },
+        "south": {
+          "texture": "#5",
+          "uv": [
+            16.0,
+            6.0,
+            0.0,
+            10.0
+          ]
+        },
+        "up": {
+          "texture": "#4",
+          "uv": [
+            16.0,
+            2.0,
+            0.0,
+            14.0
+          ]
+        },
+        "west": {
+          "rotation": 180,
+          "texture": "#5",
+          "uv": [
+            2.0,
+            6.0,
+            14.0,
+            10.0
+          ]
+        }
+      },
+      "from": [
+        0,
+        8,
+        5
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          8,
+          5
+        ]
+      },
+      "to": [
+        16,
+        12,
+        17
+      ]
+    }
+  ],
+  "textures": {
+    "4": "minecraft:block/stripped_jungle_log",
+    "5": "minecraft:block/stripped_jungle_log_top",
+    "particle": "minecraft:block/stripped_jungle_log_top"
+  }
+}
