@@ -934,13 +934,15 @@ private void registerStools() {
             return builder;
         }
 
-        if (bamboo && rugType == StoolRugType.CANVAS) {
+        if (bamboo && rugType.hasRug()) {
+            ResourceLocation rugTexture = fallbackTexture(new ResourceLocation(Objects.requireNonNull(rugType.texturePath())), modLoc("block/white_canvas_rug"));
+            ResourceLocation rugExtrudesTexture = fallbackTexture(new ResourceLocation(rugType.extrudeTexturePath()), modLoc("block/white_canvas_rug_extrudes"));
             BlockModelBuilder builder = models().getBuilder(name)
                     .renderType("minecraft:cutout")
                     .texture("6", legTexture)
                     .texture("7", topTexture)
-                    .texture("8", modLoc("block/white_canvas_rug"))
-                    .texture("9", modLoc("block/white_canvas_rug_extrudes"))
+                    .texture("8", rugTexture)
+                    .texture("9", rugExtrudesTexture)
                     .texture("particle", legTexture);
             addBambooCanvasCoveredTableElements(builder);
             addBambooCanvasTableTransforms(builder);
