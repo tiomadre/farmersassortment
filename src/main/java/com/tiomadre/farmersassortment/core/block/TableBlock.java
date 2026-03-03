@@ -21,6 +21,7 @@ import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.phys.BlockHitResult;
@@ -35,6 +36,10 @@ import java.util.stream.Collectors;
 
 public class TableBlock extends HorizontalDirectionalBlock {
     public static final EnumProperty<StoolRugType> RUG = EnumProperty.create("rug", StoolRugType.class);
+    public static final BooleanProperty NORTH = BooleanProperty.create("north");
+    public static final BooleanProperty EAST = BooleanProperty.create("east");
+    public static final BooleanProperty SOUTH = BooleanProperty.create("south");
+    public static final BooleanProperty WEST = BooleanProperty.create("west");
     private static final VoxelShape BASE_SHAPE = Shapes.or(
             Block.box(1.0D, 0.0D, 1.0D, 3.0D, 10.0D, 3.0D),
             Block.box(1.0D, 0.0D, 13.0D, 3.0D, 10.0D, 15.0D),
@@ -45,17 +50,44 @@ public class TableBlock extends HorizontalDirectionalBlock {
 
     public TableBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(RUG, StoolRugType.NONE));
+        this.registerDefaultState(this.stateDefinition.any()
+                .setValue(FACING, Direction.NORTH)
+                .setValue(RUG, StoolRugType.NONE)
+                .setValue(NORTH, false)
+                .setValue(EAST, false)
+                .setValue(SOUTH, false)
+                .setValue(WEST, false));
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING, RUG);
+        builder.add(FACING, RUG, NORTH, EAST, SOUTH, WEST);
     }
 
     @Override
     public @NotNull BlockState getStateForPlacement(BlockPlaceContext context) {
-        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
+        BlockPos pos = context.getClickedPos();
+        BlockGetter level = context.getLevel();
+
+        return this.defaultBlockState()
+                .setValue(FACING, context.getHorizontalDirection().getOpposite())
+                .setValue(NORTH, canConnect(level.getBlockState(pos.north())))
+                .setValue(EAST, canConnect(level.getBlockState(pos.east())))
+                .setValue(SOUTH, canConnect(level.getBlockState(pos.south())))
+                .setValue(WEST, canConnect(level.getBlockState(pos.west())));
+    }
+
+    @Override
+    public @NotNull BlockState updateShape(@NotNull BlockState state, @NotNull Direction direction, @NotNull BlockState neighborState,
+                                           @NotNull net.minecraft.world.level.LevelAccessor level, @NotNull BlockPos currentPos,
+                                           @NotNull BlockPos neighborPos) {
+        return switch (direction) {
+            case NORTH -> state.setValue(NORTH, canConnect(neighborState));
+            case EAST -> state.setValue(EAST, canConnect(neighborState));
+            case SOUTH -> state.setValue(SOUTH, canConnect(neighborState));
+            case WEST -> state.setValue(WEST, canConnect(neighborState));
+            default -> super.updateShape(state, direction, neighborState, level, currentPos, neighborPos);
+        };
     }
 
     @Override
@@ -128,7 +160,9 @@ public class TableBlock extends HorizontalDirectionalBlock {
             serverLevel.addFreshEntity(drop);
         }
     }
-
+    private boolean canConnect(BlockState neighborState) {
+        return neighborState.is(this);
+    }
     @Nullable
     private StoolRugType rugTypeFromItem(Item item) {
         if (!(item instanceof BlockItem blockItem)) {
@@ -146,4 +180,5 @@ public class TableBlock extends HorizontalDirectionalBlock {
         }
         return null;
     }
+
 }

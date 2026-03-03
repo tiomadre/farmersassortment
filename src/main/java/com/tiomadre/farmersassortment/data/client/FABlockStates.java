@@ -900,36 +900,44 @@ private void registerStools() {
         tables.forEach(this::registerTable);
     }
 
-    private void registerTable(TableDefinition table) {
+       private void registerTable(TableDefinition table) {
         String name = Objects.requireNonNull(table.block().getId()).getPath();
-        ModelFile baseModel = tableModel(name, table.woodType(), table.legTexture(), table.topTexture(), StoolRugType.NONE);
-        Map<StoolRugType, ModelFile> rugModels = Arrays.stream(StoolRugType.values())
-                .filter(StoolRugType::hasRug)
-                .collect(LinkedHashMap::new, (models, rugType) ->
-                                models.put(rugType, tableModel(name + "_" + rugType.getSerializedName(), table.woodType(), table.legTexture(), table.topTexture(), rugType)),
-                        Map::putAll);
+        Map<String, ModelFile> modelsByState = new HashMap<>();
 
         getVariantBuilder(table.block().get()).forAllStates(state -> {
             Direction facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
             StoolRugType rugType = state.getValue(TableBlock.RUG);
-            ModelFile selectedModel = rugType.hasRug() ? rugModels.getOrDefault(rugType, baseModel) : baseModel;
+            boolean north = state.getValue(TableBlock.NORTH);
+            boolean east = state.getValue(TableBlock.EAST);
+            boolean south = state.getValue(TableBlock.SOUTH);
+            boolean west = state.getValue(TableBlock.WEST);
+
+            String key = rugType.getSerializedName() + "_" + (north ? "n" : "-") + (east ? "e" : "-") + (south ? "s" : "-") + (west ? "w" : "-");
+            boolean noConnections = !north && !east && !south && !west;
+            String modelName = noConnections
+                    ? (rugType.hasRug() ? name + "_" + rugType.getSerializedName() : name)
+                    : name + "_" + key;
+            ModelFile selectedModel = modelsByState.computeIfAbsent(key, unused ->
+                    tableModel(modelName, table.woodType(), table.legTexture(), table.topTexture(), rugType, north, east, south, west));
+
             return ConfiguredModel.builder()
                     .modelFile(selectedModel)
                     .rotationY(((int) facing.toYRot() + 180) % 360)
+                    .uvLock(true)
                     .build();
         });
     }
 
-    private BlockModelBuilder tableModel(String name, String woodType, ResourceLocation legTexture, ResourceLocation topTexture, StoolRugType rugType) {
+    private BlockModelBuilder tableModel(String name, String woodType, ResourceLocation legTexture, ResourceLocation topTexture,
+                                         StoolRugType rugType, boolean north, boolean east, boolean south, boolean west) {
         boolean bamboo = "bamboo".equals(woodType);
-
 
         if (bamboo && rugType == StoolRugType.NONE) {
             BlockModelBuilder builder = models().getBuilder(name)
                     .texture("6", legTexture)
                     .texture("7", topTexture)
                     .texture("particle", legTexture);
-            addBambooBaseTableElements(builder);
+            addBambooBaseTableElements(builder, north, east, south, west);
             addBambooTableTransforms(builder);
             return builder;
         }
@@ -944,7 +952,7 @@ private void registerStools() {
                     .texture("8", rugTexture)
                     .texture("9", rugExtrudesTexture)
                     .texture("particle", legTexture);
-            addBambooCanvasCoveredTableElements(builder);
+            addBambooCanvasCoveredTableElements(builder, north, east, south, west);
             addBambooCanvasTableTransforms(builder);
             return builder;
         }
@@ -958,9 +966,9 @@ private void registerStools() {
             builder.renderType("minecraft:cutout");
             builder.texture("4", fallbackTexture(new ResourceLocation(Objects.requireNonNull(rugType.texturePath())), modLoc("block/white_canvas_rug")))
                     .texture("5", fallbackTexture(new ResourceLocation(rugType.extrudeTexturePath()), modLoc("block/white_canvas_rug_extrudes")));
-            addCoveredTableElements(builder, bamboo);
+            addCoveredTableElements(builder, bamboo, north, east, south, west);
         } else {
-            addBaseTableElements(builder, bamboo);
+            addBaseTableElements(builder, bamboo, north, east, south, west);
         }
 
         builder.transforms()
@@ -972,11 +980,12 @@ private void registerStools() {
 
         return builder;
     }
-    private void addBambooBaseTableElements(BlockModelBuilder b) {
-        bambooTableLeg(b, 1, 0, 1, 3, 10, 3, 1, 0, 1, "#6", "#7");
-        bambooTableLeg(b, 13, 0, 1, 15, 10, 3, 13, 0, 1, "#6", "#7");
-        bambooTableLeg(b, 1, 0, 13, 3, 10, 15, 1, 0, 13, "#6", "#7");
-        bambooTableLeg(b, 13, 0, 13, 15, 10, 15, 13, 0, 13, "#6", "#7");
+
+    private void addBambooBaseTableElements(BlockModelBuilder b, boolean north, boolean east, boolean south, boolean west) {
+        if (!north && !west) bambooTableLeg(b, 1, 0, 1, 3, 10, 3, 1, 0, 1, "#6", "#7");
+        if (!north && !east) bambooTableLeg(b, 13, 0, 1, 15, 10, 3, 13, 0, 1, "#6", "#7");
+        if (!south && !west) bambooTableLeg(b, 1, 0, 13, 3, 10, 15, 1, 0, 13, "#6", "#7");
+        if (!south && !east) bambooTableLeg(b, 13, 0, 13, 15, 10, 15, 13, 0, 13, "#6", "#7");
 
         b.element().from(0, 10, 0).to(16, 14, 16)
                 .rotation().angle(0).axis(Direction.Axis.Y).origin(0, 10, 0).end()
@@ -989,10 +998,10 @@ private void registerStools() {
                 .end();
     }
 
-    private void addBambooCanvasCoveredTableElements(BlockModelBuilder b) {
-        bambooTableLeg(b, 1, 0, 1, 3, 10, 3, 1, 0, 1, "#6", "#7");
-        bambooTableLeg(b, 13, 0, 1, 15, 10, 3, 13, 0, 1, "#6", "#7");
-        bambooTableLeg(b, 1, 0, 13, 3, 10, 15, 1, 0, 13, "#6", "#7");
+    private void addBambooCanvasCoveredTableElements(BlockModelBuilder b, boolean north, boolean east, boolean south, boolean west) {
+        if (!north && !west) bambooTableLeg(b, 1, 0, 1, 3, 10, 3, 1, 0, 1, "#6", "#7");
+        if (!north && !east) bambooTableLeg(b, 13, 0, 1, 15, 10, 3, 13, 0, 1, "#6", "#7");
+        if (!south && !west) bambooTableLeg(b, 1, 0, 13, 3, 10, 15, 1, 0, 13, "#6", "#7");
 
         b.element().from(16, 8, 2).to(16, 10, 15)
                 .rotation().angle(0).axis(Direction.Axis.Y).origin(16, 0, 9).end()
@@ -1034,7 +1043,7 @@ private void registerStools() {
                 .face(Direction.DOWN).uvs(2, 0, 15, 2).texture("#9").end()
                 .end();
 
-        bambooTableLeg(b, 13, 0, 13, 15, 10, 15, 13, 0, 13, "#6", "#7");
+        if (!south && !east) bambooTableLeg(b, 13, 0, 13, 15, 10, 15, 13, 0, 13, "#6", "#7");
 
         b.element().from(0, 10, 0).to(16, 14, 16)
                 .rotation().angle(0).axis(Direction.Axis.Y).origin(0, 10, 0).end()
@@ -1104,13 +1113,13 @@ private void registerStools() {
                 .end();
     }
 
-    private void addBaseTableElements(BlockModelBuilder b, boolean bamboo) {
+     private void addBaseTableElements(BlockModelBuilder b, boolean bamboo, boolean north, boolean east, boolean south, boolean west) {
         String leg = bamboo ? "#2" : "#0";
         String top = bamboo ? "#3" : "#1";
-        tableLeg(b,1,0,1,3,10,3,leg);
-        tableLeg(b,1,0,13,3,10,15,leg);
-        tableLeg(b,13,0,1,15,10,3,leg);
-        tableLeg(b,13,0,13,15,10,15,leg);
+        if (!north && !west) tableLeg(b,1,0,1,3,10,3,leg);
+        if (!south && !west) tableLeg(b,1,0,13,3,10,15,leg);
+        if (!north && !east) tableLeg(b,13,0,1,15,10,3,leg);
+        if (!south && !east) tableLeg(b,13,0,13,15,10,15,leg);
         b.element().from(0,10,0).to(16,14,16)
                 .face(Direction.NORTH).uvs(0,6,16,10).texture(top).end()
                 .face(Direction.EAST).uvs(0,6,16,10).texture(top).end()
@@ -1121,7 +1130,7 @@ private void registerStools() {
                 .end();
     }
 
-    private void addCoveredTableElements(BlockModelBuilder b, boolean bamboo) {
+    private void addCoveredTableElements(BlockModelBuilder b, boolean bamboo, boolean north, boolean east, boolean south, boolean west) {
         String leg = bamboo ? "#2" : "#0";
         String legTop = bamboo ? "#2" : "#1";
         b.element().from(0,10,0).to(16,14,16)
@@ -1132,10 +1141,10 @@ private void registerStools() {
                 .face(Direction.UP).uvs(0,0,16,16).texture("#4").end()
                 .face(Direction.DOWN).uvs(0,0,16,16).texture(leg).end()
                 .end();
-        tableLegWithTop(b,1,0,1,3,10,3,leg,legTop);
-        tableLegWithTop(b,1,0,13,3,10,15,leg,legTop);
-        tableLegWithTop(b,13,0,13,15,10,15,leg,legTop);
-        tableLegWithTop(b,13,0,1,15,10,3,leg,legTop);
+        if (!north && !west) tableLegWithTop(b,1,0,1,3,10,3,leg,legTop);
+        if (!south && !west) tableLegWithTop(b,1,0,13,3,10,15,leg,legTop);
+        if (!south && !east) tableLegWithTop(b,13,0,13,15,10,15,leg,legTop);
+        if (!north && !east) tableLegWithTop(b,13,0,1,15,10,3,leg,legTop);
         addTableRugExtrudes(b);
     }
 
@@ -1160,7 +1169,6 @@ private void registerStools() {
                 .face(Direction.DOWN).uvs(7,7,9,9).texture(top).end()
                 .end();
     }
-
     private void addTableRugExtrudes(BlockModelBuilder b) {
         b.element().from(1,8,0).to(14,10,0)
                 .face(Direction.NORTH).uvs(1,8,14,10).texture("#5").end()
