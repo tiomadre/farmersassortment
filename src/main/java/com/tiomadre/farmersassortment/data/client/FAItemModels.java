@@ -42,6 +42,25 @@ public class FAItemModels extends ItemModelProvider {
         registerCanvasRugs();
         registerStools();
         registerRacks();
+        registerTables();
+    }
+    private void registerTables() {
+        FABlocks.tables().forEach(this::tableItem);
+    }
+    private void tableItem(RegistryObject<? extends Block> block) {
+        String name = Objects.requireNonNull(block.getId()).getPath();
+        ItemModelBuilder builder = stoolTransforms(withExistingParent(name, modLoc("block/" + name)));
+        for (StoolRugType rugType : StoolRugType.values()) {
+            if (!rugType.hasRug()) {
+                continue;
+            }
+            String coveredName = name + "_" + rugType.getSerializedName();
+            stoolTransforms(withExistingParent(coveredName, modLoc("block/" + coveredName)));
+            builder.override()
+                    .predicate(modLoc("rug"), (float) rugType.ordinal())
+                    .model(getExistingFile(modLoc("item/" + coveredName)))
+                    .end();
+        }
     }
     private void registerRacks() {
         FABlocks.racks().forEach(this::block);

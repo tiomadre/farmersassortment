@@ -37,8 +37,13 @@ public class RackBlock extends HorizontalDirectionalBlock implements EntityBlock
     }
 
     @Override
-    public @NotNull BlockState getStateForPlacement(BlockPlaceContext context) {
-        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
+    public @Nullable BlockState getStateForPlacement(BlockPlaceContext context) {
+        Direction clickedFace = context.getClickedFace();
+        if (clickedFace.getAxis().isVertical()) {
+            return null;
+        }
+
+        return this.defaultBlockState().setValue(FACING, clickedFace);
     }
 
     @Override

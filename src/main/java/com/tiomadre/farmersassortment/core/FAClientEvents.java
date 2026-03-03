@@ -4,6 +4,7 @@ import com.tiomadre.farmersassortment.client.renderer.ButcherBlockCabinetRendere
 import com.tiomadre.farmersassortment.client.renderer.RackRenderer;
 import com.tiomadre.farmersassortment.client.screen.RackScreen;
 import com.tiomadre.farmersassortment.core.item.StoolItem;
+import com.tiomadre.farmersassortment.core.item.TableItem;
 import com.tiomadre.farmersassortment.core.item.TerracottaCookingPotItem;
 import com.tiomadre.farmersassortment.core.registry.FABlockEntityTypes;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
@@ -39,6 +40,10 @@ public final class FAClientEvents {
             FABlocks.stools().forEach(stool -> ItemProperties.register(Item.byBlock(stool.get()),
                     new ResourceLocation(FarmersAssortment.MOD_ID, "rug"),
                     (stack, level, entity, seed) -> StoolItem.getRug(stack).ordinal()));
+
+            FABlocks.tables().forEach(table -> ItemProperties.register(Item.byBlock(table.get()),
+                    new ResourceLocation(FarmersAssortment.MOD_ID, "rug"),
+                    (stack, level, entity, seed) -> TableItem.getRug(stack).ordinal()));
 
             MenuScreens.register(FAMenuTypes.RACK.get(), RackScreen::new);
         });

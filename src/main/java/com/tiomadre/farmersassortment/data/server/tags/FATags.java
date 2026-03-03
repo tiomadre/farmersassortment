@@ -3,7 +3,6 @@ package com.tiomadre.farmersassortment.data.server.tags;
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.teamabnormals.blueprint.core.util.TagUtil;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
 public final class FATags {

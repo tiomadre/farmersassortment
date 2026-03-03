@@ -3,6 +3,7 @@ package com.tiomadre.farmersassortment.data.client;
 import alabaster.crabbersdelight.common.block.CrabTrapBlock;
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.block.StoolBlock;
+import com.tiomadre.farmersassortment.core.block.TableBlock;
 import com.tiomadre.farmersassortment.core.block.TerracottaCookingPotBlock;
 import com.tiomadre.farmersassortment.core.block.state.TerracottaCookingPotColor;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
@@ -51,6 +52,7 @@ public class FABlockStates extends BlockStateProvider {
         registerCanvasRugs();
         registerStools();
         registerRacks();
+        registerTables();
     }
 
 
@@ -880,6 +882,162 @@ private void registerStools() {
                 .face(Direction.DOWN).uvs(6, 9, 8, 11).texture(logTexture).end()
                 .end();
     }
+
+    private void registerTables() {
+        List<TableDefinition> tables = List.of(
+                new TableDefinition(FABlocks.OAK_TABLE, "oak", new ResourceLocation("minecraft", "block/stripped_oak_log"), new ResourceLocation("minecraft", "block/stripped_oak_log_top")),
+                new TableDefinition(FABlocks.SPRUCE_TABLE, "spruce", new ResourceLocation("minecraft", "block/stripped_spruce_log"), new ResourceLocation("minecraft", "block/stripped_spruce_log_top")),
+                new TableDefinition(FABlocks.BIRCH_TABLE, "birch", new ResourceLocation("minecraft", "block/stripped_birch_log"), new ResourceLocation("minecraft", "block/stripped_birch_log_top")),
+                new TableDefinition(FABlocks.JUNGLE_TABLE, "jungle", new ResourceLocation("minecraft", "block/stripped_jungle_log"), new ResourceLocation("minecraft", "block/stripped_jungle_log_top")),
+                new TableDefinition(FABlocks.ACACIA_TABLE, "acacia", new ResourceLocation("minecraft", "block/stripped_acacia_log"), new ResourceLocation("minecraft", "block/stripped_acacia_log_top")),
+                new TableDefinition(FABlocks.DARK_OAK_TABLE, "dark_oak", new ResourceLocation("minecraft", "block/stripped_dark_oak_log"), new ResourceLocation("minecraft", "block/stripped_dark_oak_log_top")),
+                new TableDefinition(FABlocks.MANGROVE_TABLE, "mangrove", new ResourceLocation("minecraft", "block/stripped_mangrove_log"), new ResourceLocation("minecraft", "block/stripped_mangrove_log_top")),
+                new TableDefinition(FABlocks.CHERRY_TABLE, "cherry", new ResourceLocation("minecraft", "block/stripped_cherry_log"), new ResourceLocation("minecraft", "block/stripped_cherry_log_top")),
+                new TableDefinition(FABlocks.BAMBOO_TABLE, "bamboo", new ResourceLocation("minecraft", "block/stripped_bamboo_block"), new ResourceLocation("minecraft", "block/bamboo_block_top")),
+                new TableDefinition(FABlocks.CRIMSON_TABLE, "crimson", new ResourceLocation("minecraft", "block/stripped_crimson_stem"), new ResourceLocation("minecraft", "block/stripped_crimson_stem_top")),
+                new TableDefinition(FABlocks.WARPED_TABLE, "warped", new ResourceLocation("minecraft", "block/stripped_warped_stem"), new ResourceLocation("minecraft", "block/stripped_warped_stem_top"))
+        );
+        tables.forEach(this::registerTable);
+    }
+
+    private void registerTable(TableDefinition table) {
+        String name = Objects.requireNonNull(table.block().getId()).getPath();
+        ModelFile baseModel = tableModel(name, table.woodType(), table.legTexture(), table.topTexture(), StoolRugType.NONE);
+        Map<StoolRugType, ModelFile> rugModels = Arrays.stream(StoolRugType.values())
+                .filter(StoolRugType::hasRug)
+                .collect(LinkedHashMap::new, (models, rugType) ->
+                                models.put(rugType, tableModel(name + "_" + rugType.getSerializedName(), table.woodType(), table.legTexture(), table.topTexture(), rugType)),
+                        Map::putAll);
+
+        getVariantBuilder(table.block().get()).forAllStates(state -> {
+            Direction facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
+            StoolRugType rugType = state.getValue(TableBlock.RUG);
+            ModelFile selectedModel = rugType.hasRug() ? rugModels.getOrDefault(rugType, baseModel) : baseModel;
+            return ConfiguredModel.builder()
+                    .modelFile(selectedModel)
+                    .rotationY(((int) facing.toYRot() + 180) % 360)
+                    .build();
+        });
+    }
+
+    private BlockModelBuilder tableModel(String name, String woodType, ResourceLocation legTexture, ResourceLocation topTexture, StoolRugType rugType) {
+        boolean bamboo = "bamboo".equals(woodType);
+        BlockModelBuilder builder = models().getBuilder(name)
+                .texture(bamboo ? "2" : "0", legTexture)
+                .texture(bamboo ? "3" : "1", topTexture)
+                .texture("particle", legTexture);
+
+        if (rugType.hasRug()) {
+            builder.texture("4", fallbackTexture(new ResourceLocation(Objects.requireNonNull(rugType.texturePath())), modLoc("block/white_canvas_rug")))
+                    .texture("5", fallbackTexture(new ResourceLocation(rugType.extrudeTexturePath()), modLoc("block/white_canvas_rug_extrudes")));
+            addCoveredTableElements(builder, bamboo);
+        } else {
+            addBaseTableElements(builder, bamboo);
+        }
+
+        builder.transforms()
+                .transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND)
+                .rotation(0, 45, 0)
+                .scale(0.4F, 0.4F, 0.4F)
+                .end()
+                .end();
+
+        return builder;
+    }
+
+    private void addBaseTableElements(BlockModelBuilder b, boolean bamboo) {
+        String leg = bamboo ? "#2" : "#0";
+        String top = bamboo ? "#3" : "#1";
+        tableLeg(b,1,0,1,3,10,3,leg);
+        tableLeg(b,1,0,13,3,10,15,leg);
+        tableLeg(b,13,0,1,15,10,3,leg);
+        tableLeg(b,13,0,13,15,10,15,leg);
+        b.element().from(0,10,0).to(16,14,16)
+                .face(Direction.NORTH).uvs(0,6,16,10).texture(top).end()
+                .face(Direction.EAST).uvs(0,6,16,10).texture(top).end()
+                .face(Direction.SOUTH).uvs(0,6,16,10).texture(top).end()
+                .face(Direction.WEST).uvs(0,6,16,10).texture(top).end()
+                .face(Direction.UP).uvs(0,0,16,16).texture(leg).end()
+                .face(Direction.DOWN).uvs(0,0,16,16).texture(leg).end()
+                .end();
+    }
+
+    private void addCoveredTableElements(BlockModelBuilder b, boolean bamboo) {
+        String leg = bamboo ? "#2" : "#0";
+        String legTop = bamboo ? "#2" : "#1";
+        b.element().from(0,10,0).to(16,14,16)
+                .face(Direction.NORTH).uvs(0,6,16,10).texture("#4").end()
+                .face(Direction.EAST).uvs(0,6,16,10).texture("#4").end()
+                .face(Direction.SOUTH).uvs(0,6,16,10).texture("#4").end()
+                .face(Direction.WEST).uvs(0,6,16,10).texture("#4").end()
+                .face(Direction.UP).uvs(0,0,16,16).texture("#4").end()
+                .face(Direction.DOWN).uvs(0,0,16,16).texture(leg).end()
+                .end();
+        tableLegWithTop(b,1,0,1,3,10,3,leg,legTop);
+        tableLegWithTop(b,1,0,13,3,10,15,leg,legTop);
+        tableLegWithTop(b,13,0,13,15,10,15,leg,legTop);
+        tableLegWithTop(b,13,0,1,15,10,3,leg,legTop);
+        addTableRugExtrudes(b);
+    }
+
+    private void tableLeg(BlockModelBuilder b, int fx,int fy,int fz,int tx,int ty,int tz, String t) {
+        b.element().from(fx,fy,fz).to(tx,ty,tz)
+                .face(Direction.NORTH).uvs(2,0,0,12).texture(t).end()
+                .face(Direction.EAST).uvs(2,0,0,12).texture(t).end()
+                .face(Direction.SOUTH).uvs(0,0,2,10).texture(t).end()
+                .face(Direction.WEST).uvs(0,0,2,12).texture(t).end()
+                .face(Direction.UP).uvs(7,7,9,9).texture(t).end()
+                .face(Direction.DOWN).uvs(7,7,9,9).texture(t).end()
+                .end();
+    }
+
+    private void tableLegWithTop(BlockModelBuilder b, int fx,int fy,int fz,int tx,int ty,int tz, String leg, String top) {
+        b.element().from(fx,fy,fz).to(tx,ty,tz)
+                .face(Direction.NORTH).uvs(2,0,0,12).texture(leg).end()
+                .face(Direction.EAST).uvs(2,0,0,12).texture(leg).end()
+                .face(Direction.SOUTH).uvs(0,0,2,10).texture(leg).end()
+                .face(Direction.WEST).uvs(0,0,2,12).texture(leg).end()
+                .face(Direction.UP).uvs(7,7,9,9).texture(top).end()
+                .face(Direction.DOWN).uvs(7,7,9,9).texture(top).end()
+                .end();
+    }
+
+    private void addTableRugExtrudes(BlockModelBuilder b) {
+        b.element().from(1,8,0).to(14,10,0)
+                .face(Direction.NORTH).uvs(1,8,14,10).texture("#5").end()
+                .face(Direction.EAST).uvs(2,0,15,2).texture("#5").end()
+                .face(Direction.SOUTH).uvs(2,0,15,2).texture("#5").end()
+                .face(Direction.WEST).uvs(2,0,15,2).texture("#5").end()
+                .face(Direction.UP).uvs(2,0,15,2).texture("#5").end()
+                .face(Direction.DOWN).uvs(2,0,15,2).texture("#5").end()
+                .end();
+        b.element().from(0,8,1).to(0,10,14)
+                .face(Direction.NORTH).uvs(2,0,15,2).texture("#5").end()
+                .face(Direction.EAST).uvs(2,0,15,2).texture("#5").end()
+                .face(Direction.SOUTH).uvs(2,0,15,2).texture("#5").end()
+                .face(Direction.WEST).uvs(2,8,15,10).texture("#5").end()
+                .face(Direction.UP).uvs(2,0,15,2).rotation(ModelBuilder.FaceRotation.COUNTERCLOCKWISE_90).texture("#5").end()
+                .face(Direction.DOWN).uvs(2,0,15,2).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#5").end()
+                .end();
+        b.element().from(16,8,2).to(16,10,15)
+                .face(Direction.NORTH).uvs(2,0,15,2).texture("#5").end()
+                .face(Direction.EAST).uvs(2,0,15,2).texture("#5").end()
+                .face(Direction.SOUTH).uvs(2,0,15,2).texture("#5").end()
+                .face(Direction.WEST).uvs(2,0,15,2).texture("#5").end()
+                .face(Direction.UP).uvs(2,0,15,2).rotation(ModelBuilder.FaceRotation.COUNTERCLOCKWISE_90).texture("#5").end()
+                .face(Direction.DOWN).uvs(2,0,15,2).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#5").end()
+                .end();
+        b.element().from(1,8,16).to(14,10,16)
+                .face(Direction.NORTH).uvs(1,8,14,10).texture("#5").end()
+                .face(Direction.EAST).uvs(2,0,15,2).texture("#5").end()
+                .face(Direction.SOUTH).uvs(2,0,15,2).texture("#5").end()
+                .face(Direction.WEST).uvs(2,0,15,2).texture("#5").end()
+                .face(Direction.UP).uvs(2,0,15,2).texture("#5").end()
+                .face(Direction.DOWN).uvs(2,0,15,2).texture("#5").end()
+                .end();
+    }
+
+    private record TableDefinition(RegistryObject<? extends Block> block, String woodType, ResourceLocation legTexture, ResourceLocation topTexture) {}
 
     private void addStoolRugExtrudes(BlockModelBuilder builder, String extrudeTexture, int y, int seatStart) {
         int seatEnd = seatStart + 10;
