@@ -900,12 +900,11 @@ private void registerStools() {
         tables.forEach(this::registerTable);
     }
 
-       private void registerTable(TableDefinition table) {
+        private void registerTable(TableDefinition table) {
         String name = Objects.requireNonNull(table.block().getId()).getPath();
         Map<String, ModelFile> modelsByState = new HashMap<>();
 
         getVariantBuilder(table.block().get()).forAllStates(state -> {
-            Direction facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
             StoolRugType rugType = state.getValue(TableBlock.RUG);
             boolean north = state.getValue(TableBlock.NORTH);
             boolean east = state.getValue(TableBlock.EAST);
@@ -922,11 +921,10 @@ private void registerStools() {
 
             return ConfiguredModel.builder()
                     .modelFile(selectedModel)
-                    .rotationY(((int) facing.toYRot() + 180) % 360)
-                    .uvLock(true)
                     .build();
         });
     }
+
 
     private BlockModelBuilder tableModel(String name, String woodType, ResourceLocation legTexture, ResourceLocation topTexture,
                                          StoolRugType rugType, boolean north, boolean east, boolean south, boolean west) {

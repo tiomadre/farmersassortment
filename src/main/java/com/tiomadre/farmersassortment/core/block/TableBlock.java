@@ -49,7 +49,6 @@ public class TableBlock extends HorizontalDirectionalBlock {
     public TableBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any()
-                .setValue(FACING, Direction.NORTH)
                 .setValue(RUG, StoolRugType.NONE)
                 .setValue(NORTH, false)
                 .setValue(EAST, false)
@@ -59,7 +58,7 @@ public class TableBlock extends HorizontalDirectionalBlock {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING, RUG, NORTH, EAST, SOUTH, WEST);
+        builder.add(RUG, NORTH, EAST, SOUTH, WEST);
     }
 
     @Override
@@ -68,7 +67,6 @@ public class TableBlock extends HorizontalDirectionalBlock {
         BlockGetter level = context.getLevel();
 
         return this.defaultBlockState()
-                .setValue(FACING, context.getHorizontalDirection().getOpposite())
                 .setValue(NORTH, canConnect(level.getBlockState(pos.north())))
                 .setValue(EAST, canConnect(level.getBlockState(pos.east())))
                 .setValue(SOUTH, canConnect(level.getBlockState(pos.south())))
