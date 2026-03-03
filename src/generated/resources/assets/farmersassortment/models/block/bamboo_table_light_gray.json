@@ -619,6 +619,7 @@
       ]
     }
   ],
+  "render_type": "minecraft:cutout",
   "textures": {
     "2": "minecraft:block/stripped_bamboo_block",
     "3": "minecraft:block/bamboo_block_top",

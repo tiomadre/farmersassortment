@@ -20,10 +20,10 @@ import org.jetbrains.annotations.NotNull;
 
 public class RackRenderer implements BlockEntityRenderer<RackBlockEntity> {
     private static final float[][] SLOT_POSITIONS = new float[][]{
+            {0.3125F, 0.2375F},
+            {0.5625F, 0.2375F},
             {0.3125F, 0.4375F},
-            {0.5625F, 0.4375F},
-            {0.3125F, 0.8125F},
-            {0.5625F, 0.8125F}
+            {0.5625F, 0.4375F}
     };
 
     public RackRenderer(BlockEntityRendererProvider.Context context) {

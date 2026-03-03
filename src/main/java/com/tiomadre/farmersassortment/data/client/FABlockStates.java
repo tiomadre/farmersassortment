@@ -922,12 +922,38 @@ private void registerStools() {
 
     private BlockModelBuilder tableModel(String name, String woodType, ResourceLocation legTexture, ResourceLocation topTexture, StoolRugType rugType) {
         boolean bamboo = "bamboo".equals(woodType);
+
+
+        if (bamboo && rugType == StoolRugType.NONE) {
+            BlockModelBuilder builder = models().getBuilder(name)
+                    .texture("6", legTexture)
+                    .texture("7", topTexture)
+                    .texture("particle", legTexture);
+            addBambooBaseTableElements(builder);
+            addBambooTableTransforms(builder);
+            return builder;
+        }
+
+        if (bamboo && rugType == StoolRugType.CANVAS) {
+            BlockModelBuilder builder = models().getBuilder(name)
+                    .renderType("minecraft:cutout")
+                    .texture("6", legTexture)
+                    .texture("7", topTexture)
+                    .texture("8", modLoc("block/white_canvas_rug"))
+                    .texture("9", modLoc("block/white_canvas_rug_extrudes"))
+                    .texture("particle", legTexture);
+            addBambooCanvasCoveredTableElements(builder);
+            addBambooCanvasTableTransforms(builder);
+            return builder;
+        }
+
         BlockModelBuilder builder = models().getBuilder(name)
                 .texture(bamboo ? "2" : "0", legTexture)
                 .texture(bamboo ? "3" : "1", topTexture)
                 .texture("particle", legTexture);
 
         if (rugType.hasRug()) {
+            builder.renderType("minecraft:cutout");
             builder.texture("4", fallbackTexture(new ResourceLocation(Objects.requireNonNull(rugType.texturePath())), modLoc("block/white_canvas_rug")))
                     .texture("5", fallbackTexture(new ResourceLocation(rugType.extrudeTexturePath()), modLoc("block/white_canvas_rug_extrudes")));
             addCoveredTableElements(builder, bamboo);
@@ -943,6 +969,137 @@ private void registerStools() {
                 .end();
 
         return builder;
+    }
+    private void addBambooBaseTableElements(BlockModelBuilder b) {
+        bambooTableLeg(b, 1, 0, 1, 3, 10, 3, 1, 0, 1, "#6", "#7");
+        bambooTableLeg(b, 13, 0, 1, 15, 10, 3, 13, 0, 1, "#6", "#7");
+        bambooTableLeg(b, 1, 0, 13, 3, 10, 15, 1, 0, 13, "#6", "#7");
+        bambooTableLeg(b, 13, 0, 13, 15, 10, 15, 13, 0, 13, "#6", "#7");
+
+        b.element().from(0, 10, 0).to(16, 14, 16)
+                .rotation().angle(0).axis(Direction.Axis.Y).origin(0, 10, 0).end()
+                .face(Direction.NORTH).uvs(16, 8, 0, 12).texture("#7").end()
+                .face(Direction.EAST).uvs(4, 0, 8, 16).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#6").end()
+                .face(Direction.SOUTH).uvs(0, 8, 16, 12).texture("#7").end()
+                .face(Direction.WEST).uvs(0, 0, 4, 16).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#6").end()
+                .face(Direction.UP).uvs(0, 0, 16, 16).texture("#6").end()
+                .face(Direction.DOWN).uvs(0, 0, 16, 16).texture("#6").end()
+                .end();
+    }
+
+    private void addBambooCanvasCoveredTableElements(BlockModelBuilder b) {
+        bambooTableLeg(b, 1, 0, 1, 3, 10, 3, 1, 0, 1, "#6", "#7");
+        bambooTableLeg(b, 13, 0, 1, 15, 10, 3, 13, 0, 1, "#6", "#7");
+        bambooTableLeg(b, 1, 0, 13, 3, 10, 15, 1, 0, 13, "#6", "#7");
+
+        b.element().from(16, 8, 2).to(16, 10, 15)
+                .rotation().angle(0).axis(Direction.Axis.Y).origin(16, 0, 9).end()
+                .face(Direction.NORTH).uvs(2, 0, 15, 2).texture("#9").end()
+                .face(Direction.EAST).uvs(2, 0, 15, 2).texture("#9").end()
+                .face(Direction.SOUTH).uvs(2, 0, 15, 2).texture("#9").end()
+                .face(Direction.WEST).uvs(2, 0, 15, 2).texture("#9").end()
+                .face(Direction.UP).uvs(2, 0, 15, 2).rotation(ModelBuilder.FaceRotation.COUNTERCLOCKWISE_90).texture("#9").end()
+                .face(Direction.DOWN).uvs(2, 0, 15, 2).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#9").end()
+                .end();
+
+        b.element().from(0, 8, 1).to(0, 10, 14)
+                .rotation().angle(0).axis(Direction.Axis.Y).origin(0, 0, 8).end()
+                .face(Direction.NORTH).uvs(2, 0, 15, 2).texture("#9").end()
+                .face(Direction.EAST).uvs(2, 0, 15, 2).texture("#9").end()
+                .face(Direction.SOUTH).uvs(2, 0, 15, 2).texture("#9").end()
+                .face(Direction.WEST).uvs(15, 8, 2, 10).texture("#9").end()
+                .face(Direction.UP).uvs(2, 0, 15, 2).rotation(ModelBuilder.FaceRotation.COUNTERCLOCKWISE_90).texture("#9").end()
+                .face(Direction.DOWN).uvs(2, 0, 15, 2).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#9").end()
+                .end();
+
+        b.element().from(1, 8, 16).to(14, 10, 16)
+                .rotation().angle(0).axis(Direction.Axis.Y).origin(7, 0, 16).end()
+                .face(Direction.NORTH).uvs(1, 8, 14, 10).texture("#9").end()
+                .face(Direction.EAST).uvs(2, 0, 15, 2).texture("#9").end()
+                .face(Direction.SOUTH).uvs(2, 0, 15, 2).texture("#9").end()
+                .face(Direction.WEST).uvs(2, 0, 15, 2).texture("#9").end()
+                .face(Direction.UP).uvs(2, 0, 15, 2).texture("#9").end()
+                .face(Direction.DOWN).uvs(2, 0, 15, 2).texture("#9").end()
+                .end();
+
+        b.element().from(1, 8, 0).to(14, 10, 0)
+                .rotation().angle(0).axis(Direction.Axis.Y).origin(7, 0, 0).end()
+                .face(Direction.NORTH).uvs(1, 8, 14, 10).texture("#9").end()
+                .face(Direction.EAST).uvs(2, 0, 15, 2).texture("#9").end()
+                .face(Direction.SOUTH).uvs(2, 0, 15, 2).texture("#9").end()
+                .face(Direction.WEST).uvs(2, 0, 15, 2).texture("#9").end()
+                .face(Direction.UP).uvs(2, 0, 15, 2).texture("#9").end()
+                .face(Direction.DOWN).uvs(2, 0, 15, 2).texture("#9").end()
+                .end();
+
+        bambooTableLeg(b, 13, 0, 13, 15, 10, 15, 13, 0, 13, "#6", "#7");
+
+        b.element().from(0, 10, 0).to(16, 14, 16)
+                .rotation().angle(0).axis(Direction.Axis.Y).origin(0, 10, 0).end()
+                .face(Direction.NORTH).uvs(16, 8, 0, 12).texture("#8").end()
+                .face(Direction.EAST).uvs(4, 0, 8, 16).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#8").end()
+                .face(Direction.SOUTH).uvs(0, 8, 16, 12).texture("#8").end()
+                .face(Direction.WEST).uvs(0, 0, 4, 16).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#8").end()
+                .face(Direction.UP).uvs(0, 0, 16, 16).texture("#8").end()
+                .face(Direction.DOWN).uvs(0, 0, 16, 16).texture("#6").end()
+                .end();
+    }
+
+    private void bambooTableLeg(BlockModelBuilder b, int fx, int fy, int fz, int tx, int ty, int tz,
+                                int ox, int oy, int oz, String leg, String bottomTop) {
+        b.element().from(fx, fy, fz).to(tx, ty, tz)
+                .rotation().angle(0).axis(Direction.Axis.Y).origin(ox, oy, oz).end()
+                .face(Direction.NORTH).uvs(3, 1, 5, 11).texture(leg).end()
+                .face(Direction.EAST).uvs(4, 1, 6, 11).texture(leg).end()
+                .face(Direction.SOUTH).uvs(3, 1, 5, 11).texture(leg).end()
+                .face(Direction.WEST).uvs(4, 1, 6, 11).texture(leg).end()
+                .face(Direction.UP).uvs(3, 1, 5, 11).texture(leg).end()
+                .face(Direction.DOWN).uvs(5, 1, 7, 3).texture(bottomTop).end()
+                .end();
+    }
+
+    private void addBambooTableTransforms(BlockModelBuilder builder) {
+        builder.transforms()
+                .transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND)
+                .rotation(75, 45, 0)
+                .translation(0, 2.5F, 0)
+                .scale(0.375F, 0.375F, 0.375F)
+                .end()
+                .transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND)
+                .rotation(75, 45, 0)
+                .translation(0, 2.5F, 0)
+                .scale(0.375F, 0.375F, 0.375F)
+                .end()
+                .transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND)
+                .rotation(0, 45, 0)
+                .scale(0.4F, 0.4F, 0.4F)
+                .end()
+                .transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND)
+                .rotation(0, -135, 0)
+                .scale(0.4F, 0.4F, 0.4F)
+                .end()
+                .transform(ItemDisplayContext.GROUND)
+                .translation(0, 3, 0)
+                .scale(0.25F, 0.25F, 0.25F)
+                .end()
+                .transform(ItemDisplayContext.GUI)
+                .rotation(30, -135, 0)
+                .scale(0.625F, 0.625F, 0.625F)
+                .end()
+                .transform(ItemDisplayContext.FIXED)
+                .scale(0.5F, 0.5F, 0.5F)
+                .end()
+                .end();
+    }
+
+    private void addBambooCanvasTableTransforms(BlockModelBuilder builder) {
+        builder.transforms()
+                .transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND)
+                .rotation(75, 45, 0)
+                .translation(0, 2.5F, 0)
+                .scale(0.375F, 0.375F, 0.375F)
+                .end()
+                .end();
     }
 
     private void addBaseTableElements(BlockModelBuilder b, boolean bamboo) {
