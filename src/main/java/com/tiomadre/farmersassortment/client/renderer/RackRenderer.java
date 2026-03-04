@@ -19,7 +19,12 @@ import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 public class RackRenderer implements BlockEntityRenderer<RackBlockEntity> {
+    private static final float RENDER_X_OFFSET = 0.02F;
+    private static final double BLOCK_ITEM_Y = 0.86D;
+    private static final double FLAT_ITEM_BASE_Y = 0.752D;
+    private static final double FLAT_ITEM_STACK_Y_OFFSET = 0.03D;
     private static final float[][] SLOT_POSITIONS = new float[][]{
+
             {0.3125F, 0.2375F},
             {0.625F, 0.2375F},
             {0.3125F, 0.4375F},
@@ -56,9 +61,10 @@ public class RackRenderer implements BlockEntityRenderer<RackBlockEntity> {
 
             for (int i = 0; i < renderCount; i++) {
                 poseStack.pushPose();
-                poseStack.translate(0.5D, 0.86D + (isBlock ? 0.0D : i * 0.03D), 0.5D);
+                double itemY = isBlock ? BLOCK_ITEM_Y : FLAT_ITEM_BASE_Y + i * FLAT_ITEM_STACK_Y_OFFSET;
+                poseStack.translate(0.5D, itemY, 0.5D);
                 poseStack.mulPose(Axis.YP.rotationDegrees(-facing.toYRot()));
-                poseStack.translate(slotPos[0] - 0.5D, 0.0D, slotPos[1] - 0.5D);
+                poseStack.translate(slotPos[0] - 0.5D + RENDER_X_OFFSET, 0.0D, slotPos[1] - 0.5D);
 
                 if (isBlock) {
                     poseStack.scale(0.32F, 0.32F, 0.32F);
