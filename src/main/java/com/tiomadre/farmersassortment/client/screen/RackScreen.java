@@ -15,7 +15,7 @@ public class RackScreen extends AbstractContainerScreen<RackMenu> {
     public RackScreen(RackMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
         this.imageWidth = 176;
-        this.imageHeight = 168;
+        this.imageHeight = 166;
         this.inventoryLabelY = this.imageHeight - 94;
     }
 

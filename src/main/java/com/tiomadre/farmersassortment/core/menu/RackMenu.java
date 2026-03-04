@@ -24,9 +24,13 @@ public class RackMenu extends AbstractContainerMenu {
         checkContainerSize(rackContainer, RACK_SLOT_COUNT);
         rackContainer.startOpen(playerInventory.player);
 
-        int topY = 20;
-        for (int i = 0; i < RACK_SLOT_COUNT; i++) {
-            addSlot(new Slot(rackContainer, i, 52 + i * 18, topY));
+        int rackStartX = 70;
+        int rackStartY = 20;
+        for (int row = 0; row < 2; row++) {
+            for (int col = 0; col < 2; col++) {
+                int slotIndex = col + row * 2;
+                addSlot(new Slot(rackContainer, slotIndex, rackStartX + col * 18, rackStartY + row * 18));
+            }
         }
 
         int inventoryY = 84;
