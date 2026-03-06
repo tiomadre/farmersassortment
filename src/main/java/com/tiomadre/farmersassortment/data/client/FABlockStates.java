@@ -912,7 +912,7 @@ private void registerStools() {
         tables.forEach(this::registerTable);
     }
 
-        private void registerTable(TableDefinition table) {
+   private void registerTable(TableDefinition table) {
         String name = Objects.requireNonNull(table.block().getId()).getPath();
         Map<String, ModelFile> modelsByState = new HashMap<>();
 
@@ -923,20 +923,61 @@ private void registerStools() {
             boolean south = state.getValue(TableBlock.SOUTH);
             boolean west = state.getValue(TableBlock.WEST);
 
-            String key = rugType.getSerializedName() + "_" + (north ? "n" : "-") + (east ? "e" : "-") + (south ? "s" : "-") + (west ? "w" : "-");
-            boolean noConnections = !north && !east && !south && !west;
+            RotatedConnections rotated = REConnections(north, east, south, west);
+            String key = rugType.getSerializedName() + "_" + connectionKey(rotated.north(), rotated.east(), rotated.south(), rotated.west());
+            boolean noConnections = !rotated.north() && !rotated.east() && !rotated.south() && !rotated.west();
             String modelName = noConnections
                     ? (rugType.hasRug() ? name + "_" + rugType.getSerializedName() : name)
                     : name + "_" + key;
             ModelFile selectedModel = modelsByState.computeIfAbsent(key, unused ->
-                    tableModel(modelName, table.woodType(), table.legTexture(), table.topTexture(), rugType, north, east, south, west));
+                    tableModel(modelName, table.woodType(), table.legTexture(), table.topTexture(), rugType,
+                            rotated.north(), rotated.east(), rotated.south(), rotated.west()));
 
             return ConfiguredModel.builder()
                     .modelFile(selectedModel)
+                    .rotationY(rotated.rotationY())
+                    .uvLock(true)
                     .build();
         });
     }
 
+    private RotatedConnections REConnections(boolean north, boolean east, boolean south, boolean west) {
+        boolean[] original = new boolean[]{north, east, south, west};
+        int bestMask = Integer.MAX_VALUE;
+        int bestRotation = 0;
+
+        for (int rotation = 0; rotation < 4; rotation++) {
+            int mask = 0;
+            for (int index = 0; index < 4; index++) {
+                if (original[(index + rotation) % 4]) {
+                    mask |= 1 << index;
+                }
+            }
+
+            if (mask < bestMask) {
+                bestMask = mask;
+                bestRotation = rotation;
+            }
+        }
+
+        return new RotatedConnections(
+                (bestMask & 1) != 0,
+                (bestMask & 2) != 0,
+                (bestMask & 4) != 0,
+                (bestMask & 8) != 0,
+                (bestRotation * 90) % 360
+        );
+    }
+
+    private String connectionKey(boolean north, boolean east, boolean south, boolean west) {
+        return (north ? "n" : "-")
+                + (east ? "e" : "-")
+                + (south ? "s" : "-")
+                + (west ? "w" : "-");
+    }
+
+    private record RotatedConnections(boolean north, boolean east, boolean south, boolean west, int rotationY) {
+    }
 
     private BlockModelBuilder tableModel(String name, String woodType, ResourceLocation legTexture, ResourceLocation topTexture,
                                          StoolRugType rugType, boolean north, boolean east, boolean south, boolean west) {
@@ -1013,45 +1054,7 @@ private void registerStools() {
         if (!north && !east) bambooTableLeg(b, 13, 0, 1, 15, 12, 3, 13, 2, 1, "#6", "#7");
         if (!south && !west) bambooTableLeg(b, 1, 0, 13, 3, 12, 15, 1, 2, 13, "#6", "#7");
 
-        b.element().from(16, 10, 2).to(16, 12, 15)
-                .rotation().angle(0).axis(Direction.Axis.Y).origin(16, 2, 9).end()
-                .face(Direction.NORTH).uvs(2, 0, 15, 2).texture("#9").end()
-                .face(Direction.EAST).uvs(2, 0, 15, 2).texture("#9").end()
-                .face(Direction.SOUTH).uvs(2, 0, 15, 2).texture("#9").end()
-                .face(Direction.WEST).uvs(2, 0, 15, 2).texture("#9").end()
-                .face(Direction.UP).uvs(2, 0, 15, 2).rotation(ModelBuilder.FaceRotation.COUNTERCLOCKWISE_90).texture("#9").end()
-                .face(Direction.DOWN).uvs(2, 0, 15, 2).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#9").end()
-                .end();
-
-        b.element().from(0, 10, 1).to(0, 12, 14)
-                .rotation().angle(0).axis(Direction.Axis.Y).origin(0, 2, 8).end()
-                .face(Direction.NORTH).uvs(2, 0, 15, 2).texture("#9").end()
-                .face(Direction.EAST).uvs(2, 0, 15, 2).texture("#9").end()
-                .face(Direction.SOUTH).uvs(2, 0, 15, 2).texture("#9").end()
-                .face(Direction.WEST).uvs(15, 8, 2, 10).texture("#9").end()
-                .face(Direction.UP).uvs(2, 0, 15, 2).rotation(ModelBuilder.FaceRotation.COUNTERCLOCKWISE_90).texture("#9").end()
-                .face(Direction.DOWN).uvs(2, 0, 15, 2).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#9").end()
-                .end();
-
-        b.element().from(1, 10, 16).to(14, 12, 16)
-                .rotation().angle(0).axis(Direction.Axis.Y).origin(7, 2, 16).end()
-                .face(Direction.NORTH).uvs(1, 8, 14, 10).texture("#9").end()
-                .face(Direction.EAST).uvs(2, 0, 15, 2).texture("#9").end()
-                .face(Direction.SOUTH).uvs(2, 0, 15, 2).texture("#9").end()
-                .face(Direction.WEST).uvs(2, 0, 15, 2).texture("#9").end()
-                .face(Direction.UP).uvs(2, 0, 15, 2).texture("#9").end()
-                .face(Direction.DOWN).uvs(2, 0, 15, 2).texture("#9").end()
-                .end();
-
-        b.element().from(1, 10, 0).to(14, 12, 0)
-                .rotation().angle(0).axis(Direction.Axis.Y).origin(7, 2, 0).end()
-                .face(Direction.NORTH).uvs(1, 8, 14, 10).texture("#9").end()
-                .face(Direction.EAST).uvs(2, 0, 15, 2).texture("#9").end()
-                .face(Direction.SOUTH).uvs(2, 0, 15, 2).texture("#9").end()
-                .face(Direction.WEST).uvs(2, 0, 15, 2).texture("#9").end()
-                .face(Direction.UP).uvs(2, 0, 15, 2).texture("#9").end()
-                .face(Direction.DOWN).uvs(2, 0, 15, 2).texture("#9").end()
-                .end();
+      addTableRugExtrudes(b, north, east, south, west, "#9");
 
         if (!south && !east) bambooTableLeg(b, 13, 0, 13, 15, 12, 15, 13, 2, 13, "#6", "#7");
 
@@ -1153,7 +1156,7 @@ private void registerStools() {
         if (!south && !west) tableLegWithTop(b,1,0,13,3,12,15,"#0","#1");
         if (!south && !east) tableLegWithTop(b,13,0,13,15,12,15,"#0","#1");
         if (!north && !east) tableLegWithTop(b,13,0,1,15,12,3,"#0","#1");
-        addTableRugExtrudes(b);
+        addTableRugExtrudes(b, north, east, south, west, "#5");
     }
 
     private void tableLeg(BlockModelBuilder b, int fx,int fy,int fz,int tx,int ty,int tz, String t) {
@@ -1177,39 +1180,50 @@ private void registerStools() {
                 .face(Direction.DOWN).uvs(7,7,9,9).texture(top).end()
                 .end();
     }
-    private void addTableRugExtrudes(BlockModelBuilder b) {
-        b.element().from(1,10,0).to(14,12,0)
-                .face(Direction.NORTH).uvs(1,8,14,10).texture("#5").end()
-                .face(Direction.EAST).uvs(2,0,15,2).texture("#5").end()
-                .face(Direction.SOUTH).uvs(2,0,15,2).texture("#5").end()
-                .face(Direction.WEST).uvs(2,0,15,2).texture("#5").end()
-                .face(Direction.UP).uvs(2,0,15,2).texture("#5").end()
-                .face(Direction.DOWN).uvs(2,0,15,2).texture("#5").end()
-                .end();
-        b.element().from(0,10,1).to(0,12,14)
-                .face(Direction.NORTH).uvs(2,0,15,2).texture("#5").end()
-                .face(Direction.EAST).uvs(2,0,15,2).texture("#5").end()
-                .face(Direction.SOUTH).uvs(2,0,15,2).texture("#5").end()
-                .face(Direction.WEST).uvs(2,8,15,10).texture("#5").end()
-                .face(Direction.UP).uvs(2,0,15,2).rotation(ModelBuilder.FaceRotation.COUNTERCLOCKWISE_90).texture("#5").end()
-                .face(Direction.DOWN).uvs(2,0,15,2).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#5").end()
-                .end();
-        b.element().from(16,10,2).to(16,12,15)
-                .face(Direction.NORTH).uvs(2,0,15,2).texture("#5").end()
-                .face(Direction.EAST).uvs(2,0,15,2).texture("#5").end()
-                .face(Direction.SOUTH).uvs(2,0,15,2).texture("#5").end()
-                .face(Direction.WEST).uvs(2,0,15,2).texture("#5").end()
-                .face(Direction.UP).uvs(2,0,15,2).rotation(ModelBuilder.FaceRotation.COUNTERCLOCKWISE_90).texture("#5").end()
-                .face(Direction.DOWN).uvs(2,0,15,2).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#5").end()
-                .end();
-        b.element().from(1,10,16).to(14,12,16)
-                .face(Direction.NORTH).uvs(1,8,14,10).texture("#5").end()
-                .face(Direction.EAST).uvs(2,0,15,2).texture("#5").end()
-                .face(Direction.SOUTH).uvs(2,0,15,2).texture("#5").end()
-                .face(Direction.WEST).uvs(2,0,15,2).texture("#5").end()
-                .face(Direction.UP).uvs(2,0,15,2).texture("#5").end()
-                .face(Direction.DOWN).uvs(2,0,15,2).texture("#5").end()
-                .end();
+   private void addTableRugExtrudes(BlockModelBuilder b, boolean north, boolean east, boolean south, boolean west, String texture) {
+        if (!north) {
+            b.element().from(1,10,0).to(14,12,0)
+                    .face(Direction.NORTH).uvs(1,8,14,10).texture(texture).end()
+                    .face(Direction.EAST).uvs(2,0,15,2).texture(texture).end()
+                    .face(Direction.SOUTH).uvs(2,0,15,2).texture(texture).end()
+                    .face(Direction.WEST).uvs(2,0,15,2).texture(texture).end()
+                    .face(Direction.UP).uvs(2,0,15,2).texture(texture).end()
+                    .face(Direction.DOWN).uvs(2,0,15,2).texture(texture).end()
+                    .end();
+        }
+
+        if (!west) {
+            b.element().from(0,10,1).to(0,12,14)
+                    .face(Direction.NORTH).uvs(2,0,15,2).texture(texture).end()
+                    .face(Direction.EAST).uvs(2,0,15,2).texture(texture).end()
+                    .face(Direction.SOUTH).uvs(2,0,15,2).texture(texture).end()
+                    .face(Direction.WEST).uvs(2,8,15,10).texture(texture).end()
+                    .face(Direction.UP).uvs(2,0,15,2).rotation(ModelBuilder.FaceRotation.COUNTERCLOCKWISE_90).texture(texture).end()
+                    .face(Direction.DOWN).uvs(2,0,15,2).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(texture).end()
+                    .end();
+        }
+
+        if (!east) {
+            b.element().from(16,10,2).to(16,12,15)
+                    .face(Direction.NORTH).uvs(2,0,15,2).texture(texture).end()
+                    .face(Direction.EAST).uvs(2,0,15,2).texture(texture).end()
+                    .face(Direction.SOUTH).uvs(2,0,15,2).texture(texture).end()
+                    .face(Direction.WEST).uvs(2,0,15,2).texture(texture).end()
+                    .face(Direction.UP).uvs(2,0,15,2).rotation(ModelBuilder.FaceRotation.COUNTERCLOCKWISE_90).texture(texture).end()
+                    .face(Direction.DOWN).uvs(2,0,15,2).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(texture).end()
+                    .end();
+        }
+
+        if (!south) {
+            b.element().from(1,10,16).to(14,12,16)
+                    .face(Direction.NORTH).uvs(1,8,14,10).texture(texture).end()
+                    .face(Direction.EAST).uvs(2,0,15,2).texture(texture).end()
+                    .face(Direction.SOUTH).uvs(2,0,15,2).texture(texture).end()
+                    .face(Direction.WEST).uvs(2,0,15,2).texture(texture).end()
+                    .face(Direction.UP).uvs(2,0,15,2).texture(texture).end()
+                    .face(Direction.DOWN).uvs(2,0,15,2).texture(texture).end()
+                    .end();
+        }
     }
 
     private record TableDefinition(RegistryObject<? extends Block> block, String woodType, ResourceLocation legTexture, ResourceLocation topTexture) {}

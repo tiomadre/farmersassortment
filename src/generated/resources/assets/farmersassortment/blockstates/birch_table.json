@@ -1,868 +1,1336 @@
 {
   "variants": {
     "east=false,north=false,rug=black,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_black"
+      "model": "farmersassortment:block/birch_table_black",
+      "uvlock": true
     },
     "east=false,north=false,rug=black,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_black_---w"
+      "model": "farmersassortment:block/birch_table_black_n---",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=false,rug=black,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_black_--s-"
+      "model": "farmersassortment:block/birch_table_black_n---",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=black,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_black_--sw"
+      "model": "farmersassortment:block/birch_table_black_ne--",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=blue,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_blue"
+      "model": "farmersassortment:block/birch_table_blue",
+      "uvlock": true
     },
     "east=false,north=false,rug=blue,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_blue_---w"
+      "model": "farmersassortment:block/birch_table_blue_n---",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=false,rug=blue,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_blue_--s-"
+      "model": "farmersassortment:block/birch_table_blue_n---",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=blue,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_blue_--sw"
+      "model": "farmersassortment:block/birch_table_blue_ne--",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=brown,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_brown"
+      "model": "farmersassortment:block/birch_table_brown",
+      "uvlock": true
     },
     "east=false,north=false,rug=brown,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_brown_---w"
+      "model": "farmersassortment:block/birch_table_brown_n---",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=false,rug=brown,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_brown_--s-"
+      "model": "farmersassortment:block/birch_table_brown_n---",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=brown,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_brown_--sw"
+      "model": "farmersassortment:block/birch_table_brown_ne--",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=canvas,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_canvas"
+      "model": "farmersassortment:block/birch_table_canvas",
+      "uvlock": true
     },
     "east=false,north=false,rug=canvas,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_canvas_---w"
+      "model": "farmersassortment:block/birch_table_canvas_n---",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=false,rug=canvas,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_canvas_--s-"
+      "model": "farmersassortment:block/birch_table_canvas_n---",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=canvas,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_canvas_--sw"
+      "model": "farmersassortment:block/birch_table_canvas_ne--",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=cyan,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_cyan"
+      "model": "farmersassortment:block/birch_table_cyan",
+      "uvlock": true
     },
     "east=false,north=false,rug=cyan,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_cyan_---w"
+      "model": "farmersassortment:block/birch_table_cyan_n---",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=false,rug=cyan,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_cyan_--s-"
+      "model": "farmersassortment:block/birch_table_cyan_n---",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=cyan,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_cyan_--sw"
+      "model": "farmersassortment:block/birch_table_cyan_ne--",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=gray,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_gray"
+      "model": "farmersassortment:block/birch_table_gray",
+      "uvlock": true
     },
     "east=false,north=false,rug=gray,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_gray_---w"
+      "model": "farmersassortment:block/birch_table_gray_n---",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=false,rug=gray,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_gray_--s-"
+      "model": "farmersassortment:block/birch_table_gray_n---",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=gray,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_gray_--sw"
+      "model": "farmersassortment:block/birch_table_gray_ne--",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=green,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_green"
+      "model": "farmersassortment:block/birch_table_green",
+      "uvlock": true
     },
     "east=false,north=false,rug=green,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_green_---w"
+      "model": "farmersassortment:block/birch_table_green_n---",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=false,rug=green,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_green_--s-"
+      "model": "farmersassortment:block/birch_table_green_n---",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=green,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_green_--sw"
+      "model": "farmersassortment:block/birch_table_green_ne--",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=light_blue,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_light_blue"
+      "model": "farmersassortment:block/birch_table_light_blue",
+      "uvlock": true
     },
     "east=false,north=false,rug=light_blue,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_light_blue_---w"
+      "model": "farmersassortment:block/birch_table_light_blue_n---",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=false,rug=light_blue,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_light_blue_--s-"
+      "model": "farmersassortment:block/birch_table_light_blue_n---",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=light_blue,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_light_blue_--sw"
+      "model": "farmersassortment:block/birch_table_light_blue_ne--",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=light_gray,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_light_gray"
+      "model": "farmersassortment:block/birch_table_light_gray",
+      "uvlock": true
     },
     "east=false,north=false,rug=light_gray,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_light_gray_---w"
+      "model": "farmersassortment:block/birch_table_light_gray_n---",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=false,rug=light_gray,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_light_gray_--s-"
+      "model": "farmersassortment:block/birch_table_light_gray_n---",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=light_gray,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_light_gray_--sw"
+      "model": "farmersassortment:block/birch_table_light_gray_ne--",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=lime,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_lime"
+      "model": "farmersassortment:block/birch_table_lime",
+      "uvlock": true
     },
     "east=false,north=false,rug=lime,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_lime_---w"
+      "model": "farmersassortment:block/birch_table_lime_n---",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=false,rug=lime,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_lime_--s-"
+      "model": "farmersassortment:block/birch_table_lime_n---",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=lime,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_lime_--sw"
+      "model": "farmersassortment:block/birch_table_lime_ne--",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=magenta,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_magenta"
+      "model": "farmersassortment:block/birch_table_magenta",
+      "uvlock": true
     },
     "east=false,north=false,rug=magenta,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_magenta_---w"
+      "model": "farmersassortment:block/birch_table_magenta_n---",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=false,rug=magenta,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_magenta_--s-"
+      "model": "farmersassortment:block/birch_table_magenta_n---",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=magenta,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_magenta_--sw"
+      "model": "farmersassortment:block/birch_table_magenta_ne--",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=none,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table"
+      "model": "farmersassortment:block/birch_table",
+      "uvlock": true
     },
     "east=false,north=false,rug=none,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_none_---w"
+      "model": "farmersassortment:block/birch_table_none_n---",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=false,rug=none,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_none_--s-"
+      "model": "farmersassortment:block/birch_table_none_n---",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=none,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_none_--sw"
+      "model": "farmersassortment:block/birch_table_none_ne--",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=orange,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_orange"
+      "model": "farmersassortment:block/birch_table_orange",
+      "uvlock": true
     },
     "east=false,north=false,rug=orange,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_orange_---w"
+      "model": "farmersassortment:block/birch_table_orange_n---",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=false,rug=orange,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_orange_--s-"
+      "model": "farmersassortment:block/birch_table_orange_n---",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=orange,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_orange_--sw"
+      "model": "farmersassortment:block/birch_table_orange_ne--",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=pink,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_pink"
+      "model": "farmersassortment:block/birch_table_pink",
+      "uvlock": true
     },
     "east=false,north=false,rug=pink,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_pink_---w"
+      "model": "farmersassortment:block/birch_table_pink_n---",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=false,rug=pink,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_pink_--s-"
+      "model": "farmersassortment:block/birch_table_pink_n---",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=pink,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_pink_--sw"
+      "model": "farmersassortment:block/birch_table_pink_ne--",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=purple,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_purple"
+      "model": "farmersassortment:block/birch_table_purple",
+      "uvlock": true
     },
     "east=false,north=false,rug=purple,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_purple_---w"
+      "model": "farmersassortment:block/birch_table_purple_n---",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=false,rug=purple,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_purple_--s-"
+      "model": "farmersassortment:block/birch_table_purple_n---",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=purple,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_purple_--sw"
+      "model": "farmersassortment:block/birch_table_purple_ne--",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=red,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_red"
+      "model": "farmersassortment:block/birch_table_red",
+      "uvlock": true
     },
     "east=false,north=false,rug=red,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_red_---w"
+      "model": "farmersassortment:block/birch_table_red_n---",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=false,rug=red,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_red_--s-"
+      "model": "farmersassortment:block/birch_table_red_n---",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=red,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_red_--sw"
+      "model": "farmersassortment:block/birch_table_red_ne--",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=white,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_white"
+      "model": "farmersassortment:block/birch_table_white",
+      "uvlock": true
     },
     "east=false,north=false,rug=white,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_white_---w"
+      "model": "farmersassortment:block/birch_table_white_n---",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=false,rug=white,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_white_--s-"
+      "model": "farmersassortment:block/birch_table_white_n---",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=white,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_white_--sw"
+      "model": "farmersassortment:block/birch_table_white_ne--",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=yellow,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_yellow"
+      "model": "farmersassortment:block/birch_table_yellow",
+      "uvlock": true
     },
     "east=false,north=false,rug=yellow,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_yellow_---w"
+      "model": "farmersassortment:block/birch_table_yellow_n---",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=false,rug=yellow,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_yellow_--s-"
+      "model": "farmersassortment:block/birch_table_yellow_n---",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=false,rug=yellow,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_yellow_--sw"
+      "model": "farmersassortment:block/birch_table_yellow_ne--",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=true,rug=black,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_black_n---"
+      "model": "farmersassortment:block/birch_table_black_n---",
+      "uvlock": true
     },
     "east=false,north=true,rug=black,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_black_n--w"
+      "model": "farmersassortment:block/birch_table_black_ne--",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=true,rug=black,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_black_n-s-"
+      "model": "farmersassortment:block/birch_table_black_n-s-",
+      "uvlock": true
     },
     "east=false,north=true,rug=black,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_black_n-sw"
+      "model": "farmersassortment:block/birch_table_black_nes-",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=true,rug=blue,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_blue_n---"
+      "model": "farmersassortment:block/birch_table_blue_n---",
+      "uvlock": true
     },
     "east=false,north=true,rug=blue,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_blue_n--w"
+      "model": "farmersassortment:block/birch_table_blue_ne--",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=true,rug=blue,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_blue_n-s-"
+      "model": "farmersassortment:block/birch_table_blue_n-s-",
+      "uvlock": true
     },
     "east=false,north=true,rug=blue,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_blue_n-sw"
+      "model": "farmersassortment:block/birch_table_blue_nes-",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=true,rug=brown,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_brown_n---"
+      "model": "farmersassortment:block/birch_table_brown_n---",
+      "uvlock": true
     },
     "east=false,north=true,rug=brown,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_brown_n--w"
+      "model": "farmersassortment:block/birch_table_brown_ne--",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=true,rug=brown,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_brown_n-s-"
+      "model": "farmersassortment:block/birch_table_brown_n-s-",
+      "uvlock": true
     },
     "east=false,north=true,rug=brown,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_brown_n-sw"
+      "model": "farmersassortment:block/birch_table_brown_nes-",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=true,rug=canvas,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_canvas_n---"
+      "model": "farmersassortment:block/birch_table_canvas_n---",
+      "uvlock": true
     },
     "east=false,north=true,rug=canvas,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_canvas_n--w"
+      "model": "farmersassortment:block/birch_table_canvas_ne--",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=true,rug=canvas,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_canvas_n-s-"
+      "model": "farmersassortment:block/birch_table_canvas_n-s-",
+      "uvlock": true
     },
     "east=false,north=true,rug=canvas,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_canvas_n-sw"
+      "model": "farmersassortment:block/birch_table_canvas_nes-",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=true,rug=cyan,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_cyan_n---"
+      "model": "farmersassortment:block/birch_table_cyan_n---",
+      "uvlock": true
     },
     "east=false,north=true,rug=cyan,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_cyan_n--w"
+      "model": "farmersassortment:block/birch_table_cyan_ne--",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=true,rug=cyan,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_cyan_n-s-"
+      "model": "farmersassortment:block/birch_table_cyan_n-s-",
+      "uvlock": true
     },
     "east=false,north=true,rug=cyan,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_cyan_n-sw"
+      "model": "farmersassortment:block/birch_table_cyan_nes-",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=true,rug=gray,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_gray_n---"
+      "model": "farmersassortment:block/birch_table_gray_n---",
+      "uvlock": true
     },
     "east=false,north=true,rug=gray,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_gray_n--w"
+      "model": "farmersassortment:block/birch_table_gray_ne--",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=true,rug=gray,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_gray_n-s-"
+      "model": "farmersassortment:block/birch_table_gray_n-s-",
+      "uvlock": true
     },
     "east=false,north=true,rug=gray,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_gray_n-sw"
+      "model": "farmersassortment:block/birch_table_gray_nes-",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=true,rug=green,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_green_n---"
+      "model": "farmersassortment:block/birch_table_green_n---",
+      "uvlock": true
     },
     "east=false,north=true,rug=green,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_green_n--w"
+      "model": "farmersassortment:block/birch_table_green_ne--",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=true,rug=green,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_green_n-s-"
+      "model": "farmersassortment:block/birch_table_green_n-s-",
+      "uvlock": true
     },
     "east=false,north=true,rug=green,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_green_n-sw"
+      "model": "farmersassortment:block/birch_table_green_nes-",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=true,rug=light_blue,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_light_blue_n---"
+      "model": "farmersassortment:block/birch_table_light_blue_n---",
+      "uvlock": true
     },
     "east=false,north=true,rug=light_blue,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_light_blue_n--w"
+      "model": "farmersassortment:block/birch_table_light_blue_ne--",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=true,rug=light_blue,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_light_blue_n-s-"
+      "model": "farmersassortment:block/birch_table_light_blue_n-s-",
+      "uvlock": true
     },
     "east=false,north=true,rug=light_blue,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_light_blue_n-sw"
+      "model": "farmersassortment:block/birch_table_light_blue_nes-",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=true,rug=light_gray,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_light_gray_n---"
+      "model": "farmersassortment:block/birch_table_light_gray_n---",
+      "uvlock": true
     },
     "east=false,north=true,rug=light_gray,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_light_gray_n--w"
+      "model": "farmersassortment:block/birch_table_light_gray_ne--",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=true,rug=light_gray,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_light_gray_n-s-"
+      "model": "farmersassortment:block/birch_table_light_gray_n-s-",
+      "uvlock": true
     },
     "east=false,north=true,rug=light_gray,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_light_gray_n-sw"
+      "model": "farmersassortment:block/birch_table_light_gray_nes-",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=true,rug=lime,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_lime_n---"
+      "model": "farmersassortment:block/birch_table_lime_n---",
+      "uvlock": true
     },
     "east=false,north=true,rug=lime,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_lime_n--w"
+      "model": "farmersassortment:block/birch_table_lime_ne--",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=true,rug=lime,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_lime_n-s-"
+      "model": "farmersassortment:block/birch_table_lime_n-s-",
+      "uvlock": true
     },
     "east=false,north=true,rug=lime,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_lime_n-sw"
+      "model": "farmersassortment:block/birch_table_lime_nes-",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=true,rug=magenta,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_magenta_n---"
+      "model": "farmersassortment:block/birch_table_magenta_n---",
+      "uvlock": true
     },
     "east=false,north=true,rug=magenta,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_magenta_n--w"
+      "model": "farmersassortment:block/birch_table_magenta_ne--",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=true,rug=magenta,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_magenta_n-s-"
+      "model": "farmersassortment:block/birch_table_magenta_n-s-",
+      "uvlock": true
     },
     "east=false,north=true,rug=magenta,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_magenta_n-sw"
+      "model": "farmersassortment:block/birch_table_magenta_nes-",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=true,rug=none,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_none_n---"
+      "model": "farmersassortment:block/birch_table_none_n---",
+      "uvlock": true
     },
     "east=false,north=true,rug=none,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_none_n--w"
+      "model": "farmersassortment:block/birch_table_none_ne--",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=true,rug=none,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_none_n-s-"
+      "model": "farmersassortment:block/birch_table_none_n-s-",
+      "uvlock": true
     },
     "east=false,north=true,rug=none,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_none_n-sw"
+      "model": "farmersassortment:block/birch_table_none_nes-",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=true,rug=orange,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_orange_n---"
+      "model": "farmersassortment:block/birch_table_orange_n---",
+      "uvlock": true
     },
     "east=false,north=true,rug=orange,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_orange_n--w"
+      "model": "farmersassortment:block/birch_table_orange_ne--",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=true,rug=orange,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_orange_n-s-"
+      "model": "farmersassortment:block/birch_table_orange_n-s-",
+      "uvlock": true
     },
     "east=false,north=true,rug=orange,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_orange_n-sw"
+      "model": "farmersassortment:block/birch_table_orange_nes-",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=true,rug=pink,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_pink_n---"
+      "model": "farmersassortment:block/birch_table_pink_n---",
+      "uvlock": true
     },
     "east=false,north=true,rug=pink,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_pink_n--w"
+      "model": "farmersassortment:block/birch_table_pink_ne--",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=true,rug=pink,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_pink_n-s-"
+      "model": "farmersassortment:block/birch_table_pink_n-s-",
+      "uvlock": true
     },
     "east=false,north=true,rug=pink,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_pink_n-sw"
+      "model": "farmersassortment:block/birch_table_pink_nes-",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=true,rug=purple,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_purple_n---"
+      "model": "farmersassortment:block/birch_table_purple_n---",
+      "uvlock": true
     },
     "east=false,north=true,rug=purple,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_purple_n--w"
+      "model": "farmersassortment:block/birch_table_purple_ne--",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=true,rug=purple,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_purple_n-s-"
+      "model": "farmersassortment:block/birch_table_purple_n-s-",
+      "uvlock": true
     },
     "east=false,north=true,rug=purple,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_purple_n-sw"
+      "model": "farmersassortment:block/birch_table_purple_nes-",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=true,rug=red,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_red_n---"
+      "model": "farmersassortment:block/birch_table_red_n---",
+      "uvlock": true
     },
     "east=false,north=true,rug=red,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_red_n--w"
+      "model": "farmersassortment:block/birch_table_red_ne--",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=true,rug=red,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_red_n-s-"
+      "model": "farmersassortment:block/birch_table_red_n-s-",
+      "uvlock": true
     },
     "east=false,north=true,rug=red,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_red_n-sw"
+      "model": "farmersassortment:block/birch_table_red_nes-",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=true,rug=white,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_white_n---"
+      "model": "farmersassortment:block/birch_table_white_n---",
+      "uvlock": true
     },
     "east=false,north=true,rug=white,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_white_n--w"
+      "model": "farmersassortment:block/birch_table_white_ne--",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=true,rug=white,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_white_n-s-"
+      "model": "farmersassortment:block/birch_table_white_n-s-",
+      "uvlock": true
     },
     "east=false,north=true,rug=white,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_white_n-sw"
+      "model": "farmersassortment:block/birch_table_white_nes-",
+      "uvlock": true,
+      "y": 180
     },
     "east=false,north=true,rug=yellow,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_yellow_n---"
+      "model": "farmersassortment:block/birch_table_yellow_n---",
+      "uvlock": true
     },
     "east=false,north=true,rug=yellow,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_yellow_n--w"
+      "model": "farmersassortment:block/birch_table_yellow_ne--",
+      "uvlock": true,
+      "y": 270
     },
     "east=false,north=true,rug=yellow,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_yellow_n-s-"
+      "model": "farmersassortment:block/birch_table_yellow_n-s-",
+      "uvlock": true
     },
     "east=false,north=true,rug=yellow,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_yellow_n-sw"
+      "model": "farmersassortment:block/birch_table_yellow_nes-",
+      "uvlock": true,
+      "y": 180
     },
     "east=true,north=false,rug=black,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_black_-e--"
+      "model": "farmersassortment:block/birch_table_black_n---",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=black,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_black_-e-w"
+      "model": "farmersassortment:block/birch_table_black_n-s-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=black,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_black_-es-"
+      "model": "farmersassortment:block/birch_table_black_ne--",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=black,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_black_-esw"
+      "model": "farmersassortment:block/birch_table_black_nes-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=blue,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_blue_-e--"
+      "model": "farmersassortment:block/birch_table_blue_n---",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=blue,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_blue_-e-w"
+      "model": "farmersassortment:block/birch_table_blue_n-s-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=blue,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_blue_-es-"
+      "model": "farmersassortment:block/birch_table_blue_ne--",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=blue,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_blue_-esw"
+      "model": "farmersassortment:block/birch_table_blue_nes-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=brown,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_brown_-e--"
+      "model": "farmersassortment:block/birch_table_brown_n---",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=brown,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_brown_-e-w"
+      "model": "farmersassortment:block/birch_table_brown_n-s-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=brown,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_brown_-es-"
+      "model": "farmersassortment:block/birch_table_brown_ne--",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=brown,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_brown_-esw"
+      "model": "farmersassortment:block/birch_table_brown_nes-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=canvas,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_canvas_-e--"
+      "model": "farmersassortment:block/birch_table_canvas_n---",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=canvas,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_canvas_-e-w"
+      "model": "farmersassortment:block/birch_table_canvas_n-s-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=canvas,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_canvas_-es-"
+      "model": "farmersassortment:block/birch_table_canvas_ne--",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=canvas,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_canvas_-esw"
+      "model": "farmersassortment:block/birch_table_canvas_nes-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=cyan,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_cyan_-e--"
+      "model": "farmersassortment:block/birch_table_cyan_n---",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=cyan,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_cyan_-e-w"
+      "model": "farmersassortment:block/birch_table_cyan_n-s-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=cyan,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_cyan_-es-"
+      "model": "farmersassortment:block/birch_table_cyan_ne--",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=cyan,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_cyan_-esw"
+      "model": "farmersassortment:block/birch_table_cyan_nes-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=gray,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_gray_-e--"
+      "model": "farmersassortment:block/birch_table_gray_n---",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=gray,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_gray_-e-w"
+      "model": "farmersassortment:block/birch_table_gray_n-s-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=gray,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_gray_-es-"
+      "model": "farmersassortment:block/birch_table_gray_ne--",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=gray,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_gray_-esw"
+      "model": "farmersassortment:block/birch_table_gray_nes-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=green,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_green_-e--"
+      "model": "farmersassortment:block/birch_table_green_n---",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=green,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_green_-e-w"
+      "model": "farmersassortment:block/birch_table_green_n-s-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=green,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_green_-es-"
+      "model": "farmersassortment:block/birch_table_green_ne--",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=green,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_green_-esw"
+      "model": "farmersassortment:block/birch_table_green_nes-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=light_blue,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_light_blue_-e--"
+      "model": "farmersassortment:block/birch_table_light_blue_n---",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=light_blue,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_light_blue_-e-w"
+      "model": "farmersassortment:block/birch_table_light_blue_n-s-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=light_blue,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_light_blue_-es-"
+      "model": "farmersassortment:block/birch_table_light_blue_ne--",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=light_blue,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_light_blue_-esw"
+      "model": "farmersassortment:block/birch_table_light_blue_nes-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=light_gray,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_light_gray_-e--"
+      "model": "farmersassortment:block/birch_table_light_gray_n---",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=light_gray,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_light_gray_-e-w"
+      "model": "farmersassortment:block/birch_table_light_gray_n-s-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=light_gray,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_light_gray_-es-"
+      "model": "farmersassortment:block/birch_table_light_gray_ne--",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=light_gray,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_light_gray_-esw"
+      "model": "farmersassortment:block/birch_table_light_gray_nes-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=lime,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_lime_-e--"
+      "model": "farmersassortment:block/birch_table_lime_n---",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=lime,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_lime_-e-w"
+      "model": "farmersassortment:block/birch_table_lime_n-s-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=lime,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_lime_-es-"
+      "model": "farmersassortment:block/birch_table_lime_ne--",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=lime,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_lime_-esw"
+      "model": "farmersassortment:block/birch_table_lime_nes-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=magenta,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_magenta_-e--"
+      "model": "farmersassortment:block/birch_table_magenta_n---",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=magenta,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_magenta_-e-w"
+      "model": "farmersassortment:block/birch_table_magenta_n-s-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=magenta,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_magenta_-es-"
+      "model": "farmersassortment:block/birch_table_magenta_ne--",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=magenta,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_magenta_-esw"
+      "model": "farmersassortment:block/birch_table_magenta_nes-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=none,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_none_-e--"
+      "model": "farmersassortment:block/birch_table_none_n---",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=none,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_none_-e-w"
+      "model": "farmersassortment:block/birch_table_none_n-s-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=none,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_none_-es-"
+      "model": "farmersassortment:block/birch_table_none_ne--",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=none,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_none_-esw"
+      "model": "farmersassortment:block/birch_table_none_nes-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=orange,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_orange_-e--"
+      "model": "farmersassortment:block/birch_table_orange_n---",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=orange,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_orange_-e-w"
+      "model": "farmersassortment:block/birch_table_orange_n-s-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=orange,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_orange_-es-"
+      "model": "farmersassortment:block/birch_table_orange_ne--",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=orange,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_orange_-esw"
+      "model": "farmersassortment:block/birch_table_orange_nes-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=pink,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_pink_-e--"
+      "model": "farmersassortment:block/birch_table_pink_n---",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=pink,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_pink_-e-w"
+      "model": "farmersassortment:block/birch_table_pink_n-s-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=pink,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_pink_-es-"
+      "model": "farmersassortment:block/birch_table_pink_ne--",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=pink,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_pink_-esw"
+      "model": "farmersassortment:block/birch_table_pink_nes-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=purple,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_purple_-e--"
+      "model": "farmersassortment:block/birch_table_purple_n---",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=purple,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_purple_-e-w"
+      "model": "farmersassortment:block/birch_table_purple_n-s-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=purple,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_purple_-es-"
+      "model": "farmersassortment:block/birch_table_purple_ne--",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=purple,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_purple_-esw"
+      "model": "farmersassortment:block/birch_table_purple_nes-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=red,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_red_-e--"
+      "model": "farmersassortment:block/birch_table_red_n---",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=red,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_red_-e-w"
+      "model": "farmersassortment:block/birch_table_red_n-s-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=red,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_red_-es-"
+      "model": "farmersassortment:block/birch_table_red_ne--",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=red,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_red_-esw"
+      "model": "farmersassortment:block/birch_table_red_nes-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=white,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_white_-e--"
+      "model": "farmersassortment:block/birch_table_white_n---",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=white,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_white_-e-w"
+      "model": "farmersassortment:block/birch_table_white_n-s-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=white,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_white_-es-"
+      "model": "farmersassortment:block/birch_table_white_ne--",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=white,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_white_-esw"
+      "model": "farmersassortment:block/birch_table_white_nes-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=yellow,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_yellow_-e--"
+      "model": "farmersassortment:block/birch_table_yellow_n---",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=yellow,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_yellow_-e-w"
+      "model": "farmersassortment:block/birch_table_yellow_n-s-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=yellow,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_yellow_-es-"
+      "model": "farmersassortment:block/birch_table_yellow_ne--",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=false,rug=yellow,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_yellow_-esw"
+      "model": "farmersassortment:block/birch_table_yellow_nes-",
+      "uvlock": true,
+      "y": 90
     },
     "east=true,north=true,rug=black,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_black_ne--"
+      "model": "farmersassortment:block/birch_table_black_ne--",
+      "uvlock": true
     },
     "east=true,north=true,rug=black,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_black_ne-w"
+      "model": "farmersassortment:block/birch_table_black_nes-",
+      "uvlock": true,
+      "y": 270
     },
     "east=true,north=true,rug=black,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_black_nes-"
+      "model": "farmersassortment:block/birch_table_black_nes-",
+      "uvlock": true
     },
     "east=true,north=true,rug=black,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_black_nesw"
+      "model": "farmersassortment:block/birch_table_black_nesw",
+      "uvlock": true
     },
     "east=true,north=true,rug=blue,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_blue_ne--"
+      "model": "farmersassortment:block/birch_table_blue_ne--",
+      "uvlock": true
     },
     "east=true,north=true,rug=blue,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_blue_ne-w"
+      "model": "farmersassortment:block/birch_table_blue_nes-",
+      "uvlock": true,
+      "y": 270
     },
     "east=true,north=true,rug=blue,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_blue_nes-"
+      "model": "farmersassortment:block/birch_table_blue_nes-",
+      "uvlock": true
     },
     "east=true,north=true,rug=blue,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_blue_nesw"
+      "model": "farmersassortment:block/birch_table_blue_nesw",
+      "uvlock": true
     },
     "east=true,north=true,rug=brown,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_brown_ne--"
+      "model": "farmersassortment:block/birch_table_brown_ne--",
+      "uvlock": true
     },
     "east=true,north=true,rug=brown,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_brown_ne-w"
+      "model": "farmersassortment:block/birch_table_brown_nes-",
+      "uvlock": true,
+      "y": 270
     },
     "east=true,north=true,rug=brown,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_brown_nes-"
+      "model": "farmersassortment:block/birch_table_brown_nes-",
+      "uvlock": true
     },
     "east=true,north=true,rug=brown,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_brown_nesw"
+      "model": "farmersassortment:block/birch_table_brown_nesw",
+      "uvlock": true
     },
     "east=true,north=true,rug=canvas,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_canvas_ne--"
+      "model": "farmersassortment:block/birch_table_canvas_ne--",
+      "uvlock": true
     },
     "east=true,north=true,rug=canvas,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_canvas_ne-w"
+      "model": "farmersassortment:block/birch_table_canvas_nes-",
+      "uvlock": true,
+      "y": 270
     },
     "east=true,north=true,rug=canvas,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_canvas_nes-"
+      "model": "farmersassortment:block/birch_table_canvas_nes-",
+      "uvlock": true
     },
     "east=true,north=true,rug=canvas,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_canvas_nesw"
+      "model": "farmersassortment:block/birch_table_canvas_nesw",
+      "uvlock": true
     },
     "east=true,north=true,rug=cyan,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_cyan_ne--"
+      "model": "farmersassortment:block/birch_table_cyan_ne--",
+      "uvlock": true
     },
     "east=true,north=true,rug=cyan,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_cyan_ne-w"
+      "model": "farmersassortment:block/birch_table_cyan_nes-",
+      "uvlock": true,
+      "y": 270
     },
     "east=true,north=true,rug=cyan,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_cyan_nes-"
+      "model": "farmersassortment:block/birch_table_cyan_nes-",
+      "uvlock": true
     },
     "east=true,north=true,rug=cyan,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_cyan_nesw"
+      "model": "farmersassortment:block/birch_table_cyan_nesw",
+      "uvlock": true
     },
     "east=true,north=true,rug=gray,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_gray_ne--"
+      "model": "farmersassortment:block/birch_table_gray_ne--",
+      "uvlock": true
     },
     "east=true,north=true,rug=gray,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_gray_ne-w"
+      "model": "farmersassortment:block/birch_table_gray_nes-",
+      "uvlock": true,
+      "y": 270
     },
     "east=true,north=true,rug=gray,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_gray_nes-"
+      "model": "farmersassortment:block/birch_table_gray_nes-",
+      "uvlock": true
     },
     "east=true,north=true,rug=gray,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_gray_nesw"
+      "model": "farmersassortment:block/birch_table_gray_nesw",
+      "uvlock": true
     },
     "east=true,north=true,rug=green,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_green_ne--"
+      "model": "farmersassortment:block/birch_table_green_ne--",
+      "uvlock": true
     },
     "east=true,north=true,rug=green,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_green_ne-w"
+      "model": "farmersassortment:block/birch_table_green_nes-",
+      "uvlock": true,
+      "y": 270
     },
     "east=true,north=true,rug=green,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_green_nes-"
+      "model": "farmersassortment:block/birch_table_green_nes-",
+      "uvlock": true
     },
     "east=true,north=true,rug=green,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_green_nesw"
+      "model": "farmersassortment:block/birch_table_green_nesw",
+      "uvlock": true
     },
     "east=true,north=true,rug=light_blue,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_light_blue_ne--"
+      "model": "farmersassortment:block/birch_table_light_blue_ne--",
+      "uvlock": true
     },
     "east=true,north=true,rug=light_blue,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_light_blue_ne-w"
+      "model": "farmersassortment:block/birch_table_light_blue_nes-",
+      "uvlock": true,
+      "y": 270
     },
     "east=true,north=true,rug=light_blue,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_light_blue_nes-"
+      "model": "farmersassortment:block/birch_table_light_blue_nes-",
+      "uvlock": true
     },
     "east=true,north=true,rug=light_blue,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_light_blue_nesw"
+      "model": "farmersassortment:block/birch_table_light_blue_nesw",
+      "uvlock": true
     },
     "east=true,north=true,rug=light_gray,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_light_gray_ne--"
+      "model": "farmersassortment:block/birch_table_light_gray_ne--",
+      "uvlock": true
     },
     "east=true,north=true,rug=light_gray,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_light_gray_ne-w"
+      "model": "farmersassortment:block/birch_table_light_gray_nes-",
+      "uvlock": true,
+      "y": 270
     },
     "east=true,north=true,rug=light_gray,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_light_gray_nes-"
+      "model": "farmersassortment:block/birch_table_light_gray_nes-",
+      "uvlock": true
     },
     "east=true,north=true,rug=light_gray,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_light_gray_nesw"
+      "model": "farmersassortment:block/birch_table_light_gray_nesw",
+      "uvlock": true
     },
     "east=true,north=true,rug=lime,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_lime_ne--"
+      "model": "farmersassortment:block/birch_table_lime_ne--",
+      "uvlock": true
     },
     "east=true,north=true,rug=lime,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_lime_ne-w"
+      "model": "farmersassortment:block/birch_table_lime_nes-",
+      "uvlock": true,
+      "y": 270
     },
     "east=true,north=true,rug=lime,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_lime_nes-"
+      "model": "farmersassortment:block/birch_table_lime_nes-",
+      "uvlock": true
     },
     "east=true,north=true,rug=lime,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_lime_nesw"
+      "model": "farmersassortment:block/birch_table_lime_nesw",
+      "uvlock": true
     },
     "east=true,north=true,rug=magenta,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_magenta_ne--"
+      "model": "farmersassortment:block/birch_table_magenta_ne--",
+      "uvlock": true
     },
     "east=true,north=true,rug=magenta,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_magenta_ne-w"
+      "model": "farmersassortment:block/birch_table_magenta_nes-",
+      "uvlock": true,
+      "y": 270
     },
     "east=true,north=true,rug=magenta,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_magenta_nes-"
+      "model": "farmersassortment:block/birch_table_magenta_nes-",
+      "uvlock": true
     },
     "east=true,north=true,rug=magenta,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_magenta_nesw"
+      "model": "farmersassortment:block/birch_table_magenta_nesw",
+      "uvlock": true
     },
     "east=true,north=true,rug=none,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_none_ne--"
+      "model": "farmersassortment:block/birch_table_none_ne--",
+      "uvlock": true
     },
     "east=true,north=true,rug=none,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_none_ne-w"
+      "model": "farmersassortment:block/birch_table_none_nes-",
+      "uvlock": true,
+      "y": 270
     },
     "east=true,north=true,rug=none,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_none_nes-"
+      "model": "farmersassortment:block/birch_table_none_nes-",
+      "uvlock": true
     },
     "east=true,north=true,rug=none,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_none_nesw"
+      "model": "farmersassortment:block/birch_table_none_nesw",
+      "uvlock": true
     },
     "east=true,north=true,rug=orange,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_orange_ne--"
+      "model": "farmersassortment:block/birch_table_orange_ne--",
+      "uvlock": true
     },
     "east=true,north=true,rug=orange,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_orange_ne-w"
+      "model": "farmersassortment:block/birch_table_orange_nes-",
+      "uvlock": true,
+      "y": 270
     },
     "east=true,north=true,rug=orange,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_orange_nes-"
+      "model": "farmersassortment:block/birch_table_orange_nes-",
+      "uvlock": true
     },
     "east=true,north=true,rug=orange,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_orange_nesw"
+      "model": "farmersassortment:block/birch_table_orange_nesw",
+      "uvlock": true
     },
     "east=true,north=true,rug=pink,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_pink_ne--"
+      "model": "farmersassortment:block/birch_table_pink_ne--",
+      "uvlock": true
     },
     "east=true,north=true,rug=pink,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_pink_ne-w"
+      "model": "farmersassortment:block/birch_table_pink_nes-",
+      "uvlock": true,
+      "y": 270
     },
     "east=true,north=true,rug=pink,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_pink_nes-"
+      "model": "farmersassortment:block/birch_table_pink_nes-",
+      "uvlock": true
     },
     "east=true,north=true,rug=pink,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_pink_nesw"
+      "model": "farmersassortment:block/birch_table_pink_nesw",
+      "uvlock": true
     },
     "east=true,north=true,rug=purple,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_purple_ne--"
+      "model": "farmersassortment:block/birch_table_purple_ne--",
+      "uvlock": true
     },
     "east=true,north=true,rug=purple,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_purple_ne-w"
+      "model": "farmersassortment:block/birch_table_purple_nes-",
+      "uvlock": true,
+      "y": 270
     },
     "east=true,north=true,rug=purple,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_purple_nes-"
+      "model": "farmersassortment:block/birch_table_purple_nes-",
+      "uvlock": true
     },
     "east=true,north=true,rug=purple,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_purple_nesw"
+      "model": "farmersassortment:block/birch_table_purple_nesw",
+      "uvlock": true
     },
     "east=true,north=true,rug=red,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_red_ne--"
+      "model": "farmersassortment:block/birch_table_red_ne--",
+      "uvlock": true
     },
     "east=true,north=true,rug=red,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_red_ne-w"
+      "model": "farmersassortment:block/birch_table_red_nes-",
+      "uvlock": true,
+      "y": 270
     },
     "east=true,north=true,rug=red,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_red_nes-"
+      "model": "farmersassortment:block/birch_table_red_nes-",
+      "uvlock": true
     },
     "east=true,north=true,rug=red,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_red_nesw"
+      "model": "farmersassortment:block/birch_table_red_nesw",
+      "uvlock": true
     },
     "east=true,north=true,rug=white,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_white_ne--"
+      "model": "farmersassortment:block/birch_table_white_ne--",
+      "uvlock": true
     },
     "east=true,north=true,rug=white,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_white_ne-w"
+      "model": "farmersassortment:block/birch_table_white_nes-",
+      "uvlock": true,
+      "y": 270
     },
     "east=true,north=true,rug=white,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_white_nes-"
+      "model": "farmersassortment:block/birch_table_white_nes-",
+      "uvlock": true
     },
     "east=true,north=true,rug=white,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_white_nesw"
+      "model": "farmersassortment:block/birch_table_white_nesw",
+      "uvlock": true
     },
     "east=true,north=true,rug=yellow,south=false,west=false": {
-      "model": "farmersassortment:block/birch_table_yellow_ne--"
+      "model": "farmersassortment:block/birch_table_yellow_ne--",
+      "uvlock": true
     },
     "east=true,north=true,rug=yellow,south=false,west=true": {
-      "model": "farmersassortment:block/birch_table_yellow_ne-w"
+      "model": "farmersassortment:block/birch_table_yellow_nes-",
+      "uvlock": true,
+      "y": 270
     },
     "east=true,north=true,rug=yellow,south=true,west=false": {
-      "model": "farmersassortment:block/birch_table_yellow_nes-"
+      "model": "farmersassortment:block/birch_table_yellow_nes-",
+      "uvlock": true
     },
     "east=true,north=true,rug=yellow,south=true,west=true": {
-      "model": "farmersassortment:block/birch_table_yellow_nesw"
+      "model": "farmersassortment:block/birch_table_yellow_nesw",
+      "uvlock": true
     }
   }
 }
