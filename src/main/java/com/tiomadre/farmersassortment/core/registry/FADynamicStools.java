@@ -116,5 +116,7 @@ public final class FADynamicStools {
                                          ResourceLocation slabId, ResourceLocation seatTexture) {
     }
     public static void init() {
+        ensureDiscovered();
     }
+
 }
