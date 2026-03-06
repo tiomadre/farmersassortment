@@ -41,7 +41,7 @@ public final class FAClientEvents {
                     new ResourceLocation(FarmersAssortment.MOD_ID, "rug"),
                     (stack, level, entity, seed) -> StoolItem.getRug(stack).ordinal()));
 
-            FABlocks.tables().forEach(table -> ItemProperties.register(Item.byBlock(table.get()),
+            FABlocks.allTables().forEach(table -> ItemProperties.register(Item.byBlock(table.get()),
                     new ResourceLocation(FarmersAssortment.MOD_ID, "rug"),
                     (stack, level, entity, seed) -> TableItem.getRug(stack).ordinal()));
 

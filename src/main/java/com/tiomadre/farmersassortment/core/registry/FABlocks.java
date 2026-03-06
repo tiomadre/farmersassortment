@@ -154,6 +154,13 @@ public final class FABlocks {
                 WARPED_TABLE
         );
     }
+    public static Stream<RegistryObject<TableBlock>> allTables() {
+        Stream<RegistryObject<TableBlock>> tables = tables();
+        if (FarmersAssortment.isCrabbersCompatEnabled()) {
+            tables = Stream.concat(tables, FAxCrabbersBlocks.tables());
+        }
+        return tables;
+    }
     private static RegistryObject<TableBlock> registerTable(String woodType, Block baseBlock) {
         String name = woodType + "_table";
         ResourceLocation id = new ResourceLocation(FarmersAssortment.MOD_ID, name);

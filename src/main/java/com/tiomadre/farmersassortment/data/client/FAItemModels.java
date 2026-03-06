@@ -45,20 +45,22 @@ public class FAItemModels extends ItemModelProvider {
         registerTables();
     }
     private void registerTables() {
-        FABlocks.tables().forEach(this::tableItem);
+        FABlocks.allTables().forEach(this::tableItem);
     }
     private void tableItem(RegistryObject<? extends Block> block) {
         String name = Objects.requireNonNull(block.getId()).getPath();
-        ItemModelBuilder builder = stoolTransforms(withExistingParent(name, modLoc("block/" + name)));
+        ItemModelBuilder builder = stoolTransforms(getBuilder(name)
+                .parent(new ModelFile.UncheckedModelFile(modLoc("block/" + name))));
         for (StoolRugType rugType : StoolRugType.values()) {
             if (!rugType.hasRug()) {
                 continue;
             }
             String coveredName = name + "_" + rugType.getSerializedName();
-            stoolTransforms(withExistingParent(coveredName, modLoc("block/" + coveredName)));
+            stoolTransforms(getBuilder(coveredName)
+                    .parent(new ModelFile.UncheckedModelFile(modLoc("block/" + coveredName))));
             builder.override()
                     .predicate(modLoc("rug"), (float) rugType.ordinal())
-                    .model(getExistingFile(modLoc("item/" + coveredName)))
+                    .model(new ModelFile.UncheckedModelFile(modLoc("item/" + coveredName)))
                     .end();
         }
     }

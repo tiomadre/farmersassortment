@@ -141,6 +141,7 @@ public final class FACrafting extends RecipeProvider {
         table(output, FABlocks.CRIMSON_TABLE, Blocks.CRIMSON_SLAB);
         table(output, FABlocks.WARPED_TABLE, Blocks.WARPED_SLAB);
 
+
         //Crabber's Delight Compat
         if (ModList.get().isLoaded("crabbersdelight")) {
           //Cutting Board and Butcher Block Cabinets
@@ -164,6 +165,7 @@ public final class FACrafting extends RecipeProvider {
             crabTrap(output, FAxCrabbersBlocks.CRIMSON_CRAB_TRAP, Blocks.CRIMSON_SLAB);
             crabTrap(output, FAxCrabbersBlocks.WARPED_CRAB_TRAP, Blocks.WARPED_SLAB);
             crabTrap(output, FAxCrabbersBlocks.PALM_CRAB_TRAP, CDModBlocks.PALM_SLAB.get());
+            table(output, FAxCrabbersBlocks.PALM_TABLE, CDModBlocks.PALM_SLAB.get());
             //Skillet Variants
             variantSkillet(output, FAxCrabbersBlocks.PEARLESCENT_SKILLET, CDModItems.PEARL.get(), Items.BRICK);
         }

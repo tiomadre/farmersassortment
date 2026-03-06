@@ -49,7 +49,7 @@ public class FALoot extends LootTableProvider {
             registerDropSelf(Stream.of(FABlocks.ALABASTER_STOVE), generated);
             registerDropSelf(FAxForagersBlocks.diffusers(), generated);
             registerCopyName(FAxCrabbersBlocks.crabTraps(), generated);
-            registerDropSelf(FABlocks.tables(), generated);
+            registerDropSelf(FABlocks.allTables(), generated);
 
             getKnownBlocks().forEach(block -> {
                 if (generated.add(block)) {
