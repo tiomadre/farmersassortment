@@ -358,10 +358,10 @@
   ],
   "render_type": "minecraft:cutout",
   "textures": {
-    "0": "minecraft:block/stripped_oak_log",
-    "1": "minecraft:block/stripped_oak_log_top",
+    "0": "crabbersdelight:block/stripped_palm_log",
+    "1": "crabbersdelight:block/stripped_palm_log_top",
     "4": "farmersassortment:block/light_gray_canvas_rug",
     "5": "farmersassortment:block/light_gray_canvas_rug_extrudes",
-    "particle": "minecraft:block/stripped_oak_log"
+    "particle": "crabbersdelight:block/stripped_palm_log"
   }
 }

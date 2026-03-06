@@ -37,6 +37,15 @@ public class FABlockStates extends BlockStateProvider {
     public FABlockStates(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, FarmersAssortment.MOD_ID, existingFileHelper);
         this.fileHelper = existingFileHelper;
+        trackCompatTexture("crabbersdelight", "block/stripped_palm_log");
+        trackCompatTexture("crabbersdelight", "block/stripped_palm_log_top");
+    }
+
+    private void trackCompatTexture(String namespace, String path) {
+        if (fileHelper == null) {
+            return;
+        }
+        fileHelper.trackGenerated(new ResourceLocation(namespace, path), PackType.CLIENT_RESOURCES, ".png", "textures");
     }
 
     @Override
@@ -898,7 +907,7 @@ private void registerStools() {
                 new TableDefinition(FABlocks.WARPED_TABLE, "warped", new ResourceLocation("minecraft", "block/stripped_warped_stem"), new ResourceLocation("minecraft", "block/stripped_warped_stem_top")),
                 new TableDefinition(FAxForagersBlocks.LILAC_TABLE, "lilac", fallbackTexture(new ResourceLocation("farmersassortment", "block/stripped_lilac_log_big"), new ResourceLocation("minecraft", "block/stripped_oak_log")),
                 fallbackTexture(new ResourceLocation("farmersassortment", "block/stripped_lilac_log_big_top"), new ResourceLocation("minecraft", "block/stripped_oak_log_top"))),
-        new TableDefinition(FAxCrabbersBlocks.PALM_TABLE, "palm", fallbackTexture(new ResourceLocation("crabbersdelight", "block/stripped_palm_log"), new ResourceLocation("minecraft", "block/stripped_oak_log")), fallbackTexture(new ResourceLocation("crabbersdelight", "block/stripped_palm_log_top"), new ResourceLocation("minecraft", "block/stripped_oak_log_top")))
+                new TableDefinition(FAxCrabbersBlocks.PALM_TABLE, "palm", new ResourceLocation("crabbersdelight", "block/stripped_palm_log"), new ResourceLocation("crabbersdelight", "block/stripped_palm_log_top"))
         );
         tables.forEach(this::registerTable);
     }
