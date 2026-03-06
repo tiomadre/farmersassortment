@@ -205,6 +205,11 @@ public class FABlockStates extends BlockStateProvider {
         );
 
         floatingCounters.forEach(counter -> registerFloatingCounter(counter.block(), counter.woodType(), counter.bottomTexture()));
+        uniquefloatingCounter(FABlocks.ALABASTER_FLOATING_COUNTER,
+                modLoc("block/alabaster_counter_bottom"),
+                modLoc("block/alabaster_counter_front"),
+                modLoc("block/alabaster_counter_side"),
+                modLoc("block/alabaster_counter_top"));
     }
     private void registerCanvasRugs() {
         FARugs.canvasRugs().forEach(rug -> {
@@ -217,6 +222,32 @@ public class FABlockStates extends BlockStateProvider {
                     .texture("particle", modLoc("block/" + name));
             simpleBlock(rug.get(), model);
         });
+    }
+
+    private void uniquefloatingCounter(RegistryObject<? extends Block> block, ResourceLocation bottomTexture, ResourceLocation frontTexture, ResourceLocation sideTexture, ResourceLocation topTexture) {
+        String name = block.getId().getPath();
+
+        ModelFile model = models().getBuilder(name)
+                .texture("0", bottomTexture)
+                .texture("1", frontTexture)
+                .texture("2", sideTexture)
+                .texture("3", topTexture)
+                .texture("particle", bottomTexture)
+                .element()
+                .from(0.0F, 8.0F, 0.0F)
+                .to(16.0F, 16.0F, 16.0F)
+                .face(Direction.NORTH).uvs(0.0F, 0.0F, 16.0F, 8.0F).texture("#1").end()
+                .face(Direction.EAST).uvs(0.0F, 0.0F, 16.0F, 8.0F).texture("#2").end()
+                .face(Direction.SOUTH).uvs(0.0F, 0.0F, 16.0F, 8.0F).texture("#2").end()
+                .face(Direction.WEST).uvs(0.0F, 0.0F, 16.0F, 8.0F).texture("#2").end()
+                .face(Direction.UP).uvs(0.0F, 0.0F, 16.0F, 16.0F).texture("#3").end()
+                .face(Direction.DOWN).uvs(0.0F, 0.0F, 16.0F, 16.0F).texture("#0").end()
+                .end();
+
+        getVariantBuilder(block.get()).forAllStates(state -> ConfiguredModel.builder()
+                .modelFile(model)
+                .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360)
+                .build());
     }
 
     private void registerFloatingCounter(RegistryObject<? extends Block> block, String woodType, ResourceLocation bottomTexture) {
@@ -905,9 +936,11 @@ private void registerStools() {
                 new TableDefinition(FABlocks.BAMBOO_TABLE, "bamboo", new ResourceLocation("minecraft", "block/stripped_bamboo_block"), new ResourceLocation("minecraft", "block/bamboo_block_top")),
                 new TableDefinition(FABlocks.CRIMSON_TABLE, "crimson", new ResourceLocation("minecraft", "block/stripped_crimson_stem"), new ResourceLocation("minecraft", "block/stripped_crimson_stem_top")),
                 new TableDefinition(FABlocks.WARPED_TABLE, "warped", new ResourceLocation("minecraft", "block/stripped_warped_stem"), new ResourceLocation("minecraft", "block/stripped_warped_stem_top")),
+                new TableDefinition(FABlocks.ALABASTER_TABLE, "alabaster", modLoc("block/alabaster_table"), modLoc("block/alabaster_table_end")),
                 new TableDefinition(FAxForagersBlocks.LILAC_TABLE, "lilac", fallbackTexture(new ResourceLocation("farmersassortment", "block/stripped_lilac_log_big"), new ResourceLocation("minecraft", "block/stripped_oak_log")),
                 fallbackTexture(new ResourceLocation("farmersassortment", "block/stripped_lilac_log_big_top"), new ResourceLocation("minecraft", "block/stripped_oak_log_top"))),
                 new TableDefinition(FAxCrabbersBlocks.PALM_TABLE, "palm", new ResourceLocation("crabbersdelight", "block/stripped_palm_log"), new ResourceLocation("crabbersdelight", "block/stripped_palm_log_top"))
+
         );
         tables.forEach(this::registerTable);
     }

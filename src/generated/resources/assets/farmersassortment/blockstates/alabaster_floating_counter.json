@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "farmersassortment:block/alabaster_floating_counter",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "farmersassortment:block/alabaster_floating_counter"
+    },
+    "facing=south": {
+      "model": "farmersassortment:block/alabaster_floating_counter",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "farmersassortment:block/alabaster_floating_counter",
+      "y": 270
+    }
+  }
+}

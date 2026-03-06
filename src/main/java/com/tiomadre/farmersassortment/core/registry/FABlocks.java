@@ -57,7 +57,7 @@ public final class FABlocks {
     public static final RegistryObject<FloatingCounterBlock> BAMBOO_FLOATING_COUNTER = registerFloatingCounter("bamboo", Blocks.BAMBOO_PLANKS);
     public static final RegistryObject<FloatingCounterBlock> CRIMSON_FLOATING_COUNTER = registerFloatingCounter("crimson", Blocks.CRIMSON_PLANKS);
     public static final RegistryObject<FloatingCounterBlock> WARPED_FLOATING_COUNTER = registerFloatingCounter("warped", Blocks.WARPED_PLANKS);
-
+    public static final RegistryObject<FloatingCounterBlock> ALABASTER_FLOATING_COUNTER = registerFloatingCounter("alabaster", Blocks.QUARTZ_BLOCK);
 
     public static final RegistryObject<CuttingBoardBlock> SPRUCE_CUTTING_BOARD = registerCuttingBoard("spruce", Blocks.SPRUCE_PLANKS);
     public static final RegistryObject<CuttingBoardBlock> BIRCH_CUTTING_BOARD = registerCuttingBoard("birch", Blocks.BIRCH_PLANKS);
@@ -81,6 +81,7 @@ public final class FABlocks {
     public static final RegistryObject<CookingPotBlock> TERRACOTTA_COOKING_POT = registerTerracottaCookingPot();
 
     public static final RegistryObject<UniqueStoveBlock> ALABASTER_STOVE = BLOCKS.createBlock("alabaster_stove", () -> new UniqueStoveBlock(BlockBehaviour.Properties.copy(Blocks.FURNACE)), new Item.Properties());
+
     public static final RegistryObject<StoolBlock> OAK_STOOL = registerStool("oak", Blocks.OAK_PLANKS);
     public static final RegistryObject<StoolBlock> SPRUCE_STOOL = registerStool("spruce", Blocks.SPRUCE_PLANKS);
     public static final RegistryObject<StoolBlock> BIRCH_STOOL = registerStool("birch", Blocks.BIRCH_PLANKS);
@@ -116,6 +117,8 @@ public final class FABlocks {
     public static final RegistryObject<TableBlock> BAMBOO_TABLE = registerTable("bamboo", Blocks.BAMBOO_PLANKS);
     public static final RegistryObject<TableBlock> CRIMSON_TABLE = registerTable("crimson", Blocks.CRIMSON_PLANKS);
     public static final RegistryObject<TableBlock> WARPED_TABLE = registerTable("warped", Blocks.WARPED_PLANKS);
+    public static final RegistryObject<TableBlock> ALABASTER_TABLE = registerTable("alabaster", Blocks.QUARTZ_BLOCK);
+
 
     public static Stream<RegistryObject<RackBlock>> racks() {
         return Stream.of(
@@ -151,7 +154,8 @@ public final class FABlocks {
                 CHERRY_TABLE,
                 BAMBOO_TABLE,
                 CRIMSON_TABLE,
-                WARPED_TABLE
+                WARPED_TABLE,
+                ALABASTER_TABLE
         );
     }
     public static Stream<RegistryObject<TableBlock>> allTables() {
@@ -300,7 +304,8 @@ public final class FABlocks {
                 CHERRY_FLOATING_COUNTER,
                 BAMBOO_FLOATING_COUNTER,
                 CRIMSON_FLOATING_COUNTER,
-                WARPED_FLOATING_COUNTER
+                WARPED_FLOATING_COUNTER,
+                ALABASTER_FLOATING_COUNTER
         );
     }
 

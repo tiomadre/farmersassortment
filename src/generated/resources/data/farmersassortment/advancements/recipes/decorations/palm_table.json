@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_palm_slab": {
+    "has_palm_planks": {
       "conditions": {
         "items": [
           {
             "items": [
-              "crabbersdelight:palm_slab"
+              "crabbersdelight:palm_planks"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_palm_slab",
+      "has_palm_planks",
       "has_the_recipe"
     ]
   ],

@@ -73,6 +73,7 @@ public final class FACrafting extends RecipeProvider {
         floatingCounter(output, FABlocks.BAMBOO_FLOATING_COUNTER, Blocks.BAMBOO_SLAB);
         floatingCounter(output, FABlocks.CRIMSON_FLOATING_COUNTER, Blocks.CRIMSON_SLAB);
         floatingCounter(output, FABlocks.WARPED_FLOATING_COUNTER, Blocks.WARPED_SLAB);
+        uniqueFloatingCounter(output, FABlocks.ALABASTER_FLOATING_COUNTER, Blocks.QUARTZ_BLOCK, Items.GOLD_INGOT);
 
         //Stools
         stool(output, FABlocks.OAK_STOOL, Blocks.OAK_SLAB);
@@ -129,19 +130,20 @@ public final class FACrafting extends RecipeProvider {
         canvasRug(output, FARugs.BLACK_CANVAS_RUG, Items.BLACK_DYE);
 
         //Tables
-        table(output, FABlocks.OAK_TABLE, Blocks.OAK_SLAB);
-        table(output, FABlocks.SPRUCE_TABLE, Blocks.SPRUCE_SLAB);
-        table(output, FABlocks.BIRCH_TABLE, Blocks.BIRCH_SLAB);
-        table(output, FABlocks.JUNGLE_TABLE, Blocks.JUNGLE_SLAB);
-        table(output, FABlocks.ACACIA_TABLE, Blocks.ACACIA_SLAB);
-        table(output, FABlocks.DARK_OAK_TABLE, Blocks.DARK_OAK_SLAB);
-        table(output, FABlocks.MANGROVE_TABLE, Blocks.MANGROVE_SLAB);
-        table(output, FABlocks.CHERRY_TABLE, Blocks.CHERRY_SLAB);
-        table(output, FABlocks.BAMBOO_TABLE, Blocks.BAMBOO_SLAB);
-        table(output, FABlocks.CRIMSON_TABLE, Blocks.CRIMSON_SLAB);
-        table(output, FABlocks.WARPED_TABLE, Blocks.WARPED_SLAB);
-        table(output, FAxCrabbersBlocks.PALM_TABLE, CDModBlocks.PALM_SLAB.get());
-        table(output, FAxForagersBlocks.LILAC_TABLE, FIBlocks.LILAC_SLAB.get());
+        table(output, FABlocks.OAK_TABLE, Blocks.OAK_PLANKS);
+        table(output, FABlocks.SPRUCE_TABLE, Blocks.SPRUCE_PLANKS);
+        table(output, FABlocks.BIRCH_TABLE, Blocks.BIRCH_PLANKS);
+        table(output, FABlocks.JUNGLE_TABLE, Blocks.JUNGLE_PLANKS);
+        table(output, FABlocks.ACACIA_TABLE, Blocks.ACACIA_PLANKS);
+        table(output, FABlocks.DARK_OAK_TABLE, Blocks.DARK_OAK_PLANKS);
+        table(output, FABlocks.MANGROVE_TABLE, Blocks.MANGROVE_PLANKS);
+        table(output, FABlocks.CHERRY_TABLE, Blocks.CHERRY_PLANKS);
+        table(output, FABlocks.BAMBOO_TABLE, Blocks.BAMBOO_PLANKS);
+        table(output, FABlocks.CRIMSON_TABLE, Blocks.CRIMSON_PLANKS);
+        table(output, FABlocks.WARPED_TABLE, Blocks.WARPED_PLANKS);
+        table(output, FABlocks.ALABASTER_TABLE, Blocks.QUARTZ_SLAB, Items.GOLD_INGOT);
+        table(output, FAxCrabbersBlocks.PALM_TABLE, CDModBlocks.PALM_PLANKS.get());
+        table(output, FAxForagersBlocks.LILAC_TABLE, FIBlocks.LILAC_PLANKS.get());
 
         //Crabber's Delight Compat
         if (ModList.get().isLoaded("crabbersdelight")) {
@@ -154,7 +156,7 @@ public final class FACrafting extends RecipeProvider {
           //Cooking Pot
             variantCookingPot(output, FAxCrabbersBlocks.PEARLESCENT_COOKING_POT, CDModItems.PEARL.get(), Items.WOODEN_SHOVEL, Items.BRICK);
           //Crab Trap Variants
-            crabTrap(output, blockItem("crabbersdelight", "crab_trap"), Blocks.OAK_SLAB, new ResourceLocation("crabbersdelight", "crab_trap")); //overrides base CrD recipe
+            crabTrap(output, blockItem("crabbersdelight", "crab_trap"), Blocks.OAK_SLAB, new ResourceLocation("crabbersdelight", "crab_trap")); //overrides base recipe from Crabbers
             crabTrap(output, FAxCrabbersBlocks.SPRUCE_CRAB_TRAP, Blocks.SPRUCE_SLAB);
             crabTrap(output, FAxCrabbersBlocks.BIRCH_CRAB_TRAP, Blocks.BIRCH_SLAB);
             crabTrap(output, FAxCrabbersBlocks.JUNGLE_CRAB_TRAP, Blocks.JUNGLE_SLAB);
@@ -185,6 +187,15 @@ public final class FACrafting extends RecipeProvider {
                 .define('#', slab)
                 .pattern("###")
                 .unlockedBy(getHasName(slab), has(slab))
+                .save(output);
+    }
+
+    private void uniqueFloatingCounter(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> counter, ItemLike blockMaterial, ItemLike ingotMaterial) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, counter.get(), 2)
+                .define('B', blockMaterial)
+                .define('I', ingotMaterial)
+                .pattern("BIB")
+                .unlockedBy(getHasName(blockMaterial), has(blockMaterial))
                 .save(output);
     }
     private void canvasRug(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> rug, ItemLike dye) {
@@ -241,9 +252,13 @@ public final class FACrafting extends RecipeProvider {
                 .save(output);
     }
     private void table(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> table, ItemLike slab) {
+        table(output, table, slab, Items.STICK);
+    }
+
+    private void table(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> table, ItemLike slab, ItemLike legMaterial) {
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, table.get(), 2)
                 .define('#', slab)
-                .define('s', Items.STICK)
+                .define('s', legMaterial)
                 .pattern("###")
                 .pattern("s s")
                 .pattern("s s")

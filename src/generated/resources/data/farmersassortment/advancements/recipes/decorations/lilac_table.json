@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_lilac_slab": {
+    "has_lilac_planks": {
       "conditions": {
         "items": [
           {
             "items": [
-              "foragersinsight:lilac_slab"
+              "foragersinsight:lilac_planks"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_lilac_slab",
+      "has_lilac_planks",
       "has_the_recipe"
     ]
   ],
