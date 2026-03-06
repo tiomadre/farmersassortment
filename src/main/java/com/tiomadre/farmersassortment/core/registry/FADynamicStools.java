@@ -30,19 +30,28 @@ public final class FADynamicStools {
     private static final Map<String, RegistryObject<StoolBlock>> DYNAMIC_STOOLS = new LinkedHashMap<>();
     private static final List<DynamicStoolDefinition> DYNAMIC_DEFINITIONS = new ArrayList<>();
 
-    static {
-        discoverAndRegister();
-    }
+    private static boolean discovered;
 
     private FADynamicStools() {
     }
 
     public static Stream<RegistryObject<StoolBlock>> stools() {
+        ensureDiscovered();
         return DYNAMIC_STOOLS.values().stream();
     }
 
     public static List<DynamicStoolDefinition> stoolDefinitions() {
+        ensureDiscovered();
         return List.copyOf(DYNAMIC_DEFINITIONS);
+    }
+
+    private static synchronized void ensureDiscovered() {
+        if (discovered) {
+            return;
+        }
+
+        discoverAndRegister();
+        discovered = true;
     }
 
     private static void discoverAndRegister() {

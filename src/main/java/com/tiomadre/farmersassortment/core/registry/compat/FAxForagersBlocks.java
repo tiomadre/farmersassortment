@@ -4,7 +4,9 @@ import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.block.ButcherBlockCabinetBlock;
 import com.tiomadre.farmersassortment.core.block.StoolBlock;
+import com.tiomadre.farmersassortment.core.block.TableBlock;
 import com.tiomadre.farmersassortment.core.item.StoolItem;
+import com.tiomadre.farmersassortment.core.item.TableItem;
 import com.tiomadre.farmersassortment.core.mixin.BlockEntityTypeAccessor;
 import com.tiomadre.foragersinsight.common.block.DiffuserBlock;
 import com.tiomadre.foragersinsight.common.item.DiffuserBlockItem;
@@ -34,6 +36,7 @@ public final class FAxForagersBlocks {
     public static final RegistryObject<ButcherBlockCabinetBlock> LILAC_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("lilac");
     public static final RegistryObject<DiffuserBlock> AMETHYST_DIFFUSER = registerDiffuser();
     public static final RegistryObject<StoolBlock> LILAC_STOOL = registerStool("lilac");
+    public static final RegistryObject<TableBlock> LILAC_TABLE = registerTable("lilac");
 
     private FAxForagersBlocks() {
     }
@@ -52,6 +55,11 @@ public final class FAxForagersBlocks {
         return Stream.of(LILAC_STOOL);
     }
 
+    public static Stream<RegistryObject<TableBlock>> tables() {
+        return Stream.of(LILAC_TABLE);
+    }
+
+
     public static Stream<RegistryObject<DiffuserBlock>> diffusers() {
         return Stream.of(AMETHYST_DIFFUSER);
     }
@@ -60,6 +68,13 @@ public final class FAxForagersBlocks {
         Block baseBlock = compatBlock(woodType + "_planks");
         return BLOCKS.createBlock(woodType + "_cutting_board", () -> new CuttingBoardBlock(BlockBehaviour.Properties.copy(baseBlock)),
                 new Item.Properties());
+    }
+    private static RegistryObject<TableBlock> registerTable(String woodType) {
+        String name = woodType + "_table";
+        ResourceLocation id = new ResourceLocation(FarmersAssortment.MOD_ID, name);
+        return BLOCKS.createBlockWithItem(name,
+                () -> new TableBlock(BlockBehaviour.Properties.copy(compatBlock(woodType + "_planks")).noOcclusion()),
+                () -> new TableItem(Objects.requireNonNull(ForgeRegistries.BLOCKS.getValue(id)), new Item.Properties()));
     }
 
     private static RegistryObject<ButcherBlockCabinetBlock> registerButcherBlockCabinet(String woodType) {

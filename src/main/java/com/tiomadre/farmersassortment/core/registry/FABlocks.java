@@ -159,6 +159,9 @@ public final class FABlocks {
         if (FarmersAssortment.isCrabbersCompatEnabled()) {
             tables = Stream.concat(tables, FAxCrabbersBlocks.tables());
         }
+        if (FarmersAssortment.isForagersCompatEnabled()) {
+            tables = Stream.concat(tables, FAxForagersBlocks.tables());
+        }
         return tables;
     }
     private static RegistryObject<TableBlock> registerTable(String woodType, Block baseBlock) {
