@@ -1027,6 +1027,21 @@ private void registerStools() {
             addBambooTableTransforms(builder);
             return builder;
         }
+
+        if (alabaster && rugType.hasRug()) {
+            ResourceLocation rugTexture = fallbackTexture(new ResourceLocation(Objects.requireNonNull(rugType.texturePath())), modLoc("block/white_canvas_rug"));
+            ResourceLocation rugExtrudesTexture = fallbackTexture(new ResourceLocation(rugType.extrudeTexturePath()), modLoc("block/white_canvas_rug_extrudes"));
+            BlockModelBuilder builder = models().getBuilder(name)
+                    .renderType("minecraft:cutout")
+                    .texture("2", legTexture)
+                    .texture("5", rugTexture)
+                    .texture("6", rugExtrudesTexture)
+                    .texture("7", modLoc("block/alabaster_cooking_pot_tray_top"))
+                    .texture("particle", legTexture);
+            addAlabasterCanvasCoveredTableElements(builder, north, east, south, west);
+            addBambooTableTransforms(builder);
+            return builder;
+        }
         if (bamboo && rugType == StoolRugType.NONE) {
             BlockModelBuilder builder = models().getBuilder(name)
                     .texture("6", legTexture)
@@ -1137,6 +1152,72 @@ private void registerStools() {
                 .face(Direction.WEST).uvs(4, 0, 2, 12).texture("#2").end()
                 .face(Direction.UP).uvs(2, 0, 4, 12).texture("#2").end()
                 .face(Direction.DOWN).uvs(8, 7, 6, 9).texture("#6").end()
+                .end();
+    }
+    private void addAlabasterCanvasCoveredTableElements(BlockModelBuilder b, boolean north, boolean east, boolean south, boolean west) {
+        if (!north && !east) alabasterNorthEastCanvasTableLeg(b);
+        if (!south && !east) alabasterSouthEastCanvasTableLeg(b);
+        if (!south && !west) alabasterSouthWestCanvasTableLeg(b);
+        if (!north && !west) alabasterNorthWestCanvasTableLeg(b);
+
+        addTableRugExtrudes(b, north, east, south, west, "#6");
+
+        b.element().from(0, 12, 0).to(16, 16, 16)
+                .rotation().angle(0).axis(Direction.Axis.Y).origin(0, 12, 0).end()
+                .face(Direction.NORTH).uvs(0, 4, 16, 0).rotation(ModelBuilder.FaceRotation.UPSIDE_DOWN).texture("#5").end()
+                .face(Direction.EAST).uvs(0, 0, 16, 4).rotation(ModelBuilder.FaceRotation.UPSIDE_DOWN).texture("#5").end()
+                .face(Direction.SOUTH).uvs(0, 0, 16, 4).rotation(ModelBuilder.FaceRotation.UPSIDE_DOWN).texture("#5").end()
+                .face(Direction.WEST).uvs(0, 0, 16, 4).rotation(ModelBuilder.FaceRotation.UPSIDE_DOWN).texture("#5").end()
+                .face(Direction.UP).uvs(0, 0, 16, 16).rotation(ModelBuilder.FaceRotation.UPSIDE_DOWN).texture("#5").end()
+                .face(Direction.DOWN).uvs(0, 0, 16, 16).rotation(ModelBuilder.FaceRotation.UPSIDE_DOWN).texture("#7").end()
+                .end();
+    }
+
+    private void alabasterNorthEastCanvasTableLeg(BlockModelBuilder b) {
+        b.element().from(13, 0, 1).to(15, 12, 3)
+                .rotation().angle(0).axis(Direction.Axis.Y).origin(13, 0, 1).end()
+                .face(Direction.NORTH).uvs(4, 0, 2, 12).texture("#2").end()
+                .face(Direction.EAST).uvs(2, 0, 4, 12).texture("#2").end()
+                .face(Direction.SOUTH).uvs(4, 0, 2, 12).texture("#2").end()
+                .face(Direction.WEST).uvs(2, 0, 4, 12).texture("#2").end()
+                .face(Direction.UP).uvs(4, 0, 2, 12).texture("#2").end()
+                .face(Direction.DOWN).uvs(2, 0, 4, 2).texture("#2").end()
+                .end();
+    }
+
+    private void alabasterSouthEastCanvasTableLeg(BlockModelBuilder b) {
+        b.element().from(13, 0, 13).to(15, 12, 15)
+                .rotation().angle(0).axis(Direction.Axis.Y).origin(13, 0, 13).end()
+                .face(Direction.NORTH).uvs(2, 0, 4, 12).texture("#2").end()
+                .face(Direction.EAST).uvs(4, 0, 2, 12).texture("#2").end()
+                .face(Direction.SOUTH).uvs(2, 0, 4, 12).texture("#2").end()
+                .face(Direction.WEST).uvs(4, 0, 2, 12).texture("#2").end()
+                .face(Direction.UP).uvs(2, 0, 4, 12).texture("#2").end()
+                .face(Direction.DOWN).uvs(4, 0, 2, 2).texture("#2").end()
+                .end();
+    }
+
+    private void alabasterSouthWestCanvasTableLeg(BlockModelBuilder b) {
+        b.element().from(1, 0, 13).to(3, 12, 15)
+                .rotation().angle(0).axis(Direction.Axis.Y).origin(1, 0, 13).end()
+                .face(Direction.NORTH).uvs(2, 0, 4, 12).texture("#2").end()
+                .face(Direction.EAST).uvs(2, 0, 4, 12).texture("#2").end()
+                .face(Direction.SOUTH).uvs(4, 0, 2, 12).texture("#2").end()
+                .face(Direction.WEST).uvs(2, 0, 4, 12).texture("#2").end()
+                .face(Direction.UP).uvs(2, 0, 4, 12).texture("#2").end()
+                .face(Direction.DOWN).uvs(4, 0, 2, 2).texture("#2").end()
+                .end();
+    }
+
+    private void alabasterNorthWestCanvasTableLeg(BlockModelBuilder b) {
+        b.element().from(1, 0, 1).to(3, 12, 3)
+                .rotation().angle(0).axis(Direction.Axis.Y).origin(1, 0, 1).end()
+                .face(Direction.NORTH).uvs(2, 0, 4, 12).texture("#2").end()
+                .face(Direction.EAST).uvs(4, 0, 2, 12).texture("#2").end()
+                .face(Direction.SOUTH).uvs(4, 0, 2, 12).texture("#2").end()
+                .face(Direction.WEST).uvs(4, 0, 2, 12).texture("#2").end()
+                .face(Direction.UP).uvs(2, 0, 4, 12).texture("#2").end()
+                .face(Direction.DOWN).uvs(4, 0, 2, 2).texture("#2").end()
                 .end();
     }
 

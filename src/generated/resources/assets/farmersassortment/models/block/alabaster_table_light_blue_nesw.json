@@ -1,5 +1,17 @@
 {
   "display": {
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        -135,
+        0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
     "firstperson_righthand": {
       "rotation": [
         0,
@@ -11,52 +23,105 @@
         0.4,
         0.4
       ]
+    },
+    "fixed": {
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "ground": {
+      "scale": [
+        0.25,
+        0.25,
+        0.25
+      ],
+      "translation": [
+        0,
+        3,
+        0
+      ]
+    },
+    "gui": {
+      "rotation": [
+        30,
+        -135,
+        0
+      ],
+      "scale": [
+        0.625,
+        0.625,
+        0.625
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        75,
+        45,
+        0
+      ],
+      "scale": [
+        0.375,
+        0.375,
+        0.375
+      ],
+      "translation": [
+        0,
+        2.5,
+        0
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        75,
+        45,
+        0
+      ],
+      "scale": [
+        0.375,
+        0.375,
+        0.375
+      ],
+      "translation": [
+        0,
+        2.5,
+        0
+      ]
     }
   },
   "elements": [
     {
       "faces": {
         "down": {
-          "texture": "#0"
+          "rotation": 180,
+          "texture": "#7"
         },
         "east": {
-          "texture": "#4",
-          "uv": [
-            0.0,
-            6.0,
-            16.0,
-            10.0
-          ]
+          "rotation": 180,
+          "texture": "#5"
         },
         "north": {
-          "texture": "#4",
+          "rotation": 180,
+          "texture": "#5",
           "uv": [
             0.0,
-            6.0,
+            4.0,
             16.0,
-            10.0
+            0.0
           ]
         },
         "south": {
-          "texture": "#4",
-          "uv": [
-            0.0,
-            6.0,
-            16.0,
-            10.0
-          ]
+          "rotation": 180,
+          "texture": "#5"
         },
         "up": {
-          "texture": "#4"
+          "rotation": 180,
+          "texture": "#5"
         },
         "west": {
-          "texture": "#4",
-          "uv": [
-            0.0,
-            6.0,
-            16.0,
-            10.0
-          ]
+          "rotation": 180,
+          "texture": "#5"
         }
       },
       "from": [
@@ -82,10 +147,10 @@
   ],
   "render_type": "minecraft:cutout",
   "textures": {
-    "0": "farmersassortment:block/alabaster_table",
-    "1": "farmersassortment:block/alabaster_table_end",
-    "4": "farmersassortment:block/light_blue_canvas_rug",
-    "5": "farmersassortment:block/light_blue_canvas_rug_extrudes",
+    "2": "farmersassortment:block/alabaster_table",
+    "5": "farmersassortment:block/light_blue_canvas_rug",
+    "6": "farmersassortment:block/light_blue_canvas_rug_extrudes",
+    "7": "farmersassortment:block/alabaster_cooking_pot_tray_top",
     "particle": "farmersassortment:block/alabaster_table"
   }
 }
