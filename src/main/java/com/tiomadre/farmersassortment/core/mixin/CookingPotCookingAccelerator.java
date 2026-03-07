@@ -15,16 +15,12 @@ import vectorwing.farmersdelight.common.block.entity.CookingPotBlockEntity;
 
 @Mixin(value = CookingPotBlockEntity.class, remap = false)
 public abstract class CookingPotCookingAccelerator {
-
     @Unique
     private int farmersassortment$alabasterBonusCounter;
-
     @Shadow
     private int cookTime;
-
     @Shadow
     private int cookTimeTotal;
-
     @Shadow
     public abstract boolean isHeated();
 
