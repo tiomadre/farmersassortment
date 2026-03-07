@@ -89,7 +89,8 @@ public final class FATab {
     private static final Set<String> FORAGERS_ITEMS = Set.of(
             "lilac_cutting_board",
             "lilac_butcher_block_cabinet",
-            "amethyst_diffuser"
+            "amethyst_diffuser",
+            "alabaster_diffuser"
     );
 
     private static boolean shouldDisplay(ResourceLocation id) {

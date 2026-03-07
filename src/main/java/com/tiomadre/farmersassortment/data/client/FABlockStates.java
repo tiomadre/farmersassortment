@@ -1015,7 +1015,18 @@ private void registerStools() {
     private BlockModelBuilder tableModel(String name, String woodType, ResourceLocation legTexture, ResourceLocation topTexture,
                                          StoolRugType rugType, boolean north, boolean east, boolean south, boolean west) {
         boolean bamboo = "bamboo".equals(woodType);
+        boolean alabaster = "alabaster".equals(woodType);
 
+        if (alabaster && rugType == StoolRugType.NONE) {
+            BlockModelBuilder builder = models().getBuilder(name)
+                    .texture("2", legTexture)
+                    .texture("4", topTexture)
+                    .texture("6", modLoc("block/alabaster_cooking_pot_tray_top"))
+                    .texture("particle", legTexture);
+            addAlabasterBaseTableElements(builder, north, east, south, west);
+            addBambooTableTransforms(builder);
+            return builder;
+        }
         if (bamboo && rugType == StoolRugType.NONE) {
             BlockModelBuilder builder = models().getBuilder(name)
                     .texture("6", legTexture)
@@ -1064,8 +1075,73 @@ private void registerStools() {
 
         return builder;
     }
+    private void addAlabasterBaseTableElements(BlockModelBuilder b, boolean north, boolean east, boolean south, boolean west) {
+        if (!north && !east) alabasterNorthEastTableLeg(b);
+        if (!south && !east) alabasterSouthEastTableLeg(b);
+        if (!south && !west) alabasterSouthWestTableLeg(b);
+        if (!north && !west) alabasterNorthWestTableLeg(b);
 
-  private void addBambooBaseTableElements(BlockModelBuilder b, boolean north, boolean east, boolean south, boolean west) {
+        b.element().from(0, 12, 0).to(16, 16, 16)
+                .rotation().angle(0).axis(Direction.Axis.Y).origin(0, 12, 0).end()
+                .face(Direction.NORTH).uvs(0, 11, 16, 15).rotation(ModelBuilder.FaceRotation.UPSIDE_DOWN).texture("#4").end()
+                .face(Direction.EAST).uvs(4, 0, 0, 16).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#2").end()
+                .face(Direction.SOUTH).uvs(0, 11, 16, 15).rotation(ModelBuilder.FaceRotation.UPSIDE_DOWN).texture("#4").end()
+                .face(Direction.WEST).uvs(15, 0, 11, 16).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#2").end()
+                .face(Direction.UP).uvs(0, 0, 16, 16).rotation(ModelBuilder.FaceRotation.UPSIDE_DOWN).texture("#6").end()
+                .face(Direction.DOWN).uvs(0, 0, 16, 16).rotation(ModelBuilder.FaceRotation.UPSIDE_DOWN).texture("#6").end()
+                .end();
+    }
+
+    private void alabasterNorthEastTableLeg(BlockModelBuilder b) {
+        b.element().from(13, 0, 1).to(15, 12, 3)
+                .rotation().angle(0).axis(Direction.Axis.Y).origin(13, 0, 1).end()
+                .face(Direction.NORTH).uvs(4, 0, 2, 12).texture("#2").end()
+                .face(Direction.EAST).uvs(2, 0, 4, 12).texture("#2").end()
+                .face(Direction.SOUTH).uvs(4, 0, 2, 12).texture("#2").end()
+                .face(Direction.WEST).uvs(2, 0, 4, 12).texture("#2").end()
+                .face(Direction.UP).uvs(4, 0, 2, 12).texture("#2").end()
+                .face(Direction.DOWN).uvs(6, 7, 8, 9).texture("#6").end()
+                .end();
+    }
+
+    private void alabasterSouthEastTableLeg(BlockModelBuilder b) {
+        b.element().from(13, 0, 13).to(15, 12, 15)
+                .rotation().angle(0).axis(Direction.Axis.Y).origin(13, 0, 13).end()
+                .face(Direction.NORTH).uvs(2, 0, 4, 12).texture("#2").end()
+                .face(Direction.EAST).uvs(4, 0, 2, 12).texture("#2").end()
+                .face(Direction.SOUTH).uvs(2, 0, 4, 12).texture("#2").end()
+                .face(Direction.WEST).uvs(4, 0, 2, 12).texture("#2").end()
+                .face(Direction.UP).uvs(2, 0, 4, 12).texture("#2").end()
+                .face(Direction.DOWN).uvs(8, 8, 6, 10).texture("#6").end()
+                .end();
+    }
+
+    private void alabasterSouthWestTableLeg(BlockModelBuilder b) {
+        b.element().from(1, 0, 13).to(3, 12, 15)
+                .rotation().angle(0).axis(Direction.Axis.Y).origin(1, 0, 13).end()
+                .face(Direction.NORTH).uvs(2, 0, 4, 12).texture("#2").end()
+                .face(Direction.EAST).uvs(2, 0, 4, 12).texture("#2").end()
+                .face(Direction.SOUTH).uvs(4, 0, 2, 12).texture("#2").end()
+                .face(Direction.WEST).uvs(2, 0, 4, 12).texture("#2").end()
+                .face(Direction.UP).uvs(2, 0, 4, 12).texture("#2").end()
+                .face(Direction.DOWN).uvs(4, 0, 2, 2).texture("#2").end()
+                .end();
+    }
+
+    private void alabasterNorthWestTableLeg(BlockModelBuilder b) {
+        b.element().from(1, 0, 1).to(3, 12, 3)
+                .rotation().angle(0).axis(Direction.Axis.Y).origin(1, 0, 1).end()
+                .face(Direction.NORTH).uvs(2, 0, 4, 12).texture("#2").end()
+                .face(Direction.EAST).uvs(4, 0, 2, 12).texture("#2").end()
+                .face(Direction.SOUTH).uvs(4, 0, 2, 12).texture("#2").end()
+                .face(Direction.WEST).uvs(4, 0, 2, 12).texture("#2").end()
+                .face(Direction.UP).uvs(2, 0, 4, 12).texture("#2").end()
+                .face(Direction.DOWN).uvs(8, 7, 6, 9).texture("#6").end()
+                .end();
+    }
+
+
+    private void addBambooBaseTableElements(BlockModelBuilder b, boolean north, boolean east, boolean south, boolean west) {
         if (!north && !west) bambooTableLeg(b, 1, 0, 1, 3, 12, 3, 1, 0, 1, "#6", "#7");
         if (!north && !east) bambooTableLeg(b, 13, 0, 1, 15, 12, 3, 13, 2, 1, "#6", "#7");
         if (!south && !west) bambooTableLeg(b, 1, 0, 13, 3, 12, 15, 1, 2, 13, "#6", "#7");

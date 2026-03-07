@@ -15,7 +15,7 @@ import vectorwing.farmersdelight.common.block.entity.CookingPotBlockEntity;
 public abstract class CookingPotBlockEntityMixin {
 
     @Inject(method = "getName", at = @At("HEAD"), cancellable = true)
-    private void farmersassortment$overrideCopperCookingPotName(CallbackInfoReturnable<Component> cir) {
+    private void farmersassortment$overrideCookingPotName(CallbackInfoReturnable<Component> cir) {
         CookingPotBlockEntity self = (CookingPotBlockEntity) (Object) this;
 
         if (self.getCustomName() != null) {
@@ -31,6 +31,8 @@ public abstract class CookingPotBlockEntityMixin {
             cir.setReturnValue(Component.translatable("container.farmersassortment.pearlescent_cooking_pot"));
         } else if (state.is(FABlocks.TERRACOTTA_COOKING_POT.get())) {
             cir.setReturnValue(Component.translatable("container.farmersassortment.terracotta_cooking_pot"));
+        } else if (state.is(FABlocks.ALABASTER_COOKING_POT.get())) {
+            cir.setReturnValue(Component.translatable("container.farmersassortment.alabaster_cooking_pot"));
         }
     }
 }

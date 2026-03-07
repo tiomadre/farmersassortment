@@ -44,15 +44,23 @@ public class FABlockTags extends BlockTagsProvider {
         this.tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(FABlocks.allButcherBlockCabinets().map(RegistryObject::get).toArray(Block[]::new))
                 .add(FABlocks.allCuttingBoards().map(RegistryObject::get).toArray(Block[]::new))
-                .add(FABlocks.floatingCounters().map(RegistryObject::get).toArray(Block[]::new))
+                .add(FABlocks.floatingCounters()
+                        .filter(block -> block != FABlocks.ALABASTER_FLOATING_COUNTER)
+                        .map(RegistryObject::get)
+                        .toArray(Block[]::new))
                 .add(FABlocks.allStools().map(RegistryObject::get).toArray(Block[]::new))
-                .add(FABlocks.allTables().map(RegistryObject::get).toArray(Block[]::new));
+                .add(FABlocks.allTables()
+                        .filter(block -> block != FABlocks.ALABASTER_TABLE)
+                        .map(RegistryObject::get)
+                        .toArray(Block[]::new));
 
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(FABlocks.allCookingPots().map(RegistryObject::get).toArray(Block[]::new))
                 .add(FAxCrabbersBlocks.skillets().map(RegistryObject::get).toArray(Block[]::new))
                 .add(FABlocks.ALABASTER_STOVE.get())
+                .add(FABlocks.ALABASTER_FLOATING_COUNTER.get())
+                .add(FABlocks.ALABASTER_TABLE.get())
                 .add(FAxForagersBlocks.diffusers().map(RegistryObject::get).toArray(Block[]::new));
 
         this.tag(ModTags.HEAT_SOURCES)

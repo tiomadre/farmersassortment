@@ -34,7 +34,8 @@ public final class FAxForagersBlocks {
 
     public static final RegistryObject<CuttingBoardBlock> LILAC_CUTTING_BOARD = registerCuttingBoard("lilac");
     public static final RegistryObject<ButcherBlockCabinetBlock> LILAC_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("lilac");
-    public static final RegistryObject<DiffuserBlock> AMETHYST_DIFFUSER = registerDiffuser();
+    public static final RegistryObject<DiffuserBlock> AMETHYST_DIFFUSER = registerDiffuser("amethyst", SoundType.AMETHYST);
+    public static final RegistryObject<DiffuserBlock> ALABASTER_DIFFUSER = registerDiffuser("alabaster", SoundType.CALCITE);
     public static final RegistryObject<StoolBlock> LILAC_STOOL = registerStool("lilac");
     public static final RegistryObject<TableBlock> LILAC_TABLE = registerTable("lilac");
 
@@ -61,7 +62,7 @@ public final class FAxForagersBlocks {
 
 
     public static Stream<RegistryObject<DiffuserBlock>> diffusers() {
-        return Stream.of(AMETHYST_DIFFUSER);
+        return Stream.of(AMETHYST_DIFFUSER, ALABASTER_DIFFUSER);
     }
 
     private static RegistryObject<CuttingBoardBlock> registerCuttingBoard(String woodType) {
@@ -96,10 +97,12 @@ public final class FAxForagersBlocks {
     }
 
 
-    private static RegistryObject<DiffuserBlock> registerDiffuser() {
-        return BLOCKS.createBlockWithItem("amethyst_diffuser",
-                () -> new DiffuserBlock(BlockBehaviour.Properties.copy(compatBlock("diffuser")).sound(SoundType.AMETHYST)),
-                () -> new DiffuserBlockItem(Objects.requireNonNull(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(FarmersAssortment.MOD_ID, "amethyst_diffuser"))), new Item.Properties()));
+       private static RegistryObject<DiffuserBlock> registerDiffuser(String material, SoundType soundType) {
+        String name = material + "_diffuser";
+        ResourceLocation id = new ResourceLocation(FarmersAssortment.MOD_ID, name);
+        return BLOCKS.createBlockWithItem(name,
+                () -> new DiffuserBlock(BlockBehaviour.Properties.copy(compatBlock("diffuser")).sound(soundType)),
+                () -> new DiffuserBlockItem(Objects.requireNonNull(ForgeRegistries.BLOCKS.getValue(id)), new Item.Properties()));
     }
 
     private static Block compatBlock(String path) {
@@ -114,7 +117,7 @@ public final class FAxForagersBlocks {
             Set<Block> diffuserValidBlocks = diffuserAccessor.farmersassortment$getValidBlocks();
             Set<Block> updatedDiffusers = new HashSet<>(diffuserValidBlocks);
 
-            boolean changed = addBlocksToSet(updatedDiffusers, List.of(AMETHYST_DIFFUSER.get()));
+            boolean changed = addBlocksToSet(updatedDiffusers, List.of(AMETHYST_DIFFUSER.get(), ALABASTER_DIFFUSER.get()));
             if (changed) {
                 diffuserAccessor.farmersassortment$setValidBlocks(updatedDiffusers);
             }

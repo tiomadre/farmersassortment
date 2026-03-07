@@ -178,10 +178,25 @@ public final class FACrafting extends RecipeProvider {
             stool(output, FAxForagersBlocks.LILAC_STOOL, FIBlocks.LILAC_SLAB.get());
             butcherBlockCabinet(output, FAxForagersBlocks.LILAC_BUTCHER_BLOCK_CABINET, FAxForagersBlocks.LILAC_CUTTING_BOARD.get(), FIBlocks.LILAC_CABINET.get());
             diffuser(output, FAxForagersBlocks.AMETHYST_DIFFUSER, Items.AMETHYST_SHARD);
+            alabasterDiffuser(output, FAxForagersBlocks.ALABASTER_DIFFUSER);
         }
 
         //Recipe Definitions
     }
+    private void alabasterDiffuser(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> diffuser) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, diffuser.get())
+                .define('B', Items.HONEYCOMB)
+                .define('Q', Items.QUARTZ)
+                .define('G', Items.GLASS_BOTTLE)
+                .define('T', Items.TORCH)
+                .define('I', Items.GOLD_INGOT)
+                .pattern("BQB")
+                .pattern("IGI")
+                .pattern("QTQ")
+                .unlockedBy(getHasName(Items.QUARTZ), has(Items.QUARTZ))
+                .save(output);
+    }
+
     private void floatingCounter(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> counter, ItemLike slab) {
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, counter.get(), 2)
                 .define('#', slab)
