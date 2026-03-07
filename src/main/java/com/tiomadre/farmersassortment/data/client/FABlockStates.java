@@ -945,7 +945,7 @@ private void registerStools() {
         tables.forEach(this::registerTable);
     }
 
-   private void registerTable(TableDefinition table) {
+  private void registerTable(TableDefinition table) {
         String name = Objects.requireNonNull(table.block().getId()).getPath();
         Map<String, ModelFile> modelsByState = new HashMap<>();
 
@@ -956,50 +956,19 @@ private void registerStools() {
             boolean south = state.getValue(TableBlock.SOUTH);
             boolean west = state.getValue(TableBlock.WEST);
 
-            RotatedConnections rotated = REConnections(north, east, south, west);
-            String key = rugType.getSerializedName() + "_" + connectionKey(rotated.north(), rotated.east(), rotated.south(), rotated.west());
-            boolean noConnections = !rotated.north() && !rotated.east() && !rotated.south() && !rotated.west();
+            String key = rugType.getSerializedName() + "_" + connectionKey(north, east, south, west);
+            boolean noConnections = !north && !east && !south && !west;
             String modelName = noConnections
                     ? (rugType.hasRug() ? name + "_" + rugType.getSerializedName() : name)
                     : name + "_" + key;
             ModelFile selectedModel = modelsByState.computeIfAbsent(key, unused ->
                     tableModel(modelName, table.woodType(), table.legTexture(), table.topTexture(), rugType,
-                            rotated.north(), rotated.east(), rotated.south(), rotated.west()));
+                            north, east, south, west));
 
             return ConfiguredModel.builder()
                     .modelFile(selectedModel)
-                    .rotationY(rotated.rotationY())
-                    .uvLock(true)
                     .build();
         });
-    }
-
-    private RotatedConnections REConnections(boolean north, boolean east, boolean south, boolean west) {
-        boolean[] original = new boolean[]{north, east, south, west};
-        int bestMask = Integer.MAX_VALUE;
-        int bestRotation = 0;
-
-        for (int rotation = 0; rotation < 4; rotation++) {
-            int mask = 0;
-            for (int index = 0; index < 4; index++) {
-                if (original[(index + rotation) % 4]) {
-                    mask |= 1 << index;
-                }
-            }
-
-            if (mask < bestMask) {
-                bestMask = mask;
-                bestRotation = rotation;
-            }
-        }
-
-        return new RotatedConnections(
-                (bestMask & 1) != 0,
-                (bestMask & 2) != 0,
-                (bestMask & 4) != 0,
-                (bestMask & 8) != 0,
-                (bestRotation * 90) % 360
-        );
     }
 
     private String connectionKey(boolean north, boolean east, boolean south, boolean west) {
@@ -1007,9 +976,6 @@ private void registerStools() {
                 + (east ? "e" : "-")
                 + (south ? "s" : "-")
                 + (west ? "w" : "-");
-    }
-
-    private record RotatedConnections(boolean north, boolean east, boolean south, boolean west, int rotationY) {
     }
 
     private BlockModelBuilder tableModel(String name, String woodType, ResourceLocation legTexture, ResourceLocation topTexture,
