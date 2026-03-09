@@ -102,7 +102,8 @@ public class FABlockStates extends BlockStateProvider {
                 new RackDefinition(FABlocks.CHERRY_RACK, "cherry", false),
                 new RackDefinition(FABlocks.BAMBOO_RACK, "bamboo", true),
                 new RackDefinition(FABlocks.CRIMSON_RACK, "crimson", false),
-                new RackDefinition(FABlocks.WARPED_RACK, "warped", false)
+                new RackDefinition(FABlocks.WARPED_RACK, "warped", false),
+                new RackDefinition(FABlocks.ALABASTER_RACK, "alabaster", false)
         );
 
         racks.forEach(rack -> registerRack(rack.block(), rack.woodType(), rack.bamboo()));
@@ -110,6 +111,17 @@ public class FABlockStates extends BlockStateProvider {
 
     private void registerRack(RegistryObject<? extends Block> block, String woodType, boolean isBamboo) {
         String name = Objects.requireNonNull(block.getId()).getPath();
+        BlockModelBuilder model = "alabaster".equals(woodType)
+                ? alabasterRackModel(name)
+                : defaultRackModel(name, woodType, isBamboo);
+
+        getVariantBuilder(block.get()).forAllStates(state -> ConfiguredModel.builder()
+                .modelFile(model)
+                .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360)
+                .build());
+    }
+
+    private BlockModelBuilder defaultRackModel(String name, String woodType, boolean isBamboo) {
         ResourceLocation sideTexture = rackSideTexture(woodType, isBamboo);
         ResourceLocation topTexture = rackTopTexture(woodType, isBamboo);
 
@@ -154,15 +166,46 @@ public class FABlockStates extends BlockStateProvider {
                 .transform(ItemDisplayContext.GUI).rotation(30.0F, -135.0F, 0.0F).translation(1.25F, -4.0F, 0.0F).scale(0.625F, 0.625F, 0.625F).end()
                 .transform(ItemDisplayContext.FIXED).scale(0.5F, 0.5F, 0.5F).end()
                 .end();
+        return model;
+    }
 
-        getVariantBuilder(block.get()).forAllStates(state -> ConfiguredModel.builder()
-                .modelFile(model)
-                .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360)
-                .build());
+    private BlockModelBuilder alabasterRackModel(String name) {
+        BlockModelBuilder model = models().getBuilder(name)
+                .texture("2", modLoc("block/alabaster_counter_bottom"))
+                .texture("3", modLoc("block/alabaster_table"))
+                .texture("6", modLoc("block/alabaster_counter_top"))
+                .texture("particle", modLoc("block/alabaster_counter_bottom"));
+
+        model.element()
+                .from(0.0F, 8.0F, 5.0F)
+                .to(16.0F, 12.0F, 17.0F)
+                .rotation().angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 8.0F, 5.0F).end()
+                .face(Direction.NORTH).uvs(0.0F, 0.0F, 4.0F, 16.0F).rotation(ModelBuilder.FaceRotation.COUNTERCLOCKWISE_90).texture("#3").end()
+                .face(Direction.EAST).uvs(1.0F, 4.0F, 5.0F, 16.0F).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#3").end()
+                .face(Direction.SOUTH).uvs(4.0F, 0.0F, 0.0F, 16.0F).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#3").end()
+                .face(Direction.WEST).uvs(1.0F, 4.0F, 5.0F, 16.0F).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#3").end()
+                .face(Direction.UP).uvs(16.0F, 2.0F, 0.0F, 14.0F).texture("#6").end()
+                .face(Direction.DOWN).uvs(2.0F, 0.0F, 14.0F, 16.0F).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#2").end()
+                .end();
+
+        model.transforms()
+                .transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND).rotation(75.0F, 45.0F, 0.0F).translation(0.0F, 2.5F, 0.0F).scale(0.375F, 0.375F, 0.375F).end()
+                .transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND).rotation(75.0F, 45.0F, 0.0F).translation(0.0F, 2.5F, 0.0F).scale(0.375F, 0.375F, 0.375F).end()
+                .transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND).rotation(0.0F, 45.0F, 0.0F).scale(0.4F, 0.4F, 0.4F).end()
+                .transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND).rotation(0.0F, -135.0F, 0.0F).scale(0.4F, 0.4F, 0.4F).end()
+                .transform(ItemDisplayContext.GROUND).translation(0.0F, 3.0F, 0.0F).scale(0.25F, 0.25F, 0.25F).end()
+                .transform(ItemDisplayContext.GUI).rotation(30.0F, -135.0F, 0.0F).scale(0.625F, 0.625F, 0.625F).end()
+                .transform(ItemDisplayContext.FIXED).scale(0.5F, 0.5F, 0.5F).end()
+                .end();
+        return model;
     }
     private ResourceLocation rackSideTexture(String woodType, boolean isBamboo) {
         if (isBamboo) {
             return new ResourceLocation("minecraft", "block/stripped_bamboo_block");
+        }
+
+        if ("alabaster".equals(woodType)) {
+            return modLoc("block/alabaster_table");
         }
 
         if ("crimson".equals(woodType) || "warped".equals(woodType)) {
@@ -175,6 +218,10 @@ public class FABlockStates extends BlockStateProvider {
     private ResourceLocation rackTopTexture(String woodType, boolean isBamboo) {
         if (isBamboo) {
             return new ResourceLocation("minecraft", "block/bamboo_block_top");
+        }
+
+        if ("alabaster".equals(woodType)) {
+            return modLoc("block/alabaster_counter_top");
         }
 
         if ("crimson".equals(woodType) || "warped".equals(woodType)) {
@@ -985,6 +1032,7 @@ private void registerStools() {
 
         if (alabaster && rugType == StoolRugType.NONE) {
             BlockModelBuilder builder = models().getBuilder(name)
+                    .renderType("minecraft:cutout")
                     .texture("2", legTexture)
                     .texture("4", topTexture)
                     .texture("6", modLoc("block/alabaster_cooking_pot_tray_top"))
@@ -1135,7 +1183,7 @@ private void registerStools() {
                 .face(Direction.SOUTH).uvs(0, 0, 16, 4).rotation(ModelBuilder.FaceRotation.UPSIDE_DOWN).texture("#5").end()
                 .face(Direction.WEST).uvs(0, 0, 16, 4).rotation(ModelBuilder.FaceRotation.UPSIDE_DOWN).texture("#5").end()
                 .face(Direction.UP).uvs(0, 0, 16, 16).rotation(ModelBuilder.FaceRotation.UPSIDE_DOWN).texture("#5").end()
-                .face(Direction.DOWN).uvs(0, 0, 16, 16).rotation(ModelBuilder.FaceRotation.UPSIDE_DOWN).texture("#7").end()
+                .face(Direction.DOWN).uvs(0, 0, 16, 16).rotation(ModelBuilder.FaceRotation.UPSIDE_DOWN).texture("#5").end()
                 .end();
     }
 

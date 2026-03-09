@@ -105,6 +105,7 @@ public final class FABlocks {
     public static final RegistryObject<RackBlock> BAMBOO_RACK = registerRack("bamboo", Blocks.BAMBOO_PLANKS);
     public static final RegistryObject<RackBlock> CRIMSON_RACK = registerRack("crimson", Blocks.CRIMSON_PLANKS);
     public static final RegistryObject<RackBlock> WARPED_RACK = registerRack("warped", Blocks.WARPED_PLANKS);
+    public static final RegistryObject<RackBlock> ALABASTER_RACK = registerRack("alabaster", Blocks.QUARTZ_BLOCK);
 
     public static final RegistryObject<TableBlock> OAK_TABLE = registerTable("oak", Blocks.OAK_PLANKS);
     public static final RegistryObject<TableBlock> SPRUCE_TABLE = registerTable("spruce", Blocks.SPRUCE_PLANKS);
@@ -132,7 +133,8 @@ public final class FABlocks {
                 CHERRY_RACK,
                 BAMBOO_RACK,
                 CRIMSON_RACK,
-                WARPED_RACK
+                WARPED_RACK,
+                ALABASTER_RACK
         );
     }
 

@@ -73,7 +73,21 @@ public final class FACrafting extends RecipeProvider {
         floatingCounter(output, FABlocks.BAMBOO_FLOATING_COUNTER, Blocks.BAMBOO_SLAB);
         floatingCounter(output, FABlocks.CRIMSON_FLOATING_COUNTER, Blocks.CRIMSON_SLAB);
         floatingCounter(output, FABlocks.WARPED_FLOATING_COUNTER, Blocks.WARPED_SLAB);
-        uniqueFloatingCounter(output, FABlocks.ALABASTER_FLOATING_COUNTER, Blocks.QUARTZ_BLOCK, Items.GOLD_INGOT);
+        uniqueFloatingCounter(output, FABlocks.ALABASTER_FLOATING_COUNTER, Blocks.QUARTZ_SLAB, Items.GOLD_INGOT);
+
+        //Racks
+        rack(output, FABlocks.OAK_RACK, Blocks.OAK_PLANKS,Items.STICK);
+        rack(output, FABlocks.SPRUCE_RACK, Blocks.SPRUCE_PLANKS,Items.STICK);
+        rack(output, FABlocks.BIRCH_RACK, Blocks.BIRCH_PLANKS,Items.STICK);
+        rack(output, FABlocks.JUNGLE_RACK, Blocks.JUNGLE_PLANKS,Items.STICK);
+        rack(output, FABlocks.ACACIA_RACK, Blocks.ACACIA_PLANKS,Items.STICK);
+        rack(output, FABlocks.DARK_OAK_RACK, Blocks.DARK_OAK_PLANKS,Items.STICK);
+        rack(output, FABlocks.MANGROVE_RACK, Blocks.MANGROVE_PLANKS,Items.STICK);
+        rack(output, FABlocks.CHERRY_RACK, Blocks.CHERRY_PLANKS,Items.STICK);
+        rack(output, FABlocks.BAMBOO_RACK, Blocks.BAMBOO_PLANKS,Items.STICK);
+        rack(output, FABlocks.CRIMSON_RACK, Blocks.CRIMSON_PLANKS,Items.STICK);
+        rack(output, FABlocks.WARPED_RACK, Blocks.WARPED_PLANKS,Items.STICK);
+        rack(output, FABlocks.ALABASTER_RACK, Blocks.QUARTZ_BLOCK,Items.GOLD_INGOT);
 
         //Stools
         stool(output, FABlocks.OAK_STOOL, Blocks.OAK_SLAB);
@@ -172,17 +186,24 @@ public final class FACrafting extends RecipeProvider {
             //Skillet Variants
             variantSkillet(output, FAxCrabbersBlocks.PEARLESCENT_SKILLET, CDModItems.PEARL.get(), Items.BRICK);
         }
-
+            //Forager's Insight Compat
         if (ModList.get().isLoaded("foragersinsight")) {
+            //Cutting Board and Butcher Block Cabinets
             cuttingBoard(output, FAxForagersBlocks.LILAC_CUTTING_BOARD, FIBlocks.LILAC_PLANKS.get());
-            stool(output, FAxForagersBlocks.LILAC_STOOL, FIBlocks.LILAC_SLAB.get());
             butcherBlockCabinet(output, FAxForagersBlocks.LILAC_BUTCHER_BLOCK_CABINET, FAxForagersBlocks.LILAC_CUTTING_BOARD.get(), FIBlocks.LILAC_CABINET.get());
+
+            //Diffuser Variants
             diffuser(output, FAxForagersBlocks.AMETHYST_DIFFUSER, Items.AMETHYST_SHARD);
             alabasterDiffuser(output, FAxForagersBlocks.ALABASTER_DIFFUSER);
+
+            //Stools and Tables
+            stool(output, FAxForagersBlocks.LILAC_STOOL, FIBlocks.LILAC_SLAB.get());
+
         }
 
         //Recipe Definitions
     }
+
     private void alabasterDiffuser(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> diffuser) {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, diffuser.get())
                 .define('B', Items.HONEYCOMB)
@@ -280,7 +301,15 @@ public final class FACrafting extends RecipeProvider {
                 .unlockedBy(getHasName(slab), has(slab))
                 .save(output);
     }
-
+    private void rack(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> rack, ItemLike slab, ItemLike material) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, rack.get())
+                .define('#', slab)
+                .define('s', material)
+                .pattern("###")
+                .pattern("sss")
+                .unlockedBy(getHasName(slab), has(slab))
+                .save(output);
+    }
 
     private void variantCookingPot(Consumer<FinishedRecipe> output, RegistryObject<CookingPotBlock> variantCookingPot, ItemLike material, ItemLike shovel, ItemLike base) {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, variantCookingPot.get())

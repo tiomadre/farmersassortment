@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:warped_planks"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "###",
+    "sss"
+  ],
+  "result": {
+    "item": "farmersassortment:warped_rack"
+  },
+  "show_notification": true
+}

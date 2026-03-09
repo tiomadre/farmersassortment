@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_quartz_slab": {
+    "has_mangrove_planks": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:quartz_slab"
+              "minecraft:mangrove_planks"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "farmersassortment:alabaster_floating_counter"
+        "recipe": "farmersassortment:mangrove_rack"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_quartz_slab",
+      "has_mangrove_planks",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "farmersassortment:alabaster_floating_counter"
+      "farmersassortment:mangrove_rack"
     ]
   },
   "sends_telemetry_event": false
