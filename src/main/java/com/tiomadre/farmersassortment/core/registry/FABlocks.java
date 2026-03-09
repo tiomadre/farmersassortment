@@ -120,6 +120,19 @@ public final class FABlocks {
     public static final RegistryObject<TableBlock> WARPED_TABLE = registerTable("warped", Blocks.WARPED_PLANKS);
     public static final RegistryObject<TableBlock> ALABASTER_TABLE = registerTable("alabaster", Blocks.QUARTZ_BLOCK);
 
+    public static final RegistryObject<SlatBlock> OAK_SLATS = registerSlats("oak", Blocks.OAK_PLANKS);
+    public static final RegistryObject<SlatBlock> SPRUCE_SLATS = registerSlats("spruce", Blocks.SPRUCE_PLANKS);
+    public static final RegistryObject<SlatBlock> BIRCH_SLATS = registerSlats("birch", Blocks.BIRCH_PLANKS);
+    public static final RegistryObject<SlatBlock> JUNGLE_SLATS = registerSlats("jungle", Blocks.JUNGLE_PLANKS);
+    public static final RegistryObject<SlatBlock> ACACIA_SLATS = registerSlats("acacia", Blocks.ACACIA_PLANKS);
+    public static final RegistryObject<SlatBlock> DARK_OAK_SLATS = registerSlats("dark_oak", Blocks.DARK_OAK_PLANKS);
+    public static final RegistryObject<SlatBlock> MANGROVE_SLATS = registerSlats("mangrove", Blocks.MANGROVE_PLANKS);
+    public static final RegistryObject<SlatBlock> CHERRY_SLATS = registerSlats("cherry", Blocks.CHERRY_PLANKS);
+    public static final RegistryObject<SlatBlock> BAMBOO_SLATS = registerSlats("bamboo", Blocks.BAMBOO_PLANKS);
+    public static final RegistryObject<SlatBlock> CRIMSON_SLATS = registerSlats("crimson", Blocks.CRIMSON_PLANKS);
+    public static final RegistryObject<SlatBlock> WARPED_SLATS = registerSlats("warped", Blocks.WARPED_PLANKS);
+
+
 
     public static Stream<RegistryObject<RackBlock>> racks() {
         return Stream.of(
@@ -143,7 +156,26 @@ public final class FABlocks {
                 () -> new RackBlock(BlockBehaviour.Properties.copy(baseBlock).noOcclusion()),
                 new Item.Properties());
     }
-
+    public static Stream<RegistryObject<SlatBlock>> slats() {
+        return Stream.of(
+                OAK_SLATS,
+                SPRUCE_SLATS,
+                BIRCH_SLATS,
+                JUNGLE_SLATS,
+                ACACIA_SLATS,
+                DARK_OAK_SLATS,
+                MANGROVE_SLATS,
+                CHERRY_SLATS,
+                BAMBOO_SLATS,
+                CRIMSON_SLATS,
+                WARPED_SLATS
+        );
+    }
+    private static RegistryObject<SlatBlock> registerSlats(String woodType, Block baseBlock) {
+        return BLOCKS.createBlock(woodType + "_slats",
+                () -> new SlatBlock(BlockBehaviour.Properties.copy(baseBlock).noOcclusion()),
+                new Item.Properties());
+    }
     public static Stream<RegistryObject<TableBlock>> tables() {
         return Stream.of(
                 OAK_TABLE,

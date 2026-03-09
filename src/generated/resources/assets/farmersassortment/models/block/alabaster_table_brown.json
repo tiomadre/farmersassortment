@@ -679,7 +679,7 @@
       "faces": {
         "down": {
           "rotation": 180,
-          "texture": "#7"
+          "texture": "#5"
         },
         "east": {
           "rotation": 180,

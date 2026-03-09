@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,vertical=false": {
+      "model": "farmersassortment:block/jungle_slats",
+      "y": 90
+    },
+    "facing=east,vertical=true": {
+      "model": "farmersassortment:block/jungle_slats_vertical"
+    },
+    "facing=north,vertical=false": {
+      "model": "farmersassortment:block/jungle_slats"
+    },
+    "facing=north,vertical=true": {
+      "model": "farmersassortment:block/jungle_slats_vertical",
+      "y": 270
+    },
+    "facing=south,vertical=false": {
+      "model": "farmersassortment:block/jungle_slats",
+      "y": 180
+    },
+    "facing=south,vertical=true": {
+      "model": "farmersassortment:block/jungle_slats_vertical",
+      "y": 90
+    },
+    "facing=west,vertical=false": {
+      "model": "farmersassortment:block/jungle_slats",
+      "y": 270
+    },
+    "facing=west,vertical=true": {
+      "model": "farmersassortment:block/jungle_slats_vertical",
+      "y": 180
+    }
+  }
+}

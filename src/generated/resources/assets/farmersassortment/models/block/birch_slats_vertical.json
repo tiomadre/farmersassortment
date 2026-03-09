@@ -1,0 +1,7 @@
+{
+  "parent": "farmersassortment:block/template/slats_vertical",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "texture": "minecraft:block/birch_planks"
+  }
+}

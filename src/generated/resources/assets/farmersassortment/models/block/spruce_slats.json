@@ -1,0 +1,7 @@
+{
+  "parent": "farmersassortment:block/template/slats_horizontal",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "texture": "minecraft:block/spruce_planks"
+  }
+}

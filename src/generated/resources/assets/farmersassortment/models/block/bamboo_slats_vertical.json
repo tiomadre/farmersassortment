@@ -1,0 +1,7 @@
+{
+  "parent": "farmersassortment:block/template/slats_vertical_bamboo",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "texture": "minecraft:block/stripped_bamboo_block"
+  }
+}

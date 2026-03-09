@@ -163,6 +163,7 @@
       ]
     }
   ],
+  "render_type": "minecraft:cutout",
   "textures": {
     "2": "farmersassortment:block/alabaster_table",
     "4": "farmersassortment:block/alabaster_table_end",

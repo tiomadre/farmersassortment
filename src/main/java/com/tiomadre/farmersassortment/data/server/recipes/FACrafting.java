@@ -89,6 +89,20 @@ public final class FACrafting extends RecipeProvider {
         rack(output, FABlocks.WARPED_RACK, Blocks.WARPED_PLANKS,Items.STICK);
         rack(output, FABlocks.ALABASTER_RACK, Blocks.QUARTZ_BLOCK,Items.GOLD_INGOT);
 
+        //Slats
+        slats(output, FABlocks.OAK_SLATS, Blocks.OAK_SLAB);
+        slats(output, FABlocks.SPRUCE_SLATS, Blocks.SPRUCE_SLAB);
+        slats(output, FABlocks.BIRCH_SLATS, Blocks.BIRCH_SLAB);
+        slats(output, FABlocks.JUNGLE_SLATS, Blocks.JUNGLE_SLAB);
+        slats(output, FABlocks.ACACIA_SLATS, Blocks.ACACIA_SLAB);
+        slats(output, FABlocks.DARK_OAK_SLATS, Blocks.DARK_OAK_SLAB);
+        slats(output, FABlocks.MANGROVE_SLATS, Blocks.MANGROVE_SLAB);
+        slats(output, FABlocks.CHERRY_SLATS, Blocks.CHERRY_SLAB);
+        slats(output, FABlocks.BAMBOO_SLATS, Blocks.BAMBOO_SLAB);
+        slats(output, FABlocks.CRIMSON_SLATS, Blocks.CRIMSON_SLAB);
+        slats(output, FABlocks.WARPED_SLATS, Blocks.WARPED_SLAB);
+
+
         //Stools
         stool(output, FABlocks.OAK_STOOL, Blocks.OAK_SLAB);
         stool(output, FABlocks.SPRUCE_STOOL, Blocks.SPRUCE_SLAB);
@@ -202,6 +216,16 @@ public final class FACrafting extends RecipeProvider {
         }
 
         //Recipe Definitions
+    }
+
+    private void slats(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> slats, ItemLike slab) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, slats.get(), 6)
+                .define('#', slab)
+                .pattern("#")
+                .pattern("#")
+                .pattern("#")
+                .unlockedBy(getHasName(slab), has(slab))
+                .save(output);
     }
 
     private void alabasterDiffuser(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> diffuser) {

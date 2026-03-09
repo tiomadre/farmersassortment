@@ -6,6 +6,7 @@ import com.tiomadre.farmersassortment.core.block.StoolBlock;
 import com.tiomadre.farmersassortment.core.block.TableBlock;
 import com.tiomadre.farmersassortment.core.block.TerracottaCookingPotBlock;
 import com.tiomadre.farmersassortment.core.block.state.TerracottaCookingPotColor;
+import com.tiomadre.farmersassortment.core.block.SlatBlock;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import com.tiomadre.farmersassortment.core.registry.FADynamicStools;
 import com.tiomadre.farmersassortment.core.registry.FARugs;
@@ -51,15 +52,16 @@ public class FABlockStates extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         registerCabinets();
+        registerCanvasRugs();
         registerCuttingBoards();
         registerCookingPots();
-        registerStoves();
         registerCrabTraps();
-        registerSkillets();
         registerDiffusers();
         registerFloatingCounters();
-        registerCanvasRugs();
+        registerSlats();
+        registerSkillets();
         registerStools();
+        registerStoves();
         registerRacks();
         registerTables();
     }
@@ -90,6 +92,63 @@ public class FABlockStates extends BlockStateProvider {
                 cabinet.topTexture()
         ));
     }
+    private void registerSlats() {
+        List<SlatsDefinition> slats = List.of(
+                new SlatsDefinition(FABlocks.OAK_SLATS, "oak", false),
+                new SlatsDefinition(FABlocks.SPRUCE_SLATS, "spruce", false),
+                new SlatsDefinition(FABlocks.BIRCH_SLATS, "birch", false),
+                new SlatsDefinition(FABlocks.JUNGLE_SLATS, "jungle", false),
+                new SlatsDefinition(FABlocks.ACACIA_SLATS, "acacia", false),
+                new SlatsDefinition(FABlocks.DARK_OAK_SLATS, "dark_oak", false),
+                new SlatsDefinition(FABlocks.MANGROVE_SLATS, "mangrove", false),
+                new SlatsDefinition(FABlocks.CHERRY_SLATS, "cherry", false),
+                new SlatsDefinition(FABlocks.BAMBOO_SLATS, "bamboo", true),
+                new SlatsDefinition(FABlocks.CRIMSON_SLATS, "crimson", false),
+                new SlatsDefinition(FABlocks.WARPED_SLATS, "warped", false)
+        );
+
+        slats.forEach(definition -> registerSlats(definition.block(), definition.woodType(), definition.bamboo()));
+    }
+
+    private void registerSlats(RegistryObject<? extends Block> block, String woodType, boolean bamboo) {
+        String name = Objects.requireNonNull(block.getId()).getPath();
+        String textureName = bamboo ? "stripped_bamboo_block" : woodType + "_planks";
+        ResourceLocation texture = new ResourceLocation("minecraft", "block/" + textureName);
+
+        ModelFile horizontalModel = models().getBuilder(name)
+                .parent(new ModelFile.UncheckedModelFile(modLoc("block/template/slats_horizontal" + (bamboo ? "_bamboo" : ""))))
+                .renderType("minecraft:cutout")
+                .texture("texture", texture);
+        ModelFile verticalModel = models().getBuilder(name + "_vertical")
+                .parent(new ModelFile.UncheckedModelFile(modLoc("block/template/slats_vertical" + (bamboo ? "_bamboo" : ""))))
+                .renderType("minecraft:cutout")
+                .texture("texture", texture);
+
+        getVariantBuilder(block.get()).forAllStates(state -> {
+            Direction facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
+            if (!state.getValue(SlatBlock.VERTICAL)) {
+                return ConfiguredModel.builder()
+                        .modelFile(horizontalModel)
+                        .rotationY(((int) facing.toYRot() + 180) % 360)
+                        .build();
+            }
+
+            return ConfiguredModel.builder()
+                    .modelFile(verticalModel)
+                    .rotationY(slatsVerticalRotationY(facing))
+                    .build();
+        });
+    }
+
+    private int slatsVerticalRotationY(Direction direction) {
+        return switch (direction) {
+            case SOUTH -> 90;
+            case WEST -> 180;
+            case NORTH -> 270;
+            default -> 0;
+        };
+    }
+
     private void registerRacks() {
         List<RackDefinition> racks = List.of(
                 new RackDefinition(FABlocks.OAK_RACK, "oak", false),
@@ -108,10 +167,13 @@ public class FABlockStates extends BlockStateProvider {
 
         racks.forEach(rack -> registerRack(rack.block(), rack.woodType(), rack.bamboo()));
     }
+    private record SlatsDefinition(RegistryObject<? extends Block> block, String woodType, boolean bamboo) {
+    }
+
 
     private void registerRack(RegistryObject<? extends Block> block, String woodType, boolean isBamboo) {
         String name = Objects.requireNonNull(block.getId()).getPath();
-        BlockModelBuilder model = "alabaster".equals(woodType)
+        BlockModelBuilder model = block == FABlocks.ALABASTER_RACK
                 ? alabasterRackModel(name)
                 : defaultRackModel(name, woodType, isBamboo);
 

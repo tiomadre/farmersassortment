@@ -70,13 +70,16 @@ public final class FATab {
         if (path.endsWith("_canvas_rug")) {
             return 5;
         }
-        if (path.endsWith("_stool")) {
+        if (path.endsWith("_slats")) {
             return 6;
         }
-        if (path.endsWith("_table")) {
+        if (path.endsWith("_stool")) {
             return 7;
         }
-        return 8;
+        if (path.endsWith("_table")) {
+            return 8;
+        }
+        return 9;
     }
     private static final Set<String> CRABBERS_ITEMS = Set.of(
             "clamshell_knife",
