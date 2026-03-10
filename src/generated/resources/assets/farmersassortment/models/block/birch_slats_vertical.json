@@ -1,5 +1,5 @@
 {
-  "parent": "farmersassortment:block/slats_vertical",
+  "parent": "farmersassortment:block/template/slats_vertical",
   "render_type": "minecraft:cutout",
   "textures": {
     "3": "minecraft:block/birch_planks",

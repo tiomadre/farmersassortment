@@ -116,12 +116,12 @@ public class FABlockStates extends BlockStateProvider {
         ResourceLocation texture = new ResourceLocation("minecraft", "block/" + textureName);
 
         ModelFile horizontalModel = models().getBuilder(name)
-                .parent(new ModelFile.UncheckedModelFile(modLoc("block/slats_horizontal" + (bamboo ? "_bamboo" : ""))))
+                .parent(new ModelFile.UncheckedModelFile(modLoc("block/template/slats_horizontal" + (bamboo ? "_bamboo" : ""))))
                 .renderType("minecraft:cutout")
                 .texture("2", texture)
                 .texture("particle", texture);
         ModelFile verticalModel = models().getBuilder(name + "_vertical")
-                .parent(new ModelFile.UncheckedModelFile(modLoc("block/slats_vertical" + (bamboo ? "_bamboo" : ""))))
+                .parent(new ModelFile.UncheckedModelFile(modLoc("block/template/slats_vertical" + (bamboo ? "_bamboo" : ""))))
                 .renderType("minecraft:cutout")
                 .texture(bamboo ? "2" : "3", texture)
                 .texture("particle", texture);

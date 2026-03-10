@@ -1,5 +1,5 @@
 {
-  "parent": "farmersassortment:block/slats_horizontal_bamboo",
+  "parent": "farmersassortment:block/template/slats_horizontal_bamboo",
   "render_type": "minecraft:cutout",
   "textures": {
     "2": "minecraft:block/stripped_bamboo_block",

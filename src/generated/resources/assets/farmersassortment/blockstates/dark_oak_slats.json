@@ -1,42 +1,28 @@
 {
   "variants": {
     "facing=east,vertical=false": {
-      "model": "farmersassortment:block/dark_oak_slats",
-      "uvlock": true,
-      "y": 90
+      "model": "farmersassortment:block/dark_oak_slats"
     },
     "facing=east,vertical=true": {
-      "model": "farmersassortment:block/dark_oak_slats_vertical",
-      "uvlock": true
+      "model": "farmersassortment:block/dark_oak_slats_vertical"
     },
     "facing=north,vertical=false": {
-      "model": "farmersassortment:block/dark_oak_slats",
-      "uvlock": true
+      "model": "farmersassortment:block/dark_oak_slats"
     },
     "facing=north,vertical=true": {
-      "model": "farmersassortment:block/dark_oak_slats_vertical",
-      "uvlock": true,
-      "y": 270
+      "model": "farmersassortment:block/dark_oak_slats_vertical"
     },
     "facing=south,vertical=false": {
-      "model": "farmersassortment:block/dark_oak_slats",
-      "uvlock": true,
-      "y": 180
+      "model": "farmersassortment:block/dark_oak_slats"
     },
     "facing=south,vertical=true": {
-      "model": "farmersassortment:block/dark_oak_slats_vertical",
-      "uvlock": true,
-      "y": 90
+      "model": "farmersassortment:block/dark_oak_slats_vertical"
     },
     "facing=west,vertical=false": {
-      "model": "farmersassortment:block/dark_oak_slats",
-      "uvlock": true,
-      "y": 270
+      "model": "farmersassortment:block/dark_oak_slats"
     },
     "facing=west,vertical=true": {
-      "model": "farmersassortment:block/dark_oak_slats_vertical",
-      "uvlock": true,
-      "y": 180
+      "model": "farmersassortment:block/dark_oak_slats_vertical"
     }
   }
 }

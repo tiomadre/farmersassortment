@@ -102,6 +102,18 @@
   "block.farmersassortment.alabaster_rack": "Alabaster Rack",
   "container.farmersassortment.rack": "Rack",
 
+  "block.farmersassortment.oak_slats": "Oak Slats",
+  "block.farmersassortment.spruce_slats": "Spruce Slats",
+  "block.farmersassortment.birch_slats": "Birch Slats",
+  "block.farmersassortment.jungle_slats": "Jungle Slats",
+  "block.farmersassortment.acacia_slats": "Acacia Slats",
+  "block.farmersassortment.dark_oak_slats": "Dark Oak Slats",
+  "block.farmersassortment.mangrove_slats": "Mangrove Slats",
+  "block.farmersassortment.cherry_slats": "Cherry Slats",
+  "block.farmersassortment.bamboo_slats": "Bamboo Slats",
+  "block.farmersassortment.crimson_slats": "Crimson Slats",
+  "block.farmersassortment.warped_slats": "Warped Slats",
+
   "block.farmersassortment.copper_cooking_pot": "Copper Cooking Pot",
   "item.farmersassortment.copper_cooking_pot": "Copper Cooking Pot",
   "block.farmersassortment.golden_cooking_pot": "Golden Cooking Pot",
