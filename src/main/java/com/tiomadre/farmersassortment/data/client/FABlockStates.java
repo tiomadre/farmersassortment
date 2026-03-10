@@ -116,13 +116,15 @@ public class FABlockStates extends BlockStateProvider {
         ResourceLocation texture = new ResourceLocation("minecraft", "block/" + textureName);
 
         ModelFile horizontalModel = models().getBuilder(name)
-                .parent(new ModelFile.UncheckedModelFile(modLoc("block/template/slats_horizontal" + (bamboo ? "_bamboo" : ""))))
+                .parent(new ModelFile.UncheckedModelFile(modLoc("block/slats_horizontal" + (bamboo ? "_bamboo" : ""))))
                 .renderType("minecraft:cutout")
-                .texture("texture", texture);
+                .texture("2", texture)
+                .texture("particle", texture);
         ModelFile verticalModel = models().getBuilder(name + "_vertical")
-                .parent(new ModelFile.UncheckedModelFile(modLoc("block/template/slats_vertical" + (bamboo ? "_bamboo" : ""))))
+                .parent(new ModelFile.UncheckedModelFile(modLoc("block/slats_vertical" + (bamboo ? "_bamboo" : ""))))
                 .renderType("minecraft:cutout")
-                .texture("texture", texture);
+                .texture(bamboo ? "2" : "3", texture)
+                .texture("particle", texture);
 
         getVariantBuilder(block.get()).forAllStates(state -> {
             Direction facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
@@ -130,12 +132,14 @@ public class FABlockStates extends BlockStateProvider {
                 return ConfiguredModel.builder()
                         .modelFile(horizontalModel)
                         .rotationY(((int) facing.toYRot() + 180) % 360)
+                        .uvLock(true)
                         .build();
             }
 
             return ConfiguredModel.builder()
                     .modelFile(verticalModel)
                     .rotationY(slatsVerticalRotationY(facing))
+                    .uvLock(true)
                     .build();
         });
     }
