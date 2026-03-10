@@ -43,7 +43,12 @@ public class FAItemModels extends ItemModelProvider {
         registerStools();
         registerRacks();
         registerTables();
+        registerSlats();
     }
+    private void registerSlats() {
+        FABlocks.slats().forEach(this::block);
+    }
+
     private void registerTables() {
         FABlocks.allTables().forEach(this::tableItem);
     }

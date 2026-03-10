@@ -1245,7 +1245,7 @@ private void registerStools() {
                 .face(Direction.SOUTH).uvs(0, 0, 16, 4).rotation(ModelBuilder.FaceRotation.UPSIDE_DOWN).texture("#5").end()
                 .face(Direction.WEST).uvs(0, 0, 16, 4).rotation(ModelBuilder.FaceRotation.UPSIDE_DOWN).texture("#5").end()
                 .face(Direction.UP).uvs(0, 0, 16, 16).rotation(ModelBuilder.FaceRotation.UPSIDE_DOWN).texture("#5").end()
-                .face(Direction.DOWN).uvs(0, 0, 16, 16).rotation(ModelBuilder.FaceRotation.UPSIDE_DOWN).texture("#5").end()
+                .face(Direction.DOWN).uvs(0, 0, 16, 16).rotation(ModelBuilder.FaceRotation.UPSIDE_DOWN).texture("#7").end()
                 .end();
     }
 
@@ -1331,7 +1331,7 @@ private void registerStools() {
                 .face(Direction.SOUTH).uvs(0, 8, 16, 12).texture("#8").end()
                 .face(Direction.WEST).uvs(0, 0, 4, 16).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#8").end()
                 .face(Direction.UP).uvs(0, 0, 16, 16).texture("#8").end()
-                .face(Direction.DOWN).uvs(0, 0, 16, 16).texture("#8").end()
+                .face(Direction.DOWN).uvs(0, 0, 16, 16).texture("#6").end()
                 .end();
     }
 

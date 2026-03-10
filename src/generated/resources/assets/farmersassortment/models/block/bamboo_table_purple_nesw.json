@@ -22,7 +22,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#8"
+          "texture": "#6"
         },
         "east": {
           "rotation": 90,
