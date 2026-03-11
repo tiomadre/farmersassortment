@@ -172,9 +172,23 @@ public final class FABlocks {
         );
     }
     private static RegistryObject<SlatBlock> registerSlats(String woodType, Block baseBlock) {
+        SoundType soundType = switch (woodType) {
+            case "bamboo" -> slatSoundType(SoundType.BAMBOO_WOOD, 1.8F);
+            case "crimson", "warped" -> slatSoundType(SoundType.NETHER_WOOD, 0.85F);
+            default -> slatSoundType(SoundType.WOOD, 1.2F);
+        };
         return BLOCKS.createBlock(woodType + "_slats",
-                () -> new SlatBlock(BlockBehaviour.Properties.copy(baseBlock).noOcclusion()),
+                () -> new SlatBlock(BlockBehaviour.Properties.copy(baseBlock).sound(soundType).noOcclusion()),
                 new Item.Properties());
+    }
+
+    private static SoundType slatSoundType(SoundType baseSoundType, float pitch) {
+        return new SoundType(baseSoundType.getVolume(), pitch,
+                baseSoundType.getBreakSound(),
+                baseSoundType.getStepSound(),
+                baseSoundType.getPlaceSound(),
+                baseSoundType.getHitSound(),
+                baseSoundType.getFallSound());
     }
     public static Stream<RegistryObject<TableBlock>> tables() {
         return Stream.of(

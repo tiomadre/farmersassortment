@@ -1,28 +1,41 @@
 {
   "variants": {
     "facing=east,vertical=false": {
-      "model": "farmersassortment:block/jungle_slats"
+      "model": "farmersassortment:block/jungle_slats",
+      "uvlock": true,
+      "y": 90
     },
     "facing=east,vertical=true": {
-      "model": "farmersassortment:block/jungle_slats_vertical"
+      "model": "farmersassortment:block/jungle_slats_vertical",
+      "uvlock": true
     },
     "facing=north,vertical=false": {
-      "model": "farmersassortment:block/jungle_slats"
+      "model": "farmersassortment:block/jungle_slats",
+      "uvlock": true
     },
     "facing=north,vertical=true": {
-      "model": "farmersassortment:block/jungle_slats_vertical"
+      "model": "farmersassortment:block/jungle_slats_vertical",
+      "uvlock": true,
+      "y": 270
     },
     "facing=south,vertical=false": {
-      "model": "farmersassortment:block/jungle_slats"
+      "model": "farmersassortment:block/jungle_slats",
+      "uvlock": true
     },
     "facing=south,vertical=true": {
-      "model": "farmersassortment:block/jungle_slats_vertical"
+      "model": "farmersassortment:block/jungle_slats_vertical",
+      "uvlock": true,
+      "y": 90
     },
     "facing=west,vertical=false": {
-      "model": "farmersassortment:block/jungle_slats"
+      "model": "farmersassortment:block/jungle_slats",
+      "uvlock": true,
+      "y": 90
     },
     "facing=west,vertical=true": {
-      "model": "farmersassortment:block/jungle_slats_vertical"
+      "model": "farmersassortment:block/jungle_slats_vertical",
+      "uvlock": true,
+      "y": 180
     }
   }
 }

@@ -128,7 +128,7 @@ public class SlatBlock extends HorizontalDirectionalBlock {
         }
 
         boolean vertical = clickedFace.getAxis().isHorizontal();
-        Direction facing = vertical ? clickedFace.getOpposite() : context.getHorizontalDirection().getOpposite();
+        Direction facing = vertical ? clickedFace.getOpposite() : Direction.NORTH;
         return this.defaultBlockState().setValue(VERTICAL, vertical).setValue(FACING, facing);
     }
 
@@ -139,12 +139,12 @@ public class SlatBlock extends HorizontalDirectionalBlock {
 
     @Override
     public @NotNull BlockState rotate(@NotNull BlockState state, @NotNull Rotation rotation) {
-        return state.setValue(FACING, rotation.rotate(state.getValue(FACING)));
+        return state;
     }
 
     @Override
     public @NotNull BlockState mirror(@NotNull BlockState state, @NotNull Mirror mirror) {
-        return state.rotate(mirror.getRotation(state.getValue(FACING)));
+        return state;
     }
 
     @Override

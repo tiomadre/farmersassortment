@@ -128,10 +128,10 @@ public class FABlockStates extends BlockStateProvider {
 
         getVariantBuilder(block.get()).forAllStates(state -> {
             Direction facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
-            if (!state.getValue(SlatBlock.VERTICAL)) {
+   if (!state.getValue(SlatBlock.VERTICAL)) {
                 return ConfiguredModel.builder()
                         .modelFile(horizontalModel)
-                        .rotationY(((int) facing.toYRot() + 180) % 360)
+                        .rotationY(slatsHorizontalRotationY(facing))
                         .uvLock(true)
                         .build();
             }
@@ -143,6 +143,10 @@ public class FABlockStates extends BlockStateProvider {
                     .build();
         });
     }
+    private int slatsHorizontalRotationY(Direction direction) {
+        return direction.getAxis() == Direction.Axis.X ? 90 : 0;
+
+    }
 
     private int slatsVerticalRotationY(Direction direction) {
         return switch (direction) {
@@ -152,7 +156,6 @@ public class FABlockStates extends BlockStateProvider {
             default -> 0;
         };
     }
-
     private void registerRacks() {
         List<RackDefinition> racks = List.of(
                 new RackDefinition(FABlocks.OAK_RACK, "oak", false),
@@ -244,7 +247,7 @@ public class FABlockStates extends BlockStateProvider {
 
         model.element()
                 .from(0.0F, 8.0F, 5.0F)
-                .to(16.0F, 12.0F, 17.0F)
+                .to(16.0F, 12.0F, 16.0F)
                 .rotation().angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 8.0F, 5.0F).end()
                 .face(Direction.NORTH).uvs(0.0F, 0.0F, 4.0F, 16.0F).rotation(ModelBuilder.FaceRotation.COUNTERCLOCKWISE_90).texture("#3").end()
                 .face(Direction.EAST).uvs(1.0F, 4.0F, 5.0F, 16.0F).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#3").end()
