@@ -7,7 +7,8 @@
     },
     "facing=east,vertical=true": {
       "model": "farmersassortment:block/bamboo_slats_vertical",
-      "uvlock": true
+      "uvlock": true,
+      "y": 270
     },
     "facing=north,vertical=false": {
       "model": "farmersassortment:block/bamboo_slats",
@@ -16,7 +17,7 @@
     "facing=north,vertical=true": {
       "model": "farmersassortment:block/bamboo_slats_vertical",
       "uvlock": true,
-      "y": 270
+      "y": 180
     },
     "facing=south,vertical=false": {
       "model": "farmersassortment:block/bamboo_slats",
@@ -24,8 +25,7 @@
     },
     "facing=south,vertical=true": {
       "model": "farmersassortment:block/bamboo_slats_vertical",
-      "uvlock": true,
-      "y": 90
+      "uvlock": true
     },
     "facing=west,vertical=false": {
       "model": "farmersassortment:block/bamboo_slats",
@@ -35,7 +35,7 @@
     "facing=west,vertical=true": {
       "model": "farmersassortment:block/bamboo_slats_vertical",
       "uvlock": true,
-      "y": 180
+      "y": 90
     }
   }
 }

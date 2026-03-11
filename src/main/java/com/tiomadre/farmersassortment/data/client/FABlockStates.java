@@ -138,7 +138,7 @@ public class FABlockStates extends BlockStateProvider {
 
             return ConfiguredModel.builder()
                     .modelFile(verticalModel)
-                    .rotationY(slatsVerticalRotationY(facing))
+                    .rotationY(slatsVerticalRotationY(facing, bamboo))
                     .uvLock(true)
                     .build();
         });
@@ -148,7 +148,16 @@ public class FABlockStates extends BlockStateProvider {
 
     }
 
-    private int slatsVerticalRotationY(Direction direction) {
+    private int slatsVerticalRotationY(Direction direction, boolean bamboo) {
+        if (bamboo) {
+            return switch (direction) {
+                case WEST -> 90;
+                case NORTH -> 180;
+                case EAST -> 270;
+                default -> 0;
+            };
+        }
+
         return switch (direction) {
             case SOUTH -> 90;
             case WEST -> 180;
