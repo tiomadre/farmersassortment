@@ -125,9 +125,21 @@ public class FABlockStates extends BlockStateProvider {
                 .renderType("minecraft:cutout")
                 .texture(bamboo ? "2" : "3", texture)
                 .texture("particle", texture);
+      ModelFile joinedModel = models().getBuilder(name + "_joined")
+              .parent(new ModelFile.UncheckedModelFile(modLoc("block/template/slats_joined" + (bamboo ? "_bamboo" : ""))))
+              .renderType("minecraft:cutout")
+              .texture(bamboo ? "2" : "3", texture)
+              .texture("particle", texture);
 
         getVariantBuilder(block.get()).forAllStates(state -> {
             Direction facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
+            if (state.getValue(SlatBlock.JOINED)) {
+                return ConfiguredModel.builder()
+                        .modelFile(joinedModel)
+                        .rotationX(state.getValue(SlatBlock.CEILING) ? 180 : 0)
+                        .rotationY(slatsHorizontalRotationY(facing))
+                        .build();
+            }
             if (!state.getValue(SlatBlock.VERTICAL)) {
                 return ConfiguredModel.builder()
                         .modelFile(horizontalModel)

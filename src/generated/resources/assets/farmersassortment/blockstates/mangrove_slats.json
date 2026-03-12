@@ -1,68 +1,136 @@
 {
   "variants": {
-    "facing=east,hanging=false,vertical=false": {
+    "facing=east,hanging=false,joined=false,vertical=false": {
       "model": "farmersassortment:block/mangrove_slats",
       "y": 90
     },
-    "facing=east,hanging=false,vertical=true": {
+    "facing=east,hanging=false,joined=false,vertical=true": {
       "model": "farmersassortment:block/mangrove_slats_vertical"
     },
-    "facing=east,hanging=true,vertical=false": {
+    "facing=east,hanging=false,joined=true,vertical=false": {
+      "model": "farmersassortment:block/mangrove_slats_joined",
+      "y": 90
+    },
+    "facing=east,hanging=false,joined=true,vertical=true": {
+      "model": "farmersassortment:block/mangrove_slats_joined",
+      "y": 90
+    },
+    "facing=east,hanging=true,joined=false,vertical=false": {
       "model": "farmersassortment:block/mangrove_slats",
       "x": 180,
       "y": 90
     },
-    "facing=east,hanging=true,vertical=true": {
+    "facing=east,hanging=true,joined=false,vertical=true": {
       "model": "farmersassortment:block/mangrove_slats_vertical"
     },
-    "facing=north,hanging=false,vertical=false": {
+    "facing=east,hanging=true,joined=true,vertical=false": {
+      "model": "farmersassortment:block/mangrove_slats_joined",
+      "x": 180,
+      "y": 90
+    },
+    "facing=east,hanging=true,joined=true,vertical=true": {
+      "model": "farmersassortment:block/mangrove_slats_joined",
+      "x": 180,
+      "y": 90
+    },
+    "facing=north,hanging=false,joined=false,vertical=false": {
       "model": "farmersassortment:block/mangrove_slats"
     },
-    "facing=north,hanging=false,vertical=true": {
+    "facing=north,hanging=false,joined=false,vertical=true": {
       "model": "farmersassortment:block/mangrove_slats_vertical",
       "y": 270
     },
-    "facing=north,hanging=true,vertical=false": {
+    "facing=north,hanging=false,joined=true,vertical=false": {
+      "model": "farmersassortment:block/mangrove_slats_joined"
+    },
+    "facing=north,hanging=false,joined=true,vertical=true": {
+      "model": "farmersassortment:block/mangrove_slats_joined"
+    },
+    "facing=north,hanging=true,joined=false,vertical=false": {
       "model": "farmersassortment:block/mangrove_slats",
       "x": 180
     },
-    "facing=north,hanging=true,vertical=true": {
+    "facing=north,hanging=true,joined=false,vertical=true": {
       "model": "farmersassortment:block/mangrove_slats_vertical",
       "y": 270
     },
-    "facing=south,hanging=false,vertical=false": {
+    "facing=north,hanging=true,joined=true,vertical=false": {
+      "model": "farmersassortment:block/mangrove_slats_joined",
+      "x": 180
+    },
+    "facing=north,hanging=true,joined=true,vertical=true": {
+      "model": "farmersassortment:block/mangrove_slats_joined",
+      "x": 180
+    },
+    "facing=south,hanging=false,joined=false,vertical=false": {
       "model": "farmersassortment:block/mangrove_slats",
       "y": 180
     },
-    "facing=south,hanging=false,vertical=true": {
+    "facing=south,hanging=false,joined=false,vertical=true": {
       "model": "farmersassortment:block/mangrove_slats_vertical",
       "y": 90
     },
-    "facing=south,hanging=true,vertical=false": {
+    "facing=south,hanging=false,joined=true,vertical=false": {
+      "model": "farmersassortment:block/mangrove_slats_joined",
+      "y": 180
+    },
+    "facing=south,hanging=false,joined=true,vertical=true": {
+      "model": "farmersassortment:block/mangrove_slats_joined",
+      "y": 180
+    },
+    "facing=south,hanging=true,joined=false,vertical=false": {
       "model": "farmersassortment:block/mangrove_slats",
       "x": 180,
       "y": 180
     },
-    "facing=south,hanging=true,vertical=true": {
+    "facing=south,hanging=true,joined=false,vertical=true": {
       "model": "farmersassortment:block/mangrove_slats_vertical",
       "y": 90
     },
-    "facing=west,hanging=false,vertical=false": {
+    "facing=south,hanging=true,joined=true,vertical=false": {
+      "model": "farmersassortment:block/mangrove_slats_joined",
+      "x": 180,
+      "y": 180
+    },
+    "facing=south,hanging=true,joined=true,vertical=true": {
+      "model": "farmersassortment:block/mangrove_slats_joined",
+      "x": 180,
+      "y": 180
+    },
+    "facing=west,hanging=false,joined=false,vertical=false": {
       "model": "farmersassortment:block/mangrove_slats",
       "y": 270
     },
-    "facing=west,hanging=false,vertical=true": {
+    "facing=west,hanging=false,joined=false,vertical=true": {
       "model": "farmersassortment:block/mangrove_slats_vertical",
       "y": 180
     },
-    "facing=west,hanging=true,vertical=false": {
+    "facing=west,hanging=false,joined=true,vertical=false": {
+      "model": "farmersassortment:block/mangrove_slats_joined",
+      "y": 270
+    },
+    "facing=west,hanging=false,joined=true,vertical=true": {
+      "model": "farmersassortment:block/mangrove_slats_joined",
+      "y": 270
+    },
+    "facing=west,hanging=true,joined=false,vertical=false": {
       "model": "farmersassortment:block/mangrove_slats",
       "x": 180,
       "y": 270
     },
-    "facing=west,hanging=true,vertical=true": {
+    "facing=west,hanging=true,joined=false,vertical=true": {
       "model": "farmersassortment:block/mangrove_slats_vertical",
       "y": 180
+    },
+    "facing=west,hanging=true,joined=true,vertical=false": {
+      "model": "farmersassortment:block/mangrove_slats_joined",
+      "x": 180,
+      "y": 270
+    },
+    "facing=west,hanging=true,joined=true,vertical=true": {
+      "model": "farmersassortment:block/mangrove_slats_joined",
+      "x": 180,
+      "y": 270
     }
   }
 }
