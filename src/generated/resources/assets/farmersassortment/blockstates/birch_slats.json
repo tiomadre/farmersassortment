@@ -2,82 +2,66 @@
   "variants": {
     "facing=east,hanging=false,vertical=false": {
       "model": "farmersassortment:block/birch_slats",
-      "uvlock": true,
       "y": 90
     },
     "facing=east,hanging=false,vertical=true": {
-      "model": "farmersassortment:block/birch_slats_vertical",
-      "uvlock": true
+      "model": "farmersassortment:block/birch_slats_vertical"
     },
     "facing=east,hanging=true,vertical=false": {
       "model": "farmersassortment:block/birch_slats",
-      "uvlock": true,
       "x": 180,
       "y": 90
     },
     "facing=east,hanging=true,vertical=true": {
-      "model": "farmersassortment:block/birch_slats_vertical",
-      "uvlock": true
+      "model": "farmersassortment:block/birch_slats_vertical"
     },
     "facing=north,hanging=false,vertical=false": {
-      "model": "farmersassortment:block/birch_slats",
-      "uvlock": true
+      "model": "farmersassortment:block/birch_slats"
     },
     "facing=north,hanging=false,vertical=true": {
       "model": "farmersassortment:block/birch_slats_vertical",
-      "uvlock": true,
       "y": 270
     },
     "facing=north,hanging=true,vertical=false": {
       "model": "farmersassortment:block/birch_slats",
-      "uvlock": true,
       "x": 180
     },
     "facing=north,hanging=true,vertical=true": {
       "model": "farmersassortment:block/birch_slats_vertical",
-      "uvlock": true,
       "y": 270
     },
     "facing=south,hanging=false,vertical=false": {
       "model": "farmersassortment:block/birch_slats",
-      "uvlock": true,
       "y": 180
     },
     "facing=south,hanging=false,vertical=true": {
       "model": "farmersassortment:block/birch_slats_vertical",
-      "uvlock": true,
       "y": 90
     },
     "facing=south,hanging=true,vertical=false": {
       "model": "farmersassortment:block/birch_slats",
-      "uvlock": true,
       "x": 180,
       "y": 180
     },
     "facing=south,hanging=true,vertical=true": {
       "model": "farmersassortment:block/birch_slats_vertical",
-      "uvlock": true,
       "y": 90
     },
     "facing=west,hanging=false,vertical=false": {
       "model": "farmersassortment:block/birch_slats",
-      "uvlock": true,
       "y": 270
     },
     "facing=west,hanging=false,vertical=true": {
       "model": "farmersassortment:block/birch_slats_vertical",
-      "uvlock": true,
       "y": 180
     },
     "facing=west,hanging=true,vertical=false": {
       "model": "farmersassortment:block/birch_slats",
-      "uvlock": true,
       "x": 180,
       "y": 270
     },
     "facing=west,hanging=true,vertical=true": {
       "model": "farmersassortment:block/birch_slats_vertical",
-      "uvlock": true,
       "y": 180
     }
   }

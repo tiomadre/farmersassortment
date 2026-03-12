@@ -133,14 +133,12 @@ public class FABlockStates extends BlockStateProvider {
                         .modelFile(horizontalModel)
                         .rotationX(state.getValue(SlatBlock.CEILING) ? 180 : 0)
                         .rotationY(slatsHorizontalRotationY(facing))
-                        .uvLock(true)
                         .build();
             }
 
             return ConfiguredModel.builder()
                     .modelFile(verticalModel)
                     .rotationY(slatsVerticalRotationY(facing, bamboo))
-                    .uvLock(true)
                     .build();
         });
     }
