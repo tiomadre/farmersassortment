@@ -110,7 +110,7 @@ public class FABlockStates extends BlockStateProvider {
         slats.forEach(definition -> registerSlats(definition.block(), definition.woodType(), definition.bamboo()));
     }
 
-    private void registerSlats(RegistryObject<? extends Block> block, String woodType, boolean bamboo) {
+  private void registerSlats(RegistryObject<? extends Block> block, String woodType, boolean bamboo) {
         String name = Objects.requireNonNull(block.getId()).getPath();
         String textureName = bamboo ? "stripped_bamboo_block" : woodType + "_planks";
         ResourceLocation texture = new ResourceLocation("minecraft", "block/" + textureName);
@@ -118,7 +118,7 @@ public class FABlockStates extends BlockStateProvider {
         ModelFile horizontalModel = models().getBuilder(name)
                 .parent(new ModelFile.UncheckedModelFile(modLoc("block/template/slats_horizontal" + (bamboo ? "_bamboo" : ""))))
                 .renderType("minecraft:cutout")
-                .texture("2", texture)
+                .texture("texture", texture)
                 .texture("particle", texture);
         ModelFile verticalModel = models().getBuilder(name + "_vertical")
                 .parent(new ModelFile.UncheckedModelFile(modLoc("block/template/slats_vertical" + (bamboo ? "_bamboo" : ""))))
@@ -128,9 +128,10 @@ public class FABlockStates extends BlockStateProvider {
 
         getVariantBuilder(block.get()).forAllStates(state -> {
             Direction facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
-   if (!state.getValue(SlatBlock.VERTICAL)) {
+            if (!state.getValue(SlatBlock.VERTICAL)) {
                 return ConfiguredModel.builder()
                         .modelFile(horizontalModel)
+                        .rotationX(state.getValue(SlatBlock.CEILING) ? 180 : 0)
                         .rotationY(slatsHorizontalRotationY(facing))
                         .uvLock(true)
                         .build();
@@ -144,10 +145,13 @@ public class FABlockStates extends BlockStateProvider {
         });
     }
     private int slatsHorizontalRotationY(Direction direction) {
-        return direction.getAxis() == Direction.Axis.X ? 90 : 0;
-
+        return switch (direction) {
+            case EAST -> 90;
+            case SOUTH -> 180;
+            case WEST -> 270;
+            default -> 0;
+        };
     }
-
     private int slatsVerticalRotationY(Direction direction, boolean bamboo) {
         if (bamboo) {
             return switch (direction) {

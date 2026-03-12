@@ -1,38 +1,81 @@
 {
   "variants": {
-    "facing=east,vertical=false": {
+    "facing=east,hanging=false,vertical=false": {
       "model": "farmersassortment:block/oak_slats",
       "uvlock": true,
       "y": 90
     },
-    "facing=east,vertical=true": {
+    "facing=east,hanging=false,vertical=true": {
       "model": "farmersassortment:block/oak_slats_vertical",
       "uvlock": true
     },
-    "facing=north,vertical=false": {
+    "facing=east,hanging=true,vertical=false": {
+      "model": "farmersassortment:block/oak_slats",
+      "uvlock": true,
+      "x": 180,
+      "y": 90
+    },
+    "facing=east,hanging=true,vertical=true": {
+      "model": "farmersassortment:block/oak_slats_vertical",
+      "uvlock": true
+    },
+    "facing=north,hanging=false,vertical=false": {
       "model": "farmersassortment:block/oak_slats",
       "uvlock": true
     },
-    "facing=north,vertical=true": {
+    "facing=north,hanging=false,vertical=true": {
       "model": "farmersassortment:block/oak_slats_vertical",
       "uvlock": true,
       "y": 270
     },
-    "facing=south,vertical=false": {
+    "facing=north,hanging=true,vertical=false": {
       "model": "farmersassortment:block/oak_slats",
-      "uvlock": true
+      "uvlock": true,
+      "x": 180
     },
-    "facing=south,vertical=true": {
+    "facing=north,hanging=true,vertical=true": {
+      "model": "farmersassortment:block/oak_slats_vertical",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=south,hanging=false,vertical=false": {
+      "model": "farmersassortment:block/oak_slats",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=south,hanging=false,vertical=true": {
       "model": "farmersassortment:block/oak_slats_vertical",
       "uvlock": true,
       "y": 90
     },
-    "facing=west,vertical=false": {
+    "facing=south,hanging=true,vertical=false": {
       "model": "farmersassortment:block/oak_slats",
+      "uvlock": true,
+      "x": 180,
+      "y": 180
+    },
+    "facing=south,hanging=true,vertical=true": {
+      "model": "farmersassortment:block/oak_slats_vertical",
       "uvlock": true,
       "y": 90
     },
-    "facing=west,vertical=true": {
+    "facing=west,hanging=false,vertical=false": {
+      "model": "farmersassortment:block/oak_slats",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=west,hanging=false,vertical=true": {
+      "model": "farmersassortment:block/oak_slats_vertical",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=west,hanging=true,vertical=false": {
+      "model": "farmersassortment:block/oak_slats",
+      "uvlock": true,
+      "x": 180,
+      "y": 270
+    },
+    "facing=west,hanging=true,vertical=true": {
       "model": "farmersassortment:block/oak_slats_vertical",
       "uvlock": true,
       "y": 180

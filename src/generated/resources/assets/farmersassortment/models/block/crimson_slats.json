@@ -2,7 +2,7 @@
   "parent": "farmersassortment:block/template/slats_horizontal",
   "render_type": "minecraft:cutout",
   "textures": {
-    "2": "minecraft:block/crimson_planks",
-    "particle": "minecraft:block/crimson_planks"
+    "particle": "minecraft:block/crimson_planks",
+    "texture": "minecraft:block/crimson_planks"
   }
 }
