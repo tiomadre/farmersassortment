@@ -115,21 +115,25 @@ public class FABlockStates extends BlockStateProvider {
         String textureName = bamboo ? "stripped_bamboo_block" : woodType + "_planks";
         ResourceLocation texture = new ResourceLocation("minecraft", "block/" + textureName);
 
-        ModelFile horizontalModel = models().getBuilder(name)
+           ModelFile horizontalModel = models().getBuilder(name)
                 .parent(new ModelFile.UncheckedModelFile(modLoc("block/template/slats_horizontal" + (bamboo ? "_bamboo" : ""))))
                 .renderType("minecraft:cutout")
                 .texture("texture", texture)
+                .texture(bamboo ? "2" : "3", texture)
                 .texture("particle", texture);
         ModelFile verticalModel = models().getBuilder(name + "_vertical")
                 .parent(new ModelFile.UncheckedModelFile(modLoc("block/template/slats_vertical" + (bamboo ? "_bamboo" : ""))))
                 .renderType("minecraft:cutout")
+                .texture("texture", texture)
                 .texture(bamboo ? "2" : "3", texture)
                 .texture("particle", texture);
       ModelFile joinedModel = models().getBuilder(name + "_joined")
               .parent(new ModelFile.UncheckedModelFile(modLoc("block/template/slats_joined" + (bamboo ? "_bamboo" : ""))))
               .renderType("minecraft:cutout")
+              .texture("texture", texture)
               .texture(bamboo ? "2" : "3", texture)
               .texture("particle", texture);
+
 
         getVariantBuilder(block.get()).forAllStates(state -> {
             Direction facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);

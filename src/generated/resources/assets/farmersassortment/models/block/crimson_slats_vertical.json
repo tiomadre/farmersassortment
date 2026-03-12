@@ -3,6 +3,7 @@
   "render_type": "minecraft:cutout",
   "textures": {
     "3": "minecraft:block/crimson_planks",
-    "particle": "minecraft:block/crimson_planks"
+    "particle": "minecraft:block/crimson_planks",
+    "texture": "minecraft:block/crimson_planks"
   }
 }

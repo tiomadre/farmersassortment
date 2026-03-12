@@ -3,6 +3,7 @@
   "render_type": "minecraft:cutout",
   "textures": {
     "3": "minecraft:block/jungle_planks",
-    "particle": "minecraft:block/jungle_planks"
+    "particle": "minecraft:block/jungle_planks",
+    "texture": "minecraft:block/jungle_planks"
   }
 }

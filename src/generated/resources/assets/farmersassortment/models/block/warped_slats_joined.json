@@ -3,6 +3,7 @@
   "render_type": "minecraft:cutout",
   "textures": {
     "3": "minecraft:block/warped_planks",
-    "particle": "minecraft:block/warped_planks"
+    "particle": "minecraft:block/warped_planks",
+    "texture": "minecraft:block/warped_planks"
   }
 }

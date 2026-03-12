@@ -2,6 +2,7 @@
   "parent": "farmersassortment:block/template/slats_horizontal_bamboo",
   "render_type": "minecraft:cutout",
   "textures": {
+    "2": "minecraft:block/stripped_bamboo_block",
     "particle": "minecraft:block/stripped_bamboo_block",
     "texture": "minecraft:block/stripped_bamboo_block"
   }
