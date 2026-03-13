@@ -21,6 +21,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
+import org.jetbrains.annotations.Nullable;
 
 public class SlatBlock extends HorizontalDirectionalBlock {
     public static final BooleanProperty VERTICAL = BooleanProperty.create("vertical");
@@ -157,7 +158,7 @@ public class SlatBlock extends HorizontalDirectionalBlock {
     }
 
     @Override
-    public @NotNull BlockState getStateForPlacement(BlockPlaceContext context) {
+    public @Nullable BlockState getStateForPlacement(BlockPlaceContext context) {
         Direction clickedFace = context.getClickedFace();
         BlockPos placedPos = context.getClickedPos();
 
@@ -170,7 +171,14 @@ public class SlatBlock extends HorizontalDirectionalBlock {
             boolean placingVertical = clickedFace.getAxis().isHorizontal();
             if (!existingState.getValue(JOINED) && existingState.getValue(VERTICAL) != placingVertical) {
                 BlockState joinedState = existingState.setValue(JOINED, true);
-                if (existingState.getValue(VERTICAL)) {
+                if (placingVertical) {
+                    BlockPos verticalSupportPos = placedPos.relative(clickedFace.getOpposite());
+                    BlockState verticalSupportState = context.getLevel().getBlockState(verticalSupportPos);
+                    if (!verticalSupportState.isFaceSturdy(context.getLevel(), verticalSupportPos, clickedFace)) {
+                        return null;
+                    }
+                    joinedState = joinedState.setValue(FACING, clickedFace);
+                } else if (existingState.getValue(VERTICAL)) {
                     boolean ceiling = clickedFace == Direction.DOWN;
                     joinedState = joinedState.setValue(CEILING, ceiling);
                 }
@@ -193,7 +201,7 @@ public class SlatBlock extends HorizontalDirectionalBlock {
         }
 
         boolean vertical = clickedFace.getAxis().isHorizontal();
-        Direction facing = vertical ? clickedFace.getOpposite() : context.getHorizontalDirection();
+        Direction facing = vertical ? clickedFace : context.getHorizontalDirection();
         boolean ceiling = !vertical && clickedFace == Direction.DOWN;
         return this.defaultBlockState()
                 .setValue(VERTICAL, vertical)

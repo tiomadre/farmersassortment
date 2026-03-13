@@ -10,11 +10,11 @@
     },
     "facing=east,hanging=false,joined=true,vertical=false": {
       "model": "farmersassortment:block/bamboo_slats_joined",
-      "y": 90
+      "y": 270
     },
     "facing=east,hanging=false,joined=true,vertical=true": {
       "model": "farmersassortment:block/bamboo_slats_joined",
-      "y": 90
+      "y": 270
     },
     "facing=east,hanging=true,joined=false,vertical=false": {
       "model": "farmersassortment:block/bamboo_slats",
@@ -28,12 +28,12 @@
     "facing=east,hanging=true,joined=true,vertical=false": {
       "model": "farmersassortment:block/bamboo_slats_joined",
       "x": 180,
-      "y": 90
+      "y": 270
     },
     "facing=east,hanging=true,joined=true,vertical=true": {
       "model": "farmersassortment:block/bamboo_slats_joined",
       "x": 180,
-      "y": 90
+      "y": 270
     },
     "facing=north,hanging=false,joined=false,vertical=false": {
       "model": "farmersassortment:block/bamboo_slats"
@@ -43,10 +43,12 @@
       "y": 180
     },
     "facing=north,hanging=false,joined=true,vertical=false": {
-      "model": "farmersassortment:block/bamboo_slats_joined"
+      "model": "farmersassortment:block/bamboo_slats_joined",
+      "y": 180
     },
     "facing=north,hanging=false,joined=true,vertical=true": {
-      "model": "farmersassortment:block/bamboo_slats_joined"
+      "model": "farmersassortment:block/bamboo_slats_joined",
+      "y": 180
     },
     "facing=north,hanging=true,joined=false,vertical=false": {
       "model": "farmersassortment:block/bamboo_slats",
@@ -58,11 +60,13 @@
     },
     "facing=north,hanging=true,joined=true,vertical=false": {
       "model": "farmersassortment:block/bamboo_slats_joined",
-      "x": 180
+      "x": 180,
+      "y": 180
     },
     "facing=north,hanging=true,joined=true,vertical=true": {
       "model": "farmersassortment:block/bamboo_slats_joined",
-      "x": 180
+      "x": 180,
+      "y": 180
     },
     "facing=south,hanging=false,joined=false,vertical=false": {
       "model": "farmersassortment:block/bamboo_slats",
@@ -72,12 +76,10 @@
       "model": "farmersassortment:block/bamboo_slats_vertical"
     },
     "facing=south,hanging=false,joined=true,vertical=false": {
-      "model": "farmersassortment:block/bamboo_slats_joined",
-      "y": 180
+      "model": "farmersassortment:block/bamboo_slats_joined"
     },
     "facing=south,hanging=false,joined=true,vertical=true": {
-      "model": "farmersassortment:block/bamboo_slats_joined",
-      "y": 180
+      "model": "farmersassortment:block/bamboo_slats_joined"
     },
     "facing=south,hanging=true,joined=false,vertical=false": {
       "model": "farmersassortment:block/bamboo_slats",
@@ -89,13 +91,11 @@
     },
     "facing=south,hanging=true,joined=true,vertical=false": {
       "model": "farmersassortment:block/bamboo_slats_joined",
-      "x": 180,
-      "y": 180
+      "x": 180
     },
     "facing=south,hanging=true,joined=true,vertical=true": {
       "model": "farmersassortment:block/bamboo_slats_joined",
-      "x": 180,
-      "y": 180
+      "x": 180
     },
     "facing=west,hanging=false,joined=false,vertical=false": {
       "model": "farmersassortment:block/bamboo_slats",
@@ -107,11 +107,11 @@
     },
     "facing=west,hanging=false,joined=true,vertical=false": {
       "model": "farmersassortment:block/bamboo_slats_joined",
-      "y": 270
+      "y": 90
     },
     "facing=west,hanging=false,joined=true,vertical=true": {
       "model": "farmersassortment:block/bamboo_slats_joined",
-      "y": 270
+      "y": 90
     },
     "facing=west,hanging=true,joined=false,vertical=false": {
       "model": "farmersassortment:block/bamboo_slats",
@@ -125,12 +125,12 @@
     "facing=west,hanging=true,joined=true,vertical=false": {
       "model": "farmersassortment:block/bamboo_slats_joined",
       "x": 180,
-      "y": 270
+      "y": 90
     },
     "facing=west,hanging=true,joined=true,vertical=true": {
       "model": "farmersassortment:block/bamboo_slats_joined",
       "x": 180,
-      "y": 270
+      "y": 90
     }
   }
 }

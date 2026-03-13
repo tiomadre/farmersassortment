@@ -141,7 +141,7 @@ public class FABlockStates extends BlockStateProvider {
                 return ConfiguredModel.builder()
                         .modelFile(joinedModel)
                         .rotationX(state.getValue(SlatBlock.CEILING) ? 180 : 0)
-                        .rotationY(slatsHorizontalRotationY(facing))
+                        .rotationY(slatsJoinedRotationY(facing))
                         .build();
             }
             if (!state.getValue(SlatBlock.VERTICAL)) {
@@ -158,6 +158,10 @@ public class FABlockStates extends BlockStateProvider {
                     .build();
         });
     }
+    private int slatsJoinedRotationY(Direction direction) {
+        return (slatsHorizontalRotationY(direction) + 180) % 360;
+    }
+
     private int slatsHorizontalRotationY(Direction direction) {
         return switch (direction) {
             case EAST -> 90;
