@@ -104,7 +104,9 @@ public class FABlockStates extends BlockStateProvider {
                 new SlatsDefinition(FABlocks.CHERRY_SLATS, "cherry", false),
                 new SlatsDefinition(FABlocks.BAMBOO_SLATS, "bamboo", true),
                 new SlatsDefinition(FABlocks.CRIMSON_SLATS, "crimson", false),
-                new SlatsDefinition(FABlocks.WARPED_SLATS, "warped", false)
+                new SlatsDefinition(FABlocks.WARPED_SLATS, "warped", false),
+                new SlatsDefinition(FAxCrabbersBlocks.PALM_SLATS, "palm", false),
+                new SlatsDefinition(FAxForagersBlocks.LILAC_SLATS, "lilac", false)
         );
 
         slats.forEach(definition -> registerSlats(definition.block(), definition.woodType(), definition.bamboo()));
@@ -112,8 +114,13 @@ public class FABlockStates extends BlockStateProvider {
 
   private void registerSlats(RegistryObject<? extends Block> block, String woodType, boolean bamboo) {
         String name = Objects.requireNonNull(block.getId()).getPath();
-        String textureName = bamboo ? "stripped_bamboo_block" : woodType + "_planks";
-        ResourceLocation texture = new ResourceLocation("minecraft", "block/" + textureName);
+      ResourceLocation texture = bamboo
+              ? new ResourceLocation("minecraft", "block/stripped_bamboo_block")
+              : switch (woodType) {
+          case "palm" -> fallbackTexture(new ResourceLocation("crabbersdelight", "block/palm_planks"), new ResourceLocation("minecraft", "block/oak_planks"));
+          case "lilac" -> fallbackTexture(new ResourceLocation("foragersinsight", "block/lilac_planks"), new ResourceLocation("minecraft", "block/oak_planks"));
+          default -> new ResourceLocation("minecraft", "block/" + woodType + "_planks");
+      };
 
            ModelFile horizontalModel = models().getBuilder(name)
                 .parent(new ModelFile.UncheckedModelFile(modLoc("block/template/slats_horizontal" + (bamboo ? "_bamboo" : ""))))
@@ -154,7 +161,7 @@ public class FABlockStates extends BlockStateProvider {
 
             return ConfiguredModel.builder()
                     .modelFile(verticalModel)
-                    .rotationY(slatsVerticalRotationY(facing, bamboo))
+                             .rotationY(slatsVerticalRotationY(facing))
                     .build();
         });
     }
@@ -170,20 +177,11 @@ public class FABlockStates extends BlockStateProvider {
             default -> 0;
         };
     }
-    private int slatsVerticalRotationY(Direction direction, boolean bamboo) {
-        if (bamboo) {
-            return switch (direction) {
-                case WEST -> 90;
-                case NORTH -> 180;
-                case EAST -> 270;
-                default -> 0;
-            };
-        }
-
+    private int slatsVerticalRotationY(Direction direction) {
         return switch (direction) {
-            case SOUTH -> 90;
-            case WEST -> 180;
-            case NORTH -> 270;
+            case EAST -> 90;
+            case SOUTH -> 180;
+            case WEST -> 270;
             default -> 0;
         };
     }
@@ -294,7 +292,7 @@ public class FABlockStates extends BlockStateProvider {
                 .transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND).rotation(0.0F, 45.0F, 0.0F).scale(0.4F, 0.4F, 0.4F).end()
                 .transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND).rotation(0.0F, -135.0F, 0.0F).scale(0.4F, 0.4F, 0.4F).end()
                 .transform(ItemDisplayContext.GROUND).translation(0.0F, 3.0F, 0.0F).scale(0.25F, 0.25F, 0.25F).end()
-                .transform(ItemDisplayContext.GUI).rotation(30.0F, -135.0F, 0.0F).scale(0.625F, 0.625F, 0.625F).end()
+                .transform(ItemDisplayContext.GUI).rotation(30.0F, -135.0F, 0.0F).translation(1.25F, -4.0F, 0.0F).scale(0.625F, 0.625F, 0.625F).end()
                 .transform(ItemDisplayContext.FIXED).scale(0.5F, 0.5F, 0.5F).end()
                 .end();
         return model;

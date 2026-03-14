@@ -1,0 +1,9 @@
+{
+  "parent": "farmersassortment:block/template/slats_vertical",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "3": "minecraft:block/oak_planks",
+    "particle": "minecraft:block/oak_planks",
+    "texture": "minecraft:block/oak_planks"
+  }
+}

@@ -171,6 +171,17 @@ public final class FABlocks {
                 WARPED_SLATS
         );
     }
+
+    public static Stream<RegistryObject<SlatBlock>> allSlats() {
+        Stream<RegistryObject<SlatBlock>> slats = slats();
+        if (FarmersAssortment.isCrabbersCompatEnabled()) {
+            slats = Stream.concat(slats, FAxCrabbersBlocks.slats());
+        }
+        if (FarmersAssortment.isForagersCompatEnabled()) {
+            slats = Stream.concat(slats, FAxForagersBlocks.slats());
+        }
+        return slats;
+    }
     private static RegistryObject<SlatBlock> registerSlats(String woodType, Block baseBlock) {
         SoundType soundType = switch (woodType) {
             case "bamboo" -> slatSoundType(SoundType.BAMBOO_WOOD, 1.8F);

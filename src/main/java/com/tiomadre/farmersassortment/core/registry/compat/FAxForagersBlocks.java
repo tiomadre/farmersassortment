@@ -3,6 +3,7 @@ package com.tiomadre.farmersassortment.core.registry.compat;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.block.ButcherBlockCabinetBlock;
+import com.tiomadre.farmersassortment.core.block.SlatBlock;
 import com.tiomadre.farmersassortment.core.block.StoolBlock;
 import com.tiomadre.farmersassortment.core.block.TableBlock;
 import com.tiomadre.farmersassortment.core.item.StoolItem;
@@ -38,9 +39,19 @@ public final class FAxForagersBlocks {
     public static final RegistryObject<DiffuserBlock> ALABASTER_DIFFUSER = registerDiffuser("alabaster", SoundType.CALCITE);
     public static final RegistryObject<StoolBlock> LILAC_STOOL = registerStool("lilac");
     public static final RegistryObject<TableBlock> LILAC_TABLE = registerTable("lilac");
+    public static final RegistryObject<SlatBlock> LILAC_SLATS = registerSlats("lilac");
 
     private FAxForagersBlocks() {
     }
+    public static Stream<RegistryObject<SlatBlock>> slats() {
+        return Stream.of(LILAC_SLATS);
+    }
+    private static RegistryObject<SlatBlock> registerSlats(String woodType) {
+        return BLOCKS.createBlock(woodType + "_slats",
+                () -> new SlatBlock(BlockBehaviour.Properties.copy(compatBlock(woodType + "_planks")).noOcclusion()),
+                new Item.Properties());
+    }
+
 
     public static void init() {
     }

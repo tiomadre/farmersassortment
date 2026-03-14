@@ -48,7 +48,7 @@ public class FABlockTags extends BlockTagsProvider {
         this.tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(FABlocks.allButcherBlockCabinets().map(RegistryObject::get).toArray(Block[]::new))
                 .add(FABlocks.allCuttingBoards().map(RegistryObject::get).toArray(Block[]::new))
-                .add(FABlocks.slats().map(RegistryObject::get).toArray(Block[]::new))
+                .add(FABlocks.allSlats().map(RegistryObject::get).toArray(Block[]::new))
                 .add(FABlocks.floatingCounters()
                         .filter(block -> block != FABlocks.ALABASTER_FLOATING_COUNTER)
                         .map(RegistryObject::get)

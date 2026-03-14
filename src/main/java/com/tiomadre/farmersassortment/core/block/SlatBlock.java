@@ -19,29 +19,29 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.util.ArrayList;
 import java.util.List;
-import org.jetbrains.annotations.Nullable;
 
 public class SlatBlock extends HorizontalDirectionalBlock {
     public static final BooleanProperty VERTICAL = BooleanProperty.create("vertical");
     public static final BooleanProperty CEILING = BlockStateProperties.HANGING;
     public static final BooleanProperty JOINED = BooleanProperty.create("joined");
 
-
     private static final VoxelShape HORIZONTAL_NORTH_SHAPE = Shapes.or(
-            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 3.0D),
-            Block.box(0.0D, 0.0D, 4.0D, 16.0D, 1.0D, 7.0D),
-            Block.box(0.0D, 0.0D, 8.0D, 16.0D, 1.0D, 11.0D),
-            Block.box(0.0D, 0.0D, 12.0D, 16.0D, 1.0D, 15.0D),
-            Block.box(0.0D, 0.0D, 3.0D, 2.0D, 1.0D, 4.0D),
-            Block.box(14.0D, 0.0D, 3.0D, 16.0D, 1.0D, 4.0D),
-            Block.box(0.0D, 0.0D, 7.0D, 2.0D, 1.0D, 8.0D),
-            Block.box(14.0D, 0.0D, 7.0D, 16.0D, 1.0D, 8.0D),
-            Block.box(0.0D, 0.0D, 11.0D, 2.0D, 1.0D, 12.0D),
-            Block.box(14.0D, 0.0D, 11.0D, 16.0D, 1.0D, 12.0D),
-            Block.box(0.0D, 0.0D, 15.0D, 2.0D, 1.0D, 16.0D),
-            Block.box(14.0D, 0.0D, 15.0D, 16.0D, 1.0D, 16.0D)
+            Block.box(0.0D, 0.0D, 1.0D, 16.0D, 1.0D, 4.0D),
+            Block.box(0.0D, 0.0D, 5.0D, 16.0D, 1.0D, 8.0D),
+            Block.box(0.0D, 0.0D, 9.0D, 16.0D, 1.0D, 12.0D),
+            Block.box(0.0D, 0.0D, 13.0D, 16.0D, 1.0D, 16.0D),
+            Block.box(0.0D, 0.0D, 0.0D, 2.0D, 1.0D, 1.0D),
+            Block.box(14.0D, 0.0D, 0.0D, 16.0D, 1.0D, 1.0D),
+            Block.box(0.0D, 0.0D, 4.0D, 2.0D, 1.0D, 5.0D),
+            Block.box(14.0D, 0.0D, 4.0D, 16.0D, 1.0D, 5.0D),
+            Block.box(0.0D, 0.0D, 8.0D, 2.0D, 1.0D, 9.0D),
+            Block.box(14.0D, 0.0D, 8.0D, 16.0D, 1.0D, 9.0D),
+            Block.box(0.0D, 0.0D, 12.0D, 2.0D, 1.0D, 13.0D),
+            Block.box(14.0D, 0.0D, 12.0D, 16.0D, 1.0D, 13.0D)
     );
 
     private static final VoxelShape HORIZONTAL_EAST_SHAPE = rotateShapeY(HORIZONTAL_NORTH_SHAPE, 1);
@@ -107,6 +107,16 @@ public class SlatBlock extends HorizontalDirectionalBlock {
             Block.box(0.0D, 12.0D, 0.0D, 2.0D, 13.0D, 1.0D),
             Block.box(14.0D, 12.0D, 0.0D, 16.0D, 13.0D, 1.0D)
     );
+
+    public SlatBlock(Properties properties) {
+        super(properties);
+        this.registerDefaultState(this.stateDefinition.any()
+                .setValue(FACING, Direction.NORTH)
+                .setValue(VERTICAL, false)
+                .setValue(CEILING, false)
+                .setValue(JOINED, false));
+    }
+
     private static VoxelShape rotateShapeY(VoxelShape shape, int quarterTurns) {
         List<double[]> boxes = new ArrayList<>();
         shape.forAllBoxes((minX, minY, minZ, maxX, maxY, maxZ) -> boxes.add(new double[]{minX, minY, minZ, maxX, maxY, maxZ}));
@@ -140,13 +150,23 @@ public class SlatBlock extends HorizontalDirectionalBlock {
         return rotated;
     }
 
-    public SlatBlock(Properties properties) {
-        super(properties);
-        this.registerDefaultState(this.stateDefinition.any()
-                .setValue(FACING, Direction.NORTH)
-                .setValue(VERTICAL, false)
-                .setValue(CEILING, false)
-                .setValue(JOINED, false));
+    private static VoxelShape flipShapeForCeiling(VoxelShape shape) {
+        List<double[]> boxes = new ArrayList<>();
+        shape.forAllBoxes((minX, minY, minZ, maxX, maxY, maxZ) -> boxes.add(new double[]{minX, minY, minZ, maxX, maxY, maxZ}));
+
+        VoxelShape flipped = Shapes.empty();
+        for (double[] box : boxes) {
+            double minX = box[0];
+            double minY = box[1];
+            double minZ = box[2];
+            double maxX = box[3];
+            double maxY = box[4];
+            double maxZ = box[5];
+
+            flipped = Shapes.or(flipped, Shapes.box(minX, 1.0D - maxY, 1.0D - maxZ, maxX, 1.0D - minY, 1.0D - minZ));
+        }
+
+        return flipped;
     }
 
     @Override
@@ -171,16 +191,21 @@ public class SlatBlock extends HorizontalDirectionalBlock {
             boolean placingVertical = clickedFace.getAxis().isHorizontal();
             if (!existingState.getValue(JOINED) && existingState.getValue(VERTICAL) != placingVertical) {
                 BlockState joinedState = existingState.setValue(JOINED, true);
+
                 if (placingVertical) {
                     BlockPos verticalSupportPos = placedPos.relative(clickedFace.getOpposite());
                     BlockState verticalSupportState = context.getLevel().getBlockState(verticalSupportPos);
                     if (!verticalSupportState.isFaceSturdy(context.getLevel(), verticalSupportPos, clickedFace)) {
                         return null;
                     }
-                    joinedState = joinedState.setValue(FACING, clickedFace);
+
+                    joinedState = joinedState.setValue(FACING, clickedFace.getOpposite());
                 } else if (existingState.getValue(VERTICAL)) {
                     boolean ceiling = clickedFace == Direction.DOWN;
-                    joinedState = joinedState.setValue(CEILING, ceiling);
+
+                    joinedState = joinedState
+                            .setValue(CEILING, ceiling)
+                            .setValue(FACING, existingState.getValue(FACING).getOpposite());
                 }
 
                 return joinedState;
@@ -201,8 +226,9 @@ public class SlatBlock extends HorizontalDirectionalBlock {
         }
 
         boolean vertical = clickedFace.getAxis().isHorizontal();
-        Direction facing = vertical ? clickedFace : context.getHorizontalDirection();
+        Direction facing = vertical ? clickedFace.getOpposite() : context.getHorizontalDirection();
         boolean ceiling = !vertical && clickedFace == Direction.DOWN;
+
         return this.defaultBlockState()
                 .setValue(VERTICAL, vertical)
                 .setValue(FACING, facing)
@@ -233,13 +259,39 @@ public class SlatBlock extends HorizontalDirectionalBlock {
     @Override
     public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         Direction facing = state.getValue(FACING);
+
+        if (state.getValue(JOINED)) {
+            Direction verticalFacing = facing.getOpposite();
+
+            VoxelShape joinedFloorShape = switch (facing) {
+                case EAST -> HORIZONTAL_EAST_SHAPE;
+                case SOUTH -> HORIZONTAL_SOUTH_SHAPE;
+                case WEST -> HORIZONTAL_WEST_SHAPE;
+                default -> HORIZONTAL_NORTH_SHAPE;
+            };
+
+            VoxelShape joinedVerticalShape = switch (verticalFacing) {
+                case EAST -> EAST_SHAPE;
+                case SOUTH -> SOUTH_SHAPE;
+                case WEST -> WEST_SHAPE;
+                default -> NORTH_SHAPE;
+            };
+
+            VoxelShape joinedShape = Shapes.or(joinedFloorShape, joinedVerticalShape);
+
+            if (state.getValue(CEILING)) {
+                return flipShapeForCeiling(joinedShape);
+            }
+
+            return joinedShape;
+        }
+
         VoxelShape floorShape = switch (facing) {
             case EAST -> HORIZONTAL_EAST_SHAPE;
             case SOUTH -> HORIZONTAL_SOUTH_SHAPE;
             case WEST -> HORIZONTAL_WEST_SHAPE;
             default -> HORIZONTAL_NORTH_SHAPE;
         };
-        VoxelShape horizontalShape = state.getValue(CEILING) ? floorShape.move(0.0D, 15.0D / 16.0D, 0.0D) : floorShape;
 
         VoxelShape verticalShape = switch (facing) {
             case EAST -> EAST_SHAPE;
@@ -248,11 +300,13 @@ public class SlatBlock extends HorizontalDirectionalBlock {
             default -> NORTH_SHAPE;
         };
 
-        if (state.getValue(JOINED)) {
-            return Shapes.or(horizontalShape, verticalShape);
+        VoxelShape shape = state.getValue(VERTICAL) ? verticalShape : floorShape;
+
+        if (state.getValue(CEILING) && !state.getValue(VERTICAL)) {
+            return flipShapeForCeiling(shape);
         }
 
-        return state.getValue(VERTICAL) ? verticalShape : horizontalShape;
+        return shape;
     }
 
     @Override
@@ -275,6 +329,7 @@ public class SlatBlock extends HorizontalDirectionalBlock {
 
         double localX = entity.getX() - pos.getX();
         double localZ = entity.getZ() - pos.getZ();
+
         return switch (facing) {
             case NORTH -> localZ <= 0.5D;
             case SOUTH -> localZ >= 0.5D;

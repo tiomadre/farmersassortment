@@ -46,7 +46,7 @@ public class FAItemModels extends ItemModelProvider {
         registerSlats();
     }
     private void registerSlats() {
-        FABlocks.slats().forEach(this::block);
+        FABlocks.allSlats().forEach(this::block);
     }
 
     private void registerTables() {

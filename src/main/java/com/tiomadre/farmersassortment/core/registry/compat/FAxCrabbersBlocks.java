@@ -6,6 +6,7 @@ import alabaster.crabbersdelight.common.block.CrabTrapBlock;
 import alabaster.crabbersdelight.common.registry.CDModBlockEntity;
 import alabaster.crabbersdelight.common.registry.CDModBlocks;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
+import com.tiomadre.farmersassortment.core.block.SlatBlock;
 import com.tiomadre.farmersassortment.core.block.TableBlock;
 import com.tiomadre.farmersassortment.core.item.TableItem;
 import com.tiomadre.farmersassortment.core.mixin.BlockEntityTypeAccessor;
@@ -55,13 +56,23 @@ public final class FAxCrabbersBlocks {
     public static final RegistryObject<CrabTrapBlock> WARPED_CRAB_TRAP = registerCrabTrap("warped");
     public static final RegistryObject<CrabTrapBlock> PALM_CRAB_TRAP = registerCrabTrap("palm");
     public static final RegistryObject<TableBlock> PALM_TABLE = registerTable("palm");
-
+    public static final RegistryObject<SlatBlock> PALM_SLATS = registerSlats("palm");
 
     private FAxCrabbersBlocks() {
     }
 
     public static void init() {
     }
+
+    public static Stream<RegistryObject<SlatBlock>> slats() {
+        return Stream.of(PALM_SLATS);
+    }
+    private static RegistryObject<SlatBlock> registerSlats(String woodType) {
+        return BLOCKS.createBlock(woodType + "_slats",
+                () -> new SlatBlock(BlockBehaviour.Properties.copy(compatBlock(woodType + "_planks")).noOcclusion()),
+                new Item.Properties());
+    }
+
 
     public static Stream<RegistryObject<CuttingBoardBlock>> cuttingBoards() {
         return Stream.of(PALM_CUTTING_BOARD);

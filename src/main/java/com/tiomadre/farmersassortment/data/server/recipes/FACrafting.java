@@ -103,6 +103,7 @@ public final class FACrafting extends RecipeProvider {
         slats(output, FABlocks.WARPED_SLATS, Blocks.WARPED_SLAB);
 
 
+
         //Stools
         stool(output, FABlocks.OAK_STOOL, Blocks.OAK_SLAB);
         stool(output, FABlocks.SPRUCE_STOOL, Blocks.SPRUCE_SLAB);
@@ -199,6 +200,10 @@ public final class FACrafting extends RecipeProvider {
 
             //Skillet Variants
             variantSkillet(output, FAxCrabbersBlocks.PEARLESCENT_SKILLET, CDModItems.PEARL.get(), Items.BRICK);
+
+            //Slats
+            slats(output, FAxCrabbersBlocks.PALM_SLATS, CDModBlocks.PALM_SLAB.get());
+
         }
             //Forager's Insight Compat
         if (ModList.get().isLoaded("foragersinsight")) {
@@ -212,6 +217,8 @@ public final class FACrafting extends RecipeProvider {
 
             //Stools and Tables
             stool(output, FAxForagersBlocks.LILAC_STOOL, FIBlocks.LILAC_SLAB.get());
+            //Slats
+            slats(output, FAxForagersBlocks.LILAC_SLATS, FIBlocks.LILAC_SLAB.get());
 
         }
 
