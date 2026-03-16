@@ -205,7 +205,7 @@ public class SlatBlock extends HorizontalDirectionalBlock {
 
                     joinedState = joinedState
                             .setValue(CEILING, ceiling)
-                            .setValue(FACING, existingState.getValue(FACING).getOpposite());
+                            .setValue(FACING, existingState.getValue(FACING));
                 }
 
                 return joinedState;
@@ -217,7 +217,10 @@ public class SlatBlock extends HorizontalDirectionalBlock {
         if (supportState.getBlock() instanceof SlatBlock
                 && supportState.hasProperty(VERTICAL)
                 && supportState.hasProperty(FACING)
-                && supportState.hasProperty(CEILING)) {
+                && supportState.hasProperty(CEILING)
+                && supportState.hasProperty(JOINED)
+                && !supportState.getValue(JOINED)) {
+
             return this.defaultBlockState()
                     .setValue(VERTICAL, supportState.getValue(VERTICAL))
                     .setValue(FACING, supportState.getValue(FACING))
@@ -316,7 +319,7 @@ public class SlatBlock extends HorizontalDirectionalBlock {
 
     @Override
     public boolean isLadder(@NotNull BlockState state, @NotNull LevelReader level, @NotNull BlockPos pos, @NotNull LivingEntity entity) {
-        if (!state.getValue(VERTICAL)) {
+        if (!state.getValue(VERTICAL) && !state.getValue(JOINED)) {
             return false;
         }
 

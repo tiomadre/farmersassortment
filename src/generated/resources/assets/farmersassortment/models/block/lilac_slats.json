@@ -2,8 +2,8 @@
   "parent": "farmersassortment:block/template/slats_horizontal",
   "render_type": "minecraft:cutout",
   "textures": {
-    "3": "minecraft:block/oak_planks",
-    "particle": "minecraft:block/oak_planks",
-    "texture": "minecraft:block/oak_planks"
+    "3": "foragersinsight:block/lilac_planks",
+    "particle": "foragersinsight:block/lilac_planks",
+    "texture": "foragersinsight:block/lilac_planks"
   }
 }

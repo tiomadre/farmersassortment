@@ -10,11 +10,11 @@
     },
     "facing=east,hanging=false,joined=true,vertical=false": {
       "model": "farmersassortment:block/birch_slats_joined",
-      "y": 270
+      "y": 90
     },
     "facing=east,hanging=false,joined=true,vertical=true": {
       "model": "farmersassortment:block/birch_slats_joined",
-      "y": 270
+      "y": 90
     },
     "facing=east,hanging=true,joined=false,vertical=false": {
       "model": "farmersassortment:block/birch_slats",
@@ -28,12 +28,12 @@
     "facing=east,hanging=true,joined=true,vertical=false": {
       "model": "farmersassortment:block/birch_slats_joined",
       "x": 180,
-      "y": 270
+      "y": 90
     },
     "facing=east,hanging=true,joined=true,vertical=true": {
       "model": "farmersassortment:block/birch_slats_joined",
       "x": 180,
-      "y": 270
+      "y": 90
     },
     "facing=north,hanging=false,joined=false,vertical=false": {
       "model": "farmersassortment:block/birch_slats"
@@ -42,12 +42,10 @@
       "model": "farmersassortment:block/birch_slats_vertical"
     },
     "facing=north,hanging=false,joined=true,vertical=false": {
-      "model": "farmersassortment:block/birch_slats_joined",
-      "y": 180
+      "model": "farmersassortment:block/birch_slats_joined"
     },
     "facing=north,hanging=false,joined=true,vertical=true": {
-      "model": "farmersassortment:block/birch_slats_joined",
-      "y": 180
+      "model": "farmersassortment:block/birch_slats_joined"
     },
     "facing=north,hanging=true,joined=false,vertical=false": {
       "model": "farmersassortment:block/birch_slats",
@@ -58,13 +56,11 @@
     },
     "facing=north,hanging=true,joined=true,vertical=false": {
       "model": "farmersassortment:block/birch_slats_joined",
-      "x": 180,
-      "y": 180
+      "x": 180
     },
     "facing=north,hanging=true,joined=true,vertical=true": {
       "model": "farmersassortment:block/birch_slats_joined",
-      "x": 180,
-      "y": 180
+      "x": 180
     },
     "facing=south,hanging=false,joined=false,vertical=false": {
       "model": "farmersassortment:block/birch_slats",
@@ -75,10 +71,12 @@
       "y": 180
     },
     "facing=south,hanging=false,joined=true,vertical=false": {
-      "model": "farmersassortment:block/birch_slats_joined"
+      "model": "farmersassortment:block/birch_slats_joined",
+      "y": 180
     },
     "facing=south,hanging=false,joined=true,vertical=true": {
-      "model": "farmersassortment:block/birch_slats_joined"
+      "model": "farmersassortment:block/birch_slats_joined",
+      "y": 180
     },
     "facing=south,hanging=true,joined=false,vertical=false": {
       "model": "farmersassortment:block/birch_slats",
@@ -91,11 +89,13 @@
     },
     "facing=south,hanging=true,joined=true,vertical=false": {
       "model": "farmersassortment:block/birch_slats_joined",
-      "x": 180
+      "x": 180,
+      "y": 180
     },
     "facing=south,hanging=true,joined=true,vertical=true": {
       "model": "farmersassortment:block/birch_slats_joined",
-      "x": 180
+      "x": 180,
+      "y": 180
     },
     "facing=west,hanging=false,joined=false,vertical=false": {
       "model": "farmersassortment:block/birch_slats",
@@ -107,11 +107,11 @@
     },
     "facing=west,hanging=false,joined=true,vertical=false": {
       "model": "farmersassortment:block/birch_slats_joined",
-      "y": 90
+      "y": 270
     },
     "facing=west,hanging=false,joined=true,vertical=true": {
       "model": "farmersassortment:block/birch_slats_joined",
-      "y": 90
+      "y": 270
     },
     "facing=west,hanging=true,joined=false,vertical=false": {
       "model": "farmersassortment:block/birch_slats",
@@ -125,12 +125,12 @@
     "facing=west,hanging=true,joined=true,vertical=false": {
       "model": "farmersassortment:block/birch_slats_joined",
       "x": 180,
-      "y": 90
+      "y": 270
     },
     "facing=west,hanging=true,joined=true,vertical=true": {
       "model": "farmersassortment:block/birch_slats_joined",
       "x": 180,
-      "y": 90
+      "y": 270
     }
   }
 }

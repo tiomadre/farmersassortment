@@ -40,6 +40,8 @@ public class FABlockStates extends BlockStateProvider {
         this.fileHelper = existingFileHelper;
         trackCompatTexture("crabbersdelight", "block/stripped_palm_log");
         trackCompatTexture("crabbersdelight", "block/stripped_palm_log_top");
+        trackCompatTexture("crabbersdelight", "block/palm_planks");
+        trackCompatTexture("foragersinsight", "block/lilac_planks");
     }
 
     private void trackCompatTexture(String namespace, String path) {
@@ -117,8 +119,8 @@ public class FABlockStates extends BlockStateProvider {
       ResourceLocation texture = bamboo
               ? new ResourceLocation("minecraft", "block/stripped_bamboo_block")
               : switch (woodType) {
-          case "palm" -> fallbackTexture(new ResourceLocation("crabbersdelight", "block/palm_planks"), new ResourceLocation("minecraft", "block/oak_planks"));
-          case "lilac" -> fallbackTexture(new ResourceLocation("foragersinsight", "block/lilac_planks"), new ResourceLocation("minecraft", "block/oak_planks"));
+          case "palm" -> new ResourceLocation("crabbersdelight", "block/palm_planks");
+          case "lilac" -> new ResourceLocation("foragersinsight", "block/lilac_planks");
           default -> new ResourceLocation("minecraft", "block/" + woodType + "_planks");
       };
 
@@ -166,7 +168,7 @@ public class FABlockStates extends BlockStateProvider {
         });
     }
     private int slatsJoinedRotationY(Direction direction) {
-        return (slatsHorizontalRotationY(direction) + 180) % 360;
+        return slatsHorizontalRotationY(direction);
     }
 
     private int slatsHorizontalRotationY(Direction direction) {

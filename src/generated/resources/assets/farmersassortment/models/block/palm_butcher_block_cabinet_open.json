@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/orientable_with_bottom",
   "textures": {
-    "bottom": "minecraft:block/oak_planks",
+    "bottom": "crabbersdelight:block/palm_planks",
     "front": "farmersassortment:block/palm_butcher_block_cabinet_front_open",
     "side": "farmersassortment:block/palm_butcher_block_cabinet_side",
     "top": "farmersassortment:block/palm_butcher_block_cabinet_top"
