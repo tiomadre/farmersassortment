@@ -1,9 +1,0 @@
-{
-  "parent": "farmersassortment:block/template/slats_joined",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "3": "foragersinsight:block/lilac_planks",
-    "particle": "foragersinsight:block/lilac_planks",
-    "texture": "foragersinsight:block/lilac_planks"
-  }
-}

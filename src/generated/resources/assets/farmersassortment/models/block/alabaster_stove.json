@@ -1,8 +1,10 @@
 {
-  "parent": "minecraft:block/orientable_with_bottom",
+  "parent": "farmersassortment:block/template/orientable_with_bottom_back",
   "textures": {
+    "back": "farmersassortment:block/alabaster_stove_back",
     "bottom": "farmersassortment:block/alabaster_stove_bottom",
     "front": "farmersassortment:block/alabaster_stove_front",
+    "particle": "farmersassortment:block/alabaster_stove_side",
     "side": "farmersassortment:block/alabaster_stove_side",
     "top": "farmersassortment:block/alabaster_stove_top"
   }

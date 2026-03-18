@@ -2,6 +2,7 @@ package com.tiomadre.farmersassortment.data.server.recipes;
 
 import alabaster.crabbersdelight.common.registry.CDModBlocks;
 import alabaster.crabbersdelight.common.registry.CDModItems;
+import com.google.gson.JsonObject;
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import com.tiomadre.farmersassortment.core.registry.FADynamicStools;
@@ -30,12 +31,14 @@ import vectorwing.farmersdelight.common.block.SkilletBlock;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxForagersBlocks;
 import com.tiomadre.foragersinsight.core.registry.FIBlocks;
 
+import javax.annotation.Nullable;
 import java.util.Objects;
 import java.util.function.Consumer;
 
 public final class FACrafting extends RecipeProvider {
     public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS =
             DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, FarmersAssortment.MOD_ID);
+    private static final ResourceLocation SMITHING_TRANSFORM_SERIALIZER_ID = new ResourceLocation("minecraft", "smithing_transform");
 
     public FACrafting(PackOutput output) {
         super(output);
@@ -58,7 +61,7 @@ public final class FACrafting extends RecipeProvider {
         //Cooking Pots
         variantCookingPot(output, FABlocks.GOLDEN_COOKING_POT, Items.GOLD_INGOT, Items.WOODEN_SHOVEL, Items.BRICK);
         variantCookingPot(output, FABlocks.COPPER_COOKING_POT, Items.COPPER_INGOT, Items.WOODEN_SHOVEL, Items.BRICK);
-        variantCookingPot(output, FABlocks.ALABASTER_COOKING_POT, Items.QUARTZ, Items.WOODEN_SHOVEL, Items.GOLD_INGOT);
+        variantCookingPot(output, FABlocks.ALABASTER_COOKING_POT, FAItems.ALABASTER.get(), Items.WOODEN_SHOVEL, FAItems.ALABASTER.get());
         variantCookingPot(output, FABlocks.TERRACOTTA_COOKING_POT, Blocks.TERRACOTTA, Items.WOODEN_SHOVEL, Items.BRICK);
 
         //Counters
@@ -73,7 +76,7 @@ public final class FACrafting extends RecipeProvider {
         floatingCounter(output, FABlocks.BAMBOO_FLOATING_COUNTER, Blocks.BAMBOO_SLAB);
         floatingCounter(output, FABlocks.CRIMSON_FLOATING_COUNTER, Blocks.CRIMSON_SLAB);
         floatingCounter(output, FABlocks.WARPED_FLOATING_COUNTER, Blocks.WARPED_SLAB);
-        uniqueFloatingCounter(output, FABlocks.ALABASTER_FLOATING_COUNTER, Blocks.QUARTZ_SLAB, Items.GOLD_INGOT);
+        uniqueFloatingCounter(output, FABlocks.ALABASTER_FLOATING_COUNTER, FABlocks.ALABASTER_SLAB.get(), FAItems.ALABASTER.get());
 
         //Racks
         rack(output, FABlocks.OAK_RACK, Blocks.OAK_PLANKS,Items.STICK);
@@ -87,7 +90,7 @@ public final class FACrafting extends RecipeProvider {
         rack(output, FABlocks.BAMBOO_RACK, Blocks.BAMBOO_PLANKS,Items.STICK);
         rack(output, FABlocks.CRIMSON_RACK, Blocks.CRIMSON_PLANKS,Items.STICK);
         rack(output, FABlocks.WARPED_RACK, Blocks.WARPED_PLANKS,Items.STICK);
-        rack(output, FABlocks.ALABASTER_RACK, Blocks.QUARTZ_BLOCK,Items.GOLD_INGOT);
+        rack(output, FABlocks.ALABASTER_RACK, FABlocks.ALABASTER_BLOCK.get(), FAItems.ALABASTER.get());
 
         //Slats
         slats(output, FABlocks.OAK_SLATS, Blocks.OAK_SLAB);
@@ -101,8 +104,6 @@ public final class FACrafting extends RecipeProvider {
         slats(output, FABlocks.BAMBOO_SLATS, Blocks.BAMBOO_SLAB);
         slats(output, FABlocks.CRIMSON_SLATS, Blocks.CRIMSON_SLAB);
         slats(output, FABlocks.WARPED_SLATS, Blocks.WARPED_SLAB);
-
-
 
         //Stools
         stool(output, FABlocks.OAK_STOOL, Blocks.OAK_SLAB);
@@ -121,11 +122,19 @@ public final class FACrafting extends RecipeProvider {
                 stool(output, definition.block(), blockItem(definition.slabId().getNamespace(), definition.slabId().getPath())));
 
         //Stoves + Heat Sources
-        variantStove(output, FABlocks.ALABASTER_STOVE, Blocks.QUARTZ_BLOCK, Items.GOLD_INGOT, Items.FLINT_AND_STEEL);
+        variantStove(output, FABlocks.ALABASTER_STOVE, FABlocks.ALABASTER_BLOCK.get(), FAItems.ALABASTER.get(), Items.FLINT_AND_STEEL);
+
+        alabasterBlock(output);
+        slab(output, FABlocks.ALABASTER_SLAB, FABlocks.ALABASTER_BLOCK.get());
+        stairs(output, FABlocks.ALABASTER_STAIRS, FABlocks.ALABASTER_BLOCK.get());
+        pillar(output, FABlocks.ALABASTER_PILLAR, FABlocks.ALABASTER_BLOCK.get());
+
 
         //Knives
         knife(output, FAItems.AMETHYST_KNIFE, Items.AMETHYST_SHARD);
         knife(output, FAItems.QUARTZ_KNIFE, Items.QUARTZ);
+
+        //Materials
 
         //Butcher Block Cabinets
         butcherBlockCabinet(output, FABlocks.OAK_BUTCHER_BLOCK_CABINET, blockItem("farmersdelight", "cutting_board"), blockItem("farmersdelight", "oak_cabinet"));
@@ -170,7 +179,7 @@ public final class FACrafting extends RecipeProvider {
         table(output, FABlocks.BAMBOO_TABLE, Blocks.BAMBOO_PLANKS);
         table(output, FABlocks.CRIMSON_TABLE, Blocks.CRIMSON_PLANKS);
         table(output, FABlocks.WARPED_TABLE, Blocks.WARPED_PLANKS);
-        table(output, FABlocks.ALABASTER_TABLE, Blocks.QUARTZ_SLAB, Items.GOLD_INGOT);
+        table(output, FABlocks.ALABASTER_TABLE, FABlocks.ALABASTER_SLAB.get(), FAItems.ALABASTER.get());
         table(output, FAxCrabbersBlocks.PALM_TABLE, CDModBlocks.PALM_PLANKS.get());
         table(output, FAxForagersBlocks.LILAC_TABLE, FIBlocks.LILAC_PLANKS.get());
 
@@ -224,6 +233,76 @@ public final class FACrafting extends RecipeProvider {
 
         //Recipe Definitions
     }
+    private void smithingTransform(Consumer<FinishedRecipe> output, ResourceLocation id, ItemLike template,
+                                   ItemLike base, ItemLike addition, ItemLike result) {
+        output.accept(new SmithingTransformFinishedRecipe(id, template, base, addition, result));
+    }
+    private record SmithingTransformFinishedRecipe(ResourceLocation id, ItemLike template, ItemLike base,
+                                                   ItemLike addition, ItemLike result) implements FinishedRecipe {
+        @Override
+        public void serializeRecipeData(JsonObject json) {
+            json.add("template", ingredient(this.template));
+            json.add("base", ingredient(this.base));
+            json.add("addition", ingredient(this.addition));
+
+            JsonObject result = new JsonObject();
+            result.addProperty("item", Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(this.result.asItem())).toString());
+            json.add("result", result);
+        }
+
+        private JsonObject ingredient(ItemLike item) {
+            JsonObject ingredient = new JsonObject();
+            ingredient.addProperty("item", Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item.asItem())).toString());
+            return ingredient;
+        }
+
+        @Override
+        public ResourceLocation getId() {
+            return this.id;
+        }
+
+        @Override
+        public RecipeSerializer<?> getType() {
+            return Objects.requireNonNull(ForgeRegistries.RECIPE_SERIALIZERS.getValue(SMITHING_TRANSFORM_SERIALIZER_ID),
+                    () -> "Missing recipe serializer " + SMITHING_TRANSFORM_SERIALIZER_ID);
+        }
+
+        @Override
+        public @Nullable JsonObject serializeAdvancement() {
+            return null;
+        }
+
+        @Override
+        public @Nullable ResourceLocation getAdvancementId() {
+            return null;
+        }
+    }
+    private void slab(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> slab, ItemLike fullBlock) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, slab.get(), 6)
+                .define('#', fullBlock)
+                .pattern("###")
+                .unlockedBy(getHasName(fullBlock), has(fullBlock))
+                .save(output);
+    }
+
+    private void stairs(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> stairs, ItemLike fullBlock) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, stairs.get(), 4)
+                .define('#', fullBlock)
+                .pattern("#  ")
+                .pattern("## ")
+                .pattern("###")
+                .unlockedBy(getHasName(fullBlock), has(fullBlock))
+                .save(output);
+    }
+
+    private void pillar(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> pillar, ItemLike fullBlock) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, pillar.get(), 2)
+                .define('#', fullBlock)
+                .pattern("#")
+                .pattern("#")
+                .unlockedBy(getHasName(fullBlock), has(fullBlock))
+                .save(output);
+    }
 
     private void slats(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> slats, ItemLike slab) {
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, slats.get(), 6)
@@ -238,14 +317,23 @@ public final class FACrafting extends RecipeProvider {
     private void alabasterDiffuser(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> diffuser) {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, diffuser.get())
                 .define('B', Items.HONEYCOMB)
-                .define('Q', Items.QUARTZ)
+                .define('Q', FAItems.ALABASTER.get())
                 .define('G', Items.GLASS_BOTTLE)
                 .define('T', Items.TORCH)
-                .define('I', Items.GOLD_INGOT)
+                .define('I', FAItems.ALABASTER.get())
                 .pattern("BQB")
                 .pattern("IGI")
                 .pattern("QTQ")
-                .unlockedBy(getHasName(Items.QUARTZ), has(Items.QUARTZ))
+                .unlockedBy(getHasName(FAItems.ALABASTER.get()), has(FAItems.ALABASTER.get()))
+                .save(output);
+    }
+
+    private void alabasterBlock(Consumer<FinishedRecipe> output) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, FABlocks.ALABASTER_BLOCK.get())
+                .define('A', FAItems.ALABASTER.get())
+                .pattern("AA")
+                .pattern("AA")
+                .unlockedBy(getHasName(FAItems.ALABASTER.get()), has(FAItems.ALABASTER.get()))
                 .save(output);
     }
 

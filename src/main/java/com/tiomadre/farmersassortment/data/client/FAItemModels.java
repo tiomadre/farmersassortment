@@ -28,6 +28,7 @@ public class FAItemModels extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
+        registerAlabasterBuildingBlocks();
         registerKnives();
         registerCookingPots();
         registerStoves();
@@ -44,6 +45,17 @@ public class FAItemModels extends ItemModelProvider {
         registerRacks();
         registerTables();
         registerSlats();
+    }
+    private void registerKnives() {
+        Stream.of(FAItems.AMETHYST_KNIFE, FAItems.QUARTZ_KNIFE, FAItems.CLAMSHELL_KNIFE, FAItems.ALABASTER_KNIFE)
+                .forEach(this::handheldItem);
+        generatedItem(FAItems.ALABASTER);
+    }
+    private void registerAlabasterBuildingBlocks() {
+        block(FABlocks.ALABASTER_BLOCK);
+        block(FABlocks.ALABASTER_SLAB);
+        block(FABlocks.ALABASTER_STAIRS);
+        block(FABlocks.ALABASTER_PILLAR);
     }
     private void registerSlats() {
         FABlocks.allSlats().forEach(this::block);
@@ -182,11 +194,11 @@ public class FAItemModels extends ItemModelProvider {
         FARugs.canvasRugs().forEach(this::block);
     }
 
-    private void registerKnives() {
-        Stream.of(FAItems.AMETHYST_KNIFE, FAItems.QUARTZ_KNIFE, FAItems.CLAMSHELL_KNIFE)
-                .forEach(this::handheldItem);
+    private void generatedItem(RegistryObject<?> item) {
+        String name = Objects.requireNonNull(item.getId()).getPath();
+        withExistingParent(name, mcLoc("item/generated"))
+                .texture("layer0", modLoc("item/" + name));
     }
-
     private void registerCookingPots() {
         Stream.of(FABlocks.COPPER_COOKING_POT, FABlocks.GOLDEN_COOKING_POT, FABlocks.ALABASTER_COOKING_POT, FAxCrabbersBlocks.PEARLESCENT_COOKING_POT)
                 .forEach(this::block);

@@ -40,6 +40,7 @@ public class FarmersAssortment {
         FAItems.init();
         FADynamicStools.init();
         FARugs.init();
+        FASoundEvents.register(modEventBus);
         REGISTRY_HELPER.register(modEventBus);
         FABlockEntityTypes.register(modEventBus);
         FATab.register(modEventBus);

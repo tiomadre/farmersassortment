@@ -9,6 +9,7 @@ import com.tiomadre.farmersassortment.core.block.TableBlock;
 import com.tiomadre.farmersassortment.core.item.StoolItem;
 import com.tiomadre.farmersassortment.core.item.TableItem;
 import com.tiomadre.farmersassortment.core.mixin.BlockEntityTypeAccessor;
+import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import com.tiomadre.foragersinsight.common.block.DiffuserBlock;
 import com.tiomadre.foragersinsight.common.item.DiffuserBlockItem;
 import com.tiomadre.foragersinsight.core.registry.FIBlockEntityTypes;
@@ -36,7 +37,7 @@ public final class FAxForagersBlocks {
     public static final RegistryObject<CuttingBoardBlock> LILAC_CUTTING_BOARD = registerCuttingBoard("lilac");
     public static final RegistryObject<ButcherBlockCabinetBlock> LILAC_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("lilac");
     public static final RegistryObject<DiffuserBlock> AMETHYST_DIFFUSER = registerDiffuser("amethyst", SoundType.AMETHYST);
-    public static final RegistryObject<DiffuserBlock> ALABASTER_DIFFUSER = registerDiffuser("alabaster", SoundType.CALCITE);
+    public static final RegistryObject<DiffuserBlock> ALABASTER_DIFFUSER = registerDiffuser("alabaster", FABlocks.ALABASTER_SOUND_TYPE);
     public static final RegistryObject<StoolBlock> LILAC_STOOL = registerStool("lilac");
     public static final RegistryObject<TableBlock> LILAC_TABLE = registerTable("lilac");
     public static final RegistryObject<SlatBlock> LILAC_SLATS = registerSlats("lilac");

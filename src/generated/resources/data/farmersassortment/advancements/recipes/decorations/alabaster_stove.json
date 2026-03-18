@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_quartz_block": {
+    "has_alabaster_block": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:quartz_block"
+              "farmersassortment:alabaster_block"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_quartz_block",
+      "has_alabaster_block",
       "has_the_recipe"
     ]
   ],

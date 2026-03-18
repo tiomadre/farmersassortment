@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "farmersassortment:block/alabaster_slab"
+    },
+    "type=double": {
+      "model": "farmersassortment:block/alabaster_block"
+    },
+    "type=top": {
+      "model": "farmersassortment:block/alabaster_slab_top"
+    }
+  }
+}

@@ -23,10 +23,14 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.RenderShape;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -43,8 +47,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class StoolBlock extends HorizontalDirectionalBlock {
+public class StoolBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock {
     public static final BooleanProperty PUSHED = BooleanProperty.create("pushed");
+    public static final BooleanProperty WATERLOGGED = BooleanProperty.create("waterlogged");
     public static final EnumProperty<StoolRugType> RUG = EnumProperty.create("rug", StoolRugType.class);
     private static final VoxelShape SEAT_SHAPE = Block.box(0.0D, 3.0D, 6.0D, 16.0D, 8.0D, 16.0D);
     private static final VoxelShape LEG_NW_UPPER = Block.box(0.0D, 1.0D, 6.0D, 2.0D, 3.0D, 8.0D);
@@ -72,17 +77,34 @@ public class StoolBlock extends HorizontalDirectionalBlock {
     private static final String STOOL_SEAT_TAG = "farmersassortment_stool_seat";
     public StoolBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(RUG, StoolRugType.NONE).setValue(PUSHED, false));
+        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(RUG, StoolRugType.NONE).setValue(PUSHED, false).setValue(WATERLOGGED, false));
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING, RUG, PUSHED);
+        builder.add(FACING, RUG, PUSHED, WATERLOGGED);
     }
 
     @Override
     public @NotNull BlockState getStateForPlacement(BlockPlaceContext context) {
-        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite()).setValue(PUSHED, false);
+        FluidState fluidState = context.getLevel().getFluidState(context.getClickedPos());
+        return this.defaultBlockState()
+                .setValue(FACING, context.getHorizontalDirection().getOpposite())
+                .setValue(PUSHED, false)
+                .setValue(WATERLOGGED, fluidState.getType() == Fluids.WATER);
+    }
+
+    @Override
+    public @NotNull FluidState getFluidState(@NotNull BlockState state) {
+        return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
+    }
+
+    @Override
+    public @NotNull BlockState updateShape(@NotNull BlockState state, @NotNull Direction direction, @NotNull BlockState neighborState, @NotNull LevelAccessor level, @NotNull BlockPos currentPos, @NotNull BlockPos neighborPos) {
+        if (state.getValue(WATERLOGGED)) {
+            level.scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+        }
+        return super.updateShape(state, direction, neighborState, level, currentPos, neighborPos);
     }
 
     @Override

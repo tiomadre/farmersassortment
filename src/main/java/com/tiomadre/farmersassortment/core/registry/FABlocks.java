@@ -11,11 +11,10 @@ import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxForagersBlocks;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraftforge.common.util.ForgeSoundType;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -32,8 +31,53 @@ import java.util.stream.Stream;
 
 public final class FABlocks {
     public static final BlockSubRegistryHelper BLOCKS = FarmersAssortment.REGISTRY_HELPER.getBlockSubHelper();
+    public static final SoundType ALABASTER_SOUND_TYPE = layeredAlabasterSoundType();
+    //IDs
+    private static final ResourceLocation COPPER_COOKING_POT_ID = new ResourceLocation(FarmersAssortment.MOD_ID, "copper_cooking_pot");
+    private static final ResourceLocation GOLDEN_COOKING_POT_ID = new ResourceLocation(FarmersAssortment.MOD_ID, "golden_cooking_pot");
+    private static final ResourceLocation ALABASTER_COOKING_POT_ID = new ResourceLocation(FarmersAssortment.MOD_ID, "alabaster_cooking_pot");
+    private static final ResourceLocation TERRACOTTA_COOKING_POT_ID = new ResourceLocation(FarmersAssortment.MOD_ID, "terracotta_cooking_pot");
+    //Cooking Pots
+    public static final RegistryObject<CookingPotBlock> COPPER_COOKING_POT = registerCookingPot("copper_cooking_pot", MapColor.METAL, SoundType.COPPER, COPPER_COOKING_POT_ID);
+    public static final RegistryObject<CookingPotBlock> GOLDEN_COOKING_POT = registerCookingPot("golden_cooking_pot", MapColor.GOLD, SoundType.LANTERN, GOLDEN_COOKING_POT_ID);
+    public static final RegistryObject<CookingPotBlock> ALABASTER_COOKING_POT = registerCookingPot("alabaster_cooking_pot", MapColor.TERRACOTTA_WHITE, ALABASTER_SOUND_TYPE, ALABASTER_COOKING_POT_ID);
+    public static final RegistryObject<CookingPotBlock> TERRACOTTA_COOKING_POT = registerTerracottaCookingPot();
+    //Cutting Boards
+    public static final RegistryObject<CuttingBoardBlock> SPRUCE_CUTTING_BOARD = registerCuttingBoard("spruce", Blocks.SPRUCE_PLANKS);
+    public static final RegistryObject<CuttingBoardBlock> BIRCH_CUTTING_BOARD = registerCuttingBoard("birch", Blocks.BIRCH_PLANKS);
+    public static final RegistryObject<CuttingBoardBlock> JUNGLE_CUTTING_BOARD = registerCuttingBoard("jungle", Blocks.JUNGLE_PLANKS);
+    public static final RegistryObject<CuttingBoardBlock> ACACIA_CUTTING_BOARD = registerCuttingBoard("acacia", Blocks.ACACIA_PLANKS);
+    public static final RegistryObject<CuttingBoardBlock> DARK_OAK_CUTTING_BOARD = registerCuttingBoard("dark_oak", Blocks.DARK_OAK_PLANKS);
+    public static final RegistryObject<CuttingBoardBlock> MANGROVE_CUTTING_BOARD = registerCuttingBoard("mangrove", Blocks.MANGROVE_PLANKS);
+    public static final RegistryObject<CuttingBoardBlock> CHERRY_CUTTING_BOARD = registerCuttingBoard("cherry", Blocks.CHERRY_PLANKS);
+    public static final RegistryObject<CuttingBoardBlock> BAMBOO_CUTTING_BOARD = registerCuttingBoard("bamboo", Blocks.BAMBOO_PLANKS);
+    public static final RegistryObject<CuttingBoardBlock> CRIMSON_CUTTING_BOARD = registerCuttingBoard("crimson", Blocks.CRIMSON_PLANKS);
+    public static final RegistryObject<CuttingBoardBlock> WARPED_CUTTING_BOARD = registerCuttingBoard("warped", Blocks.WARPED_PLANKS);
+    //Stoves
+    public static final RegistryObject<UniqueStoveBlock> ALABASTER_STOVE = BLOCKS.createBlock("alabaster_stove", () -> new UniqueStoveBlock(BlockBehaviour.Properties.copy(Blocks.FURNACE).sound(ALABASTER_SOUND_TYPE)), new Item.Properties());
+
+    //Storage + Decorative Blocks
+    public static final RegistryObject<Block> ALABASTER_BLOCK = registerStorageBlock("alabaster");
+    public static final RegistryObject<SlabBlock> ALABASTER_SLAB = registerSlab("alabaster", ALABASTER_BLOCK);
+    public static final RegistryObject<StairBlock> ALABASTER_STAIRS = registerStairs("alabaster", ALABASTER_BLOCK);
+    public static final RegistryObject<RotatedPillarBlock> ALABASTER_PILLAR = registerPillar("alabaster", ALABASTER_BLOCK);
 
 
+    //Slats
+    public static final RegistryObject<SlatBlock> OAK_SLATS = registerSlats("oak", Blocks.OAK_PLANKS);
+    public static final RegistryObject<SlatBlock> SPRUCE_SLATS = registerSlats("spruce", Blocks.SPRUCE_PLANKS);
+    public static final RegistryObject<SlatBlock> BIRCH_SLATS = registerSlats("birch", Blocks.BIRCH_PLANKS);
+    public static final RegistryObject<SlatBlock> JUNGLE_SLATS = registerSlats("jungle", Blocks.JUNGLE_PLANKS);
+    public static final RegistryObject<SlatBlock> ACACIA_SLATS = registerSlats("acacia", Blocks.ACACIA_PLANKS);
+    public static final RegistryObject<SlatBlock> DARK_OAK_SLATS = registerSlats("dark_oak", Blocks.DARK_OAK_PLANKS);
+    public static final RegistryObject<SlatBlock> MANGROVE_SLATS = registerSlats("mangrove", Blocks.MANGROVE_PLANKS);
+    public static final RegistryObject<SlatBlock> CHERRY_SLATS = registerSlats("cherry", Blocks.CHERRY_PLANKS);
+    public static final RegistryObject<SlatBlock> BAMBOO_SLATS = registerSlats("bamboo", Blocks.BAMBOO_PLANKS);
+    public static final RegistryObject<SlatBlock> CRIMSON_SLATS = registerSlats("crimson", Blocks.CRIMSON_PLANKS);
+    public static final RegistryObject<SlatBlock> WARPED_SLATS = registerSlats("warped", Blocks.WARPED_PLANKS);
+
+    //Furniture
+        //Butcher Block Cabinet
     public static final RegistryObject<ButcherBlockCabinetBlock> OAK_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("oak", Blocks.OAK_PLANKS);
     public static final RegistryObject<ButcherBlockCabinetBlock> SPRUCE_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("spruce", Blocks.SPRUCE_PLANKS);
     public static final RegistryObject<ButcherBlockCabinetBlock> BIRCH_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("birch", Blocks.BIRCH_PLANKS);
@@ -45,7 +89,7 @@ public final class FABlocks {
     public static final RegistryObject<ButcherBlockCabinetBlock> BAMBOO_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("bamboo", Blocks.BAMBOO_PLANKS);
     public static final RegistryObject<ButcherBlockCabinetBlock> CRIMSON_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("crimson", Blocks.CRIMSON_PLANKS);
     public static final RegistryObject<ButcherBlockCabinetBlock> WARPED_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("warped", Blocks.WARPED_PLANKS);
-
+        //Counters
     public static final RegistryObject<FloatingCounterBlock> OAK_FLOATING_COUNTER = registerFloatingCounter("oak", Blocks.OAK_PLANKS);
     public static final RegistryObject<FloatingCounterBlock> SPRUCE_FLOATING_COUNTER = registerFloatingCounter("spruce", Blocks.SPRUCE_PLANKS);
     public static final RegistryObject<FloatingCounterBlock> BIRCH_FLOATING_COUNTER = registerFloatingCounter("birch", Blocks.BIRCH_PLANKS);
@@ -59,29 +103,7 @@ public final class FABlocks {
     public static final RegistryObject<FloatingCounterBlock> WARPED_FLOATING_COUNTER = registerFloatingCounter("warped", Blocks.WARPED_PLANKS);
     public static final RegistryObject<FloatingCounterBlock> ALABASTER_FLOATING_COUNTER = registerFloatingCounter("alabaster", Blocks.QUARTZ_BLOCK);
 
-    public static final RegistryObject<CuttingBoardBlock> SPRUCE_CUTTING_BOARD = registerCuttingBoard("spruce", Blocks.SPRUCE_PLANKS);
-    public static final RegistryObject<CuttingBoardBlock> BIRCH_CUTTING_BOARD = registerCuttingBoard("birch", Blocks.BIRCH_PLANKS);
-    public static final RegistryObject<CuttingBoardBlock> JUNGLE_CUTTING_BOARD = registerCuttingBoard("jungle", Blocks.JUNGLE_PLANKS);
-    public static final RegistryObject<CuttingBoardBlock> ACACIA_CUTTING_BOARD = registerCuttingBoard("acacia", Blocks.ACACIA_PLANKS);
-    public static final RegistryObject<CuttingBoardBlock> DARK_OAK_CUTTING_BOARD = registerCuttingBoard("dark_oak", Blocks.DARK_OAK_PLANKS);
-    public static final RegistryObject<CuttingBoardBlock> MANGROVE_CUTTING_BOARD = registerCuttingBoard("mangrove", Blocks.MANGROVE_PLANKS);
-    public static final RegistryObject<CuttingBoardBlock> CHERRY_CUTTING_BOARD = registerCuttingBoard("cherry", Blocks.CHERRY_PLANKS);
-    public static final RegistryObject<CuttingBoardBlock> BAMBOO_CUTTING_BOARD = registerCuttingBoard("bamboo", Blocks.BAMBOO_PLANKS);
-    public static final RegistryObject<CuttingBoardBlock> CRIMSON_CUTTING_BOARD = registerCuttingBoard("crimson", Blocks.CRIMSON_PLANKS);
-    public static final RegistryObject<CuttingBoardBlock> WARPED_CUTTING_BOARD = registerCuttingBoard("warped", Blocks.WARPED_PLANKS);
-
-    private static final ResourceLocation COPPER_COOKING_POT_ID = new ResourceLocation(FarmersAssortment.MOD_ID, "copper_cooking_pot");
-    private static final ResourceLocation GOLDEN_COOKING_POT_ID = new ResourceLocation(FarmersAssortment.MOD_ID, "golden_cooking_pot");
-    private static final ResourceLocation ALABASTER_COOKING_POT_ID = new ResourceLocation(FarmersAssortment.MOD_ID, "alabaster_cooking_pot");
-    private static final ResourceLocation TERRACOTTA_COOKING_POT_ID = new ResourceLocation(FarmersAssortment.MOD_ID, "terracotta_cooking_pot");
-
-    public static final RegistryObject<CookingPotBlock> COPPER_COOKING_POT = registerCookingPot("copper_cooking_pot", MapColor.METAL, SoundType.COPPER, COPPER_COOKING_POT_ID);
-    public static final RegistryObject<CookingPotBlock> GOLDEN_COOKING_POT = registerCookingPot("golden_cooking_pot", MapColor.GOLD, SoundType.LANTERN, GOLDEN_COOKING_POT_ID);
-    public static final RegistryObject<CookingPotBlock> ALABASTER_COOKING_POT = registerCookingPot("alabaster_cooking_pot", MapColor.TERRACOTTA_WHITE, SoundType.CALCITE, ALABASTER_COOKING_POT_ID);
-    public static final RegistryObject<CookingPotBlock> TERRACOTTA_COOKING_POT = registerTerracottaCookingPot();
-
-    public static final RegistryObject<UniqueStoveBlock> ALABASTER_STOVE = BLOCKS.createBlock("alabaster_stove", () -> new UniqueStoveBlock(BlockBehaviour.Properties.copy(Blocks.FURNACE)), new Item.Properties());
-
+        //Stools
     public static final RegistryObject<StoolBlock> OAK_STOOL = registerStool("oak", Blocks.OAK_PLANKS);
     public static final RegistryObject<StoolBlock> SPRUCE_STOOL = registerStool("spruce", Blocks.SPRUCE_PLANKS);
     public static final RegistryObject<StoolBlock> BIRCH_STOOL = registerStool("birch", Blocks.BIRCH_PLANKS);
@@ -93,7 +115,7 @@ public final class FABlocks {
     public static final RegistryObject<StoolBlock> BAMBOO_STOOL = registerStool("bamboo", Blocks.BAMBOO_PLANKS);
     public static final RegistryObject<StoolBlock> CRIMSON_STOOL = registerStool("crimson", Blocks.CRIMSON_PLANKS);
     public static final RegistryObject<StoolBlock> WARPED_STOOL = registerStool("warped", Blocks.WARPED_PLANKS);
-
+        //Racks
     public static final RegistryObject<RackBlock> OAK_RACK = registerRack("oak", Blocks.OAK_PLANKS);
     public static final RegistryObject<RackBlock> SPRUCE_RACK = registerRack("spruce", Blocks.SPRUCE_PLANKS);
     public static final RegistryObject<RackBlock> BIRCH_RACK = registerRack("birch", Blocks.BIRCH_PLANKS);
@@ -106,7 +128,7 @@ public final class FABlocks {
     public static final RegistryObject<RackBlock> CRIMSON_RACK = registerRack("crimson", Blocks.CRIMSON_PLANKS);
     public static final RegistryObject<RackBlock> WARPED_RACK = registerRack("warped", Blocks.WARPED_PLANKS);
     public static final RegistryObject<RackBlock> ALABASTER_RACK = registerRack("alabaster", Blocks.QUARTZ_BLOCK);
-
+        //Tables
     public static final RegistryObject<TableBlock> OAK_TABLE = registerTable("oak", Blocks.OAK_PLANKS);
     public static final RegistryObject<TableBlock> SPRUCE_TABLE = registerTable("spruce", Blocks.SPRUCE_PLANKS);
     public static final RegistryObject<TableBlock> BIRCH_TABLE = registerTable("birch", Blocks.BIRCH_PLANKS);
@@ -120,18 +142,30 @@ public final class FABlocks {
     public static final RegistryObject<TableBlock> WARPED_TABLE = registerTable("warped", Blocks.WARPED_PLANKS);
     public static final RegistryObject<TableBlock> ALABASTER_TABLE = registerTable("alabaster", Blocks.QUARTZ_BLOCK);
 
-    public static final RegistryObject<SlatBlock> OAK_SLATS = registerSlats("oak", Blocks.OAK_PLANKS);
-    public static final RegistryObject<SlatBlock> SPRUCE_SLATS = registerSlats("spruce", Blocks.SPRUCE_PLANKS);
-    public static final RegistryObject<SlatBlock> BIRCH_SLATS = registerSlats("birch", Blocks.BIRCH_PLANKS);
-    public static final RegistryObject<SlatBlock> JUNGLE_SLATS = registerSlats("jungle", Blocks.JUNGLE_PLANKS);
-    public static final RegistryObject<SlatBlock> ACACIA_SLATS = registerSlats("acacia", Blocks.ACACIA_PLANKS);
-    public static final RegistryObject<SlatBlock> DARK_OAK_SLATS = registerSlats("dark_oak", Blocks.DARK_OAK_PLANKS);
-    public static final RegistryObject<SlatBlock> MANGROVE_SLATS = registerSlats("mangrove", Blocks.MANGROVE_PLANKS);
-    public static final RegistryObject<SlatBlock> CHERRY_SLATS = registerSlats("cherry", Blocks.CHERRY_PLANKS);
-    public static final RegistryObject<SlatBlock> BAMBOO_SLATS = registerSlats("bamboo", Blocks.BAMBOO_PLANKS);
-    public static final RegistryObject<SlatBlock> CRIMSON_SLATS = registerSlats("crimson", Blocks.CRIMSON_PLANKS);
-    public static final RegistryObject<SlatBlock> WARPED_SLATS = registerSlats("warped", Blocks.WARPED_PLANKS);
+//definitions
+    private static RegistryObject<Block> registerStorageBlock(String name) {
+        return BLOCKS.createBlock(name + "_block",
+                () -> new Block(BlockBehaviour.Properties.copy(Blocks.QUARTZ_BLOCK)),
+                new Item.Properties());
+    }
 
+    private static RegistryObject<SlabBlock> registerSlab(String name, RegistryObject<? extends Block> fullBlock) {
+        return BLOCKS.createBlock(name + "_slab",
+                () -> new SlabBlock(BlockBehaviour.Properties.copy(fullBlock.get())),
+                new Item.Properties());
+    }
+
+    private static RegistryObject<StairBlock> registerStairs(String name, RegistryObject<? extends Block> fullBlock) {
+        return BLOCKS.createBlock(name + "_stairs",
+                () -> new StairBlock(() -> fullBlock.get().defaultBlockState(), BlockBehaviour.Properties.copy(fullBlock.get())),
+                new Item.Properties());
+    }
+
+    private static RegistryObject<RotatedPillarBlock> registerPillar(String name, RegistryObject<? extends Block> fullBlock) {
+        return BLOCKS.createBlock(name + "_pillar",
+                () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(fullBlock.get())),
+                new Item.Properties());
+    }
 
 
     public static Stream<RegistryObject<RackBlock>> racks() {
@@ -150,10 +184,14 @@ public final class FABlocks {
                 ALABASTER_RACK
         );
     }
-
     private static RegistryObject<RackBlock> registerRack(String woodType, Block baseBlock) {
+        BlockBehaviour.Properties properties = BlockBehaviour.Properties.copy(baseBlock).noOcclusion();
+        if ("alabaster".equals(woodType)) {
+            properties = properties.sound(ALABASTER_SOUND_TYPE);
+        }
+        BlockBehaviour.Properties finalProperties = properties;
         return BLOCKS.createBlock(woodType + "_rack",
-                () -> new RackBlock(BlockBehaviour.Properties.copy(baseBlock).noOcclusion()),
+                () -> new RackBlock(finalProperties),
                 new Item.Properties());
     }
     public static Stream<RegistryObject<SlatBlock>> slats() {
@@ -183,23 +221,9 @@ public final class FABlocks {
         return slats;
     }
     private static RegistryObject<SlatBlock> registerSlats(String woodType, Block baseBlock) {
-        SoundType soundType = switch (woodType) {
-            case "bamboo" -> slatSoundType(SoundType.BAMBOO_WOOD, 1.8F);
-            case "crimson", "warped" -> slatSoundType(SoundType.NETHER_WOOD, 0.85F);
-            default -> slatSoundType(SoundType.WOOD, 1.2F);
-        };
         return BLOCKS.createBlock(woodType + "_slats",
-                () -> new SlatBlock(BlockBehaviour.Properties.copy(baseBlock).sound(soundType).noOcclusion()),
+                () -> new SlatBlock(BlockBehaviour.Properties.copy(baseBlock).noOcclusion()),
                 new Item.Properties());
-    }
-
-    private static SoundType slatSoundType(SoundType baseSoundType, float pitch) {
-        return new SoundType(baseSoundType.getVolume(), pitch,
-                baseSoundType.getBreakSound(),
-                baseSoundType.getStepSound(),
-                baseSoundType.getPlaceSound(),
-                baseSoundType.getHitSound(),
-                baseSoundType.getFallSound());
     }
     public static Stream<RegistryObject<TableBlock>> tables() {
         return Stream.of(
@@ -230,8 +254,13 @@ public final class FABlocks {
     private static RegistryObject<TableBlock> registerTable(String woodType, Block baseBlock) {
         String name = woodType + "_table";
         ResourceLocation id = new ResourceLocation(FarmersAssortment.MOD_ID, name);
+        BlockBehaviour.Properties properties = BlockBehaviour.Properties.copy(baseBlock).noOcclusion();
+        if ("alabaster".equals(woodType)) {
+            properties = properties.sound(ALABASTER_SOUND_TYPE);
+        }
+        BlockBehaviour.Properties finalProperties = properties;
         return BLOCKS.createBlockWithItem(name,
-                () -> new TableBlock(BlockBehaviour.Properties.copy(baseBlock).noOcclusion()),
+                () -> new TableBlock(finalProperties),
                 () -> new TableItem(Objects.requireNonNull(ForgeRegistries.BLOCKS.getValue(id)), new Item.Properties()));
     }
 
@@ -344,10 +373,14 @@ public final class FABlocks {
                 () -> new TerracottaCookingPotBlock(BlockBehaviour.Properties.of().mapColor(Blocks.TERRACOTTA.defaultMapColor()).strength(0.5F, 6.0F).sound(SoundType.DECORATED_POT)),
                 () -> new TerracottaCookingPotItem(Objects.requireNonNull(ForgeRegistries.BLOCKS.getValue(TERRACOTTA_COOKING_POT_ID)), new Item.Properties().stacksTo(1)));
     }
-
     private static RegistryObject<FloatingCounterBlock> registerFloatingCounter(String woodType, Block baseBlock) {
+        BlockBehaviour.Properties properties = BlockBehaviour.Properties.copy(baseBlock);
+        if ("alabaster".equals(woodType)) {
+            properties = properties.sound(ALABASTER_SOUND_TYPE);
+        }
+        BlockBehaviour.Properties finalProperties = properties;
         return BLOCKS.createBlock(woodType + "_floating_counter",
-                () -> new FloatingCounterBlock(BlockBehaviour.Properties.copy(baseBlock)),
+                () -> new FloatingCounterBlock(finalProperties),
                 new Item.Properties());
     }
 
@@ -399,5 +432,14 @@ public final class FABlocks {
                 CRIMSON_STOOL,
                 WARPED_STOOL
         );
+    }
+    //sounds
+    private static SoundType layeredAlabasterSoundType() {
+        return new ForgeSoundType(0.9F, 1.0F,
+                FASoundEvents.ALABASTER_BREAK,
+                FASoundEvents.ALABASTER_STEP,
+                FASoundEvents.ALABASTER_PLACE,
+                FASoundEvents.ALABASTER_HIT,
+                FASoundEvents.ALABASTER_FALL);
     }
 }

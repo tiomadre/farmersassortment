@@ -3,10 +3,10 @@
   "category": "misc",
   "key": {
     "B": {
-      "item": "minecraft:gold_ingot"
+      "item": "farmersassortment:alabaster"
     },
     "M": {
-      "item": "minecraft:quartz"
+      "item": "farmersassortment:alabaster"
     },
     "S": {
       "item": "minecraft:wooden_shovel"

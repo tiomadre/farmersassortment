@@ -53,6 +53,7 @@ public class FABlockStates extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
+        registerAlabasterBuildingBlocks();
         registerCabinets();
         registerCanvasRugs();
         registerCuttingBoards();
@@ -67,6 +68,15 @@ public class FABlockStates extends BlockStateProvider {
         registerRacks();
         registerTables();
     }
+
+    private void registerAlabasterBuildingBlocks() {
+        BlockModelBuilder blockModel = models().cubeAll(Objects.requireNonNull(FABlocks.ALABASTER_BLOCK.getId()).getPath(), modLoc("block/alabaster_block"));
+        simpleBlock(FABlocks.ALABASTER_BLOCK.get(), blockModel);
+        slabBlock(FABlocks.ALABASTER_SLAB.get(), modLoc("block/alabaster_block"), modLoc("block/alabaster_block"));
+        stairsBlock(FABlocks.ALABASTER_STAIRS.get(), modLoc("block/alabaster_block"));
+        axisBlock(FABlocks.ALABASTER_PILLAR.get(), modLoc("block/alabaster_pillar_side"), modLoc("block/alabaster_pillar_top"));
+}
+
 
 
     private void registerCabinets() {
@@ -113,18 +123,17 @@ public class FABlockStates extends BlockStateProvider {
 
         slats.forEach(definition -> registerSlats(definition.block(), definition.woodType(), definition.bamboo()));
     }
-
-  private void registerSlats(RegistryObject<? extends Block> block, String woodType, boolean bamboo) {
+    private void registerSlats(RegistryObject<? extends Block> block, String woodType, boolean bamboo) {
         String name = Objects.requireNonNull(block.getId()).getPath();
-      ResourceLocation texture = bamboo
-              ? new ResourceLocation("minecraft", "block/stripped_bamboo_block")
-              : switch (woodType) {
-          case "palm" -> new ResourceLocation("crabbersdelight", "block/palm_planks");
-          case "lilac" -> new ResourceLocation("foragersinsight", "block/lilac_planks");
-          default -> new ResourceLocation("minecraft", "block/" + woodType + "_planks");
-      };
+        ResourceLocation texture = bamboo
+                ? new ResourceLocation("minecraft", "block/stripped_bamboo_block")
+                : switch (woodType) {
+            case "palm" -> new ResourceLocation("crabbersdelight", "block/palm_planks");
+            case "lilac" -> new ResourceLocation("foragersinsight", "block/lilac_planks");
+            default -> new ResourceLocation("minecraft", "block/" + woodType + "_planks");
+        };
 
-           ModelFile horizontalModel = models().getBuilder(name)
+        ModelFile horizontalModel = models().getBuilder(name)
                 .parent(new ModelFile.UncheckedModelFile(modLoc("block/template/slats_horizontal" + (bamboo ? "_bamboo" : ""))))
                 .renderType("minecraft:cutout")
                 .texture("texture", texture)
@@ -136,56 +145,25 @@ public class FABlockStates extends BlockStateProvider {
                 .texture("texture", texture)
                 .texture(bamboo ? "2" : "3", texture)
                 .texture("particle", texture);
-      ModelFile joinedModel = models().getBuilder(name + "_joined")
-              .parent(new ModelFile.UncheckedModelFile(modLoc("block/template/slats_joined" + (bamboo ? "_bamboo" : ""))))
-              .renderType("minecraft:cutout")
-              .texture("texture", texture)
-              .texture(bamboo ? "2" : "3", texture)
-              .texture("particle", texture);
 
+        getVariantBuilder(block.get())
+                .partialState().with(SlatBlock.VERTICAL, false).with(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH)
+                .modelForState().modelFile(horizontalModel).addModel()
+                .partialState().with(SlatBlock.VERTICAL, false).with(BlockStateProperties.HORIZONTAL_FACING, Direction.SOUTH)
+                .modelForState().modelFile(horizontalModel).addModel()
+                .partialState().with(SlatBlock.VERTICAL, false).with(BlockStateProperties.HORIZONTAL_FACING, Direction.EAST)
+                .modelForState().modelFile(horizontalModel).rotationY(90).addModel()
+                .partialState().with(SlatBlock.VERTICAL, false).with(BlockStateProperties.HORIZONTAL_FACING, Direction.WEST)
+                .modelForState().modelFile(horizontalModel).rotationY(90).addModel()
+                .partialState().with(SlatBlock.VERTICAL, true).with(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH)
+                .modelForState().modelFile(verticalModel).addModel()
+                .partialState().with(SlatBlock.VERTICAL, true).with(BlockStateProperties.HORIZONTAL_FACING, Direction.EAST)
+                .modelForState().modelFile(verticalModel).rotationY(90).addModel()
+                .partialState().with(SlatBlock.VERTICAL, true).with(BlockStateProperties.HORIZONTAL_FACING, Direction.SOUTH)
+                .modelForState().modelFile(verticalModel).rotationY(180).addModel()
+                .partialState().with(SlatBlock.VERTICAL, true).with(BlockStateProperties.HORIZONTAL_FACING, Direction.WEST)
+                .modelForState().modelFile(verticalModel).rotationY(270).addModel();
 
-        getVariantBuilder(block.get()).forAllStates(state -> {
-            Direction facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
-            if (state.getValue(SlatBlock.JOINED)) {
-                return ConfiguredModel.builder()
-                        .modelFile(joinedModel)
-                        .rotationX(state.getValue(SlatBlock.CEILING) ? 180 : 0)
-                        .rotationY(slatsJoinedRotationY(facing))
-                        .build();
-            }
-            if (!state.getValue(SlatBlock.VERTICAL)) {
-                return ConfiguredModel.builder()
-                        .modelFile(horizontalModel)
-                        .rotationX(state.getValue(SlatBlock.CEILING) ? 180 : 0)
-                        .rotationY(slatsHorizontalRotationY(facing))
-                        .build();
-            }
-
-            return ConfiguredModel.builder()
-                    .modelFile(verticalModel)
-                             .rotationY(slatsVerticalRotationY(facing))
-                    .build();
-        });
-    }
-    private int slatsJoinedRotationY(Direction direction) {
-        return slatsHorizontalRotationY(direction);
-    }
-
-    private int slatsHorizontalRotationY(Direction direction) {
-        return switch (direction) {
-            case EAST -> 90;
-            case SOUTH -> 180;
-            case WEST -> 270;
-            default -> 0;
-        };
-    }
-    private int slatsVerticalRotationY(Direction direction) {
-        return switch (direction) {
-            case EAST -> 90;
-            case SOUTH -> 180;
-            case WEST -> 270;
-            default -> 0;
-        };
     }
     private void registerRacks() {
         List<RackDefinition> racks = List.of(
@@ -498,16 +476,22 @@ public class FABlockStates extends BlockStateProvider {
     //STOVE VARIANTS
     private void registerStoves() {
         RegistryObject<? extends StoveBlock> stove = FABlocks.ALABASTER_STOVE;
-        ModelFile offModel = models().orientableWithBottom(stove.getId().getPath(),
-                modLoc("block/alabaster_stove_side"),
-                modLoc("block/alabaster_stove_front"),
-                modLoc("block/alabaster_stove_bottom"),
-                modLoc("block/alabaster_stove_top"));
-        ModelFile onModel = models().orientableWithBottom(stove.getId().getPath() + "_on",
-                modLoc("block/alabaster_stove_side"),
-                modLoc("block/alabaster_stove_on"),
-                modLoc("block/alabaster_stove_bottom"),
-                modLoc("block/alabaster_stove_top_on"));
+        ModelFile offModel = models().getBuilder(stove.getId().getPath())
+                .parent(new ModelFile.UncheckedModelFile(modLoc("block/template/orientable_with_bottom_back")))
+                .texture("particle", modLoc("block/alabaster_stove_side"))
+                .texture("side", modLoc("block/alabaster_stove_side"))
+                .texture("front", modLoc("block/alabaster_stove_front"))
+                .texture("back", modLoc("block/alabaster_stove_back"))
+                .texture("bottom", modLoc("block/alabaster_stove_bottom"))
+                .texture("top", modLoc("block/alabaster_stove_top"));
+        ModelFile onModel = models().getBuilder(stove.getId().getPath() + "_on")
+                .parent(new ModelFile.UncheckedModelFile(modLoc("block/template/orientable_with_bottom_back")))
+                .texture("particle", modLoc("block/alabaster_stove_side"))
+                .texture("side", modLoc("block/alabaster_stove_side"))
+                .texture("front", modLoc("block/alabaster_stove_on"))
+                .texture("back", modLoc("block/alabaster_stove_back"))
+                .texture("bottom", modLoc("block/alabaster_stove_bottom"))
+                .texture("top", modLoc("block/alabaster_stove_top_on"));
 
         getVariantBuilder(stove.get()).forAllStates(state -> ConfiguredModel.builder()
                 .modelFile(state.getValue(StoveBlock.LIT) ? onModel : offModel)

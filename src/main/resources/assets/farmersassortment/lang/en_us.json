@@ -1,9 +1,17 @@
 {
   "itemGroup.farmersassortment": "Farmer's Assortment",
 
+  "item.farmersassortment.alabaster_knife": "Alabaster Knife",
   "item.farmersassortment.amethyst_knife": "Amethyst Knife",
   "item.farmersassortment.quartz_knife": "Quartz Knife",
   "item.farmersassortment.clamshell_knife": "Clamshell Knife",
+
+  "item.farmersassortment.alabaster": "Alabaster",
+  "block.farmersassortment.alabaster_block": "Alabaster Block",
+  "block.farmersassortment.alabaster_pillar": "Alabaster Pillar",
+  "block.farmersassortment.alabaster_slab": "Alabaster Slab",
+  "block.farmersassortment.alabaster_stairs": "Alabaster Stairs",
+
 
   "block.farmersassortment.oak_cutting_board": "Oak Cutting Board",
   "block.farmersassortment.spruce_cutting_board": "Spruce Cutting Board",

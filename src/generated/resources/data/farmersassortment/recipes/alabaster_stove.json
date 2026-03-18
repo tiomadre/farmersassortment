@@ -6,10 +6,10 @@
       "item": "minecraft:flint_and_steel"
     },
     "I": {
-      "item": "minecraft:gold_ingot"
+      "item": "farmersassortment:alabaster"
     },
     "M": {
-      "item": "minecraft:quartz_block"
+      "item": "farmersassortment:alabaster_block"
     }
   },
   "pattern": [

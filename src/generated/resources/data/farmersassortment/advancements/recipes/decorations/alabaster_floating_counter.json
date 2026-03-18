@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_quartz_slab": {
+    "has_alabaster_slab": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:quartz_slab"
+              "farmersassortment:alabaster_slab"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_quartz_slab",
+      "has_alabaster_slab",
       "has_the_recipe"
     ]
   ],

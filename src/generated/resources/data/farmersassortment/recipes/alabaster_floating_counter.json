@@ -3,10 +3,10 @@
   "category": "misc",
   "key": {
     "B": {
-      "item": "minecraft:quartz_slab"
+      "item": "farmersassortment:alabaster_slab"
     },
     "I": {
-      "item": "minecraft:gold_ingot"
+      "item": "farmersassortment:alabaster"
     }
   },
   "pattern": [

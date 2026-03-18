@@ -65,6 +65,10 @@ public class FABlockTags extends BlockTagsProvider {
                 .add(FABlocks.allCookingPots().map(RegistryObject::get).toArray(Block[]::new))
                 .add(FAxCrabbersBlocks.skillets().map(RegistryObject::get).toArray(Block[]::new))
                 .add(FABlocks.ALABASTER_STOVE.get())
+                .add(FABlocks.ALABASTER_BLOCK.get())
+                .add(FABlocks.ALABASTER_SLAB.get())
+                .add(FABlocks.ALABASTER_STAIRS.get())
+                .add(FABlocks.ALABASTER_PILLAR.get())
                 .add(FABlocks.ALABASTER_FLOATING_COUNTER.get())
                 .add(FABlocks.ALABASTER_TABLE.get())
                 .add(FAxForagersBlocks.diffusers().map(RegistryObject::get).toArray(Block[]::new));

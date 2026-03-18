@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "farmersassortment:block/alabaster_block",
+    "side": "farmersassortment:block/alabaster_block",
+    "top": "farmersassortment:block/alabaster_block"
+  }
+}
