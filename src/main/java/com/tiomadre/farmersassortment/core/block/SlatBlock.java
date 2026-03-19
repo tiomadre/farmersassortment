@@ -150,8 +150,8 @@ public class SlatBlock extends HorizontalDirectionalBlock {
         BlockPos placedPos = context.getClickedPos();
         BlockState supportState = context.getLevel().getBlockState(placedPos.relative(clickedFace.getOpposite()));
 
-        if (clickedFace == Direction.UP && isHorizontalSlat(supportState)) {
-            return null;
+        if (clickedFace == Direction.UP && supportState.getBlock() instanceof SlatBlock) {
+            return supportState.getValue(VERTICAL) ? supportState : null;
         }
 
         if (clickedFace.getAxis().isHorizontal() && supportState.getBlock() instanceof SlatBlock) {
@@ -166,9 +166,6 @@ public class SlatBlock extends HorizontalDirectionalBlock {
                 .setValue(FACING, facing);
     }
 
-    private static boolean isHorizontalSlat(BlockState state) {
-        return state.getBlock() instanceof SlatBlock && !state.getValue(VERTICAL);
-    }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {

@@ -163,7 +163,6 @@ public class FABlockStates extends BlockStateProvider {
                 .modelForState().modelFile(verticalModel).rotationY(180).addModel()
                 .partialState().with(SlatBlock.VERTICAL, true).with(BlockStateProperties.HORIZONTAL_FACING, Direction.WEST)
                 .modelForState().modelFile(verticalModel).rotationY(270).addModel();
-
     }
     private void registerRacks() {
         List<RackDefinition> racks = List.of(
