@@ -143,11 +143,16 @@ public final class FABlocks {
     public static final RegistryObject<TableBlock> ALABASTER_TABLE = registerTable("alabaster", Blocks.QUARTZ_BLOCK);
 
 //definitions
-    private static RegistryObject<Block> registerStorageBlock(String name) {
-        return BLOCKS.createBlock(name + "_block",
-                () -> new Block(BlockBehaviour.Properties.copy(Blocks.QUARTZ_BLOCK)),
-                new Item.Properties());
+private static RegistryObject<Block> registerStorageBlock(String name) {
+    BlockBehaviour.Properties properties = BlockBehaviour.Properties.copy(Blocks.QUARTZ_BLOCK);
+    if ("alabaster".equals(name)) {
+        properties = properties.sound(ALABASTER_SOUND_TYPE);
     }
+    BlockBehaviour.Properties finalProperties = properties;
+    return BLOCKS.createBlock(name + "_block",
+            () -> new Block(finalProperties),
+            new Item.Properties());
+}
 
     private static RegistryObject<SlabBlock> registerSlab(String name, RegistryObject<? extends Block> fullBlock) {
         return BLOCKS.createBlock(name + "_slab",

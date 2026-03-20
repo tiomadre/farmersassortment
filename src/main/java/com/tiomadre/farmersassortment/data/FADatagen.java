@@ -3,6 +3,7 @@ package com.tiomadre.farmersassortment.data;
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.data.client.FABlockStates;
 import com.tiomadre.farmersassortment.data.client.FAItemModels;
+import com.tiomadre.farmersassortment.data.client.FASoundDef;
 import com.tiomadre.farmersassortment.data.server.loot.FALoot;
 import com.tiomadre.farmersassortment.data.server.recipes.FACooking;
 import com.tiomadre.farmersassortment.data.server.recipes.FACrafting;
@@ -32,6 +33,7 @@ public final class FADatagen {
         if (event.includeClient()) {
             generator.addProvider(true, new FABlockStates(generator.getPackOutput(), event.getExistingFileHelper()));
             generator.addProvider(true, new FAItemModels(generator.getPackOutput(), event.getExistingFileHelper()));
+            generator.addProvider(true, new FASoundDef(generator.getPackOutput(), event.getExistingFileHelper()));
 
         }
     }
