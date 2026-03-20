@@ -11,11 +11,11 @@ import net.minecraftforge.registries.RegistryObject;
 public final class FASoundEvents {
     private static final DeferredRegister<SoundEvent> SOUND_EVENTS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, FarmersAssortment.MOD_ID);
 
-    public static final RegistryObject<SoundEvent> ALABASTER_BREAK = register("block.alabaster.break");
-    public static final RegistryObject<SoundEvent> ALABASTER_STEP = register("block.alabaster.step");
-    public static final RegistryObject<SoundEvent> ALABASTER_PLACE = register("block.alabaster.place");
-    public static final RegistryObject<SoundEvent> ALABASTER_HIT = register("block.alabaster.hit");
-    public static final RegistryObject<SoundEvent> ALABASTER_FALL = register("block.alabaster.fall");
+    public static final RegistryObject<SoundEvent> ALABASTER_BREAK = register("block_alabaster_break");
+    public static final RegistryObject<SoundEvent> ALABASTER_STEP = register("block_alabaster_step");
+    public static final RegistryObject<SoundEvent> ALABASTER_PLACE = register("block_alabaster_place");
+    public static final RegistryObject<SoundEvent> ALABASTER_HIT = register("block_alabaster_hit");
+    public static final RegistryObject<SoundEvent> ALABASTER_FALL = register("block_alabaster_fall");
 
     private FASoundEvents() {
     }

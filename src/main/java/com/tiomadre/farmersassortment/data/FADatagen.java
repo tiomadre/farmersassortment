@@ -33,7 +33,7 @@ public final class FADatagen {
         if (event.includeClient()) {
             generator.addProvider(true, new FABlockStates(generator.getPackOutput(), event.getExistingFileHelper()));
             generator.addProvider(true, new FAItemModels(generator.getPackOutput(), event.getExistingFileHelper()));
-            generator.addProvider(true, new FASoundDef(generator.getPackOutput(), event.getExistingFileHelper()));
+            generator.addProvider(true, new FASoundDef(generator.getPackOutput()));
 
         }
     }
