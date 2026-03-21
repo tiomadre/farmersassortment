@@ -23,11 +23,11 @@ public final class FASoundDef implements DataProvider {
     @Override
     public CompletableFuture<?> run(CachedOutput cachedOutput) {
         JsonObject sounds = new JsonObject();
-        addSound(sounds, FASoundEvents.ALABASTER_BREAK, "minecraft:block.calcite.break", 0.5F, 1.5F, "minecraft:block.amethyst_block.place", 0.32F, .6F);
-        addSound(sounds, FASoundEvents.ALABASTER_STEP, "minecraft:block.calcite.step", 0.5F, 1.5F, "minecraft:block.amethyst_block.step", 0.32F, .6F);
-        addSound(sounds, FASoundEvents.ALABASTER_PLACE, "minecraft:block.calcite.place", 0.5F, 1.5F, "minecraft:block.amethyst_block.place", 0.32F, .6F);
-        addSound(sounds, FASoundEvents.ALABASTER_HIT, "minecraft:block.calcite.hit", 0.5F, 1.5F, "minecraft:block.amethyst_block.hit", 0.32F, .6F);
-        addSound(sounds, FASoundEvents.ALABASTER_FALL, "minecraft:block.calcite.fall", 0.5F, 1.5F, "minecraft:block.amethyst_block.fall", 0.32F, .6F);
+        addSound(sounds, FASoundEvents.ALABASTER_BREAK, "minecraft:block.calcite.break", 0.55F, 1.8F, "minecraft:block.amethyst_block.place", 0.40F, .6F);
+        addSound(sounds, FASoundEvents.ALABASTER_STEP, "minecraft:block.calcite.step", 0.55F, 1.8F, "minecraft:block.amethyst_block.step", 0.40F, .6F);
+        addSound(sounds, FASoundEvents.ALABASTER_PLACE, "minecraft:block.calcite.place", 0.55F, 1.8F, "minecraft:block.amethyst_block.place", 0.40F, .6F);
+        addSound(sounds, FASoundEvents.ALABASTER_HIT, "minecraft:block.calcite.hit", 0.55F, 1.8F, "minecraft:block.amethyst_block.hit", 0.40F, .6F);
+        addSound(sounds, FASoundEvents.ALABASTER_FALL, "minecraft:block.calcite.fall", 0.55F, 1.8F, "minecraft:block.amethyst_block.fall", 0.40F, .6F);
         return DataProvider.saveStable(cachedOutput, sounds, this.sounds.json(new ResourceLocation(FarmersAssortment.MOD_ID, "sounds")));
     }
 

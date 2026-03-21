@@ -14,13 +14,13 @@ public final class FAItems {
     public static final RegistryObject<Item> ALABASTER = ITEMS.createItem("alabaster", () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> AMETHYST_KNIFE = ITEMS.createItem("amethyst_knife",
-            () -> new KnifeItem(Tiers.IRON, 0.5F, -2.0F, new Item.Properties()));
-    public static final RegistryObject<Item> QUARTZ_KNIFE = ITEMS.createItem("quartz_knife",
-            () -> new KnifeItem(Tiers.IRON, 0.5F, -2.0F, new Item.Properties()));
-    public static final RegistryObject<Item> CLAMSHELL_KNIFE = ITEMS.createItem("clamshell_knife",
             () -> new KnifeItem(Tiers.STONE, 0.5F, -2.0F, new Item.Properties()));
+    public static final RegistryObject<Item> QUARTZ_KNIFE = ITEMS.createItem("quartz_knife",
+            () -> new KnifeItem(Tiers.STONE, 0.5F, -2.0F, new Item.Properties()));
+    public static final RegistryObject<Item> CLAMSHELL_KNIFE = ITEMS.createItem("clamshell_knife",
+            () -> new KnifeItem(Tiers.WOOD, 0.5F, -2.0F, new Item.Properties()));
     public static final RegistryObject<Item> ALABASTER_KNIFE = ITEMS.createItem("alabaster_knife",
-            () -> new KnifeItem(Tiers.IRON, 0.5F, -2.0F, new Item.Properties()));
+            () -> new KnifeItem(Tiers.DIAMOND, 0.36F, -2.0F, new Item.Properties()));
 
     private FAItems() {
     }

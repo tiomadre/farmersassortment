@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "farmersassortment:alabaster"
+  },
+  "base": {
+    "item": "farmersassortment:quartz_knife"
+  },
+  "result": {
+    "item": "farmersassortment:alabaster_knife"
+  },
+  "template": {
+    "item": "farmersassortment:alabaster"
+  }
+}

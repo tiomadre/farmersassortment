@@ -4,14 +4,14 @@
       {
         "type": "event",
         "name": "minecraft:block.calcite.break",
-        "pitch": 1.5,
-        "volume": 0.5
+        "pitch": 1.8,
+        "volume": 0.55
       },
       {
         "type": "event",
         "name": "minecraft:block.amethyst_block.place",
         "pitch": 0.6,
-        "volume": 0.32
+        "volume": 0.4
       }
     ]
   },
@@ -20,14 +20,14 @@
       {
         "type": "event",
         "name": "minecraft:block.calcite.fall",
-        "pitch": 1.5,
-        "volume": 0.5
+        "pitch": 1.8,
+        "volume": 0.55
       },
       {
         "type": "event",
         "name": "minecraft:block.amethyst_block.fall",
         "pitch": 0.6,
-        "volume": 0.32
+        "volume": 0.4
       }
     ]
   },
@@ -36,14 +36,14 @@
       {
         "type": "event",
         "name": "minecraft:block.calcite.hit",
-        "pitch": 1.5,
-        "volume": 0.5
+        "pitch": 1.8,
+        "volume": 0.55
       },
       {
         "type": "event",
         "name": "minecraft:block.amethyst_block.hit",
         "pitch": 0.6,
-        "volume": 0.32
+        "volume": 0.4
       }
     ]
   },
@@ -52,14 +52,14 @@
       {
         "type": "event",
         "name": "minecraft:block.calcite.place",
-        "pitch": 1.5,
-        "volume": 0.5
+        "pitch": 1.8,
+        "volume": 0.55
       },
       {
         "type": "event",
         "name": "minecraft:block.amethyst_block.place",
         "pitch": 0.6,
-        "volume": 0.32
+        "volume": 0.4
       }
     ]
   },
@@ -68,14 +68,14 @@
       {
         "type": "event",
         "name": "minecraft:block.calcite.step",
-        "pitch": 1.5,
-        "volume": 0.5
+        "pitch": 1.8,
+        "volume": 0.55
       },
       {
         "type": "event",
         "name": "minecraft:block.amethyst_block.step",
         "pitch": 0.6,
-        "volume": 0.32
+        "volume": 0.4
       }
     ]
   }

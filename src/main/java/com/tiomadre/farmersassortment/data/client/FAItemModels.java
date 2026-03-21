@@ -53,8 +53,10 @@ public class FAItemModels extends ItemModelProvider {
     }
     private void registerAlabasterBuildingBlocks() {
         block(FABlocks.ALABASTER_BLOCK);
+        block(FABlocks.ALABASTER_BRICKS);
         block(FABlocks.ALABASTER_SLAB);
         block(FABlocks.ALABASTER_STAIRS);
+        wallInventory(FABlocks.ALABASTER_WALL);
         block(FABlocks.ALABASTER_PILLAR);
     }
     private void registerSlats() {
@@ -277,5 +279,11 @@ public class FAItemModels extends ItemModelProvider {
 
     private ModelFile getModelForTerracottaColor(TerracottaCookingPotColor color) {
         return getExistingFile(modLoc("block/" + color.textureName()));
+    }
+
+    private void wallInventory(RegistryObject<? extends Block> block) {
+        String name = Objects.requireNonNull(block.getId()).getPath();
+        withExistingParent(name, mcLoc("block/wall_inventory"))
+                .texture("wall", modLoc("block/alabaster_block"));
     }
 }

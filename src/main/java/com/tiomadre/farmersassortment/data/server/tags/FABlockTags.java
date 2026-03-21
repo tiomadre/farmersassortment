@@ -65,6 +65,8 @@ public class FABlockTags extends BlockTagsProvider {
                 .add(FABlocks.allCookingPots().map(RegistryObject::get).toArray(Block[]::new))
                 .add(FAxCrabbersBlocks.skillets().map(RegistryObject::get).toArray(Block[]::new))
                 .add(FABlocks.ALABASTER_STOVE.get())
+                .add(FABlocks.ALABASTER_BRICKS.get())
+                .add(FABlocks.ALABASTER_WALL.get())
                 .add(FABlocks.ALABASTER_BLOCK.get())
                 .add(FABlocks.ALABASTER_SLAB.get())
                 .add(FABlocks.ALABASTER_STAIRS.get())
@@ -72,6 +74,8 @@ public class FABlockTags extends BlockTagsProvider {
                 .add(FABlocks.ALABASTER_FLOATING_COUNTER.get())
                 .add(FABlocks.ALABASTER_TABLE.get())
                 .add(FAxForagersBlocks.diffusers().map(RegistryObject::get).toArray(Block[]::new));
+        this.tag(BlockTags.WALLS)
+                .add(FABlocks.ALABASTER_WALL.get());
 
         this.tag(ModTags.HEAT_SOURCES)
                 .add(FABlocks.ALABASTER_STOVE.get());

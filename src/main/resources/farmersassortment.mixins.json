@@ -6,9 +6,9 @@
   "mixins": [
     "BlockEntityTypeAccessor",
     "CookingPotBlockEntityMixin",
-    "DiffuserMixin",
     "CookingPotCookingAccelerator",
     "DiffuserMenu",
+    "DiffuserMixin",
     "VariantPotMenu"
   ],
   "injectors": {

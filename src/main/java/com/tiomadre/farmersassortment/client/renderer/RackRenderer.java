@@ -20,7 +20,7 @@ import org.jetbrains.annotations.NotNull;
 public class RackRenderer implements BlockEntityRenderer<RackBlockEntity> {
     private static final float RENDER_X_OFFSET = 0.02F;
     private static final double FLAT_ITEM_BASE_Y = 0.752D;
-    private static final double BLOCK_ITEM_BASE_Y = 0.75D;
+    private static final double BLOCK_ITEM_BASE_Y = 0.8275D;
     private static final double ITEM_STACK_Y_OFFSET = 0.03D;
     private static final double LEANING_ITEM_Y = FLAT_ITEM_BASE_Y + 0.022D;
     private static final float BLOCK_ITEM_SCALE = 0.35F;
@@ -30,8 +30,10 @@ public class RackRenderer implements BlockEntityRenderer<RackBlockEntity> {
     private static final float LEANING_ITEM_Z_OFFSET = 0.035F;
     private static final float LEANING_ITEM_X_ROTATION = 104.0F;
     private static final float LEANING_ITEM_Z_ROTATION = -18.0F;
+    private static final int FLAT_ITEM_RENDER_COUNT = 3;
+    private static final int SLOT_SEED_OFFSET = 31;
+    private static final int LEANING_ITEM_SEED_OFFSET = 99;
     private static final float[][] SLOT_POSITIONS = new float[][]{
-
             {0.3125F, 0.19F},
             {0.625F, 0.19F},
             {0.3125F, 0.49F},
@@ -45,16 +47,8 @@ public class RackRenderer implements BlockEntityRenderer<RackBlockEntity> {
     public void render(RackBlockEntity entity, float partialTicks, @NotNull PoseStack poseStack, @NotNull MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
         Direction facing = entity.getBlockState().getValue(RackBlock.FACING);
         ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
-        int seed = (int) entity.getBlockPos().asLong();
-
-        int light = combinedLight;
-        if (entity.getLevel() != null) {
-            BlockPos abovePos = entity.getBlockPos().above();
-            light = Math.max(combinedLight, LevelRenderer.getLightColor(entity.getLevel(), abovePos));
-            int blockLight = Math.max(LightTexture.block(light), LightTexture.block(combinedLight));
-            int skyLight = Math.max(LightTexture.sky(light), LightTexture.sky(combinedLight));
-            light = LightTexture.pack(blockLight, skyLight);
-        }
+        int light = getPackedLight(entity, combinedLight);
+        int baseSeed = (int) entity.getBlockPos().asLong();
 
         for (int slot = 0; slot < entity.getContainerSize(); slot++) {
             ItemStack stack = entity.getItem(slot);
@@ -62,39 +56,66 @@ public class RackRenderer implements BlockEntityRenderer<RackBlockEntity> {
                 continue;
             }
 
-            boolean isFlatModel = isFlatModel(itemRenderer, stack, entity, seed + slot * 31);
-            int renderCount = isFlatModel ? Math.min(3, stack.getCount()) : 1;
-            float[] slotPos = SLOT_POSITIONS[slot];
-            double baseY = isFlatModel ? FLAT_ITEM_BASE_Y : BLOCK_ITEM_BASE_Y;
-            float scale = isFlatModel ? FLAT_ITEM_SCALE : BLOCK_ITEM_SCALE;
+            int slotSeed = baseSeed + slot * SLOT_SEED_OFFSET;
+            boolean flatModel = isFlatModel(itemRenderer, stack, entity, slotSeed);
+            float[] slotPosition = SLOT_POSITIONS[slot];
 
-            for (int i = 0; i < renderCount; i++) {
-                poseStack.pushPose();
-                poseStack.translate(0.5D, baseY + i * ITEM_STACK_Y_OFFSET, 0.5D);
-                poseStack.mulPose(Axis.YP.rotationDegrees(-facing.toYRot()));
-                poseStack.translate(slotPos[0] - 0.5D + RENDER_X_OFFSET, 0.0D, slotPos[1] - 0.5D);
-                if (isFlatModel) {
-                    poseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
-                }
-                poseStack.scale(scale, scale, scale);
+            renderStackedItems(entity, poseStack, buffer, itemRenderer, stack, facing, slotPosition, light, combinedOverlay, slotSeed, flatModel);
 
-                itemRenderer.renderStatic(stack, ItemDisplayContext.FIXED, light, combinedOverlay, poseStack, buffer, entity.getLevel(), seed + slot * 31 + i);
-                poseStack.popPose();
-            }
-
-            if (isFlatModel && stack.getCount() > 1) {
-                poseStack.pushPose();
-                poseStack.translate(0.5D, LEANING_ITEM_Y, 0.5D);
-                poseStack.mulPose(Axis.YP.rotationDegrees(-facing.toYRot()));
-                poseStack.translate(slotPos[0] - 0.5D + RENDER_X_OFFSET + LEANING_ITEM_X_OFFSET, 0.0D, slotPos[1] - 0.5D + LEANING_ITEM_Z_OFFSET);
-                poseStack.mulPose(Axis.XP.rotationDegrees(LEANING_ITEM_X_ROTATION));
-                poseStack.mulPose(Axis.ZP.rotationDegrees(LEANING_ITEM_Z_ROTATION));
-                poseStack.scale(LEANING_ITEM_SCALE, LEANING_ITEM_SCALE, LEANING_ITEM_SCALE);
-
-                itemRenderer.renderStatic(stack, ItemDisplayContext.FIXED, light, combinedOverlay, poseStack, buffer, entity.getLevel(), seed + slot * 31 + 99);
-                poseStack.popPose();
+            if (flatModel && stack.getCount() > 1) {
+                renderLeaningItem(entity, poseStack, buffer, itemRenderer, stack, facing, slotPosition, light, combinedOverlay, slotSeed + LEANING_ITEM_SEED_OFFSET);
             }
         }
+    }
+
+    private void renderStackedItems(RackBlockEntity entity, PoseStack poseStack, MultiBufferSource buffer, ItemRenderer itemRenderer, ItemStack stack, Direction facing, float[] slotPosition, int light, int overlay, int seed, boolean flatModel) {
+        int renderCount = flatModel ? Math.min(FLAT_ITEM_RENDER_COUNT, stack.getCount()) : 1;
+        double baseY = flatModel ? FLAT_ITEM_BASE_Y : BLOCK_ITEM_BASE_Y;
+        float scale = flatModel ? FLAT_ITEM_SCALE : BLOCK_ITEM_SCALE;
+
+        for (int renderIndex = 0; renderIndex < renderCount; renderIndex++) {
+            poseStack.pushPose();
+            applySlotTransform(poseStack, facing, slotPosition, baseY + renderIndex * ITEM_STACK_Y_OFFSET);
+            if (flatModel) {
+                poseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
+            }
+            poseStack.scale(scale, scale, scale);
+            renderItem(itemRenderer, stack, entity, poseStack, buffer, light, overlay, seed + renderIndex);
+            poseStack.popPose();
+        }
+    }
+
+    private void renderLeaningItem(RackBlockEntity entity, PoseStack poseStack, MultiBufferSource buffer, ItemRenderer itemRenderer, ItemStack stack, Direction facing, float[] slotPosition, int light, int overlay, int seed) {
+        poseStack.pushPose();
+        applySlotTransform(poseStack, facing, slotPosition, LEANING_ITEM_Y);
+        poseStack.translate(LEANING_ITEM_X_OFFSET, 0.0D, LEANING_ITEM_Z_OFFSET);
+        poseStack.mulPose(Axis.XP.rotationDegrees(LEANING_ITEM_X_ROTATION));
+        poseStack.mulPose(Axis.ZP.rotationDegrees(LEANING_ITEM_Z_ROTATION));
+        poseStack.scale(LEANING_ITEM_SCALE, LEANING_ITEM_SCALE, LEANING_ITEM_SCALE);
+        renderItem(itemRenderer, stack, entity, poseStack, buffer, light, overlay, seed);
+        poseStack.popPose();
+    }
+
+    private void applySlotTransform(PoseStack poseStack, Direction facing, float[] slotPosition, double y) {
+        poseStack.translate(0.5D, y, 0.5D);
+        poseStack.mulPose(Axis.YP.rotationDegrees(-facing.toYRot()));
+        poseStack.translate(slotPosition[0] - 0.5D + RENDER_X_OFFSET, 0.0D, slotPosition[1] - 0.5D);
+    }
+
+    private void renderItem(ItemRenderer itemRenderer, ItemStack stack, RackBlockEntity entity, PoseStack poseStack, MultiBufferSource buffer, int light, int overlay, int seed) {
+        itemRenderer.renderStatic(stack, ItemDisplayContext.FIXED, light, overlay, poseStack, buffer, entity.getLevel(), seed);
+    }
+
+    private int getPackedLight(RackBlockEntity entity, int combinedLight) {
+        if (entity.getLevel() == null) {
+            return combinedLight;
+        }
+
+        BlockPos abovePos = entity.getBlockPos().above();
+        int aboveLight = LevelRenderer.getLightColor(entity.getLevel(), abovePos);
+        int blockLight = Math.max(LightTexture.block(aboveLight), LightTexture.block(combinedLight));
+        int skyLight = Math.max(LightTexture.sky(aboveLight), LightTexture.sky(combinedLight));
+        return LightTexture.pack(blockLight, skyLight);
     }
 
     private boolean isFlatModel(ItemRenderer itemRenderer, ItemStack stack, RackBlockEntity entity, int seed) {

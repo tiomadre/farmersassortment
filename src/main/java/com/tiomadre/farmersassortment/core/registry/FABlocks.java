@@ -58,8 +58,10 @@ public final class FABlocks {
 
     //Storage + Decorative Blocks
     public static final RegistryObject<Block> ALABASTER_BLOCK = registerStorageBlock("alabaster");
+    public static final RegistryObject<Block> ALABASTER_BRICKS = registerStorageBlock("alabaster_bricks");
     public static final RegistryObject<SlabBlock> ALABASTER_SLAB = registerSlab("alabaster", ALABASTER_BLOCK);
     public static final RegistryObject<StairBlock> ALABASTER_STAIRS = registerStairs("alabaster", ALABASTER_BLOCK);
+    public static final RegistryObject<WallBlock> ALABASTER_WALL = registerWall("alabaster", ALABASTER_BLOCK);
     public static final RegistryObject<RotatedPillarBlock> ALABASTER_PILLAR = registerPillar("alabaster", ALABASTER_BLOCK);
 
 
@@ -438,7 +440,12 @@ private static RegistryObject<Block> registerStorageBlock(String name) {
                 WARPED_STOOL
         );
     }
-    //sounds
+    private static RegistryObject<WallBlock> registerWall(String name, RegistryObject<? extends Block> fullBlock) {
+        return BLOCKS.createBlock(name + "_wall",
+                () -> new WallBlock(BlockBehaviour.Properties.copy(fullBlock.get())),
+                new Item.Properties());
+    }
+    //sounds for alabaster
     private static SoundType layeredAlabasterSoundType() {
         return new ForgeSoundType(0.9F, 1.0F,
                 FASoundEvents.ALABASTER_BREAK,

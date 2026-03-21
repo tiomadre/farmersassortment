@@ -19,7 +19,7 @@ public final class FAParticleDef implements DataProvider {
 
     @Override
     public CompletableFuture<?> run(CachedOutput cachedOutput) {
-        return DataProvider.saveStable(cachedOutput, singleTexture("farmersassortment:alabaster_fire"), this.particles.json(FAParticleTypes.ALABASTER_STOVE_FIRE.getId()));
+        return DataProvider.saveStable(cachedOutput, singleTexture("farmersassortment:alabaster_flame"), this.particles.json(FAParticleTypes.ALABASTER_STOVE_FIRE.getId()));
     }
 
     private JsonObject singleTexture(String texture) {

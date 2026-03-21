@@ -124,6 +124,9 @@ public final class FACrafting extends RecipeProvider {
         //Stoves + Heat Sources
         variantStove(output, FABlocks.ALABASTER_STOVE, FABlocks.ALABASTER_BLOCK.get(), FAItems.ALABASTER.get(), Items.FLINT_AND_STEEL);
 
+        //Other Alabaster Blocks
+        wall(output, FABlocks.ALABASTER_WALL, FABlocks.ALABASTER_BLOCK.get());
+        alabasterbrickBlock(output, FABlocks.ALABASTER_BRICKS, FABlocks.ALABASTER_BLOCK.get());
         alabasterBlock(output);
         slab(output, FABlocks.ALABASTER_SLAB, FABlocks.ALABASTER_BLOCK.get());
         stairs(output, FABlocks.ALABASTER_STAIRS, FABlocks.ALABASTER_BLOCK.get());
@@ -133,6 +136,10 @@ public final class FACrafting extends RecipeProvider {
         //Knives
         knife(output, FAItems.AMETHYST_KNIFE, Items.AMETHYST_SHARD);
         knife(output, FAItems.QUARTZ_KNIFE, Items.QUARTZ);
+        smithingTransform(output, new ResourceLocation(FarmersAssortment.MOD_ID, "alabaster_knife_smithing"),
+                FAItems.ALABASTER.get(), FAItems.QUARTZ_KNIFE.get(), FAItems.ALABASTER.get(), FAItems.ALABASTER_KNIFE.get());
+
+
 
         //Materials
 
@@ -336,7 +343,23 @@ public final class FACrafting extends RecipeProvider {
                 .unlockedBy(getHasName(FAItems.ALABASTER.get()), has(FAItems.ALABASTER.get()))
                 .save(output);
     }
+    private void alabasterbrickBlock(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> block, ItemLike ingredient) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, block.get(), 4)
+                .define('#', ingredient)
+                .pattern("##")
+                .pattern("##")
+                .unlockedBy(getHasName(ingredient), has(ingredient))
+                .save(output);
 
+    }
+    private void wall(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> wall, ItemLike fullBlock) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, wall.get(), 6)
+                .define('#', fullBlock)
+                .pattern("###")
+                .pattern("###")
+                .unlockedBy(getHasName(fullBlock), has(fullBlock))
+                .save(output);
+    }
     private void floatingCounter(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> counter, ItemLike slab) {
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, counter.get(), 2)
                 .define('#', slab)

@@ -68,13 +68,15 @@ public class FABlockStates extends BlockStateProvider {
         registerRacks();
         registerTables();
     }
-
     private void registerAlabasterBuildingBlocks() {
         BlockModelBuilder blockModel = models().cubeAll(Objects.requireNonNull(FABlocks.ALABASTER_BLOCK.getId()).getPath(), modLoc("block/alabaster_block"));
         simpleBlock(FABlocks.ALABASTER_BLOCK.get(), blockModel);
+        simpleBlock(FABlocks.ALABASTER_BRICKS.get(), models().cubeAll(Objects.requireNonNull(FABlocks.ALABASTER_BRICKS.getId()).getPath(), modLoc("block/alabaster_bricks")));
         slabBlock(FABlocks.ALABASTER_SLAB.get(), modLoc("block/alabaster_block"), modLoc("block/alabaster_block"));
         stairsBlock(FABlocks.ALABASTER_STAIRS.get(), modLoc("block/alabaster_block"));
+        wallBlock(FABlocks.ALABASTER_WALL.get(), modLoc("block/alabaster_block"));
         axisBlock(FABlocks.ALABASTER_PILLAR.get(), modLoc("block/alabaster_pillar_side"), modLoc("block/alabaster_pillar_top"));
+
 }
 
 
