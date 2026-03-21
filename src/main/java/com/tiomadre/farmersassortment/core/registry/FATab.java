@@ -83,11 +83,13 @@ public final class FATab {
     }
     private static final Set<String> CRABBERS_ITEMS = Set.of(
             "clamshell_knife",
+            "lilac_crab_trap",
             "palm_cutting_board",
             "palm_butcher_block_cabinet",
             "palm_crab_trap",
             "pearlescent_cooking_pot",
             "pearlescent_skillet"
+
     );
     private static final Set<String> FORAGERS_ITEMS = Set.of(
             "lilac_cutting_board",

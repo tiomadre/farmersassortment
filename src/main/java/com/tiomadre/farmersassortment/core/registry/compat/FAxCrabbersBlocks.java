@@ -55,8 +55,11 @@ public final class FAxCrabbersBlocks {
     public static final RegistryObject<CrabTrapBlock> CRIMSON_CRAB_TRAP = registerCrabTrap("crimson");
     public static final RegistryObject<CrabTrapBlock> WARPED_CRAB_TRAP = registerCrabTrap("warped");
     public static final RegistryObject<CrabTrapBlock> PALM_CRAB_TRAP = registerCrabTrap("palm");
+    public static final RegistryObject<CrabTrapBlock> LILAC_CRAB_TRAP = registerCrabTrap("lilac");
     public static final RegistryObject<TableBlock> PALM_TABLE = registerTable("palm");
     public static final RegistryObject<SlatBlock> PALM_SLATS = registerSlats("palm");
+
+
 
     private FAxCrabbersBlocks() {
     }
@@ -101,7 +104,8 @@ public final class FAxCrabbersBlocks {
                 BAMBOO_CRAB_TRAP,
                 CRIMSON_CRAB_TRAP,
                 WARPED_CRAB_TRAP,
-                PALM_CRAB_TRAP
+                PALM_CRAB_TRAP,
+                LILAC_CRAB_TRAP
         );
     }
     public static Stream<RegistryObject<TableBlock>> tables() {
@@ -174,7 +178,8 @@ public final class FAxCrabbersBlocks {
                     BAMBOO_CRAB_TRAP.get(),
                     CRIMSON_CRAB_TRAP.get(),
                     WARPED_CRAB_TRAP.get(),
-                    PALM_CRAB_TRAP.get()
+                    PALM_CRAB_TRAP.get(),
+                    LILAC_CRAB_TRAP.get()
             ));
 
             if (changed) {

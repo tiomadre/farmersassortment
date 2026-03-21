@@ -213,6 +213,7 @@ public final class FACrafting extends RecipeProvider {
             crabTrap(output, FAxCrabbersBlocks.CRIMSON_CRAB_TRAP, Blocks.CRIMSON_SLAB);
             crabTrap(output, FAxCrabbersBlocks.WARPED_CRAB_TRAP, Blocks.WARPED_SLAB);
             crabTrap(output, FAxCrabbersBlocks.PALM_CRAB_TRAP, CDModBlocks.PALM_SLAB.get());
+            crabTrap(output, FAxCrabbersBlocks.LILAC_CRAB_TRAP, FIBlocks.LILAC_SLAB.get());
 
             //Skillet Variants
             variantSkillet(output, FAxCrabbersBlocks.PEARLESCENT_SKILLET, CDModItems.PEARL.get(), Items.BRICK);

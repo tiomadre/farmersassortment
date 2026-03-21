@@ -1,0 +1,12 @@
+{
+  "parent": "crabbersdelight:block/crab_trap_chain",
+  "textures": {
+    "0": "farmersassortment:block/lilac_crab_trap_bottom",
+    "1": "farmersassortment:block/lilac_crab_trap_front",
+    "3": "farmersassortment:block/lilac_crab_trap_side",
+    "4": "farmersassortment:block/lilac_crab_trap_top",
+    "5": "farmersassortment:block/lilac_crab_trap_handle_chain",
+    "7": "farmersassortment:block/lilac_crab_trap_handles",
+    "particle": "farmersassortment:block/lilac_crab_trap_side"
+  }
+}

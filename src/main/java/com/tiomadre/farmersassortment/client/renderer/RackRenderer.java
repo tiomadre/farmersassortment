@@ -20,7 +20,7 @@ import org.jetbrains.annotations.NotNull;
 public class RackRenderer implements BlockEntityRenderer<RackBlockEntity> {
     private static final float RENDER_X_OFFSET = 0.02F;
     private static final double FLAT_ITEM_BASE_Y = 0.752D;
-    private static final double BLOCK_ITEM_BASE_Y = 0.8275D;
+    private static final double BLOCK_ITEM_BASE_Y = 0.83D;
     private static final double ITEM_STACK_Y_OFFSET = 0.03D;
     private static final double LEANING_ITEM_Y = FLAT_ITEM_BASE_Y + 0.022D;
     private static final float BLOCK_ITEM_SCALE = 0.35F;
