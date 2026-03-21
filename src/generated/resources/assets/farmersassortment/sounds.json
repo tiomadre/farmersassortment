@@ -2,13 +2,15 @@
   "block_alabaster_break": {
     "sounds": [
       {
+        "type": "event",
         "name": "minecraft:block.calcite.break",
-        "pitch": 0.94,
+        "pitch": 1.5,
         "volume": 0.5
       },
       {
-        "name": "minecraft:block.amethyst_block.break",
-        "pitch": 1.12,
+        "type": "event",
+        "name": "minecraft:block.amethyst_block.place",
+        "pitch": 0.6,
         "volume": 0.32
       }
     ]
@@ -16,56 +18,64 @@
   "block_alabaster_fall": {
     "sounds": [
       {
+        "type": "event",
         "name": "minecraft:block.calcite.fall",
-        "pitch": 0.94,
+        "pitch": 1.5,
         "volume": 0.5
       },
       {
+        "type": "event",
         "name": "minecraft:block.amethyst_block.fall",
-        "pitch": 1.08,
-        "volume": 0.26
+        "pitch": 0.6,
+        "volume": 0.32
       }
     ]
   },
   "block_alabaster_hit": {
     "sounds": [
       {
+        "type": "event",
         "name": "minecraft:block.calcite.hit",
-        "pitch": 0.94,
+        "pitch": 1.5,
         "volume": 0.5
       },
       {
+        "type": "event",
         "name": "minecraft:block.amethyst_block.hit",
-        "pitch": 1.08,
-        "volume": 0.26
+        "pitch": 0.6,
+        "volume": 0.32
       }
     ]
   },
   "block_alabaster_place": {
     "sounds": [
       {
+        "type": "event",
         "name": "minecraft:block.calcite.place",
-        "pitch": 0.94,
+        "pitch": 1.5,
         "volume": 0.5
       },
       {
+        "type": "event",
         "name": "minecraft:block.amethyst_block.place",
-        "pitch": 1.08,
-        "volume": 0.26
+        "pitch": 0.6,
+        "volume": 0.32
       }
     ]
   },
   "block_alabaster_step": {
     "sounds": [
       {
+        "type": "event",
         "name": "minecraft:block.calcite.step",
-        "pitch": 0.94,
+        "pitch": 1.5,
         "volume": 0.5
       },
       {
+        "type": "event",
         "name": "minecraft:block.amethyst_block.step",
-        "pitch": 1.08,
-        "volume": 0.26
+        "pitch": 0.6,
+        "volume": 0.32
       }
     ]
   }

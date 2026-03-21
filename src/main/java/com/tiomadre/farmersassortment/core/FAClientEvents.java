@@ -1,5 +1,6 @@
 package com.tiomadre.farmersassortment.core;
 
+import com.tiomadre.farmersassortment.client.particle.AlabasterStoveFireParticle;
 import com.tiomadre.farmersassortment.client.renderer.ButcherBlockCabinetRenderer;
 import com.tiomadre.farmersassortment.client.renderer.RackRenderer;
 import com.tiomadre.farmersassortment.client.screen.RackScreen;
@@ -9,12 +10,14 @@ import com.tiomadre.farmersassortment.core.item.TerracottaCookingPotItem;
 import com.tiomadre.farmersassortment.core.registry.FABlockEntityTypes;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import com.tiomadre.farmersassortment.core.registry.FAMenuTypes;
+import com.tiomadre.farmersassortment.core.registry.FAParticleTypes;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -48,4 +51,9 @@ public final class FAClientEvents {
             MenuScreens.register(FAMenuTypes.RACK.get(), RackScreen::new);
         });
     }
+    @SubscribeEvent
+    public static void registerParticleProviders(RegisterParticleProvidersEvent event) {
+        event.registerSpriteSet(FAParticleTypes.ALABASTER_STOVE_FIRE.get(), AlabasterStoveFireParticle.Provider::new);
+    }
+
 }
