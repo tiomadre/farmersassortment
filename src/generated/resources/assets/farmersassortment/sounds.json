@@ -3,13 +3,13 @@
     "sounds": [
       {
         "type": "event",
-        "name": "minecraft:block.calcite.break",
+        "name": "minecraft:block.calcite.place",
         "pitch": 1.8,
         "volume": 0.55
       },
       {
         "type": "event",
-        "name": "minecraft:block.amethyst_block.place",
+        "name": "minecraft:block.amethyst_block.break",
         "pitch": 0.6,
         "volume": 0.4
       }

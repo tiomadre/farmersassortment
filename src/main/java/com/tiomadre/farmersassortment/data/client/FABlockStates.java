@@ -213,10 +213,10 @@ public class FABlockStates extends BlockStateProvider {
                 .texture("5", topTexture)
                 .texture("particle", particleTexture);
 
-        BlockModelBuilder.ElementBuilder element = model.element()
-                .from(0.0F, 8.0F, 5.0F)
-                .to(16.0F, 12.0F, 16.0F)
-                .rotation().angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 8.0F, 5.0F).end();
+    BlockModelBuilder.ElementBuilder element = model.element()
+                .from(0.0F, 6.0F, 5.0F)
+                .to(16.0F, 10.0F, 16.0F)
+                .rotation().angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 6.0F, 5.0F).end();
 
         if (isBamboo) {
             element.face(Direction.NORTH).uvs(0.0F, 8.0F, 16.0F, 12.0F).texture("#5").end()
@@ -256,9 +256,9 @@ public class FABlockStates extends BlockStateProvider {
                 .texture("particle", modLoc("block/alabaster_counter_bottom"));
 
         model.element()
-                .from(0.0F, 8.0F, 5.0F)
-                .to(16.0F, 12.0F, 16.0F)
-                .rotation().angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 8.0F, 5.0F).end()
+                .from(0.0F, 6.0F, 5.0F)
+                .to(16.0F, 10.0F, 16.0F)
+                .rotation().angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 6.0F, 5.0F).end()
                 .face(Direction.NORTH).uvs(0.0F, 0.0F, 4.0F, 16.0F).rotation(ModelBuilder.FaceRotation.COUNTERCLOCKWISE_90).texture("#3").end()
                 .face(Direction.EAST).uvs(1.0F, 4.0F, 5.0F, 16.0F).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#3").end()
                 .face(Direction.SOUTH).uvs(4.0F, 0.0F, 0.0F, 16.0F).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#3").end()

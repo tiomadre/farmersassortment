@@ -19,13 +19,13 @@ import org.jetbrains.annotations.NotNull;
 
 public class RackRenderer implements BlockEntityRenderer<RackBlockEntity> {
     private static final float RENDER_X_OFFSET = 0.02F;
-    private static final double FLAT_ITEM_BASE_Y = 0.752D;
-    private static final double BLOCK_ITEM_BASE_Y = 0.83D;
-    private static final double ITEM_STACK_Y_OFFSET = 0.03D;
+    private static final double FLAT_ITEM_BASE_Y = 0.625D;
+    private static final double BLOCK_ITEM_BASE_Y = 0.75D;
+    private static final double ITEM_STACK_Y_OFFSET = 0.01D;
     private static final double LEANING_ITEM_Y = FLAT_ITEM_BASE_Y + 0.022D;
-    private static final float BLOCK_ITEM_SCALE = 0.35F;
-    private static final float FLAT_ITEM_SCALE = 0.25F;
-    private static final float LEANING_ITEM_SCALE = 0.24F;
+    private static final float BLOCK_ITEM_SCALE = 0.5F;
+    private static final float FLAT_ITEM_SCALE = 0.3F;
+    private static final float LEANING_ITEM_SCALE = 0.26F;
     private static final float LEANING_ITEM_X_OFFSET = 0.06F;
     private static final float LEANING_ITEM_Z_OFFSET = 0.035F;
     private static final float LEANING_ITEM_X_ROTATION = 104.0F;
