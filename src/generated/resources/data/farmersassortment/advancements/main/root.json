@@ -1,0 +1,39 @@
+{
+  "criteria": {
+    "has_knife": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "farmersassortment:alabaster_knife"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "minecraft:textures/gui/advancements/backgrounds/husbandry.png",
+    "description": {
+      "translate": "advancements.farmersassortment.main.root.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "farmersassortment:alabaster_knife",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancements.farmersassortment.main.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_knife"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

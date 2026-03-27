@@ -1,0 +1,38 @@
+{
+  "parent": "farmersassortment:main/cooking_pot",
+  "criteria": {
+    "has_rack": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "farmersassortment:alabaster_rack"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.farmersassortment.main.alchemist.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "farmersassortment:alabaster_rack"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.farmersassortment.main.alchemist.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_rack"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

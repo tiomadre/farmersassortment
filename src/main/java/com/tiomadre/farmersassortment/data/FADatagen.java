@@ -8,6 +8,7 @@ import com.tiomadre.farmersassortment.data.client.FASoundDef;
 import com.tiomadre.farmersassortment.data.server.loot.FALoot;
 import com.tiomadre.farmersassortment.data.server.recipes.FACooking;
 import com.tiomadre.farmersassortment.data.server.recipes.FACrafting;
+import com.tiomadre.farmersassortment.data.server.advancement.FAAdvancements;
 import com.tiomadre.farmersassortment.data.server.tags.FABlockTags;
 import com.tiomadre.farmersassortment.data.server.tags.FAItemTags;
 import net.minecraft.data.DataGenerator;
@@ -32,6 +33,7 @@ public final class FADatagen {
             generator.addProvider(true, new FACooking(generator.getPackOutput()));
         }
         if (event.includeClient()) {
+            generator.addProvider(true, new FAAdvancements(generator.getPackOutput(), event.getLookupProvider()));
             generator.addProvider(true, new FABlockStates(generator.getPackOutput(), event.getExistingFileHelper()));
             generator.addProvider(true, new FAItemModels(generator.getPackOutput(), event.getExistingFileHelper()));
             generator.addProvider(true, new FASoundDef(generator.getPackOutput()));

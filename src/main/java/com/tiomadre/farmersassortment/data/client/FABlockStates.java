@@ -1077,7 +1077,7 @@ private void registerStools() {
         tables.forEach(this::registerTable);
     }
 
-  private void registerTable(TableDefinition table) {
+    private void registerTable(TableDefinition table) {
         String name = Objects.requireNonNull(table.block().getId()).getPath();
         Map<String, ModelFile> modelsByState = new HashMap<>();
 
@@ -1087,18 +1087,23 @@ private void registerStools() {
             boolean east = state.getValue(TableBlock.EAST);
             boolean south = state.getValue(TableBlock.SOUTH);
             boolean west = state.getValue(TableBlock.WEST);
+            boolean upsideDown = state.getValue(TableBlock.UPSIDE_DOWN);
 
-            String key = rugType.getSerializedName() + "_" + connectionKey(north, east, south, west);
-            boolean noConnections = !north && !east && !south && !west;
+            boolean modelNorth = upsideDown ? south : north;
+            boolean modelSouth = upsideDown ? north : south;
+
+            String key = rugType.getSerializedName() + "_" + connectionKey(modelNorth, east, modelSouth, west);
+            boolean noConnections = !modelNorth && !east && !modelSouth && !west;
             String modelName = noConnections
                     ? (rugType.hasRug() ? name + "_" + rugType.getSerializedName() : name)
                     : name + "_" + key;
             ModelFile selectedModel = modelsByState.computeIfAbsent(key, unused ->
                     tableModel(modelName, table.woodType(), table.legTexture(), table.topTexture(), rugType,
-                            north, east, south, west));
+                            modelNorth, east, modelSouth, west));
 
             return ConfiguredModel.builder()
                     .modelFile(selectedModel)
+                    .rotationX(upsideDown ? 180 : 0)
                     .build();
         });
     }

@@ -1,0 +1,38 @@
+{
+  "parent": "farmersassortment:main/cutting_board",
+  "criteria": {
+    "has_table": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "farmersassortment:oak_table"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.farmersassortment.main.furniture.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "farmersassortment:oak_table"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.farmersassortment.main.furniture.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_table"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

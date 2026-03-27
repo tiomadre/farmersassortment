@@ -5,8 +5,11 @@ import com.tiomadre.farmersassortment.core.item.TableItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
@@ -31,7 +34,9 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
+import java.util.ArrayDeque;
 import java.util.List;
+import java.util.Queue;
 import java.util.stream.Collectors;
 
 public class TableBlock extends HorizontalDirectionalBlock {
@@ -39,12 +44,17 @@ public class TableBlock extends HorizontalDirectionalBlock {
     public static final BooleanProperty NORTH = BooleanProperty.create("north");
     public static final BooleanProperty EAST = BooleanProperty.create("east");
     public static final BooleanProperty SOUTH = BooleanProperty.create("south");
-    public static final BooleanProperty WEST = BooleanProperty.create("west");
+    public static final BooleanProperty WEST = BooleanProperty.create("west");  public static final BooleanProperty UPSIDE_DOWN = BooleanProperty.create("upside_down");
     private static final VoxelShape LEG_NW = Block.box(1.0D, 0.0D, 1.0D, 3.0D, 12.0D, 3.0D);
     private static final VoxelShape LEG_SW = Block.box(1.0D, 0.0D, 13.0D, 3.0D, 12.0D, 15.0D);
     private static final VoxelShape LEG_NE = Block.box(13.0D, 0.0D, 1.0D, 15.0D, 12.0D, 3.0D);
     private static final VoxelShape LEG_SE = Block.box(13.0D, 0.0D, 13.0D, 15.0D, 12.0D, 15.0D);
     private static final VoxelShape TOP = Block.box(0.0D, 12.0D, 0.0D, 16.0D, 16.0D, 16.0D);
+    private static final VoxelShape TOP_FLIPPED = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D);
+    private static final VoxelShape LEG_NW_FLIPPED = Block.box(1.0D, 4.0D, 1.0D, 3.0D, 16.0D, 3.0D);
+    private static final VoxelShape LEG_SW_FLIPPED = Block.box(1.0D, 4.0D, 13.0D, 3.0D, 16.0D, 15.0D);
+    private static final VoxelShape LEG_NE_FLIPPED = Block.box(13.0D, 4.0D, 1.0D, 15.0D, 16.0D, 3.0D);
+    private static final VoxelShape LEG_SE_FLIPPED = Block.box(13.0D, 4.0D, 13.0D, 15.0D, 16.0D, 15.0D);
 
     public TableBlock(Properties properties) {
         super(properties);
@@ -53,12 +63,13 @@ public class TableBlock extends HorizontalDirectionalBlock {
                 .setValue(NORTH, false)
                 .setValue(EAST, false)
                 .setValue(SOUTH, false)
-                .setValue(WEST, false));
+                .setValue(WEST, false)
+                .setValue(UPSIDE_DOWN, false));
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(RUG, NORTH, EAST, SOUTH, WEST);
+        builder.add(RUG, NORTH, EAST, SOUTH, WEST, UPSIDE_DOWN);
     }
 
     @Override
@@ -89,6 +100,18 @@ public class TableBlock extends HorizontalDirectionalBlock {
     @Override
     public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hit) {
         ItemStack heldStack = player.getItemInHand(hand);
+        if (player.isShiftKeyDown()) {
+            if (!player.hasEffect(MobEffects.DAMAGE_BOOST)) {
+                return InteractionResult.FAIL;
+            }
+            if (!level.isClientSide) {
+                boolean upsideDown = !state.getValue(UPSIDE_DOWN);
+                flipConnectedTables(level, pos, state.getBlock(), upsideDown);
+                level.playSound(null, pos, SoundEvents.WOOD_FALL, SoundSource.BLOCKS, 1.0F, 0.75F);
+            }
+            return InteractionResult.sidedSuccess(level.isClientSide);
+        }
+
         StoolRugType currentRug = state.getValue(RUG);
         StoolRugType heldRug = rugTypeFromItem(heldStack.getItem());
 
@@ -149,20 +172,56 @@ public class TableBlock extends HorizontalDirectionalBlock {
     }
 
     private VoxelShape tableShape(BlockState state) {
-        VoxelShape shape = TOP;
+        boolean upsideDown = state.getValue(UPSIDE_DOWN);
+        VoxelShape shape = upsideDown ? TOP_FLIPPED : TOP;
         if (!state.getValue(NORTH) && !state.getValue(WEST)) {
-            shape = Shapes.or(shape, LEG_NW);
+            shape = Shapes.or(shape, upsideDown ? LEG_NW_FLIPPED : LEG_NW);
         }
         if (!state.getValue(SOUTH) && !state.getValue(WEST)) {
-            shape = Shapes.or(shape, LEG_SW);
+            shape = Shapes.or(shape, upsideDown ? LEG_SW_FLIPPED : LEG_SW);
         }
         if (!state.getValue(NORTH) && !state.getValue(EAST)) {
-            shape = Shapes.or(shape, LEG_NE);
+            shape = Shapes.or(shape, upsideDown ? LEG_NE_FLIPPED : LEG_NE);
         }
         if (!state.getValue(SOUTH) && !state.getValue(EAST)) {
-            shape = Shapes.or(shape, LEG_SE);
+            shape = Shapes.or(shape, upsideDown ? LEG_SE_FLIPPED : LEG_SE);
         }
         return shape;
+    }
+
+    private void flipConnectedTables(Level level, BlockPos origin, Block tableBlock, boolean upsideDown) {
+        Queue<BlockPos> queue = new ArrayDeque<>();
+        queue.add(origin);
+
+        while (!queue.isEmpty()) {
+            BlockPos currentPos = queue.poll();
+            BlockState currentState = level.getBlockState(currentPos);
+            if (!currentState.is(tableBlock) || currentState.getValue(UPSIDE_DOWN) == upsideDown) {
+                continue;
+            }
+
+            level.setBlock(currentPos, currentState.setValue(UPSIDE_DOWN, upsideDown), Block.UPDATE_ALL);
+            knockBlockAbove(level, currentPos);
+
+            for (Direction direction : Direction.Plane.HORIZONTAL) {
+                BlockPos neighborPos = currentPos.relative(direction);
+                BlockState neighborState = level.getBlockState(neighborPos);
+                if (neighborState.is(tableBlock) && neighborState.getValue(UPSIDE_DOWN) != upsideDown) {
+                    queue.add(neighborPos);
+                }
+            }
+        }
+    }
+
+    private void knockBlockAbove(Level level, BlockPos tablePos) {
+        BlockPos abovePos = tablePos.above();
+        BlockState aboveState = level.getBlockState(abovePos);
+        if (aboveState.isAir()) {
+            return;
+        }
+
+        Block.dropResources(aboveState, level, abovePos);
+        level.removeBlock(abovePos, false);
     }
 
     private void dropRug(Level level, BlockPos pos, StoolRugType rugType) {

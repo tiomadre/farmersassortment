@@ -1,0 +1,38 @@
+{
+  "parent": "farmersassortment:main/furniture",
+  "criteria": {
+    "has_stove": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "farmersassortment:alabaster_stove"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.farmersassortment.main.master_chef.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "farmersassortment:alabaster_stove"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.farmersassortment.main.master_chef.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_stove"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

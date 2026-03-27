@@ -231,6 +231,9 @@ public final class FACrafting extends RecipeProvider {
             //Diffuser Variants
             diffuser(output, FAxForagersBlocks.AMETHYST_DIFFUSER, Items.AMETHYST_SHARD);
             alabasterDiffuser(output, FAxForagersBlocks.ALABASTER_DIFFUSER);
+            if (ModList.get().isLoaded("crabbersdelight")) {
+                diffuser(output, FAxForagersBlocks.PEARLESCENT_DIFFUSER, CDModItems.PEARL.get());
+            }
 
             //Stools and Tables
             stool(output, FAxForagersBlocks.LILAC_STOOL, FIBlocks.LILAC_SLAB.get());

@@ -38,6 +38,7 @@ public final class FAxForagersBlocks {
     public static final RegistryObject<ButcherBlockCabinetBlock> LILAC_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("lilac");
     public static final RegistryObject<DiffuserBlock> AMETHYST_DIFFUSER = registerDiffuser("amethyst", SoundType.AMETHYST);
     public static final RegistryObject<DiffuserBlock> ALABASTER_DIFFUSER = registerDiffuser("alabaster", FABlocks.ALABASTER_SOUND_TYPE);
+    public static final RegistryObject<DiffuserBlock> PEARLESCENT_DIFFUSER = registerDiffuser("pearlescent", SoundType.AMETHYST);
     public static final RegistryObject<StoolBlock> LILAC_STOOL = registerStool("lilac");
     public static final RegistryObject<TableBlock> LILAC_TABLE = registerTable("lilac");
     public static final RegistryObject<SlatBlock> LILAC_SLATS = registerSlats("lilac");
@@ -72,9 +73,8 @@ public final class FAxForagersBlocks {
         return Stream.of(LILAC_TABLE);
     }
 
-
     public static Stream<RegistryObject<DiffuserBlock>> diffusers() {
-        return Stream.of(AMETHYST_DIFFUSER, ALABASTER_DIFFUSER);
+        return Stream.of(AMETHYST_DIFFUSER, ALABASTER_DIFFUSER, PEARLESCENT_DIFFUSER);
     }
 
     private static RegistryObject<CuttingBoardBlock> registerCuttingBoard(String woodType) {
@@ -129,7 +129,7 @@ public final class FAxForagersBlocks {
             Set<Block> diffuserValidBlocks = diffuserAccessor.farmersassortment$getValidBlocks();
             Set<Block> updatedDiffusers = new HashSet<>(diffuserValidBlocks);
 
-            boolean changed = addBlocksToSet(updatedDiffusers, List.of(AMETHYST_DIFFUSER.get(), ALABASTER_DIFFUSER.get()));
+            boolean changed = addBlocksToSet(updatedDiffusers, List.of(AMETHYST_DIFFUSER.get(), ALABASTER_DIFFUSER.get(), PEARLESCENT_DIFFUSER.get()));
             if (changed) {
                 diffuserAccessor.farmersassortment$setValidBlocks(updatedDiffusers);
             }

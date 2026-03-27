@@ -2,15 +2,19 @@ package com.tiomadre.farmersassortment.core.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
@@ -204,6 +208,24 @@ public class SlatBlock extends HorizontalDirectionalBlock {
     @Override
     public @NotNull VoxelShape getCollisionShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         return this.getShape(state, level, pos, context);
+    }
+    @Override
+    public void stepOn(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull Entity entity) {
+        if (!entity.isSteppingCarefully() && entity.onGround() && !entity.isSilent()) {
+            SoundType soundType = state.getSoundType(level, pos, entity);
+            float volume = soundType.getVolume();
+            float pitch = soundType.getPitch();
+            double x = pos.getX() + 0.5D;
+            double y = pos.getY() + 0.1D;
+            double z = pos.getZ() + 0.5D;
+
+            if (level.isClientSide) {
+                level.playLocalSound(x, y, z, soundType.getStepSound(), SoundSource.BLOCKS, volume, pitch, false);
+            } else {
+                level.playSound(null, x, y, z, soundType.getStepSound(), SoundSource.BLOCKS, volume, pitch);
+            }
+        }
+        super.stepOn(level, pos, state, entity);
     }
 
     @Override

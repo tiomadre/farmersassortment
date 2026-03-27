@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:honeycomb"
+    },
+    "G": {
+      "item": "minecraft:glass_bottle"
+    },
+    "M": {
+      "item": "crabbersdelight:pearl"
+    },
+    "T": {
+      "item": "minecraft:torch"
+    }
+  },
+  "pattern": [
+    "BMB",
+    "MGM",
+    "MTM"
+  ],
+  "result": {
+    "item": "farmersassortment:pearlescent_diffuser"
+  },
+  "show_notification": true
+}

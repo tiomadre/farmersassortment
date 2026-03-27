@@ -1,0 +1,38 @@
+{
+  "parent": "farmersassortment:main/cutting_board",
+  "criteria": {
+    "has_cooking_pot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "farmersassortment:copper_cooking_pot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.farmersassortment.main.cooking_pot.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "farmersassortment:copper_cooking_pot"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.farmersassortment.main.cooking_pot.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_cooking_pot"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

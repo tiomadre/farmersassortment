@@ -1,0 +1,38 @@
+{
+  "parent": "farmersassortment:main/root",
+  "criteria": {
+    "has_cutting_board": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "farmersassortment:spruce_cutting_board"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.farmersassortment.main.cutting_board.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "farmersassortment:spruce_cutting_board"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.farmersassortment.main.cutting_board.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_cutting_board"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
