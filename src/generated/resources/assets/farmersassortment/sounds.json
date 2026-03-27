@@ -3,15 +3,9 @@
     "sounds": [
       {
         "type": "event",
-        "name": "minecraft:block.calcite.place",
+        "name": "minecraft:block.calcite.break",
         "pitch": 1.8,
         "volume": 0.55
-      },
-      {
-        "type": "event",
-        "name": "minecraft:block.amethyst_block.break",
-        "pitch": 0.6,
-        "volume": 0.4
       }
     ]
   },
@@ -54,12 +48,6 @@
         "name": "minecraft:block.calcite.place",
         "pitch": 1.8,
         "volume": 0.55
-      },
-      {
-        "type": "event",
-        "name": "minecraft:block.amethyst_block.place",
-        "pitch": 0.6,
-        "volume": 0.4
       }
     ]
   },

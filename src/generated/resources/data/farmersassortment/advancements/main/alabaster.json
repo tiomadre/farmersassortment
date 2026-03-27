@@ -1,11 +1,13 @@
 {
-  "parent": "farmersassortment:main/root",
+  "parent": "farmersassortment:main/cooking_pot",
   "criteria": {
-    "has_cooking_pot": {
+    "has_alabaster": {
       "conditions": {
         "items": [
           {
-            "tag": "farmersassortment:cooking_pots"
+            "items": [
+              "farmersassortment:alabaster"
+            ]
           }
         ]
       },
@@ -15,21 +17,21 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "advancements.farmersassortment.main.cooking_pot.description"
+      "translate": "advancements.farmersassortment.main.transmutation.description"
     },
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "farmersassortment:copper_cooking_pot"
+      "item": "farmersassortment:alabaster"
     },
     "show_toast": true,
     "title": {
-      "translate": "advancements.farmersassortment.main.cooking_pot.title"
+      "translate": "advancements.farmersassortment.main.transmutation.title"
     }
   },
   "requirements": [
     [
-      "has_cooking_pot"
+      "has_alabaster"
     ]
   ],
   "sends_telemetry_event": true

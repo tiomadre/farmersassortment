@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "farmersassortment:spruce_cutting_board"
-            ]
+            "tag": "farmersassortment:cutting_boards"
           }
         ]
       },
@@ -22,7 +20,7 @@
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "farmersassortment:spruce_cutting_board"
+      "item": "farmersassortment:bamboo_cutting_board"
     },
     "show_toast": true,
     "title": {

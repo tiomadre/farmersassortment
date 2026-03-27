@@ -5,13 +5,15 @@ import com.teamabnormals.blueprint.core.util.TagUtil;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 
+import net.minecraft.world.item.Item;
+
 public final class FATags {
     private FATags() {
     }
 
     public static final class Items {
-
-
+        public static final TagKey<Item> CUTTING_BOARDS = TagUtil.itemTag(FarmersAssortment.MOD_ID, "cutting_boards");
+        public static final TagKey<Item> COOKING_POTS = TagUtil.itemTag(FarmersAssortment.MOD_ID, "cooking_pots");
         private Items() {
         }
     }

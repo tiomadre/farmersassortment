@@ -178,15 +178,19 @@
 
   "advancements.farmersassortment.main.root.title": "Farmer's Assortment",
   "advancements.farmersassortment.main.root.description": "Start adding to your collection of assortments!",
-  "advancements.farmersassortment.main.cutting_board.title": "Prep Station",
-  "advancements.farmersassortment.main.cutting_board.description": "Craft a cutting board to prepare ingredients",
-  "advancements.farmersassortment.main.cooking_pot.title": "A Fresh Batch",
-  "advancements.farmersassortment.main.cooking_pot.description": "Obtain a cooking pot for your kitchen",
+  "advancements.farmersassortment.main.cutting_board.title": "Cut To The Chase",
+  "advancements.farmersassortment.main.cutting_board.description": "Obtain a Cutting Board variant.",
+  "advancements.farmersassortment.main.cooking_pot.title": "Pothead",
+  "advancements.farmersassortment.main.cooking_pot.description": "Obtain a Cooking Pot variant for your kitchen.",
   "advancements.farmersassortment.main.furniture.title": "Set the Table",
-  "advancements.farmersassortment.main.furniture.description": "Build a table to furnish your cooking space",
-  "advancements.farmersassortment.main.alchemist.title": "Aromatic Alchemy",
-  "advancements.farmersassortment.main.alchemist.description": "Craft an alabaster rack to complete your kitchen setup",
-  "advancements.farmersassortment.main.master_chef.title": "Master Chef",
-  "advancements.farmersassortment.main.master_chef.description": "Own an alabaster stove worthy of a professional kitchen"
+  "advancements.farmersassortment.main.furniture.description": "Obtain a Table!",
+  "advancements.farmersassortment.main.alchemist.title": "Racks on Racks on Racks!",
+  "advancements.farmersassortment.main.alchemist.description": "Craft an Alabaster Rack!",
+  "advancements.farmersassortment.main.master_chef.title": "Alab-out the Money",
+  "advancements.farmersassortment.main.master_chef.description": "Show off your wealth by placing all Alabaster Blocks!",
+  "advancements.farmersassortment.main.flip_table.title": "Table Tantrum",
+  "advancements.farmersassortment.main.flip_table.description": "Become enraged, gaining the Strength to flip a table!",
+  "advancements.farmersassortment.main.transmutation.title": "Farmer's Alchemy?",
+  "advancements.farmersassortment.main.transmutation.description": "Transmutate Quartz and Gold in a Cooking Pot!"
 }
 

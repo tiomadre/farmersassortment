@@ -1,12 +1,132 @@
 {
-  "parent": "farmersassortment:main/furniture",
+  "parent": "farmersassortment:main/alabaster",
   "criteria": {
-    "has_stove": {
+    "has_alabaster_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "farmersassortment:alabaster_block"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_alabaster_bricks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "farmersassortment:alabaster_bricks_block"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_alabaster_cooking_pot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "farmersassortment:alabaster_cooking_pot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_alabaster_floating_counter": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "farmersassortment:alabaster_floating_counter"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_alabaster_pillar": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "farmersassortment:alabaster_pillar"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_alabaster_rack": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "farmersassortment:alabaster_rack"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_alabaster_slab": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "farmersassortment:alabaster_slab"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_alabaster_stairs": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "farmersassortment:alabaster_stairs"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_alabaster_stove": {
       "conditions": {
         "items": [
           {
             "items": [
               "farmersassortment:alabaster_stove"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_alabaster_table": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "farmersassortment:alabaster_table"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_alabaster_wall": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "farmersassortment:alabaster_wall"
             ]
           }
         ]
@@ -19,10 +139,10 @@
     "description": {
       "translate": "advancements.farmersassortment.main.master_chef.description"
     },
-    "frame": "goal",
+    "frame": "challenge",
     "hidden": false,
     "icon": {
-      "item": "farmersassortment:alabaster_stove"
+      "item": "farmersassortment:alabaster"
     },
     "show_toast": true,
     "title": {
@@ -31,7 +151,37 @@
   },
   "requirements": [
     [
-      "has_stove"
+      "has_alabaster_block"
+    ],
+    [
+      "has_alabaster_bricks"
+    ],
+    [
+      "has_alabaster_slab"
+    ],
+    [
+      "has_alabaster_stairs"
+    ],
+    [
+      "has_alabaster_wall"
+    ],
+    [
+      "has_alabaster_pillar"
+    ],
+    [
+      "has_alabaster_floating_counter"
+    ],
+    [
+      "has_alabaster_rack"
+    ],
+    [
+      "has_alabaster_table"
+    ],
+    [
+      "has_alabaster_cooking_pot"
+    ],
+    [
+      "has_alabaster_stove"
     ]
   ],
   "sends_telemetry_event": true

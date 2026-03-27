@@ -1,5 +1,5 @@
 {
-  "parent": "farmersassortment:main/cutting_board",
+  "parent": "farmersassortment:main/root",
   "criteria": {
     "has_table": {
       "conditions": {

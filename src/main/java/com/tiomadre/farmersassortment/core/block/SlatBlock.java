@@ -211,7 +211,7 @@ public class SlatBlock extends HorizontalDirectionalBlock {
     }
     @Override
     public void stepOn(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull Entity entity) {
-        if (!entity.isSteppingCarefully() && entity.onGround() && !entity.isSilent()) {
+        if (!state.getValue(VERTICAL) && !entity.isSteppingCarefully() && entity.onGround() && !entity.isSilent()) {
             SoundType soundType = state.getSoundType(level, pos, entity);
             float volume = soundType.getVolume();
             float pitch = soundType.getPitch();

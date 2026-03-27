@@ -2,10 +2,13 @@ package com.tiomadre.farmersassortment.core.block;
 
 import com.tiomadre.farmersassortment.core.block.state.StoolRugType;
 import com.tiomadre.farmersassortment.core.item.TableItem;
+import com.tiomadre.farmersassortment.core.registry.FAAdvanceTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.advancements.Advancement;
+import net.minecraft.advancements.AdvancementProgress;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -22,6 +25,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.RenderShape;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
@@ -107,7 +111,11 @@ public class TableBlock extends HorizontalDirectionalBlock {
             if (!level.isClientSide) {
                 boolean upsideDown = !state.getValue(UPSIDE_DOWN);
                 flipConnectedTables(level, pos, state.getBlock(), upsideDown);
-                level.playSound(null, pos, SoundEvents.WOOD_FALL, SoundSource.BLOCKS, 1.0F, 0.75F);
+                SoundType soundType = state.getSoundType(level, pos, player);
+                level.playSound(null, pos, soundType.getFallSound(), SoundSource.BLOCKS, 1.0F, 0.75F);
+                if (player instanceof ServerPlayer serverPlayer) {
+                    grantFlipTableAdvancement(serverPlayer);
+                }
             }
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
@@ -251,5 +259,21 @@ public class TableBlock extends HorizontalDirectionalBlock {
         }
         return null;
     }
+    private void grantFlipTableAdvancement(ServerPlayer player) {
+        Advancement advancement = player.server.getAdvancements().getAdvancement(FAAdvanceTriggers.FLIP_TABLE);
+        if (advancement == null) {
+            return;
+        }
+
+        AdvancementProgress progress = player.getAdvancements().getOrStartProgress(advancement);
+        if (progress.isDone()) {
+            return;
+        }
+
+        for (String criterion : progress.getRemainingCriteria()) {
+            player.getAdvancements().award(advancement, criterion);
+        }
+    }
+
 
 }

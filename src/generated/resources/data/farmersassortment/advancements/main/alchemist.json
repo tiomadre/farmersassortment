@@ -1,5 +1,5 @@
 {
-  "parent": "farmersassortment:main/cooking_pot",
+  "parent": "farmersassortment:main/alabaster",
   "criteria": {
     "has_rack": {
       "conditions": {
