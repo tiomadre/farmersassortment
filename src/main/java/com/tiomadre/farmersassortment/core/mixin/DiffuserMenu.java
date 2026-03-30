@@ -19,7 +19,7 @@ public abstract class DiffuserMenu {
     @Final
     private ContainerLevelAccess access;
 
-    @Inject(method = "stillValid", at = @At("RETURN"), cancellable = true)
+    @Inject(method = "stillValid", at = @At("RETURN"), cancellable = true, require = 0, remap = false)
     private void farmersassortment$keepCompatDiffuserOpen(Player player, CallbackInfoReturnable<Boolean> cir) {
         if (cir.getReturnValue()) {
             return;
@@ -27,7 +27,7 @@ public abstract class DiffuserMenu {
 
         boolean isCompatDiffuser = this.access.evaluate((level, pos) -> {
             var state = level.getBlockState(pos);
-            return state.is(FAxForagersBlocks.AMETHYST_DIFFUSER.get()) || state.is(FAxForagersBlocks.ALABASTER_DIFFUSER.get());
+            return FAxForagersBlocks.diffusers().anyMatch(diffuser -> state.is(diffuser.get()));
         }, false);
         if (isCompatDiffuser) {
             cir.setReturnValue(true);

@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(targets = "com.tiomadre.foragersinsight.common.block.entity.DiffuserBlockEntity")
 public abstract class DiffuserMixin {
 
-    @Inject(method = "getDiffuserStack", at = @At("RETURN"), cancellable = true)
+    @Inject(method = "getDiffuserStack", at = @At("RETURN"), cancellable = true, require = 0, remap = false)
     private void farmersassortment$dropVariantDiffuser(CallbackInfoReturnable<ItemStack> cir) {
         BlockEntity blockEntity = (BlockEntity) (Object) this;
         ItemStack originalStack = cir.getReturnValue();
