@@ -7,7 +7,7 @@
     "BlockEntityTypeAccessor",
     "CookingPotBlockEntityMixin",
     "CookingPotCookingAccelerator",
-    "DiffuserMenu",
+    "DiffuserMenuMixin",
     "DiffuserMixin",
     "VariantPotMenu"
   ],
