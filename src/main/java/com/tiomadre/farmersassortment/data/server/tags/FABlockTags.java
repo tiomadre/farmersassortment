@@ -61,6 +61,30 @@ public class FABlockTags extends BlockTagsProvider {
 
 
 
+        this.tag(BlockTags.MINEABLE_WITH_AXE)
+                .add(FABlocks.allButcherBlockCabinets().map(RegistryObject::get).toArray(Block[]::new))
+                .add(FABlocks.allCuttingBoards().map(RegistryObject::get).toArray(Block[]::new))
+                .add(FABlocks.allSlats().map(RegistryObject::get).toArray(Block[]::new))
+                .add(FABlocks.floatingCounters()
+                        .filter(block -> block != FABlocks.ALABASTER_FLOATING_COUNTER)
+                        .map(RegistryObject::get)
+                        .toArray(Block[]::new))
+                .add(FABlocks.allStools().map(RegistryObject::get).toArray(Block[]::new))
+                .add(FABlocks.racks()
+                        .filter(block -> block != FABlocks.ALABASTER_RACK)
+                        .map(RegistryObject::get)
+                        .toArray(Block[]::new))
+                .add(FABlocks.allTables()
+                        .filter(block -> block != FABlocks.ALABASTER_TABLE)
+                        .map(RegistryObject::get)
+                        .toArray(Block[]::new));
+
+
+        if (FarmersAssortment.isCrabbersCompatEnabled()) {
+            this.tag(BlockTags.MINEABLE_WITH_AXE)
+                    .add(FAxCrabbersBlocks.crabTraps().map(RegistryObject::get).toArray(Block[]::new));
+        }
+
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(FABlocks.allCookingPots().map(RegistryObject::get).toArray(Block[]::new))
                 .add(FAxCrabbersBlocks.skillets().map(RegistryObject::get).toArray(Block[]::new))
@@ -73,6 +97,7 @@ public class FABlockTags extends BlockTagsProvider {
                 .add(FABlocks.ALABASTER_PILLAR.get())
                 .add(FABlocks.ALABASTER_FLOATING_COUNTER.get())
                 .add(FABlocks.ALABASTER_TABLE.get())
+                .add(FABlocks.ALABASTER_RACK.get())
                 .add(FAxForagersBlocks.diffusers().map(RegistryObject::get).toArray(Block[]::new));
         this.tag(BlockTags.WALLS)
                 .add(FABlocks.ALABASTER_WALL.get());
