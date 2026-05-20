@@ -19,7 +19,7 @@ public class FAItemTags extends ItemTagsProvider {
 
     @Override
     protected void addTags(@NotNull HolderLookup.Provider provider) {
-        tag(ModTags.KNIVES).add(FAItems.AMETHYST_KNIFE.get(), FAItems.CLAMSHELL_KNIFE.get(), FAItems.QUARTZ_KNIFE.get(), FAItems.ALABASTER_KNIFE.get());
+        tag(ModTags.Items.KNIVES).add(FAItems.AMETHYST_KNIFE.get(), FAItems.CLAMSHELL_KNIFE.get(), FAItems.QUARTZ_KNIFE.get(), FAItems.ALABASTER_KNIFE.get());
 
         tag(CUTTING_BOARDS)
                 .add(FABlocks.allCuttingBoards().map(block -> block.get().asItem()).toArray(Item[]::new));

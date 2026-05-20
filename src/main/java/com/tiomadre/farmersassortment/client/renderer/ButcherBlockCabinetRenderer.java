@@ -62,7 +62,7 @@ public class ButcherBlockCabinetRenderer implements BlockEntityRenderer<ButcherB
 
         if (entity.isItemCarvingBoard()) {
             renderItemCarved(poseStack, blockFacing, boardStack.getItem().getDefaultInstance());
-        } else if (isBlockItem && !boardStack.is(ModTags.FLAT_ON_CUTTING_BOARD)) {
+        } else if (isBlockItem && !boardStack.is(ModTags.Items.FLAT_ON_CUTTING_BOARD)) {
             renderBlock(poseStack, blockFacing);
         } else {
             renderItemLayingDown(poseStack, blockFacing);

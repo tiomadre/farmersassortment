@@ -102,7 +102,7 @@ public class FABlockTags extends BlockTagsProvider {
         this.tag(BlockTags.WALLS)
                 .add(FABlocks.ALABASTER_WALL.get());
 
-        this.tag(ModTags.HEAT_SOURCES)
+        this.tag(ModTags.Blocks.HEAT_SOURCES)
                 .add(FABlocks.ALABASTER_STOVE.get());
     }
 }

@@ -14,12 +14,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ShearsItem;
-import net.minecraft.world.item.TieredItem;
-import net.minecraft.world.item.TridentItem;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.EntityBlock;
@@ -33,7 +28,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.jetbrains.annotations.NotNull;
 import vectorwing.farmersdelight.common.block.CabinetBlock;
-import vectorwing.farmersdelight.common.tag.ModTags;
 
 import javax.annotation.Nullable;
 
@@ -70,7 +64,7 @@ public class ButcherBlockCabinetBlock extends CabinetBlock implements EntityBloc
                         }
                     }
                     if (!offhandStack.isEmpty()) {
-                        if (hand == InteractionHand.MAIN_HAND && !offhandStack.is(ModTags.OFFHAND_EQUIPMENT) && !(heldStack.getItem() instanceof BlockItem)) {
+                        if (hand == InteractionHand.OFF_HAND && isOffhandEquipment(offhandStack)) {
                             if (offhandStack.getItem() instanceof BlockItem) {
                                 ItemStack offhandStackForBoard = player.getAbilities().instabuild ? offhandStack.copy() : offhandStack;
                                 if (cabinet.addBoardItem(offhandStackForBoard)) {
@@ -81,7 +75,7 @@ public class ButcherBlockCabinetBlock extends CabinetBlock implements EntityBloc
                                 return InteractionResult.PASS;
                             }
                         }
-                        if (hand == InteractionHand.OFF_HAND && offhandStack.is(ModTags.OFFHAND_EQUIPMENT)) {
+                        if (hand == InteractionHand.OFF_HAND && isOffhandEquipment(offhandStack)) {
                             return InteractionResult.PASS;
                         }
                     }
@@ -196,6 +190,11 @@ public class ButcherBlockCabinetBlock extends CabinetBlock implements EntityBloc
         }
         return depth <= 1.0D;
     }
+
+    private boolean isOffhandEquipment(ItemStack stack) {
+        return stack.getItem() instanceof ShieldItem;
+    }
+
 
     @Mod.EventBusSubscriber(modid = FarmersAssortment.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
     public static class ToolCarvingEvent {
