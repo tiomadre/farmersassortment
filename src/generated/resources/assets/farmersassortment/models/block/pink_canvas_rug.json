@@ -5,6 +5,7 @@
     "body": "farmersassortment:block/pink_canvas_rug",
     "canvas": "farmersassortment:block/pink_canvas_rug",
     "edge": "farmersassortment:block/pink_canvas_rug_extrudes",
+    "extrude": "farmersassortment:block/pink_canvas_rug_extrudes",
     "extrudes": "farmersassortment:block/pink_canvas_rug_extrudes",
     "particle": "farmersassortment:block/pink_canvas_rug",
     "rug": "farmersassortment:block/pink_canvas_rug"

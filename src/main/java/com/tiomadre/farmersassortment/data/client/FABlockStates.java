@@ -346,6 +346,7 @@ public class FABlockStates extends BlockStateProvider {
                     .texture("body", modLoc("block/" + name))
                     .texture("canvas", modLoc("block/" + name))
                     .texture("rug", modLoc("block/" + name))
+                    .texture("extrude", modLoc("block/" + name + "_extrudes"))
                     .texture("extrudes", modLoc("block/" + name + "_extrudes"))
                     .texture("edge", modLoc("block/" + name + "_extrudes"))
                     .texture("particle", modLoc("block/" + name));

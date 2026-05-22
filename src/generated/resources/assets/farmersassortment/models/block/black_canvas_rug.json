@@ -5,6 +5,7 @@
     "body": "farmersassortment:block/black_canvas_rug",
     "canvas": "farmersassortment:block/black_canvas_rug",
     "edge": "farmersassortment:block/black_canvas_rug_extrudes",
+    "extrude": "farmersassortment:block/black_canvas_rug_extrudes",
     "extrudes": "farmersassortment:block/black_canvas_rug_extrudes",
     "particle": "farmersassortment:block/black_canvas_rug",
     "rug": "farmersassortment:block/black_canvas_rug"
