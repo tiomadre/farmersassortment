@@ -3,11 +3,7 @@
   "render_type": "minecraft:cutout",
   "textures": {
     "body": "farmersassortment:block/orange_canvas_rug",
-    "canvas": "farmersassortment:block/orange_canvas_rug",
-    "edge": "farmersassortment:block/orange_canvas_rug_extrudes",
-    "extrude": "farmersassortment:block/orange_canvas_rug_extrudes",
     "extrudes": "farmersassortment:block/orange_canvas_rug_extrudes",
-    "particle": "farmersassortment:block/orange_canvas_rug",
-    "rug": "farmersassortment:block/orange_canvas_rug"
+    "particle": "farmersassortment:block/orange_canvas_rug"
   }
 }
