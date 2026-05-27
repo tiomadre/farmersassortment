@@ -45,7 +45,7 @@ public class FABlockTags extends BlockTagsProvider {
         this.tag(TABLES)
                 .add(FABlocks.allTables().map(RegistryObject::get).toArray(Block[]::new));
 
-        this.tag(BlockTags.MINEABLE_WITH_AXE)
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).replace(false)
                 .add(FABlocks.allButcherBlockCabinets().map(RegistryObject::get).toArray(Block[]::new))
                 .add(FABlocks.allCuttingBoards().map(RegistryObject::get).toArray(Block[]::new))
                 .add(FABlocks.allSlats().map(RegistryObject::get).toArray(Block[]::new))
@@ -60,8 +60,7 @@ public class FABlockTags extends BlockTagsProvider {
                         .toArray(Block[]::new));
 
 
-
-        this.tag(BlockTags.MINEABLE_WITH_AXE)
+        this.tag(BlockTags.MINEABLE_WITH_AXE).replace(false)
                 .add(FABlocks.allButcherBlockCabinets().map(RegistryObject::get).toArray(Block[]::new))
                 .add(FABlocks.allCuttingBoards().map(RegistryObject::get).toArray(Block[]::new))
                 .add(FABlocks.allSlats().map(RegistryObject::get).toArray(Block[]::new))
@@ -81,11 +80,11 @@ public class FABlockTags extends BlockTagsProvider {
 
 
         if (FarmersAssortment.isCrabbersCompatEnabled()) {
-            this.tag(BlockTags.MINEABLE_WITH_AXE)
+            this.tag(BlockTags.MINEABLE_WITH_AXE).replace(false)
                     .add(FAxCrabbersBlocks.crabTraps().map(RegistryObject::get).toArray(Block[]::new));
         }
 
-        this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).replace(false)
                 .add(FABlocks.allCookingPots().map(RegistryObject::get).toArray(Block[]::new))
                 .add(FAxCrabbersBlocks.skillets().map(RegistryObject::get).toArray(Block[]::new))
                 .add(FABlocks.ALABASTER_STOVE.get())

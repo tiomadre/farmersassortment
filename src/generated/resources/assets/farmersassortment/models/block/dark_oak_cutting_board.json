@@ -2,7 +2,13 @@
   "parent": "farmersdelight:block/cutting_board",
   "render_type": "minecraft:cutout",
   "textures": {
+    "board": "farmersassortment:block/dark_oak_cutting_board",
+    "bottom": "farmersassortment:block/dark_oak_cutting_board",
+    "main": "farmersassortment:block/dark_oak_cutting_board",
     "particle": "farmersassortment:block/dark_oak_cutting_board",
-    "top": "farmersassortment:block/dark_oak_cutting_board"
+    "planks": "farmersassortment:block/dark_oak_cutting_board",
+    "side": "farmersassortment:block/dark_oak_cutting_board",
+    "top": "farmersassortment:block/dark_oak_cutting_board",
+    "wood": "farmersassortment:block/dark_oak_cutting_board"
   }
 }

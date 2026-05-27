@@ -179,7 +179,8 @@ public class ButcherBlockCabinetBlockEntity extends RandomizableContainerBlockEn
 
     public boolean addBoardItem(ItemStack stack) {
         if (isBoardEmpty() && !stack.isEmpty()) {
-            boardInventory.setStackInSlot(0, stack.split(1));
+            boardInventory.setStackInSlot(0, stack.copy());
+            stack.setCount(0);
             isItemCarvingBoard = false;
             inventoryChanged();
             return true;
@@ -199,7 +200,8 @@ public class ButcherBlockCabinetBlockEntity extends RandomizableContainerBlockEn
     public ItemStack removeBoardItem() {
         if (!isBoardEmpty()) {
             isItemCarvingBoard = false;
-            ItemStack stack = boardInventory.getStackInSlot(0).split(1);
+            ItemStack stack = boardInventory.getStackInSlot(0).copy();
+            boardInventory.setStackInSlot(0, ItemStack.EMPTY);
             inventoryChanged();
             return stack;
         }
@@ -281,6 +283,17 @@ public class ButcherBlockCabinetBlockEntity extends RandomizableContainerBlockEn
         return recipe;
     }
 
+    private void consumeBoardItem() {
+        ItemStack boardStack = boardInventory.getStackInSlot(0);
+        if (!boardStack.isEmpty()) {
+            boardStack.shrink(1);
+            if (boardStack.isEmpty()) {
+                isItemCarvingBoard = false;
+            }
+            inventoryChanged();
+        }
+    }
+
     public void playProcessingSound(String soundEventId, ItemStack tool, ItemStack boardItem) {
         SoundEvent sound = ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(soundEventId));
         if (sound != null) {
@@ -308,7 +321,7 @@ public class ButcherBlockCabinetBlockEntity extends RandomizableContainerBlockEn
         return new ItemStackHandler() {
             @Override
             public int getSlotLimit(int slot) {
-                return 1;
+                return 64;
             }
 
             @Override

@@ -344,7 +344,13 @@ public class FABlockStates extends BlockStateProvider {
                     .parent(new ModelFile.UncheckedModelFile(new ResourceLocation("farmersdelight", "block/canvas_rug")))
                     .renderType("minecraft:cutout")
                     .texture("body", modLoc("block/" + name))
+                    .texture("rug", modLoc("block/" + name))
+                    .texture("main", modLoc("block/" + name))
                     .texture("extrudes", modLoc("block/" + name + "_extrudes"))
+                    .texture("extrude", modLoc("block/" + name + "_extrudes"))
+                    .texture("edge", modLoc("block/" + name + "_extrudes"))
+                    .texture("sides", modLoc("block/" + name + "_extrudes"))
+                    .texture("fraying", modLoc("block/" + name + "_extrudes"))
                     .texture("particle", modLoc("block/" + name));
             simpleBlock(rug.get(), model);
         });
@@ -548,7 +554,13 @@ public class FABlockStates extends BlockStateProvider {
                 .getBuilder(name)
                 .parent(new ModelFile.UncheckedModelFile("farmersdelight:block/cutting_board"))
                 .texture("particle", modLoc("block/" + name))
+                .texture("main", modLoc("block/" + name))
                 .texture("top", modLoc("block/" + name))
+                .texture("board", modLoc("block/" + name))
+                .texture("wood", modLoc("block/" + name))
+                .texture("planks", modLoc("block/" + name))
+                .texture("side", modLoc("block/" + name))
+                .texture("bottom", modLoc("block/" + name))
                 .renderType("minecraft:cutout");
         FABlockStateHelper.horizontalFacingBlock(this, block.get(), model);
     }
