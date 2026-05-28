@@ -14,6 +14,7 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.stats.Stats;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -24,8 +25,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ChestMenu;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -177,35 +177,34 @@ public class ButcherBlockCabinetBlockEntity extends RandomizableContainerBlockEn
         level.playSound(null, offset.x, offset.y, offset.z, sound, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.1F + 0.9F);
     }
 
-    public boolean addBoardItem(ItemStack stack) {
-        if (isBoardEmpty() && !stack.isEmpty()) {
-            boardInventory.setStackInSlot(0, stack.copy());
-            stack.setCount(0);
-            isItemCarvingBoard = false;
-            inventoryChanged();
-            return true;
+    public boolean canAddBoardItem(ItemStack stack) {
+        if (isItemCarvingBoard || stack.isEmpty()) {
+            return false;
         }
-        return false;
+        return boardInventory.insertItem(0, stack.copy(), true).getCount() != stack.getCount();
+    }
+
+    public ItemStack addBoardItem(ItemStack stack) {
+        if (isItemCarvingBoard) {
+            return stack;
+        }
+        return boardInventory.insertItem(0, stack.copy(), false);
     }
 
     public boolean carveToolOnBoard(ItemStack tool) {
-        if (addBoardItem(tool)) {
-            isItemCarvingBoard = true;
-            inventoryChanged();
-            return true;
+        if (tool.getItem() instanceof TieredItem || tool.getItem() instanceof TridentItem || tool.getItem() instanceof ShearsItem) {
+            if (addBoardItem(tool) == ItemStack.EMPTY) {
+                isItemCarvingBoard = true;
+                inventoryChanged();
+                return true;
+            }
         }
         return false;
     }
 
     public ItemStack removeBoardItem() {
-        if (!isBoardEmpty()) {
-            isItemCarvingBoard = false;
-            ItemStack stack = boardInventory.getStackInSlot(0).copy();
-            boardInventory.setStackInSlot(0, ItemStack.EMPTY);
-            inventoryChanged();
-            return stack;
-        }
-        return ItemStack.EMPTY;
+        isItemCarvingBoard = false;
+        return boardInventory.extractItem(0, getMaxBoardStackSize(), false);
     }
 
     public ItemStack getBoardItem() {
@@ -214,6 +213,10 @@ public class ButcherBlockCabinetBlockEntity extends RandomizableContainerBlockEn
 
     public boolean isBoardEmpty() {
         return boardInventory.getStackInSlot(0).isEmpty();
+    }
+
+    public int getMaxBoardStackSize() {
+        return boardInventory.getSlotLimit(0);
     }
 
     public boolean isItemCarvingBoard() {
@@ -238,13 +241,22 @@ public class ButcherBlockCabinetBlockEntity extends RandomizableContainerBlockEn
             }
             if (player != null) {
                 toolStack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(EquipmentSlot.MAINHAND));
+                player.awardStat(Stats.ITEM_USED.get(toolStack.getItem()));
             } else if (toolStack.hurt(1, level.random, null)) {
                 toolStack.setCount(0);
             }
+            if (level instanceof ServerLevel serverLevel) {
+                spawnCuttingParticles(serverLevel, getBlockPos(), getBoardItem(), 5);
+            }
             playProcessingSound(result.getSoundEventID(), toolStack, getBoardItem());
-            removeBoardItem();
+            boardInventory.extractItem(0, 1, false);
             if (player instanceof ServerPlayer serverPlayer) {
                 ModAdvancements.CUTTING_BOARD.trigger(serverPlayer);
+                if (!getBoardItem().isEmpty()) {
+                    player.displayClientMessage(TextUtils.getTranslation("block.cutting_board.remaining_items", getBoardItem().getCount()), true);
+                } else {
+                    player.displayClientMessage(Component.empty(), true);
+                }
             }
         });
 
@@ -281,17 +293,6 @@ public class ButcherBlockCabinetBlockEntity extends RandomizableContainerBlockEn
         }
         lastRecipeId = recipe.get().getId();
         return recipe;
-    }
-
-    private void consumeBoardItem() {
-        ItemStack boardStack = boardInventory.getStackInSlot(0);
-        if (!boardStack.isEmpty()) {
-            boardStack.shrink(1);
-            if (boardStack.isEmpty()) {
-                isItemCarvingBoard = false;
-            }
-            inventoryChanged();
-        }
     }
 
     public void playProcessingSound(String soundEventId, ItemStack tool, ItemStack boardItem) {

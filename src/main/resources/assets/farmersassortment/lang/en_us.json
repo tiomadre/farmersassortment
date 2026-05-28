@@ -191,6 +191,11 @@
   "advancements.farmersassortment.main.flip_table.title": "Table Tantrum",
   "advancements.farmersassortment.main.flip_table.description": "Become enraged, gaining the Strength to flip a table!",
   "advancements.farmersassortment.main.transmutation.title": "Farmer's Alchemy?",
-  "advancements.farmersassortment.main.transmutation.description": "Transmute Quartz and Gold in a Cooking Pot!"
+  "advancements.farmersassortment.main.transmutation.description": "Transmute Quartz and Gold in a Cooking Pot!",
+
+  "farmersdelight.block.cutting_board.invalid_item": "This doesn't seem cuttable...",
+  "farmersdelight.block.cutting_board.invalid_tool": "Maybe with a different tool...",
+  "farmersdelight.block.cutting_board.remaining_items": "%s remaining..."
+
 }
 

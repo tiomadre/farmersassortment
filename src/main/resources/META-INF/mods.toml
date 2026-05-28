@@ -1,6 +1,6 @@
 modLoader = "javafml"
 loaderVersion = "[32,)"
-issueTrackerURL = "https://github.com/team-abnormals/template-mod/issues"
+issueTrackerURL = "https://github.com/tiomadre/farmersassortment/issues"
 license = "https://github.com/team-abnormals/template-mod/blob/main/LICENSE.txt"
 
 [[mods]]
@@ -13,7 +13,7 @@ license = "https://github.com/team-abnormals/template-mod/blob/main/LICENSE.txt"
     credits = "Tio"
     displayURL = ""
     displayName = "Farmer's Assortment"
-    description = '''A fresh start for Farmer's Assortment.'''
+    description = '''An assortment of farmer's delights await you...'''
 
 [[dependencies.farmersassortment]]
     modId = "minecraft"

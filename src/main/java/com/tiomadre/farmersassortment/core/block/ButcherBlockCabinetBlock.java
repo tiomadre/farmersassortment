@@ -6,11 +6,11 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -28,6 +28,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.jetbrains.annotations.NotNull;
 import vectorwing.farmersdelight.common.block.CabinetBlock;
+import vectorwing.farmersdelight.common.registry.ModSounds;
 
 import javax.annotation.Nullable;
 
@@ -41,73 +42,45 @@ public class ButcherBlockCabinetBlock extends CabinetBlock implements EntityBloc
     public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, BlockHitResult hit) {
         Direction face = hit.getDirection();
         if (face == Direction.UP) {
-            if (!isOnCuttingBoard(state, hit)) {
+            BlockEntity blockEntity = level.getBlockEntity(pos);
+            if (!(blockEntity instanceof ButcherBlockCabinetBlockEntity cabinet)) {
                 return InteractionResult.PASS;
             }
-            BlockEntity blockEntity = level.getBlockEntity(pos);
-            if (blockEntity instanceof ButcherBlockCabinetBlockEntity cabinet) {
-                boolean hasBlockAbove = !level.isEmptyBlock(pos.above());
-                ItemStack heldStack = player.getItemInHand(hand);
-                ItemStack offhandStack = player.getOffhandItem();
 
-                if (cabinet.isBoardEmpty()) {
-                    if (hasBlockAbove) {
-                        return InteractionResult.PASS;
-                    }
-                    if (player.isSecondaryUseActive() && !heldStack.isEmpty()) {
-                        Item item = heldStack.getItem();
-                        if (item instanceof TieredItem || item instanceof TridentItem || item instanceof ShearsItem) {
-                            if (cabinet.carveToolOnBoard(player.getAbilities().instabuild ? heldStack.copy() : heldStack)) {
-                                level.playSound(null, pos, SoundEvents.WOOD_PLACE, SoundSource.BLOCKS, 1.0F, 0.8F);
-                                return InteractionResult.sidedSuccess(level.isClientSide);
-                            }
-                        }
-                    }
-                    if (!offhandStack.isEmpty()) {
-                        if (hand == InteractionHand.OFF_HAND && isOffhandEquipment(offhandStack)) {
-                            if (offhandStack.getItem() instanceof BlockItem) {
-                                ItemStack offhandStackForBoard = player.getAbilities().instabuild ? offhandStack.copy() : offhandStack;
-                                if (cabinet.addBoardItem(offhandStackForBoard)) {
-                                    level.playSound(null, pos, SoundEvents.WOOD_PLACE, SoundSource.BLOCKS, 1.0F, 0.8F);
-                                    return InteractionResult.sidedSuccess(level.isClientSide);
-                                }
-                            } else {
-                                return InteractionResult.PASS;
-                            }
-                        }
-                        if (hand == InteractionHand.OFF_HAND && isOffhandEquipment(offhandStack)) {
-                            return InteractionResult.PASS;
-                        }
-                    }
-                    if (heldStack.isEmpty()) {
-                        return InteractionResult.SUCCESS;
-                    }
-
-                    if (cabinet.addBoardItem(player.getAbilities().instabuild ? heldStack.copy() : heldStack)) {
-                        level.playSound(null, pos, SoundEvents.WOOD_PLACE, SoundSource.BLOCKS, 1.0F, 0.8F);
-                        return InteractionResult.sidedSuccess(level.isClientSide);
-                    }
-                } else if (!heldStack.isEmpty()) {
-                    ItemStack boardStack = cabinet.getBoardItem().copy();
-                    if (cabinet.processBoardItemUsingTool(heldStack, player)) {
-                        ButcherBlockCabinetBlockEntity.spawnCuttingParticles(level, pos, boardStack, 5);
-                        return InteractionResult.sidedSuccess(level.isClientSide);
-                    }
+            ItemStack mainHandStack = player.getMainHandItem();
+            if (mainHandStack.isEmpty()) {
+                if (cabinet.isBoardEmpty() || level.isClientSide) {
                     return InteractionResult.CONSUME;
-                } else if (hand == InteractionHand.MAIN_HAND) {
-                    ItemStack removed = cabinet.removeBoardItem();
-                    if (!removed.isEmpty()) {
-                        if (!player.isCreative()) {
-                            if (!player.getInventory().add(removed)) {
-                                Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), removed);
-                            }
-                        }
-                        level.playSound(null, pos, SoundEvents.WOOD_HIT, SoundSource.BLOCKS, 0.25F, 0.5F);
-                        return InteractionResult.sidedSuccess(level.isClientSide);
+                }
+
+                ItemStack removed = cabinet.removeBoardItem();
+                if (!player.isCreative()) {
+                    if (!player.getInventory().add(removed)) {
+                        Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), removed);
                     }
                 }
+                Vec3 centerPos = pos.getCenter();
+                level.playSound(null, centerPos.x(), centerPos.y(), centerPos.z(), ModSounds.BLOCK_CUTTING_BOARD_REMOVE.get(), SoundSource.BLOCKS, 0.25F, 0.5F);
+                return InteractionResult.SUCCESS;
             }
-            return InteractionResult.sidedSuccess(level.isClientSide);
+
+            if (cabinet.canAddBoardItem(mainHandStack)) {
+                if (level.isClientSide) {
+                    return InteractionResult.CONSUME;
+                }
+
+                ItemStack remainder = cabinet.addBoardItem(player.getAbilities().instabuild ? mainHandStack.copy() : mainHandStack);
+                if (!player.isCreative()) {
+                    player.setItemSlot(EquipmentSlot.MAINHAND, remainder);
+                }
+                Vec3 centerPos = pos.getCenter();
+                level.playSound(null, centerPos.x(), centerPos.y(), centerPos.z(), ModSounds.BLOCK_CUTTING_BOARD_PLACE.get(), SoundSource.BLOCKS, 1.0F, 0.8F);
+                return InteractionResult.SUCCESS;
+            } else if (cabinet.processBoardItemUsingTool(mainHandStack, player)) {
+                return InteractionResult.SUCCESS;
+            }
+
+            return InteractionResult.CONSUME;
         }
 
         if (!level.isClientSide) {
@@ -177,53 +150,36 @@ public class ButcherBlockCabinetBlock extends CabinetBlock implements EntityBloc
         return new ButcherBlockCabinetBlockEntity(pos, state);
     }
 
-    private boolean isOnCuttingBoard(BlockState state, BlockHitResult hit) {
-        Vec3 localHit = hit.getLocation().subtract(hit.getBlockPos().getX(), hit.getBlockPos().getY(), hit.getBlockPos().getZ());
-        Direction facing = state.getValue(FACING);
-        double depth;
-        switch (facing) {
-            case NORTH -> depth = localHit.z;
-            case SOUTH -> depth = 1.0D - localHit.z;
-            case WEST -> depth = localHit.x;
-            case EAST -> depth = 1.0D - localHit.x;
-            default -> depth = 0.0D;
-        }
-        return depth <= 1.0D;
-    }
-
-    private boolean isOffhandEquipment(ItemStack stack) {
-        return stack.getItem() instanceof ShieldItem;
-    }
-
 
     @Mod.EventBusSubscriber(modid = FarmersAssortment.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
     public static class ToolCarvingEvent {
         @SubscribeEvent
         @SuppressWarnings("unused")
         public static void onSneakPlaceTool(PlayerInteractEvent.RightClickBlock event) {
+            if (event.getFace() != Direction.UP) {
+                return;
+            }
+
             Level level = event.getLevel();
             BlockPos pos = event.getPos();
+            if (!(level.getBlockEntity(pos) instanceof ButcherBlockCabinetBlockEntity cabinet)) {
+                return;
+            }
+
             Player player = event.getEntity();
             ItemStack heldStack = player.getMainHandItem();
-            BlockEntity tileEntity = level.getBlockEntity(pos);
-            if (player.isSecondaryUseActive() && !heldStack.isEmpty()) {
-                if (tileEntity instanceof ButcherBlockCabinetBlockEntity cabinet) {
-                    if (heldStack.getItem() instanceof TieredItem ||
-                            heldStack.getItem() instanceof TridentItem ||
-                            heldStack.getItem() instanceof ShearsItem) {
+            if (!player.isSecondaryUseActive() || heldStack.isEmpty()) {
+                return;
+            }
 
-                        boolean success = cabinet.carveToolOnBoard(
-                                player.getAbilities().instabuild ? heldStack.copy() : heldStack);
-
-                        if (success) {
-                            level.playSound(null, pos, SoundEvents.WOOD_PLACE, SoundSource.BLOCKS, 1.0F, 0.8F);
-
-                            // Cancel + return SUCCESS
-                            event.setCanceled(true);
-                            event.setCancellationResult(InteractionResult.SUCCESS);
-                        }
-                    }
+            if (cabinet.carveToolOnBoard(player.getAbilities().instabuild ? heldStack.copy() : heldStack)) {
+                if (!player.isCreative()) {
+                    player.setItemSlot(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
                 }
+                Vec3 centerPos = pos.getCenter();
+                level.playSound(null, centerPos.x(), centerPos.y(), centerPos.z(), ModSounds.BLOCK_CUTTING_BOARD_CARVE.get(), SoundSource.BLOCKS, 1.0F, 0.8F);
+                event.setCanceled(true);
+                event.setCancellationResult(InteractionResult.SUCCESS);
             }
         }
     }
