@@ -20,7 +20,7 @@ public final class FAItems {
     public static final RegistryObject<Item> CLAMSHELL_KNIFE = ITEMS.createItem("clamshell_knife",
             () -> new KnifeItem(Tiers.WOOD, 0.5F, -2.0F, new Item.Properties()));
     public static final RegistryObject<Item> ALABASTER_KNIFE = ITEMS.createItem("alabaster_knife",
-            () -> new KnifeItem(Tiers.DIAMOND, 0.36F, -2.0F, new Item.Properties()));
+            () -> new KnifeItem(Tiers.DIAMOND, 0.5F, -2.0F, new Item.Properties()));
 
     private FAItems() {
     }
