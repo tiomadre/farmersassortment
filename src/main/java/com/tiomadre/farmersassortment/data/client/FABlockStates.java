@@ -572,13 +572,13 @@ public class FABlockStates extends BlockStateProvider {
                 .parent(new ModelFile.UncheckedModelFile("minecraft:block/orientable_with_bottom"))
                 .texture("front", modLoc("block/" + woodType + "_butcher_block_cabinet_front"))
                 .texture("side", modLoc("block/" + woodType + "_butcher_block_cabinet_side"))
-                .texture("top", topTexture)
+                .texture("top", modLoc("block/" + woodType + "_butcher_block_cabinet_top"))
                 .texture("bottom", bottomTexture);
         ModelFile open = models().getBuilder(name + "_open")
                 .parent(new ModelFile.UncheckedModelFile("minecraft:block/orientable_with_bottom"))
                 .texture("front", modLoc("block/" + woodType + "_butcher_block_cabinet_front_open"))
                 .texture("side", modLoc("block/" + woodType + "_butcher_block_cabinet_side"))
-                .texture("top", topTexture)
+                .texture("top", modLoc("block/" + woodType + "_butcher_block_cabinet_top"))
                 .texture("bottom", bottomTexture);
 
         getVariantBuilder(block.get()).forAllStates(state -> {

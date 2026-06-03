@@ -4,6 +4,6 @@
     "bottom": "minecraft:block/crimson_planks",
     "front": "farmersassortment:block/crimson_butcher_block_cabinet_front",
     "side": "farmersassortment:block/crimson_butcher_block_cabinet_side",
-    "top": "farmersassortment:block/crimson_butcher_block_cabinet_front_top"
+    "top": "farmersassortment:block/crimson_butcher_block_cabinet_top"
   }
 }

@@ -36,8 +36,8 @@
   "textures": {
     "12": "farmersassortment:block/crimson_counter_side",
     "13": "farmersassortment:block/crimson_counter_front",
-    "2": "farmersassortment:block/oak_butcher_block_cabinet_top",
+    "2": "farmersassortment:block/crimson_butcher_block_cabinet_top",
     "missing": "minecraft:block/crimson_planks",
-    "particle": "farmersassortment:block/oak_butcher_block_cabinet_top"
+    "particle": "farmersassortment:block/crimson_butcher_block_cabinet_top"
   }
 }

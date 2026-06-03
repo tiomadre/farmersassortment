@@ -68,14 +68,14 @@ public class FAItemModels extends ItemModelProvider {
     }
     private void tableItem(RegistryObject<? extends Block> block) {
         String name = Objects.requireNonNull(block.getId()).getPath();
-        ItemModelBuilder builder = stoolTransforms(getBuilder(name)
+        ItemModelBuilder builder = tableTransforms(getBuilder(name)
                 .parent(new ModelFile.UncheckedModelFile(modLoc("block/" + name))));
         for (StoolRugType rugType : StoolRugType.values()) {
             if (!rugType.hasRug()) {
                 continue;
             }
             String coveredName = name + "_" + rugType.getSerializedName();
-            stoolTransforms(getBuilder(coveredName)
+            tableTransforms(getBuilder(coveredName)
                     .parent(new ModelFile.UncheckedModelFile(modLoc("block/" + coveredName))));
             builder.override()
                     .predicate(modLoc("rug"), (float) rugType.ordinal())
@@ -109,13 +109,53 @@ public class FAItemModels extends ItemModelProvider {
                     .end();
         }
     }
+    private ItemModelBuilder tableTransforms(ItemModelBuilder builder) {
+        return builder
+                .transforms()
+                .transform(ItemDisplayContext.GUI)
+                .rotation(30.0F, 45.0F, 0.0F)
+                .translation(0.0F, 0.0F, 0.0F)
+                .scale(0.62F, 0.62F, 0.62F)
+                .end()
+                .transform(ItemDisplayContext.GROUND)
+                .rotation(0.0F, 0.0F, 0.0F)
+                .translation(0.0F, 2.0F, 0.0F)
+                .scale(0.35F, 0.35F, 0.35F)
+                .end()
+                .transform(ItemDisplayContext.FIXED)
+                .rotation(0.0F, 0.0F, 0.0F)
+                .translation(0.0F, 0.0F, 0.0F)
+                .scale(0.5F, 0.5F, 0.5F)
+                .end()
+                .transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND)
+                .rotation(75.0F, 45.0F, 0.0F)
+                .translation(0.0F, 2.5F, 0.0F)
+                .scale(0.35F, 0.35F, 0.35F)
+                .end()
+                .transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND)
+                .rotation(75.0F, 225.0F, 0.0F)
+                .translation(0.0F, 2.5F, 0.0F)
+                .scale(0.35F, 0.35F, 0.35F)
+                .end()
+                .transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND)
+                .rotation(0.0F, 45.0F, 0.0F)
+                .translation(1.13F, 3.2F, 1.13F)
+                .scale(0.55F, 0.55F, 0.55F)
+                .end()
+                .transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND)
+                .rotation(0.0F, 225.0F, 0.0F)
+                .translation(1.13F, 3.2F, 1.13F)
+                .scale(0.55F, 0.55F, 0.55F)
+                .end()
+                .end();
+    }
 
     private ItemModelBuilder stoolTransforms(ItemModelBuilder builder) {
         return builder
                 .transforms()
                 .transform(ItemDisplayContext.GUI)
                 .rotation(30.0F, 45.0F, 0.0F)
-                .translation(0.0F, 0.0F, 0.0F)
+                .translation(-1.0F, 0.75F, 0.0F)
                 .scale(0.62F, 0.62F, 0.62F)
                 .end()
                 .transform(ItemDisplayContext.GROUND)
