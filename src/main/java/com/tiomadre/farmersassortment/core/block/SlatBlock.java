@@ -8,16 +8,15 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
-import net.minecraft.world.level.block.Mirror;
-import net.minecraft.world.level.block.RenderShape;
-import net.minecraft.world.level.block.Rotation;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -27,8 +26,9 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SlatBlock extends HorizontalDirectionalBlock {
+public class SlatBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock {
     public static final BooleanProperty VERTICAL = BooleanProperty.create("vertical");
+    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
     private static final VoxelShape HORIZONTAL_NORTH_SHAPE = Shapes.or(
             Block.box(0.0D, 0.0D, 1.0D, 16.0D, 1.0D, 4.0D),
@@ -107,7 +107,8 @@ public class SlatBlock extends HorizontalDirectionalBlock {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(FACING, Direction.NORTH)
-                .setValue(VERTICAL, false));
+                .setValue(VERTICAL, false)
+                .setValue(WATERLOGGED, false));
     }
 
     private static VoxelShape rotateShapeY(VoxelShape shape, int quarterTurns) {
@@ -152,14 +153,11 @@ public class SlatBlock extends HorizontalDirectionalBlock {
     public @Nullable BlockState getStateForPlacement(BlockPlaceContext context) {
         Direction clickedFace = context.getClickedFace();
         BlockPos placedPos = context.getClickedPos();
+        FluidState fluidState = context.getLevel().getFluidState(placedPos);
         BlockState supportState = context.getLevel().getBlockState(placedPos.relative(clickedFace.getOpposite()));
 
         if (clickedFace == Direction.UP && supportState.getBlock() instanceof SlatBlock) {
-            return supportState.getValue(VERTICAL) ? supportState : null;
-        }
-
-        if (clickedFace.getAxis().isHorizontal() && supportState.getBlock() instanceof SlatBlock) {
-            return supportState;
+            return supportState.getValue(VERTICAL) ? supportState.setValue(WATERLOGGED, fluidState.getType() == Fluids.WATER) : null;
         }
 
         boolean vertical = clickedFace.getAxis().isHorizontal();
@@ -167,13 +165,27 @@ public class SlatBlock extends HorizontalDirectionalBlock {
 
         return this.defaultBlockState()
                 .setValue(VERTICAL, vertical)
-                .setValue(FACING, facing);
+                .setValue(FACING, facing)
+                .setValue(WATERLOGGED, fluidState.getType() == Fluids.WATER);
     }
 
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING, VERTICAL);
+        builder.add(FACING, VERTICAL, WATERLOGGED);
+    }
+
+    @Override
+    public @NotNull FluidState getFluidState(@NotNull BlockState state) {
+        return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
+    }
+
+    @Override
+    public @NotNull BlockState updateShape(@NotNull BlockState state, @NotNull Direction direction, @NotNull BlockState neighborState, @NotNull LevelAccessor level, @NotNull BlockPos currentPos, @NotNull BlockPos neighborPos) {
+        if (state.getValue(WATERLOGGED)) {
+            level.scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+        }
+        return super.updateShape(state, direction, neighborState, level, currentPos, neighborPos);
     }
 
     @Override
@@ -211,21 +223,28 @@ public class SlatBlock extends HorizontalDirectionalBlock {
     }
     @Override
     public void stepOn(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull Entity entity) {
-        if (!state.getValue(VERTICAL) && !entity.isSteppingCarefully() && entity.onGround() && !entity.isSilent()) {
-            SoundType soundType = state.getSoundType(level, pos, entity);
-            float volume = soundType.getVolume();
-            float pitch = soundType.getPitch();
-            double x = pos.getX() + 0.5D;
-            double y = pos.getY() + 0.1D;
-            double z = pos.getZ() + 0.5D;
-
-            if (level.isClientSide) {
-                level.playLocalSound(x, y, z, soundType.getStepSound(), SoundSource.BLOCKS, volume, pitch, false);
-            } else {
-                level.playSound(null, x, y, z, soundType.getStepSound(), SoundSource.BLOCKS, volume, pitch);
-            }
+        if (!state.getValue(VERTICAL) && !entity.isSteppingCarefully() && entity.tickCount % 4 == 0
+                && entity.getDeltaMovement().horizontalDistanceSqr() > 1.0E-5D) {
+            playSlatStepSound(level, pos, state, entity, 0.75F);
         }
         super.stepOn(level, pos, state, entity);
+    }
+    @Override
+    public void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Entity entity) {
+        if (state.getValue(VERTICAL) && entity instanceof LivingEntity && entity.tickCount % 8 == 0
+                && (entity.horizontalCollision || Math.abs(entity.getDeltaMovement().y) > 0.01D)) {
+            playSlatStepSound(level, pos, state, entity, 0.35F);
+        }
+        super.entityInside(state, level, pos, entity);
+    }
+
+    private void playSlatStepSound(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull Entity entity, float volumeMultiplier) {
+        if (level.isClientSide || entity.isSilent()) {
+            return;
+        }
+
+        SoundType soundType = state.getSoundType(level, pos, entity);
+        level.playSound(null, pos, soundType.getStepSound(), SoundSource.BLOCKS, soundType.getVolume() * volumeMultiplier, soundType.getPitch());
     }
 
     @Override

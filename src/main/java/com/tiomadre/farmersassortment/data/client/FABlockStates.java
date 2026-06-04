@@ -148,23 +148,25 @@ public class FABlockStates extends BlockStateProvider {
                 .texture(bamboo ? "2" : "3", texture)
                 .texture("particle", texture);
 
-        getVariantBuilder(block.get())
-                .partialState().with(SlatBlock.VERTICAL, false).with(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH)
-                .modelForState().modelFile(horizontalModel).addModel()
-                .partialState().with(SlatBlock.VERTICAL, false).with(BlockStateProperties.HORIZONTAL_FACING, Direction.SOUTH)
-                .modelForState().modelFile(horizontalModel).addModel()
-                .partialState().with(SlatBlock.VERTICAL, false).with(BlockStateProperties.HORIZONTAL_FACING, Direction.EAST)
-                .modelForState().modelFile(horizontalModel).rotationY(90).addModel()
-                .partialState().with(SlatBlock.VERTICAL, false).with(BlockStateProperties.HORIZONTAL_FACING, Direction.WEST)
-                .modelForState().modelFile(horizontalModel).rotationY(90).addModel()
-                .partialState().with(SlatBlock.VERTICAL, true).with(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH)
-                .modelForState().modelFile(verticalModel).addModel()
-                .partialState().with(SlatBlock.VERTICAL, true).with(BlockStateProperties.HORIZONTAL_FACING, Direction.EAST)
-                .modelForState().modelFile(verticalModel).rotationY(90).addModel()
-                .partialState().with(SlatBlock.VERTICAL, true).with(BlockStateProperties.HORIZONTAL_FACING, Direction.SOUTH)
-                .modelForState().modelFile(verticalModel).rotationY(180).addModel()
-                .partialState().with(SlatBlock.VERTICAL, true).with(BlockStateProperties.HORIZONTAL_FACING, Direction.WEST)
-                .modelForState().modelFile(verticalModel).rotationY(270).addModel();
+        getVariantBuilder(block.get()).forAllStates(state -> {
+            boolean vertical = state.getValue(SlatBlock.VERTICAL);
+            Direction facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
+            int rotationY = vertical ? verticalSlatRotation(facing) : (facing.getAxis() == Direction.Axis.X ? 90 : 0);
+
+            return ConfiguredModel.builder()
+                    .modelFile(vertical ? verticalModel : horizontalModel)
+                    .rotationY(rotationY)
+                    .build();
+        });
+    }
+
+    private int verticalSlatRotation(Direction facing) {
+        return switch (facing) {
+            case EAST -> 90;
+            case SOUTH -> 180;
+            case WEST -> 270;
+            default -> 0;
+        };
     }
     private void registerRacks() {
         List<RackDefinition> racks = List.of(
