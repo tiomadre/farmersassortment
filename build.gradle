@@ -83,7 +83,7 @@ dependencies {
     implementation fg.deobf("maven.modrinth:blueprint:AiaPEN6q")
     implementation fg.deobf("maven.modrinth:farmers-delight:CsjS7EkP")
     implementation fg.deobf("maven.modrinth:crabbers-delight:9NT9IkSs")
-    implementation fg.deobf("maven.modrinth:foragers-insight:aBMdW8yV")
+    implementation fg.deobf("maven.modrinth:foragers-insight:rUVlE2JJ")
 
     compileOnly fg.deobf("mezz.jei:jei-${project.minecraft}-common-api:${project.jei}")
     compileOnly fg.deobf("mezz.jei:jei-${project.minecraft}-forge-api:${project.jei}")

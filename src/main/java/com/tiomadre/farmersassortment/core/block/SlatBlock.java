@@ -223,28 +223,17 @@ public class SlatBlock extends HorizontalDirectionalBlock implements SimpleWater
     }
     @Override
     public void stepOn(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull Entity entity) {
-        if (!state.getValue(VERTICAL) && !entity.isSteppingCarefully() && entity.tickCount % 4 == 0
+        if (!level.isClientSide && !state.getValue(VERTICAL) && !entity.isSilent() && !entity.isSteppingCarefully() && entity.tickCount % 4 == 0
                 && entity.getDeltaMovement().horizontalDistanceSqr() > 1.0E-5D) {
-            playSlatStepSound(level, pos, state, entity, 0.75F);
+            SoundType soundType = super.getSoundType(state, level, pos, entity);
+            level.playSound(null, pos, soundType.getStepSound(), SoundSource.BLOCKS,
+                    soundType.getVolume() * 0.75F, soundType.getPitch());
         }
         super.stepOn(level, pos, state, entity);
     }
     @Override
-    public void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Entity entity) {
-        if (state.getValue(VERTICAL) && entity instanceof LivingEntity && entity.tickCount % 8 == 0
-                && (entity.horizontalCollision || Math.abs(entity.getDeltaMovement().y) > 0.01D)) {
-            playSlatStepSound(level, pos, state, entity, 0.35F);
-        }
-        super.entityInside(state, level, pos, entity);
-    }
-
-    private void playSlatStepSound(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull Entity entity, float volumeMultiplier) {
-        if (level.isClientSide || entity.isSilent()) {
-            return;
-        }
-
-        SoundType soundType = state.getSoundType(level, pos, entity);
-        level.playSound(null, pos, soundType.getStepSound(), SoundSource.BLOCKS, soundType.getVolume() * volumeMultiplier, soundType.getPitch());
+    public @NotNull SoundType getSoundType(@NotNull BlockState state, @NotNull LevelReader level, @NotNull BlockPos pos, @Nullable Entity entity) {
+        return state.getValue(VERTICAL) ? SoundType.LADDER : super.getSoundType(state, level, pos, entity);
     }
 
     @Override

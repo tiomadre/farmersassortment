@@ -617,26 +617,21 @@ public class FABlockStates extends BlockStateProvider {
     }
 
     private BlockModelBuilder cookingPotModel(String materialName, ResourceLocation bottomTexture) {
-        BlockModelBuilder builder = baseCookingPotModel(materialName + "_cooking_pot", materialName, bottomTexture);
-        addCoreCookingPotElements(builder);
-        return builder;
+        return baseCookingPotModel(materialName + "_cooking_pot", materialName, bottomTexture)
+                .parent(new ModelFile.UncheckedModelFile("farmersdelight:block/cooking_pot"));
     }
 
     private BlockModelBuilder cookingPotTrayModel(String materialName, ResourceLocation bottomTexture) {
-        BlockModelBuilder builder = baseCookingPotModel(materialName + "_cooking_pot_tray", materialName, bottomTexture)
+        return baseCookingPotModel(materialName + "_cooking_pot_tray", materialName, bottomTexture)
+                .parent(new ModelFile.UncheckedModelFile("farmersdelight:block/cooking_pot_tray"))
                 .texture("tray_top", modLoc("block/" + materialName + "_cooking_pot_tray_top"))
                 .texture("tray_side", modLoc("block/" + materialName + "_cooking_pot_tray_side"));
-        addCoreCookingPotElements(builder);
-        addCookingPotTrayElements(builder);
-        return builder;
     }
 
     private BlockModelBuilder cookingPotHandleModel(String materialName, ResourceLocation bottomTexture) {
-        BlockModelBuilder builder = baseCookingPotModel(materialName + "_cooking_pot_handle", materialName, bottomTexture)
+        return baseCookingPotModel(materialName + "_cooking_pot_handle", materialName, bottomTexture)
+                .parent(new ModelFile.UncheckedModelFile("farmersdelight:block/cooking_pot_handle"))
                 .texture("handle", modLoc("block/" + materialName + "_cooking_pot_handle"));
-        addCoreCookingPotElements(builder);
-        addCookingPotHandleElements(builder);
-        return builder;
     }
 
     private BlockModelBuilder baseCookingPotModel(String name, String materialName, ResourceLocation bottomTexture) {
@@ -647,26 +642,21 @@ public class FABlockStates extends BlockStateProvider {
     }
 
     private BlockModelBuilder terracottaCookingPotModel(String name, ResourceLocation sideTexture, ResourceLocation topTexture, ResourceLocation bottomTexture, ResourceLocation partsTexture) {
-        BlockModelBuilder builder = baseCookingPotModel(name, sideTexture, topTexture, bottomTexture, partsTexture);
-        addCoreCookingPotElements(builder);
-        return builder;
+        return baseCookingPotModel(name, sideTexture, topTexture, bottomTexture, partsTexture)
+                .parent(new ModelFile.UncheckedModelFile("farmersdelight:block/cooking_pot"));
     }
 
     private BlockModelBuilder terracottaCookingPotTrayModel(String name, ResourceLocation sideTexture, ResourceLocation topTexture, ResourceLocation bottomTexture, ResourceLocation partsTexture, ResourceLocation trayTop, ResourceLocation traySide) {
-        BlockModelBuilder builder = baseCookingPotModel(name, sideTexture, topTexture, bottomTexture, partsTexture)
+        return baseCookingPotModel(name, sideTexture, topTexture, bottomTexture, partsTexture)
+                .parent(new ModelFile.UncheckedModelFile("farmersdelight:block/cooking_pot_tray"))
                 .texture("tray_top", trayTop)
                 .texture("tray_side", traySide);
-        addCoreCookingPotElements(builder);
-        addCookingPotTrayElements(builder);
-        return builder;
     }
 
     private BlockModelBuilder terracottaCookingPotHandleModel(String name, ResourceLocation sideTexture, ResourceLocation topTexture, ResourceLocation bottomTexture, ResourceLocation partsTexture, ResourceLocation handleTexture) {
-        BlockModelBuilder builder = baseCookingPotModel(name, sideTexture, topTexture, bottomTexture, partsTexture)
+        return baseCookingPotModel(name, sideTexture, topTexture, bottomTexture, partsTexture)
+                .parent(new ModelFile.UncheckedModelFile("farmersdelight:block/cooking_pot_handle"))
                 .texture("handle", handleTexture);
-        addCoreCookingPotElements(builder);
-        addCookingPotHandleElements(builder);
-        return builder;
     }
 
     private BlockModelBuilder baseCookingPotModel(String name, ResourceLocation sideTexture, ResourceLocation topTexture, ResourceLocation bottomTexture, ResourceLocation partsTexture) {
@@ -680,137 +670,6 @@ public class FABlockStates extends BlockStateProvider {
                 .texture("bottom", bottomTexture);
     }
 
-    private void addCoreCookingPotElements(BlockModelBuilder builder) {
-        builder.element()
-                .from(2, 0, 2)
-                .to(14, 10, 14)
-                .face(Direction.NORTH).uvs(2, 6, 14, 16).texture("#side").end()
-                .face(Direction.EAST).uvs(2, 6, 14, 16).texture("#side").end()
-                .face(Direction.SOUTH).uvs(2, 6, 14, 16).texture("#side").end()
-                .face(Direction.WEST).uvs(2, 6, 14, 16).texture("#side").end()
-                .face(Direction.UP).uvs(2, 2, 14, 14).texture("#top").end()
-                .face(Direction.DOWN).uvs(2, 2, 14, 14).texture("#bottom").cullface(Direction.DOWN).end()
-                .end();
-
-        BlockModelBuilder.ElementBuilder spoon = builder.element()
-                .from(7, 3, 7)
-                .to(9, 15, 9);
-        spoon.rotation().angle(-22.5f).axis(Direction.Axis.Z).origin(8f, 3f, 8f).end();
-        spoon.face(Direction.NORTH).uvs(2, 2, 0, 14).texture("#parts").end()
-                .face(Direction.EAST).uvs(0, 2, 2, 14).texture("#parts").end()
-                .face(Direction.SOUTH).uvs(2, 2, 0, 14).texture("#parts").end()
-                .face(Direction.WEST).uvs(0, 2, 2, 14).texture("#parts").end()
-                .face(Direction.UP).uvs(0, 0, 2, 2).texture("#parts").end()
-                .face(Direction.DOWN).uvs(0, 0, 2, 2).texture("#parts").end()
-                .end();
-
-        builder.element()
-                .from(14, 7, 5)
-                .to(16, 9, 11)
-                .face(Direction.NORTH).uvs(10, 0, 12, 2).texture("#parts").end()
-                .face(Direction.EAST).uvs(4, 2, 10, 4).texture("#parts").end()
-                .face(Direction.SOUTH).uvs(2, 0, 4, 2).texture("#parts").end()
-                .face(Direction.UP).uvs(4, 0, 10, 2).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#parts").end()
-                .face(Direction.DOWN).uvs(4, 2, 10, 4).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture("#parts").end()
-                .end();
-
-        builder.element()
-                .from(0, 7, 5)
-                .to(2, 9, 11)
-                .face(Direction.NORTH).uvs(2, 0, 4, 2).texture("#parts").end()
-                .face(Direction.SOUTH).uvs(10, 0, 12, 2).texture("#parts").end()
-                .face(Direction.WEST).uvs(4, 2, 10, 4).texture("#parts").end()
-                .face(Direction.UP).uvs(4, 0, 10, 2).rotation(ModelBuilder.FaceRotation.COUNTERCLOCKWISE_90).texture("#parts").end()
-                .face(Direction.DOWN).uvs(4, 2, 10, 4).rotation(ModelBuilder.FaceRotation.COUNTERCLOCKWISE_90).texture("#parts").end()
-                .end();
-    }
-
-    private void addCookingPotTrayElements(BlockModelBuilder builder) {
-        builder.element()
-                .from(0, -1, 0)
-                .to(16, 0, 16)
-                .face(Direction.NORTH).uvs(0, 0, 16, 1).texture("#tray_side").end()
-                .face(Direction.EAST).uvs(0, 0, 16, 1).texture("#tray_side").end()
-                .face(Direction.SOUTH).uvs(0, 0, 16, 1).texture("#tray_side").end()
-                .face(Direction.WEST).uvs(0, 0, 16, 1).texture("#tray_side").end()
-                .face(Direction.UP).uvs(0, 0, 16, 16).texture("#tray_top").end()
-                .face(Direction.DOWN).uvs(0, 0, 16, 16).texture("#tray_top").end()
-                .end();
-
-        builder.element()
-                .from(15, -16, 15)
-                .to(16, -1, 16)
-                .face(Direction.NORTH).uvs(0, 1, 1, 16).texture("#tray_side").end()
-                .face(Direction.EAST).uvs(0, 1, 1, 16).texture("#tray_side").end()
-                .face(Direction.SOUTH).uvs(15, 1, 16, 16).texture("#tray_side").end()
-                .face(Direction.WEST).uvs(15, 1, 16, 16).texture("#tray_side").end()
-                .face(Direction.UP).uvs(0, 0, 0.5f, 0.5f).texture("#tray_side").end()
-                .face(Direction.DOWN).uvs(0, 0, 0.5f, 0.5f).texture("#tray_side").end()
-                .end();
-
-        builder.element()
-                .from(0, -16, 15)
-                .to(1, -1, 16)
-                .face(Direction.NORTH).uvs(15, 1, 16, 16).texture("#tray_side").end()
-                .face(Direction.EAST).uvs(0, 1, 1, 16).texture("#tray_side").end()
-                .face(Direction.SOUTH).uvs(0, 1, 1, 16).texture("#tray_side").end()
-                .face(Direction.WEST).uvs(15, 1, 16, 16).texture("#tray_side").end()
-                .face(Direction.UP).uvs(0, 0, 0.5f, 0.5f).texture("#tray_side").end()
-                .face(Direction.DOWN).uvs(0, 0, 0.5f, 0.5f).texture("#tray_side").end()
-                .end();
-
-        builder.element()
-                .from(15, -16, 0)
-                .to(16, -1, 1)
-                .face(Direction.NORTH).uvs(0, 1, 1, 16).texture("#tray_side").end()
-                .face(Direction.EAST).uvs(15, 1, 16, 16).texture("#tray_side").end()
-                .face(Direction.SOUTH).uvs(15, 1, 16, 16).texture("#tray_side").end()
-                .face(Direction.WEST).uvs(0, 1, 1, 16).texture("#tray_side").end()
-                .face(Direction.UP).uvs(0, 0, 0.5f, 0.5f).texture("#tray_side").end()
-                .face(Direction.DOWN).uvs(0, 0, 0.5f, 0.5f).texture("#tray_side").end()
-                .end();
-
-        builder.element()
-                .from(0, -16, 0)
-                .to(1, -1, 1)
-                .face(Direction.NORTH).uvs(15, 1, 16, 16).texture("#tray_side").end()
-                .face(Direction.EAST).uvs(15, 1, 16, 16).texture("#tray_side").end()
-                .face(Direction.SOUTH).uvs(0, 1, 1, 16).texture("#tray_side").end()
-                .face(Direction.WEST).uvs(0, 1, 1, 16).texture("#tray_side").end()
-                .face(Direction.UP).uvs(0, 0, 0.5f, 0.5f).texture("#tray_side").end()
-                .face(Direction.DOWN).uvs(0, 0, 0.5f, 0.5f).texture("#tray_side").end()
-                .end();
-    }
-
-    private void addCookingPotHandleElements(BlockModelBuilder builder) {
-        builder.element()
-                .from(1, 8, 8)
-                .to(15, 16, 8)
-                .face(Direction.NORTH).uvs(1, 8, 15, 16).texture("#handle").end()
-                .face(Direction.SOUTH).uvs(1, 8, 15, 16).texture("#handle").end()
-                .end();
-
-        builder.element()
-                .from(15, 8, 7)
-                .to(15, 16, 9)
-                .face(Direction.EAST).uvs(2, 0, 0, 8).texture("#handle").end()
-                .face(Direction.WEST).uvs(0, 0, 2, 8).texture("#handle").end()
-                .end();
-
-        builder.element()
-                .from(1, 8, 7)
-                .to(1, 16, 9)
-                .face(Direction.EAST).uvs(2, 0, 0, 8).texture("#handle").end()
-                .face(Direction.WEST).uvs(0, 0, 2, 8).texture("#handle").end()
-                .end();
-
-        builder.element()
-                .from(1, 15.999f, 7)
-                .to(15, 15.999f, 9)
-                .face(Direction.UP).uvs(2, 0, 16, 2).texture("#handle").end()
-                .face(Direction.DOWN).uvs(2, 0, 16, 2).texture("#handle").end()
-                .end();
-    }
 
     private void registerSkillet(RegistryObject<? extends Block> skillet) {
         String name = Objects.requireNonNull(skillet.getId()).getPath();
