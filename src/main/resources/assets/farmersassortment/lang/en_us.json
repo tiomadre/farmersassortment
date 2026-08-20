@@ -37,6 +37,9 @@
   "block.farmersassortment.bamboo_butcher_block_cabinet": "Bamboo Butcher Block Cabinet",
   "block.farmersassortment.crimson_butcher_block_cabinet": "Crimson Butcher Block Cabinet",
   "block.farmersassortment.warped_butcher_block_cabinet": "Warped Butcher Block Cabinet",
+  "block.farmersassortment.upcycled_butcher_block": "Upcycled Butcher Block",
+
+  "block.farmersassortment.upcycled_cabinet": "Upcycled Cabinet",
 
   "block.farmersassortment.oak_floating_counter": "Oak Floating Counter",
   "block.farmersassortment.spruce_floating_counter": "Spruce Floating Counter",
@@ -50,6 +53,11 @@
   "block.farmersassortment.crimson_floating_counter": "Crimson Floating Counter",
   "block.farmersassortment.warped_floating_counter": "Warped Floating Counter",
   "block.farmersassortment.alabaster_floating_counter": "Alabaster Floating Counter",
+
+  "block.farmersassortment.vine_fence": "Vine Fence",
+  "block.farmersassortment.vine_fence_gate": "Vine Fence Gate",
+  "block.farmersassortment.netted_fence": "Netted Fence",
+  "block.farmersassortment.netted_fence_gate": "Netted Fence Gate",
 
   "block.farmersassortment.white_canvas_rug": "White Canvas Rug",
   "block.farmersassortment.orange_canvas_rug": "Orange Canvas Rug",
