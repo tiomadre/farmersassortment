@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "farmersdelight:tree_bark"
+    },
+    "C": {
+      "item": "farmersdelight:canvas"
+    }
+  },
+  "pattern": [
+    "BCB",
+    "C C",
+    "BCB"
+  ],
+  "result": {
+    "item": "farmersassortment:upcycled_cabinet"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "farmersassortment:upcycled_butcher_block_cabinet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_upcycled_cabinet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "farmersassortment:upcycled_cabinet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_upcycled_cabinet",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "farmersassortment:upcycled_butcher_block_cabinet"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "farmersassortment:cutting_boards"
+    },
+    "C": {
+      "item": "farmersassortment:upcycled_cabinet"
+    }
+  },
+  "pattern": [
+    "#",
+    "C"
+  ],
+  "result": {
+    "item": "farmersassortment:upcycled_butcher_block_cabinet"
+  },
+  "show_notification": true
+}

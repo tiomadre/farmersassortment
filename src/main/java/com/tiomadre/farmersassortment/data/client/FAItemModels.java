@@ -263,6 +263,8 @@ public class FAItemModels extends ItemModelProvider {
                 Stream.concat(FABlocks.butcherBlockCabinets(), FAxCrabbersBlocks.butcherBlockCabinets()),
                 FAxForagersBlocks.butcherBlockCabinets()
         ).forEach(this::block);
+        Stream.of(FABlocks.UPCYCLED_CABINET, FABlocks.VINE_FENCE, FABlocks.VINE_FENCE_GATE,
+                FABlocks.NETTED_FENCE, FABlocks.NETTED_FENCE_GATE).forEach(this::block);
     }
 
     private void registerDiffusers() {
@@ -326,4 +328,5 @@ public class FAItemModels extends ItemModelProvider {
         withExistingParent(name, mcLoc("block/wall_inventory"))
                 .texture("wall", modLoc("block/alabaster_block"));
     }
+
 }

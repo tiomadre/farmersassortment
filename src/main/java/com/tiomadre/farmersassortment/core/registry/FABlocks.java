@@ -18,10 +18,13 @@ import net.minecraftforge.common.util.ForgeSoundType;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import vectorwing.farmersdelight.common.block.CabinetBlock;
 import vectorwing.farmersdelight.common.block.CuttingBoardBlock;
 import vectorwing.farmersdelight.common.block.CookingPotBlock;
+import vectorwing.farmersdelight.common.block.RopeFenceGateBlock;
 import vectorwing.farmersdelight.common.item.CookingPotItem;
 import vectorwing.farmersdelight.common.registry.ModBlockEntityTypes;
+
 
 
 import java.util.HashSet;
@@ -91,6 +94,10 @@ public final class FABlocks {
     public static final RegistryObject<ButcherBlockCabinetBlock> BAMBOO_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("bamboo", Blocks.BAMBOO_PLANKS);
     public static final RegistryObject<ButcherBlockCabinetBlock> CRIMSON_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("crimson", Blocks.CRIMSON_PLANKS);
     public static final RegistryObject<ButcherBlockCabinetBlock> WARPED_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("warped", Blocks.WARPED_PLANKS);
+    public static final RegistryObject<ButcherBlockCabinetBlock> UPCYCLED_BUTCHER_BLOCK_CABINET = registerButcherBlockCabinet("upcycled", Blocks.BARREL, "upcycled_butcher_block_cabinet");
+        //Cabinets
+    public static final RegistryObject<CabinetBlock> UPCYCLED_CABINET = BLOCKS.createBlock("upcycled_cabinet",
+                () -> new CabinetBlock(BlockBehaviour.Properties.copy(Blocks.BARREL)), new Item.Properties());
         //Counters
     public static final RegistryObject<FloatingCounterBlock> OAK_FLOATING_COUNTER = registerFloatingCounter("oak", Blocks.OAK_PLANKS);
     public static final RegistryObject<FloatingCounterBlock> SPRUCE_FLOATING_COUNTER = registerFloatingCounter("spruce", Blocks.SPRUCE_PLANKS);
@@ -143,6 +150,16 @@ public final class FABlocks {
     public static final RegistryObject<TableBlock> CRIMSON_TABLE = registerTable("crimson", Blocks.CRIMSON_PLANKS);
     public static final RegistryObject<TableBlock> WARPED_TABLE = registerTable("warped", Blocks.WARPED_PLANKS);
     public static final RegistryObject<TableBlock> ALABASTER_TABLE = registerTable("alabaster", Blocks.QUARTZ_BLOCK);
+
+
+    public static final RegistryObject<RopeFenceGateBlock> VINE_FENCE_GATE = BLOCKS.createBlock("vine_fence_gate",
+            () -> new RopeFenceGateBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE_GATE).noOcclusion()), new Item.Properties());
+    public static final RegistryObject<VariantRopeFenceBlock> VINE_FENCE = BLOCKS.createBlock("vine_fence",
+            () -> new VariantRopeFenceBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE).noOcclusion(), VINE_FENCE_GATE), new Item.Properties());
+    public static final RegistryObject<RopeFenceGateBlock> NETTED_FENCE_GATE = BLOCKS.createBlock("netted_fence_gate",
+            () -> new RopeFenceGateBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE_GATE).noOcclusion()), new Item.Properties());
+    public static final RegistryObject<NettedFenceBlock> NETTED_FENCE = BLOCKS.createBlock("netted_fence",
+            () -> new NettedFenceBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE).noOcclusion(), NETTED_FENCE_GATE), new Item.Properties());
 
 //definitions
 private static RegistryObject<Block> registerStorageBlock(String name) {
@@ -292,7 +309,8 @@ private static RegistryObject<Block> registerStorageBlock(String name) {
                 CHERRY_BUTCHER_BLOCK_CABINET,
                 BAMBOO_BUTCHER_BLOCK_CABINET,
                 CRIMSON_BUTCHER_BLOCK_CABINET,
-                WARPED_BUTCHER_BLOCK_CABINET
+                WARPED_BUTCHER_BLOCK_CABINET,
+                UPCYCLED_BUTCHER_BLOCK_CABINET
         );
     }
 
@@ -328,11 +346,15 @@ private static RegistryObject<Block> registerStorageBlock(String name) {
     }
 
     private static RegistryObject<ButcherBlockCabinetBlock> registerButcherBlockCabinet(String woodType, Block baseBlock) {
+        return registerButcherBlockCabinet(woodType, baseBlock, woodType + "_butcher_block_cabinet");
+    }
+
+    private static RegistryObject<ButcherBlockCabinetBlock> registerButcherBlockCabinet(String woodType, Block baseBlock, String registryName) {
         SoundType soundType = baseBlock.defaultBlockState().getSoundType();
         BlockBehaviour.Properties properties = BlockBehaviour.Properties.copy(Blocks.BARREL)
                 .mapColor(baseBlock.defaultMapColor())
                 .sound(soundType);
-        return BLOCKS.createBlock(woodType + "_butcher_block_cabinet",
+        return BLOCKS.createBlock(registryName,
                 () -> new ButcherBlockCabinetBlock(properties),
                 new Item.Properties());
     }
@@ -347,6 +369,10 @@ private static RegistryObject<Block> registerStorageBlock(String name) {
             allCuttingBoards().map(RegistryObject::get).forEach(updatedCuttingBoardBlocks::add);
             allButcherBlockCabinets().map(RegistryObject::get).forEach(updatedCuttingBoardBlocks::add);
             cuttingBoardAccessor.farmersassortment$setValidBlocks(updatedCuttingBoardBlocks);
+            BlockEntityTypeAccessor cabinetAccessor = (BlockEntityTypeAccessor) ModBlockEntityTypes.CABINET.get();
+            Set<Block> cabinetBlocks = new HashSet<>(cabinetAccessor.farmersassortment$getValidBlocks());
+            cabinetBlocks.add(UPCYCLED_CABINET.get());
+            cabinetAccessor.farmersassortment$setValidBlocks(cabinetBlocks);
 
             BlockEntityTypeAccessor cookingPotAccessor = (BlockEntityTypeAccessor) ModBlockEntityTypes.COOKING_POT.get();
             Set<Block> cookingPotValidBlocks = cookingPotAccessor.farmersassortment$getValidBlocks();

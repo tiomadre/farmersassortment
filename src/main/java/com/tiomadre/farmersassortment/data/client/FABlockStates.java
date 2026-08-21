@@ -61,12 +61,51 @@ public class FABlockStates extends BlockStateProvider {
         registerCrabTraps();
         registerDiffusers();
         registerFloatingCounters();
+        registerRopeFences();
         registerSlats();
         registerSkillets();
         registerStools();
         registerStoves();
         registerRacks();
         registerTables();
+
+    }
+
+    private void registerRopeFences() {
+        ropeFenceBlockState(FABlocks.VINE_FENCE, "vine_fence", false);
+        ropeFenceGateBlockState(FABlocks.VINE_FENCE_GATE, "vine_fence", false);
+        ropeFenceBlockState(FABlocks.NETTED_FENCE, "netted_fence", true);
+        ropeFenceGateBlockState(FABlocks.NETTED_FENCE_GATE, "netted_fence", true);
+    }
+
+    private void ropeFenceBlockState(RegistryObject<? extends Block> block, String name, boolean wetVariant) {
+        MultiPartBlockStateBuilder builder = getMultipartBuilder(block.get());
+        for (boolean waterlogged : new boolean[]{false, true}) {
+            String prefix = wetVariant && waterlogged ? "wet_" : "";
+            builder.part().modelFile(models().getExistingFile(modLoc("block/" + prefix + name + "_post"))).addModel()
+                    .condition(BlockStateProperties.WATERLOGGED, waterlogged).end();
+            Direction.Plane.HORIZONTAL.forEach(direction -> builder.part()
+                    .modelFile(models().getExistingFile(modLoc("block/" + prefix + name + "_side")))
+                    .rotationY(((int) direction.toYRot() + 180) % 360).uvLock(true).addModel()
+                    .condition(BlockStateProperties.WATERLOGGED, waterlogged)
+                    .condition(switch (direction) {
+                        case NORTH -> BlockStateProperties.NORTH;
+                        case EAST -> BlockStateProperties.EAST;
+                        case SOUTH -> BlockStateProperties.SOUTH;
+                        default -> BlockStateProperties.WEST;
+                    }, true).end());
+        }
+    }
+
+    private void ropeFenceGateBlockState(RegistryObject<? extends Block> block, String name, boolean wetVariant) {
+        getVariantBuilder(block.get()).forAllStates(state -> {
+            boolean open = state.getValue(BlockStateProperties.OPEN);
+            boolean inWall = state.getValue(BlockStateProperties.IN_WALL);
+            String modelName = name + "_gate" + (inWall ? "_wall" : "") + (open ? "_open" : "");
+            return ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc("block/" + modelName)))
+                    .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + (open ? 90 : 0)) % 360)
+                    .uvLock(true).build();
+        });
     }
     private void registerAlabasterBuildingBlocks() {
         BlockModelBuilder blockModel = models().cubeAll(Objects.requireNonNull(FABlocks.ALABASTER_BLOCK.getId()).getPath(), modLoc("block/alabaster_block"));
@@ -94,9 +133,12 @@ public class FABlockStates extends BlockStateProvider {
                 new CabinetDefinition(FABlocks.BAMBOO_BUTCHER_BLOCK_CABINET, "bamboo", new ResourceLocation("minecraft", "block/bamboo_planks"), modLoc("block/bamboo_butcher_block_cabinet_top")),
                 new CabinetDefinition(FABlocks.CRIMSON_BUTCHER_BLOCK_CABINET, "crimson", new ResourceLocation("minecraft", "block/crimson_planks"), modLoc("block/crimson_butcher_block_cabinet_front_top")),
                 new CabinetDefinition(FABlocks.WARPED_BUTCHER_BLOCK_CABINET, "warped", new ResourceLocation("minecraft", "block/warped_planks"), modLoc("block/warped_butcher_block_cabinet_top")),
+                new CabinetDefinition(FABlocks.UPCYCLED_BUTCHER_BLOCK_CABINET, "upcycled", modLoc("block/upcycled_cabinet_top"), modLoc("block/upcycled_butcher_block_top")),
+                new CabinetDefinition(FABlocks.UPCYCLED_CABINET, "upcycled_cabinet", modLoc("block/upcycled_cabinet_top"), modLoc("block/upcycled_cabinet_top")),
                 //Other Mods
                 new CabinetDefinition(FAxCrabbersBlocks.PALM_BUTCHER_BLOCK_CABINET, "palm", fallbackTexture(new ResourceLocation("crabbersdelight", "block/palm_planks"), new ResourceLocation("minecraft", "block/oak_planks")), modLoc("block/palm_butcher_block_cabinet_top")),
                 new CabinetDefinition(FAxForagersBlocks.LILAC_BUTCHER_BLOCK_CABINET, "lilac", fallbackTexture(new ResourceLocation("foragersinsight", "block/lilac_planks"), new ResourceLocation("minecraft", "block/oak_planks")), modLoc("block/lilac_butcher_block_cabinet_top"))
+
         );
 
         cabinets.forEach(cabinet -> registerButcherBlockCabinet(
@@ -125,6 +167,7 @@ public class FABlockStates extends BlockStateProvider {
 
         slats.forEach(definition -> registerSlats(definition.block(), definition.woodType(), definition.bamboo()));
     }
+
     private void registerSlats(RegistryObject<? extends Block> block, String woodType, boolean bamboo) {
         String name = Objects.requireNonNull(block.getId()).getPath();
         ResourceLocation texture = bamboo
@@ -572,15 +615,15 @@ public class FABlockStates extends BlockStateProvider {
         String name = block.getId().getPath();
         ModelFile closed = models().getBuilder(name)
                 .parent(new ModelFile.UncheckedModelFile("minecraft:block/orientable_with_bottom"))
-                .texture("front", modLoc("block/" + woodType + "_butcher_block_cabinet_front"))
-                .texture("side", modLoc("block/" + woodType + "_butcher_block_cabinet_side"))
-                .texture("top", modLoc("block/" + woodType + "_butcher_block_cabinet_top"))
+                .texture("front", modLoc("block/" + cabinetTexture(woodType, "front")))
+                .texture("side", modLoc("block/" + cabinetTexture(woodType, "side")))
+                .texture("top", topTexture)
                 .texture("bottom", bottomTexture);
         ModelFile open = models().getBuilder(name + "_open")
                 .parent(new ModelFile.UncheckedModelFile("minecraft:block/orientable_with_bottom"))
-                .texture("front", modLoc("block/" + woodType + "_butcher_block_cabinet_front_open"))
-                .texture("side", modLoc("block/" + woodType + "_butcher_block_cabinet_side"))
-                .texture("top", modLoc("block/" + woodType + "_butcher_block_cabinet_top"))
+                .texture("front", modLoc("block/" + cabinetTexture(woodType, "front_open")))
+                .texture("side", modLoc("block/" + cabinetTexture(woodType, "side")))
+                .texture("top", topTexture)
                 .texture("bottom", bottomTexture);
 
         getVariantBuilder(block.get()).forAllStates(state -> {
@@ -592,6 +635,11 @@ public class FABlockStates extends BlockStateProvider {
                     .rotationY(((int) direction.toYRot()) % 360)
                     .build();
         });
+    }
+    private String cabinetTexture(String type, String face) {
+        if (type.equals("upcycled")) return "upcycled_butcher_block_" + face;
+        if (type.equals("upcycled_cabinet")) return "upcycled_cabinet_" + face;
+        return type + "_butcher_block_cabinet_" + face;
     }
 
     //COOKING POT VARIANT STUFF

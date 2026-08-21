@@ -9,6 +9,7 @@ import com.tiomadre.farmersassortment.core.registry.FADynamicStools;
 import com.tiomadre.farmersassortment.core.registry.FAItems;
 import com.tiomadre.farmersassortment.core.registry.FARugs;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
+import com.tiomadre.farmersassortment.data.server.tags.FATags;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -155,6 +156,9 @@ public final class FACrafting extends RecipeProvider {
         butcherBlockCabinet(output, FABlocks.BAMBOO_BUTCHER_BLOCK_CABINET, FABlocks.BAMBOO_CUTTING_BOARD.get(), blockItem("farmersdelight", "bamboo_cabinet"));
         butcherBlockCabinet(output, FABlocks.CRIMSON_BUTCHER_BLOCK_CABINET, FABlocks.CRIMSON_CUTTING_BOARD.get(), blockItem("farmersdelight", "crimson_cabinet"));
         butcherBlockCabinet(output, FABlocks.WARPED_BUTCHER_BLOCK_CABINET, FABlocks.WARPED_CUTTING_BOARD.get(), blockItem("farmersdelight", "warped_cabinet"));
+        butcherBlockCabinet(output, FABlocks.UPCYCLED_BUTCHER_BLOCK_CABINET, FATags.Items.CUTTING_BOARDS, FABlocks.UPCYCLED_CABINET.get());
+        //Cabinet
+        upcycledCabinet(output);
 
         //Canvas Rugs
         canvasRug(output, FARugs.WHITE_CANVAS_RUG, Items.WHITE_DYE);
@@ -173,6 +177,10 @@ public final class FACrafting extends RecipeProvider {
         canvasRug(output, FARugs.GREEN_CANVAS_RUG, Items.GREEN_DYE);
         canvasRug(output, FARugs.RED_CANVAS_RUG, Items.RED_DYE);
         canvasRug(output, FARugs.BLACK_CANVAS_RUG, Items.BLACK_DYE);
+
+        //Fences
+        ropeFence(output, FABlocks.VINE_FENCE, FABlocks.VINE_FENCE_GATE, Blocks.VINE);
+        ropeFence(output, FABlocks.NETTED_FENCE, FABlocks.NETTED_FENCE_GATE, Items.STRING);
 
         //Tables
         table(output, FABlocks.OAK_TABLE, Blocks.OAK_PLANKS);
@@ -488,6 +496,30 @@ public final class FACrafting extends RecipeProvider {
                 .pattern("C")
                 .unlockedBy(getHasName(cuttingBoard), has(cuttingBoard))
                 .save(output);
+    }
+    private void butcherBlockCabinet(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> cabinet,
+                                     net.minecraft.tags.TagKey<Item> cuttingBoards, ItemLike baseCabinet) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, cabinet.get())
+                .define('#', cuttingBoards).define('C', baseCabinet).pattern("#").pattern("C")
+                .unlockedBy("has_upcycled_cabinet", has(baseCabinet)).save(output);
+    }
+
+    private void upcycledCabinet(Consumer<FinishedRecipe> output) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, FABlocks.UPCYCLED_CABINET.get())
+                .define('C', item("farmersdelight", "canvas"))
+                .define('B', item("farmersdelight", "tree_bark"))
+                .pattern("BCB").pattern("C C").pattern("BCB")
+                .unlockedBy("has_canvas", has(item("farmersdelight", "canvas"))).save(output);
+    }
+
+    private void ropeFence(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> fence,
+                           RegistryObject<? extends ItemLike> gate, ItemLike binding) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, fence.get(), 3)
+                .define('B', binding).define('S', Items.STICK).pattern("BSB").pattern("BSB")
+                .unlockedBy(getHasName(binding), has(binding)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, gate.get())
+                .define('B', binding).define('S', Items.STICK).pattern("SBS").pattern("SBS")
+                .unlockedBy(getHasName(binding), has(binding)).save(output);
     }
 
     private void variantStove(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> stove, ItemLike material,
