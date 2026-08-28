@@ -45,6 +45,7 @@ public class FAItemModels extends ItemModelProvider {
         registerRacks();
         registerTables();
         registerSlats();
+        registerRopeFences();
     }
     private void registerKnives() {
         Stream.of(FAItems.AMETHYST_KNIFE, FAItems.QUARTZ_KNIFE, FAItems.CLAMSHELL_KNIFE, FAItems.ALABASTER_KNIFE)
@@ -263,8 +264,15 @@ public class FAItemModels extends ItemModelProvider {
                 Stream.concat(FABlocks.butcherBlockCabinets(), FAxCrabbersBlocks.butcherBlockCabinets()),
                 FAxForagersBlocks.butcherBlockCabinets()
         ).forEach(this::block);
-        Stream.of(FABlocks.UPCYCLED_CABINET, FABlocks.VINE_FENCE, FABlocks.VINE_FENCE_GATE,
-                FABlocks.NETTED_FENCE, FABlocks.NETTED_FENCE_GATE).forEach(this::block);
+        block(FABlocks.UPCYCLED_CABINET);
+    }
+
+    private void registerRopeFences() {
+        Stream.of(FABlocks.VINE_FENCE, FABlocks.NETTED_FENCE).forEach(block -> {
+            String name = Objects.requireNonNull(block.getId()).getPath();
+            withExistingParent(name, modLoc("block/" + name + "_inventory"));
+        });
+        Stream.of(FABlocks.VINE_FENCE_GATE, FABlocks.NETTED_FENCE_GATE).forEach(this::block);
     }
 
     private void registerDiffusers() {

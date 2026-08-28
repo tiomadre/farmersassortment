@@ -73,12 +73,16 @@ public class FABlockStates extends BlockStateProvider {
 
     private void registerRopeFences() {
         ropeFenceBlockState(FABlocks.VINE_FENCE, "vine_fence", false);
-        ropeFenceGateBlockState(FABlocks.VINE_FENCE_GATE, "vine_fence", false);
+        ropeFenceGateBlockState(FABlocks.VINE_FENCE_GATE, "vine_fence");
         ropeFenceBlockState(FABlocks.NETTED_FENCE, "netted_fence", true);
-        ropeFenceGateBlockState(FABlocks.NETTED_FENCE_GATE, "netted_fence", true);
+        ropeFenceGateBlockState(FABlocks.NETTED_FENCE_GATE, "netted_fence");
     }
 
     private void ropeFenceBlockState(RegistryObject<? extends Block> block, String name, boolean wetVariant) {
+        ropeFenceModels(name, name);
+        if (wetVariant) {
+            ropeFenceModels("wet_" + name, "wet_" + name);
+        }
         MultiPartBlockStateBuilder builder = getMultipartBuilder(block.get());
         for (boolean waterlogged : new boolean[]{false, true}) {
             String prefix = wetVariant && waterlogged ? "wet_" : "";
@@ -96,8 +100,22 @@ public class FABlockStates extends BlockStateProvider {
                     }, true).end());
         }
     }
+    private void ropeFenceModels(String modelName, String textureName) {
+        ResourceLocation texture = modLoc("block/" + textureName);
+        models().withExistingParent(modelName + "_post", mcLoc("block/fence_post"))
+                .renderType("minecraft:cutout")
+                .texture("texture", texture);
+        models().withExistingParent(modelName + "_side", mcLoc("block/fence_side"))
+                .renderType("minecraft:cutout")
+                .texture("texture", texture);
+        models().withExistingParent(modelName + "_inventory", mcLoc("block/fence_inventory"))
+                .renderType("minecraft:cutout")
+                .texture("texture", texture);
+    }
 
-    private void ropeFenceGateBlockState(RegistryObject<? extends Block> block, String name, boolean wetVariant) {
+
+    private void ropeFenceGateBlockState(RegistryObject<? extends Block> block, String name) {
+        ropeFenceGateModels(name);
         getVariantBuilder(block.get()).forAllStates(state -> {
             boolean open = state.getValue(BlockStateProperties.OPEN);
             boolean inWall = state.getValue(BlockStateProperties.IN_WALL);
@@ -106,6 +124,22 @@ public class FABlockStates extends BlockStateProvider {
                     .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + (open ? 90 : 0)) % 360)
                     .uvLock(true).build();
         });
+    }
+
+    private void ropeFenceGateModels(String name) {
+        String gateName = name + "_gate";
+        ropeFenceGateModel(gateName, "template_fence_gate", gateName);
+        ropeFenceGateModel(gateName + "_open", "template_fence_gate_open", gateName + "_open");
+        ropeFenceGateModel(gateName + "_wall", "template_fence_gate_wall", gateName + "_wall");
+        ropeFenceGateModel(gateName + "_wall_open", "template_fence_gate_wall_open", gateName + "_open");
+
+
+    }
+
+    private void ropeFenceGateModel(String modelName, String parentName, String textureName) {
+        models().withExistingParent(modelName, mcLoc("block/" + parentName))
+                .renderType("minecraft:cutout")
+                .texture("texture", modLoc("block/" + textureName));
     }
     private void registerAlabasterBuildingBlocks() {
         BlockModelBuilder blockModel = models().cubeAll(Objects.requireNonNull(FABlocks.ALABASTER_BLOCK.getId()).getPath(), modLoc("block/alabaster_block"));
@@ -131,7 +165,7 @@ public class FABlockStates extends BlockStateProvider {
                 new CabinetDefinition(FABlocks.MANGROVE_BUTCHER_BLOCK_CABINET, "mangrove", new ResourceLocation("minecraft", "block/mangrove_planks"), modLoc("block/mangrove_butcher_block_cabinet_top")),
                 new CabinetDefinition(FABlocks.CHERRY_BUTCHER_BLOCK_CABINET, "cherry", new ResourceLocation("minecraft", "block/cherry_planks"), modLoc("block/cherry_butcher_block_cabinet_top")),
                 new CabinetDefinition(FABlocks.BAMBOO_BUTCHER_BLOCK_CABINET, "bamboo", new ResourceLocation("minecraft", "block/bamboo_planks"), modLoc("block/bamboo_butcher_block_cabinet_top")),
-                new CabinetDefinition(FABlocks.CRIMSON_BUTCHER_BLOCK_CABINET, "crimson", new ResourceLocation("minecraft", "block/crimson_planks"), modLoc("block/crimson_butcher_block_cabinet_front_top")),
+                new CabinetDefinition(FABlocks.CRIMSON_BUTCHER_BLOCK_CABINET, "crimson", new ResourceLocation("minecraft", "block/crimson_planks"), modLoc("block/crimson_butcher_block_cabinet_top")),
                 new CabinetDefinition(FABlocks.WARPED_BUTCHER_BLOCK_CABINET, "warped", new ResourceLocation("minecraft", "block/warped_planks"), modLoc("block/warped_butcher_block_cabinet_top")),
                 new CabinetDefinition(FABlocks.UPCYCLED_BUTCHER_BLOCK_CABINET, "upcycled", modLoc("block/upcycled_cabinet_top"), modLoc("block/upcycled_butcher_block_top")),
                 new CabinetDefinition(FABlocks.UPCYCLED_CABINET, "upcycled_cabinet", modLoc("block/upcycled_cabinet_top"), modLoc("block/upcycled_cabinet_top")),
