@@ -156,10 +156,6 @@ public final class FABlocks {
             () -> new RopeFenceGateBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE_GATE).noOcclusion()), new Item.Properties());
     public static final RegistryObject<VariantRopeFenceBlock> VINE_FENCE = BLOCKS.createBlock("vine_fence",
             () -> new VariantRopeFenceBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE).noOcclusion(), VINE_FENCE_GATE), new Item.Properties());
-    public static final RegistryObject<RopeFenceGateBlock> NETTED_FENCE_GATE = BLOCKS.createBlock("netted_fence_gate",
-            () -> new RopeFenceGateBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE_GATE).noOcclusion()), new Item.Properties());
-    public static final RegistryObject<NettedFenceBlock> NETTED_FENCE = BLOCKS.createBlock("netted_fence",
-            () -> new NettedFenceBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE).noOcclusion(), NETTED_FENCE_GATE), new Item.Properties());
 
 //definitions
 private static RegistryObject<Block> registerStorageBlock(String name) {

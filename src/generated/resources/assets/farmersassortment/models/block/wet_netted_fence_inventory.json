@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/fence_inventory",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "texture": "farmersassortment:block/wet_netted_fence"
-  }
-}

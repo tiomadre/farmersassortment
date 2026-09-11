@@ -18,8 +18,23 @@ public class StoolItem extends BlockItem {
     private static final String BLOCK_STATE_TAG = "BlockStateTag";
     private static final String RUG_TAG = "rug";
 
+    @Nullable
+    private final String fallbackName;
+
     public StoolItem(Block block, Properties properties) {
+        this(block, properties, null);
+    }
+
+    public StoolItem(Block block, Properties properties, @Nullable String fallbackName) {
         super(block, properties);
+        this.fallbackName = fallbackName;
+    }
+
+    @Override
+    public @NotNull Component getName(@NotNull ItemStack stack) {
+        return fallbackName == null
+                ? super.getName(stack)
+                : Component.translatableWithFallback(getDescriptionId(stack), fallbackName);
     }
 
     public static ItemStack applyRugToStack(ItemStack stack, StoolRugType rug) {

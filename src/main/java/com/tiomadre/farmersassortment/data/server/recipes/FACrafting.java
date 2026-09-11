@@ -180,7 +180,6 @@ public final class FACrafting extends RecipeProvider {
 
         //Fences
         ropeFence(output, FABlocks.VINE_FENCE, FABlocks.VINE_FENCE_GATE, Blocks.VINE);
-        ropeFence(output, FABlocks.NETTED_FENCE, FABlocks.NETTED_FENCE_GATE, Items.STRING);
 
         //Tables
         table(output, FABlocks.OAK_TABLE, Blocks.OAK_PLANKS);

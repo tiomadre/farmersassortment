@@ -268,11 +268,9 @@ public class FAItemModels extends ItemModelProvider {
     }
 
     private void registerRopeFences() {
-        Stream.of(FABlocks.VINE_FENCE, FABlocks.NETTED_FENCE).forEach(block -> {
-            String name = Objects.requireNonNull(block.getId()).getPath();
-            withExistingParent(name, modLoc("block/" + name + "_inventory"));
-        });
-        Stream.of(FABlocks.VINE_FENCE_GATE, FABlocks.NETTED_FENCE_GATE).forEach(this::block);
+        String name = Objects.requireNonNull(FABlocks.VINE_FENCE.getId()).getPath();
+        withExistingParent(name, modLoc("block/" + name + "_inventory"));
+        block(FABlocks.VINE_FENCE_GATE);
     }
 
     private void registerDiffusers() {

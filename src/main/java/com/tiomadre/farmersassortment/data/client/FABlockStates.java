@@ -74,8 +74,6 @@ public class FABlockStates extends BlockStateProvider {
     private void registerRopeFences() {
         ropeFenceBlockState(FABlocks.VINE_FENCE, "vine_fence", false);
         ropeFenceGateBlockState(FABlocks.VINE_FENCE_GATE, "vine_fence");
-        ropeFenceBlockState(FABlocks.NETTED_FENCE, "netted_fence", true);
-        ropeFenceGateBlockState(FABlocks.NETTED_FENCE_GATE, "netted_fence");
     }
 
     private void ropeFenceBlockState(RegistryObject<? extends Block> block, String name, boolean wetVariant) {

@@ -40,7 +40,7 @@ public final class FAClientEvents {
                     new ResourceLocation(FarmersAssortment.MOD_ID, "color"),
                     (stack, level, entity, seed) -> TerracottaCookingPotItem.getColor(stack).ordinal());
 
-            FABlocks.stools().forEach(stool -> ItemProperties.register(Item.byBlock(stool.get()),
+            FABlocks.allStools().forEach(stool -> ItemProperties.register(Item.byBlock(stool.get()),
                     new ResourceLocation(FarmersAssortment.MOD_ID, "rug"),
                     (stack, level, entity, seed) -> StoolItem.getRug(stack).ordinal()));
 

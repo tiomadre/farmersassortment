@@ -31,9 +31,13 @@ public final class FATab {
                                     FABlocks.BLOCKS.getDeferredRegister().getEntries().stream()
                                             .map(registryObject -> Map.<ResourceLocation, Supplier<? extends ItemLike>>entry(
                                                     registryObject.getId(), registryObject)),
-                                    FAItems.ITEMS.getDeferredRegister().getEntries().stream()
-                                            .map(registryObject -> Map.<ResourceLocation, Supplier<? extends ItemLike>>entry(
-                                                    registryObject.getId(), registryObject)))
+                                    Stream.concat(
+                                            FADynamicStools.stools()
+                                                    .map(registryObject -> Map.<ResourceLocation, Supplier<? extends ItemLike>>entry(
+                                                            registryObject.getId(), registryObject)),
+                                            FAItems.ITEMS.getDeferredRegister().getEntries().stream()
+                                                    .map(registryObject -> Map.<ResourceLocation, Supplier<? extends ItemLike>>entry(
+                                                            registryObject.getId(), registryObject))))
                             .sorted(Comparator
                                     .comparingInt((Map.Entry<ResourceLocation, Supplier<? extends ItemLike>> entry) ->
                                             categoryOrder(entry.getKey().getPath()))
