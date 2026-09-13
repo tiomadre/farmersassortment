@@ -23,11 +23,8 @@ import net.minecraftforge.client.model.generators.*;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 import com.tiomadre.farmersassortment.core.block.ButcherBlockCabinetBlock;
-import vectorwing.farmersdelight.common.block.CuttingBoardBlock;
-import vectorwing.farmersdelight.common.block.CookingPotBlock;
-import vectorwing.farmersdelight.common.block.SkilletBlock;
+import vectorwing.farmersdelight.common.block.*;
 import vectorwing.farmersdelight.common.block.state.CookingPotSupport;
-import vectorwing.farmersdelight.common.block.StoveBlock;
 import com.tiomadre.farmersassortment.core.block.state.StoolRugType;
 
 import java.util.*;
@@ -179,6 +176,7 @@ public class FABlockStates extends BlockStateProvider {
                 cabinet.bottomTexture(),
                 cabinet.topTexture()
         ));
+        registerUpcycledCabinet();
     }
     private void registerSlats() {
         List<SlatsDefinition> slats = List.of(
@@ -667,7 +665,26 @@ public class FABlockStates extends BlockStateProvider {
                     .rotationY(((int) direction.toYRot()) % 360)
                     .build();
         });
+
     }
+    private void registerUpcycledCabinet() {
+        ModelFile closed = models().orientableWithBottom("upcycled_cabinet",
+                modLoc("block/upcycled_cabinet_side"),
+                modLoc("block/upcycled_cabinet_front"),
+                modLoc("block/upcycled_cabinet_top"),
+                modLoc("block/upcycled_cabinet_top"));
+        ModelFile open = models().orientableWithBottom("upcycled_cabinet_open",
+                modLoc("block/upcycled_cabinet_side"),
+                modLoc("block/upcycled_cabinet_front_open"),
+                modLoc("block/upcycled_cabinet_top"),
+                modLoc("block/upcycled_cabinet_top"));
+
+        getVariantBuilder(FABlocks.UPCYCLED_CABINET.get()).forAllStates(state -> ConfiguredModel.builder()
+                .modelFile(state.getValue(CabinetBlock.OPEN) ? open : closed)
+                .rotationY(((int) state.getValue(CabinetBlock.FACING).toYRot() + 180) % 360)
+                .build());
+    }
+
     private String cabinetTexture(String type, String face) {
         if (type.equals("upcycled")) return "upcycled_butcher_block_" + face;
         if (type.equals("upcycled_cabinet")) return "upcycled_cabinet_" + face;
@@ -915,8 +932,8 @@ private void registerStools() {
                 .renderType("minecraft:cutout")
                 .texture(bamboo ? "2" : "6", seatTexture)
                 .texture(bamboo ? "3" : "5", legTexture)
-                .texture(bamboo ? "4" : "3", fallbackTexture(new ResourceLocation(rugType.extrudeTexturePath()), modLoc("block/white_canvas_rug_extrudes")))
-                .texture(bamboo ? "5" : "4", fallbackTexture(new ResourceLocation(Objects.requireNonNull(rugType.texturePath())), modLoc("block/white_canvas_rug")))
+                .texture(bamboo ? "4" : "3", new ResourceLocation(rugType.extrudeTexturePath()))
+                .texture(bamboo ? "5" : "4", new ResourceLocation(Objects.requireNonNull(rugType.texturePath())))
                 .texture("particle", legTexture);
         addStoolCoreElements(builder, true, false, bamboo ? "#2" : "#6", bamboo ? "#3" : "#5");
         return builder;
@@ -928,8 +945,8 @@ private void registerStools() {
                 .renderType("minecraft:cutout")
                 .texture(bamboo ? "2" : "6", seatTexture)
                 .texture(bamboo ? "3" : "5", legTexture)
-                .texture(bamboo ? "4" : "3", fallbackTexture(new ResourceLocation(rugType.extrudeTexturePath()), modLoc("block/white_canvas_rug_extrudes")))
-                .texture(bamboo ? "5" : "4", fallbackTexture(new ResourceLocation(Objects.requireNonNull(rugType.texturePath())), modLoc("block/white_canvas_rug")))
+                .texture(bamboo ? "4" : "3", new ResourceLocation(rugType.extrudeTexturePath()))
+                .texture(bamboo ? "5" : "4", new ResourceLocation(Objects.requireNonNull(rugType.texturePath())))
                 .texture("particle", legTexture);
         addStoolCoreElements(builder, true, true, bamboo ? "#2" : "#6", bamboo ? "#3" : "#5");
         return builder;
@@ -1086,8 +1103,8 @@ private void registerStools() {
         }
 
         if (alabaster && rugType.hasRug()) {
-            ResourceLocation rugTexture = fallbackTexture(new ResourceLocation(Objects.requireNonNull(rugType.texturePath())), modLoc("block/white_canvas_rug"));
-            ResourceLocation rugExtrudesTexture = fallbackTexture(new ResourceLocation(rugType.extrudeTexturePath()), modLoc("block/white_canvas_rug_extrudes"));
+            ResourceLocation rugTexture = new ResourceLocation(Objects.requireNonNull(rugType.texturePath()));
+            ResourceLocation rugExtrudesTexture = new ResourceLocation(rugType.extrudeTexturePath());
             BlockModelBuilder builder = models().getBuilder(name)
                     .renderType("minecraft:cutout")
                     .texture("2", legTexture)
@@ -1110,8 +1127,8 @@ private void registerStools() {
         }
 
         if (bamboo && rugType.hasRug()) {
-            ResourceLocation rugTexture = fallbackTexture(new ResourceLocation(Objects.requireNonNull(rugType.texturePath())), modLoc("block/white_canvas_rug"));
-            ResourceLocation rugExtrudesTexture = fallbackTexture(new ResourceLocation(rugType.extrudeTexturePath()), modLoc("block/white_canvas_rug_extrudes"));
+            ResourceLocation rugTexture = new ResourceLocation(Objects.requireNonNull(rugType.texturePath()));
+            ResourceLocation rugExtrudesTexture = new ResourceLocation(rugType.extrudeTexturePath());
             BlockModelBuilder builder = models().getBuilder(name)
                     .renderType("minecraft:cutout")
                     .texture("6", legTexture)
@@ -1131,8 +1148,8 @@ private void registerStools() {
 
         if (rugType.hasRug()) {
             builder.renderType("minecraft:cutout");
-            builder.texture("4", fallbackTexture(new ResourceLocation(Objects.requireNonNull(rugType.texturePath())), modLoc("block/white_canvas_rug")))
-                    .texture("5", fallbackTexture(new ResourceLocation(rugType.extrudeTexturePath()), modLoc("block/white_canvas_rug_extrudes")));
+            builder.texture("4", new ResourceLocation(Objects.requireNonNull(rugType.texturePath())))
+                    .texture("5", new ResourceLocation(rugType.extrudeTexturePath()));
             addCoveredTableElements(builder, bamboo, north, east, south, west);
         } else {
             addBaseTableElements(builder, bamboo, north, east, south, west);
