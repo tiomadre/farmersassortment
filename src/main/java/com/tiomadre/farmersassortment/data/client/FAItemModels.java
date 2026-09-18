@@ -25,10 +25,10 @@ public class FAItemModels extends ItemModelProvider {
     public FAItemModels(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, FarmersAssortment.MOD_ID, existingFileHelper);
     }
-
     @Override
     protected void registerModels() {
         registerAlabasterBuildingBlocks();
+        registerUpcycledBuildingBlocks();
         registerKnives();
         registerCookingPots();
         registerStoves();
@@ -46,6 +46,24 @@ public class FAItemModels extends ItemModelProvider {
         registerTables();
         registerSlats();
         registerRopeFences();
+        registerTrapdoors();
+        generatedItem(FABlocks.UPCYCLED_DIVIDER, "divider");
+    }
+    private void generatedItem(RegistryObject<?> item, String texture) {
+        String name = Objects.requireNonNull(item.getId()).getPath();
+        withExistingParent(name, mcLoc("item/generated"))
+                .texture("layer0", modLoc("item/" + texture));
+    }
+
+    private void registerTrapdoors() {
+        withExistingParent("upcycled_trapdoor", modLoc("block/upcycled_trapdoor_bottom"));
+    }
+
+    private void registerUpcycledBuildingBlocks() {
+        withExistingParent("upcycled_door", mcLoc("item/generated"))
+                .texture("layer0", modLoc("block/upcycled_door_bottom"));
+        block(FABlocks.UPCYCLED_PILLAR);
+        block(FABlocks.UPCYCLED_PANELING);
     }
     private void registerKnives() {
         Stream.of(FAItems.AMETHYST_KNIFE, FAItems.QUARTZ_KNIFE, FAItems.CLAMSHELL_KNIFE, FAItems.ALABASTER_KNIFE)

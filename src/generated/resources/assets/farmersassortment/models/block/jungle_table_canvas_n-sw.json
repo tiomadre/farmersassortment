@@ -154,8 +154,8 @@
   "textures": {
     "0": "minecraft:block/stripped_jungle_log",
     "1": "minecraft:block/stripped_jungle_log_top",
-    "4": "farmersassortment:block/white_canvas_rug",
-    "5": "farmersassortment:block/white_canvas_rug_extrudes",
+    "4": "farmersdelight:block/canvas_rug",
+    "5": "farmersdelight:block/canvas_rug_fraying",
     "particle": "minecraft:block/stripped_jungle_log"
   }
 }

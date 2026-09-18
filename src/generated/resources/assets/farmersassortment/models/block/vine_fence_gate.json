@@ -1,7 +1,226 @@
 {
-  "parent": "minecraft:block/template_fence_gate",
+  "parent": "minecraft:block/block",
+  "display": {
+    "fixed": {
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "gui": {
+      "rotation": [
+        30,
+        45,
+        0
+      ],
+      "scale": [
+        0.625,
+        0.7,
+        0.7
+      ]
+    }
+  },
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "cullface": "down",
+          "texture": "#1",
+          "uv": [
+            2.0,
+            14.0,
+            4.0,
+            16.0
+          ]
+        },
+        "east": {
+          "cullface": "east",
+          "texture": "#1",
+          "uv": [
+            0.0,
+            2.0,
+            2.0,
+            16.0
+          ]
+        },
+        "north": {
+          "texture": "#1"
+        },
+        "south": {
+          "texture": "#1",
+          "uv": [
+            0.0,
+            2.0,
+            2.0,
+            16.0
+          ]
+        },
+        "up": {
+          "texture": "#1",
+          "uv": [
+            2.0,
+            14.0,
+            4.0,
+            16.0
+          ]
+        },
+        "west": {
+          "texture": "#1",
+          "uv": [
+            0.0,
+            2.0,
+            2.0,
+            16.0
+          ]
+        }
+      },
+      "from": [
+        14,
+        0,
+        7
+      ],
+      "to": [
+        16,
+        14,
+        9
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "cullface": "down",
+          "texture": "#1",
+          "uv": [
+            2.0,
+            14.0,
+            4.0,
+            16.0
+          ]
+        },
+        "east": {
+          "texture": "#1",
+          "uv": [
+            0.0,
+            2.0,
+            2.0,
+            16.0
+          ]
+        },
+        "north": {
+          "texture": "#1",
+          "uv": [
+            0.0,
+            2.0,
+            2.0,
+            16.0
+          ]
+        },
+        "south": {
+          "texture": "#1"
+        },
+        "up": {
+          "texture": "#1",
+          "uv": [
+            2.0,
+            14.0,
+            4.0,
+            16.0
+          ]
+        },
+        "west": {
+          "cullface": "west",
+          "texture": "#1",
+          "uv": [
+            0.0,
+            2.0,
+            2.0,
+            16.0
+          ]
+        }
+      },
+      "from": [
+        0,
+        0,
+        7
+      ],
+      "to": [
+        2,
+        14,
+        9
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#1",
+          "uv": [
+            2.0,
+            3.0,
+            14.0,
+            14.0
+          ]
+        },
+        "east": {
+          "texture": "#1",
+          "uv": [
+            2.0,
+            3.0,
+            14.0,
+            14.0
+          ]
+        },
+        "north": {
+          "texture": "#1",
+          "uv": [
+            2.0,
+            3.0,
+            14.0,
+            14.0
+          ]
+        },
+        "south": {
+          "texture": "#1",
+          "uv": [
+            2.0,
+            3.0,
+            14.0,
+            14.0
+          ]
+        },
+        "up": {
+          "texture": "#1",
+          "uv": [
+            2.0,
+            3.0,
+            14.0,
+            14.0
+          ]
+        },
+        "west": {
+          "texture": "#1",
+          "uv": [
+            2.0,
+            3.0,
+            14.0,
+            14.0
+          ]
+        }
+      },
+      "from": [
+        2,
+        3,
+        8
+      ],
+      "to": [
+        14,
+        14,
+        8
+      ]
+    }
+  ],
   "render_type": "minecraft:cutout",
   "textures": {
-    "texture": "farmersassortment:block/vine_fence_gate"
+    "1": "farmersassortment:block/vine_fence_gate"
   }
 }

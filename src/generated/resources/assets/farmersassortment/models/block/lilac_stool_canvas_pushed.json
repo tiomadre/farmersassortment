@@ -1053,8 +1053,8 @@
   ],
   "render_type": "minecraft:cutout",
   "textures": {
-    "3": "farmersassortment:block/white_canvas_rug_extrudes",
-    "4": "farmersassortment:block/white_canvas_rug",
+    "3": "farmersdelight:block/canvas_rug_fraying",
+    "4": "farmersdelight:block/canvas_rug",
     "5": "minecraft:block/oak_log",
     "6": "farmersassortment:block/stripped_lilac_log_big",
     "particle": "minecraft:block/oak_log"

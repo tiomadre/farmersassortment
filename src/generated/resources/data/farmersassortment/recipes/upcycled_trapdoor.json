@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "B": {
+      "item": "farmersdelight:tree_bark"
+    }
+  },
+  "pattern": [
+    "BBB",
+    "BBB"
+  ],
+  "result": {
+    "count": 2,
+    "item": "farmersassortment:upcycled_trapdoor"
+  },
+  "show_notification": true
+}

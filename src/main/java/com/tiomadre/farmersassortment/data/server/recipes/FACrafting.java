@@ -125,7 +125,7 @@ public final class FACrafting extends RecipeProvider {
         //Stoves + Heat Sources
         variantStove(output, FABlocks.ALABASTER_STOVE, FABlocks.ALABASTER_BLOCK.get(), FAItems.ALABASTER.get(), Items.FLINT_AND_STEEL);
 
-        //Other Alabaster Blocks
+        //Alabaster Blocks
         wall(output, FABlocks.ALABASTER_WALL, FABlocks.ALABASTER_BLOCK.get());
         alabasterbrickBlock(output, FABlocks.ALABASTER_BRICKS, FABlocks.ALABASTER_BLOCK.get());
         alabasterBlock(output);
@@ -133,6 +133,9 @@ public final class FACrafting extends RecipeProvider {
         stairs(output, FABlocks.ALABASTER_STAIRS, FABlocks.ALABASTER_BLOCK.get());
         pillar(output, FABlocks.ALABASTER_PILLAR, FABlocks.ALABASTER_BLOCK.get());
 
+        //Upcycled Blocks
+        upcycledCabinet(output);
+        upcycledBuildingBlocks(output);
 
         //Knives
         knife(output, FAItems.AMETHYST_KNIFE, Items.AMETHYST_SHARD);
@@ -157,8 +160,8 @@ public final class FACrafting extends RecipeProvider {
         butcherBlockCabinet(output, FABlocks.CRIMSON_BUTCHER_BLOCK_CABINET, FABlocks.CRIMSON_CUTTING_BOARD.get(), blockItem("farmersdelight", "crimson_cabinet"));
         butcherBlockCabinet(output, FABlocks.WARPED_BUTCHER_BLOCK_CABINET, FABlocks.WARPED_CUTTING_BOARD.get(), blockItem("farmersdelight", "warped_cabinet"));
         butcherBlockCabinet(output, FABlocks.UPCYCLED_BUTCHER_BLOCK_CABINET, FATags.Items.CUTTING_BOARDS, FABlocks.UPCYCLED_CABINET.get());
+
         //Cabinet
-        upcycledCabinet(output);
 
         //Canvas Rugs
         canvasRug(output, FARugs.WHITE_CANVAS_RUG, Items.WHITE_DYE);
@@ -509,6 +512,27 @@ public final class FACrafting extends RecipeProvider {
                 .define('B', item("farmersdelight", "tree_bark"))
                 .pattern("BCB").pattern("C C").pattern("BCB")
                 .unlockedBy("has_canvas", has(item("farmersdelight", "canvas"))).save(output);
+    }
+    private void upcycledBuildingBlocks(Consumer<FinishedRecipe> output) {
+        ItemLike canvas = item("farmersdelight", "canvas");
+        ItemLike treeBark = item("farmersdelight", "tree_bark");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, FABlocks.UPCYCLED_DOOR.get(), 3)
+                .define('B', treeBark).define('C', canvas)
+                .pattern("BC").pattern("CB").pattern("BC")
+                .unlockedBy("has_canvas", has(canvas)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, FABlocks.UPCYCLED_PILLAR.get(), 2)
+                .define('B', treeBark).define('C', canvas)
+                .pattern("B").pattern("C").pattern("B")
+                .unlockedBy("has_tree_bark", has(treeBark)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, FABlocks.UPCYCLED_PANELING.get(), 4)
+                .define('B', treeBark).define('C', canvas)
+                .pattern("BCB").pattern("CBC")
+                .unlockedBy("has_tree_bark", has(treeBark)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, FABlocks.UPCYCLED_TRAPDOOR.get(), 2)
+                .define('B', treeBark)
+                .pattern("BBB").pattern("BBB")
+                .unlockedBy("has_tree_bark", has(treeBark)).save(output);
     }
 
     private void ropeFence(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> fence,

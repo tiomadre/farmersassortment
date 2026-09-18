@@ -59,8 +59,9 @@ public class FABlockTags extends BlockTagsProvider {
                         .map(RegistryObject::get)
                         .toArray(Block[]::new));
 
-
         this.tag(BlockTags.MINEABLE_WITH_AXE).replace(false)
+                .add(FABlocks.UPCYCLED_TRAPDOOR.get())
+                .add(FABlocks.UPCYCLED_DOOR.get(), FABlocks.UPCYCLED_PILLAR.get(), FABlocks.UPCYCLED_PANELING.get())
                 .add(FABlocks.allButcherBlockCabinets().map(RegistryObject::get).toArray(Block[]::new))
                 .add(FABlocks.allCuttingBoards().map(RegistryObject::get).toArray(Block[]::new))
                 .add(FABlocks.allSlats().map(RegistryObject::get).toArray(Block[]::new))
@@ -77,6 +78,9 @@ public class FABlockTags extends BlockTagsProvider {
                         .filter(block -> block != FABlocks.ALABASTER_TABLE)
                         .map(RegistryObject::get)
                         .toArray(Block[]::new));
+
+        this.tag(BlockTags.WOODEN_DOORS).add(FABlocks.UPCYCLED_DOOR.get());
+
 
 
         if (FarmersAssortment.isCrabbersCompatEnabled()) {

@@ -218,8 +218,8 @@
   "render_type": "minecraft:cutout",
   "textures": {
     "2": "farmersassortment:block/alabaster_table",
-    "5": "farmersassortment:block/white_canvas_rug",
-    "6": "farmersassortment:block/white_canvas_rug_extrudes",
+    "5": "farmersdelight:block/canvas_rug",
+    "6": "farmersdelight:block/canvas_rug_fraying",
     "7": "farmersassortment:block/alabaster_cooking_pot_tray_top",
     "particle": "farmersassortment:block/alabaster_table"
   }

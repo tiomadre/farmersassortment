@@ -1,0 +1,49 @@
+{
+  "variants": {
+    "facing=east,state=closed": {
+      "model": "farmersassortment:block/upcycled_divider_closed",
+      "y": 270
+    },
+    "facing=east,state=half_open": {
+      "model": "farmersassortment:block/upcycled_divider_half_open",
+      "y": 270
+    },
+    "facing=east,state=open": {
+      "model": "farmersassortment:block/upcycled_divider_open",
+      "y": 270
+    },
+    "facing=north,state=closed": {
+      "model": "farmersassortment:block/upcycled_divider_closed",
+      "y": 180
+    },
+    "facing=north,state=half_open": {
+      "model": "farmersassortment:block/upcycled_divider_half_open",
+      "y": 180
+    },
+    "facing=north,state=open": {
+      "model": "farmersassortment:block/upcycled_divider_open",
+      "y": 180
+    },
+    "facing=south,state=closed": {
+      "model": "farmersassortment:block/upcycled_divider_closed"
+    },
+    "facing=south,state=half_open": {
+      "model": "farmersassortment:block/upcycled_divider_half_open"
+    },
+    "facing=south,state=open": {
+      "model": "farmersassortment:block/upcycled_divider_open"
+    },
+    "facing=west,state=closed": {
+      "model": "farmersassortment:block/upcycled_divider_closed",
+      "y": 90
+    },
+    "facing=west,state=half_open": {
+      "model": "farmersassortment:block/upcycled_divider_half_open",
+      "y": 90
+    },
+    "facing=west,state=open": {
+      "model": "farmersassortment:block/upcycled_divider_open",
+      "y": 90
+    }
+  }
+}

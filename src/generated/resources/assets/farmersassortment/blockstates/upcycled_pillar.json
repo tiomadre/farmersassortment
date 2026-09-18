@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "farmersassortment:block/upcycled_pillar_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "farmersassortment:block/upcycled_pillar"
+    },
+    "axis=z": {
+      "model": "farmersassortment:block/upcycled_pillar_horizontal",
+      "x": 90
+    }
+  }
+}

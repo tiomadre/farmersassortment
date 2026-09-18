@@ -1,7 +1,98 @@
 {
-  "parent": "minecraft:block/template_fence_gate_wall_open",
+  "parent": "minecraft:block/block",
+  "display": {
+    "fixed": {
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "gui": {
+      "rotation": [
+        30,
+        45,
+        0
+      ],
+      "scale": [
+        0.625,
+        0.7,
+        0.7
+      ]
+    }
+  },
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "texture": "#2",
+          "uv": [
+            2.0,
+            2.0,
+            4.0,
+            6.0
+          ]
+        },
+        "east": {
+          "texture": "#2",
+          "uv": [
+            2.0,
+            0.0,
+            6.0,
+            8.0
+          ]
+        },
+        "north": {
+          "texture": "#2",
+          "uv": [
+            4.0,
+            0.0,
+            6.0,
+            8.0
+          ]
+        },
+        "south": {
+          "texture": "#2",
+          "uv": [
+            2.0,
+            0.0,
+            2.0,
+            8.0
+          ]
+        },
+        "up": {
+          "texture": "#2",
+          "uv": [
+            2.0,
+            3.0,
+            4.0,
+            7.0
+          ]
+        },
+        "west": {
+          "texture": "#2",
+          "uv": [
+            6.0,
+            0.0,
+            2.0,
+            8.0
+          ]
+        }
+      },
+      "from": [
+        0,
+        5,
+        6
+      ],
+      "to": [
+        2,
+        13,
+        10
+      ]
+    }
+  ],
   "render_type": "minecraft:cutout",
   "textures": {
-    "texture": "farmersassortment:block/vine_fence_gate_open"
+    "2": "farmersassortment:block/vine_fence_gate_open"
   }
 }

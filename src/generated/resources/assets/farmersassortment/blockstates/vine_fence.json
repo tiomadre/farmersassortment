@@ -3,9 +3,6 @@
     {
       "apply": {
         "model": "farmersassortment:block/vine_fence_post"
-      },
-      "when": {
-        "waterlogged": "false"
       }
     },
     {
@@ -14,8 +11,7 @@
         "uvlock": true
       },
       "when": {
-        "north": "true",
-        "waterlogged": "false"
+        "north": "true"
       }
     },
     {
@@ -25,80 +21,25 @@
         "y": 90
       },
       "when": {
-        "east": "true",
-        "waterlogged": "false"
+        "east": "true"
       }
     },
     {
       "apply": {
-        "model": "farmersassortment:block/vine_fence_side",
-        "uvlock": true,
-        "y": 180
-      },
-      "when": {
-        "south": "true",
-        "waterlogged": "false"
-      }
-    },
-    {
-      "apply": {
-        "model": "farmersassortment:block/vine_fence_side",
-        "uvlock": true,
-        "y": 270
-      },
-      "when": {
-        "waterlogged": "false",
-        "west": "true"
-      }
-    },
-    {
-      "apply": {
-        "model": "farmersassortment:block/vine_fence_post"
-      },
-      "when": {
-        "waterlogged": "true"
-      }
-    },
-    {
-      "apply": {
-        "model": "farmersassortment:block/vine_fence_side",
+        "model": "farmersassortment:block/vine_fence_side_alt",
         "uvlock": true
       },
       "when": {
-        "north": "true",
-        "waterlogged": "true"
+        "south": "true"
       }
     },
     {
       "apply": {
-        "model": "farmersassortment:block/vine_fence_side",
+        "model": "farmersassortment:block/vine_fence_side_alt",
         "uvlock": true,
         "y": 90
       },
       "when": {
-        "east": "true",
-        "waterlogged": "true"
-      }
-    },
-    {
-      "apply": {
-        "model": "farmersassortment:block/vine_fence_side",
-        "uvlock": true,
-        "y": 180
-      },
-      "when": {
-        "south": "true",
-        "waterlogged": "true"
-      }
-    },
-    {
-      "apply": {
-        "model": "farmersassortment:block/vine_fence_side",
-        "uvlock": true,
-        "y": 270
-      },
-      "when": {
-        "waterlogged": "true",
         "west": "true"
       }
     }

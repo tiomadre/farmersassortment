@@ -39,6 +39,8 @@ public class FABlockStates extends BlockStateProvider {
         trackCompatTexture("crabbersdelight", "block/stripped_palm_log_top");
         trackCompatTexture("crabbersdelight", "block/palm_planks");
         trackCompatTexture("foragersinsight", "block/lilac_planks");
+        trackCompatTexture("farmersdelight", "block/canvas_rug_fraying");
+        trackCompatTexture("farmersdelight", "block/canvas_rug");
     }
 
     private void trackCompatTexture(String namespace, String path) {
@@ -51,6 +53,7 @@ public class FABlockStates extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         registerAlabasterBuildingBlocks();
+        registerUpcycledBuildingBlocks();
         registerCabinets();
         registerCanvasRugs();
         registerCuttingBoards();
@@ -65,28 +68,43 @@ public class FABlockStates extends BlockStateProvider {
         registerStoves();
         registerRacks();
         registerTables();
+        registerTrapdoors();
+        registerDivider();
 
     }
 
-    private void registerRopeFences() {
-        ropeFenceBlockState(FABlocks.VINE_FENCE, "vine_fence", false);
-        ropeFenceGateBlockState(FABlocks.VINE_FENCE_GATE, "vine_fence");
+    private void registerDivider() {
+        getVariantBuilder(FABlocks.UPCYCLED_DIVIDER.get()).forAllStates(state -> {
+            String model = "upcycled_divider_" + state.getValue(com.tiomadre.farmersassortment.core.block.DividerBlock.STATE).getSerializedName();
+            return ConfiguredModel.builder()
+                    .modelFile(models().getExistingFile(modLoc("block/" + model)))
+                    .rotationY((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot())
+                    .build();
+        });
+
     }
 
-    private void ropeFenceBlockState(RegistryObject<? extends Block> block, String name, boolean wetVariant) {
-        ropeFenceModels(name, name);
-        if (wetVariant) {
-            ropeFenceModels("wet_" + name, "wet_" + name);
+    private void registerUpcycledBuildingBlocks() {
+        doorBlockWithRenderType(FABlocks.UPCYCLED_DOOR.get(), modLoc("block/upcycled_door_bottom"),
+                modLoc("block/upcycled_door_top"), "cutout");
+        axisBlock(FABlocks.UPCYCLED_PILLAR.get(), modLoc("block/upcycled_pillar_side"),
+                modLoc("block/upcycled_block"));
+        simpleBlock(FABlocks.UPCYCLED_PANELING.get(), models().cubeAll("upcycled_paneling",
+                modLoc("block/upcycled_paneling")));
+    }
+        private void registerRopeFences() {
+            ropeFenceBlockState(FABlocks.VINE_FENCE, "vine_fence");
+            ropeFenceGateBlockState(FABlocks.VINE_FENCE_GATE, "vine_fence");
         }
-        MultiPartBlockStateBuilder builder = getMultipartBuilder(block.get());
-        for (boolean waterlogged : new boolean[]{false, true}) {
-            String prefix = wetVariant && waterlogged ? "wet_" : "";
-            builder.part().modelFile(models().getExistingFile(modLoc("block/" + prefix + name + "_post"))).addModel()
-                    .condition(BlockStateProperties.WATERLOGGED, waterlogged).end();
+
+        private void ropeFenceBlockState(RegistryObject<? extends Block> block, String name) {
+            ropeFenceModels(name);
+            MultiPartBlockStateBuilder builder = getMultipartBuilder(block.get());
+            builder.part().modelFile(models().getExistingFile(modLoc("block/" + name + "_post"))).addModel().end();
             Direction.Plane.HORIZONTAL.forEach(direction -> builder.part()
-                    .modelFile(models().getExistingFile(modLoc("block/" + prefix + name + "_side")))
-                    .rotationY(((int) direction.toYRot() + 180) % 360).uvLock(true).addModel()
-                    .condition(BlockStateProperties.WATERLOGGED, waterlogged)
+                    .modelFile(models().getExistingFile(modLoc("block/" + name
+                            + (direction == Direction.SOUTH || direction == Direction.WEST ? "_side_alt" : "_side"))))
+                    .rotationY(direction == Direction.EAST || direction == Direction.WEST ? 90 : 0).uvLock(true).addModel()
                     .condition(switch (direction) {
                         case NORTH -> BlockStateProperties.NORTH;
                         case EAST -> BlockStateProperties.EAST;
@@ -94,48 +112,122 @@ public class FABlockStates extends BlockStateProvider {
                         default -> BlockStateProperties.WEST;
                     }, true).end());
         }
-    }
-    private void ropeFenceModels(String modelName, String textureName) {
-        ResourceLocation texture = modLoc("block/" + textureName);
-        models().withExistingParent(modelName + "_post", mcLoc("block/fence_post"))
-                .renderType("minecraft:cutout")
-                .texture("texture", texture);
-        models().withExistingParent(modelName + "_side", mcLoc("block/fence_side"))
-                .renderType("minecraft:cutout")
-                .texture("texture", texture);
-        models().withExistingParent(modelName + "_inventory", mcLoc("block/fence_inventory"))
-                .renderType("minecraft:cutout")
-                .texture("texture", texture);
+
+        private void ropeFenceModels(String name) {
+            ResourceLocation texture = modLoc("block/" + name);
+            BlockModelBuilder post = customModel(name + "_post").texture("0", texture).texture("particle", texture);
+            addPost(post, 7, 0, 7, 9, 16, 9, "#0");
+
+            BlockModelBuilder side = customModel(name + "_side").texture("1", texture);
+            addFenceSide(side, 0, 7, 16, 7, 1, 0, 14);
+            BlockModelBuilder sideAlt = customModel(name + "_side_alt").texture("1", texture)
+                    .texture("particle", texture);
+            addFenceSide(sideAlt, 9, 16, 0, 9, 1, 0, 14);
+
+            BlockModelBuilder inventory = customModel(name + "_inventory").texture("1", texture);
+            addPost(inventory, 7, 0, 0, 9, 16, 2, "#1");
+            addPost(inventory, 7, 0, 14, 9, 16, 16, "#1");
+            addFenceSide(inventory, 8, 14, 0, 1, 3, 8, 14);
+            addFenceSide(inventory, 2, 8, 0, 9, 3, 2, 14);
+            inventory.transforms()
+                    .transform(ItemDisplayContext.GUI).rotation(30, 135, 0).scale(0.625F, 0.625F, 0.625F).end()
+                    .transform(ItemDisplayContext.FIXED).rotation(0, 90, 0).scale(0.5F, 0.5F, 0.5F).end().end();
+        }
+
+        private void addFenceSide(BlockModelBuilder model, float fromZ, float toZ, float eastU1, float westU1,
+        float fromY, float originZ, float toY) {
+            model.element().from(8, fromY, fromZ).to(8, toY, toZ)
+                    .rotation().angle(0).axis(Direction.Axis.Y).origin(0, fromY - 4, originZ).end()
+                    .face(Direction.EAST).uvs(eastU1, fromY == 1 ? 1 : 2, eastU1 + (toZ - fromZ), toY).texture("#1").end()
+                    .face(Direction.WEST).uvs(westU1, fromY == 1 ? 1 : 2, westU1 + (toZ - fromZ), toY).texture("#1").end().end();
+        }
+
+        private void addPost(BlockModelBuilder model, float x1, float y1, float z1, float x2, float y2, float z2, String texture) {
+            BlockModelBuilder.ElementBuilder element = model.element().from(x1, y1, z1).to(x2, y2, z2);
+            for (Direction direction : Direction.values()) {
+                BlockModelBuilder.ElementBuilder.FaceBuilder face = element.face(direction).texture(texture);
+                if (direction.getAxis().isVertical()) face.uvs(5, 14, 7, 16).cullface(direction);
+                else face.uvs(7, 0, 9, 16);
+                face.end();
+            }
+            element.end();
+        }
+
+        private void ropeFenceGateBlockState(RegistryObject<? extends Block> block, String name) {
+            ropeFenceGateModels(name);
+            getVariantBuilder(block.get()).forAllStates(state -> {
+                boolean open = state.getValue(BlockStateProperties.OPEN);
+                boolean inWall = state.getValue(BlockStateProperties.IN_WALL);
+                String modelName = name + "_gate" + (inWall ? "_wall" : "") + (open ? "_open" : "");
+                return ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc("block/" + modelName)))
+                        .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + (open ? 90 : 0)) % 360)
+                        .uvLock(true).build();
+            });
+        }
+    private void registerTrapdoors() {
+        trapdoorBlockWithRenderType(FABlocks.UPCYCLED_TRAPDOOR.get(), modLoc("block/upcycled_trapdoor"), true, "cutout");
     }
 
-
-    private void ropeFenceGateBlockState(RegistryObject<? extends Block> block, String name) {
-        ropeFenceGateModels(name);
-        getVariantBuilder(block.get()).forAllStates(state -> {
-            boolean open = state.getValue(BlockStateProperties.OPEN);
-            boolean inWall = state.getValue(BlockStateProperties.IN_WALL);
-            String modelName = name + "_gate" + (inWall ? "_wall" : "") + (open ? "_open" : "");
-            return ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc("block/" + modelName)))
-                    .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + (open ? 90 : 0)) % 360)
-                    .uvLock(true).build();
-        });
-    }
 
     private void ropeFenceGateModels(String name) {
         String gateName = name + "_gate";
-        ropeFenceGateModel(gateName, "template_fence_gate", gateName);
-        ropeFenceGateModel(gateName + "_open", "template_fence_gate_open", gateName + "_open");
-        ropeFenceGateModel(gateName + "_wall", "template_fence_gate_wall", gateName + "_wall");
-        ropeFenceGateModel(gateName + "_wall_open", "template_fence_gate_wall_open", gateName + "_open");
+        BlockModelBuilder closed = customModel(gateName).texture("1", modLoc("block/" + gateName));
+        addGatePost(closed, 14, 16, "#1", Direction.EAST);
+        addGatePost(closed, 0, 2, "#1", Direction.WEST);
+        addGatePanel(closed, 2, 3, 14, 14, "#1");
+        gateDisplay(closed);
 
+        BlockModelBuilder open = customModel(gateName + "_open").texture("2", modLoc("block/" + gateName))
+                .texture("3", modLoc("block/" + gateName + "_open"))
+                .texture("particle", modLoc("block/" + gateName + "_open"));
+        addGatePost(open, 14, 16, "#2", Direction.EAST);
+        addGatePost(open, 0, 2, "#2", Direction.WEST);
+        addCoiledGate(open, 1, 3, 4, 12, "#3");
 
+        BlockModelBuilder wall = customModel(gateName + "_wall").texture("2", modLoc("block/" + gateName + "_wall"));
+        addGatePanel(wall, 0, 4, 16, 15, "#2");
+        gateDisplay(wall);
+        BlockModelBuilder wallOpen = customModel(gateName + "_wall_open").texture("2", modLoc("block/" + gateName + "_open"));
+        addCoiledGate(wallOpen, 0, 2, 5, 13, "#2");
+        gateDisplay(wallOpen);
     }
 
-    private void ropeFenceGateModel(String modelName, String parentName, String textureName) {
-        models().withExistingParent(modelName, mcLoc("block/" + parentName))
-                .renderType("minecraft:cutout")
-                .texture("texture", modLoc("block/" + textureName));
+    private BlockModelBuilder customModel(String name) {
+        return models().getBuilder(name).parent(models().getExistingFile(mcLoc("block/block"))).renderType("minecraft:cutout");
     }
+
+    private void addGatePost(BlockModelBuilder model, float x1, float x2, String texture, Direction cull) {
+        BlockModelBuilder.ElementBuilder e = model.element().from(x1, 0, 7).to(x2, 14, 9);
+        for (Direction d : Direction.values()) {
+            BlockModelBuilder.ElementBuilder.FaceBuilder f = e.face(d).texture(texture);
+            if (d.getAxis().isVertical()) f.uvs(2, 14, 4, 16);
+            else f.uvs(0, 2, 2, 16);
+            if (d == cull || d == Direction.DOWN) f.cullface(d);
+            f.end();
+        }
+        e.end();
+    }
+
+    private void addGatePanel(BlockModelBuilder model, float x1, float y1, float x2, float y2, String texture) {
+        BlockModelBuilder.ElementBuilder e = model.element().from(x1, y1, 8).to(x2, y2, 8);
+        for (Direction d : Direction.values()) e.face(d).uvs(x1, 3, x2, 14).texture(texture).end();
+        e.end();
+    }
+
+    private void addCoiledGate(BlockModelBuilder model, float x1, float x2, float y1, float y2, String texture) {
+        model.element().from(x1, y1, 6).to(x2, y2, 10)
+                .face(Direction.NORTH).uvs(4, 0, 6, 8).texture(texture).end()
+                .face(Direction.EAST).uvs(2, 0, 6, 8).texture(texture).end()
+                .face(Direction.SOUTH).uvs(2, 0, 2, 8).texture(texture).end()
+                .face(Direction.WEST).uvs(6, 0, 2, 8).texture(texture).end()
+                .face(Direction.UP).uvs(2, 3, 4, 7).texture(texture).end()
+                .face(Direction.DOWN).uvs(2, 2, 4, 6).texture(texture).end().end();
+    }
+    private void gateDisplay(BlockModelBuilder model) {
+            model.transforms().transform(ItemDisplayContext.GUI).rotation(30, 45, 0).scale(0.625F, 0.7F, 0.7F).end()
+                    .transform(ItemDisplayContext.FIXED).scale(0.5F, 0.5F, 0.5F).end().end();
+    }
+
     private void registerAlabasterBuildingBlocks() {
         BlockModelBuilder blockModel = models().cubeAll(Objects.requireNonNull(FABlocks.ALABASTER_BLOCK.getId()).getPath(), modLoc("block/alabaster_block"));
         simpleBlock(FABlocks.ALABASTER_BLOCK.get(), blockModel);
@@ -163,7 +255,6 @@ public class FABlockStates extends BlockStateProvider {
                 new CabinetDefinition(FABlocks.CRIMSON_BUTCHER_BLOCK_CABINET, "crimson", new ResourceLocation("minecraft", "block/crimson_planks"), modLoc("block/crimson_butcher_block_cabinet_top")),
                 new CabinetDefinition(FABlocks.WARPED_BUTCHER_BLOCK_CABINET, "warped", new ResourceLocation("minecraft", "block/warped_planks"), modLoc("block/warped_butcher_block_cabinet_top")),
                 new CabinetDefinition(FABlocks.UPCYCLED_BUTCHER_BLOCK_CABINET, "upcycled", modLoc("block/upcycled_cabinet_top"), modLoc("block/upcycled_butcher_block_top")),
-                new CabinetDefinition(FABlocks.UPCYCLED_CABINET, "upcycled_cabinet", modLoc("block/upcycled_cabinet_top"), modLoc("block/upcycled_cabinet_top")),
                 //Other Mods
                 new CabinetDefinition(FAxCrabbersBlocks.PALM_BUTCHER_BLOCK_CABINET, "palm", fallbackTexture(new ResourceLocation("crabbersdelight", "block/palm_planks"), new ResourceLocation("minecraft", "block/oak_planks")), modLoc("block/palm_butcher_block_cabinet_top")),
                 new CabinetDefinition(FAxForagersBlocks.LILAC_BUTCHER_BLOCK_CABINET, "lilac", fallbackTexture(new ResourceLocation("foragersinsight", "block/lilac_planks"), new ResourceLocation("minecraft", "block/oak_planks")), modLoc("block/lilac_butcher_block_cabinet_top"))

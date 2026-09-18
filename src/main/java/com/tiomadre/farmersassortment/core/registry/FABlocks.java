@@ -13,6 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.common.util.ForgeSoundType;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -60,12 +61,24 @@ public final class FABlocks {
     public static final RegistryObject<UniqueStoveBlock> ALABASTER_STOVE = BLOCKS.createBlock("alabaster_stove", () -> new UniqueStoveBlock(BlockBehaviour.Properties.copy(Blocks.FURNACE).sound(ALABASTER_SOUND_TYPE)), new Item.Properties());
 
     //Storage + Decorative Blocks
+        //Alabaster
     public static final RegistryObject<Block> ALABASTER_BLOCK = registerStorageBlock("alabaster");
     public static final RegistryObject<Block> ALABASTER_BRICKS = registerStorageBlock("alabaster_bricks");
     public static final RegistryObject<SlabBlock> ALABASTER_SLAB = registerSlab("alabaster", ALABASTER_BLOCK);
     public static final RegistryObject<StairBlock> ALABASTER_STAIRS = registerStairs("alabaster", ALABASTER_BLOCK);
     public static final RegistryObject<WallBlock> ALABASTER_WALL = registerWall("alabaster", ALABASTER_BLOCK);
     public static final RegistryObject<RotatedPillarBlock> ALABASTER_PILLAR = registerPillar("alabaster", ALABASTER_BLOCK);
+        //Upcycled
+    public static final RegistryObject<DoorBlock> UPCYCLED_DOOR = BLOCKS.createBlock("upcycled_door",
+                () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_DOOR), BlockSetType.OAK), new Item.Properties());
+    public static final RegistryObject<RotatedPillarBlock> UPCYCLED_PILLAR = BLOCKS.createBlock("upcycled_pillar",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)), new Item.Properties());
+    public static final RegistryObject<Block> UPCYCLED_PANELING = BLOCKS.createBlock("upcycled_paneling",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), new Item.Properties());
+    public static final RegistryObject<TrapDoorBlock> UPCYCLED_TRAPDOOR = BLOCKS.createBlock("upcycled_trapdoor",
+            () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_TRAPDOOR), BlockSetType.OAK), new Item.Properties());
+    public static final RegistryObject<DividerBlock> UPCYCLED_DIVIDER = BLOCKS.createBlock("upcycled_divider",
+            () -> new DividerBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).noOcclusion()), new Item.Properties());
 
 
     //Slats

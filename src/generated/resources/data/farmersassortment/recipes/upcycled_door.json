@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "B": {
+      "item": "farmersdelight:tree_bark"
+    },
+    "C": {
+      "item": "farmersdelight:canvas"
+    }
+  },
+  "pattern": [
+    "BC",
+    "CB",
+    "BC"
+  ],
+  "result": {
+    "count": 3,
+    "item": "farmersassortment:upcycled_door"
+  },
+  "show_notification": true
+}

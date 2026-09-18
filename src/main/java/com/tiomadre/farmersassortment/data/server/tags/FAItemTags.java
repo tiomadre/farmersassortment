@@ -4,6 +4,7 @@ import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import com.tiomadre.farmersassortment.core.registry.FAItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.data.event.GatherDataEvent;
 import org.jetbrains.annotations.NotNull;
@@ -25,6 +26,7 @@ public class FAItemTags extends ItemTagsProvider {
 
         tag(COOKING_POTS)
                 .add(FABlocks.allCookingPots().map(block -> block.get().asItem()).toArray(Item[]::new));
+        tag(ItemTags.WOODEN_DOORS).add(FABlocks.UPCYCLED_DOOR.get().asItem());
     }
 
 }

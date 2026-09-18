@@ -451,8 +451,8 @@
   "textures": {
     "6": "minecraft:block/stripped_bamboo_block",
     "7": "minecraft:block/bamboo_block_top",
-    "8": "farmersassortment:block/white_canvas_rug",
-    "9": "farmersassortment:block/white_canvas_rug_extrudes",
+    "8": "farmersdelight:block/canvas_rug",
+    "9": "farmersdelight:block/canvas_rug_fraying",
     "particle": "minecraft:block/stripped_bamboo_block"
   }
 }

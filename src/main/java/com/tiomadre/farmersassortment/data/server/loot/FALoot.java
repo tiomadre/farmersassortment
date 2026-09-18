@@ -50,6 +50,8 @@ public class FALoot extends LootTableProvider {
             registerDropSelf(FAxForagersBlocks.diffusers(), generated);
             registerCopyName(FAxCrabbersBlocks.crabTraps(), generated);
             registerDropSelf(FABlocks.allTables(), generated);
+            generated.add(FABlocks.UPCYCLED_DOOR.get());
+            add(FABlocks.UPCYCLED_DOOR.get(), createDoorTable(FABlocks.UPCYCLED_DOOR.get()));
 
             getKnownBlocks().forEach(block -> {
                 if (generated.add(block)) {
