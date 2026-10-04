@@ -181,9 +181,6 @@ public final class FACrafting extends RecipeProvider {
         canvasRug(output, FARugs.RED_CANVAS_RUG, Items.RED_DYE);
         canvasRug(output, FARugs.BLACK_CANVAS_RUG, Items.BLACK_DYE);
 
-        //Fences
-        ropeFence(output, FABlocks.VINE_FENCE, FABlocks.VINE_FENCE_GATE, Blocks.VINE);
-
         //Tables
         table(output, FABlocks.OAK_TABLE, Blocks.OAK_PLANKS);
         table(output, FABlocks.SPRUCE_TABLE, Blocks.SPRUCE_PLANKS);
@@ -533,16 +530,6 @@ public final class FACrafting extends RecipeProvider {
                 .define('B', treeBark)
                 .pattern("BBB").pattern("BBB")
                 .unlockedBy("has_tree_bark", has(treeBark)).save(output);
-    }
-
-    private void ropeFence(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> fence,
-                           RegistryObject<? extends ItemLike> gate, ItemLike binding) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, fence.get(), 3)
-                .define('B', binding).define('S', Items.STICK).pattern("BSB").pattern("BSB")
-                .unlockedBy(getHasName(binding), has(binding)).save(output);
-        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, gate.get())
-                .define('B', binding).define('S', Items.STICK).pattern("SBS").pattern("SBS")
-                .unlockedBy(getHasName(binding), has(binding)).save(output);
     }
 
     private void variantStove(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> stove, ItemLike material,

@@ -45,7 +45,6 @@ public class FAItemModels extends ItemModelProvider {
         registerRacks();
         registerTables();
         registerSlats();
-        registerRopeFences();
         registerTrapdoors();
         generatedItem(FABlocks.UPCYCLED_DIVIDER, "divider");
     }
@@ -283,12 +282,6 @@ public class FAItemModels extends ItemModelProvider {
                 FAxForagersBlocks.butcherBlockCabinets()
         ).forEach(this::block);
         block(FABlocks.UPCYCLED_CABINET);
-    }
-
-    private void registerRopeFences() {
-        String name = Objects.requireNonNull(FABlocks.VINE_FENCE.getId()).getPath();
-        withExistingParent(name, modLoc("block/" + name + "_inventory"));
-        block(FABlocks.VINE_FENCE_GATE);
     }
 
     private void registerDiffusers() {

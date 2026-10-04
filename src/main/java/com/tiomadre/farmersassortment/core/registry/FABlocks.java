@@ -22,7 +22,6 @@ import net.minecraftforge.registries.RegistryObject;
 import vectorwing.farmersdelight.common.block.CabinetBlock;
 import vectorwing.farmersdelight.common.block.CuttingBoardBlock;
 import vectorwing.farmersdelight.common.block.CookingPotBlock;
-import vectorwing.farmersdelight.common.block.RopeFenceGateBlock;
 import vectorwing.farmersdelight.common.item.CookingPotItem;
 import vectorwing.farmersdelight.common.registry.ModBlockEntityTypes;
 
@@ -164,11 +163,6 @@ public final class FABlocks {
     public static final RegistryObject<TableBlock> WARPED_TABLE = registerTable("warped", Blocks.WARPED_PLANKS);
     public static final RegistryObject<TableBlock> ALABASTER_TABLE = registerTable("alabaster", Blocks.QUARTZ_BLOCK);
 
-
-    public static final RegistryObject<RopeFenceGateBlock> VINE_FENCE_GATE = BLOCKS.createBlock("vine_fence_gate",
-            () -> new RopeFenceGateBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE_GATE).noOcclusion()), new Item.Properties());
-    public static final RegistryObject<VariantRopeFenceBlock> VINE_FENCE = BLOCKS.createBlock("vine_fence",
-            () -> new VariantRopeFenceBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE).noOcclusion(), VINE_FENCE_GATE), new Item.Properties());
 
 //definitions
 private static RegistryObject<Block> registerStorageBlock(String name) {

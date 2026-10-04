@@ -59,9 +59,6 @@
   "block.farmersassortment.warped_floating_counter": "Warped Floating Counter",
   "block.farmersassortment.alabaster_floating_counter": "Alabaster Floating Counter",
 
-  "block.farmersassortment.vine_fence": "Vine Fence",
-  "block.farmersassortment.vine_fence_gate": "Vine Fence Gate",
-
   "block.farmersassortment.white_canvas_rug": "White Canvas Rug",
   "block.farmersassortment.orange_canvas_rug": "Orange Canvas Rug",
   "block.farmersassortment.magenta_canvas_rug": "Magenta Canvas Rug",
@@ -208,4 +205,3 @@
   "farmersdelight.block.cutting_board.remaining_items": "%s remaining..."
 
 }
-
