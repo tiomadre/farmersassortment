@@ -5,7 +5,7 @@ import alabaster.crabbersdelight.common.registry.CDModItems;
 import com.google.gson.JsonObject;
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
-import com.tiomadre.farmersassortment.core.registry.FADynamicStools;
+import com.tiomadre.farmersassortment.core.registry.FADynamicFurniture;
 import com.tiomadre.farmersassortment.core.registry.FAItems;
 import com.tiomadre.farmersassortment.core.registry.FARugs;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
@@ -31,6 +31,7 @@ import vectorwing.farmersdelight.common.block.CookingPotBlock;
 import vectorwing.farmersdelight.common.block.SkilletBlock;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxForagersBlocks;
 import com.tiomadre.foragersinsight.core.registry.FIBlocks;
+import vectorwing.farmersdelight.common.registry.ModBlocks;
 
 import javax.annotation.Nullable;
 import java.util.Objects;
@@ -47,6 +48,43 @@ public final class FACrafting extends RecipeProvider {
 
     @Override
     protected void buildRecipes(@NotNull Consumer<FinishedRecipe> output) {
+
+        //Butcher Block Cabinets
+        butcherBlockCabinet(output, FABlocks.OAK_BUTCHER_BLOCK_CABINET, blockItem("farmersdelight", "cutting_board"), blockItem("farmersdelight", "oak_cabinet"));
+        butcherBlockCabinet(output, FABlocks.SPRUCE_BUTCHER_BLOCK_CABINET, FABlocks.SPRUCE_CUTTING_BOARD.get(), blockItem("farmersdelight", "spruce_cabinet"));
+        butcherBlockCabinet(output, FABlocks.BIRCH_BUTCHER_BLOCK_CABINET, FABlocks.BIRCH_CUTTING_BOARD.get(), blockItem("farmersdelight", "birch_cabinet"));
+        butcherBlockCabinet(output, FABlocks.JUNGLE_BUTCHER_BLOCK_CABINET, FABlocks.JUNGLE_CUTTING_BOARD.get(), blockItem("farmersdelight", "jungle_cabinet"));
+        butcherBlockCabinet(output, FABlocks.ACACIA_BUTCHER_BLOCK_CABINET, FABlocks.ACACIA_CUTTING_BOARD.get(), blockItem("farmersdelight", "acacia_cabinet"));
+        butcherBlockCabinet(output, FABlocks.DARK_OAK_BUTCHER_BLOCK_CABINET, FABlocks.DARK_OAK_CUTTING_BOARD.get(), blockItem("farmersdelight", "dark_oak_cabinet"));
+        butcherBlockCabinet(output, FABlocks.MANGROVE_BUTCHER_BLOCK_CABINET, FABlocks.MANGROVE_CUTTING_BOARD.get(), blockItem("farmersdelight", "mangrove_cabinet"));
+        butcherBlockCabinet(output, FABlocks.CHERRY_BUTCHER_BLOCK_CABINET, FABlocks.CHERRY_CUTTING_BOARD.get(), blockItem("farmersdelight", "cherry_cabinet"));
+        butcherBlockCabinet(output, FABlocks.BAMBOO_BUTCHER_BLOCK_CABINET, FABlocks.BAMBOO_CUTTING_BOARD.get(), blockItem("farmersdelight", "bamboo_cabinet"));
+        butcherBlockCabinet(output, FABlocks.CRIMSON_BUTCHER_BLOCK_CABINET, FABlocks.CRIMSON_CUTTING_BOARD.get(), blockItem("farmersdelight", "crimson_cabinet"));
+        butcherBlockCabinet(output, FABlocks.WARPED_BUTCHER_BLOCK_CABINET, FABlocks.WARPED_CUTTING_BOARD.get(), blockItem("farmersdelight", "warped_cabinet"));
+        butcherBlockCabinet(output, FABlocks.UPCYCLED_BUTCHER_BLOCK_CABINET, FATags.Items.CUTTING_BOARDS, FABlocks.UPCYCLED_CABINET.get());
+
+        //Cabinet
+
+        //Canvas Rugs
+        canvasRug(output, FARugs.WHITE_CANVAS_RUG, Items.WHITE_DYE);
+        canvasRug(output, FARugs.ORANGE_CANVAS_RUG, Items.ORANGE_DYE);
+        canvasRug(output, FARugs.MAGENTA_CANVAS_RUG, Items.MAGENTA_DYE);
+        canvasRug(output, FARugs.LIGHT_BLUE_CANVAS_RUG, Items.LIGHT_BLUE_DYE);
+        canvasRug(output, FARugs.YELLOW_CANVAS_RUG, Items.YELLOW_DYE);
+        canvasRug(output, FARugs.LIME_CANVAS_RUG, Items.LIME_DYE);
+        canvasRug(output, FARugs.PINK_CANVAS_RUG, Items.PINK_DYE);
+        canvasRug(output, FARugs.GRAY_CANVAS_RUG, Items.GRAY_DYE);
+        canvasRug(output, FARugs.LIGHT_GRAY_CANVAS_RUG, Items.LIGHT_GRAY_DYE);
+        canvasRug(output, FARugs.CYAN_CANVAS_RUG, Items.CYAN_DYE);
+        canvasRug(output, FARugs.PURPLE_CANVAS_RUG, Items.PURPLE_DYE);
+        canvasRug(output, FARugs.BLUE_CANVAS_RUG, Items.BLUE_DYE);
+        canvasRug(output, FARugs.BROWN_CANVAS_RUG, Items.BROWN_DYE);
+        canvasRug(output, FARugs.GREEN_CANVAS_RUG, Items.GREEN_DYE);
+        canvasRug(output, FARugs.RED_CANVAS_RUG, Items.RED_DYE);
+        canvasRug(output, FARugs.BLACK_CANVAS_RUG, Items.BLACK_DYE);
+
+
+
         //Cutting Boards
         cuttingBoard(output, FABlocks.SPRUCE_CUTTING_BOARD, Blocks.SPRUCE_PLANKS);
         cuttingBoard(output, FABlocks.BIRCH_CUTTING_BOARD, Blocks.BIRCH_PLANKS);
@@ -93,6 +131,8 @@ public final class FACrafting extends RecipeProvider {
         rack(output, FABlocks.WARPED_RACK, Blocks.WARPED_PLANKS,Items.STICK);
         rack(output, FABlocks.ALABASTER_RACK, FABlocks.ALABASTER_BLOCK.get(), FAItems.ALABASTER.get());
 
+
+
         //Slats
         slats(output, FABlocks.OAK_SLATS, Blocks.OAK_SLAB);
         slats(output, FABlocks.SPRUCE_SLATS, Blocks.SPRUCE_SLAB);
@@ -119,7 +159,7 @@ public final class FACrafting extends RecipeProvider {
         stool(output, FABlocks.CRIMSON_STOOL, Blocks.CRIMSON_SLAB);
         stool(output, FABlocks.WARPED_STOOL, Blocks.WARPED_SLAB);
 
-        FADynamicStools.stoolDefinitions().forEach(definition ->
+        FADynamicFurniture.stoolDefinitions().forEach(definition ->
                 stool(output, definition.block(), blockItem(definition.slabId().getNamespace(), definition.slabId().getPath())));
 
         //Stoves + Heat Sources
@@ -143,47 +183,6 @@ public final class FACrafting extends RecipeProvider {
         smithingTransform(output, new ResourceLocation(FarmersAssortment.MOD_ID, "alabaster_knife_smithing"),
                 FAItems.ALABASTER.get(), FAItems.QUARTZ_KNIFE.get(), FAItems.ALABASTER.get(), FAItems.ALABASTER_KNIFE.get());
 
-
-
-        //Materials
-
-        //Butcher Block Cabinets
-        butcherBlockCabinet(output, FABlocks.OAK_BUTCHER_BLOCK_CABINET, blockItem("farmersdelight", "cutting_board"), blockItem("farmersdelight", "oak_cabinet"));
-        butcherBlockCabinet(output, FABlocks.SPRUCE_BUTCHER_BLOCK_CABINET, FABlocks.SPRUCE_CUTTING_BOARD.get(), blockItem("farmersdelight", "spruce_cabinet"));
-        butcherBlockCabinet(output, FABlocks.BIRCH_BUTCHER_BLOCK_CABINET, FABlocks.BIRCH_CUTTING_BOARD.get(), blockItem("farmersdelight", "birch_cabinet"));
-        butcherBlockCabinet(output, FABlocks.JUNGLE_BUTCHER_BLOCK_CABINET, FABlocks.JUNGLE_CUTTING_BOARD.get(), blockItem("farmersdelight", "jungle_cabinet"));
-        butcherBlockCabinet(output, FABlocks.ACACIA_BUTCHER_BLOCK_CABINET, FABlocks.ACACIA_CUTTING_BOARD.get(), blockItem("farmersdelight", "acacia_cabinet"));
-        butcherBlockCabinet(output, FABlocks.DARK_OAK_BUTCHER_BLOCK_CABINET, FABlocks.DARK_OAK_CUTTING_BOARD.get(), blockItem("farmersdelight", "dark_oak_cabinet"));
-        butcherBlockCabinet(output, FABlocks.MANGROVE_BUTCHER_BLOCK_CABINET, FABlocks.MANGROVE_CUTTING_BOARD.get(), blockItem("farmersdelight", "mangrove_cabinet"));
-        butcherBlockCabinet(output, FABlocks.CHERRY_BUTCHER_BLOCK_CABINET, FABlocks.CHERRY_CUTTING_BOARD.get(), blockItem("farmersdelight", "cherry_cabinet"));
-        butcherBlockCabinet(output, FABlocks.BAMBOO_BUTCHER_BLOCK_CABINET, FABlocks.BAMBOO_CUTTING_BOARD.get(), blockItem("farmersdelight", "bamboo_cabinet"));
-        butcherBlockCabinet(output, FABlocks.CRIMSON_BUTCHER_BLOCK_CABINET, FABlocks.CRIMSON_CUTTING_BOARD.get(), blockItem("farmersdelight", "crimson_cabinet"));
-        butcherBlockCabinet(output, FABlocks.WARPED_BUTCHER_BLOCK_CABINET, FABlocks.WARPED_CUTTING_BOARD.get(), blockItem("farmersdelight", "warped_cabinet"));
-        butcherBlockCabinet(output, FABlocks.UPCYCLED_BUTCHER_BLOCK_CABINET, FATags.Items.CUTTING_BOARDS, FABlocks.UPCYCLED_CABINET.get());
-
-        //Cabinet
-
-        //Canvas Rugs
-        canvasRug(output, FARugs.WHITE_CANVAS_RUG, Items.WHITE_DYE);
-        canvasRug(output, FARugs.ORANGE_CANVAS_RUG, Items.ORANGE_DYE);
-        canvasRug(output, FARugs.MAGENTA_CANVAS_RUG, Items.MAGENTA_DYE);
-        canvasRug(output, FARugs.LIGHT_BLUE_CANVAS_RUG, Items.LIGHT_BLUE_DYE);
-        canvasRug(output, FARugs.YELLOW_CANVAS_RUG, Items.YELLOW_DYE);
-        canvasRug(output, FARugs.LIME_CANVAS_RUG, Items.LIME_DYE);
-        canvasRug(output, FARugs.PINK_CANVAS_RUG, Items.PINK_DYE);
-        canvasRug(output, FARugs.GRAY_CANVAS_RUG, Items.GRAY_DYE);
-        canvasRug(output, FARugs.LIGHT_GRAY_CANVAS_RUG, Items.LIGHT_GRAY_DYE);
-        canvasRug(output, FARugs.CYAN_CANVAS_RUG, Items.CYAN_DYE);
-        canvasRug(output, FARugs.PURPLE_CANVAS_RUG, Items.PURPLE_DYE);
-        canvasRug(output, FARugs.BLUE_CANVAS_RUG, Items.BLUE_DYE);
-        canvasRug(output, FARugs.BROWN_CANVAS_RUG, Items.BROWN_DYE);
-        canvasRug(output, FARugs.GREEN_CANVAS_RUG, Items.GREEN_DYE);
-        canvasRug(output, FARugs.RED_CANVAS_RUG, Items.RED_DYE);
-        canvasRug(output, FARugs.BLACK_CANVAS_RUG, Items.BLACK_DYE);
-
-        //Fences
-        ropeFence(output, FABlocks.VINE_FENCE, FABlocks.VINE_FENCE_GATE, Blocks.VINE);
-
         //Tables
         table(output, FABlocks.OAK_TABLE, Blocks.OAK_PLANKS);
         table(output, FABlocks.SPRUCE_TABLE, Blocks.SPRUCE_PLANKS);
@@ -197,8 +196,33 @@ public final class FACrafting extends RecipeProvider {
         table(output, FABlocks.CRIMSON_TABLE, Blocks.CRIMSON_PLANKS);
         table(output, FABlocks.WARPED_TABLE, Blocks.WARPED_PLANKS);
         table(output, FABlocks.ALABASTER_TABLE, FABlocks.ALABASTER_SLAB.get(), FAItems.ALABASTER.get());
-        table(output, FAxCrabbersBlocks.PALM_TABLE, CDModBlocks.PALM_PLANKS.get());
         table(output, FAxForagersBlocks.LILAC_TABLE, FIBlocks.LILAC_PLANKS.get());
+
+        //Alabaster Lantern
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, FABlocks.ALABASTER_LANTERN.get())
+                .pattern("AAA")
+                .pattern("ATA")
+                .pattern("AAA")
+                .define('A', FAItems.ALABASTER.get())
+                .define('T', Items.TORCH)
+                .unlockedBy(getHasName(FAItems.ALABASTER.get()), has(FAItems.ALABASTER.get()))
+                .save(output);
+
+        //Straw
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, FABlocks.STRAW_SLAB.get(), 6)
+                .define('#', ModBlocks.STRAW_BALE.get())
+                .pattern("###")
+                .unlockedBy("has_straw_bale", has(ModBlocks.STRAW_BALE.get()))
+                .save(output, new ResourceLocation(FarmersAssortment.MOD_ID, "straw_slab"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, FABlocks.STRAW_STAIRS.get(), 4)
+                .define('#', ModBlocks.STRAW_BALE.get())
+                .pattern("#  ")
+                .pattern("## ")
+                .pattern("###")
+                .unlockedBy("has_straw_bale", has(ModBlocks.STRAW_BALE.get()))
+                .save(output, new ResourceLocation(FarmersAssortment.MOD_ID, "straw_stairs"));
+
 
         //Crabber's Delight Compat
         if (ModList.get().isLoaded("crabbersdelight")) {
@@ -507,32 +531,43 @@ public final class FACrafting extends RecipeProvider {
     }
 
     private void upcycledCabinet(Consumer<FinishedRecipe> output) {
+        ItemLike upcycled = FABlocks.UPCYCLED_BLOCK.get();
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, FABlocks.UPCYCLED_CABINET.get())
-                .define('C', item("farmersdelight", "canvas"))
-                .define('B', item("farmersdelight", "tree_bark"))
-                .pattern("BCB").pattern("C C").pattern("BCB")
-                .unlockedBy("has_canvas", has(item("farmersdelight", "canvas"))).save(output);
+                .define('#', upcycled)
+                .pattern("###").pattern("# #").pattern("###")
+                .unlockedBy(getHasName(upcycled), has(upcycled)).save(output);
     }
+
     private void upcycledBuildingBlocks(Consumer<FinishedRecipe> output) {
         ItemLike canvas = item("farmersdelight", "canvas");
         ItemLike treeBark = item("farmersdelight", "tree_bark");
+        ItemLike upcycled = FABlocks.UPCYCLED_BLOCK.get();
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, FABlocks.UPCYCLED_DOOR.get(), 3)
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, upcycled, 4)
                 .define('B', treeBark).define('C', canvas)
-                .pattern("BC").pattern("CB").pattern("BC")
+                .pattern("BC").pattern("CB")
                 .unlockedBy("has_canvas", has(canvas)).save(output);
+        slab(output, FABlocks.UPCYCLED_SLAB, upcycled);
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, FABlocks.UPCYCLED_DOOR.get(), 3)
+                .define('#', upcycled)
+                .pattern("##").pattern("##").pattern("##")
+                .unlockedBy(getHasName(upcycled), has(upcycled)).save(output);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, FABlocks.UPCYCLED_PILLAR.get(), 2)
-                .define('B', treeBark).define('C', canvas)
-                .pattern("B").pattern("C").pattern("B")
-                .unlockedBy("has_tree_bark", has(treeBark)).save(output);
+                .define('#', upcycled)
+                .pattern("#").pattern("#")
+                .unlockedBy(getHasName(upcycled), has(upcycled)).save(output);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, FABlocks.UPCYCLED_PANELING.get(), 4)
-                .define('B', treeBark).define('C', canvas)
-                .pattern("BCB").pattern("CBC")
-                .unlockedBy("has_tree_bark", has(treeBark)).save(output);
+                .define('#', upcycled)
+                .pattern("##").pattern("##")
+                .unlockedBy(getHasName(upcycled), has(upcycled)).save(output);
         ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, FABlocks.UPCYCLED_TRAPDOOR.get(), 2)
-                .define('B', treeBark)
-                .pattern("BBB").pattern("BBB")
-                .unlockedBy("has_tree_bark", has(treeBark)).save(output);
+                .define('#', upcycled)
+                .pattern("###").pattern("###")
+                .unlockedBy(getHasName(upcycled), has(upcycled)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, FABlocks.UPCYCLED_DIVIDER.get(), 3)
+                .define('#', upcycled)
+                .pattern("###").pattern("###").pattern("###")
+                .unlockedBy(getHasName(upcycled), has(upcycled)).save(output);
     }
 
     private void ropeFence(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> fence,
@@ -572,6 +607,7 @@ public final class FACrafting extends RecipeProvider {
                 .unlockedBy(getHasName(slab), has(slab))
                 .save(output, id);
     }
+
     private ItemLike item(String namespace, String path) {
         ResourceLocation id = new ResourceLocation(namespace, path);
         return Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(id), () -> "Missing item " + id);

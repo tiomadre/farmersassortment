@@ -27,6 +27,10 @@ public class FAItemTags extends ItemTagsProvider {
         tag(COOKING_POTS)
                 .add(FABlocks.allCookingPots().map(block -> block.get().asItem()).toArray(Item[]::new));
         tag(ItemTags.WOODEN_DOORS).add(FABlocks.UPCYCLED_DOOR.get().asItem());
+
+        tag(ItemTags.SLABS).add(FABlocks.STRAW_SLAB.get().asItem(), FABlocks.UPCYCLED_SLAB.get().asItem());
+        tag(ItemTags.WOODEN_SLABS).add(FABlocks.UPCYCLED_SLAB.get().asItem());
+        tag(ItemTags.STAIRS).add(FABlocks.STRAW_STAIRS.get().asItem());
     }
 
 }

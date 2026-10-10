@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "farmersassortment:block/upcycled_door_bottom"
+    "layer0": "farmersassortment:item/upcycled_door"
   }
 }

@@ -2,17 +2,13 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "B": {
-      "item": "farmersdelight:tree_bark"
-    },
-    "C": {
-      "item": "farmersdelight:canvas"
+    "#": {
+      "item": "farmersassortment:upcycled_block"
     }
   },
   "pattern": [
-    "B",
-    "C",
-    "B"
+    "#",
+    "#"
   ],
   "result": {
     "count": 2,

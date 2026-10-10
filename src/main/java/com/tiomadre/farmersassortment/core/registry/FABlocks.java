@@ -3,6 +3,7 @@ package com.tiomadre.farmersassortment.core.registry;
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.block.*;
 import com.tiomadre.farmersassortment.core.item.StoolItem;
+import com.tiomadre.farmersassortment.core.item.FloatingDrawerItem;
 import com.tiomadre.farmersassortment.core.item.TableItem;
 import com.tiomadre.farmersassortment.core.mixin.BlockEntityTypeAccessor;
 import com.tiomadre.farmersassortment.core.item.TerracottaCookingPotItem;
@@ -22,10 +23,10 @@ import net.minecraftforge.registries.RegistryObject;
 import vectorwing.farmersdelight.common.block.CabinetBlock;
 import vectorwing.farmersdelight.common.block.CuttingBoardBlock;
 import vectorwing.farmersdelight.common.block.CookingPotBlock;
-import vectorwing.farmersdelight.common.block.RopeFenceGateBlock;
 import vectorwing.farmersdelight.common.item.CookingPotItem;
 import vectorwing.farmersdelight.common.registry.ModBlockEntityTypes;
-
+import vectorwing.farmersdelight.common.registry.ModBlocks;
+import com.tiomadre.farmersassortment.core.block.FloatingDrawerBlock;
 
 
 import java.util.HashSet;
@@ -68,7 +69,12 @@ public final class FABlocks {
     public static final RegistryObject<StairBlock> ALABASTER_STAIRS = registerStairs("alabaster", ALABASTER_BLOCK);
     public static final RegistryObject<WallBlock> ALABASTER_WALL = registerWall("alabaster", ALABASTER_BLOCK);
     public static final RegistryObject<RotatedPillarBlock> ALABASTER_PILLAR = registerPillar("alabaster", ALABASTER_BLOCK);
+    public static final RegistryObject<LanternBlock> ALABASTER_LANTERN = BLOCKS.createBlock("alabaster_lantern", () -> new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).mapColor(MapColor.TERRACOTTA_WHITE).sound(ALABASTER_SOUND_TYPE)), new Item.Properties());
         //Upcycled
+    public static final RegistryObject<Block> UPCYCLED_BLOCK = BLOCKS.createBlock("upcycled_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), new Item.Properties());
+    public static final RegistryObject<SlabBlock> UPCYCLED_SLAB = registerSlab("upcycled", UPCYCLED_BLOCK);
+
     public static final RegistryObject<DoorBlock> UPCYCLED_DOOR = BLOCKS.createBlock("upcycled_door",
                 () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_DOOR), BlockSetType.OAK), new Item.Properties());
     public static final RegistryObject<RotatedPillarBlock> UPCYCLED_PILLAR = BLOCKS.createBlock("upcycled_pillar",
@@ -79,6 +85,11 @@ public final class FABlocks {
             () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_TRAPDOOR), BlockSetType.OAK), new Item.Properties());
     public static final RegistryObject<DividerBlock> UPCYCLED_DIVIDER = BLOCKS.createBlock("upcycled_divider",
             () -> new DividerBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).noOcclusion()), new Item.Properties());
+        //Straw
+     public static final RegistryObject<SlabBlock> STRAW_SLAB =
+                registerSlab("straw", ModBlocks.STRAW_BALE);
+    public static final RegistryObject<StairBlock> STRAW_STAIRS =
+            registerStairs("straw", ModBlocks.STRAW_BALE);
 
 
     //Slats
@@ -112,18 +123,20 @@ public final class FABlocks {
     public static final RegistryObject<CabinetBlock> UPCYCLED_CABINET = BLOCKS.createBlock("upcycled_cabinet",
                 () -> new CabinetBlock(BlockBehaviour.Properties.copy(Blocks.BARREL)), new Item.Properties());
         //Counters
-    public static final RegistryObject<FloatingCounterBlock> OAK_FLOATING_COUNTER = registerFloatingCounter("oak", Blocks.OAK_PLANKS);
-    public static final RegistryObject<FloatingCounterBlock> SPRUCE_FLOATING_COUNTER = registerFloatingCounter("spruce", Blocks.SPRUCE_PLANKS);
-    public static final RegistryObject<FloatingCounterBlock> BIRCH_FLOATING_COUNTER = registerFloatingCounter("birch", Blocks.BIRCH_PLANKS);
-    public static final RegistryObject<FloatingCounterBlock> JUNGLE_FLOATING_COUNTER = registerFloatingCounter("jungle", Blocks.JUNGLE_PLANKS);
-    public static final RegistryObject<FloatingCounterBlock> ACACIA_FLOATING_COUNTER = registerFloatingCounter("acacia", Blocks.ACACIA_PLANKS);
-    public static final RegistryObject<FloatingCounterBlock> DARK_OAK_FLOATING_COUNTER = registerFloatingCounter("dark_oak", Blocks.DARK_OAK_PLANKS);
-    public static final RegistryObject<FloatingCounterBlock> MANGROVE_FLOATING_COUNTER = registerFloatingCounter("mangrove", Blocks.MANGROVE_PLANKS);
-    public static final RegistryObject<FloatingCounterBlock> CHERRY_FLOATING_COUNTER = registerFloatingCounter("cherry", Blocks.CHERRY_PLANKS);
-    public static final RegistryObject<FloatingCounterBlock> BAMBOO_FLOATING_COUNTER = registerFloatingCounter("bamboo", Blocks.BAMBOO_PLANKS);
-    public static final RegistryObject<FloatingCounterBlock> CRIMSON_FLOATING_COUNTER = registerFloatingCounter("crimson", Blocks.CRIMSON_PLANKS);
-    public static final RegistryObject<FloatingCounterBlock> WARPED_FLOATING_COUNTER = registerFloatingCounter("warped", Blocks.WARPED_PLANKS);
-    public static final RegistryObject<FloatingCounterBlock> ALABASTER_FLOATING_COUNTER = registerFloatingCounter("alabaster", Blocks.QUARTZ_BLOCK);
+    public static final RegistryObject<FloatingDrawerBlock> OAK_FLOATING_COUNTER = registerFloatingCounter("oak", Blocks.OAK_PLANKS);
+    public static final RegistryObject<FloatingDrawerBlock> SPRUCE_FLOATING_COUNTER = registerFloatingCounter("spruce", Blocks.SPRUCE_PLANKS);
+    public static final RegistryObject<FloatingDrawerBlock> BIRCH_FLOATING_COUNTER = registerFloatingCounter("birch", Blocks.BIRCH_PLANKS);
+    public static final RegistryObject<FloatingDrawerBlock> JUNGLE_FLOATING_COUNTER = registerFloatingCounter("jungle", Blocks.JUNGLE_PLANKS);
+    public static final RegistryObject<FloatingDrawerBlock> ACACIA_FLOATING_COUNTER = registerFloatingCounter("acacia", Blocks.ACACIA_PLANKS);
+    public static final RegistryObject<FloatingDrawerBlock> DARK_OAK_FLOATING_COUNTER = registerFloatingCounter("dark_oak", Blocks.DARK_OAK_PLANKS);
+    public static final RegistryObject<FloatingDrawerBlock> MANGROVE_FLOATING_COUNTER = registerFloatingCounter("mangrove", Blocks.MANGROVE_PLANKS);
+    public static final RegistryObject<FloatingDrawerBlock> CHERRY_FLOATING_COUNTER = registerFloatingCounter("cherry", Blocks.CHERRY_PLANKS);
+    public static final RegistryObject<FloatingDrawerBlock> BAMBOO_FLOATING_COUNTER = registerFloatingCounter("bamboo", Blocks.BAMBOO_PLANKS);
+    public static final RegistryObject<FloatingDrawerBlock> CRIMSON_FLOATING_COUNTER = registerFloatingCounter("crimson", Blocks.CRIMSON_PLANKS);
+    public static final RegistryObject<FloatingDrawerBlock> WARPED_FLOATING_COUNTER = registerFloatingCounter("warped", Blocks.WARPED_PLANKS);
+    public static final RegistryObject<FloatingDrawerBlock> ALABASTER_FLOATING_COUNTER = registerFloatingCounter("alabaster", Blocks.QUARTZ_BLOCK);
+    public static final RegistryObject<FloatingDrawerBlock> LILAC_FLOATING_COUNTER = registerFloatingCounter("lilac", Blocks.OAK_PLANKS);
+    public static final RegistryObject<FloatingDrawerBlock> PALM_FLOATING_COUNTER = registerFloatingCounter("palm", Blocks.OAK_PLANKS);
 
         //Stools
     public static final RegistryObject<StoolBlock> OAK_STOOL = registerStool("oak", Blocks.OAK_PLANKS);
@@ -165,11 +178,6 @@ public final class FABlocks {
     public static final RegistryObject<TableBlock> ALABASTER_TABLE = registerTable("alabaster", Blocks.QUARTZ_BLOCK);
 
 
-    public static final RegistryObject<RopeFenceGateBlock> VINE_FENCE_GATE = BLOCKS.createBlock("vine_fence_gate",
-            () -> new RopeFenceGateBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE_GATE).noOcclusion()), new Item.Properties());
-    public static final RegistryObject<VariantRopeFenceBlock> VINE_FENCE = BLOCKS.createBlock("vine_fence",
-            () -> new VariantRopeFenceBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE).noOcclusion(), VINE_FENCE_GATE), new Item.Properties());
-
 //definitions
 private static RegistryObject<Block> registerStorageBlock(String name) {
     BlockBehaviour.Properties properties = BlockBehaviour.Properties.copy(Blocks.QUARTZ_BLOCK);
@@ -202,7 +210,7 @@ private static RegistryObject<Block> registerStorageBlock(String name) {
 
 
     public static Stream<RegistryObject<RackBlock>> racks() {
-        return Stream.of(
+        return Stream.concat(Stream.of(
                 OAK_RACK,
                 SPRUCE_RACK,
                 BIRCH_RACK,
@@ -215,7 +223,7 @@ private static RegistryObject<Block> registerStorageBlock(String name) {
                 CRIMSON_RACK,
                 WARPED_RACK,
                 ALABASTER_RACK
-        );
+        ), FADynamicFurniture.racks());
     }
     private static RegistryObject<RackBlock> registerRack(String woodType, Block baseBlock) {
         BlockBehaviour.Properties properties = BlockBehaviour.Properties.copy(baseBlock).noOcclusion();
@@ -275,10 +283,7 @@ private static RegistryObject<Block> registerStorageBlock(String name) {
         );
     }
     public static Stream<RegistryObject<TableBlock>> allTables() {
-        Stream<RegistryObject<TableBlock>> tables = tables();
-        if (FarmersAssortment.isCrabbersCompatEnabled()) {
-            tables = Stream.concat(tables, FAxCrabbersBlocks.tables());
-        }
+        Stream<RegistryObject<TableBlock>> tables = Stream.concat(tables(), FADynamicFurniture.tables());
         if (FarmersAssortment.isForagersCompatEnabled()) {
             tables = Stream.concat(tables, FAxForagersBlocks.tables());
         }
@@ -415,18 +420,22 @@ private static RegistryObject<Block> registerStorageBlock(String name) {
                 () -> new TerracottaCookingPotBlock(BlockBehaviour.Properties.of().mapColor(Blocks.TERRACOTTA.defaultMapColor()).strength(0.5F, 6.0F).sound(SoundType.DECORATED_POT)),
                 () -> new TerracottaCookingPotItem(Objects.requireNonNull(ForgeRegistries.BLOCKS.getValue(TERRACOTTA_COOKING_POT_ID)), new Item.Properties().stacksTo(1)));
     }
-    private static RegistryObject<FloatingCounterBlock> registerFloatingCounter(String woodType, Block baseBlock) {
+    private static RegistryObject<FloatingDrawerBlock> registerFloatingCounter(String woodType, Block baseBlock) {
         BlockBehaviour.Properties properties = BlockBehaviour.Properties.copy(baseBlock);
         if ("alabaster".equals(woodType)) {
             properties = properties.sound(ALABASTER_SOUND_TYPE);
         }
         BlockBehaviour.Properties finalProperties = properties;
-        return BLOCKS.createBlock(woodType + "_floating_counter",
-                () -> new FloatingCounterBlock(finalProperties),
-                new Item.Properties());
+        String name = woodType + "_floating_counter";
+        ResourceLocation id = new ResourceLocation(FarmersAssortment.MOD_ID, name);
+        return BLOCKS.createBlockWithItem(name,
+                () -> new FloatingDrawerBlock(finalProperties),
+                () -> new FloatingDrawerItem(
+                        Objects.requireNonNull(ForgeRegistries.BLOCKS.getValue(id)),
+                        new Item.Properties()));
     }
 
-    public static Stream<RegistryObject<FloatingCounterBlock>> floatingCounters() {
+    public static Stream<RegistryObject<FloatingDrawerBlock>> floatingCounters() {
         return Stream.of(
                 OAK_FLOATING_COUNTER,
                 SPRUCE_FLOATING_COUNTER,
@@ -439,7 +448,9 @@ private static RegistryObject<Block> registerStorageBlock(String name) {
                 BAMBOO_FLOATING_COUNTER,
                 CRIMSON_FLOATING_COUNTER,
                 WARPED_FLOATING_COUNTER,
-                ALABASTER_FLOATING_COUNTER
+                ALABASTER_FLOATING_COUNTER,
+                LILAC_FLOATING_COUNTER,
+                PALM_FLOATING_COUNTER
         );
     }
 
@@ -455,7 +466,7 @@ private static RegistryObject<Block> registerStorageBlock(String name) {
         if (FarmersAssortment.isForagersCompatEnabled()) {
             stools = Stream.concat(stools, FAxForagersBlocks.stools());
         }
-        stools = Stream.concat(stools, FADynamicStools.stools());
+        stools = Stream.concat(stools, FADynamicFurniture.stools());
         return stools;
     }
 

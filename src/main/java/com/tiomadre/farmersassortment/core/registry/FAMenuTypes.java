@@ -8,6 +8,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import com.tiomadre.farmersassortment.core.menu.FloatingDrawerMenu;
 
 public final class FAMenuTypes {
     private static final DeferredRegister<MenuType<?>> MENU_TYPES =
@@ -15,6 +16,10 @@ public final class FAMenuTypes {
 
     public static final RegistryObject<MenuType<RackMenu>> RACK =
             MENU_TYPES.register("rack", () -> IForgeMenuType.create((windowId, inventory, data) -> new RackMenu(windowId, inventory)));
+
+    public static final RegistryObject<MenuType<FloatingDrawerMenu>> FLOATING_COUNTER =
+            MENU_TYPES.register("floating_counter",
+                    () -> IForgeMenuType.create(FloatingDrawerMenu::new));
 
     private FAMenuTypes() {
     }

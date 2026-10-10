@@ -2,8 +2,10 @@ package com.tiomadre.farmersassortment.data.client;
 
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.block.state.StoolRugType;
+import com.tiomadre.farmersassortment.core.block.state.TableCoverType;
 import com.tiomadre.farmersassortment.core.block.state.TerracottaCookingPotColor;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
+import com.tiomadre.farmersassortment.core.registry.FADynamicFurniture;
 import com.tiomadre.farmersassortment.core.registry.FAItems;
 import com.tiomadre.farmersassortment.core.registry.FARugs;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
@@ -45,9 +47,13 @@ public class FAItemModels extends ItemModelProvider {
         registerRacks();
         registerTables();
         registerSlats();
-        registerRopeFences();
         registerTrapdoors();
+
+        //Other
+        generatedItem(FABlocks.ALABASTER_LANTERN, "alabaster_lantern");
         generatedItem(FABlocks.UPCYCLED_DIVIDER, "divider");
+        block(FABlocks.STRAW_SLAB);
+        block(FABlocks.STRAW_STAIRS);
     }
     private void generatedItem(RegistryObject<?> item, String texture) {
         String name = Objects.requireNonNull(item.getId()).getPath();
@@ -61,7 +67,9 @@ public class FAItemModels extends ItemModelProvider {
 
     private void registerUpcycledBuildingBlocks() {
         withExistingParent("upcycled_door", mcLoc("item/generated"))
-                .texture("layer0", modLoc("block/upcycled_door_bottom"));
+                .texture("layer0", modLoc("item/upcycled_door"));
+        block(FABlocks.UPCYCLED_BLOCK);
+        block(FABlocks.UPCYCLED_SLAB);
         block(FABlocks.UPCYCLED_PILLAR);
         block(FABlocks.UPCYCLED_PANELING);
     }
@@ -83,13 +91,15 @@ public class FAItemModels extends ItemModelProvider {
     }
 
     private void registerTables() {
-        FABlocks.allTables().forEach(this::tableItem);
+        FABlocks.allTables()
+                .filter(block -> FADynamicFurniture.tables().noneMatch(dynamic -> dynamic.getId().equals(block.getId())))
+                .forEach(this::tableItem);
     }
     private void tableItem(RegistryObject<? extends Block> block) {
         String name = Objects.requireNonNull(block.getId()).getPath();
         ItemModelBuilder builder = tableTransforms(getBuilder(name)
                 .parent(new ModelFile.UncheckedModelFile(modLoc("block/" + name))));
-        for (StoolRugType rugType : StoolRugType.values()) {
+        for (TableCoverType rugType : TableCoverType.values()) {
             if (!rugType.hasRug()) {
                 continue;
             }
@@ -103,7 +113,9 @@ public class FAItemModels extends ItemModelProvider {
         }
     }
     private void registerRacks() {
-        FABlocks.racks().forEach(this::block);
+        FABlocks.racks()
+                .filter(block -> FADynamicFurniture.racks().noneMatch(dynamic -> dynamic.getId().equals(block.getId())))
+                .forEach(this::block);
     }
 
     private void registerFloatingCounters() {
@@ -283,12 +295,6 @@ public class FAItemModels extends ItemModelProvider {
                 FAxForagersBlocks.butcherBlockCabinets()
         ).forEach(this::block);
         block(FABlocks.UPCYCLED_CABINET);
-    }
-
-    private void registerRopeFences() {
-        String name = Objects.requireNonNull(FABlocks.VINE_FENCE.getId()).getPath();
-        withExistingParent(name, modLoc("block/" + name + "_inventory"));
-        block(FABlocks.VINE_FENCE_GATE);
     }
 
     private void registerDiffusers() {

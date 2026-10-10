@@ -9,6 +9,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import com.tiomadre.farmersassortment.core.block.entity.FloatingDrawerBlockEntity;
 
 
 public final class FABlockEntityTypes {
@@ -45,4 +46,11 @@ public final class FABlockEntityTypes {
                 .map(RegistryObject::get)
                 .toArray(Block[]::new);
     }
+    public static final RegistryObject<BlockEntityType<FloatingDrawerBlockEntity>> FLOATING_COUNTER =
+            BLOCK_ENTITY_TYPES.register("floating_counter", () -> BlockEntityType.Builder.of(
+                    FloatingDrawerBlockEntity::new,
+                    FABlocks.floatingCounters()
+                            .map(RegistryObject::get)
+                            .toArray(Block[]::new)
+            ).build(null));
 }

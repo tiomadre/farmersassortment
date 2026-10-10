@@ -2,6 +2,7 @@ package com.tiomadre.farmersassortment.core;
 
 import com.tiomadre.farmersassortment.client.particle.AlabasterStoveFireParticle;
 import com.tiomadre.farmersassortment.client.renderer.ButcherBlockCabinetRenderer;
+import com.tiomadre.farmersassortment.client.renderer.FloatingDrawerRenderer;
 import com.tiomadre.farmersassortment.client.renderer.RackRenderer;
 import com.tiomadre.farmersassortment.client.screen.RackScreen;
 import com.tiomadre.farmersassortment.core.item.StoolItem;
@@ -21,6 +22,7 @@ import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import com.tiomadre.farmersassortment.client.screen.FloatingDrawerScreen;
 
 @Mod.EventBusSubscriber(modid = FarmersAssortment.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public final class FAClientEvents {
@@ -31,6 +33,7 @@ public final class FAClientEvents {
     public static void registerBlockEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(FABlockEntityTypes.BUTCHER_BLOCK_CABINET.get(), ButcherBlockCabinetRenderer::new);
         event.registerBlockEntityRenderer(FABlockEntityTypes.RACK.get(), RackRenderer::new);
+        event.registerBlockEntityRenderer(FABlockEntityTypes.FLOATING_COUNTER.get(), FloatingDrawerRenderer::new);
     }
 
     @SubscribeEvent
@@ -49,6 +52,7 @@ public final class FAClientEvents {
                     (stack, level, entity, seed) -> TableItem.getRug(stack).ordinal()));
 
             MenuScreens.register(FAMenuTypes.RACK.get(), RackScreen::new);
+            MenuScreens.register(FAMenuTypes.FLOATING_COUNTER.get(), FloatingDrawerScreen::new);
         });
     }
     @SubscribeEvent

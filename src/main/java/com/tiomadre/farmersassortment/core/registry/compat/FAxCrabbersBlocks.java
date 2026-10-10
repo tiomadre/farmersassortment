@@ -7,8 +7,6 @@ import alabaster.crabbersdelight.common.registry.CDModBlockEntity;
 import alabaster.crabbersdelight.common.registry.CDModBlocks;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import com.tiomadre.farmersassortment.core.block.SlatBlock;
-import com.tiomadre.farmersassortment.core.block.TableBlock;
-import com.tiomadre.farmersassortment.core.item.TableItem;
 import com.tiomadre.farmersassortment.core.mixin.BlockEntityTypeAccessor;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -56,7 +54,6 @@ public final class FAxCrabbersBlocks {
     public static final RegistryObject<CrabTrapBlock> WARPED_CRAB_TRAP = registerCrabTrap("warped");
     public static final RegistryObject<CrabTrapBlock> PALM_CRAB_TRAP = registerCrabTrap("palm");
     public static final RegistryObject<CrabTrapBlock> LILAC_CRAB_TRAP = registerCrabTrap("lilac");
-    public static final RegistryObject<TableBlock> PALM_TABLE = registerTable("palm");
     public static final RegistryObject<SlatBlock> PALM_SLATS = registerSlats("palm");
 
 
@@ -107,17 +104,6 @@ public final class FAxCrabbersBlocks {
                 PALM_CRAB_TRAP,
                 LILAC_CRAB_TRAP
         );
-    }
-    public static Stream<RegistryObject<TableBlock>> tables() {
-        return Stream.of(PALM_TABLE);
-    }
-    private static RegistryObject<TableBlock> registerTable(String woodType) {
-        Block baseBlock = compatBlock(woodType + "_planks");
-        String name = woodType + "_table";
-        ResourceLocation id = new ResourceLocation(FarmersAssortment.MOD_ID, name);
-        return BLOCKS.createBlockWithItem(name,
-                () -> new TableBlock(BlockBehaviour.Properties.copy(baseBlock).noOcclusion()),
-                () -> new TableItem(Objects.requireNonNull(ForgeRegistries.BLOCKS.getValue(id)), new Item.Properties()));
     }
 
     private static RegistryObject<CuttingBoardBlock> registerCuttingBoard(String woodType) {

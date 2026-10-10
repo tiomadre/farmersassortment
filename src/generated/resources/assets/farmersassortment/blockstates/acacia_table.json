@@ -28,6 +28,34 @@
       "model": "farmersassortment:block/acacia_table_black_n--w",
       "x": 180
     },
+    "east=false,north=false,rug=black_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_black_carpet"
+    },
+    "east=false,north=false,rug=black_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_---w"
+    },
+    "east=false,north=false,rug=black_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_black_carpet",
+      "x": 180
+    },
+    "east=false,north=false,rug=black_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_---w",
+      "x": 180
+    },
+    "east=false,north=false,rug=black_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_--s-"
+    },
+    "east=false,north=false,rug=black_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_--sw"
+    },
+    "east=false,north=false,rug=black_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_n---",
+      "x": 180
+    },
+    "east=false,north=false,rug=black_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_n--w",
+      "x": 180
+    },
     "east=false,north=false,rug=blue,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_blue"
     },
@@ -56,6 +84,34 @@
       "model": "farmersassortment:block/acacia_table_blue_n--w",
       "x": 180
     },
+    "east=false,north=false,rug=blue_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet"
+    },
+    "east=false,north=false,rug=blue_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_---w"
+    },
+    "east=false,north=false,rug=blue_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet",
+      "x": 180
+    },
+    "east=false,north=false,rug=blue_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_---w",
+      "x": 180
+    },
+    "east=false,north=false,rug=blue_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_--s-"
+    },
+    "east=false,north=false,rug=blue_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_--sw"
+    },
+    "east=false,north=false,rug=blue_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_n---",
+      "x": 180
+    },
+    "east=false,north=false,rug=blue_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_n--w",
+      "x": 180
+    },
     "east=false,north=false,rug=brown,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_brown"
     },
@@ -82,6 +138,34 @@
     },
     "east=false,north=false,rug=brown,south=true,upside_down=true,west=true": {
       "model": "farmersassortment:block/acacia_table_brown_n--w",
+      "x": 180
+    },
+    "east=false,north=false,rug=brown_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet"
+    },
+    "east=false,north=false,rug=brown_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_---w"
+    },
+    "east=false,north=false,rug=brown_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet",
+      "x": 180
+    },
+    "east=false,north=false,rug=brown_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_---w",
+      "x": 180
+    },
+    "east=false,north=false,rug=brown_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_--s-"
+    },
+    "east=false,north=false,rug=brown_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_--sw"
+    },
+    "east=false,north=false,rug=brown_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_n---",
+      "x": 180
+    },
+    "east=false,north=false,rug=brown_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_n--w",
       "x": 180
     },
     "east=false,north=false,rug=canvas,south=false,upside_down=false,west=false": {
@@ -140,6 +224,34 @@
       "model": "farmersassortment:block/acacia_table_cyan_n--w",
       "x": 180
     },
+    "east=false,north=false,rug=cyan_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet"
+    },
+    "east=false,north=false,rug=cyan_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_---w"
+    },
+    "east=false,north=false,rug=cyan_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet",
+      "x": 180
+    },
+    "east=false,north=false,rug=cyan_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_---w",
+      "x": 180
+    },
+    "east=false,north=false,rug=cyan_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_--s-"
+    },
+    "east=false,north=false,rug=cyan_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_--sw"
+    },
+    "east=false,north=false,rug=cyan_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_n---",
+      "x": 180
+    },
+    "east=false,north=false,rug=cyan_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_n--w",
+      "x": 180
+    },
     "east=false,north=false,rug=gray,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_gray"
     },
@@ -166,6 +278,34 @@
     },
     "east=false,north=false,rug=gray,south=true,upside_down=true,west=true": {
       "model": "farmersassortment:block/acacia_table_gray_n--w",
+      "x": 180
+    },
+    "east=false,north=false,rug=gray_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet"
+    },
+    "east=false,north=false,rug=gray_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_---w"
+    },
+    "east=false,north=false,rug=gray_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet",
+      "x": 180
+    },
+    "east=false,north=false,rug=gray_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_---w",
+      "x": 180
+    },
+    "east=false,north=false,rug=gray_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_--s-"
+    },
+    "east=false,north=false,rug=gray_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_--sw"
+    },
+    "east=false,north=false,rug=gray_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_n---",
+      "x": 180
+    },
+    "east=false,north=false,rug=gray_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_n--w",
       "x": 180
     },
     "east=false,north=false,rug=green,south=false,upside_down=false,west=false": {
@@ -196,6 +336,34 @@
       "model": "farmersassortment:block/acacia_table_green_n--w",
       "x": 180
     },
+    "east=false,north=false,rug=green_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_green_carpet"
+    },
+    "east=false,north=false,rug=green_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_---w"
+    },
+    "east=false,north=false,rug=green_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_green_carpet",
+      "x": 180
+    },
+    "east=false,north=false,rug=green_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_---w",
+      "x": 180
+    },
+    "east=false,north=false,rug=green_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_--s-"
+    },
+    "east=false,north=false,rug=green_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_--sw"
+    },
+    "east=false,north=false,rug=green_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_n---",
+      "x": 180
+    },
+    "east=false,north=false,rug=green_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_n--w",
+      "x": 180
+    },
     "east=false,north=false,rug=light_blue,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_light_blue"
     },
@@ -222,6 +390,34 @@
     },
     "east=false,north=false,rug=light_blue,south=true,upside_down=true,west=true": {
       "model": "farmersassortment:block/acacia_table_light_blue_n--w",
+      "x": 180
+    },
+    "east=false,north=false,rug=light_blue_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet"
+    },
+    "east=false,north=false,rug=light_blue_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_---w"
+    },
+    "east=false,north=false,rug=light_blue_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet",
+      "x": 180
+    },
+    "east=false,north=false,rug=light_blue_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_---w",
+      "x": 180
+    },
+    "east=false,north=false,rug=light_blue_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_--s-"
+    },
+    "east=false,north=false,rug=light_blue_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_--sw"
+    },
+    "east=false,north=false,rug=light_blue_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_n---",
+      "x": 180
+    },
+    "east=false,north=false,rug=light_blue_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_n--w",
       "x": 180
     },
     "east=false,north=false,rug=light_gray,south=false,upside_down=false,west=false": {
@@ -252,6 +448,34 @@
       "model": "farmersassortment:block/acacia_table_light_gray_n--w",
       "x": 180
     },
+    "east=false,north=false,rug=light_gray_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet"
+    },
+    "east=false,north=false,rug=light_gray_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_---w"
+    },
+    "east=false,north=false,rug=light_gray_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet",
+      "x": 180
+    },
+    "east=false,north=false,rug=light_gray_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_---w",
+      "x": 180
+    },
+    "east=false,north=false,rug=light_gray_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_--s-"
+    },
+    "east=false,north=false,rug=light_gray_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_--sw"
+    },
+    "east=false,north=false,rug=light_gray_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_n---",
+      "x": 180
+    },
+    "east=false,north=false,rug=light_gray_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_n--w",
+      "x": 180
+    },
     "east=false,north=false,rug=lime,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_lime"
     },
@@ -280,6 +504,34 @@
       "model": "farmersassortment:block/acacia_table_lime_n--w",
       "x": 180
     },
+    "east=false,north=false,rug=lime_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet"
+    },
+    "east=false,north=false,rug=lime_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_---w"
+    },
+    "east=false,north=false,rug=lime_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet",
+      "x": 180
+    },
+    "east=false,north=false,rug=lime_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_---w",
+      "x": 180
+    },
+    "east=false,north=false,rug=lime_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_--s-"
+    },
+    "east=false,north=false,rug=lime_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_--sw"
+    },
+    "east=false,north=false,rug=lime_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_n---",
+      "x": 180
+    },
+    "east=false,north=false,rug=lime_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_n--w",
+      "x": 180
+    },
     "east=false,north=false,rug=magenta,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_magenta"
     },
@@ -306,6 +558,62 @@
     },
     "east=false,north=false,rug=magenta,south=true,upside_down=true,west=true": {
       "model": "farmersassortment:block/acacia_table_magenta_n--w",
+      "x": 180
+    },
+    "east=false,north=false,rug=magenta_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet"
+    },
+    "east=false,north=false,rug=magenta_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_---w"
+    },
+    "east=false,north=false,rug=magenta_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet",
+      "x": 180
+    },
+    "east=false,north=false,rug=magenta_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_---w",
+      "x": 180
+    },
+    "east=false,north=false,rug=magenta_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_--s-"
+    },
+    "east=false,north=false,rug=magenta_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_--sw"
+    },
+    "east=false,north=false,rug=magenta_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_n---",
+      "x": 180
+    },
+    "east=false,north=false,rug=magenta_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_n--w",
+      "x": 180
+    },
+    "east=false,north=false,rug=moss_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet"
+    },
+    "east=false,north=false,rug=moss_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_---w"
+    },
+    "east=false,north=false,rug=moss_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet",
+      "x": 180
+    },
+    "east=false,north=false,rug=moss_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_---w",
+      "x": 180
+    },
+    "east=false,north=false,rug=moss_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_--s-"
+    },
+    "east=false,north=false,rug=moss_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_--sw"
+    },
+    "east=false,north=false,rug=moss_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_n---",
+      "x": 180
+    },
+    "east=false,north=false,rug=moss_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_n--w",
       "x": 180
     },
     "east=false,north=false,rug=none,south=false,upside_down=false,west=false": {
@@ -364,6 +672,34 @@
       "model": "farmersassortment:block/acacia_table_orange_n--w",
       "x": 180
     },
+    "east=false,north=false,rug=orange_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet"
+    },
+    "east=false,north=false,rug=orange_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_---w"
+    },
+    "east=false,north=false,rug=orange_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet",
+      "x": 180
+    },
+    "east=false,north=false,rug=orange_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_---w",
+      "x": 180
+    },
+    "east=false,north=false,rug=orange_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_--s-"
+    },
+    "east=false,north=false,rug=orange_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_--sw"
+    },
+    "east=false,north=false,rug=orange_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_n---",
+      "x": 180
+    },
+    "east=false,north=false,rug=orange_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_n--w",
+      "x": 180
+    },
     "east=false,north=false,rug=pink,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_pink"
     },
@@ -390,6 +726,34 @@
     },
     "east=false,north=false,rug=pink,south=true,upside_down=true,west=true": {
       "model": "farmersassortment:block/acacia_table_pink_n--w",
+      "x": 180
+    },
+    "east=false,north=false,rug=pink_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet"
+    },
+    "east=false,north=false,rug=pink_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_---w"
+    },
+    "east=false,north=false,rug=pink_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet",
+      "x": 180
+    },
+    "east=false,north=false,rug=pink_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_---w",
+      "x": 180
+    },
+    "east=false,north=false,rug=pink_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_--s-"
+    },
+    "east=false,north=false,rug=pink_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_--sw"
+    },
+    "east=false,north=false,rug=pink_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_n---",
+      "x": 180
+    },
+    "east=false,north=false,rug=pink_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_n--w",
       "x": 180
     },
     "east=false,north=false,rug=purple,south=false,upside_down=false,west=false": {
@@ -420,6 +784,34 @@
       "model": "farmersassortment:block/acacia_table_purple_n--w",
       "x": 180
     },
+    "east=false,north=false,rug=purple_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet"
+    },
+    "east=false,north=false,rug=purple_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_---w"
+    },
+    "east=false,north=false,rug=purple_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet",
+      "x": 180
+    },
+    "east=false,north=false,rug=purple_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_---w",
+      "x": 180
+    },
+    "east=false,north=false,rug=purple_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_--s-"
+    },
+    "east=false,north=false,rug=purple_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_--sw"
+    },
+    "east=false,north=false,rug=purple_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_n---",
+      "x": 180
+    },
+    "east=false,north=false,rug=purple_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_n--w",
+      "x": 180
+    },
     "east=false,north=false,rug=red,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_red"
     },
@@ -446,6 +838,34 @@
     },
     "east=false,north=false,rug=red,south=true,upside_down=true,west=true": {
       "model": "farmersassortment:block/acacia_table_red_n--w",
+      "x": 180
+    },
+    "east=false,north=false,rug=red_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_red_carpet"
+    },
+    "east=false,north=false,rug=red_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_---w"
+    },
+    "east=false,north=false,rug=red_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_red_carpet",
+      "x": 180
+    },
+    "east=false,north=false,rug=red_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_---w",
+      "x": 180
+    },
+    "east=false,north=false,rug=red_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_--s-"
+    },
+    "east=false,north=false,rug=red_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_--sw"
+    },
+    "east=false,north=false,rug=red_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_n---",
+      "x": 180
+    },
+    "east=false,north=false,rug=red_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_n--w",
       "x": 180
     },
     "east=false,north=false,rug=white,south=false,upside_down=false,west=false": {
@@ -476,6 +896,34 @@
       "model": "farmersassortment:block/acacia_table_white_n--w",
       "x": 180
     },
+    "east=false,north=false,rug=white_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_white_carpet"
+    },
+    "east=false,north=false,rug=white_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_---w"
+    },
+    "east=false,north=false,rug=white_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_white_carpet",
+      "x": 180
+    },
+    "east=false,north=false,rug=white_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_---w",
+      "x": 180
+    },
+    "east=false,north=false,rug=white_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_--s-"
+    },
+    "east=false,north=false,rug=white_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_--sw"
+    },
+    "east=false,north=false,rug=white_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_n---",
+      "x": 180
+    },
+    "east=false,north=false,rug=white_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_n--w",
+      "x": 180
+    },
     "east=false,north=false,rug=yellow,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_yellow"
     },
@@ -502,6 +950,34 @@
     },
     "east=false,north=false,rug=yellow,south=true,upside_down=true,west=true": {
       "model": "farmersassortment:block/acacia_table_yellow_n--w",
+      "x": 180
+    },
+    "east=false,north=false,rug=yellow_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet"
+    },
+    "east=false,north=false,rug=yellow_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_---w"
+    },
+    "east=false,north=false,rug=yellow_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet",
+      "x": 180
+    },
+    "east=false,north=false,rug=yellow_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_---w",
+      "x": 180
+    },
+    "east=false,north=false,rug=yellow_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_--s-"
+    },
+    "east=false,north=false,rug=yellow_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_--sw"
+    },
+    "east=false,north=false,rug=yellow_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_n---",
+      "x": 180
+    },
+    "east=false,north=false,rug=yellow_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_n--w",
       "x": 180
     },
     "east=false,north=true,rug=black,south=false,upside_down=false,west=false": {
@@ -532,6 +1008,34 @@
       "model": "farmersassortment:block/acacia_table_black_n-sw",
       "x": 180
     },
+    "east=false,north=true,rug=black_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_n---"
+    },
+    "east=false,north=true,rug=black_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_n--w"
+    },
+    "east=false,north=true,rug=black_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_--s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=black_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_--sw",
+      "x": 180
+    },
+    "east=false,north=true,rug=black_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_n-s-"
+    },
+    "east=false,north=true,rug=black_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_n-sw"
+    },
+    "east=false,north=true,rug=black_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_n-s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=black_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_n-sw",
+      "x": 180
+    },
     "east=false,north=true,rug=blue,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_blue_n---"
     },
@@ -560,6 +1064,34 @@
       "model": "farmersassortment:block/acacia_table_blue_n-sw",
       "x": 180
     },
+    "east=false,north=true,rug=blue_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_n---"
+    },
+    "east=false,north=true,rug=blue_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_n--w"
+    },
+    "east=false,north=true,rug=blue_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_--s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=blue_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_--sw",
+      "x": 180
+    },
+    "east=false,north=true,rug=blue_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_n-s-"
+    },
+    "east=false,north=true,rug=blue_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_n-sw"
+    },
+    "east=false,north=true,rug=blue_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_n-s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=blue_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_n-sw",
+      "x": 180
+    },
     "east=false,north=true,rug=brown,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_brown_n---"
     },
@@ -586,6 +1118,34 @@
     },
     "east=false,north=true,rug=brown,south=true,upside_down=true,west=true": {
       "model": "farmersassortment:block/acacia_table_brown_n-sw",
+      "x": 180
+    },
+    "east=false,north=true,rug=brown_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_n---"
+    },
+    "east=false,north=true,rug=brown_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_n--w"
+    },
+    "east=false,north=true,rug=brown_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_--s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=brown_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_--sw",
+      "x": 180
+    },
+    "east=false,north=true,rug=brown_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_n-s-"
+    },
+    "east=false,north=true,rug=brown_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_n-sw"
+    },
+    "east=false,north=true,rug=brown_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_n-s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=brown_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_n-sw",
       "x": 180
     },
     "east=false,north=true,rug=canvas,south=false,upside_down=false,west=false": {
@@ -644,6 +1204,34 @@
       "model": "farmersassortment:block/acacia_table_cyan_n-sw",
       "x": 180
     },
+    "east=false,north=true,rug=cyan_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_n---"
+    },
+    "east=false,north=true,rug=cyan_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_n--w"
+    },
+    "east=false,north=true,rug=cyan_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_--s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=cyan_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_--sw",
+      "x": 180
+    },
+    "east=false,north=true,rug=cyan_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_n-s-"
+    },
+    "east=false,north=true,rug=cyan_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_n-sw"
+    },
+    "east=false,north=true,rug=cyan_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_n-s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=cyan_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_n-sw",
+      "x": 180
+    },
     "east=false,north=true,rug=gray,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_gray_n---"
     },
@@ -670,6 +1258,34 @@
     },
     "east=false,north=true,rug=gray,south=true,upside_down=true,west=true": {
       "model": "farmersassortment:block/acacia_table_gray_n-sw",
+      "x": 180
+    },
+    "east=false,north=true,rug=gray_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_n---"
+    },
+    "east=false,north=true,rug=gray_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_n--w"
+    },
+    "east=false,north=true,rug=gray_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_--s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=gray_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_--sw",
+      "x": 180
+    },
+    "east=false,north=true,rug=gray_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_n-s-"
+    },
+    "east=false,north=true,rug=gray_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_n-sw"
+    },
+    "east=false,north=true,rug=gray_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_n-s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=gray_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_n-sw",
       "x": 180
     },
     "east=false,north=true,rug=green,south=false,upside_down=false,west=false": {
@@ -700,6 +1316,34 @@
       "model": "farmersassortment:block/acacia_table_green_n-sw",
       "x": 180
     },
+    "east=false,north=true,rug=green_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_n---"
+    },
+    "east=false,north=true,rug=green_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_n--w"
+    },
+    "east=false,north=true,rug=green_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_--s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=green_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_--sw",
+      "x": 180
+    },
+    "east=false,north=true,rug=green_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_n-s-"
+    },
+    "east=false,north=true,rug=green_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_n-sw"
+    },
+    "east=false,north=true,rug=green_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_n-s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=green_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_n-sw",
+      "x": 180
+    },
     "east=false,north=true,rug=light_blue,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_light_blue_n---"
     },
@@ -726,6 +1370,34 @@
     },
     "east=false,north=true,rug=light_blue,south=true,upside_down=true,west=true": {
       "model": "farmersassortment:block/acacia_table_light_blue_n-sw",
+      "x": 180
+    },
+    "east=false,north=true,rug=light_blue_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_n---"
+    },
+    "east=false,north=true,rug=light_blue_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_n--w"
+    },
+    "east=false,north=true,rug=light_blue_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_--s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=light_blue_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_--sw",
+      "x": 180
+    },
+    "east=false,north=true,rug=light_blue_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_n-s-"
+    },
+    "east=false,north=true,rug=light_blue_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_n-sw"
+    },
+    "east=false,north=true,rug=light_blue_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_n-s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=light_blue_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_n-sw",
       "x": 180
     },
     "east=false,north=true,rug=light_gray,south=false,upside_down=false,west=false": {
@@ -756,6 +1428,34 @@
       "model": "farmersassortment:block/acacia_table_light_gray_n-sw",
       "x": 180
     },
+    "east=false,north=true,rug=light_gray_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_n---"
+    },
+    "east=false,north=true,rug=light_gray_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_n--w"
+    },
+    "east=false,north=true,rug=light_gray_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_--s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=light_gray_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_--sw",
+      "x": 180
+    },
+    "east=false,north=true,rug=light_gray_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_n-s-"
+    },
+    "east=false,north=true,rug=light_gray_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_n-sw"
+    },
+    "east=false,north=true,rug=light_gray_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_n-s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=light_gray_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_n-sw",
+      "x": 180
+    },
     "east=false,north=true,rug=lime,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_lime_n---"
     },
@@ -784,6 +1484,34 @@
       "model": "farmersassortment:block/acacia_table_lime_n-sw",
       "x": 180
     },
+    "east=false,north=true,rug=lime_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_n---"
+    },
+    "east=false,north=true,rug=lime_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_n--w"
+    },
+    "east=false,north=true,rug=lime_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_--s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=lime_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_--sw",
+      "x": 180
+    },
+    "east=false,north=true,rug=lime_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_n-s-"
+    },
+    "east=false,north=true,rug=lime_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_n-sw"
+    },
+    "east=false,north=true,rug=lime_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_n-s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=lime_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_n-sw",
+      "x": 180
+    },
     "east=false,north=true,rug=magenta,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_magenta_n---"
     },
@@ -810,6 +1538,62 @@
     },
     "east=false,north=true,rug=magenta,south=true,upside_down=true,west=true": {
       "model": "farmersassortment:block/acacia_table_magenta_n-sw",
+      "x": 180
+    },
+    "east=false,north=true,rug=magenta_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_n---"
+    },
+    "east=false,north=true,rug=magenta_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_n--w"
+    },
+    "east=false,north=true,rug=magenta_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_--s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=magenta_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_--sw",
+      "x": 180
+    },
+    "east=false,north=true,rug=magenta_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_n-s-"
+    },
+    "east=false,north=true,rug=magenta_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_n-sw"
+    },
+    "east=false,north=true,rug=magenta_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_n-s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=magenta_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_n-sw",
+      "x": 180
+    },
+    "east=false,north=true,rug=moss_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_n---"
+    },
+    "east=false,north=true,rug=moss_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_n--w"
+    },
+    "east=false,north=true,rug=moss_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_--s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=moss_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_--sw",
+      "x": 180
+    },
+    "east=false,north=true,rug=moss_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_n-s-"
+    },
+    "east=false,north=true,rug=moss_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_n-sw"
+    },
+    "east=false,north=true,rug=moss_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_n-s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=moss_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_n-sw",
       "x": 180
     },
     "east=false,north=true,rug=none,south=false,upside_down=false,west=false": {
@@ -868,6 +1652,34 @@
       "model": "farmersassortment:block/acacia_table_orange_n-sw",
       "x": 180
     },
+    "east=false,north=true,rug=orange_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_n---"
+    },
+    "east=false,north=true,rug=orange_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_n--w"
+    },
+    "east=false,north=true,rug=orange_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_--s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=orange_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_--sw",
+      "x": 180
+    },
+    "east=false,north=true,rug=orange_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_n-s-"
+    },
+    "east=false,north=true,rug=orange_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_n-sw"
+    },
+    "east=false,north=true,rug=orange_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_n-s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=orange_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_n-sw",
+      "x": 180
+    },
     "east=false,north=true,rug=pink,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_pink_n---"
     },
@@ -894,6 +1706,34 @@
     },
     "east=false,north=true,rug=pink,south=true,upside_down=true,west=true": {
       "model": "farmersassortment:block/acacia_table_pink_n-sw",
+      "x": 180
+    },
+    "east=false,north=true,rug=pink_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_n---"
+    },
+    "east=false,north=true,rug=pink_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_n--w"
+    },
+    "east=false,north=true,rug=pink_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_--s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=pink_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_--sw",
+      "x": 180
+    },
+    "east=false,north=true,rug=pink_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_n-s-"
+    },
+    "east=false,north=true,rug=pink_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_n-sw"
+    },
+    "east=false,north=true,rug=pink_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_n-s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=pink_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_n-sw",
       "x": 180
     },
     "east=false,north=true,rug=purple,south=false,upside_down=false,west=false": {
@@ -924,6 +1764,34 @@
       "model": "farmersassortment:block/acacia_table_purple_n-sw",
       "x": 180
     },
+    "east=false,north=true,rug=purple_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_n---"
+    },
+    "east=false,north=true,rug=purple_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_n--w"
+    },
+    "east=false,north=true,rug=purple_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_--s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=purple_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_--sw",
+      "x": 180
+    },
+    "east=false,north=true,rug=purple_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_n-s-"
+    },
+    "east=false,north=true,rug=purple_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_n-sw"
+    },
+    "east=false,north=true,rug=purple_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_n-s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=purple_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_n-sw",
+      "x": 180
+    },
     "east=false,north=true,rug=red,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_red_n---"
     },
@@ -950,6 +1818,34 @@
     },
     "east=false,north=true,rug=red,south=true,upside_down=true,west=true": {
       "model": "farmersassortment:block/acacia_table_red_n-sw",
+      "x": 180
+    },
+    "east=false,north=true,rug=red_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_n---"
+    },
+    "east=false,north=true,rug=red_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_n--w"
+    },
+    "east=false,north=true,rug=red_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_--s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=red_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_--sw",
+      "x": 180
+    },
+    "east=false,north=true,rug=red_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_n-s-"
+    },
+    "east=false,north=true,rug=red_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_n-sw"
+    },
+    "east=false,north=true,rug=red_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_n-s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=red_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_n-sw",
       "x": 180
     },
     "east=false,north=true,rug=white,south=false,upside_down=false,west=false": {
@@ -980,6 +1876,34 @@
       "model": "farmersassortment:block/acacia_table_white_n-sw",
       "x": 180
     },
+    "east=false,north=true,rug=white_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_n---"
+    },
+    "east=false,north=true,rug=white_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_n--w"
+    },
+    "east=false,north=true,rug=white_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_--s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=white_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_--sw",
+      "x": 180
+    },
+    "east=false,north=true,rug=white_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_n-s-"
+    },
+    "east=false,north=true,rug=white_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_n-sw"
+    },
+    "east=false,north=true,rug=white_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_n-s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=white_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_n-sw",
+      "x": 180
+    },
     "east=false,north=true,rug=yellow,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_yellow_n---"
     },
@@ -1006,6 +1930,34 @@
     },
     "east=false,north=true,rug=yellow,south=true,upside_down=true,west=true": {
       "model": "farmersassortment:block/acacia_table_yellow_n-sw",
+      "x": 180
+    },
+    "east=false,north=true,rug=yellow_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_n---"
+    },
+    "east=false,north=true,rug=yellow_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_n--w"
+    },
+    "east=false,north=true,rug=yellow_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_--s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=yellow_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_--sw",
+      "x": 180
+    },
+    "east=false,north=true,rug=yellow_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_n-s-"
+    },
+    "east=false,north=true,rug=yellow_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_n-sw"
+    },
+    "east=false,north=true,rug=yellow_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_n-s-",
+      "x": 180
+    },
+    "east=false,north=true,rug=yellow_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_n-sw",
       "x": 180
     },
     "east=true,north=false,rug=black,south=false,upside_down=false,west=false": {
@@ -1036,6 +1988,34 @@
       "model": "farmersassortment:block/acacia_table_black_ne-w",
       "x": 180
     },
+    "east=true,north=false,rug=black_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_-e--"
+    },
+    "east=true,north=false,rug=black_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_-e-w"
+    },
+    "east=true,north=false,rug=black_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_-e--",
+      "x": 180
+    },
+    "east=true,north=false,rug=black_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_-e-w",
+      "x": 180
+    },
+    "east=true,north=false,rug=black_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_-es-"
+    },
+    "east=true,north=false,rug=black_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_-esw"
+    },
+    "east=true,north=false,rug=black_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_ne--",
+      "x": 180
+    },
+    "east=true,north=false,rug=black_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_ne-w",
+      "x": 180
+    },
     "east=true,north=false,rug=blue,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_blue_-e--"
     },
@@ -1064,6 +2044,34 @@
       "model": "farmersassortment:block/acacia_table_blue_ne-w",
       "x": 180
     },
+    "east=true,north=false,rug=blue_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_-e--"
+    },
+    "east=true,north=false,rug=blue_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_-e-w"
+    },
+    "east=true,north=false,rug=blue_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_-e--",
+      "x": 180
+    },
+    "east=true,north=false,rug=blue_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_-e-w",
+      "x": 180
+    },
+    "east=true,north=false,rug=blue_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_-es-"
+    },
+    "east=true,north=false,rug=blue_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_-esw"
+    },
+    "east=true,north=false,rug=blue_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_ne--",
+      "x": 180
+    },
+    "east=true,north=false,rug=blue_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_ne-w",
+      "x": 180
+    },
     "east=true,north=false,rug=brown,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_brown_-e--"
     },
@@ -1090,6 +2098,34 @@
     },
     "east=true,north=false,rug=brown,south=true,upside_down=true,west=true": {
       "model": "farmersassortment:block/acacia_table_brown_ne-w",
+      "x": 180
+    },
+    "east=true,north=false,rug=brown_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_-e--"
+    },
+    "east=true,north=false,rug=brown_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_-e-w"
+    },
+    "east=true,north=false,rug=brown_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_-e--",
+      "x": 180
+    },
+    "east=true,north=false,rug=brown_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_-e-w",
+      "x": 180
+    },
+    "east=true,north=false,rug=brown_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_-es-"
+    },
+    "east=true,north=false,rug=brown_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_-esw"
+    },
+    "east=true,north=false,rug=brown_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_ne--",
+      "x": 180
+    },
+    "east=true,north=false,rug=brown_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_ne-w",
       "x": 180
     },
     "east=true,north=false,rug=canvas,south=false,upside_down=false,west=false": {
@@ -1148,6 +2184,34 @@
       "model": "farmersassortment:block/acacia_table_cyan_ne-w",
       "x": 180
     },
+    "east=true,north=false,rug=cyan_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_-e--"
+    },
+    "east=true,north=false,rug=cyan_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_-e-w"
+    },
+    "east=true,north=false,rug=cyan_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_-e--",
+      "x": 180
+    },
+    "east=true,north=false,rug=cyan_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_-e-w",
+      "x": 180
+    },
+    "east=true,north=false,rug=cyan_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_-es-"
+    },
+    "east=true,north=false,rug=cyan_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_-esw"
+    },
+    "east=true,north=false,rug=cyan_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_ne--",
+      "x": 180
+    },
+    "east=true,north=false,rug=cyan_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_ne-w",
+      "x": 180
+    },
     "east=true,north=false,rug=gray,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_gray_-e--"
     },
@@ -1174,6 +2238,34 @@
     },
     "east=true,north=false,rug=gray,south=true,upside_down=true,west=true": {
       "model": "farmersassortment:block/acacia_table_gray_ne-w",
+      "x": 180
+    },
+    "east=true,north=false,rug=gray_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_-e--"
+    },
+    "east=true,north=false,rug=gray_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_-e-w"
+    },
+    "east=true,north=false,rug=gray_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_-e--",
+      "x": 180
+    },
+    "east=true,north=false,rug=gray_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_-e-w",
+      "x": 180
+    },
+    "east=true,north=false,rug=gray_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_-es-"
+    },
+    "east=true,north=false,rug=gray_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_-esw"
+    },
+    "east=true,north=false,rug=gray_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_ne--",
+      "x": 180
+    },
+    "east=true,north=false,rug=gray_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_ne-w",
       "x": 180
     },
     "east=true,north=false,rug=green,south=false,upside_down=false,west=false": {
@@ -1204,6 +2296,34 @@
       "model": "farmersassortment:block/acacia_table_green_ne-w",
       "x": 180
     },
+    "east=true,north=false,rug=green_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_-e--"
+    },
+    "east=true,north=false,rug=green_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_-e-w"
+    },
+    "east=true,north=false,rug=green_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_-e--",
+      "x": 180
+    },
+    "east=true,north=false,rug=green_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_-e-w",
+      "x": 180
+    },
+    "east=true,north=false,rug=green_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_-es-"
+    },
+    "east=true,north=false,rug=green_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_-esw"
+    },
+    "east=true,north=false,rug=green_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_ne--",
+      "x": 180
+    },
+    "east=true,north=false,rug=green_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_ne-w",
+      "x": 180
+    },
     "east=true,north=false,rug=light_blue,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_light_blue_-e--"
     },
@@ -1230,6 +2350,34 @@
     },
     "east=true,north=false,rug=light_blue,south=true,upside_down=true,west=true": {
       "model": "farmersassortment:block/acacia_table_light_blue_ne-w",
+      "x": 180
+    },
+    "east=true,north=false,rug=light_blue_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_-e--"
+    },
+    "east=true,north=false,rug=light_blue_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_-e-w"
+    },
+    "east=true,north=false,rug=light_blue_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_-e--",
+      "x": 180
+    },
+    "east=true,north=false,rug=light_blue_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_-e-w",
+      "x": 180
+    },
+    "east=true,north=false,rug=light_blue_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_-es-"
+    },
+    "east=true,north=false,rug=light_blue_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_-esw"
+    },
+    "east=true,north=false,rug=light_blue_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_ne--",
+      "x": 180
+    },
+    "east=true,north=false,rug=light_blue_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_ne-w",
       "x": 180
     },
     "east=true,north=false,rug=light_gray,south=false,upside_down=false,west=false": {
@@ -1260,6 +2408,34 @@
       "model": "farmersassortment:block/acacia_table_light_gray_ne-w",
       "x": 180
     },
+    "east=true,north=false,rug=light_gray_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_-e--"
+    },
+    "east=true,north=false,rug=light_gray_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_-e-w"
+    },
+    "east=true,north=false,rug=light_gray_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_-e--",
+      "x": 180
+    },
+    "east=true,north=false,rug=light_gray_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_-e-w",
+      "x": 180
+    },
+    "east=true,north=false,rug=light_gray_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_-es-"
+    },
+    "east=true,north=false,rug=light_gray_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_-esw"
+    },
+    "east=true,north=false,rug=light_gray_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_ne--",
+      "x": 180
+    },
+    "east=true,north=false,rug=light_gray_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_ne-w",
+      "x": 180
+    },
     "east=true,north=false,rug=lime,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_lime_-e--"
     },
@@ -1288,6 +2464,34 @@
       "model": "farmersassortment:block/acacia_table_lime_ne-w",
       "x": 180
     },
+    "east=true,north=false,rug=lime_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_-e--"
+    },
+    "east=true,north=false,rug=lime_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_-e-w"
+    },
+    "east=true,north=false,rug=lime_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_-e--",
+      "x": 180
+    },
+    "east=true,north=false,rug=lime_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_-e-w",
+      "x": 180
+    },
+    "east=true,north=false,rug=lime_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_-es-"
+    },
+    "east=true,north=false,rug=lime_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_-esw"
+    },
+    "east=true,north=false,rug=lime_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_ne--",
+      "x": 180
+    },
+    "east=true,north=false,rug=lime_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_ne-w",
+      "x": 180
+    },
     "east=true,north=false,rug=magenta,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_magenta_-e--"
     },
@@ -1314,6 +2518,62 @@
     },
     "east=true,north=false,rug=magenta,south=true,upside_down=true,west=true": {
       "model": "farmersassortment:block/acacia_table_magenta_ne-w",
+      "x": 180
+    },
+    "east=true,north=false,rug=magenta_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_-e--"
+    },
+    "east=true,north=false,rug=magenta_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_-e-w"
+    },
+    "east=true,north=false,rug=magenta_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_-e--",
+      "x": 180
+    },
+    "east=true,north=false,rug=magenta_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_-e-w",
+      "x": 180
+    },
+    "east=true,north=false,rug=magenta_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_-es-"
+    },
+    "east=true,north=false,rug=magenta_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_-esw"
+    },
+    "east=true,north=false,rug=magenta_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_ne--",
+      "x": 180
+    },
+    "east=true,north=false,rug=magenta_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_ne-w",
+      "x": 180
+    },
+    "east=true,north=false,rug=moss_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_-e--"
+    },
+    "east=true,north=false,rug=moss_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_-e-w"
+    },
+    "east=true,north=false,rug=moss_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_-e--",
+      "x": 180
+    },
+    "east=true,north=false,rug=moss_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_-e-w",
+      "x": 180
+    },
+    "east=true,north=false,rug=moss_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_-es-"
+    },
+    "east=true,north=false,rug=moss_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_-esw"
+    },
+    "east=true,north=false,rug=moss_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_ne--",
+      "x": 180
+    },
+    "east=true,north=false,rug=moss_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_ne-w",
       "x": 180
     },
     "east=true,north=false,rug=none,south=false,upside_down=false,west=false": {
@@ -1372,6 +2632,34 @@
       "model": "farmersassortment:block/acacia_table_orange_ne-w",
       "x": 180
     },
+    "east=true,north=false,rug=orange_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_-e--"
+    },
+    "east=true,north=false,rug=orange_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_-e-w"
+    },
+    "east=true,north=false,rug=orange_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_-e--",
+      "x": 180
+    },
+    "east=true,north=false,rug=orange_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_-e-w",
+      "x": 180
+    },
+    "east=true,north=false,rug=orange_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_-es-"
+    },
+    "east=true,north=false,rug=orange_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_-esw"
+    },
+    "east=true,north=false,rug=orange_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_ne--",
+      "x": 180
+    },
+    "east=true,north=false,rug=orange_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_ne-w",
+      "x": 180
+    },
     "east=true,north=false,rug=pink,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_pink_-e--"
     },
@@ -1398,6 +2686,34 @@
     },
     "east=true,north=false,rug=pink,south=true,upside_down=true,west=true": {
       "model": "farmersassortment:block/acacia_table_pink_ne-w",
+      "x": 180
+    },
+    "east=true,north=false,rug=pink_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_-e--"
+    },
+    "east=true,north=false,rug=pink_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_-e-w"
+    },
+    "east=true,north=false,rug=pink_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_-e--",
+      "x": 180
+    },
+    "east=true,north=false,rug=pink_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_-e-w",
+      "x": 180
+    },
+    "east=true,north=false,rug=pink_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_-es-"
+    },
+    "east=true,north=false,rug=pink_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_-esw"
+    },
+    "east=true,north=false,rug=pink_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_ne--",
+      "x": 180
+    },
+    "east=true,north=false,rug=pink_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_ne-w",
       "x": 180
     },
     "east=true,north=false,rug=purple,south=false,upside_down=false,west=false": {
@@ -1428,6 +2744,34 @@
       "model": "farmersassortment:block/acacia_table_purple_ne-w",
       "x": 180
     },
+    "east=true,north=false,rug=purple_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_-e--"
+    },
+    "east=true,north=false,rug=purple_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_-e-w"
+    },
+    "east=true,north=false,rug=purple_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_-e--",
+      "x": 180
+    },
+    "east=true,north=false,rug=purple_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_-e-w",
+      "x": 180
+    },
+    "east=true,north=false,rug=purple_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_-es-"
+    },
+    "east=true,north=false,rug=purple_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_-esw"
+    },
+    "east=true,north=false,rug=purple_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_ne--",
+      "x": 180
+    },
+    "east=true,north=false,rug=purple_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_ne-w",
+      "x": 180
+    },
     "east=true,north=false,rug=red,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_red_-e--"
     },
@@ -1454,6 +2798,34 @@
     },
     "east=true,north=false,rug=red,south=true,upside_down=true,west=true": {
       "model": "farmersassortment:block/acacia_table_red_ne-w",
+      "x": 180
+    },
+    "east=true,north=false,rug=red_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_-e--"
+    },
+    "east=true,north=false,rug=red_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_-e-w"
+    },
+    "east=true,north=false,rug=red_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_-e--",
+      "x": 180
+    },
+    "east=true,north=false,rug=red_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_-e-w",
+      "x": 180
+    },
+    "east=true,north=false,rug=red_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_-es-"
+    },
+    "east=true,north=false,rug=red_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_-esw"
+    },
+    "east=true,north=false,rug=red_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_ne--",
+      "x": 180
+    },
+    "east=true,north=false,rug=red_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_ne-w",
       "x": 180
     },
     "east=true,north=false,rug=white,south=false,upside_down=false,west=false": {
@@ -1484,6 +2856,34 @@
       "model": "farmersassortment:block/acacia_table_white_ne-w",
       "x": 180
     },
+    "east=true,north=false,rug=white_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_-e--"
+    },
+    "east=true,north=false,rug=white_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_-e-w"
+    },
+    "east=true,north=false,rug=white_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_-e--",
+      "x": 180
+    },
+    "east=true,north=false,rug=white_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_-e-w",
+      "x": 180
+    },
+    "east=true,north=false,rug=white_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_-es-"
+    },
+    "east=true,north=false,rug=white_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_-esw"
+    },
+    "east=true,north=false,rug=white_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_ne--",
+      "x": 180
+    },
+    "east=true,north=false,rug=white_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_ne-w",
+      "x": 180
+    },
     "east=true,north=false,rug=yellow,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_yellow_-e--"
     },
@@ -1510,6 +2910,34 @@
     },
     "east=true,north=false,rug=yellow,south=true,upside_down=true,west=true": {
       "model": "farmersassortment:block/acacia_table_yellow_ne-w",
+      "x": 180
+    },
+    "east=true,north=false,rug=yellow_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_-e--"
+    },
+    "east=true,north=false,rug=yellow_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_-e-w"
+    },
+    "east=true,north=false,rug=yellow_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_-e--",
+      "x": 180
+    },
+    "east=true,north=false,rug=yellow_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_-e-w",
+      "x": 180
+    },
+    "east=true,north=false,rug=yellow_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_-es-"
+    },
+    "east=true,north=false,rug=yellow_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_-esw"
+    },
+    "east=true,north=false,rug=yellow_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_ne--",
+      "x": 180
+    },
+    "east=true,north=false,rug=yellow_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_ne-w",
       "x": 180
     },
     "east=true,north=true,rug=black,south=false,upside_down=false,west=false": {
@@ -1540,6 +2968,34 @@
       "model": "farmersassortment:block/acacia_table_black_nesw",
       "x": 180
     },
+    "east=true,north=true,rug=black_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_ne--"
+    },
+    "east=true,north=true,rug=black_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_ne-w"
+    },
+    "east=true,north=true,rug=black_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_-es-",
+      "x": 180
+    },
+    "east=true,north=true,rug=black_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_-esw",
+      "x": 180
+    },
+    "east=true,north=true,rug=black_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_nes-"
+    },
+    "east=true,north=true,rug=black_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_nesw"
+    },
+    "east=true,north=true,rug=black_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_nes-",
+      "x": 180
+    },
+    "east=true,north=true,rug=black_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_black_carpet_nesw",
+      "x": 180
+    },
     "east=true,north=true,rug=blue,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_blue_ne--"
     },
@@ -1568,6 +3024,34 @@
       "model": "farmersassortment:block/acacia_table_blue_nesw",
       "x": 180
     },
+    "east=true,north=true,rug=blue_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_ne--"
+    },
+    "east=true,north=true,rug=blue_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_ne-w"
+    },
+    "east=true,north=true,rug=blue_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_-es-",
+      "x": 180
+    },
+    "east=true,north=true,rug=blue_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_-esw",
+      "x": 180
+    },
+    "east=true,north=true,rug=blue_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_nes-"
+    },
+    "east=true,north=true,rug=blue_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_nesw"
+    },
+    "east=true,north=true,rug=blue_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_nes-",
+      "x": 180
+    },
+    "east=true,north=true,rug=blue_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_blue_carpet_nesw",
+      "x": 180
+    },
     "east=true,north=true,rug=brown,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_brown_ne--"
     },
@@ -1594,6 +3078,34 @@
     },
     "east=true,north=true,rug=brown,south=true,upside_down=true,west=true": {
       "model": "farmersassortment:block/acacia_table_brown_nesw",
+      "x": 180
+    },
+    "east=true,north=true,rug=brown_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_ne--"
+    },
+    "east=true,north=true,rug=brown_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_ne-w"
+    },
+    "east=true,north=true,rug=brown_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_-es-",
+      "x": 180
+    },
+    "east=true,north=true,rug=brown_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_-esw",
+      "x": 180
+    },
+    "east=true,north=true,rug=brown_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_nes-"
+    },
+    "east=true,north=true,rug=brown_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_nesw"
+    },
+    "east=true,north=true,rug=brown_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_nes-",
+      "x": 180
+    },
+    "east=true,north=true,rug=brown_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_brown_carpet_nesw",
       "x": 180
     },
     "east=true,north=true,rug=canvas,south=false,upside_down=false,west=false": {
@@ -1652,6 +3164,34 @@
       "model": "farmersassortment:block/acacia_table_cyan_nesw",
       "x": 180
     },
+    "east=true,north=true,rug=cyan_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_ne--"
+    },
+    "east=true,north=true,rug=cyan_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_ne-w"
+    },
+    "east=true,north=true,rug=cyan_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_-es-",
+      "x": 180
+    },
+    "east=true,north=true,rug=cyan_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_-esw",
+      "x": 180
+    },
+    "east=true,north=true,rug=cyan_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_nes-"
+    },
+    "east=true,north=true,rug=cyan_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_nesw"
+    },
+    "east=true,north=true,rug=cyan_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_nes-",
+      "x": 180
+    },
+    "east=true,north=true,rug=cyan_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_cyan_carpet_nesw",
+      "x": 180
+    },
     "east=true,north=true,rug=gray,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_gray_ne--"
     },
@@ -1678,6 +3218,34 @@
     },
     "east=true,north=true,rug=gray,south=true,upside_down=true,west=true": {
       "model": "farmersassortment:block/acacia_table_gray_nesw",
+      "x": 180
+    },
+    "east=true,north=true,rug=gray_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_ne--"
+    },
+    "east=true,north=true,rug=gray_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_ne-w"
+    },
+    "east=true,north=true,rug=gray_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_-es-",
+      "x": 180
+    },
+    "east=true,north=true,rug=gray_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_-esw",
+      "x": 180
+    },
+    "east=true,north=true,rug=gray_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_nes-"
+    },
+    "east=true,north=true,rug=gray_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_nesw"
+    },
+    "east=true,north=true,rug=gray_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_nes-",
+      "x": 180
+    },
+    "east=true,north=true,rug=gray_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_gray_carpet_nesw",
       "x": 180
     },
     "east=true,north=true,rug=green,south=false,upside_down=false,west=false": {
@@ -1708,6 +3276,34 @@
       "model": "farmersassortment:block/acacia_table_green_nesw",
       "x": 180
     },
+    "east=true,north=true,rug=green_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_ne--"
+    },
+    "east=true,north=true,rug=green_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_ne-w"
+    },
+    "east=true,north=true,rug=green_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_-es-",
+      "x": 180
+    },
+    "east=true,north=true,rug=green_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_-esw",
+      "x": 180
+    },
+    "east=true,north=true,rug=green_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_nes-"
+    },
+    "east=true,north=true,rug=green_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_nesw"
+    },
+    "east=true,north=true,rug=green_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_nes-",
+      "x": 180
+    },
+    "east=true,north=true,rug=green_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_green_carpet_nesw",
+      "x": 180
+    },
     "east=true,north=true,rug=light_blue,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_light_blue_ne--"
     },
@@ -1734,6 +3330,34 @@
     },
     "east=true,north=true,rug=light_blue,south=true,upside_down=true,west=true": {
       "model": "farmersassortment:block/acacia_table_light_blue_nesw",
+      "x": 180
+    },
+    "east=true,north=true,rug=light_blue_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_ne--"
+    },
+    "east=true,north=true,rug=light_blue_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_ne-w"
+    },
+    "east=true,north=true,rug=light_blue_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_-es-",
+      "x": 180
+    },
+    "east=true,north=true,rug=light_blue_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_-esw",
+      "x": 180
+    },
+    "east=true,north=true,rug=light_blue_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_nes-"
+    },
+    "east=true,north=true,rug=light_blue_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_nesw"
+    },
+    "east=true,north=true,rug=light_blue_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_nes-",
+      "x": 180
+    },
+    "east=true,north=true,rug=light_blue_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_blue_carpet_nesw",
       "x": 180
     },
     "east=true,north=true,rug=light_gray,south=false,upside_down=false,west=false": {
@@ -1764,6 +3388,34 @@
       "model": "farmersassortment:block/acacia_table_light_gray_nesw",
       "x": 180
     },
+    "east=true,north=true,rug=light_gray_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_ne--"
+    },
+    "east=true,north=true,rug=light_gray_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_ne-w"
+    },
+    "east=true,north=true,rug=light_gray_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_-es-",
+      "x": 180
+    },
+    "east=true,north=true,rug=light_gray_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_-esw",
+      "x": 180
+    },
+    "east=true,north=true,rug=light_gray_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_nes-"
+    },
+    "east=true,north=true,rug=light_gray_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_nesw"
+    },
+    "east=true,north=true,rug=light_gray_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_nes-",
+      "x": 180
+    },
+    "east=true,north=true,rug=light_gray_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_light_gray_carpet_nesw",
+      "x": 180
+    },
     "east=true,north=true,rug=lime,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_lime_ne--"
     },
@@ -1792,6 +3444,34 @@
       "model": "farmersassortment:block/acacia_table_lime_nesw",
       "x": 180
     },
+    "east=true,north=true,rug=lime_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_ne--"
+    },
+    "east=true,north=true,rug=lime_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_ne-w"
+    },
+    "east=true,north=true,rug=lime_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_-es-",
+      "x": 180
+    },
+    "east=true,north=true,rug=lime_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_-esw",
+      "x": 180
+    },
+    "east=true,north=true,rug=lime_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_nes-"
+    },
+    "east=true,north=true,rug=lime_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_nesw"
+    },
+    "east=true,north=true,rug=lime_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_nes-",
+      "x": 180
+    },
+    "east=true,north=true,rug=lime_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_lime_carpet_nesw",
+      "x": 180
+    },
     "east=true,north=true,rug=magenta,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_magenta_ne--"
     },
@@ -1818,6 +3498,62 @@
     },
     "east=true,north=true,rug=magenta,south=true,upside_down=true,west=true": {
       "model": "farmersassortment:block/acacia_table_magenta_nesw",
+      "x": 180
+    },
+    "east=true,north=true,rug=magenta_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_ne--"
+    },
+    "east=true,north=true,rug=magenta_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_ne-w"
+    },
+    "east=true,north=true,rug=magenta_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_-es-",
+      "x": 180
+    },
+    "east=true,north=true,rug=magenta_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_-esw",
+      "x": 180
+    },
+    "east=true,north=true,rug=magenta_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_nes-"
+    },
+    "east=true,north=true,rug=magenta_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_nesw"
+    },
+    "east=true,north=true,rug=magenta_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_nes-",
+      "x": 180
+    },
+    "east=true,north=true,rug=magenta_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_magenta_carpet_nesw",
+      "x": 180
+    },
+    "east=true,north=true,rug=moss_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_ne--"
+    },
+    "east=true,north=true,rug=moss_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_ne-w"
+    },
+    "east=true,north=true,rug=moss_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_-es-",
+      "x": 180
+    },
+    "east=true,north=true,rug=moss_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_-esw",
+      "x": 180
+    },
+    "east=true,north=true,rug=moss_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_nes-"
+    },
+    "east=true,north=true,rug=moss_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_nesw"
+    },
+    "east=true,north=true,rug=moss_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_nes-",
+      "x": 180
+    },
+    "east=true,north=true,rug=moss_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_moss_carpet_nesw",
       "x": 180
     },
     "east=true,north=true,rug=none,south=false,upside_down=false,west=false": {
@@ -1876,6 +3612,34 @@
       "model": "farmersassortment:block/acacia_table_orange_nesw",
       "x": 180
     },
+    "east=true,north=true,rug=orange_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_ne--"
+    },
+    "east=true,north=true,rug=orange_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_ne-w"
+    },
+    "east=true,north=true,rug=orange_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_-es-",
+      "x": 180
+    },
+    "east=true,north=true,rug=orange_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_-esw",
+      "x": 180
+    },
+    "east=true,north=true,rug=orange_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_nes-"
+    },
+    "east=true,north=true,rug=orange_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_nesw"
+    },
+    "east=true,north=true,rug=orange_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_nes-",
+      "x": 180
+    },
+    "east=true,north=true,rug=orange_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_orange_carpet_nesw",
+      "x": 180
+    },
     "east=true,north=true,rug=pink,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_pink_ne--"
     },
@@ -1902,6 +3666,34 @@
     },
     "east=true,north=true,rug=pink,south=true,upside_down=true,west=true": {
       "model": "farmersassortment:block/acacia_table_pink_nesw",
+      "x": 180
+    },
+    "east=true,north=true,rug=pink_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_ne--"
+    },
+    "east=true,north=true,rug=pink_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_ne-w"
+    },
+    "east=true,north=true,rug=pink_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_-es-",
+      "x": 180
+    },
+    "east=true,north=true,rug=pink_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_-esw",
+      "x": 180
+    },
+    "east=true,north=true,rug=pink_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_nes-"
+    },
+    "east=true,north=true,rug=pink_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_nesw"
+    },
+    "east=true,north=true,rug=pink_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_nes-",
+      "x": 180
+    },
+    "east=true,north=true,rug=pink_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_pink_carpet_nesw",
       "x": 180
     },
     "east=true,north=true,rug=purple,south=false,upside_down=false,west=false": {
@@ -1932,6 +3724,34 @@
       "model": "farmersassortment:block/acacia_table_purple_nesw",
       "x": 180
     },
+    "east=true,north=true,rug=purple_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_ne--"
+    },
+    "east=true,north=true,rug=purple_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_ne-w"
+    },
+    "east=true,north=true,rug=purple_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_-es-",
+      "x": 180
+    },
+    "east=true,north=true,rug=purple_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_-esw",
+      "x": 180
+    },
+    "east=true,north=true,rug=purple_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_nes-"
+    },
+    "east=true,north=true,rug=purple_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_nesw"
+    },
+    "east=true,north=true,rug=purple_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_nes-",
+      "x": 180
+    },
+    "east=true,north=true,rug=purple_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_purple_carpet_nesw",
+      "x": 180
+    },
     "east=true,north=true,rug=red,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_red_ne--"
     },
@@ -1958,6 +3778,34 @@
     },
     "east=true,north=true,rug=red,south=true,upside_down=true,west=true": {
       "model": "farmersassortment:block/acacia_table_red_nesw",
+      "x": 180
+    },
+    "east=true,north=true,rug=red_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_ne--"
+    },
+    "east=true,north=true,rug=red_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_ne-w"
+    },
+    "east=true,north=true,rug=red_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_-es-",
+      "x": 180
+    },
+    "east=true,north=true,rug=red_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_-esw",
+      "x": 180
+    },
+    "east=true,north=true,rug=red_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_nes-"
+    },
+    "east=true,north=true,rug=red_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_nesw"
+    },
+    "east=true,north=true,rug=red_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_nes-",
+      "x": 180
+    },
+    "east=true,north=true,rug=red_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_red_carpet_nesw",
       "x": 180
     },
     "east=true,north=true,rug=white,south=false,upside_down=false,west=false": {
@@ -1988,6 +3836,34 @@
       "model": "farmersassortment:block/acacia_table_white_nesw",
       "x": 180
     },
+    "east=true,north=true,rug=white_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_ne--"
+    },
+    "east=true,north=true,rug=white_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_ne-w"
+    },
+    "east=true,north=true,rug=white_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_-es-",
+      "x": 180
+    },
+    "east=true,north=true,rug=white_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_-esw",
+      "x": 180
+    },
+    "east=true,north=true,rug=white_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_nes-"
+    },
+    "east=true,north=true,rug=white_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_nesw"
+    },
+    "east=true,north=true,rug=white_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_nes-",
+      "x": 180
+    },
+    "east=true,north=true,rug=white_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_white_carpet_nesw",
+      "x": 180
+    },
     "east=true,north=true,rug=yellow,south=false,upside_down=false,west=false": {
       "model": "farmersassortment:block/acacia_table_yellow_ne--"
     },
@@ -2014,6 +3890,34 @@
     },
     "east=true,north=true,rug=yellow,south=true,upside_down=true,west=true": {
       "model": "farmersassortment:block/acacia_table_yellow_nesw",
+      "x": 180
+    },
+    "east=true,north=true,rug=yellow_carpet,south=false,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_ne--"
+    },
+    "east=true,north=true,rug=yellow_carpet,south=false,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_ne-w"
+    },
+    "east=true,north=true,rug=yellow_carpet,south=false,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_-es-",
+      "x": 180
+    },
+    "east=true,north=true,rug=yellow_carpet,south=false,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_-esw",
+      "x": 180
+    },
+    "east=true,north=true,rug=yellow_carpet,south=true,upside_down=false,west=false": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_nes-"
+    },
+    "east=true,north=true,rug=yellow_carpet,south=true,upside_down=false,west=true": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_nesw"
+    },
+    "east=true,north=true,rug=yellow_carpet,south=true,upside_down=true,west=false": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_nes-",
+      "x": 180
+    },
+    "east=true,north=true,rug=yellow_carpet,south=true,upside_down=true,west=true": {
+      "model": "farmersassortment:block/acacia_table_yellow_carpet_nesw",
       "x": 180
     }
   }

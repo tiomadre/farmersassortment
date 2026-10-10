@@ -1,6 +1,7 @@
 package com.tiomadre.farmersassortment.data.server.loot;
 
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
+import com.tiomadre.farmersassortment.core.block.FloatingDrawerBlock;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import com.tiomadre.farmersassortment.core.registry.FARugs;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
@@ -44,14 +45,35 @@ public class FALoot extends LootTableProvider {
             registerDropSelf(FABlocks.allCookingPots(), generated);
             registerDropSelf(FABlocks.allStools(), generated);
             registerDropSelf(Stream.of(FAxCrabbersBlocks.PEARLESCENT_SKILLET), generated);
-            registerDropSelf(FABlocks.floatingCounters(), generated);
             registerDropSelf(FARugs.canvasRugs(), generated);
             registerDropSelf(Stream.of(FABlocks.ALABASTER_STOVE), generated);
             registerDropSelf(FAxForagersBlocks.diffusers(), generated);
             registerCopyName(FAxCrabbersBlocks.crabTraps(), generated);
             registerDropSelf(FABlocks.allTables(), generated);
             generated.add(FABlocks.UPCYCLED_DOOR.get());
+
+            //Other
+            generated.add(FABlocks.UPCYCLED_SLAB.get());
+            add(FABlocks.UPCYCLED_SLAB.get(), createSlabItemTable(FABlocks.UPCYCLED_SLAB.get()));
+            generated.add(FABlocks.STRAW_SLAB.get());
+            add(FABlocks.STRAW_SLAB.get(), createSlabItemTable(FABlocks.STRAW_SLAB.get()));
             add(FABlocks.UPCYCLED_DOOR.get(), createDoorTable(FABlocks.UPCYCLED_DOOR.get()));
+
+            //Floating Drawers
+            FABlocks.floatingCounters().map(RegistryObject::get).forEach(block -> {
+                generated.add(block);
+
+                this.add(block, createSingleItemTable(block)
+                        .apply(net.minecraft.world.level.storage.loot.functions.SetItemCountFunction.setCount(
+                                        net.minecraft.world.level.storage.loot.providers.number.ConstantValue.exactly(2))
+                                .when(net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition
+                                        .hasBlockStateProperties(block)
+                                        .setProperties(net.minecraft.advancements.critereon.StatePropertiesPredicate
+                                                .Builder.properties()
+                                                .hasProperty(
+                                                        FloatingDrawerBlock.DOUBLE,
+                                                        true)))));
+            });
 
             getKnownBlocks().forEach(block -> {
                 if (generated.add(block)) {

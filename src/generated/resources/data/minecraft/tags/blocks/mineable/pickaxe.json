@@ -1,5 +1,6 @@
 {
   "values": [
+    "farmersassortment:alabaster_lantern",
     "farmersassortment:oak_butcher_block_cabinet",
     "farmersassortment:spruce_butcher_block_cabinet",
     "farmersassortment:birch_butcher_block_cabinet",
@@ -50,6 +51,8 @@
     "farmersassortment:bamboo_floating_counter",
     "farmersassortment:crimson_floating_counter",
     "farmersassortment:warped_floating_counter",
+    "farmersassortment:lilac_floating_counter",
+    "farmersassortment:palm_floating_counter",
     "farmersassortment:oak_stool",
     "farmersassortment:spruce_stool",
     "farmersassortment:birch_stool",
@@ -74,7 +77,6 @@
     "farmersassortment:bamboo_table",
     "farmersassortment:crimson_table",
     "farmersassortment:warped_table",
-    "farmersassortment:palm_table",
     "farmersassortment:lilac_table",
     "farmersassortment:copper_cooking_pot",
     "farmersassortment:golden_cooking_pot",

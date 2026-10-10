@@ -5,8 +5,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
@@ -135,21 +135,7 @@ public class StoolBlock extends HorizontalDirectionalBlock implements SimpleWate
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
 
-        if (!player.isSecondaryUseActive()) {
-            return sit(level, pos, player);
-        }
-
-        if (heldStack.isEmpty()) {
-            if (!level.isClientSide) {
-                clearSeat(level, pos);
-                boolean pushed = state.getValue(PUSHED);
-                level.setBlock(pos, state.setValue(PUSHED, !pushed), Block.UPDATE_ALL);
-                level.playSound(null, pos, SoundEvents.BARREL_OPEN, SoundSource.BLOCKS, 0.9F, .5F);
-            }
-            return InteractionResult.sidedSuccess(level.isClientSide);
-        }
-
-        return InteractionResult.PASS;
+        return sit(level, pos, player, player.isSecondaryUseActive());
     }
 
     @Override
@@ -209,14 +195,33 @@ public class StoolBlock extends HorizontalDirectionalBlock implements SimpleWate
         return rotated[0];
     }
 
-    private InteractionResult sit(Level level, BlockPos pos, Player player) {
+    private InteractionResult sit(Level level, BlockPos pos, Player player, boolean reverseFacing) {
         if (level.isClientSide) {
             return InteractionResult.SUCCESS;
         }
 
+        BlockState state = level.getBlockState(pos);
+        float frontYaw = state.getValue(FACING).toYRot();
+        float difference = Mth.wrapDegrees(player.getYRot() - frontYaw);
+        float yaw = Math.abs(difference) <= 90.0F
+                ? frontYaw
+                : Mth.wrapDegrees(frontYaw + 180.0F);
+        if (reverseFacing) {
+            yaw = Mth.wrapDegrees(yaw + 180.0F);
+        }
+        AABB bounds = getHitboxShape(state).bounds();
+        double seatX = pos.getX() + (bounds.minX + bounds.maxX) * 0.5D;
+        double seatY = pos.getY() + 0.15D;
+        double seatZ = pos.getZ() + (bounds.minZ + bounds.maxZ) * 0.5D;
+
         ArmorStand seat = getSeat(level, pos);
-        if (seat == null) {
-            seat = new ArmorStand(level, pos.getX() + 0.5D, pos.getY() + 0.15D, pos.getZ() + 0.5D);
+        boolean newSeat = seat == null;
+        if (!newSeat && !seat.getPassengers().isEmpty()) {
+            return InteractionResult.PASS;
+        }
+
+        if (newSeat) {
+            seat = new ArmorStand(level, seatX, seatY, seatZ);
             seat.setInvisible(true);
             seat.setNoGravity(true);
             seat.setInvulnerable(true);
@@ -224,14 +229,38 @@ public class StoolBlock extends HorizontalDirectionalBlock implements SimpleWate
             applyMarkerSeatFlag(seat);
             seat.getPersistentData().putBoolean(STOOL_SEAT_TAG, true);
             seat.getPersistentData().putLong("stool_pos", pos.asLong());
-            level.addFreshEntity(seat);
         }
 
-        if (!seat.getPassengers().isEmpty()) {
+        seat.moveTo(seatX, seatY, seatZ, yaw, 0.0F);
+        seat.yRotO = yaw;
+        seat.setYBodyRot(yaw);
+        seat.yBodyRotO = yaw;
+        seat.setYHeadRot(yaw);
+        seat.yHeadRotO = yaw;
+
+        if (newSeat && !level.addFreshEntity(seat)) {
             return InteractionResult.PASS;
         }
 
-        player.startRiding(seat, false);
+        if (!player.startRiding(seat, false)) {
+            if (newSeat) {
+                seat.discard();
+            }
+            return InteractionResult.PASS;
+        }
+        player.setYRot(yaw);
+        player.yRotO = yaw;
+        player.setYBodyRot(yaw);
+        player.yBodyRotO = yaw;
+        player.setYHeadRot(yaw);
+        player.yHeadRotO = yaw;
+
+        if (player instanceof ServerPlayer serverPlayer) {
+            serverPlayer.connection.teleport(
+                    player.getX(), player.getY(), player.getZ(),
+                    yaw, player.getXRot()
+            );
+        }
         return InteractionResult.CONSUME;
     }
     private void applyMarkerSeatFlag(ArmorStand seat) {

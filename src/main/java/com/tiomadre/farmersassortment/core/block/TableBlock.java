@@ -1,6 +1,6 @@
 package com.tiomadre.farmersassortment.core.block;
 
-import com.tiomadre.farmersassortment.core.block.state.StoolRugType;
+import com.tiomadre.farmersassortment.core.block.state.TableCoverType;
 import com.tiomadre.farmersassortment.core.item.TableItem;
 import com.tiomadre.farmersassortment.core.registry.FAAdvanceTriggers;
 import net.minecraft.core.BlockPos;
@@ -15,7 +15,6 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ShearsItem;
@@ -44,7 +43,7 @@ import java.util.Queue;
 import java.util.stream.Collectors;
 
 public class TableBlock extends HorizontalDirectionalBlock {
-    public static final EnumProperty<StoolRugType> RUG = EnumProperty.create("rug", StoolRugType.class);
+    public static final EnumProperty<TableCoverType> RUG = EnumProperty.create("rug", TableCoverType.class);
     public static final BooleanProperty NORTH = BooleanProperty.create("north");
     public static final BooleanProperty EAST = BooleanProperty.create("east");
     public static final BooleanProperty SOUTH = BooleanProperty.create("south");
@@ -63,7 +62,7 @@ public class TableBlock extends HorizontalDirectionalBlock {
     public TableBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any()
-                .setValue(RUG, StoolRugType.NONE)
+                .setValue(RUG, TableCoverType.NONE)
                 .setValue(NORTH, false)
                 .setValue(EAST, false)
                 .setValue(SOUTH, false)
@@ -120,20 +119,16 @@ public class TableBlock extends HorizontalDirectionalBlock {
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
 
-        StoolRugType currentRug = state.getValue(RUG);
-        StoolRugType heldRug = rugTypeFromItem(heldStack.getItem());
+        TableCoverType currentRug = state.getValue(RUG);
+        TableCoverType heldRug = rugTypeFromItem(heldStack.getItem());
 
         if (heldRug != null && heldRug != currentRug) {
             if (!level.isClientSide) {
-                if (!currentRug.hasRug()) {
+                if (!player.isCreative()) {
                     heldStack.shrink(1);
-                } else if (player.isCreative()) {
+                }
+                if (currentRug.hasRug()) {
                     dropRug(level, pos, currentRug);
-                } else {
-                    heldStack.shrink(1);
-                    if (!heldStack.isEmpty()) {
-                        dropRug(level, pos, currentRug);
-                    }
                 }
                 level.setBlock(pos, state.setValue(RUG, heldRug), Block.UPDATE_ALL);
             }
@@ -142,7 +137,7 @@ public class TableBlock extends HorizontalDirectionalBlock {
 
         if (heldStack.getItem() instanceof ShearsItem && currentRug.hasRug()) {
             if (!level.isClientSide) {
-                level.setBlock(pos, state.setValue(RUG, StoolRugType.NONE), Block.UPDATE_ALL);
+                level.setBlock(pos, state.setValue(RUG, TableCoverType.NONE), Block.UPDATE_ALL);
                 dropRug(level, pos, currentRug);
                 heldStack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(hand));
             }
@@ -232,7 +227,7 @@ public class TableBlock extends HorizontalDirectionalBlock {
         level.removeBlock(abovePos, false);
     }
 
-    private void dropRug(Level level, BlockPos pos, StoolRugType rugType) {
+    private void dropRug(Level level, BlockPos pos, TableCoverType rugType) {
         Item item = rugType.rugItem();
         if (item != null && level instanceof ServerLevel serverLevel) {
             ItemEntity drop = new ItemEntity(serverLevel, pos.getX() + 0.5D, pos.getY() + 0.8D, pos.getZ() + 0.5D, new ItemStack(item));
@@ -243,21 +238,8 @@ public class TableBlock extends HorizontalDirectionalBlock {
         return neighborState.is(this);
     }
     @Nullable
-    private StoolRugType rugTypeFromItem(Item item) {
-        if (!(item instanceof BlockItem blockItem)) {
-            return null;
-        }
-
-        String path = blockItem.getBlock().builtInRegistryHolder().key().location().getPath();
-        if (path.equals("canvas_rug")) {
-            return StoolRugType.CANVAS;
-        }
-        for (StoolRugType value : StoolRugType.values()) {
-            if (path.equals(value.getSerializedName() + "_canvas_rug")) {
-                return value;
-            }
-        }
-        return null;
+    private TableCoverType rugTypeFromItem(Item item) {
+        return TableCoverType.fromItem(item);
     }
     private void grantFlipTableAdvancement(ServerPlayer player) {
         Advancement advancement = player.server.getAdvancements().getAdvancement(FAAdvanceTriggers.FLIP_TABLE);

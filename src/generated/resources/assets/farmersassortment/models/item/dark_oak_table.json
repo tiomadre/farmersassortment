@@ -203,6 +203,108 @@
       "predicate": {
         "farmersassortment:rug": 17.0
       }
+    },
+    {
+      "model": "farmersassortment:item/dark_oak_table_white_carpet",
+      "predicate": {
+        "farmersassortment:rug": 18.0
+      }
+    },
+    {
+      "model": "farmersassortment:item/dark_oak_table_orange_carpet",
+      "predicate": {
+        "farmersassortment:rug": 19.0
+      }
+    },
+    {
+      "model": "farmersassortment:item/dark_oak_table_magenta_carpet",
+      "predicate": {
+        "farmersassortment:rug": 20.0
+      }
+    },
+    {
+      "model": "farmersassortment:item/dark_oak_table_light_blue_carpet",
+      "predicate": {
+        "farmersassortment:rug": 21.0
+      }
+    },
+    {
+      "model": "farmersassortment:item/dark_oak_table_yellow_carpet",
+      "predicate": {
+        "farmersassortment:rug": 22.0
+      }
+    },
+    {
+      "model": "farmersassortment:item/dark_oak_table_lime_carpet",
+      "predicate": {
+        "farmersassortment:rug": 23.0
+      }
+    },
+    {
+      "model": "farmersassortment:item/dark_oak_table_pink_carpet",
+      "predicate": {
+        "farmersassortment:rug": 24.0
+      }
+    },
+    {
+      "model": "farmersassortment:item/dark_oak_table_gray_carpet",
+      "predicate": {
+        "farmersassortment:rug": 25.0
+      }
+    },
+    {
+      "model": "farmersassortment:item/dark_oak_table_light_gray_carpet",
+      "predicate": {
+        "farmersassortment:rug": 26.0
+      }
+    },
+    {
+      "model": "farmersassortment:item/dark_oak_table_cyan_carpet",
+      "predicate": {
+        "farmersassortment:rug": 27.0
+      }
+    },
+    {
+      "model": "farmersassortment:item/dark_oak_table_purple_carpet",
+      "predicate": {
+        "farmersassortment:rug": 28.0
+      }
+    },
+    {
+      "model": "farmersassortment:item/dark_oak_table_blue_carpet",
+      "predicate": {
+        "farmersassortment:rug": 29.0
+      }
+    },
+    {
+      "model": "farmersassortment:item/dark_oak_table_brown_carpet",
+      "predicate": {
+        "farmersassortment:rug": 30.0
+      }
+    },
+    {
+      "model": "farmersassortment:item/dark_oak_table_green_carpet",
+      "predicate": {
+        "farmersassortment:rug": 31.0
+      }
+    },
+    {
+      "model": "farmersassortment:item/dark_oak_table_red_carpet",
+      "predicate": {
+        "farmersassortment:rug": 32.0
+      }
+    },
+    {
+      "model": "farmersassortment:item/dark_oak_table_black_carpet",
+      "predicate": {
+        "farmersassortment:rug": 33.0
+      }
+    },
+    {
+      "model": "farmersassortment:item/dark_oak_table_moss_carpet",
+      "predicate": {
+        "farmersassortment:rug": 34.0
+      }
     }
   ]
 }

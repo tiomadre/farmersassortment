@@ -1,43 +1,10 @@
 {
-  "elements": [
-    {
-      "faces": {
-        "down": {
-          "texture": "#missing"
-        },
-        "east": {
-          "texture": "#12"
-        },
-        "north": {
-          "texture": "#13"
-        },
-        "south": {
-          "texture": "#12"
-        },
-        "up": {
-          "texture": "#2"
-        },
-        "west": {
-          "texture": "#12"
-        }
-      },
-      "from": [
-        0,
-        8,
-        0
-      ],
-      "to": [
-        16,
-        16,
-        16
-      ]
-    }
-  ],
+  "parent": "farmersassortment:block/template/floating_counter",
   "textures": {
-    "12": "farmersassortment:block/mangrove_counter_side",
-    "13": "farmersassortment:block/mangrove_counter_front",
-    "2": "farmersassortment:block/mangrove_butcher_block_cabinet_top",
-    "missing": "minecraft:block/mangrove_planks",
-    "particle": "farmersassortment:block/mangrove_butcher_block_cabinet_top"
+    "bottom": "minecraft:block/mangrove_planks",
+    "front": "farmersassortment:block/mangrove_counter_front",
+    "particle": "farmersassortment:block/mangrove_butcher_block_cabinet_top",
+    "side": "farmersassortment:block/mangrove_counter_side",
+    "top": "farmersassortment:block/mangrove_butcher_block_cabinet_top"
   }
 }

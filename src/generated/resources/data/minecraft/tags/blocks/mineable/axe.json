@@ -1,5 +1,7 @@
 {
   "values": [
+    "farmersassortment:upcycled_block",
+    "farmersassortment:upcycled_slab",
     "farmersassortment:upcycled_trapdoor",
     "farmersassortment:upcycled_door",
     "farmersassortment:upcycled_pillar",
@@ -54,6 +56,8 @@
     "farmersassortment:bamboo_floating_counter",
     "farmersassortment:crimson_floating_counter",
     "farmersassortment:warped_floating_counter",
+    "farmersassortment:lilac_floating_counter",
+    "farmersassortment:palm_floating_counter",
     "farmersassortment:oak_stool",
     "farmersassortment:spruce_stool",
     "farmersassortment:birch_stool",
@@ -89,7 +93,6 @@
     "farmersassortment:bamboo_table",
     "farmersassortment:crimson_table",
     "farmersassortment:warped_table",
-    "farmersassortment:palm_table",
     "farmersassortment:lilac_table",
     "farmersassortment:spruce_crab_trap",
     "farmersassortment:birch_crab_trap",

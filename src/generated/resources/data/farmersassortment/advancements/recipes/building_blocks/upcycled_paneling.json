@@ -7,12 +7,12 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_tree_bark": {
+    "has_upcycled_block": {
       "conditions": {
         "items": [
           {
             "items": [
-              "farmersdelight:tree_bark"
+              "farmersassortment:upcycled_block"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_tree_bark",
+      "has_upcycled_block",
       "has_the_recipe"
     ]
   ],

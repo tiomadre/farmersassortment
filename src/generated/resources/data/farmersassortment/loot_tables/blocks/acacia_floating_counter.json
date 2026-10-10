@@ -1,5 +1,21 @@
 {
   "type": "minecraft:block",
+  "functions": [
+    {
+      "add": false,
+      "conditions": [
+        {
+          "block": "farmersassortment:acacia_floating_counter",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "double": "true"
+          }
+        }
+      ],
+      "count": 2.0,
+      "function": "minecraft:set_count"
+    }
+  ],
   "pools": [
     {
       "bonus_rolls": 0.0,

@@ -64,7 +64,7 @@ minecraft {
             property "mixin.env.remapRefMap", "true"
             property "mixin.env.refMapRemappingFile", "${projectDir}/build/createSrgToMcp/output.srg"
             property "blueprint.indev", "true"
-            args "--mod", project.modId, "--all", "--output", file("src/generated/resources/"), "--existing", file("src/main/resources")
+            args "--mod", project.modId, "--all", "--output", file("src/generated/resources/"), "--existing", file("src/main/resources"), "--existing-mod", "farmersdelight"
             mods {
                 farmersassortment {
                     source sourceSets.main

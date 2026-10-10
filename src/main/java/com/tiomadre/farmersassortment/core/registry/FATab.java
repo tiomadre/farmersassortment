@@ -32,12 +32,13 @@ public final class FATab {
                                             .map(registryObject -> Map.<ResourceLocation, Supplier<? extends ItemLike>>entry(
                                                     registryObject.getId(), registryObject)),
                                     Stream.concat(
-                                            FADynamicStools.stools()
+                                            FADynamicFurniture.blocks()
                                                     .map(registryObject -> Map.<ResourceLocation, Supplier<? extends ItemLike>>entry(
                                                             registryObject.getId(), registryObject)),
                                             FAItems.ITEMS.getDeferredRegister().getEntries().stream()
                                                     .map(registryObject -> Map.<ResourceLocation, Supplier<? extends ItemLike>>entry(
                                                             registryObject.getId(), registryObject))))
+                            .filter(entry -> shouldDisplay(entry.getKey()))
                             .sorted(Comparator
                                     .comparingInt((Map.Entry<ResourceLocation, Supplier<? extends ItemLike>> entry) ->
                                             categoryOrder(entry.getKey().getPath()))
@@ -59,33 +60,47 @@ public final class FATab {
         if (path.contains("butcher_block")) {
             return 0;
         }
-        if (path.contains("_stove")) {
+        if (path.endsWith("_canvas_rug")) {
             return 1;
         }
         if (path.contains("_cooking_pot")) {
             return 2;
         }
-        if (path.contains("cutting_board")) {
+        if (path.endsWith("_crab_trap")) {
             return 3;
         }
-        if (path.endsWith("_knife")) {
+        if (path.contains("cutting_board")) {
             return 4;
         }
-        if (path.endsWith("_canvas_rug")) {
+        if (path.endsWith("_diffuser")) {
             return 5;
         }
-        if (path.endsWith("_slats")) {
+        if (path.endsWith("_floating_counter")) {
             return 6;
         }
-        if (path.endsWith("_stool")) {
+        if (path.endsWith("_knife")) {
             return 7;
         }
-        if (path.endsWith("_table")) {
+        if (path.endsWith("_rack")) {
             return 8;
         }
-        return 9;
+        if (path.endsWith("_slats")) {
+            return 9;
+        }
+        if (path.endsWith("_stool")) {
+            return 10;
+        }
+        if (path.contains("_stove")) {
+            return 11;
+        }
+        if (path.endsWith("_table")) {
+            return 12;
+        }
+        return 13;
     }
+
     private static final Set<String> CRABBERS_ITEMS = Set.of(
+            "palm_floating_counter",
             "clamshell_knife",
             "lilac_crab_trap",
             "palm_cutting_board",
@@ -97,6 +112,7 @@ public final class FATab {
 
     );
     private static final Set<String> FORAGERS_ITEMS = Set.of(
+            "lilac_floating_counter",
             "lilac_cutting_board",
             "lilac_butcher_block_cabinet",
             "amethyst_diffuser",

@@ -2,13 +2,10 @@ package com.tiomadre.farmersassortment.data.client;
 
 import alabaster.crabbersdelight.common.block.CrabTrapBlock;
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
-import com.tiomadre.farmersassortment.core.block.StoolBlock;
-import com.tiomadre.farmersassortment.core.block.TableBlock;
-import com.tiomadre.farmersassortment.core.block.TerracottaCookingPotBlock;
+import com.tiomadre.farmersassortment.core.block.*;
 import com.tiomadre.farmersassortment.core.block.state.TerracottaCookingPotColor;
-import com.tiomadre.farmersassortment.core.block.SlatBlock;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
-import com.tiomadre.farmersassortment.core.registry.FADynamicStools;
+import com.tiomadre.farmersassortment.core.registry.FADynamicFurniture;
 import com.tiomadre.farmersassortment.core.registry.FARugs;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxForagersBlocks;
@@ -22,28 +19,31 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.client.model.generators.*;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
-import com.tiomadre.farmersassortment.core.block.ButcherBlockCabinetBlock;
 import vectorwing.farmersdelight.common.block.*;
 import vectorwing.farmersdelight.common.block.state.CookingPotSupport;
 import com.tiomadre.farmersassortment.core.block.state.StoolRugType;
+import com.tiomadre.farmersassortment.core.block.state.TableCoverType;
 
 import java.util.*;
 
 public class FABlockStates extends BlockStateProvider {
     private final ExistingFileHelper fileHelper;
+    private final Map<String, ModelFile> tableTemplates = new HashMap<>();
 
     public FABlockStates(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, FarmersAssortment.MOD_ID, existingFileHelper);
         this.fileHelper = existingFileHelper;
-        trackCompatTexture("crabbersdelight", "block/stripped_palm_log");
-        trackCompatTexture("crabbersdelight", "block/stripped_palm_log_top");
-        trackCompatTexture("crabbersdelight", "block/palm_planks");
-        trackCompatTexture("foragersinsight", "block/lilac_planks");
-        trackCompatTexture("farmersdelight", "block/canvas_rug_fraying");
-        trackCompatTexture("farmersdelight", "block/canvas_rug");
+        CompatTexture("crabbersdelight", "block/stripped_palm_log");
+        CompatTexture("crabbersdelight", "block/stripped_palm_log_top");
+        CompatTexture("crabbersdelight", "block/palm_planks");
+        CompatTexture("foragersinsight", "block/lilac_planks");
+        CompatTexture("farmersdelight", "block/canvas_rug_fraying");
+        CompatTexture("farmersdelight", "block/canvas_rug");
+        CompatTexture("farmersdelight", "block/straw_bale_side");
+        CompatTexture("farmersdelight", "block/straw_bale_end");
     }
 
-    private void trackCompatTexture(String namespace, String path) {
+    private void CompatTexture(String namespace, String path) {
         if (fileHelper == null) {
             return;
         }
@@ -61,7 +61,6 @@ public class FABlockStates extends BlockStateProvider {
         registerCrabTraps();
         registerDiffusers();
         registerFloatingCounters();
-        registerRopeFences();
         registerSlats();
         registerSkillets();
         registerStools();
@@ -70,21 +69,55 @@ public class FABlockStates extends BlockStateProvider {
         registerTables();
         registerTrapdoors();
         registerDivider();
+        registerAlabasterLantern();
 
+        //Other
+        ResourceLocation strawSide =
+                new ResourceLocation("farmersdelight", "block/straw_bale_side");
+        ResourceLocation strawEnd = new ResourceLocation("farmersdelight", "block/straw_bale_end");
+
+        slabBlock(FABlocks.STRAW_SLAB.get(), new ResourceLocation("farmersdelight", "block/straw_bale"), strawSide, strawEnd, strawEnd);
+        stairsBlock(FABlocks.STRAW_STAIRS.get(), strawSide, strawEnd, strawEnd);
+
+    }
+    private void registerAlabasterLantern() {
+        BlockModelBuilder standing = models()
+                .withExistingParent("alabaster_lantern", mcLoc("block/template_lantern"))
+                .texture("lantern", modLoc("block/alabaster_lantern"))
+                .renderType("minecraft:cutout");
+
+        BlockModelBuilder hanging = models()
+                .withExistingParent("alabaster_lantern_hanging",
+                        mcLoc("block/template_hanging_lantern"))
+                .texture("lantern", modLoc("block/alabaster_lantern"))
+                .renderType("minecraft:cutout");
+
+        getVariantBuilder(FABlocks.ALABASTER_LANTERN.get())
+                .forAllStatesExcept(state -> ConfiguredModel.builder()
+                        .modelFile(state.getValue(BlockStateProperties.HANGING)
+                                ? hanging : standing)
+                        .build(), BlockStateProperties.WATERLOGGED);
     }
 
     private void registerDivider() {
         getVariantBuilder(FABlocks.UPCYCLED_DIVIDER.get()).forAllStates(state -> {
-            String model = "upcycled_divider_" + state.getValue(com.tiomadre.farmersassortment.core.block.DividerBlock.STATE).getSerializedName();
+            String model = "upcycled_divider_"
+                    + state.getValue(
+                    com.tiomadre.farmersassortment.core.block.DividerBlock.STATE
+            ).getSerializedName();
+
             return ConfiguredModel.builder()
                     .modelFile(models().getExistingFile(modLoc("block/" + model)))
-                    .rotationY((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot())
+                    .rotationY((int) state.getValue(
+                            BlockStateProperties.HORIZONTAL_FACING
+                    ).toYRot())
                     .build();
         });
-
     }
 
     private void registerUpcycledBuildingBlocks() {
+        simpleBlock(FABlocks.UPCYCLED_BLOCK.get(), models().cubeAll("upcycled_block", modLoc("block/upcycled_block")));
+        slabBlock(FABlocks.UPCYCLED_SLAB.get(), modLoc("block/upcycled_block"), modLoc("block/upcycled_block"));
         doorBlockWithRenderType(FABlocks.UPCYCLED_DOOR.get(), modLoc("block/upcycled_door_bottom"),
                 modLoc("block/upcycled_door_top"), "cutout");
         axisBlock(FABlocks.UPCYCLED_PILLAR.get(), modLoc("block/upcycled_pillar_side"),
@@ -92,10 +125,6 @@ public class FABlockStates extends BlockStateProvider {
         simpleBlock(FABlocks.UPCYCLED_PANELING.get(), models().cubeAll("upcycled_paneling",
                 modLoc("block/upcycled_paneling")));
     }
-        private void registerRopeFences() {
-            ropeFenceBlockState(FABlocks.VINE_FENCE, "vine_fence");
-            ropeFenceGateBlockState(FABlocks.VINE_FENCE_GATE, "vine_fence");
-        }
 
         private void ropeFenceBlockState(RegistryObject<? extends Block> block, String name) {
             ropeFenceModels(name);
@@ -497,6 +526,8 @@ public class FABlockStates extends BlockStateProvider {
         );
 
         floatingCounters.forEach(counter -> registerFloatingCounter(counter.block(), counter.woodType(), counter.bottomTexture()));
+        registerFloatingCounter(FABlocks.LILAC_FLOATING_COUNTER, "lilac", new ResourceLocation("foragersinsight", "block/lilac_planks"));
+        registerFloatingCounter(FABlocks.PALM_FLOATING_COUNTER, "palm", new ResourceLocation("crabbersdelight", "block/palm_planks"));
         uniquefloatingCounter(FABlocks.ALABASTER_FLOATING_COUNTER,
                 modLoc("block/alabaster_counter_bottom"),
                 modLoc("block/alabaster_counter_front"),
@@ -522,62 +553,111 @@ public class FABlockStates extends BlockStateProvider {
         });
     }
 
-    private void uniquefloatingCounter(RegistryObject<? extends Block> block, ResourceLocation bottomTexture, ResourceLocation frontTexture, ResourceLocation sideTexture, ResourceLocation topTexture) {
-        String name = block.getId().getPath();
-
-        ModelFile model = models().getBuilder(name)
-                .texture("0", bottomTexture)
-                .texture("1", frontTexture)
-                .texture("2", sideTexture)
-                .texture("3", topTexture)
-                .texture("particle", bottomTexture)
-                .element()
-                .from(0.0F, 8.0F, 0.0F)
-                .to(16.0F, 16.0F, 16.0F)
-                .face(Direction.NORTH).uvs(0.0F, 0.0F, 16.0F, 8.0F).texture("#1").end()
-                .face(Direction.EAST).uvs(0.0F, 0.0F, 16.0F, 8.0F).texture("#2").end()
-                .face(Direction.SOUTH).uvs(0.0F, 0.0F, 16.0F, 8.0F).texture("#2").end()
-                .face(Direction.WEST).uvs(0.0F, 0.0F, 16.0F, 8.0F).texture("#2").end()
-                .face(Direction.UP).uvs(0.0F, 0.0F, 16.0F, 16.0F).texture("#3").end()
-                .face(Direction.DOWN).uvs(0.0F, 0.0F, 16.0F, 16.0F).texture("#0").end()
-                .end();
-
-        getVariantBuilder(block.get()).forAllStates(state -> ConfiguredModel.builder()
-                .modelFile(model)
-                .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360)
-                .build());
-    }
-
-    private void registerFloatingCounter(RegistryObject<? extends Block> block, String woodType, ResourceLocation bottomTexture) {
-        String name = block.getId().getPath();
+    private void registerFloatingCounter(
+            RegistryObject<? extends Block> block,
+            String woodType,
+            ResourceLocation bottomTexture
+    ) {
         ResourceLocation topTexture = fallbackTexture(
                 modLoc("block/" + woodType + "_butcher_block_cabinet_top"),
                 modLoc("block/oak_butcher_block_cabinet_top")
         );
-        ResourceLocation sideTexture = floatingCounterSideTexture(woodType);
-        ResourceLocation frontTexture = floatingCounterFrontTexture(woodType);
 
-        ModelFile model = models().getBuilder(name)
-                .texture("2", topTexture)
-                .texture("12", sideTexture)
-                .texture("13", frontTexture)
-                .texture("particle", topTexture)
-                .texture("missing", bottomTexture)
-                .element()
-                .from(0.0F, 8.0F, 0.0F)
-                .to(16.0F, 16.0F, 16.0F)
-                .face(Direction.NORTH).uvs(0.0F, 0.0F, 16.0F, 8.0F).texture("#13").end()
-                .face(Direction.EAST).uvs(0.0F, 0.0F, 16.0F, 8.0F).texture("#12").end()
-                .face(Direction.SOUTH).uvs(0.0F, 0.0F, 16.0F, 8.0F).texture("#12").end()
-                .face(Direction.WEST).uvs(0.0F, 0.0F, 16.0F, 8.0F).texture("#12").end()
-                .face(Direction.UP).uvs(0.0F, 0.0F, 16.0F, 16.0F).texture("#2").end()
-                .face(Direction.DOWN).uvs(0.0F, 0.0F, 16.0F, 16.0F).texture("#missing").end()
-                .end();
+        ResourceLocation openTexture = fallbackTexture(
+                modLoc("block/" + woodType + "_counter_open"),
+                modLoc("block/" + woodType + "_butcher_block_cabinet_front_open")
+        );
 
-        getVariantBuilder(block.get()).forAllStates(state -> ConfiguredModel.builder()
-                .modelFile(model)
-                .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360)
-                .build());
+        floatingCounterModels(
+                block,
+                bottomTexture,
+                floatingCounterFrontTexture(woodType),
+                openTexture,
+                floatingCounterSideTexture(woodType),
+                topTexture,
+                topTexture
+        );
+    }
+
+    private void uniquefloatingCounter(
+            RegistryObject<? extends Block> block,
+            ResourceLocation bottomTexture,
+            ResourceLocation frontTexture,
+            ResourceLocation sideTexture,
+            ResourceLocation topTexture
+    ) {
+        floatingCounterModels(
+                block,
+                bottomTexture,
+                frontTexture,
+                modLoc("block/alabaster_counter_open"),
+                sideTexture,
+                topTexture,
+                bottomTexture
+        );
+    }
+
+    private void floatingCounterModels(
+            RegistryObject<? extends Block> block,
+            ResourceLocation bottomTexture,
+            ResourceLocation frontTexture,
+            ResourceLocation openTexture,
+            ResourceLocation sideTexture,
+            ResourceLocation topTexture,
+            ResourceLocation particleTexture
+    ) {
+        String name = block.getId().getPath();
+
+        ModelFile singleClosed = floatingCounterModel(
+                name, false, bottomTexture, frontTexture,
+                sideTexture, topTexture, particleTexture);
+
+        ModelFile singleOpen = floatingCounterModel(
+                name + "_open", false, bottomTexture, openTexture,
+                sideTexture, topTexture, particleTexture);
+
+        ModelFile doubleClosed = floatingCounterModel(
+                name + "_double", true, bottomTexture, frontTexture,
+                sideTexture, topTexture, particleTexture);
+
+        ModelFile doubleOpen = floatingCounterModel(
+                name + "_double_open", true, bottomTexture, openTexture,
+                sideTexture, topTexture, particleTexture);
+
+        getVariantBuilder(block.get()).forAllStates(state -> {
+            boolean doubled = state.getValue(FloatingDrawerBlock.DOUBLE);
+            boolean open = state.getValue(FloatingDrawerBlock.OPEN);
+
+            ModelFile model = doubled
+                    ? (open ? doubleOpen : doubleClosed)
+                    : (open ? singleOpen : singleClosed);
+
+            return ConfiguredModel.builder()
+                    .modelFile(model)
+                    .rotationY(((int) state.getValue(
+                            BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360)
+                    .build();
+        });
+    }
+
+    private ModelFile floatingCounterModel(
+            String name,
+            boolean doubled,
+            ResourceLocation bottomTexture,
+            ResourceLocation frontTexture,
+            ResourceLocation sideTexture,
+            ResourceLocation topTexture,
+            ResourceLocation particleTexture
+    ) {
+        return models().withExistingParent(
+                        name,
+                        modLoc("block/template/" + (doubled ? "double_counter" : "floating_counter"))
+                )
+                .texture("bottom", bottomTexture)
+                .texture("front", frontTexture)
+                .texture("side", sideTexture)
+                .texture("top", topTexture)
+                .texture("particle", particleTexture);
     }
     private record FloatingCounterDefinition(RegistryObject<? extends Block> block, String woodType, ResourceLocation bottomTexture) {
     }
@@ -958,7 +1038,7 @@ private void registerStools() {
                 new StoolDefinition(FAxForagersBlocks.LILAC_STOOL, "lilac", fallbackTexture(new ResourceLocation("foragersinsight", "block/lilac_log"), new ResourceLocation("minecraft", "block/oak_log")),
                         fallbackTexture(new ResourceLocation("farmersassortment", "block/stripped_lilac_log_big"), new ResourceLocation("minecraft", "block/stripped_oak_log")))));
 
-        FADynamicStools.stoolDefinitions().forEach(definition -> stools.add(new StoolDefinition(
+        FADynamicFurniture.stoolDefinitions().forEach(definition -> stools.add(new StoolDefinition(
                 definition.block(),
                 Objects.requireNonNull(definition.block().getId()).getPath(),
                 inferStoolLegTexture(definition.planksId()),
@@ -1117,6 +1197,7 @@ private void registerStools() {
     }
 
     private void registerTables() {
+        tableTemplates.clear();
         List<TableDefinition> tables = List.of(
                 new TableDefinition(FABlocks.OAK_TABLE, "oak", new ResourceLocation("minecraft", "block/stripped_oak_log"), new ResourceLocation("minecraft", "block/stripped_oak_log_top")),
                 new TableDefinition(FABlocks.SPRUCE_TABLE, "spruce", new ResourceLocation("minecraft", "block/stripped_spruce_log"), new ResourceLocation("minecraft", "block/stripped_spruce_log_top")),
@@ -1131,8 +1212,7 @@ private void registerStools() {
                 new TableDefinition(FABlocks.WARPED_TABLE, "warped", new ResourceLocation("minecraft", "block/stripped_warped_stem"), new ResourceLocation("minecraft", "block/stripped_warped_stem_top")),
                 new TableDefinition(FABlocks.ALABASTER_TABLE, "alabaster", modLoc("block/alabaster_table"), modLoc("block/alabaster_table_end")),
                 new TableDefinition(FAxForagersBlocks.LILAC_TABLE, "lilac", fallbackTexture(new ResourceLocation("farmersassortment", "block/stripped_lilac_log_big"), new ResourceLocation("minecraft", "block/stripped_oak_log")),
-                fallbackTexture(new ResourceLocation("farmersassortment", "block/stripped_lilac_log_big_top"), new ResourceLocation("minecraft", "block/stripped_oak_log_top"))),
-                new TableDefinition(FAxCrabbersBlocks.PALM_TABLE, "palm", new ResourceLocation("crabbersdelight", "block/stripped_palm_log"), new ResourceLocation("crabbersdelight", "block/stripped_palm_log_top"))
+                fallbackTexture(new ResourceLocation("farmersassortment", "block/stripped_lilac_log_big_top"), new ResourceLocation("minecraft", "block/stripped_oak_log_top")))
 
         );
         tables.forEach(this::registerTable);
@@ -1143,7 +1223,7 @@ private void registerStools() {
         Map<String, ModelFile> modelsByState = new HashMap<>();
 
         getVariantBuilder(table.block().get()).forAllStates(state -> {
-            StoolRugType rugType = state.getValue(TableBlock.RUG);
+            TableCoverType rugType = state.getValue(TableBlock.RUG);
             boolean north = state.getValue(TableBlock.NORTH);
             boolean east = state.getValue(TableBlock.EAST);
             boolean south = state.getValue(TableBlock.SOUTH);
@@ -1176,85 +1256,95 @@ private void registerStools() {
                 + (west ? "w" : "-");
     }
 
-    private BlockModelBuilder tableModel(String name, String woodType, ResourceLocation legTexture, ResourceLocation topTexture,
-                                         StoolRugType rugType, boolean north, boolean east, boolean south, boolean west) {
+    private BlockModelBuilder tableModel(String name, String woodType, ResourceLocation legTexture,
+                                         ResourceLocation topTexture, TableCoverType rugType,
+                                         boolean north, boolean east, boolean south, boolean west) {
+        if (rugType.hasRug()) {
+            return coveredTableModel(name, woodType, legTexture, topTexture,
+                    new ResourceLocation(Objects.requireNonNull(rugType.texturePath())),
+                    new ResourceLocation(rugType.extrudeTexturePath()), north, east, south, west);
+        }
+        return models().getBuilder(name)
+                .parent(tableTemplate(woodType, false, north, east, south, west))
+                .texture("leg", legTexture)
+                .texture("top", topTexture)
+                .texture("particle", legTexture);
+    }
+
+    private BlockModelBuilder coveredTableModel(String name, String woodType, ResourceLocation legTexture,
+                                                ResourceLocation topTexture, ResourceLocation coverTexture,
+                                                boolean north, boolean east, boolean south, boolean west) {
+        return coveredTableModel(name, woodType, legTexture, topTexture, coverTexture, coverTexture,
+                north, east, south, west);
+    }
+
+    private BlockModelBuilder coveredTableModel(String name, String woodType, ResourceLocation legTexture,
+                                                ResourceLocation topTexture, ResourceLocation coverTexture,
+                                                ResourceLocation coverEdgeTexture,
+                                                boolean north, boolean east, boolean south, boolean west) {
+        return models().getBuilder(name)
+                .parent(tableTemplate(woodType, true, north, east, south, west))
+                .renderType("minecraft:cutout")
+                .texture("leg", legTexture)
+                .texture("top", topTexture)
+                .texture("cover", coverTexture)
+                .texture("cover_edge", coverEdgeTexture)
+                .texture("particle", legTexture);
+    }
+
+    private ModelFile tableTemplate(String woodType, boolean covered,
+                                    boolean north, boolean east, boolean south, boolean west) {
         boolean bamboo = "bamboo".equals(woodType);
         boolean alabaster = "alabaster".equals(woodType);
-
-        if (alabaster && rugType == StoolRugType.NONE) {
-            BlockModelBuilder builder = models().getBuilder(name)
-                    .renderType("minecraft:cutout")
-                    .texture("2", legTexture)
-                    .texture("4", topTexture)
-                    .texture("6", modLoc("block/alabaster_cooking_pot_tray_top"))
-                    .texture("particle", legTexture);
-            addAlabasterBaseTableElements(builder, north, east, south, west);
-            addBambooTableTransforms(builder);
+        String style = bamboo ? "_bamboo" : alabaster ? "_alabaster" : "";
+        String connections = north || east || south || west
+                ? "_" + connectionKey(north, east, south, west) : "";
+        String name = "block/template/" + (covered ? "covered_table" : "table") + style + connections;
+        return tableTemplates.computeIfAbsent(name, unused -> {
+            BlockModelBuilder builder = models().getBuilder(name).texture("particle", "#leg");
+            if (covered) {
+                builder.texture("cover_edge", "#cover");
+            }
+            if (alabaster) {
+                builder.renderType("minecraft:cutout").texture("2", "#leg");
+                if (covered) {
+                    builder.texture("5", "#cover")
+                            .texture("6", "#cover_edge")
+                            .texture("7", modLoc("block/alabaster_cooking_pot_tray_top"));
+                    addAlabasterCanvasCoveredTableElements(builder, north, east, south, west);
+                } else {
+                    builder.texture("4", "#top")
+                            .texture("6", modLoc("block/alabaster_cooking_pot_tray_top"));
+                    addAlabasterBaseTableElements(builder, north, east, south, west);
+                }
+                addBambooTableTransforms(builder);
+            } else if (bamboo) {
+                builder.texture("6", "#leg").texture("7", "#top");
+                if (covered) {
+                    builder.renderType("minecraft:cutout")
+                            .texture("8", "#cover").texture("9", "#cover_edge");
+                    addBambooCanvasCoveredTableElements(builder, north, east, south, west);
+                    addBambooCanvasTableTransforms(builder);
+                } else {
+                    addBambooBaseTableElements(builder, north, east, south, west);
+                    addBambooTableTransforms(builder);
+                }
+            } else {
+                builder.texture("0", "#leg").texture("1", "#top");
+                if (covered) {
+                    builder.renderType("minecraft:cutout")
+                            .texture("4", "#cover").texture("5", "#cover_edge");
+                    addCoveredTableElements(builder, false, north, east, south, west);
+                } else {
+                    addBaseTableElements(builder, false, north, east, south, west);
+                }
+                builder.transforms().transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND)
+                        .rotation(0, 45, 0).scale(0.4F, 0.4F, 0.4F).end().end();
+            }
             return builder;
-        }
-
-        if (alabaster && rugType.hasRug()) {
-            ResourceLocation rugTexture = new ResourceLocation(Objects.requireNonNull(rugType.texturePath()));
-            ResourceLocation rugExtrudesTexture = new ResourceLocation(rugType.extrudeTexturePath());
-            BlockModelBuilder builder = models().getBuilder(name)
-                    .renderType("minecraft:cutout")
-                    .texture("2", legTexture)
-                    .texture("5", rugTexture)
-                    .texture("6", rugExtrudesTexture)
-                    .texture("7", modLoc("block/alabaster_cooking_pot_tray_top"))
-                    .texture("particle", legTexture);
-            addAlabasterCanvasCoveredTableElements(builder, north, east, south, west);
-            addBambooTableTransforms(builder);
-            return builder;
-        }
-        if (bamboo && rugType == StoolRugType.NONE) {
-            BlockModelBuilder builder = models().getBuilder(name)
-                    .texture("6", legTexture)
-                    .texture("7", topTexture)
-                    .texture("particle", legTexture);
-            addBambooBaseTableElements(builder, north, east, south, west);
-            addBambooTableTransforms(builder);
-            return builder;
-        }
-
-        if (bamboo && rugType.hasRug()) {
-            ResourceLocation rugTexture = new ResourceLocation(Objects.requireNonNull(rugType.texturePath()));
-            ResourceLocation rugExtrudesTexture = new ResourceLocation(rugType.extrudeTexturePath());
-            BlockModelBuilder builder = models().getBuilder(name)
-                    .renderType("minecraft:cutout")
-                    .texture("6", legTexture)
-                    .texture("7", topTexture)
-                    .texture("8", rugTexture)
-                    .texture("9", rugExtrudesTexture)
-                    .texture("particle", legTexture);
-            addBambooCanvasCoveredTableElements(builder, north, east, south, west);
-            addBambooCanvasTableTransforms(builder);
-            return builder;
-        }
-
-        BlockModelBuilder builder = models().getBuilder(name)
-                .texture(bamboo ? "2" : "0", legTexture)
-                .texture(bamboo ? "3" : "1", topTexture)
-                .texture("particle", legTexture);
-
-        if (rugType.hasRug()) {
-            builder.renderType("minecraft:cutout");
-            builder.texture("4", new ResourceLocation(Objects.requireNonNull(rugType.texturePath())))
-                    .texture("5", new ResourceLocation(rugType.extrudeTexturePath()));
-            addCoveredTableElements(builder, bamboo, north, east, south, west);
-        } else {
-            addBaseTableElements(builder, bamboo, north, east, south, west);
-        }
-
-        builder.transforms()
-                .transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND)
-                .rotation(0, 45, 0)
-                .scale(0.4F, 0.4F, 0.4F)
-                .end()
-                .end();
-
-        return builder;
+        });
     }
+
     private void addAlabasterBaseTableElements(BlockModelBuilder b, boolean north, boolean east, boolean south, boolean west) {
         if (!north && !east) alabasterNorthEastTableLeg(b);
         if (!south && !east) alabasterSouthEastTableLeg(b);

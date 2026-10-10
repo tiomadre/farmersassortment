@@ -9,10 +9,15 @@
   "item.farmersassortment.alabaster": "Alabaster",
   "block.farmersassortment.alabaster_block": "Alabaster Block",
   "block.farmersassortment.alabaster_bricks_block": "Alabaster Bricks",
+  "block.farmersassortment.alabaster_lantern": "Alabaster Lantern",
   "block.farmersassortment.alabaster_pillar": "Alabaster Pillar",
   "block.farmersassortment.alabaster_slab": "Alabaster Slab",
   "block.farmersassortment.alabaster_stairs": "Alabaster Stairs",
   "block.farmersassortment.alabaster_wall": "Alabaster Wall",
+
+
+  "block.farmersassortment.straw_slab": "Straw Slab",
+  "block.farmersassortment.straw_stairs": "Straw Stairs",
 
   "block.farmersassortment.oak_cutting_board": "Oak Cutting Board",
   "block.farmersassortment.spruce_cutting_board": "Spruce Cutting Board",
@@ -39,6 +44,8 @@
   "block.farmersassortment.warped_butcher_block_cabinet": "Warped Butcher Block Cabinet",
 
   "block.farmersassortment.upcycled_butcher_block_cabinet": "Upcycled Butcher Block Cabinet",
+  "block.farmersassortment.upcycled_block": "Upcycled Block",
+  "block.farmersassortment.upcycled_slab": "Upcycled Slab",
   "block.farmersassortment.upcycled_cabinet": "Upcycled Cabinet",
   "block.farmersassortment.upcycled_divider": "Upcycled Divider",
   "block.farmersassortment.upcycled_door": "Upcycled Door",
@@ -46,21 +53,21 @@
   "block.farmersassortment.upcycled_paneling": "Upcycled Flooring",
   "block.farmersassortment.upcycled_trapdoor": "Upcycled Trapdoor",
 
-  "block.farmersassortment.oak_floating_counter": "Oak Floating Counter",
-  "block.farmersassortment.spruce_floating_counter": "Spruce Floating Counter",
-  "block.farmersassortment.birch_floating_counter": "Birch Floating Counter",
-  "block.farmersassortment.jungle_floating_counter": "Jungle Floating Counter",
-  "block.farmersassortment.acacia_floating_counter": "Acacia Floating Counter",
-  "block.farmersassortment.dark_oak_floating_counter": "Dark Oak Floating Counter",
-  "block.farmersassortment.mangrove_floating_counter": "Mangrove Floating Counter",
-  "block.farmersassortment.cherry_floating_counter": "Cherry Floating Counter",
-  "block.farmersassortment.bamboo_floating_counter": "Bamboo Floating Counter",
-  "block.farmersassortment.crimson_floating_counter": "Crimson Floating Counter",
-  "block.farmersassortment.warped_floating_counter": "Warped Floating Counter",
-  "block.farmersassortment.alabaster_floating_counter": "Alabaster Floating Counter",
+  "block.farmersassortment.oak_floating_counter": "Oak Floating Drawer",
+  "block.farmersassortment.spruce_floating_counter": "Spruce Floating Drawer",
+  "block.farmersassortment.birch_floating_counter": "Birch Floating Drawer",
+  "block.farmersassortment.jungle_floating_counter": "Jungle Floating Drawer",
+  "block.farmersassortment.acacia_floating_counter": "Acacia Floating Drawer",
+  "block.farmersassortment.dark_oak_floating_counter": "Dark Oak Floating Drawer",
+  "block.farmersassortment.mangrove_floating_counter": "Mangrove Floating Drawer",
+  "block.farmersassortment.cherry_floating_counter": "Cherry Floating Drawer",
+  "block.farmersassortment.bamboo_floating_counter": "Bamboo Floating Drawer",
+  "block.farmersassortment.crimson_floating_counter": "Crimson Floating Drawer",
+  "block.farmersassortment.warped_floating_counter": "Warped Floating Drawer",
+  "block.farmersassortment.alabaster_floating_counter": "Alabaster Floating Drawer",
 
-  "block.farmersassortment.vine_fence": "Vine Fence",
-  "block.farmersassortment.vine_fence_gate": "Vine Fence Gate",
+  "container.farmersassortment.floating_counter": "Floating Drawer",
+  "container.farmersassortment.double_counter": "Double Drawer",
 
   "block.farmersassortment.white_canvas_rug": "White Canvas Rug",
   "block.farmersassortment.orange_canvas_rug": "Orange Canvas Rug",
@@ -103,7 +110,6 @@
   "block.farmersassortment.bamboo_table": "Bamboo Table",
   "block.farmersassortment.crimson_table": "Crimson Table",
   "block.farmersassortment.warped_table": "Warped Table",
-  "block.farmersassortment.palm_table": "Palm Table",
   "block.farmersassortment.lilac_table": "Lilac Table",
   "block.farmersassortment.alabaster_table": "Alabaster Table",
 
@@ -205,7 +211,9 @@
 
   "farmersdelight.block.cutting_board.invalid_item": "This doesn't seem cuttable...",
   "farmersdelight.block.cutting_board.invalid_tool": "Maybe with a different tool...",
-  "farmersdelight.block.cutting_board.remaining_items": "%s remaining..."
+  "farmersdelight.block.cutting_board.remaining_items": "%s remaining...",
+  "block.farmersassortment.lilac_floating_counter": "Lilac Floating Counter",
+  "block.farmersassortment.palm_floating_counter": "Palm Floating Counter"
 
 }
 

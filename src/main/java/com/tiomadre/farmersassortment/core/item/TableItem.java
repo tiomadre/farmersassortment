@@ -1,6 +1,6 @@
 package com.tiomadre.farmersassortment.core.item;
 
-import com.tiomadre.farmersassortment.core.block.state.StoolRugType;
+import com.tiomadre.farmersassortment.core.block.state.TableCoverType;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
@@ -22,7 +22,7 @@ public class TableItem extends BlockItem {
         super(block, properties);
     }
 
-    public static ItemStack applyRugToStack(ItemStack stack, StoolRugType rug) {
+    public static ItemStack applyRugToStack(ItemStack stack, TableCoverType rug) {
         if (!rug.hasRug()) {
             CompoundTag stateTag = stack.getTagElement(BLOCK_STATE_TAG);
             if (stateTag != null) {
@@ -41,7 +41,7 @@ public class TableItem extends BlockItem {
     @Override
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
         super.appendHoverText(stack, level, tooltip, flag);
-        StoolRugType rugType = getRug(stack);
+        TableCoverType rugType = getRug(stack);
         if (!rugType.hasRug()) {
             return;
         }
@@ -50,16 +50,16 @@ public class TableItem extends BlockItem {
                 Component.translatable(rugType.rugItem().getDescriptionId())));
     }
 
-    public static StoolRugType getRug(ItemStack stack) {
+    public static TableCoverType getRug(ItemStack stack) {
         CompoundTag stateTag = stack.getTagElement(BLOCK_STATE_TAG);
         if (stateTag != null && stateTag.contains(RUG_TAG, Tag.TAG_STRING)) {
             String rugName = stateTag.getString(RUG_TAG);
-            for (StoolRugType rugType : StoolRugType.values()) {
+            for (TableCoverType rugType : TableCoverType.values()) {
                 if (rugType.getSerializedName().equals(rugName)) {
                     return rugType;
                 }
             }
         }
-        return StoolRugType.NONE;
+        return TableCoverType.NONE;
     }
 }
