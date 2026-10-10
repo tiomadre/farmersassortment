@@ -1,0 +1,10 @@
+{
+  "parent": "farmersassortment:block/template/double_counter",
+  "textures": {
+    "bottom": "minecraft:block/jungle_planks",
+    "front": "farmersassortment:block/jungle_counter_front",
+    "particle": "farmersassortment:block/jungle_butcher_block_cabinet_top",
+    "side": "farmersassortment:block/jungle_counter_side",
+    "top": "farmersassortment:block/jungle_butcher_block_cabinet_top"
+  }
+}

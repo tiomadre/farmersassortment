@@ -1,0 +1,11 @@
+{
+  "parent": "farmersassortment:block/template/covered_table_bamboo",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "cover": "minecraft:block/gray_wool",
+    "cover_edge": "minecraft:block/gray_wool",
+    "leg": "minecraft:block/stripped_bamboo_block",
+    "particle": "minecraft:block/stripped_bamboo_block",
+    "top": "minecraft:block/bamboo_block_top"
+  }
+}

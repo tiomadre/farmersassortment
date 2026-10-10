@@ -1,0 +1,10 @@
+{
+  "parent": "farmersassortment:block/template/double_counter",
+  "textures": {
+    "bottom": "minecraft:block/mangrove_planks",
+    "front": "farmersassortment:block/mangrove_counter_open",
+    "particle": "farmersassortment:block/mangrove_butcher_block_cabinet_top",
+    "side": "farmersassortment:block/mangrove_counter_side",
+    "top": "farmersassortment:block/mangrove_butcher_block_cabinet_top"
+  }
+}

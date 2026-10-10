@@ -1,0 +1,10 @@
+{
+  "parent": "farmersassortment:block/template/double_counter",
+  "textures": {
+    "bottom": "minecraft:block/oak_planks",
+    "front": "farmersassortment:block/oak_counter_front",
+    "particle": "farmersassortment:block/oak_butcher_block_cabinet_top",
+    "side": "farmersassortment:block/oak_counter_side",
+    "top": "farmersassortment:block/oak_butcher_block_cabinet_top"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "conditions": [{"type": "forge:mod_loaded", "modid": "foragersinsight"}],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": ["###"],
+  "key": {"#": {"item": "foragersinsight:lilac_slab"}},
+  "result": {"item": "farmersassortment:lilac_floating_counter", "count": 2}
+}

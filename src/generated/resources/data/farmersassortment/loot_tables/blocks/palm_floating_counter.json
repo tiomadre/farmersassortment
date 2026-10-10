@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:block",
+  "functions": [
+    {
+      "add": false,
+      "conditions": [
+        {
+          "block": "farmersassortment:palm_floating_counter",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "double": "true"
+          }
+        }
+      ],
+      "count": 2.0,
+      "function": "minecraft:set_count"
+    }
+  ],
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "farmersassortment:palm_floating_counter"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "farmersassortment:blocks/palm_floating_counter"
+}

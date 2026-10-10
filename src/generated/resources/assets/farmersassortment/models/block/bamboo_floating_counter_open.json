@@ -1,0 +1,10 @@
+{
+  "parent": "farmersassortment:block/template/floating_counter",
+  "textures": {
+    "bottom": "minecraft:block/bamboo_planks",
+    "front": "farmersassortment:block/bamboo_counter_open",
+    "particle": "farmersassortment:block/bamboo_butcher_block_cabinet_top",
+    "side": "farmersassortment:block/bamboo_counter_side",
+    "top": "farmersassortment:block/bamboo_butcher_block_cabinet_top"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "parent": "farmersassortment:block/template/covered_table_ne--",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "cover": "minecraft:block/green_wool",
+    "cover_edge": "minecraft:block/green_wool",
+    "leg": "farmersassortment:block/stripped_lilac_log_big",
+    "particle": "farmersassortment:block/stripped_lilac_log_big",
+    "top": "farmersassortment:block/stripped_lilac_log_big_top"
+  }
+}

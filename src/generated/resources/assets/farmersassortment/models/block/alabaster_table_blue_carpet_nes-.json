@@ -1,0 +1,11 @@
+{
+  "parent": "farmersassortment:block/template/covered_table_alabaster_nes-",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "cover": "minecraft:block/blue_wool",
+    "cover_edge": "minecraft:block/blue_wool",
+    "leg": "farmersassortment:block/alabaster_table",
+    "particle": "farmersassortment:block/alabaster_table",
+    "top": "farmersassortment:block/alabaster_table_end"
+  }
+}

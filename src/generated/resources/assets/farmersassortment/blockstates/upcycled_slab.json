@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "farmersassortment:block/upcycled_slab"
+    },
+    "type=double": {
+      "model": "farmersassortment:block/upcycled_block"
+    },
+    "type=top": {
+      "model": "farmersassortment:block/upcycled_slab_top"
+    }
+  }
+}

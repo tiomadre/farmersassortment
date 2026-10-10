@@ -1,0 +1,8 @@
+{
+  "conditions": [{"type": "forge:mod_loaded", "modid": "crabbersdelight"}],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": ["###"],
+  "key": {"#": {"item": "crabbersdelight:palm_slab"}},
+  "result": {"item": "farmersassortment:palm_floating_counter", "count": 2}
+}

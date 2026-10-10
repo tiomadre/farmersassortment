@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "farmersassortment:alabaster"
+    },
+    "T": {
+      "item": "minecraft:torch"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "ATA",
+    "AAA"
+  ],
+  "result": {
+    "item": "farmersassortment:alabaster_lantern"
+  },
+  "show_notification": true
+}

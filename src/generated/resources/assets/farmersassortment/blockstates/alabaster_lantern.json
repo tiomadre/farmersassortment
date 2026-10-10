@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "farmersassortment:block/alabaster_lantern"
+    },
+    "hanging=true": {
+      "model": "farmersassortment:block/alabaster_lantern_hanging"
+    }
+  }
+}
