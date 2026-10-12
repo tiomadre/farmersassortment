@@ -9,7 +9,9 @@
     "CookingPotCookingAccelerator",
     "DiffuserMenuMixin",
     "DiffuserMixin",
-    "VariantPotMenu"
+    "VariantPotMenu",
+    "BambooSlatsPlacementMixin",
+    "BambooSlatsSurvivalMixin"
   ],
   "injectors": {
     "defaultRequire": 1

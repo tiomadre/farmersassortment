@@ -37,8 +37,6 @@ public class FABlockTags extends BlockTagsProvider {
         this.tag(BlockTags.WOODEN_SLABS).add(FABlocks.UPCYCLED_SLAB.get());
         this.tag(BlockTags.MINEABLE_WITH_AXE).add(FABlocks.UPCYCLED_BLOCK.get(), FABlocks.UPCYCLED_SLAB.get());
 
-        this.tag(SLATS)
-                .add(FABlocks.slats().map(RegistryObject::get).toArray(Block[]::new));
 
         this.tag(BlockTags.STAIRS).add(FABlocks.STRAW_STAIRS.get());
 
@@ -58,7 +56,6 @@ public class FABlockTags extends BlockTagsProvider {
                 .add(FABlocks.ALABASTER_LANTERN.get())
                 .add(FABlocks.allButcherBlockCabinets().map(RegistryObject::get).toArray(Block[]::new))
                 .add(FABlocks.allCuttingBoards().map(RegistryObject::get).toArray(Block[]::new))
-                .add(FABlocks.allSlats().map(RegistryObject::get).toArray(Block[]::new))
                 .add(FABlocks.floatingCounters()
                         .filter(block -> block != FABlocks.ALABASTER_FLOATING_COUNTER)
                         .map(RegistryObject::get)
@@ -75,7 +72,6 @@ public class FABlockTags extends BlockTagsProvider {
                 .add(FABlocks.UPCYCLED_DOOR.get(), FABlocks.UPCYCLED_PILLAR.get(), FABlocks.UPCYCLED_PANELING.get())
                 .add(FABlocks.allButcherBlockCabinets().map(RegistryObject::get).toArray(Block[]::new))
                 .add(FABlocks.allCuttingBoards().map(RegistryObject::get).toArray(Block[]::new))
-                .add(FABlocks.allSlats().map(RegistryObject::get).toArray(Block[]::new))
                 .add(FABlocks.floatingCounters()
                         .filter(block -> block != FABlocks.ALABASTER_FLOATING_COUNTER)
                         .map(RegistryObject::get)

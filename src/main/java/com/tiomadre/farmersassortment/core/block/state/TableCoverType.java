@@ -3,6 +3,12 @@ package com.tiomadre.farmersassortment.core.block.state;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CarpetBlock;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 
@@ -43,11 +49,15 @@ public enum TableCoverType implements StringRepresentable {
     GREEN_CARPET("green_carpet", "minecraft:green_carpet", "minecraft:block/green_wool"),
     RED_CARPET("red_carpet", "minecraft:red_carpet", "minecraft:block/red_wool"),
     BLACK_CARPET("black_carpet", "minecraft:black_carpet", "minecraft:block/black_wool"),
-    MOSS_CARPET("moss_carpet", "minecraft:moss_carpet", "minecraft:block/moss_block");
+    MOSS_CARPET("moss_carpet", "minecraft:moss_carpet", "minecraft:block/moss_block"),
+    CUSTOM_CARPET("custom_carpet", null, "minecraft:block/white_wool");
     private final String name;
     private final String itemId;
     private final String texturePath;
     private final StoolRugType canvasRug;
+    private static final TagKey<Block> CARPETS = TagKey.create(Registries.BLOCK, new ResourceLocation("minecraft", "carpets"));
+    private static final TagKey<Block> FORGE_CARPETS = TagKey.create(Registries.BLOCK, new ResourceLocation("forge", "carpets"));
+    private static final TagKey<Block> COMMON_CARPETS = TagKey.create(Registries.BLOCK, new ResourceLocation("c", "carpets"));
 
     TableCoverType(StoolRugType canvasRug) {
         this.name = canvasRug.getSerializedName();
@@ -72,6 +82,10 @@ public enum TableCoverType implements StringRepresentable {
         return this != NONE;
     }
 
+    public boolean isCanvas() {
+        return canvasRug != null && canvasRug.hasRug();
+    }
+
     @Nullable
     public String texturePath() {
         return texturePath;
@@ -84,7 +98,7 @@ public enum TableCoverType implements StringRepresentable {
     @Nullable
     public Item rugItem() {
         return canvasRug != null ? canvasRug.rugItem()
-                : ForgeRegistries.ITEMS.getValue(new ResourceLocation(itemId));
+                : itemId == null ? null : ForgeRegistries.ITEMS.getValue(new ResourceLocation(itemId));
     }
 
     @Nullable
@@ -94,6 +108,15 @@ public enum TableCoverType implements StringRepresentable {
                 return cover;
             }
         }
-        return null;
+        return isCarpet(item) ? CUSTOM_CARPET : null;
+    }
+
+    public static boolean isCarpet(Item item) {
+        return item instanceof BlockItem blockItem
+                && (blockItem.getBlock() instanceof CarpetBlock
+                || blockItem.getBlock().defaultBlockState().is(BlockTags.WOOL_CARPETS)
+                || blockItem.getBlock().defaultBlockState().is(CARPETS)
+                || blockItem.getBlock().defaultBlockState().is(FORGE_CARPETS)
+                || blockItem.getBlock().defaultBlockState().is(COMMON_CARPETS));
     }
 }

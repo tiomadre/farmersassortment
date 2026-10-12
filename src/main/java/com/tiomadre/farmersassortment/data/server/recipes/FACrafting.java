@@ -133,18 +133,6 @@ public final class FACrafting extends RecipeProvider {
 
 
 
-        //Slats
-        slats(output, FABlocks.OAK_SLATS, Blocks.OAK_SLAB);
-        slats(output, FABlocks.SPRUCE_SLATS, Blocks.SPRUCE_SLAB);
-        slats(output, FABlocks.BIRCH_SLATS, Blocks.BIRCH_SLAB);
-        slats(output, FABlocks.JUNGLE_SLATS, Blocks.JUNGLE_SLAB);
-        slats(output, FABlocks.ACACIA_SLATS, Blocks.ACACIA_SLAB);
-        slats(output, FABlocks.DARK_OAK_SLATS, Blocks.DARK_OAK_SLAB);
-        slats(output, FABlocks.MANGROVE_SLATS, Blocks.MANGROVE_SLAB);
-        slats(output, FABlocks.CHERRY_SLATS, Blocks.CHERRY_SLAB);
-        slats(output, FABlocks.BAMBOO_SLATS, Blocks.BAMBOO_SLAB);
-        slats(output, FABlocks.CRIMSON_SLATS, Blocks.CRIMSON_SLAB);
-        slats(output, FABlocks.WARPED_SLATS, Blocks.WARPED_SLAB);
 
         //Stools
         stool(output, FABlocks.OAK_STOOL, Blocks.OAK_SLAB);
@@ -252,8 +240,6 @@ public final class FACrafting extends RecipeProvider {
             //Skillet Variants
             variantSkillet(output, FAxCrabbersBlocks.PEARLESCENT_SKILLET, CDModItems.PEARL.get(), Items.BRICK);
 
-            //Slats
-            slats(output, FAxCrabbersBlocks.PALM_SLATS, CDModBlocks.PALM_SLAB.get());
 
         }
             //Forager's Insight Compat
@@ -271,8 +257,6 @@ public final class FACrafting extends RecipeProvider {
 
             //Stools and Tables
             stool(output, FAxForagersBlocks.LILAC_STOOL, FIBlocks.LILAC_SLAB.get());
-            //Slats
-            slats(output, FAxForagersBlocks.LILAC_SLATS, FIBlocks.LILAC_SLAB.get());
 
         }
 
@@ -349,15 +333,6 @@ public final class FACrafting extends RecipeProvider {
                 .save(output);
     }
 
-    private void slats(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> slats, ItemLike slab) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, slats.get(), 6)
-                .define('#', slab)
-                .pattern("#")
-                .pattern("#")
-                .pattern("#")
-                .unlockedBy(getHasName(slab), has(slab))
-                .save(output);
-    }
 
     private void alabasterDiffuser(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> diffuser) {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, diffuser.get())

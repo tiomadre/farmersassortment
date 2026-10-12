@@ -46,7 +46,6 @@ public class FAItemModels extends ItemModelProvider {
         registerStools();
         registerRacks();
         registerTables();
-        registerSlats();
         registerTrapdoors();
 
         //Other
@@ -85,9 +84,6 @@ public class FAItemModels extends ItemModelProvider {
         block(FABlocks.ALABASTER_STAIRS);
         wallInventory(FABlocks.ALABASTER_WALL);
         block(FABlocks.ALABASTER_PILLAR);
-    }
-    private void registerSlats() {
-        FABlocks.allSlats().forEach(this::block);
     }
 
     private void registerTables() {

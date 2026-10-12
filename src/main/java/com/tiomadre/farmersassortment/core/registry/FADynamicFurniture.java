@@ -4,10 +4,16 @@ import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.block.StoolBlock;
 import com.tiomadre.farmersassortment.core.block.RackBlock;
 import com.tiomadre.farmersassortment.core.block.TableBlock;
+import com.tiomadre.farmersassortment.core.block.SlatsBlock;
+import com.tiomadre.farmersassortment.core.block.entity.SlatsBlockEntity;
+import com.tiomadre.farmersassortment.core.item.SlatsItem;
 import com.tiomadre.farmersassortment.core.item.StoolItem;
 import com.tiomadre.farmersassortment.core.item.TableItem;
 import com.google.gson.*;
 import net.minecraft.network.chat.Component;
+import net.minecraft.core.Direction;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.server.packs.AbstractPackResources;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.repository.Pack;
@@ -40,6 +46,11 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public final class FADynamicFurniture extends AbstractPackResources {
+    public static final TagKey<Block> SOILS = TagKey.create(Registries.BLOCK,
+            new ResourceLocation(FarmersAssortment.MOD_ID, "slats_soils"));
+    public static final RegistryObject<BlockEntityType<SlatsBlockEntity>> SLATS_ENTITY = RegistryObject.create(
+            new ResourceLocation(FarmersAssortment.MOD_ID, "slats"), ForgeRegistries.BLOCK_ENTITY_TYPES);
+    private static final Map<String, RegistryObject<SlatsBlock>> DYNAMIC_SLATS = new LinkedHashMap<>();
     private static final Set<String> EXCLUDED_NAMESPACES = Set.of("minecraft", FarmersAssortment.MOD_ID);
     private static final Set<ResourceLocation> EXCLUDED_PLANKS = Set.of(
             new ResourceLocation("foragersinsight", "lilac_planks")
@@ -60,9 +71,20 @@ public final class FADynamicFurniture extends AbstractPackResources {
         JsonArray furniture = new JsonArray();
         JsonArray stools = new JsonArray();
         JsonArray tables = new JsonArray();
+        JsonArray slats = new JsonArray();
+        JsonObject language = new JsonObject();
         for (FurnitureDefinition definition : FURNITURE_DEFINITIONS) {
             String source = "oak_" + definition.kind();
-            if (type == PackType.CLIENT_RESOURCES) {
+            if (definition.kind().equals("slats")) {
+                if (type == PackType.CLIENT_RESOURCES) {
+                    addSlatsClient(definition);
+                    language.addProperty("block." + FarmersAssortment.MOD_ID + "."
+                            + definition.id().getPath(), definition.name());
+                } else {
+                    addSlatsServer(definition);
+                }
+                slats.add(definition.id().toString());
+            } else if (type == PackType.CLIENT_RESOURCES) {
                 copy("blockstates/" + source + ".json", source, definition);
                 copy("models/item/" + source + ".json", source, definition);
             } else {
@@ -78,6 +100,18 @@ public final class FADynamicFurniture extends AbstractPackResources {
             addTag(new ResourceLocation("minecraft", "tags/blocks/mineable/axe.json"), furniture);
             addTag(new ResourceLocation(FarmersAssortment.MOD_ID, "tags/blocks/stools.json"), stools);
             addTag(new ResourceLocation(FarmersAssortment.MOD_ID, "tags/blocks/tables.json"), tables);
+            addTag(new ResourceLocation("minecraft", "tags/blocks/climbable.json"), slats);
+            put("tags/blocks/slats.json", tag(slats));
+            put("tags/items/slats.json", tag(slats));
+            JsonArray soils = new JsonArray();
+            for (String soil : List.of("#minecraft:dirt", "#minecraft:sand", "minecraft:gravel",
+                    "minecraft:mud", "minecraft:clay", "minecraft:soul_sand", "minecraft:soul_soil",
+                    "minecraft:farmland", "minecraft:dirt_path")) {
+                soils.add(soil);
+            }
+            put("tags/blocks/slats_soils.json", tag(soils));
+        } else {
+            put("lang/en_us.json", language);
         }
     }
 
@@ -93,10 +127,15 @@ public final class FADynamicFurniture extends AbstractPackResources {
         return DYNAMIC_TABLES.values().stream();
     }
 
+    public static Stream<RegistryObject<SlatsBlock>> slats() {
+        return DYNAMIC_SLATS.values().stream();
+    }
+
     public static Stream<RegistryObject<? extends Block>> blocks() {
         return Stream.concat(stools().map(block -> (RegistryObject<? extends Block>) block),
                 Stream.concat(racks().map(block -> (RegistryObject<? extends Block>) block),
-                        tables().map(block -> (RegistryObject<? extends Block>) block)));
+                        Stream.concat(tables().map(block -> (RegistryObject<? extends Block>) block),
+                                slats().map(block -> (RegistryObject<? extends Block>) block))));
     }
 
     public static List<DynamicStoolDefinition> stoolDefinitions() {
@@ -113,18 +152,31 @@ public final class FADynamicFurniture extends AbstractPackResources {
             discoverAndRegisterBlocks(event);
         } else if (event.getRegistryKey().equals(Registries.ITEM)) {
             registerItems(event);
+        } else if (event.getRegistryKey().equals(Registries.BLOCK_ENTITY_TYPE)) {
+            event.register(ForgeRegistries.Keys.BLOCK_ENTITY_TYPES, helper -> helper.register(SLATS_ENTITY.getId(),
+                    BlockEntityType.Builder.of(SlatsBlockEntity::new,
+                            slats().map(RegistryObject::get).toArray(Block[]::new)).build(null)));
         }
     }
 
     private static void discoverAndRegisterBlocks(RegisterEvent event) {
         List<ResourceLocation> planks = ForgeRegistries.BLOCKS.getKeys().stream()
-                .filter(id -> !EXCLUDED_NAMESPACES.contains(id.getNamespace()))
+                .filter(id -> !id.getNamespace().equals(FarmersAssortment.MOD_ID))
                 .filter(id -> id.getPath().endsWith("_planks"))
                 .sorted(Comparator.comparing(ResourceLocation::toString))
                 .toList();
 
         event.register(ForgeRegistries.Keys.BLOCKS, helper -> planks.forEach(planksId -> {
             String woodType = woodType(planksId);
+            String slatsPrefix = planksId.getNamespace().equals("minecraft")
+                    ? woodType : planksId.getNamespace() + "_" + woodType;
+            ResourceLocation slatsId = new ResourceLocation(FarmersAssortment.MOD_ID, slatsPrefix + "_slats");
+            helper.register(slatsId, new SlatsBlock(resolveBlock(planksId).defaultBlockState()));
+            DYNAMIC_SLATS.put(slatsId.getPath(), RegistryObject.create(slatsId, ForgeRegistries.BLOCKS));
+            FURNITURE_DEFINITIONS.add(new FurnitureDefinition(slatsId, "slats", planksId,
+                    new ResourceLocation(planksId.getNamespace(), "block/" + planksId.getPath()),
+                    displayName(woodType) + " Slats"));
+            if (EXCLUDED_NAMESPACES.contains(planksId.getNamespace())) return;
             ResourceLocation slabId = new ResourceLocation(planksId.getNamespace(), woodType + "_slab");
             String prefix = planksId.getNamespace() + "_" + woodType;
             ResourceLocation texture = new ResourceLocation(planksId.getNamespace(), "block/" + planksId.getPath());
@@ -178,6 +230,8 @@ public final class FADynamicFurniture extends AbstractPackResources {
     private static void registerItems(RegisterEvent event) {
         event.register(ForgeRegistries.Keys.ITEMS, helper -> FURNITURE_DEFINITIONS.forEach(definition -> {
             Item item = switch (definition.kind()) {
+                case "slats" -> new SlatsItem(DYNAMIC_SLATS.get(definition.id().getPath()).get(),
+                        new Item.Properties(), definition.name());
                 case "stool" -> new StoolItem(DYNAMIC_STOOLS.get(definition.id().getPath()).get(),
                         new Item.Properties(), definition.name());
                 case "table" -> new TableItem(DYNAMIC_TABLES.get(definition.id().getPath()).get(), new Item.Properties()) {
@@ -326,17 +380,165 @@ public final class FADynamicFurniture extends AbstractPackResources {
         return new ResourceLocation(template);
     }
 
+    private void addSlatsClient(FurnitureDefinition definition) {
+        String name = definition.id().getPath();
+        String modelPrefix = FarmersAssortment.MOD_ID + ":block/" + name;
+        put("models/block/" + name + ".json", model(definition, "slats", 0, false));
+        put("models/block/" + name + "_side.json", model(definition, "slats_side", 16, false));
+        put("models/block/" + name + "_vertical.json", model(definition, "slats", 0, true));
+        put("models/block/" + name + "_embedded.json", model(definition, "slats_embedded", 0, false));
+        JsonObject variants = new JsonObject();
+        for (SlatsBlock.Mode mode : SlatsBlock.Mode.values()) {
+            for (Direction facing : Direction.Plane.HORIZONTAL) {
+                JsonObject variant = new JsonObject();
+                String suffix = switch (mode) {
+                    case FLOOR -> "";
+                    case SIDE, SUSPENDED -> "_side";
+                    case VERTICAL -> "_vertical";
+                    case EMBEDDED -> "_embedded";
+                };
+                variant.addProperty("model", modelPrefix + suffix);
+                int rotation = switch (facing) {
+                    case EAST -> 90;
+                    case SOUTH -> 180;
+                    case WEST -> 270;
+                    default -> 0;
+                };
+                if (rotation != 0) {
+                    variant.addProperty("y", rotation);
+                }
+                variants.add("mode=" + mode.getSerializedName() + ",facing=" + facing.getName(), variant);
+            }
+        }
+        JsonObject blockstate = new JsonObject();
+        blockstate.add("variants", variants);
+        put("blockstates/" + name + ".json", blockstate);
+        JsonObject item = new JsonObject();
+        item.addProperty("parent", modelPrefix);
+        put("models/item/" + name + ".json", item);
+    }
+
+    private JsonObject model(FurnitureDefinition definition, String template, int offset, boolean vertical) {
+        JsonObject model = readTemplate(template);
+        model.remove("format_version");
+        model.remove("groups");
+        model.remove("credit");
+        JsonObject textures = new JsonObject();
+        textures.addProperty("2", definition.texture().toString());
+        textures.addProperty("particle", definition.texture().toString());
+        textures.addProperty("missing", "minecraft:block/white_wool");
+        model.add("textures", textures);
+        model.addProperty("render_type", "minecraft:cutout");
+        for (JsonElement value : model.getAsJsonArray("elements")) {
+            JsonObject element = value.getAsJsonObject();
+            element.remove("rotation");
+            JsonArray from = element.getAsJsonArray("from");
+            JsonArray to = element.getAsJsonArray("to");
+            if (vertical) {
+                element.add("from", coordinates(from.get(0).getAsDouble(), from.get(2).getAsDouble(),
+                        16 - to.get(1).getAsDouble()));
+                element.add("to", coordinates(to.get(0).getAsDouble(), to.get(2).getAsDouble(),
+                        16 - from.get(1).getAsDouble()));
+                JsonObject faces = new JsonObject();
+                element.getAsJsonObject("faces").entrySet().forEach(entry -> {
+                    String direction = switch (entry.getKey()) {
+                        case "north" -> "down";
+                        case "south" -> "up";
+                        case "up" -> "north";
+                        case "down" -> "south";
+                        default -> entry.getKey();
+                    };
+                    JsonObject face = entry.getValue().getAsJsonObject().deepCopy();
+                    face.remove("cullface");
+                    faces.add(direction, face);
+                });
+                element.add("faces", faces);
+            } else if (offset != 0) {
+                from.set(1, new JsonPrimitive(from.get(1).getAsDouble() + offset));
+                to.set(1, new JsonPrimitive(to.get(1).getAsDouble() + offset));
+            }
+        }
+        return model;
+    }
+
+    private static JsonArray coordinates(double x, double y, double z) {
+        JsonArray result = new JsonArray();
+        result.add(x);
+        result.add(y);
+        result.add(z);
+        return result;
+    }
+
+    private static JsonObject readTemplate(String name) {
+        String path = "/assets/" + FarmersAssortment.MOD_ID
+                + "/models/block/template/slats/" + name + ".json";
+        try (InputStream stream = FarmersAssortment.class.getResourceAsStream(path)) {
+            if (stream == null) {
+                throw new IllegalStateException("Missing Slats template: " + path);
+            }
+            return JsonParser.parseReader(new InputStreamReader(stream, StandardCharsets.UTF_8)).getAsJsonObject();
+        } catch (IOException exception) {
+            throw new IllegalStateException("Cannot read Slats template: " + path, exception);
+        }
+    }
+
+    private void addSlatsServer(FurnitureDefinition definition) {
+        String name = definition.id().getPath();
+        String id = definition.id().toString();
+        String planks = definition.ingredientId().toString();
+        put("loot_tables/blocks/" + name + ".json", json("""
+                {"type":"minecraft:block","pools":[{
+                  "rolls":1,"entries":[{"type":"minecraft:item","name":"%s"}],
+                  "conditions":[{"condition":"minecraft:survives_explosion"}]
+                }]}
+                """.formatted(id)));
+        if (!ForgeRegistries.ITEMS.containsKey(definition.ingredientId())) {
+            return;
+        }
+        put("recipes/" + name + ".json", json("""
+                {"type":"minecraft:crafting_shaped","category":"building",
+                  "group":"farmersassortment_slats","pattern":["SSS","PPP"],
+                  "key":{"S":{"item":"minecraft:stick"},"P":{"item":"%s"}},
+                  "result":{"item":"%s","count":4}}
+                """.formatted(planks, id)));
+        put("advancements/recipes/decorations/" + name + ".json", json("""
+                {"parent":"minecraft:recipes/root","criteria":{
+                  "has_planks":{"trigger":"minecraft:inventory_changed",
+                    "conditions":{"items":[{"items":["%s"]}]}},
+                  "has_the_recipe":{"trigger":"minecraft:recipe_unlocked",
+                    "conditions":{"recipe":"%s"}}},
+                  "requirements":[["has_planks","has_the_recipe"]],
+                  "rewards":{"recipes":["%s"]}}
+                """.formatted(planks, id, id)));
+    }
+
+    private static JsonObject json(String value) {
+        return JsonParser.parseString(value).getAsJsonObject();
+    }
+
+    private static JsonObject tag(JsonArray values) {
+        JsonObject result = new JsonObject();
+        result.addProperty("replace", false);
+        result.add("values", values.deepCopy());
+        return result;
+    }
+
+    private void put(String path, JsonElement value) {
+        put(new ResourceLocation(FarmersAssortment.MOD_ID, path), value);
+    }
+
+    private void put(ResourceLocation id, JsonElement value) {
+        resources.put(id, value.toString().getBytes(StandardCharsets.UTF_8));
+    }
+
     private void addTag(ResourceLocation id, JsonArray values) {
-        JsonObject tag = new JsonObject();
-        tag.addProperty("replace", false);
-        tag.add("values", values);
-        resources.put(id, tag.toString().getBytes(StandardCharsets.UTF_8));
+        put(id, tag(values));
     }
 
     @Override
     public IoSupplier<InputStream> getRootResource(String... elements) {
         if (!String.join("/", elements).equals("pack.mcmeta")) return null;
-        int format = type == PackType.CLIENT_RESOURCES ? 15 : 12;
+        int format = 15;
         byte[] metadata = ("{\"pack\":{\"pack_format\":" + format
                 + ",\"description\":\"Dynamic furniture\"}}").getBytes(StandardCharsets.UTF_8);
         return () -> new ByteArrayInputStream(metadata);

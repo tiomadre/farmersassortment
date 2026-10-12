@@ -25,10 +25,14 @@ import com.tiomadre.farmersassortment.core.block.state.StoolRugType;
 import com.tiomadre.farmersassortment.core.block.state.TableCoverType;
 
 import java.util.*;
+import com.google.gson.*;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 
 public class FABlockStates extends BlockStateProvider {
     private final ExistingFileHelper fileHelper;
-    private final Map<String, ModelFile> tableTemplates = new HashMap<>();
+    private JsonArray nonCanvasTableElements;
 
     public FABlockStates(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, FarmersAssortment.MOD_ID, existingFileHelper);
@@ -61,7 +65,6 @@ public class FABlockStates extends BlockStateProvider {
         registerCrabTraps();
         registerDiffusers();
         registerFloatingCounters();
-        registerSlats();
         registerSkillets();
         registerStools();
         registerStoves();
@@ -298,69 +301,8 @@ public class FABlockStates extends BlockStateProvider {
         ));
         registerUpcycledCabinet();
     }
-    private void registerSlats() {
-        List<SlatsDefinition> slats = List.of(
-                new SlatsDefinition(FABlocks.OAK_SLATS, "oak", false),
-                new SlatsDefinition(FABlocks.SPRUCE_SLATS, "spruce", false),
-                new SlatsDefinition(FABlocks.BIRCH_SLATS, "birch", false),
-                new SlatsDefinition(FABlocks.JUNGLE_SLATS, "jungle", false),
-                new SlatsDefinition(FABlocks.ACACIA_SLATS, "acacia", false),
-                new SlatsDefinition(FABlocks.DARK_OAK_SLATS, "dark_oak", false),
-                new SlatsDefinition(FABlocks.MANGROVE_SLATS, "mangrove", false),
-                new SlatsDefinition(FABlocks.CHERRY_SLATS, "cherry", false),
-                new SlatsDefinition(FABlocks.BAMBOO_SLATS, "bamboo", true),
-                new SlatsDefinition(FABlocks.CRIMSON_SLATS, "crimson", false),
-                new SlatsDefinition(FABlocks.WARPED_SLATS, "warped", false),
-                new SlatsDefinition(FAxCrabbersBlocks.PALM_SLATS, "palm", false),
-                new SlatsDefinition(FAxForagersBlocks.LILAC_SLATS, "lilac", false)
-        );
 
-        slats.forEach(definition -> registerSlats(definition.block(), definition.woodType(), definition.bamboo()));
-    }
 
-    private void registerSlats(RegistryObject<? extends Block> block, String woodType, boolean bamboo) {
-        String name = Objects.requireNonNull(block.getId()).getPath();
-        ResourceLocation texture = bamboo
-                ? new ResourceLocation("minecraft", "block/stripped_bamboo_block")
-                : switch (woodType) {
-            case "palm" -> new ResourceLocation("crabbersdelight", "block/palm_planks");
-            case "lilac" -> new ResourceLocation("foragersinsight", "block/lilac_planks");
-            default -> new ResourceLocation("minecraft", "block/" + woodType + "_planks");
-        };
-
-        ModelFile horizontalModel = models().getBuilder(name)
-                .parent(new ModelFile.UncheckedModelFile(modLoc("block/template/slats_horizontal" + (bamboo ? "_bamboo" : ""))))
-                .renderType("minecraft:cutout")
-                .texture("texture", texture)
-                .texture(bamboo ? "2" : "3", texture)
-                .texture("particle", texture);
-        ModelFile verticalModel = models().getBuilder(name + "_vertical")
-                .parent(new ModelFile.UncheckedModelFile(modLoc("block/template/slats_vertical" + (bamboo ? "_bamboo" : ""))))
-                .renderType("minecraft:cutout")
-                .texture("texture", texture)
-                .texture(bamboo ? "2" : "3", texture)
-                .texture("particle", texture);
-
-        getVariantBuilder(block.get()).forAllStates(state -> {
-            boolean vertical = state.getValue(SlatBlock.VERTICAL);
-            Direction facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
-            int rotationY = vertical ? verticalSlatRotation(facing) : (facing.getAxis() == Direction.Axis.X ? 90 : 0);
-
-            return ConfiguredModel.builder()
-                    .modelFile(vertical ? verticalModel : horizontalModel)
-                    .rotationY(rotationY)
-                    .build();
-        });
-    }
-
-    private int verticalSlatRotation(Direction facing) {
-        return switch (facing) {
-            case EAST -> 90;
-            case SOUTH -> 180;
-            case WEST -> 270;
-            default -> 0;
-        };
-    }
     private void registerRacks() {
         List<RackDefinition> racks = List.of(
                 new RackDefinition(FABlocks.OAK_RACK, "oak", false),
@@ -378,8 +320,6 @@ public class FABlockStates extends BlockStateProvider {
         );
 
         racks.forEach(rack -> registerRack(rack.block(), rack.woodType(), rack.bamboo()));
-    }
-    private record SlatsDefinition(RegistryObject<? extends Block> block, String woodType, boolean bamboo) {
     }
 
 
@@ -1197,7 +1137,6 @@ private void registerStools() {
     }
 
     private void registerTables() {
-        tableTemplates.clear();
         List<TableDefinition> tables = List.of(
                 new TableDefinition(FABlocks.OAK_TABLE, "oak", new ResourceLocation("minecraft", "block/stripped_oak_log"), new ResourceLocation("minecraft", "block/stripped_oak_log_top")),
                 new TableDefinition(FABlocks.SPRUCE_TABLE, "spruce", new ResourceLocation("minecraft", "block/stripped_spruce_log"), new ResourceLocation("minecraft", "block/stripped_spruce_log_top")),
@@ -1262,10 +1201,9 @@ private void registerStools() {
         if (rugType.hasRug()) {
             return coveredTableModel(name, woodType, legTexture, topTexture,
                     new ResourceLocation(Objects.requireNonNull(rugType.texturePath())),
-                    new ResourceLocation(rugType.extrudeTexturePath()), north, east, south, west);
+                    new ResourceLocation(rugType.extrudeTexturePath()), rugType.isCanvas(), north, east, south, west);
         }
-        return models().getBuilder(name)
-                .parent(tableTemplate(woodType, false, north, east, south, west))
+        return tableModelBuilder(name, woodType, false, false, north, east, south, west)
                 .texture("leg", legTexture)
                 .texture("top", topTexture)
                 .texture("particle", legTexture);
@@ -1274,16 +1212,15 @@ private void registerStools() {
     private BlockModelBuilder coveredTableModel(String name, String woodType, ResourceLocation legTexture,
                                                 ResourceLocation topTexture, ResourceLocation coverTexture,
                                                 boolean north, boolean east, boolean south, boolean west) {
-        return coveredTableModel(name, woodType, legTexture, topTexture, coverTexture, coverTexture,
+        return coveredTableModel(name, woodType, legTexture, topTexture, coverTexture, coverTexture, false,
                 north, east, south, west);
     }
 
     private BlockModelBuilder coveredTableModel(String name, String woodType, ResourceLocation legTexture,
                                                 ResourceLocation topTexture, ResourceLocation coverTexture,
-                                                ResourceLocation coverEdgeTexture,
+                                                ResourceLocation coverEdgeTexture, boolean canvas,
                                                 boolean north, boolean east, boolean south, boolean west) {
-        return models().getBuilder(name)
-                .parent(tableTemplate(woodType, true, north, east, south, west))
+        return tableModelBuilder(name, woodType, true, canvas, north, east, south, west)
                 .renderType("minecraft:cutout")
                 .texture("leg", legTexture)
                 .texture("top", topTexture)
@@ -1292,57 +1229,114 @@ private void registerStools() {
                 .texture("particle", legTexture);
     }
 
-    private ModelFile tableTemplate(String woodType, boolean covered,
-                                    boolean north, boolean east, boolean south, boolean west) {
-        boolean bamboo = "bamboo".equals(woodType);
-        boolean alabaster = "alabaster".equals(woodType);
-        String style = bamboo ? "_bamboo" : alabaster ? "_alabaster" : "";
-        String connections = north || east || south || west
-                ? "_" + connectionKey(north, east, south, west) : "";
-        String name = "block/template/" + (covered ? "covered_table" : "table") + style + connections;
-        return tableTemplates.computeIfAbsent(name, unused -> {
-            BlockModelBuilder builder = models().getBuilder(name).texture("particle", "#leg");
-            if (covered) {
-                builder.texture("cover_edge", "#cover");
-            }
-            if (alabaster) {
-                builder.renderType("minecraft:cutout").texture("2", "#leg");
-                if (covered) {
-                    builder.texture("5", "#cover")
-                            .texture("6", "#cover_edge")
-                            .texture("7", modLoc("block/alabaster_cooking_pot_tray_top"));
-                    addAlabasterCanvasCoveredTableElements(builder, north, east, south, west);
-                } else {
-                    builder.texture("4", "#top")
-                            .texture("6", modLoc("block/alabaster_cooking_pot_tray_top"));
-                    addAlabasterBaseTableElements(builder, north, east, south, west);
-                }
-                addBambooTableTransforms(builder);
-            } else if (bamboo) {
-                builder.texture("6", "#leg").texture("7", "#top");
-                if (covered) {
-                    builder.renderType("minecraft:cutout")
-                            .texture("8", "#cover").texture("9", "#cover_edge");
-                    addBambooCanvasCoveredTableElements(builder, north, east, south, west);
-                    addBambooCanvasTableTransforms(builder);
-                } else {
-                    addBambooBaseTableElements(builder, north, east, south, west);
-                    addBambooTableTransforms(builder);
-                }
-            } else {
-                builder.texture("0", "#leg").texture("1", "#top");
-                if (covered) {
-                    builder.renderType("minecraft:cutout")
-                            .texture("4", "#cover").texture("5", "#cover_edge");
-                    addCoveredTableElements(builder, false, north, east, south, west);
-                } else {
-                    addBaseTableElements(builder, false, north, east, south, west);
-                }
-                builder.transforms().transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND)
-                        .rotation(0, 45, 0).scale(0.4F, 0.4F, 0.4F).end().end();
+    private BlockModelBuilder tableModelBuilder(String name, String woodType, boolean covered, boolean canvas,
+                                                boolean north, boolean east, boolean south, boolean west) {
+        BlockModelBuilder builder = models().withExistingParent(name,
+                modLoc("block/template/" + (covered ? canvas ? "covered_table" : "covered_table_non_canvas" : "table")));
+        if (covered && !canvas) {
+            if (north || east || south || west) {
+                addNonCanvasTableElements(builder, north, east, south, west);
             }
             return builder;
-        });
+        }
+        boolean bamboo = "bamboo".equals(woodType);
+        boolean alabaster = "alabaster".equals(woodType);
+        if (alabaster) {
+            builder.renderType("minecraft:cutout").texture("2", "#leg");
+            if (covered) {
+                builder.texture("5", "#cover")
+                        .texture("6", "#cover_edge")
+                        .texture("7", modLoc("block/alabaster_cooking_pot_tray_top"));
+                addAlabasterCanvasCoveredTableElements(builder, north, east, south, west);
+            } else {
+                builder.texture("4", "#top")
+                        .texture("6", modLoc("block/alabaster_cooking_pot_tray_top"));
+                addAlabasterBaseTableElements(builder, north, east, south, west);
+            }
+            addBambooTableTransforms(builder);
+        } else if (bamboo) {
+            builder.texture("6", "#leg").texture("7", "#top");
+            if (covered) {
+                builder.texture("8", "#cover").texture("9", "#cover_edge");
+                addBambooCanvasCoveredTableElements(builder, north, east, south, west);
+                addBambooCanvasTableTransforms(builder);
+            } else {
+                addBambooBaseTableElements(builder, north, east, south, west);
+                addBambooTableTransforms(builder);
+            }
+        } else if (north || east || south || west) {
+            builder.texture("0", "#leg").texture("1", "#top");
+            if (covered) {
+                builder.texture("4", "#cover").texture("5", "#cover_edge");
+                addCoveredTableElements(builder, false, north, east, south, west);
+            } else {
+                addBaseTableElements(builder, false, north, east, south, west);
+            }
+        }
+        return builder;
+    }
+
+    private void addNonCanvasTableElements(BlockModelBuilder builder,
+                                           boolean north, boolean east, boolean south, boolean west) {
+        if (nonCanvasTableElements == null) {
+            try (var stream = fileHelper.getResource(modLoc("block/template/covered_table_non_canvas"),
+                    PackType.CLIENT_RESOURCES, ".json", "models").open();
+                 var reader = new InputStreamReader(stream, StandardCharsets.UTF_8)) {
+                nonCanvasTableElements = JsonParser.parseReader(reader).getAsJsonObject().getAsJsonArray("elements");
+            } catch (IOException exception) {
+                throw new IllegalStateException("Cannot read covered_table_non_canvas", exception);
+            }
+        }
+        for (JsonElement entry : nonCanvasTableElements) {
+            JsonObject source = entry.getAsJsonObject();
+            JsonArray from = source.getAsJsonArray("from");
+            JsonArray to = source.getAsJsonArray("to");
+            float fx = from.get(0).getAsFloat();
+            float fy = from.get(1).getAsFloat();
+            float fz = from.get(2).getAsFloat();
+            float tx = to.get(0).getAsFloat();
+            float ty = to.get(1).getAsFloat();
+            float tz = to.get(2).getAsFloat();
+            if (fy == 0 && ty == 12 && ((fx < 8 ? west : east) || (fz < 8 ? north : south))) {
+                continue;
+            }
+            if (fz == tz && (fz == 0 && north || fz == 16 && south)
+                    || fx == tx && (fx == 0 && west || fx == 16 && east)) {
+                continue;
+            }
+            var element = builder.element().from(fx, fy, fz).to(tx, ty, tz);
+            if (source.has("shade")) {
+                element.shade(source.get("shade").getAsBoolean());
+            }
+            if (source.has("rotation")) {
+                JsonObject rotation = source.getAsJsonObject("rotation");
+                JsonArray origin = rotation.getAsJsonArray("origin");
+                element.rotation().origin(origin.get(0).getAsFloat(), origin.get(1).getAsFloat(), origin.get(2).getAsFloat())
+                        .axis(Direction.Axis.valueOf(rotation.get("axis").getAsString().toUpperCase(Locale.ROOT)))
+                        .angle(rotation.get("angle").getAsFloat())
+                        .rescale(rotation.has("rescale") && rotation.get("rescale").getAsBoolean()).end();
+            }
+            for (var faceEntry : source.getAsJsonObject("faces").entrySet()) {
+                JsonObject faceSource = faceEntry.getValue().getAsJsonObject();
+                var face = element.face(Objects.requireNonNull(Direction.byName(faceEntry.getKey())))
+                        .texture(faceSource.get("texture").getAsString());
+                if (faceSource.has("uv")) {
+                    JsonArray uv = faceSource.getAsJsonArray("uv");
+                    face.uvs(uv.get(0).getAsFloat(), uv.get(1).getAsFloat(), uv.get(2).getAsFloat(), uv.get(3).getAsFloat());
+                }
+                if (faceSource.has("rotation")) {
+                    face.rotation(ModelBuilder.FaceRotation.values()[faceSource.get("rotation").getAsInt() / 90]);
+                }
+                if (faceSource.has("tintindex")) {
+                    face.tintindex(faceSource.get("tintindex").getAsInt());
+                }
+                if (faceSource.has("cullface")) {
+                    face.cullface(Direction.byName(faceSource.get("cullface").getAsString()));
+                }
+                face.end();
+            }
+            element.end();
+        }
     }
 
     private void addAlabasterBaseTableElements(BlockModelBuilder b, boolean north, boolean east, boolean south, boolean west) {

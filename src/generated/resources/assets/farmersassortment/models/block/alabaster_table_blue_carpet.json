@@ -1,5 +1,5 @@
 {
-  "parent": "farmersassortment:block/template/covered_table_alabaster",
+  "parent": "farmersassortment:block/template/covered_table_non_canvas",
   "render_type": "minecraft:cutout",
   "textures": {
     "cover": "minecraft:block/blue_wool",

@@ -84,11 +84,11 @@ public final class FATab {
         if (path.endsWith("_rack")) {
             return 8;
         }
-        if (path.endsWith("_slats")) {
-            return 9;
-        }
         if (path.endsWith("_stool")) {
             return 10;
+        }
+        if (path.endsWith("_slats")) {
+            return 9;
         }
         if (path.contains("_stove")) {
             return 11;

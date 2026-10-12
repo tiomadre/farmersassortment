@@ -305,6 +305,12 @@
       "predicate": {
         "farmersassortment:rug": 34.0
       }
+    },
+    {
+      "model": "farmersassortment:item/acacia_table_custom_carpet",
+      "predicate": {
+        "farmersassortment:rug": 35.0
+      }
     }
   ]
 }

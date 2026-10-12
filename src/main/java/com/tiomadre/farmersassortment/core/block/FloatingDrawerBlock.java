@@ -298,4 +298,12 @@ public class FloatingDrawerBlock extends HorizontalDirectionalBlock implements E
     public BlockState mirror(BlockState state, Mirror mirror) {
         return state.rotate(mirror.getRotation(state.getValue(FACING)));
     }
+    @Override
+    public float getShadeBrightness(BlockState state, BlockGetter level, BlockPos pos) {
+        if (state.getValue(HAS_SLAB)) {
+            return 1.0F;
+        }
+
+        return super.getShadeBrightness(state, level, pos);
+    }
 }

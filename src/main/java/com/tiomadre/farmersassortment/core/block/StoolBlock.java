@@ -6,7 +6,8 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.util.Mth;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
@@ -135,7 +136,21 @@ public class StoolBlock extends HorizontalDirectionalBlock implements SimpleWate
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
 
-        return sit(level, pos, player, player.isSecondaryUseActive());
+        if (!player.isSecondaryUseActive()) {
+            return sit(level, pos, player);
+        }
+
+        if (heldStack.isEmpty()) {
+            if (!level.isClientSide) {
+                clearSeat(level, pos);
+                boolean pushed = state.getValue(PUSHED);
+                level.setBlock(pos, state.setValue(PUSHED, !pushed), Block.UPDATE_ALL);
+                level.playSound(null, pos, SoundEvents.BARREL_OPEN, SoundSource.BLOCKS, 0.9F, .5F);
+            }
+            return InteractionResult.sidedSuccess(level.isClientSide);
+        }
+
+        return InteractionResult.PASS;
     }
 
     @Override
@@ -195,20 +210,30 @@ public class StoolBlock extends HorizontalDirectionalBlock implements SimpleWate
         return rotated[0];
     }
 
-    private InteractionResult sit(Level level, BlockPos pos, Player player, boolean reverseFacing) {
+    private InteractionResult sit(Level level, BlockPos pos, Player player) {
         if (level.isClientSide) {
             return InteractionResult.SUCCESS;
         }
 
         BlockState state = level.getBlockState(pos);
-        float frontYaw = state.getValue(FACING).toYRot();
-        float difference = Mth.wrapDegrees(player.getYRot() - frontYaw);
-        float yaw = Math.abs(difference) <= 90.0F
-                ? frontYaw
-                : Mth.wrapDegrees(frontYaw + 180.0F);
-        if (reverseFacing) {
-            yaw = Mth.wrapDegrees(yaw + 180.0F);
+        Direction stoolFacing = state.getValue(FACING);
+        Direction seatFacing = stoolFacing.getOpposite();
+
+        Direction[] tableDirections = {
+                stoolFacing,
+                stoolFacing.getClockWise(),
+                stoolFacing.getCounterClockWise(),
+                stoolFacing.getOpposite()
+        };
+
+        for (Direction direction : tableDirections) {
+            if (level.getBlockState(pos.relative(direction)).getBlock() instanceof TableBlock) {
+                seatFacing = direction;
+                break;
+            }
         }
+
+        float yaw = seatFacing.toYRot();
         AABB bounds = getHitboxShape(state).bounds();
         double seatX = pos.getX() + (bounds.minX + bounds.maxX) * 0.5D;
         double seatY = pos.getY() + 0.15D;

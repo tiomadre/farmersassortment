@@ -1,20 +1,20 @@
 package com.tiomadre.farmersassortment.core.block;
 
 import com.tiomadre.farmersassortment.core.block.state.TableCoverType;
+import com.tiomadre.farmersassortment.core.block.entity.TableBlockEntity;
 import com.tiomadre.farmersassortment.core.item.TableItem;
 import com.tiomadre.farmersassortment.core.registry.FAAdvanceTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementProgress;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ShearsItem;
@@ -22,6 +22,8 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.SoundType;
@@ -30,6 +32,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.storage.loot.LootParams;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -42,7 +45,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.stream.Collectors;
 
-public class TableBlock extends HorizontalDirectionalBlock {
+public class TableBlock extends HorizontalDirectionalBlock implements EntityBlock {
     public static final EnumProperty<TableCoverType> RUG = EnumProperty.create("rug", TableCoverType.class);
     public static final BooleanProperty NORTH = BooleanProperty.create("north");
     public static final BooleanProperty EAST = BooleanProperty.create("east");
@@ -68,6 +71,20 @@ public class TableBlock extends HorizontalDirectionalBlock {
                 .setValue(SOUTH, false)
                 .setValue(WEST, false)
                 .setValue(UPSIDE_DOWN, false));
+    }
+
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new TableBlockEntity(pos, state);
+    }
+
+    @Override
+    public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
+        super.setPlacedBy(level, pos, state, placer, stack);
+        if (state.getValue(RUG) == TableCoverType.CUSTOM_CARPET
+                && level.getBlockEntity(pos) instanceof TableBlockEntity table) {
+            table.setCovering(TableItem.getCovering(stack));
+        }
     }
 
     @Override
@@ -121,16 +138,25 @@ public class TableBlock extends HorizontalDirectionalBlock {
 
         TableCoverType currentRug = state.getValue(RUG);
         TableCoverType heldRug = rugTypeFromItem(heldStack.getItem());
+        ItemStack currentCover = getCovering(level, pos, state);
 
-        if (heldRug != null && heldRug != currentRug) {
+        if (heldRug != null && (heldRug != currentRug
+                || heldRug == TableCoverType.CUSTOM_CARPET && !ItemStack.isSameItemSameTags(heldStack, currentCover))) {
             if (!level.isClientSide) {
+                ItemStack newCover = heldStack.copyWithCount(1);
                 if (!player.isCreative()) {
                     heldStack.shrink(1);
                 }
                 if (currentRug.hasRug()) {
-                    dropRug(level, pos, currentRug);
+                    Block.popResource(level, pos, currentCover);
                 }
                 level.setBlock(pos, state.setValue(RUG, heldRug), Block.UPDATE_ALL);
+                if (heldRug == TableCoverType.CUSTOM_CARPET && level.getBlockEntity(pos) == null) {
+                    level.setBlockEntity(new TableBlockEntity(pos, level.getBlockState(pos)));
+                }
+                if (level.getBlockEntity(pos) instanceof TableBlockEntity table) {
+                    table.setCovering(heldRug == TableCoverType.CUSTOM_CARPET ? newCover : ItemStack.EMPTY);
+                }
             }
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
@@ -138,7 +164,10 @@ public class TableBlock extends HorizontalDirectionalBlock {
         if (heldStack.getItem() instanceof ShearsItem && currentRug.hasRug()) {
             if (!level.isClientSide) {
                 level.setBlock(pos, state.setValue(RUG, TableCoverType.NONE), Block.UPDATE_ALL);
-                dropRug(level, pos, currentRug);
+                Block.popResource(level, pos, currentCover);
+                if (level.getBlockEntity(pos) instanceof TableBlockEntity table) {
+                    table.setCovering(ItemStack.EMPTY);
+                }
                 heldStack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(hand));
             }
             return InteractionResult.sidedSuccess(level.isClientSide);
@@ -149,15 +178,17 @@ public class TableBlock extends HorizontalDirectionalBlock {
 
     @Override
     public @NotNull List<ItemStack> getDrops(@NotNull BlockState state, LootParams.@NotNull Builder builder) {
+        BlockEntity blockEntity = builder.getOptionalParameter(LootContextParams.BLOCK_ENTITY);
+        ItemStack covering = blockEntity instanceof TableBlockEntity table ? table.getCovering() : ItemStack.EMPTY;
         return super.getDrops(state, builder).stream()
-                .map(stack -> stack.is(this.asItem()) ? TableItem.applyRugToStack(stack, state.getValue(RUG)) : stack)
+                .map(stack -> stack.is(this.asItem()) ? TableItem.applyCoverToStack(stack, state.getValue(RUG), covering) : stack)
                 .collect(Collectors.toList());
     }
 
     @Override
     public @NotNull ItemStack getCloneItemStack(@NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull BlockState state) {
         ItemStack stack = super.getCloneItemStack(level, pos, state);
-        return TableItem.applyRugToStack(stack, state.getValue(RUG));
+        return TableItem.applyCoverToStack(stack, state.getValue(RUG), getCovering(level, pos, state));
     }
 
     @Override
@@ -227,13 +258,14 @@ public class TableBlock extends HorizontalDirectionalBlock {
         level.removeBlock(abovePos, false);
     }
 
-    private void dropRug(Level level, BlockPos pos, TableCoverType rugType) {
-        Item item = rugType.rugItem();
-        if (item != null && level instanceof ServerLevel serverLevel) {
-            ItemEntity drop = new ItemEntity(serverLevel, pos.getX() + 0.5D, pos.getY() + 0.8D, pos.getZ() + 0.5D, new ItemStack(item));
-            serverLevel.addFreshEntity(drop);
+    private ItemStack getCovering(BlockGetter level, BlockPos pos, BlockState state) {
+        TableCoverType cover = state.getValue(RUG);
+        if (cover == TableCoverType.CUSTOM_CARPET) {
+            return level.getBlockEntity(pos) instanceof TableBlockEntity table ? table.getCovering() : ItemStack.EMPTY;
         }
+        return cover.rugItem() == null ? ItemStack.EMPTY : new ItemStack(cover.rugItem());
     }
+
     private boolean canConnect(BlockState neighborState) {
         return neighborState.is(this);
     }

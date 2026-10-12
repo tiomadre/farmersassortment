@@ -3,6 +3,7 @@ package com.tiomadre.farmersassortment.core.registry;
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.block.entity.ButcherBlockCabinetBlockEntity;
 import com.tiomadre.farmersassortment.core.block.entity.RackBlockEntity;
+import com.tiomadre.farmersassortment.core.block.entity.TableBlockEntity;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -30,6 +31,12 @@ public final class FABlockEntityTypes {
 
     private FABlockEntityTypes() {
     }
+
+    public static final RegistryObject<BlockEntityType<TableBlockEntity>> TABLE =
+            BLOCK_ENTITY_TYPES.register("table", () -> BlockEntityType.Builder.of(
+                    TableBlockEntity::new,
+                    FABlocks.allTables().map(RegistryObject::get).toArray(Block[]::new)
+            ).build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITY_TYPES.register(eventBus);

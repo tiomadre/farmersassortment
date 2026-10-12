@@ -65,9 +65,11 @@
   "block.farmersassortment.crimson_floating_counter": "Crimson Floating Drawer",
   "block.farmersassortment.warped_floating_counter": "Warped Floating Drawer",
   "block.farmersassortment.alabaster_floating_counter": "Alabaster Floating Drawer",
+  "block.farmersassortment.lilac_floating_counter": "Lilac Floating Drawer",
+  "block.farmersassortment.palm_floating_counter": "Palm Floating Drawer",
 
-  "container.farmersassortment.floating_counter": "Floating Drawer",
-  "container.farmersassortment.double_counter": "Double Drawer",
+  "container.farmersassortment.floating_counter": "Drawer",
+  "container.farmersassortment.double_counter": "Drawer",
 
   "block.farmersassortment.white_canvas_rug": "White Canvas Rug",
   "block.farmersassortment.orange_canvas_rug": "Orange Canvas Rug",
@@ -127,19 +129,6 @@
   "block.farmersassortment.alabaster_rack": "Alabaster Rack",
   "container.farmersassortment.rack": "Rack",
 
-  "block.farmersassortment.oak_slats": "Oak Slats",
-  "block.farmersassortment.spruce_slats": "Spruce Slats",
-  "block.farmersassortment.birch_slats": "Birch Slats",
-  "block.farmersassortment.jungle_slats": "Jungle Slats",
-  "block.farmersassortment.acacia_slats": "Acacia Slats",
-  "block.farmersassortment.dark_oak_slats": "Dark Oak Slats",
-  "block.farmersassortment.mangrove_slats": "Mangrove Slats",
-  "block.farmersassortment.cherry_slats": "Cherry Slats",
-  "block.farmersassortment.bamboo_slats": "Bamboo Slats",
-  "block.farmersassortment.crimson_slats": "Crimson Slats",
-  "block.farmersassortment.warped_slats": "Warped Slats",
-  "block.farmersassortment.palm_slats": "Palm Slats",
-  "block.farmersassortment.lilac_slats": "Lilac Slats",
 
   "block.farmersassortment.copper_cooking_pot": "Copper Cooking Pot",
   "item.farmersassortment.copper_cooking_pot": "Copper Cooking Pot",
@@ -211,9 +200,7 @@
 
   "farmersdelight.block.cutting_board.invalid_item": "This doesn't seem cuttable...",
   "farmersdelight.block.cutting_board.invalid_tool": "Maybe with a different tool...",
-  "farmersdelight.block.cutting_board.remaining_items": "%s remaining...",
-  "block.farmersassortment.lilac_floating_counter": "Lilac Floating Counter",
-  "block.farmersassortment.palm_floating_counter": "Palm Floating Counter"
+  "farmersdelight.block.cutting_board.remaining_items": "%s remaining..."
 
 }
 
