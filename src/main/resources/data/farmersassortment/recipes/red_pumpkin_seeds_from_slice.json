@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "farmersassortment:red_pumpkin_slice"
+    }
+  ],
+  "result": {
+    "item": "farmersassortment:red_pumpkin_seeds",
+    "count": 1
+  }
+}

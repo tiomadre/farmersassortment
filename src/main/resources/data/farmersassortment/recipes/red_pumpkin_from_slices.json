@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "farmersassortment:red_pumpkin_slice"
+    }
+  },
+  "result": {
+    "item": "farmersassortment:red_pumpkin"
+  }
+}

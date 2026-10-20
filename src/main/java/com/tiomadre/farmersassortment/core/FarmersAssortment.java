@@ -38,6 +38,8 @@ public class FarmersAssortment {
         foragersCompatEnabled = initializeCompat("foragersinsight", FarmersAssortment::initializeForagersCompat);
         FABlocks.init();
         FAItems.init();
+        FAPumpkins.init();
+        modEventBus.addListener(FAPumpkins::commonSetup);
         FADynamicFurniture.init(modEventBus);
         FARugs.init();
         FASoundEvents.register(modEventBus);
@@ -47,6 +49,7 @@ public class FarmersAssortment {
         FATab.register(modEventBus);
         FAMenuTypes.register(modEventBus);
         FACrafting.register(modEventBus);
+        FADyeing.register(modEventBus);
         modEventBus.addListener(FABlocks::onCommonSetup);
         if (crabbersCompatEnabled) {
             modEventBus.addListener(FAxCrabbersBlocks::onCommonSetup);

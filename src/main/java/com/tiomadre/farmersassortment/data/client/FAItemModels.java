@@ -1,8 +1,7 @@
 package com.tiomadre.farmersassortment.data.client;
 
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
-import com.tiomadre.farmersassortment.core.block.state.StoolRugType;
-import com.tiomadre.farmersassortment.core.block.state.TableCoverType;
+import com.tiomadre.farmersassortment.core.block.state.FurnitureCoverType;
 import com.tiomadre.farmersassortment.core.block.state.TerracottaCookingPotColor;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import com.tiomadre.farmersassortment.core.registry.FADynamicFurniture;
@@ -50,7 +49,8 @@ public class FAItemModels extends ItemModelProvider {
 
         //Other
         generatedItem(FABlocks.ALABASTER_LANTERN, "alabaster_lantern");
-        generatedItem(FABlocks.UPCYCLED_DIVIDER, "divider");
+        generatedItem(FABlocks.UPCYCLED_LANTERN, "upcycled_lantern");
+        generatedItem(FABlocks.DIVIDER, "divider");
         block(FABlocks.STRAW_SLAB);
         block(FABlocks.STRAW_STAIRS);
     }
@@ -95,7 +95,7 @@ public class FAItemModels extends ItemModelProvider {
         String name = Objects.requireNonNull(block.getId()).getPath();
         ItemModelBuilder builder = tableTransforms(getBuilder(name)
                 .parent(new ModelFile.UncheckedModelFile(modLoc("block/" + name))));
-        for (TableCoverType rugType : TableCoverType.values()) {
+        for (FurnitureCoverType rugType : FurnitureCoverType.values()) {
             if (!rugType.hasRug()) {
                 continue;
             }
@@ -124,7 +124,7 @@ public class FAItemModels extends ItemModelProvider {
     private void stoolItem(RegistryObject<? extends Block> block) {
         String name = Objects.requireNonNull(block.getId()).getPath();
         ItemModelBuilder builder = stoolTransforms(withExistingParent(name, modLoc("block/" + name)));
-        for (StoolRugType rugType : StoolRugType.values()) {
+        for (FurnitureCoverType rugType : FurnitureCoverType.values()) {
             if (!rugType.hasRug()) {
                 continue;
             }

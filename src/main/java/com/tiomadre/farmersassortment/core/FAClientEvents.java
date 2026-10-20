@@ -12,6 +12,11 @@ import com.tiomadre.farmersassortment.core.registry.FABlockEntityTypes;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import com.tiomadre.farmersassortment.core.registry.FAMenuTypes;
 import com.tiomadre.farmersassortment.core.registry.FAParticleTypes;
+import com.tiomadre.farmersassortment.core.registry.FAPumpkins;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.world.level.block.StemBlock;
+import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
@@ -39,6 +44,10 @@ public final class FAClientEvents {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
+            FAPumpkins.VARIANTS.forEach(variant -> {
+                ItemBlockRenderTypes.setRenderLayer(variant.stem.get(), RenderType.cutout());
+                ItemBlockRenderTypes.setRenderLayer(variant.attachedStem.get(), RenderType.cutout());
+            });
             ItemProperties.register(Item.byBlock(FABlocks.TERRACOTTA_COOKING_POT.get()),
                     new ResourceLocation(FarmersAssortment.MOD_ID, "color"),
                     (stack, level, entity, seed) -> TerracottaCookingPotItem.getColor(stack).ordinal());
@@ -58,6 +67,17 @@ public final class FAClientEvents {
     @SubscribeEvent
     public static void registerParticleProviders(RegisterParticleProvidersEvent event) {
         event.registerSpriteSet(FAParticleTypes.ALABASTER_STOVE_FIRE.get(), AlabasterStoveFireParticle.Provider::new);
+    }
+
+    @SubscribeEvent
+    public static void registerPumpkinColors(RegisterColorHandlersEvent.Block event) {
+        FAPumpkins.VARIANTS.forEach(variant -> {
+            event.register((state, level, pos, tint) -> {
+                int age = state.getValue(StemBlock.AGE);
+                return (age * 32 << 16) | ((255 - age * 8) << 8) | (age * 4);
+            }, variant.stem.get());
+            event.register((state, level, pos, tint) -> 0xE0C71C, variant.attachedStem.get());
+        });
     }
 
 }

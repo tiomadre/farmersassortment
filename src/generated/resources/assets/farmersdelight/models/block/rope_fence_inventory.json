@@ -1,0 +1,250 @@
+{
+  "parent": "block/block",
+  "display": {
+    "fixed": {
+      "rotation": [
+        0,
+        90,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "gui": {
+      "rotation": [
+        30,
+        135,
+        0
+      ],
+      "scale": [
+        0.625,
+        0.625,
+        0.625
+      ]
+    }
+  },
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "cullface": "down",
+          "texture": "#all",
+          "uv": [
+            5,
+            14,
+            7,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#all",
+          "uv": [
+            7,
+            0,
+            9,
+            16
+          ]
+        },
+        "north": {
+          "texture": "#all",
+          "uv": [
+            7,
+            0,
+            9,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#all",
+          "uv": [
+            7,
+            0,
+            9,
+            16
+          ]
+        },
+        "up": {
+          "cullface": "up",
+          "texture": "#all",
+          "uv": [
+            5,
+            14,
+            7,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#all",
+          "uv": [
+            7,
+            0,
+            9,
+            16
+          ]
+        }
+      },
+      "from": [
+        7,
+        0,
+        0
+      ],
+      "name": "post",
+      "to": [
+        9,
+        16,
+        2
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "cullface": "down",
+          "texture": "#all",
+          "uv": [
+            5,
+            14,
+            7,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#all",
+          "uv": [
+            7,
+            0,
+            9,
+            16
+          ]
+        },
+        "north": {
+          "texture": "#all",
+          "uv": [
+            7,
+            0,
+            9,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#all",
+          "uv": [
+            7,
+            0,
+            9,
+            16
+          ]
+        },
+        "up": {
+          "cullface": "up",
+          "texture": "#all",
+          "uv": [
+            5,
+            14,
+            7,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#all",
+          "uv": [
+            7,
+            0,
+            9,
+            16
+          ]
+        }
+      },
+      "from": [
+        7,
+        0,
+        14
+      ],
+      "name": "post",
+      "to": [
+        9,
+        16,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#all",
+          "tintindex": 0,
+          "uv": [
+            9,
+            2,
+            15,
+            12
+          ]
+        },
+        "west": {
+          "texture": "#all",
+          "tintindex": 0,
+          "uv": [
+            1,
+            2,
+            7,
+            12
+          ]
+        }
+      },
+      "from": [
+        8,
+        4,
+        8
+      ],
+      "name": "side",
+      "to": [
+        8,
+        14,
+        14
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#all",
+          "tintindex": 0,
+          "uv": [
+            1,
+            2,
+            7,
+            12
+          ]
+        },
+        "west": {
+          "texture": "#all",
+          "tintindex": 0,
+          "uv": [
+            9,
+            2,
+            15,
+            12
+          ]
+        }
+      },
+      "from": [
+        8,
+        4,
+        2
+      ],
+      "name": "side_alt",
+      "to": [
+        8,
+        14,
+        8
+      ]
+    }
+  ],
+  "format_version": "1.9.0",
+  "gui_light": "front",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "all": "farmersdelight:block/rope_fence",
+    "particle": "farmersdelight:block/rope_fence"
+  }
+}

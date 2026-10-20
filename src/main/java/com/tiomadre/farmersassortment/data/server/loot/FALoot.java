@@ -4,6 +4,7 @@ import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.block.FloatingDrawerBlock;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
 import com.tiomadre.farmersassortment.core.registry.FARugs;
+import com.tiomadre.farmersassortment.core.registry.FAPumpkins;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxForagersBlocks;
 import net.minecraft.core.HolderLookup;
@@ -102,6 +103,7 @@ public class FALoot extends LootTableProvider {
         protected @NotNull Iterable<Block> getKnownBlocks() {
             return ForgeRegistries.BLOCKS.getValues().stream()
                     .filter(block -> Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getNamespace().equals(FarmersAssortment.MOD_ID))
+                    .filter(block -> !FAPumpkins.owns(block))
                     .collect(Collectors.toSet());
         }
     }

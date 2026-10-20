@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_canvas": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "farmersdelight:canvas"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_straw": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "farmersdelight:straw"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "farmersassortment:upcycled_lantern"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_canvas",
+      "has_straw",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "farmersassortment:upcycled_lantern"
+    ]
+  },
+  "sends_telemetry_event": false
+}

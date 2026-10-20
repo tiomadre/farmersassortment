@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "farmersdelight:canvas"
+    },
+    "T": {
+      "item": "farmersdelight:tree_bark"
+    }
+  },
+  "pattern": [
+    "CCC",
+    "TTT",
+    "TTT"
+  ],
+  "result": {
+    "count": 3,
+    "item": "farmersassortment:divider"
+  },
+  "show_notification": true
+}

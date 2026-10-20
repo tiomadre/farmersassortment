@@ -449,6 +449,14 @@ public final class FADynamicFurniture extends AbstractPackResources {
                         default -> entry.getKey();
                     };
                     JsonObject face = entry.getValue().getAsJsonObject().deepCopy();
+                    int rotation = face.has("rotation") ? face.get("rotation").getAsInt() : 0;
+                    int adjustment = switch (entry.getKey()) {
+                        case "north", "up" -> 180;
+                        case "east" -> 270;
+                        case "west" -> 90;
+                        default -> 0;
+                    };
+                    face.addProperty("rotation", (rotation + adjustment) % 360);
                     face.remove("cullface");
                     faces.add(direction, face);
                 });

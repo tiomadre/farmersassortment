@@ -100,16 +100,21 @@ public class SlatsBlock extends Block implements EntityBlock, BonemealableBlock,
         BlockState placement = defaultBlockState().setValue(WATERLOGGED,
                 context.getLevel().getFluidState(context.getClickedPos()).getType() == Fluids.WATER);
         Direction facing = context.getHorizontalDirection();
+
         if (context instanceof SlatsItem.EmbeddingContext) {
             return placement.setValue(FACING, facing).setValue(MODE, Mode.EMBEDDED);
         }
+
         Direction face = context.getClickedFace();
+
         if (face == Direction.UP) {
             return placement.setValue(FACING, facing);
         }
+
         if (!face.getAxis().isHorizontal()) {
             return null;
         }
+
         boolean sneaking = context.getPlayer() != null && context.getPlayer().isShiftKeyDown();
         return placement.setValue(FACING, face).setValue(MODE, sneaking ? Mode.SIDE : Mode.VERTICAL);
     }

@@ -8,12 +8,28 @@
       "model": "farmersassortment:block/birch_stool_black",
       "y": 90
     },
+    "facing=east,pushed=false,rug=black_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_black_carpet",
+      "y": 90
+    },
+    "facing=east,pushed=false,rug=black_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_black_carpet",
+      "y": 90
+    },
     "facing=east,pushed=false,rug=blue,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_blue",
       "y": 90
     },
     "facing=east,pushed=false,rug=blue,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_blue",
+      "y": 90
+    },
+    "facing=east,pushed=false,rug=blue_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_blue_carpet",
+      "y": 90
+    },
+    "facing=east,pushed=false,rug=blue_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_blue_carpet",
       "y": 90
     },
     "facing=east,pushed=false,rug=brown,waterlogged=false": {
@@ -24,12 +40,28 @@
       "model": "farmersassortment:block/birch_stool_brown",
       "y": 90
     },
+    "facing=east,pushed=false,rug=brown_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_brown_carpet",
+      "y": 90
+    },
+    "facing=east,pushed=false,rug=brown_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_brown_carpet",
+      "y": 90
+    },
     "facing=east,pushed=false,rug=canvas,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_canvas",
       "y": 90
     },
     "facing=east,pushed=false,rug=canvas,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_canvas",
+      "y": 90
+    },
+    "facing=east,pushed=false,rug=custom_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_custom_carpet",
+      "y": 90
+    },
+    "facing=east,pushed=false,rug=custom_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_custom_carpet",
       "y": 90
     },
     "facing=east,pushed=false,rug=cyan,waterlogged=false": {
@@ -40,12 +72,28 @@
       "model": "farmersassortment:block/birch_stool_cyan",
       "y": 90
     },
+    "facing=east,pushed=false,rug=cyan_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_cyan_carpet",
+      "y": 90
+    },
+    "facing=east,pushed=false,rug=cyan_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_cyan_carpet",
+      "y": 90
+    },
     "facing=east,pushed=false,rug=gray,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_gray",
       "y": 90
     },
     "facing=east,pushed=false,rug=gray,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_gray",
+      "y": 90
+    },
+    "facing=east,pushed=false,rug=gray_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_gray_carpet",
+      "y": 90
+    },
+    "facing=east,pushed=false,rug=gray_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_gray_carpet",
       "y": 90
     },
     "facing=east,pushed=false,rug=green,waterlogged=false": {
@@ -56,12 +104,28 @@
       "model": "farmersassortment:block/birch_stool_green",
       "y": 90
     },
+    "facing=east,pushed=false,rug=green_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_green_carpet",
+      "y": 90
+    },
+    "facing=east,pushed=false,rug=green_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_green_carpet",
+      "y": 90
+    },
     "facing=east,pushed=false,rug=light_blue,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_light_blue",
       "y": 90
     },
     "facing=east,pushed=false,rug=light_blue,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_light_blue",
+      "y": 90
+    },
+    "facing=east,pushed=false,rug=light_blue_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_light_blue_carpet",
+      "y": 90
+    },
+    "facing=east,pushed=false,rug=light_blue_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_light_blue_carpet",
       "y": 90
     },
     "facing=east,pushed=false,rug=light_gray,waterlogged=false": {
@@ -72,6 +136,14 @@
       "model": "farmersassortment:block/birch_stool_light_gray",
       "y": 90
     },
+    "facing=east,pushed=false,rug=light_gray_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_light_gray_carpet",
+      "y": 90
+    },
+    "facing=east,pushed=false,rug=light_gray_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_light_gray_carpet",
+      "y": 90
+    },
     "facing=east,pushed=false,rug=lime,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_lime",
       "y": 90
@@ -80,12 +152,36 @@
       "model": "farmersassortment:block/birch_stool_lime",
       "y": 90
     },
+    "facing=east,pushed=false,rug=lime_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_lime_carpet",
+      "y": 90
+    },
+    "facing=east,pushed=false,rug=lime_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_lime_carpet",
+      "y": 90
+    },
     "facing=east,pushed=false,rug=magenta,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_magenta",
       "y": 90
     },
     "facing=east,pushed=false,rug=magenta,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_magenta",
+      "y": 90
+    },
+    "facing=east,pushed=false,rug=magenta_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_magenta_carpet",
+      "y": 90
+    },
+    "facing=east,pushed=false,rug=magenta_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_magenta_carpet",
+      "y": 90
+    },
+    "facing=east,pushed=false,rug=moss_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_moss_carpet",
+      "y": 90
+    },
+    "facing=east,pushed=false,rug=moss_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_moss_carpet",
       "y": 90
     },
     "facing=east,pushed=false,rug=none,waterlogged=false": {
@@ -104,12 +200,28 @@
       "model": "farmersassortment:block/birch_stool_orange",
       "y": 90
     },
+    "facing=east,pushed=false,rug=orange_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_orange_carpet",
+      "y": 90
+    },
+    "facing=east,pushed=false,rug=orange_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_orange_carpet",
+      "y": 90
+    },
     "facing=east,pushed=false,rug=pink,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_pink",
       "y": 90
     },
     "facing=east,pushed=false,rug=pink,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_pink",
+      "y": 90
+    },
+    "facing=east,pushed=false,rug=pink_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_pink_carpet",
+      "y": 90
+    },
+    "facing=east,pushed=false,rug=pink_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_pink_carpet",
       "y": 90
     },
     "facing=east,pushed=false,rug=purple,waterlogged=false": {
@@ -120,12 +232,28 @@
       "model": "farmersassortment:block/birch_stool_purple",
       "y": 90
     },
+    "facing=east,pushed=false,rug=purple_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_purple_carpet",
+      "y": 90
+    },
+    "facing=east,pushed=false,rug=purple_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_purple_carpet",
+      "y": 90
+    },
     "facing=east,pushed=false,rug=red,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_red",
       "y": 90
     },
     "facing=east,pushed=false,rug=red,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_red",
+      "y": 90
+    },
+    "facing=east,pushed=false,rug=red_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_red_carpet",
+      "y": 90
+    },
+    "facing=east,pushed=false,rug=red_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_red_carpet",
       "y": 90
     },
     "facing=east,pushed=false,rug=white,waterlogged=false": {
@@ -136,12 +264,28 @@
       "model": "farmersassortment:block/birch_stool_white",
       "y": 90
     },
+    "facing=east,pushed=false,rug=white_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_white_carpet",
+      "y": 90
+    },
+    "facing=east,pushed=false,rug=white_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_white_carpet",
+      "y": 90
+    },
     "facing=east,pushed=false,rug=yellow,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_yellow",
       "y": 90
     },
     "facing=east,pushed=false,rug=yellow,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_yellow",
+      "y": 90
+    },
+    "facing=east,pushed=false,rug=yellow_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_yellow_carpet",
+      "y": 90
+    },
+    "facing=east,pushed=false,rug=yellow_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_yellow_carpet",
       "y": 90
     },
     "facing=east,pushed=true,rug=black,waterlogged=false": {
@@ -152,12 +296,28 @@
       "model": "farmersassortment:block/birch_stool_black_pushed",
       "y": 90
     },
+    "facing=east,pushed=true,rug=black_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_black_carpet_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=black_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_black_carpet_pushed",
+      "y": 90
+    },
     "facing=east,pushed=true,rug=blue,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_blue_pushed",
       "y": 90
     },
     "facing=east,pushed=true,rug=blue,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_blue_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=blue_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_blue_carpet_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=blue_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_blue_carpet_pushed",
       "y": 90
     },
     "facing=east,pushed=true,rug=brown,waterlogged=false": {
@@ -168,12 +328,28 @@
       "model": "farmersassortment:block/birch_stool_brown_pushed",
       "y": 90
     },
+    "facing=east,pushed=true,rug=brown_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_brown_carpet_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=brown_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_brown_carpet_pushed",
+      "y": 90
+    },
     "facing=east,pushed=true,rug=canvas,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_canvas_pushed",
       "y": 90
     },
     "facing=east,pushed=true,rug=canvas,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_canvas_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=custom_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_custom_carpet_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=custom_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_custom_carpet_pushed",
       "y": 90
     },
     "facing=east,pushed=true,rug=cyan,waterlogged=false": {
@@ -184,12 +360,28 @@
       "model": "farmersassortment:block/birch_stool_cyan_pushed",
       "y": 90
     },
+    "facing=east,pushed=true,rug=cyan_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_cyan_carpet_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=cyan_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_cyan_carpet_pushed",
+      "y": 90
+    },
     "facing=east,pushed=true,rug=gray,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_gray_pushed",
       "y": 90
     },
     "facing=east,pushed=true,rug=gray,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_gray_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=gray_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_gray_carpet_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=gray_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_gray_carpet_pushed",
       "y": 90
     },
     "facing=east,pushed=true,rug=green,waterlogged=false": {
@@ -200,12 +392,28 @@
       "model": "farmersassortment:block/birch_stool_green_pushed",
       "y": 90
     },
+    "facing=east,pushed=true,rug=green_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_green_carpet_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=green_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_green_carpet_pushed",
+      "y": 90
+    },
     "facing=east,pushed=true,rug=light_blue,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_light_blue_pushed",
       "y": 90
     },
     "facing=east,pushed=true,rug=light_blue,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_light_blue_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=light_blue_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_light_blue_carpet_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=light_blue_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_light_blue_carpet_pushed",
       "y": 90
     },
     "facing=east,pushed=true,rug=light_gray,waterlogged=false": {
@@ -216,6 +424,14 @@
       "model": "farmersassortment:block/birch_stool_light_gray_pushed",
       "y": 90
     },
+    "facing=east,pushed=true,rug=light_gray_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_light_gray_carpet_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=light_gray_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_light_gray_carpet_pushed",
+      "y": 90
+    },
     "facing=east,pushed=true,rug=lime,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_lime_pushed",
       "y": 90
@@ -224,12 +440,36 @@
       "model": "farmersassortment:block/birch_stool_lime_pushed",
       "y": 90
     },
+    "facing=east,pushed=true,rug=lime_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_lime_carpet_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=lime_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_lime_carpet_pushed",
+      "y": 90
+    },
     "facing=east,pushed=true,rug=magenta,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_magenta_pushed",
       "y": 90
     },
     "facing=east,pushed=true,rug=magenta,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_magenta_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=magenta_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_magenta_carpet_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=magenta_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_magenta_carpet_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=moss_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_moss_carpet_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=moss_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_moss_carpet_pushed",
       "y": 90
     },
     "facing=east,pushed=true,rug=none,waterlogged=false": {
@@ -248,12 +488,28 @@
       "model": "farmersassortment:block/birch_stool_orange_pushed",
       "y": 90
     },
+    "facing=east,pushed=true,rug=orange_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_orange_carpet_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=orange_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_orange_carpet_pushed",
+      "y": 90
+    },
     "facing=east,pushed=true,rug=pink,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_pink_pushed",
       "y": 90
     },
     "facing=east,pushed=true,rug=pink,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_pink_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=pink_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_pink_carpet_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=pink_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_pink_carpet_pushed",
       "y": 90
     },
     "facing=east,pushed=true,rug=purple,waterlogged=false": {
@@ -264,12 +520,28 @@
       "model": "farmersassortment:block/birch_stool_purple_pushed",
       "y": 90
     },
+    "facing=east,pushed=true,rug=purple_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_purple_carpet_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=purple_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_purple_carpet_pushed",
+      "y": 90
+    },
     "facing=east,pushed=true,rug=red,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_red_pushed",
       "y": 90
     },
     "facing=east,pushed=true,rug=red,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_red_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=red_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_red_carpet_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=red_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_red_carpet_pushed",
       "y": 90
     },
     "facing=east,pushed=true,rug=white,waterlogged=false": {
@@ -280,6 +552,14 @@
       "model": "farmersassortment:block/birch_stool_white_pushed",
       "y": 90
     },
+    "facing=east,pushed=true,rug=white_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_white_carpet_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=white_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_white_carpet_pushed",
+      "y": 90
+    },
     "facing=east,pushed=true,rug=yellow,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_yellow_pushed",
       "y": 90
@@ -288,11 +568,25 @@
       "model": "farmersassortment:block/birch_stool_yellow_pushed",
       "y": 90
     },
+    "facing=east,pushed=true,rug=yellow_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_yellow_carpet_pushed",
+      "y": 90
+    },
+    "facing=east,pushed=true,rug=yellow_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_yellow_carpet_pushed",
+      "y": 90
+    },
     "facing=north,pushed=false,rug=black,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_black"
     },
     "facing=north,pushed=false,rug=black,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_black"
+    },
+    "facing=north,pushed=false,rug=black_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_black_carpet"
+    },
+    "facing=north,pushed=false,rug=black_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_black_carpet"
     },
     "facing=north,pushed=false,rug=blue,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_blue"
@@ -300,11 +594,23 @@
     "facing=north,pushed=false,rug=blue,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_blue"
     },
+    "facing=north,pushed=false,rug=blue_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_blue_carpet"
+    },
+    "facing=north,pushed=false,rug=blue_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_blue_carpet"
+    },
     "facing=north,pushed=false,rug=brown,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_brown"
     },
     "facing=north,pushed=false,rug=brown,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_brown"
+    },
+    "facing=north,pushed=false,rug=brown_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_brown_carpet"
+    },
+    "facing=north,pushed=false,rug=brown_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_brown_carpet"
     },
     "facing=north,pushed=false,rug=canvas,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_canvas"
@@ -312,11 +618,23 @@
     "facing=north,pushed=false,rug=canvas,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_canvas"
     },
+    "facing=north,pushed=false,rug=custom_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_custom_carpet"
+    },
+    "facing=north,pushed=false,rug=custom_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_custom_carpet"
+    },
     "facing=north,pushed=false,rug=cyan,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_cyan"
     },
     "facing=north,pushed=false,rug=cyan,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_cyan"
+    },
+    "facing=north,pushed=false,rug=cyan_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_cyan_carpet"
+    },
+    "facing=north,pushed=false,rug=cyan_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_cyan_carpet"
     },
     "facing=north,pushed=false,rug=gray,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_gray"
@@ -324,11 +642,23 @@
     "facing=north,pushed=false,rug=gray,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_gray"
     },
+    "facing=north,pushed=false,rug=gray_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_gray_carpet"
+    },
+    "facing=north,pushed=false,rug=gray_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_gray_carpet"
+    },
     "facing=north,pushed=false,rug=green,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_green"
     },
     "facing=north,pushed=false,rug=green,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_green"
+    },
+    "facing=north,pushed=false,rug=green_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_green_carpet"
+    },
+    "facing=north,pushed=false,rug=green_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_green_carpet"
     },
     "facing=north,pushed=false,rug=light_blue,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_light_blue"
@@ -336,11 +666,23 @@
     "facing=north,pushed=false,rug=light_blue,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_light_blue"
     },
+    "facing=north,pushed=false,rug=light_blue_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_light_blue_carpet"
+    },
+    "facing=north,pushed=false,rug=light_blue_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_light_blue_carpet"
+    },
     "facing=north,pushed=false,rug=light_gray,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_light_gray"
     },
     "facing=north,pushed=false,rug=light_gray,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_light_gray"
+    },
+    "facing=north,pushed=false,rug=light_gray_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_light_gray_carpet"
+    },
+    "facing=north,pushed=false,rug=light_gray_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_light_gray_carpet"
     },
     "facing=north,pushed=false,rug=lime,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_lime"
@@ -348,11 +690,29 @@
     "facing=north,pushed=false,rug=lime,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_lime"
     },
+    "facing=north,pushed=false,rug=lime_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_lime_carpet"
+    },
+    "facing=north,pushed=false,rug=lime_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_lime_carpet"
+    },
     "facing=north,pushed=false,rug=magenta,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_magenta"
     },
     "facing=north,pushed=false,rug=magenta,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_magenta"
+    },
+    "facing=north,pushed=false,rug=magenta_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_magenta_carpet"
+    },
+    "facing=north,pushed=false,rug=magenta_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_magenta_carpet"
+    },
+    "facing=north,pushed=false,rug=moss_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_moss_carpet"
+    },
+    "facing=north,pushed=false,rug=moss_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_moss_carpet"
     },
     "facing=north,pushed=false,rug=none,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool"
@@ -366,11 +726,23 @@
     "facing=north,pushed=false,rug=orange,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_orange"
     },
+    "facing=north,pushed=false,rug=orange_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_orange_carpet"
+    },
+    "facing=north,pushed=false,rug=orange_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_orange_carpet"
+    },
     "facing=north,pushed=false,rug=pink,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_pink"
     },
     "facing=north,pushed=false,rug=pink,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_pink"
+    },
+    "facing=north,pushed=false,rug=pink_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_pink_carpet"
+    },
+    "facing=north,pushed=false,rug=pink_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_pink_carpet"
     },
     "facing=north,pushed=false,rug=purple,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_purple"
@@ -378,11 +750,23 @@
     "facing=north,pushed=false,rug=purple,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_purple"
     },
+    "facing=north,pushed=false,rug=purple_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_purple_carpet"
+    },
+    "facing=north,pushed=false,rug=purple_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_purple_carpet"
+    },
     "facing=north,pushed=false,rug=red,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_red"
     },
     "facing=north,pushed=false,rug=red,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_red"
+    },
+    "facing=north,pushed=false,rug=red_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_red_carpet"
+    },
+    "facing=north,pushed=false,rug=red_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_red_carpet"
     },
     "facing=north,pushed=false,rug=white,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_white"
@@ -390,11 +774,23 @@
     "facing=north,pushed=false,rug=white,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_white"
     },
+    "facing=north,pushed=false,rug=white_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_white_carpet"
+    },
+    "facing=north,pushed=false,rug=white_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_white_carpet"
+    },
     "facing=north,pushed=false,rug=yellow,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_yellow"
     },
     "facing=north,pushed=false,rug=yellow,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_yellow"
+    },
+    "facing=north,pushed=false,rug=yellow_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_yellow_carpet"
+    },
+    "facing=north,pushed=false,rug=yellow_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_yellow_carpet"
     },
     "facing=north,pushed=true,rug=black,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_black_pushed"
@@ -402,11 +798,23 @@
     "facing=north,pushed=true,rug=black,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_black_pushed"
     },
+    "facing=north,pushed=true,rug=black_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_black_carpet_pushed"
+    },
+    "facing=north,pushed=true,rug=black_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_black_carpet_pushed"
+    },
     "facing=north,pushed=true,rug=blue,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_blue_pushed"
     },
     "facing=north,pushed=true,rug=blue,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_blue_pushed"
+    },
+    "facing=north,pushed=true,rug=blue_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_blue_carpet_pushed"
+    },
+    "facing=north,pushed=true,rug=blue_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_blue_carpet_pushed"
     },
     "facing=north,pushed=true,rug=brown,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_brown_pushed"
@@ -414,11 +822,23 @@
     "facing=north,pushed=true,rug=brown,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_brown_pushed"
     },
+    "facing=north,pushed=true,rug=brown_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_brown_carpet_pushed"
+    },
+    "facing=north,pushed=true,rug=brown_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_brown_carpet_pushed"
+    },
     "facing=north,pushed=true,rug=canvas,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_canvas_pushed"
     },
     "facing=north,pushed=true,rug=canvas,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_canvas_pushed"
+    },
+    "facing=north,pushed=true,rug=custom_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_custom_carpet_pushed"
+    },
+    "facing=north,pushed=true,rug=custom_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_custom_carpet_pushed"
     },
     "facing=north,pushed=true,rug=cyan,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_cyan_pushed"
@@ -426,11 +846,23 @@
     "facing=north,pushed=true,rug=cyan,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_cyan_pushed"
     },
+    "facing=north,pushed=true,rug=cyan_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_cyan_carpet_pushed"
+    },
+    "facing=north,pushed=true,rug=cyan_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_cyan_carpet_pushed"
+    },
     "facing=north,pushed=true,rug=gray,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_gray_pushed"
     },
     "facing=north,pushed=true,rug=gray,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_gray_pushed"
+    },
+    "facing=north,pushed=true,rug=gray_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_gray_carpet_pushed"
+    },
+    "facing=north,pushed=true,rug=gray_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_gray_carpet_pushed"
     },
     "facing=north,pushed=true,rug=green,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_green_pushed"
@@ -438,11 +870,23 @@
     "facing=north,pushed=true,rug=green,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_green_pushed"
     },
+    "facing=north,pushed=true,rug=green_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_green_carpet_pushed"
+    },
+    "facing=north,pushed=true,rug=green_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_green_carpet_pushed"
+    },
     "facing=north,pushed=true,rug=light_blue,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_light_blue_pushed"
     },
     "facing=north,pushed=true,rug=light_blue,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_light_blue_pushed"
+    },
+    "facing=north,pushed=true,rug=light_blue_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_light_blue_carpet_pushed"
+    },
+    "facing=north,pushed=true,rug=light_blue_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_light_blue_carpet_pushed"
     },
     "facing=north,pushed=true,rug=light_gray,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_light_gray_pushed"
@@ -450,17 +894,41 @@
     "facing=north,pushed=true,rug=light_gray,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_light_gray_pushed"
     },
+    "facing=north,pushed=true,rug=light_gray_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_light_gray_carpet_pushed"
+    },
+    "facing=north,pushed=true,rug=light_gray_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_light_gray_carpet_pushed"
+    },
     "facing=north,pushed=true,rug=lime,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_lime_pushed"
     },
     "facing=north,pushed=true,rug=lime,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_lime_pushed"
     },
+    "facing=north,pushed=true,rug=lime_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_lime_carpet_pushed"
+    },
+    "facing=north,pushed=true,rug=lime_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_lime_carpet_pushed"
+    },
     "facing=north,pushed=true,rug=magenta,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_magenta_pushed"
     },
     "facing=north,pushed=true,rug=magenta,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_magenta_pushed"
+    },
+    "facing=north,pushed=true,rug=magenta_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_magenta_carpet_pushed"
+    },
+    "facing=north,pushed=true,rug=magenta_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_magenta_carpet_pushed"
+    },
+    "facing=north,pushed=true,rug=moss_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_moss_carpet_pushed"
+    },
+    "facing=north,pushed=true,rug=moss_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_moss_carpet_pushed"
     },
     "facing=north,pushed=true,rug=none,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_pushed"
@@ -474,11 +942,23 @@
     "facing=north,pushed=true,rug=orange,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_orange_pushed"
     },
+    "facing=north,pushed=true,rug=orange_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_orange_carpet_pushed"
+    },
+    "facing=north,pushed=true,rug=orange_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_orange_carpet_pushed"
+    },
     "facing=north,pushed=true,rug=pink,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_pink_pushed"
     },
     "facing=north,pushed=true,rug=pink,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_pink_pushed"
+    },
+    "facing=north,pushed=true,rug=pink_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_pink_carpet_pushed"
+    },
+    "facing=north,pushed=true,rug=pink_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_pink_carpet_pushed"
     },
     "facing=north,pushed=true,rug=purple,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_purple_pushed"
@@ -486,11 +966,23 @@
     "facing=north,pushed=true,rug=purple,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_purple_pushed"
     },
+    "facing=north,pushed=true,rug=purple_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_purple_carpet_pushed"
+    },
+    "facing=north,pushed=true,rug=purple_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_purple_carpet_pushed"
+    },
     "facing=north,pushed=true,rug=red,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_red_pushed"
     },
     "facing=north,pushed=true,rug=red,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_red_pushed"
+    },
+    "facing=north,pushed=true,rug=red_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_red_carpet_pushed"
+    },
+    "facing=north,pushed=true,rug=red_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_red_carpet_pushed"
     },
     "facing=north,pushed=true,rug=white,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_white_pushed"
@@ -498,11 +990,23 @@
     "facing=north,pushed=true,rug=white,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_white_pushed"
     },
+    "facing=north,pushed=true,rug=white_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_white_carpet_pushed"
+    },
+    "facing=north,pushed=true,rug=white_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_white_carpet_pushed"
+    },
     "facing=north,pushed=true,rug=yellow,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_yellow_pushed"
     },
     "facing=north,pushed=true,rug=yellow,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_yellow_pushed"
+    },
+    "facing=north,pushed=true,rug=yellow_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_yellow_carpet_pushed"
+    },
+    "facing=north,pushed=true,rug=yellow_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_yellow_carpet_pushed"
     },
     "facing=south,pushed=false,rug=black,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_black",
@@ -510,6 +1014,14 @@
     },
     "facing=south,pushed=false,rug=black,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_black",
+      "y": 180
+    },
+    "facing=south,pushed=false,rug=black_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_black_carpet",
+      "y": 180
+    },
+    "facing=south,pushed=false,rug=black_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_black_carpet",
       "y": 180
     },
     "facing=south,pushed=false,rug=blue,waterlogged=false": {
@@ -520,12 +1032,28 @@
       "model": "farmersassortment:block/birch_stool_blue",
       "y": 180
     },
+    "facing=south,pushed=false,rug=blue_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_blue_carpet",
+      "y": 180
+    },
+    "facing=south,pushed=false,rug=blue_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_blue_carpet",
+      "y": 180
+    },
     "facing=south,pushed=false,rug=brown,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_brown",
       "y": 180
     },
     "facing=south,pushed=false,rug=brown,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_brown",
+      "y": 180
+    },
+    "facing=south,pushed=false,rug=brown_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_brown_carpet",
+      "y": 180
+    },
+    "facing=south,pushed=false,rug=brown_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_brown_carpet",
       "y": 180
     },
     "facing=south,pushed=false,rug=canvas,waterlogged=false": {
@@ -536,12 +1064,28 @@
       "model": "farmersassortment:block/birch_stool_canvas",
       "y": 180
     },
+    "facing=south,pushed=false,rug=custom_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_custom_carpet",
+      "y": 180
+    },
+    "facing=south,pushed=false,rug=custom_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_custom_carpet",
+      "y": 180
+    },
     "facing=south,pushed=false,rug=cyan,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_cyan",
       "y": 180
     },
     "facing=south,pushed=false,rug=cyan,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_cyan",
+      "y": 180
+    },
+    "facing=south,pushed=false,rug=cyan_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_cyan_carpet",
+      "y": 180
+    },
+    "facing=south,pushed=false,rug=cyan_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_cyan_carpet",
       "y": 180
     },
     "facing=south,pushed=false,rug=gray,waterlogged=false": {
@@ -552,12 +1096,28 @@
       "model": "farmersassortment:block/birch_stool_gray",
       "y": 180
     },
+    "facing=south,pushed=false,rug=gray_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_gray_carpet",
+      "y": 180
+    },
+    "facing=south,pushed=false,rug=gray_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_gray_carpet",
+      "y": 180
+    },
     "facing=south,pushed=false,rug=green,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_green",
       "y": 180
     },
     "facing=south,pushed=false,rug=green,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_green",
+      "y": 180
+    },
+    "facing=south,pushed=false,rug=green_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_green_carpet",
+      "y": 180
+    },
+    "facing=south,pushed=false,rug=green_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_green_carpet",
       "y": 180
     },
     "facing=south,pushed=false,rug=light_blue,waterlogged=false": {
@@ -568,12 +1128,28 @@
       "model": "farmersassortment:block/birch_stool_light_blue",
       "y": 180
     },
+    "facing=south,pushed=false,rug=light_blue_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_light_blue_carpet",
+      "y": 180
+    },
+    "facing=south,pushed=false,rug=light_blue_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_light_blue_carpet",
+      "y": 180
+    },
     "facing=south,pushed=false,rug=light_gray,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_light_gray",
       "y": 180
     },
     "facing=south,pushed=false,rug=light_gray,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_light_gray",
+      "y": 180
+    },
+    "facing=south,pushed=false,rug=light_gray_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_light_gray_carpet",
+      "y": 180
+    },
+    "facing=south,pushed=false,rug=light_gray_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_light_gray_carpet",
       "y": 180
     },
     "facing=south,pushed=false,rug=lime,waterlogged=false": {
@@ -584,12 +1160,36 @@
       "model": "farmersassortment:block/birch_stool_lime",
       "y": 180
     },
+    "facing=south,pushed=false,rug=lime_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_lime_carpet",
+      "y": 180
+    },
+    "facing=south,pushed=false,rug=lime_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_lime_carpet",
+      "y": 180
+    },
     "facing=south,pushed=false,rug=magenta,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_magenta",
       "y": 180
     },
     "facing=south,pushed=false,rug=magenta,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_magenta",
+      "y": 180
+    },
+    "facing=south,pushed=false,rug=magenta_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_magenta_carpet",
+      "y": 180
+    },
+    "facing=south,pushed=false,rug=magenta_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_magenta_carpet",
+      "y": 180
+    },
+    "facing=south,pushed=false,rug=moss_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_moss_carpet",
+      "y": 180
+    },
+    "facing=south,pushed=false,rug=moss_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_moss_carpet",
       "y": 180
     },
     "facing=south,pushed=false,rug=none,waterlogged=false": {
@@ -608,12 +1208,28 @@
       "model": "farmersassortment:block/birch_stool_orange",
       "y": 180
     },
+    "facing=south,pushed=false,rug=orange_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_orange_carpet",
+      "y": 180
+    },
+    "facing=south,pushed=false,rug=orange_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_orange_carpet",
+      "y": 180
+    },
     "facing=south,pushed=false,rug=pink,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_pink",
       "y": 180
     },
     "facing=south,pushed=false,rug=pink,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_pink",
+      "y": 180
+    },
+    "facing=south,pushed=false,rug=pink_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_pink_carpet",
+      "y": 180
+    },
+    "facing=south,pushed=false,rug=pink_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_pink_carpet",
       "y": 180
     },
     "facing=south,pushed=false,rug=purple,waterlogged=false": {
@@ -624,12 +1240,28 @@
       "model": "farmersassortment:block/birch_stool_purple",
       "y": 180
     },
+    "facing=south,pushed=false,rug=purple_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_purple_carpet",
+      "y": 180
+    },
+    "facing=south,pushed=false,rug=purple_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_purple_carpet",
+      "y": 180
+    },
     "facing=south,pushed=false,rug=red,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_red",
       "y": 180
     },
     "facing=south,pushed=false,rug=red,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_red",
+      "y": 180
+    },
+    "facing=south,pushed=false,rug=red_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_red_carpet",
+      "y": 180
+    },
+    "facing=south,pushed=false,rug=red_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_red_carpet",
       "y": 180
     },
     "facing=south,pushed=false,rug=white,waterlogged=false": {
@@ -640,12 +1272,28 @@
       "model": "farmersassortment:block/birch_stool_white",
       "y": 180
     },
+    "facing=south,pushed=false,rug=white_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_white_carpet",
+      "y": 180
+    },
+    "facing=south,pushed=false,rug=white_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_white_carpet",
+      "y": 180
+    },
     "facing=south,pushed=false,rug=yellow,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_yellow",
       "y": 180
     },
     "facing=south,pushed=false,rug=yellow,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_yellow",
+      "y": 180
+    },
+    "facing=south,pushed=false,rug=yellow_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_yellow_carpet",
+      "y": 180
+    },
+    "facing=south,pushed=false,rug=yellow_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_yellow_carpet",
       "y": 180
     },
     "facing=south,pushed=true,rug=black,waterlogged=false": {
@@ -656,12 +1304,28 @@
       "model": "farmersassortment:block/birch_stool_black_pushed",
       "y": 180
     },
+    "facing=south,pushed=true,rug=black_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_black_carpet_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=black_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_black_carpet_pushed",
+      "y": 180
+    },
     "facing=south,pushed=true,rug=blue,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_blue_pushed",
       "y": 180
     },
     "facing=south,pushed=true,rug=blue,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_blue_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=blue_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_blue_carpet_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=blue_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_blue_carpet_pushed",
       "y": 180
     },
     "facing=south,pushed=true,rug=brown,waterlogged=false": {
@@ -672,12 +1336,28 @@
       "model": "farmersassortment:block/birch_stool_brown_pushed",
       "y": 180
     },
+    "facing=south,pushed=true,rug=brown_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_brown_carpet_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=brown_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_brown_carpet_pushed",
+      "y": 180
+    },
     "facing=south,pushed=true,rug=canvas,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_canvas_pushed",
       "y": 180
     },
     "facing=south,pushed=true,rug=canvas,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_canvas_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=custom_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_custom_carpet_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=custom_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_custom_carpet_pushed",
       "y": 180
     },
     "facing=south,pushed=true,rug=cyan,waterlogged=false": {
@@ -688,12 +1368,28 @@
       "model": "farmersassortment:block/birch_stool_cyan_pushed",
       "y": 180
     },
+    "facing=south,pushed=true,rug=cyan_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_cyan_carpet_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=cyan_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_cyan_carpet_pushed",
+      "y": 180
+    },
     "facing=south,pushed=true,rug=gray,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_gray_pushed",
       "y": 180
     },
     "facing=south,pushed=true,rug=gray,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_gray_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=gray_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_gray_carpet_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=gray_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_gray_carpet_pushed",
       "y": 180
     },
     "facing=south,pushed=true,rug=green,waterlogged=false": {
@@ -704,12 +1400,28 @@
       "model": "farmersassortment:block/birch_stool_green_pushed",
       "y": 180
     },
+    "facing=south,pushed=true,rug=green_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_green_carpet_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=green_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_green_carpet_pushed",
+      "y": 180
+    },
     "facing=south,pushed=true,rug=light_blue,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_light_blue_pushed",
       "y": 180
     },
     "facing=south,pushed=true,rug=light_blue,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_light_blue_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=light_blue_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_light_blue_carpet_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=light_blue_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_light_blue_carpet_pushed",
       "y": 180
     },
     "facing=south,pushed=true,rug=light_gray,waterlogged=false": {
@@ -720,6 +1432,14 @@
       "model": "farmersassortment:block/birch_stool_light_gray_pushed",
       "y": 180
     },
+    "facing=south,pushed=true,rug=light_gray_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_light_gray_carpet_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=light_gray_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_light_gray_carpet_pushed",
+      "y": 180
+    },
     "facing=south,pushed=true,rug=lime,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_lime_pushed",
       "y": 180
@@ -728,12 +1448,36 @@
       "model": "farmersassortment:block/birch_stool_lime_pushed",
       "y": 180
     },
+    "facing=south,pushed=true,rug=lime_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_lime_carpet_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=lime_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_lime_carpet_pushed",
+      "y": 180
+    },
     "facing=south,pushed=true,rug=magenta,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_magenta_pushed",
       "y": 180
     },
     "facing=south,pushed=true,rug=magenta,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_magenta_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=magenta_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_magenta_carpet_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=magenta_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_magenta_carpet_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=moss_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_moss_carpet_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=moss_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_moss_carpet_pushed",
       "y": 180
     },
     "facing=south,pushed=true,rug=none,waterlogged=false": {
@@ -752,12 +1496,28 @@
       "model": "farmersassortment:block/birch_stool_orange_pushed",
       "y": 180
     },
+    "facing=south,pushed=true,rug=orange_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_orange_carpet_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=orange_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_orange_carpet_pushed",
+      "y": 180
+    },
     "facing=south,pushed=true,rug=pink,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_pink_pushed",
       "y": 180
     },
     "facing=south,pushed=true,rug=pink,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_pink_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=pink_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_pink_carpet_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=pink_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_pink_carpet_pushed",
       "y": 180
     },
     "facing=south,pushed=true,rug=purple,waterlogged=false": {
@@ -768,12 +1528,28 @@
       "model": "farmersassortment:block/birch_stool_purple_pushed",
       "y": 180
     },
+    "facing=south,pushed=true,rug=purple_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_purple_carpet_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=purple_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_purple_carpet_pushed",
+      "y": 180
+    },
     "facing=south,pushed=true,rug=red,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_red_pushed",
       "y": 180
     },
     "facing=south,pushed=true,rug=red,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_red_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=red_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_red_carpet_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=red_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_red_carpet_pushed",
       "y": 180
     },
     "facing=south,pushed=true,rug=white,waterlogged=false": {
@@ -784,12 +1560,28 @@
       "model": "farmersassortment:block/birch_stool_white_pushed",
       "y": 180
     },
+    "facing=south,pushed=true,rug=white_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_white_carpet_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=white_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_white_carpet_pushed",
+      "y": 180
+    },
     "facing=south,pushed=true,rug=yellow,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_yellow_pushed",
       "y": 180
     },
     "facing=south,pushed=true,rug=yellow,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_yellow_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=yellow_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_yellow_carpet_pushed",
+      "y": 180
+    },
+    "facing=south,pushed=true,rug=yellow_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_yellow_carpet_pushed",
       "y": 180
     },
     "facing=west,pushed=false,rug=black,waterlogged=false": {
@@ -800,12 +1592,28 @@
       "model": "farmersassortment:block/birch_stool_black",
       "y": 270
     },
+    "facing=west,pushed=false,rug=black_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_black_carpet",
+      "y": 270
+    },
+    "facing=west,pushed=false,rug=black_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_black_carpet",
+      "y": 270
+    },
     "facing=west,pushed=false,rug=blue,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_blue",
       "y": 270
     },
     "facing=west,pushed=false,rug=blue,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_blue",
+      "y": 270
+    },
+    "facing=west,pushed=false,rug=blue_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_blue_carpet",
+      "y": 270
+    },
+    "facing=west,pushed=false,rug=blue_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_blue_carpet",
       "y": 270
     },
     "facing=west,pushed=false,rug=brown,waterlogged=false": {
@@ -816,12 +1624,28 @@
       "model": "farmersassortment:block/birch_stool_brown",
       "y": 270
     },
+    "facing=west,pushed=false,rug=brown_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_brown_carpet",
+      "y": 270
+    },
+    "facing=west,pushed=false,rug=brown_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_brown_carpet",
+      "y": 270
+    },
     "facing=west,pushed=false,rug=canvas,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_canvas",
       "y": 270
     },
     "facing=west,pushed=false,rug=canvas,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_canvas",
+      "y": 270
+    },
+    "facing=west,pushed=false,rug=custom_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_custom_carpet",
+      "y": 270
+    },
+    "facing=west,pushed=false,rug=custom_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_custom_carpet",
       "y": 270
     },
     "facing=west,pushed=false,rug=cyan,waterlogged=false": {
@@ -832,12 +1656,28 @@
       "model": "farmersassortment:block/birch_stool_cyan",
       "y": 270
     },
+    "facing=west,pushed=false,rug=cyan_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_cyan_carpet",
+      "y": 270
+    },
+    "facing=west,pushed=false,rug=cyan_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_cyan_carpet",
+      "y": 270
+    },
     "facing=west,pushed=false,rug=gray,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_gray",
       "y": 270
     },
     "facing=west,pushed=false,rug=gray,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_gray",
+      "y": 270
+    },
+    "facing=west,pushed=false,rug=gray_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_gray_carpet",
+      "y": 270
+    },
+    "facing=west,pushed=false,rug=gray_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_gray_carpet",
       "y": 270
     },
     "facing=west,pushed=false,rug=green,waterlogged=false": {
@@ -848,12 +1688,28 @@
       "model": "farmersassortment:block/birch_stool_green",
       "y": 270
     },
+    "facing=west,pushed=false,rug=green_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_green_carpet",
+      "y": 270
+    },
+    "facing=west,pushed=false,rug=green_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_green_carpet",
+      "y": 270
+    },
     "facing=west,pushed=false,rug=light_blue,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_light_blue",
       "y": 270
     },
     "facing=west,pushed=false,rug=light_blue,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_light_blue",
+      "y": 270
+    },
+    "facing=west,pushed=false,rug=light_blue_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_light_blue_carpet",
+      "y": 270
+    },
+    "facing=west,pushed=false,rug=light_blue_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_light_blue_carpet",
       "y": 270
     },
     "facing=west,pushed=false,rug=light_gray,waterlogged=false": {
@@ -864,6 +1720,14 @@
       "model": "farmersassortment:block/birch_stool_light_gray",
       "y": 270
     },
+    "facing=west,pushed=false,rug=light_gray_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_light_gray_carpet",
+      "y": 270
+    },
+    "facing=west,pushed=false,rug=light_gray_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_light_gray_carpet",
+      "y": 270
+    },
     "facing=west,pushed=false,rug=lime,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_lime",
       "y": 270
@@ -872,12 +1736,36 @@
       "model": "farmersassortment:block/birch_stool_lime",
       "y": 270
     },
+    "facing=west,pushed=false,rug=lime_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_lime_carpet",
+      "y": 270
+    },
+    "facing=west,pushed=false,rug=lime_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_lime_carpet",
+      "y": 270
+    },
     "facing=west,pushed=false,rug=magenta,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_magenta",
       "y": 270
     },
     "facing=west,pushed=false,rug=magenta,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_magenta",
+      "y": 270
+    },
+    "facing=west,pushed=false,rug=magenta_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_magenta_carpet",
+      "y": 270
+    },
+    "facing=west,pushed=false,rug=magenta_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_magenta_carpet",
+      "y": 270
+    },
+    "facing=west,pushed=false,rug=moss_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_moss_carpet",
+      "y": 270
+    },
+    "facing=west,pushed=false,rug=moss_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_moss_carpet",
       "y": 270
     },
     "facing=west,pushed=false,rug=none,waterlogged=false": {
@@ -896,12 +1784,28 @@
       "model": "farmersassortment:block/birch_stool_orange",
       "y": 270
     },
+    "facing=west,pushed=false,rug=orange_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_orange_carpet",
+      "y": 270
+    },
+    "facing=west,pushed=false,rug=orange_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_orange_carpet",
+      "y": 270
+    },
     "facing=west,pushed=false,rug=pink,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_pink",
       "y": 270
     },
     "facing=west,pushed=false,rug=pink,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_pink",
+      "y": 270
+    },
+    "facing=west,pushed=false,rug=pink_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_pink_carpet",
+      "y": 270
+    },
+    "facing=west,pushed=false,rug=pink_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_pink_carpet",
       "y": 270
     },
     "facing=west,pushed=false,rug=purple,waterlogged=false": {
@@ -912,12 +1816,28 @@
       "model": "farmersassortment:block/birch_stool_purple",
       "y": 270
     },
+    "facing=west,pushed=false,rug=purple_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_purple_carpet",
+      "y": 270
+    },
+    "facing=west,pushed=false,rug=purple_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_purple_carpet",
+      "y": 270
+    },
     "facing=west,pushed=false,rug=red,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_red",
       "y": 270
     },
     "facing=west,pushed=false,rug=red,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_red",
+      "y": 270
+    },
+    "facing=west,pushed=false,rug=red_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_red_carpet",
+      "y": 270
+    },
+    "facing=west,pushed=false,rug=red_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_red_carpet",
       "y": 270
     },
     "facing=west,pushed=false,rug=white,waterlogged=false": {
@@ -928,12 +1848,28 @@
       "model": "farmersassortment:block/birch_stool_white",
       "y": 270
     },
+    "facing=west,pushed=false,rug=white_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_white_carpet",
+      "y": 270
+    },
+    "facing=west,pushed=false,rug=white_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_white_carpet",
+      "y": 270
+    },
     "facing=west,pushed=false,rug=yellow,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_yellow",
       "y": 270
     },
     "facing=west,pushed=false,rug=yellow,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_yellow",
+      "y": 270
+    },
+    "facing=west,pushed=false,rug=yellow_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_yellow_carpet",
+      "y": 270
+    },
+    "facing=west,pushed=false,rug=yellow_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_yellow_carpet",
       "y": 270
     },
     "facing=west,pushed=true,rug=black,waterlogged=false": {
@@ -944,12 +1880,28 @@
       "model": "farmersassortment:block/birch_stool_black_pushed",
       "y": 270
     },
+    "facing=west,pushed=true,rug=black_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_black_carpet_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=black_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_black_carpet_pushed",
+      "y": 270
+    },
     "facing=west,pushed=true,rug=blue,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_blue_pushed",
       "y": 270
     },
     "facing=west,pushed=true,rug=blue,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_blue_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=blue_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_blue_carpet_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=blue_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_blue_carpet_pushed",
       "y": 270
     },
     "facing=west,pushed=true,rug=brown,waterlogged=false": {
@@ -960,12 +1912,28 @@
       "model": "farmersassortment:block/birch_stool_brown_pushed",
       "y": 270
     },
+    "facing=west,pushed=true,rug=brown_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_brown_carpet_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=brown_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_brown_carpet_pushed",
+      "y": 270
+    },
     "facing=west,pushed=true,rug=canvas,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_canvas_pushed",
       "y": 270
     },
     "facing=west,pushed=true,rug=canvas,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_canvas_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=custom_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_custom_carpet_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=custom_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_custom_carpet_pushed",
       "y": 270
     },
     "facing=west,pushed=true,rug=cyan,waterlogged=false": {
@@ -976,12 +1944,28 @@
       "model": "farmersassortment:block/birch_stool_cyan_pushed",
       "y": 270
     },
+    "facing=west,pushed=true,rug=cyan_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_cyan_carpet_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=cyan_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_cyan_carpet_pushed",
+      "y": 270
+    },
     "facing=west,pushed=true,rug=gray,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_gray_pushed",
       "y": 270
     },
     "facing=west,pushed=true,rug=gray,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_gray_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=gray_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_gray_carpet_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=gray_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_gray_carpet_pushed",
       "y": 270
     },
     "facing=west,pushed=true,rug=green,waterlogged=false": {
@@ -992,12 +1976,28 @@
       "model": "farmersassortment:block/birch_stool_green_pushed",
       "y": 270
     },
+    "facing=west,pushed=true,rug=green_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_green_carpet_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=green_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_green_carpet_pushed",
+      "y": 270
+    },
     "facing=west,pushed=true,rug=light_blue,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_light_blue_pushed",
       "y": 270
     },
     "facing=west,pushed=true,rug=light_blue,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_light_blue_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=light_blue_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_light_blue_carpet_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=light_blue_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_light_blue_carpet_pushed",
       "y": 270
     },
     "facing=west,pushed=true,rug=light_gray,waterlogged=false": {
@@ -1008,6 +2008,14 @@
       "model": "farmersassortment:block/birch_stool_light_gray_pushed",
       "y": 270
     },
+    "facing=west,pushed=true,rug=light_gray_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_light_gray_carpet_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=light_gray_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_light_gray_carpet_pushed",
+      "y": 270
+    },
     "facing=west,pushed=true,rug=lime,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_lime_pushed",
       "y": 270
@@ -1016,12 +2024,36 @@
       "model": "farmersassortment:block/birch_stool_lime_pushed",
       "y": 270
     },
+    "facing=west,pushed=true,rug=lime_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_lime_carpet_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=lime_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_lime_carpet_pushed",
+      "y": 270
+    },
     "facing=west,pushed=true,rug=magenta,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_magenta_pushed",
       "y": 270
     },
     "facing=west,pushed=true,rug=magenta,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_magenta_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=magenta_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_magenta_carpet_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=magenta_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_magenta_carpet_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=moss_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_moss_carpet_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=moss_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_moss_carpet_pushed",
       "y": 270
     },
     "facing=west,pushed=true,rug=none,waterlogged=false": {
@@ -1040,12 +2072,28 @@
       "model": "farmersassortment:block/birch_stool_orange_pushed",
       "y": 270
     },
+    "facing=west,pushed=true,rug=orange_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_orange_carpet_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=orange_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_orange_carpet_pushed",
+      "y": 270
+    },
     "facing=west,pushed=true,rug=pink,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_pink_pushed",
       "y": 270
     },
     "facing=west,pushed=true,rug=pink,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_pink_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=pink_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_pink_carpet_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=pink_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_pink_carpet_pushed",
       "y": 270
     },
     "facing=west,pushed=true,rug=purple,waterlogged=false": {
@@ -1056,12 +2104,28 @@
       "model": "farmersassortment:block/birch_stool_purple_pushed",
       "y": 270
     },
+    "facing=west,pushed=true,rug=purple_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_purple_carpet_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=purple_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_purple_carpet_pushed",
+      "y": 270
+    },
     "facing=west,pushed=true,rug=red,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_red_pushed",
       "y": 270
     },
     "facing=west,pushed=true,rug=red,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_red_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=red_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_red_carpet_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=red_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_red_carpet_pushed",
       "y": 270
     },
     "facing=west,pushed=true,rug=white,waterlogged=false": {
@@ -1072,12 +2136,28 @@
       "model": "farmersassortment:block/birch_stool_white_pushed",
       "y": 270
     },
+    "facing=west,pushed=true,rug=white_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_white_carpet_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=white_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_white_carpet_pushed",
+      "y": 270
+    },
     "facing=west,pushed=true,rug=yellow,waterlogged=false": {
       "model": "farmersassortment:block/birch_stool_yellow_pushed",
       "y": 270
     },
     "facing=west,pushed=true,rug=yellow,waterlogged=true": {
       "model": "farmersassortment:block/birch_stool_yellow_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=yellow_carpet,waterlogged=false": {
+      "model": "farmersassortment:block/birch_stool_yellow_carpet_pushed",
+      "y": 270
+    },
+    "facing=west,pushed=true,rug=yellow_carpet,waterlogged=true": {
+      "model": "farmersassortment:block/birch_stool_yellow_carpet_pushed",
       "y": 270
     }
   }

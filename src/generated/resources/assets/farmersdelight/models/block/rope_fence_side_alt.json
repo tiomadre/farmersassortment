@@ -1,0 +1,46 @@
+{
+  "parent": "block/block",
+  "elements": [
+    {
+      "faces": {
+        "east": {
+          "texture": "#all",
+          "tintindex": 0,
+          "uv": [
+            0,
+            2,
+            7,
+            12
+          ]
+        },
+        "west": {
+          "texture": "#all",
+          "tintindex": 0,
+          "uv": [
+            9,
+            2,
+            16,
+            12
+          ]
+        }
+      },
+      "from": [
+        8,
+        4,
+        9
+      ],
+      "name": "side_alt",
+      "to": [
+        8,
+        14,
+        16
+      ]
+    }
+  ],
+  "format_version": "1.9.0",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "all": "farmersdelight:block/rope_fence",
+    "particle": "farmersdelight:block/rope_fence"
+  }
+}

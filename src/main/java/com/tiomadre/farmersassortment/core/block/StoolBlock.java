@@ -1,10 +1,14 @@
 package com.tiomadre.farmersassortment.core.block;
 
-import com.tiomadre.farmersassortment.core.block.state.StoolRugType;
+import com.tiomadre.farmersassortment.core.block.state.FurnitureCoverType;
+import com.tiomadre.farmersassortment.core.block.entity.StoolBlockEntity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -12,9 +16,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.decoration.ArmorStand;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ShearsItem;
@@ -48,10 +50,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class StoolBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock {
+public class StoolBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock, EntityBlock {
     public static final BooleanProperty PUSHED = BooleanProperty.create("pushed");
     public static final BooleanProperty WATERLOGGED = BooleanProperty.create("waterlogged");
-    public static final EnumProperty<StoolRugType> RUG = EnumProperty.create("rug", StoolRugType.class);
+    public static final EnumProperty<FurnitureCoverType> RUG = EnumProperty.create("rug", FurnitureCoverType.class);
     private static final VoxelShape SEAT_SHAPE = Block.box(0.0D, 3.0D, 6.0D, 16.0D, 8.0D, 16.0D);
     private static final VoxelShape LEG_NW_UPPER = Block.box(0.0D, 1.0D, 6.0D, 2.0D, 3.0D, 8.0D);
     private static final VoxelShape LEG_NW_LOWER = Block.box(0.0D, 0.0D, 6.0D, 2.0D, 1.0D, 8.0D);
@@ -78,9 +80,38 @@ public class StoolBlock extends HorizontalDirectionalBlock implements SimpleWate
     private static final String STOOL_SEAT_TAG = "farmersassortment_stool_seat";
     public StoolBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(RUG, StoolRugType.NONE).setValue(PUSHED, false).setValue(WATERLOGGED, false));
+        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(RUG, FurnitureCoverType.NONE).setValue(PUSHED, false).setValue(WATERLOGGED, false));
     }
 
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new StoolBlockEntity(pos, state);
+    }
+
+    private StoolBlockEntity coveringEntity(Level level, BlockPos pos) {
+        if (level.getBlockEntity(pos) instanceof StoolBlockEntity stool) {
+            return stool;
+        }
+        StoolBlockEntity stool = new StoolBlockEntity(pos, level.getBlockState(pos));
+        level.setBlockEntity(stool);
+        return stool;
+    }
+
+    @Override
+    public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
+        super.setPlacedBy(level, pos, state, placer, stack);
+        if (!level.isClientSide && state.getValue(RUG) == FurnitureCoverType.CUSTOM_CARPET) {
+            coveringEntity(level, pos).setCovering(StoolItem.getCovering(stack));
+        }
+    }
+
+    private ItemStack getCovering(BlockGetter level, BlockPos pos, BlockState state) {
+        FurnitureCoverType rug = state.getValue(RUG);
+        if (rug == FurnitureCoverType.CUSTOM_CARPET) {
+            return level.getBlockEntity(pos) instanceof StoolBlockEntity stool ? stool.getCovering() : ItemStack.EMPTY;
+        }
+        return rug.rugItem() == null ? ItemStack.EMPTY : new ItemStack(rug.rugItem());
+    }
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING, RUG, PUSHED, WATERLOGGED);
@@ -111,33 +142,38 @@ public class StoolBlock extends HorizontalDirectionalBlock implements SimpleWate
     @Override
     public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hit) {
         ItemStack heldStack = player.getItemInHand(hand);
-        StoolRugType currentRug = state.getValue(RUG);
-        StoolRugType heldRug = rugTypeFromItem(heldStack.getItem());
+        FurnitureCoverType currentRug = state.getValue(RUG);
+        FurnitureCoverType heldRug = rugTypeFromItem(heldStack.getItem());
+        ItemStack currentCover = getCovering(level, pos, state);
 
-        if (heldRug != null && heldRug != currentRug) {
+        if (heldRug != null && (heldRug != currentRug
+                || heldRug == FurnitureCoverType.CUSTOM_CARPET && !ItemStack.isSameItemSameTags(heldStack, currentCover))) {
             if (!level.isClientSide) {
-                if (currentRug.hasRug()) {
-                    dropRug(level, pos, currentRug);
-                }
+                ItemStack newCover = heldStack.copyWithCount(1);
+                StoolBlockEntity stool = coveringEntity(level, pos);
                 level.setBlock(pos, state.setValue(RUG, heldRug), Block.UPDATE_ALL);
+                stool.setCovering(heldRug == FurnitureCoverType.CUSTOM_CARPET ? newCover : ItemStack.EMPTY);
                 if (!player.getAbilities().instabuild) {
                     heldStack.shrink(1);
                 }
+                Block.popResource(level, pos, currentCover);
             }
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
 
         if (heldStack.getItem() instanceof ShearsItem && currentRug.hasRug()) {
             if (!level.isClientSide) {
-                level.setBlock(pos, state.setValue(RUG, StoolRugType.NONE), Block.UPDATE_ALL);
-                dropRug(level, pos, currentRug);
+                level.setBlock(pos, state.setValue(RUG, FurnitureCoverType.NONE), Block.UPDATE_ALL);
+                if (level.getBlockEntity(pos) instanceof StoolBlockEntity stool) {
+                    stool.setCovering(ItemStack.EMPTY);
+                }
+                Block.popResource(level, pos, currentCover);
                 heldStack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(hand));
             }
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
-
         if (!player.isSecondaryUseActive()) {
-            return sit(level, pos, player);
+            return sit(level, pos, player, hit);
         }
 
         if (heldStack.isEmpty()) {
@@ -163,15 +199,17 @@ public class StoolBlock extends HorizontalDirectionalBlock implements SimpleWate
     }
     @Override
     public @NotNull List<ItemStack> getDrops(@NotNull BlockState state, LootParams.@NotNull Builder builder) {
+        BlockEntity blockEntity = builder.getOptionalParameter(LootContextParams.BLOCK_ENTITY);
+        ItemStack covering = blockEntity instanceof StoolBlockEntity stool ? stool.getCovering() : ItemStack.EMPTY;
         return super.getDrops(state, builder).stream()
-                .map(stack -> stack.is(this.asItem()) ? StoolItem.applyRugToStack(stack, state.getValue(RUG)) : stack)
+                .map(stack -> stack.is(this.asItem()) ? StoolItem.applyCoverToStack(stack, state.getValue(RUG), covering) : stack)
                 .collect(Collectors.toList());
     }
 
     @Override
     public @NotNull ItemStack getCloneItemStack(@NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull BlockState state) {
         ItemStack stack = super.getCloneItemStack(level, pos, state);
-        return StoolItem.applyRugToStack(stack, state.getValue(RUG));
+        return StoolItem.applyCoverToStack(stack, state.getValue(RUG), getCovering(level, pos, state));
     }
 
     @Override
@@ -210,28 +248,16 @@ public class StoolBlock extends HorizontalDirectionalBlock implements SimpleWate
         return rotated[0];
     }
 
-    private InteractionResult sit(Level level, BlockPos pos, Player player) {
+    private InteractionResult sit(Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (level.isClientSide) {
             return InteractionResult.SUCCESS;
         }
 
         BlockState state = level.getBlockState(pos);
-        Direction stoolFacing = state.getValue(FACING);
-        Direction seatFacing = stoolFacing.getOpposite();
-
-        Direction[] tableDirections = {
-                stoolFacing,
-                stoolFacing.getClockWise(),
-                stoolFacing.getCounterClockWise(),
-                stoolFacing.getOpposite()
-        };
-
-        for (Direction direction : tableDirections) {
-            if (level.getBlockState(pos.relative(direction)).getBlock() instanceof TableBlock) {
-                seatFacing = direction;
-                break;
-            }
-        }
+        Direction clickedFace = hit.getDirection();
+        Direction seatFacing = clickedFace.getAxis().isHorizontal()
+                ? clickedFace
+                : player.getDirection().getOpposite();
 
         float yaw = seatFacing.toYRot();
         AABB bounds = getHitboxShape(state).bounds();
@@ -314,30 +340,9 @@ public class StoolBlock extends HorizontalDirectionalBlock implements SimpleWate
         }
     }
 
-    private void dropRug(Level level, BlockPos pos, StoolRugType rugType) {
-        Item item = rugType.rugItem();
-        if (item != null && level instanceof ServerLevel serverLevel) {
-            ItemEntity drop = new ItemEntity(serverLevel, pos.getX() + 0.5D, pos.getY() + 0.8D, pos.getZ() + 0.5D, new ItemStack(item));
-            serverLevel.addFreshEntity(drop);
-        }
-    }
-
     @Nullable
-    private StoolRugType rugTypeFromItem(Item item) {
-        if (!(item instanceof BlockItem blockItem)) {
-            return null;
-        }
-
-        String path = blockItem.getBlock().builtInRegistryHolder().key().location().getPath();
-        if (path.equals("canvas_rug")) {
-            return StoolRugType.CANVAS;
-        }
-        for (StoolRugType value : StoolRugType.values()) {
-            if (path.equals(value.getSerializedName() + "_canvas_rug")) {
-                return value;
-            }
-        }
-        return null;
+    private FurnitureCoverType rugTypeFromItem(Item item) {
+        return FurnitureCoverType.fromItem(item);
     }
 
 }

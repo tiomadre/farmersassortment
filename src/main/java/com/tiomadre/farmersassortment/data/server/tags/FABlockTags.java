@@ -51,6 +51,7 @@ public class FABlockTags extends BlockTagsProvider {
                 .add(FABlocks.allTables().map(RegistryObject::get).toArray(Block[]::new));
 
         this.tag(BlockTags.MINEABLE_WITH_HOE).add(FABlocks.STRAW_SLAB.get(), FABlocks.STRAW_STAIRS.get());
+        this.tag(BlockTags.MINEABLE_WITH_AXE).add(FABlocks.UPCYCLED_LANTERN.get());
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).replace(false)
                 .add(FABlocks.ALABASTER_LANTERN.get())

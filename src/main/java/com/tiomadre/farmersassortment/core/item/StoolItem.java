@@ -1,6 +1,6 @@
 package com.tiomadre.farmersassortment.core.item;
 
-import com.tiomadre.farmersassortment.core.block.state.StoolRugType;
+import com.tiomadre.farmersassortment.core.block.state.FurnitureCoverType;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
@@ -17,6 +17,7 @@ import java.util.List;
 public class StoolItem extends BlockItem {
     private static final String BLOCK_STATE_TAG = "BlockStateTag";
     private static final String RUG_TAG = "rug";
+    private static final String COVER_TAG = "StoolCovering";
 
     @Nullable
     private final String fallbackName;
@@ -37,7 +38,8 @@ public class StoolItem extends BlockItem {
                 : Component.translatableWithFallback(getDescriptionId(stack), fallbackName);
     }
 
-    public static ItemStack applyRugToStack(ItemStack stack, StoolRugType rug) {
+    public static ItemStack applyRugToStack(ItemStack stack, FurnitureCoverType rug) {
+        stack.removeTagKey(COVER_TAG);
         if (!rug.hasRug()) {
             CompoundTag stateTag = stack.getTagElement(BLOCK_STATE_TAG);
             if (stateTag != null) {
@@ -53,28 +55,42 @@ public class StoolItem extends BlockItem {
         return stack;
     }
 
+    public static ItemStack applyCoverToStack(ItemStack stack, FurnitureCoverType rug, ItemStack covering) {
+        applyRugToStack(stack, rug);
+        if (rug == FurnitureCoverType.CUSTOM_CARPET && FurnitureCoverType.isCarpet(covering.getItem())) {
+            stack.getOrCreateTag().put(COVER_TAG, covering.copyWithCount(1).save(new CompoundTag()));
+        }
+        return stack;
+    }
+
+    public static ItemStack getCovering(ItemStack stack) {
+        FurnitureCoverType rug = getRug(stack);
+        if (rug == FurnitureCoverType.CUSTOM_CARPET) {
+            CompoundTag tag = stack.getTag();
+            ItemStack covering = tag == null ? ItemStack.EMPTY : ItemStack.of(tag.getCompound(COVER_TAG));
+            return FurnitureCoverType.isCarpet(covering.getItem()) ? covering.copyWithCount(1) : ItemStack.EMPTY;
+        }
+        return rug.rugItem() == null ? ItemStack.EMPTY : new ItemStack(rug.rugItem());
+    }
+
     @Override
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
         super.appendHoverText(stack, level, tooltip, flag);
-        StoolRugType rugType = getRug(stack);
-        if (!rugType.hasRug()) {
-            return;
+        ItemStack covering = getCovering(stack);
+        if (!covering.isEmpty()) {
+            tooltip.add(Component.translatable("tooltip.farmersassortment.stool.covered", covering.getHoverName()));
         }
-
-        tooltip.add(Component.translatable("tooltip.farmersassortment.stool.covered",
-                Component.translatable(rugType.rugItem().getDescriptionId())));
     }
-
-    public static StoolRugType getRug(ItemStack stack) {
+    public static FurnitureCoverType getRug(ItemStack stack) {
         CompoundTag stateTag = stack.getTagElement(BLOCK_STATE_TAG);
         if (stateTag != null && stateTag.contains(RUG_TAG, Tag.TAG_STRING)) {
             String rugName = stateTag.getString(RUG_TAG);
-            for (StoolRugType rugType : StoolRugType.values()) {
+            for (FurnitureCoverType rugType : FurnitureCoverType.values()) {
                 if (rugType.getSerializedName().equals(rugName)) {
                     return rugType;
                 }
             }
         }
-        return StoolRugType.NONE;
+        return FurnitureCoverType.NONE;
     }
 }

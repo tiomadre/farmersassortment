@@ -1,0 +1,226 @@
+{
+  "parent": "block/block",
+  "display": {
+    "fixed": {
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "gui": {
+      "rotation": [
+        30,
+        45,
+        0
+      ],
+      "scale": [
+        0.625,
+        0.625,
+        0.625
+      ]
+    }
+  },
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "cullface": "down",
+          "texture": "#all",
+          "uv": [
+            2,
+            14,
+            4,
+            16
+          ]
+        },
+        "east": {
+          "cullface": "east",
+          "texture": "#all",
+          "uv": [
+            0,
+            2,
+            2,
+            16
+          ]
+        },
+        "north": {
+          "texture": "#all",
+          "uv": [
+            0,
+            2,
+            2,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#all",
+          "uv": [
+            0,
+            2,
+            2,
+            16
+          ]
+        },
+        "up": {
+          "texture": "#all",
+          "uv": [
+            2,
+            14,
+            4,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#all",
+          "uv": [
+            0,
+            2,
+            2,
+            16
+          ]
+        }
+      },
+      "from": [
+        14,
+        0,
+        7
+      ],
+      "name": "east_post",
+      "to": [
+        16,
+        14,
+        9
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "cullface": "down",
+          "texture": "#all",
+          "uv": [
+            2,
+            14,
+            4,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#all",
+          "uv": [
+            0,
+            2,
+            2,
+            16
+          ]
+        },
+        "north": {
+          "texture": "#all",
+          "uv": [
+            0,
+            2,
+            2,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#all",
+          "uv": [
+            0,
+            2,
+            2,
+            16
+          ]
+        },
+        "up": {
+          "texture": "#all",
+          "uv": [
+            2,
+            14,
+            4,
+            16
+          ]
+        },
+        "west": {
+          "cullface": "west",
+          "texture": "#all",
+          "uv": [
+            0,
+            2,
+            2,
+            16
+          ]
+        }
+      },
+      "from": [
+        0,
+        0,
+        7
+      ],
+      "name": "west_post",
+      "to": [
+        2,
+        14,
+        9
+      ]
+    },
+    {
+      "faces": {
+        "north": {
+          "texture": "#all",
+          "tintindex": 0,
+          "uv": [
+            2,
+            4,
+            14,
+            12
+          ]
+        },
+        "south": {
+          "texture": "#all",
+          "tintindex": 0,
+          "uv": [
+            2,
+            4,
+            14,
+            12
+          ]
+        }
+      },
+      "from": [
+        2,
+        4,
+        8
+      ],
+      "name": "gate",
+      "to": [
+        14,
+        12,
+        8
+      ]
+    }
+  ],
+  "format_version": "1.9.0",
+  "groups": [
+    {
+      "children": [
+        0,
+        1,
+        2
+      ],
+      "color": 0,
+      "name": "closed",
+      "origin": [
+        15,
+        9,
+        8
+      ]
+    }
+  ],
+  "gui_light": "front",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "all": "farmersdelight:block/rope_fence_gate",
+    "particle": "farmersdelight:block/rope_fence_gate"
+  }
+}

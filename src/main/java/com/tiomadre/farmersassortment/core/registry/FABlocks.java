@@ -70,7 +70,14 @@ public final class FABlocks {
     public static final RegistryObject<WallBlock> ALABASTER_WALL = registerWall("alabaster", ALABASTER_BLOCK);
     public static final RegistryObject<RotatedPillarBlock> ALABASTER_PILLAR = registerPillar("alabaster", ALABASTER_BLOCK);
     public static final RegistryObject<LanternBlock> ALABASTER_LANTERN = BLOCKS.createBlock("alabaster_lantern", () -> new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).mapColor(MapColor.TERRACOTTA_WHITE).sound(ALABASTER_SOUND_TYPE)), new Item.Properties());
-        //Upcycled
+    public static final RegistryObject<LanternBlock> UPCYCLED_LANTERN = BLOCKS.createBlock(
+            "upcycled_lantern",
+            () -> new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN)
+                    .mapColor(MapColor.WOOD)
+                    .sound(SoundType.WOOD)),
+            new Item.Properties());
+
+    //Upcycled
     public static final RegistryObject<Block> UPCYCLED_BLOCK = BLOCKS.createBlock("upcycled_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), new Item.Properties());
     public static final RegistryObject<SlabBlock> UPCYCLED_SLAB = registerSlab("upcycled", UPCYCLED_BLOCK);
@@ -83,14 +90,16 @@ public final class FABlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), new Item.Properties());
     public static final RegistryObject<TrapDoorBlock> UPCYCLED_TRAPDOOR = BLOCKS.createBlock("upcycled_trapdoor",
             () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_TRAPDOOR), BlockSetType.OAK), new Item.Properties());
-    public static final RegistryObject<DividerBlock> UPCYCLED_DIVIDER = BLOCKS.createBlock("upcycled_divider",
+
+    //Other
+    public static final RegistryObject<DividerBlock> DIVIDER = BLOCKS.createBlock("divider",
             () -> new DividerBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).noOcclusion()), new Item.Properties());
+
         //Straw
-     public static final RegistryObject<SlabBlock> STRAW_SLAB =
+    public static final RegistryObject<SlabBlock> STRAW_SLAB =
                 registerSlab("straw", ModBlocks.STRAW_BALE);
     public static final RegistryObject<StairBlock> STRAW_STAIRS =
             registerStairs("straw", ModBlocks.STRAW_BALE);
-
 
 
     //Furniture

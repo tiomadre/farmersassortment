@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=west": {
+      "model": "farmersassortment:block/attached_yellow_pumpkin_stem",
+      "y": 0
+    },
+    "facing=north": {
+      "model": "farmersassortment:block/attached_yellow_pumpkin_stem",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "farmersassortment:block/attached_yellow_pumpkin_stem",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "farmersassortment:block/attached_yellow_pumpkin_stem",
+      "y": 270
+    }
+  }
+}

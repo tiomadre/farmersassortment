@@ -1,0 +1,143 @@
+{
+  "parent": "minecraft:block/stem_fruit",
+  "ambientocclusion": false,
+  "textures": {
+    "1": "minecraft:block/pumpkin_stem",
+    "3": "farmersassortment:block/attached_thinner_gourd_stem",
+    "particle": "minecraft:block/pumpkin_stem"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        -1,
+        8
+      ],
+      "to": [
+        16,
+        7,
+        8
+      ],
+      "rotation": {
+        "angle": 45,
+        "axis": "y",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "rescale": true
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            8
+          ],
+          "texture": "#1",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            16,
+            0,
+            0,
+            8
+          ],
+          "texture": "#1",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        8,
+        -1,
+        0
+      ],
+      "to": [
+        8,
+        7,
+        16
+      ],
+      "rotation": {
+        "angle": 45,
+        "axis": "y",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "rescale": true
+      },
+      "faces": {
+        "east": {
+          "uv": [
+            16,
+            0,
+            0,
+            8
+          ],
+          "texture": "#1",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            8
+          ],
+          "texture": "#1",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        -2,
+        0,
+        8
+      ],
+      "to": [
+        9,
+        16,
+        8
+      ],
+      "rotation": {
+        "angle": 0,
+        "axis": "y",
+        "origin": [
+          -2,
+          0,
+          0
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            11,
+            0,
+            0,
+            16
+          ],
+          "texture": "#3",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            11,
+            16
+          ],
+          "texture": "#3",
+          "tintindex": 0
+        }
+      }
+    }
+  ],
+  "render_type": "minecraft:cutout"
+}

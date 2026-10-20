@@ -1,11 +1,11 @@
 {
+  "tooltip.farmersassortment.rope_color": "Color: %s",
+  "tooltip.farmersassortment.mixed_color": "Mixed Color",
   "itemGroup.farmersassortment": "Farmer's Assortment",
-
   "item.farmersassortment.alabaster_knife": "Alabaster Knife",
   "item.farmersassortment.amethyst_knife": "Amethyst Knife",
   "item.farmersassortment.quartz_knife": "Quartz Knife",
   "item.farmersassortment.clamshell_knife": "Clamshell Knife",
-
   "item.farmersassortment.alabaster": "Alabaster",
   "block.farmersassortment.alabaster_block": "Alabaster Block",
   "block.farmersassortment.alabaster_bricks_block": "Alabaster Bricks",
@@ -14,11 +14,8 @@
   "block.farmersassortment.alabaster_slab": "Alabaster Slab",
   "block.farmersassortment.alabaster_stairs": "Alabaster Stairs",
   "block.farmersassortment.alabaster_wall": "Alabaster Wall",
-
-
   "block.farmersassortment.straw_slab": "Straw Slab",
   "block.farmersassortment.straw_stairs": "Straw Stairs",
-
   "block.farmersassortment.oak_cutting_board": "Oak Cutting Board",
   "block.farmersassortment.spruce_cutting_board": "Spruce Cutting Board",
   "block.farmersassortment.birch_cutting_board": "Birch Cutting Board",
@@ -30,7 +27,6 @@
   "block.farmersassortment.bamboo_cutting_board": "Bamboo Cutting Board",
   "block.farmersassortment.crimson_cutting_board": "Crimson Cutting Board",
   "block.farmersassortment.warped_cutting_board": "Warped Cutting Board",
-
   "block.farmersassortment.oak_butcher_block_cabinet": "Oak Butcher Block Cabinet",
   "block.farmersassortment.spruce_butcher_block_cabinet": "Spruce Butcher Block Cabinet",
   "block.farmersassortment.birch_butcher_block_cabinet": "Birch Butcher Block Cabinet",
@@ -42,17 +38,16 @@
   "block.farmersassortment.bamboo_butcher_block_cabinet": "Bamboo Butcher Block Cabinet",
   "block.farmersassortment.crimson_butcher_block_cabinet": "Crimson Butcher Block Cabinet",
   "block.farmersassortment.warped_butcher_block_cabinet": "Warped Butcher Block Cabinet",
-
   "block.farmersassortment.upcycled_butcher_block_cabinet": "Upcycled Butcher Block Cabinet",
   "block.farmersassortment.upcycled_block": "Upcycled Block",
   "block.farmersassortment.upcycled_slab": "Upcycled Slab",
   "block.farmersassortment.upcycled_cabinet": "Upcycled Cabinet",
-  "block.farmersassortment.upcycled_divider": "Upcycled Divider",
   "block.farmersassortment.upcycled_door": "Upcycled Door",
+  "block.farmersassortment.upcycled_lantern": "Upcycled Lantern",
   "block.farmersassortment.upcycled_pillar": "Upcycled Pillar",
   "block.farmersassortment.upcycled_paneling": "Upcycled Flooring",
   "block.farmersassortment.upcycled_trapdoor": "Upcycled Trapdoor",
-
+  "block.farmersassortment.divider": "Divider",
   "block.farmersassortment.oak_floating_counter": "Oak Floating Drawer",
   "block.farmersassortment.spruce_floating_counter": "Spruce Floating Drawer",
   "block.farmersassortment.birch_floating_counter": "Birch Floating Drawer",
@@ -67,10 +62,8 @@
   "block.farmersassortment.alabaster_floating_counter": "Alabaster Floating Drawer",
   "block.farmersassortment.lilac_floating_counter": "Lilac Floating Drawer",
   "block.farmersassortment.palm_floating_counter": "Palm Floating Drawer",
-
   "container.farmersassortment.floating_counter": "Drawer",
   "container.farmersassortment.double_counter": "Drawer",
-
   "block.farmersassortment.white_canvas_rug": "White Canvas Rug",
   "block.farmersassortment.orange_canvas_rug": "Orange Canvas Rug",
   "block.farmersassortment.magenta_canvas_rug": "Magenta Canvas Rug",
@@ -87,7 +80,6 @@
   "block.farmersassortment.green_canvas_rug": "Green Canvas Rug",
   "block.farmersassortment.red_canvas_rug": "Red Canvas Rug",
   "block.farmersassortment.black_canvas_rug": "Black Canvas Rug",
-
   "block.farmersassortment.oak_stool": "Oak Stool",
   "block.farmersassortment.spruce_stool": "Spruce Stool",
   "block.farmersassortment.birch_stool": "Birch Stool",
@@ -100,7 +92,6 @@
   "block.farmersassortment.crimson_stool": "Crimson Stool",
   "block.farmersassortment.warped_stool": "Warped Stool",
   "block.farmersassortment.lilac_stool": "Lilac Stool",
-
   "block.farmersassortment.oak_table": "Oak Table",
   "block.farmersassortment.spruce_table": "Spruce Table",
   "block.farmersassortment.birch_table": "Birch Table",
@@ -114,7 +105,6 @@
   "block.farmersassortment.warped_table": "Warped Table",
   "block.farmersassortment.lilac_table": "Lilac Table",
   "block.farmersassortment.alabaster_table": "Alabaster Table",
-
   "block.farmersassortment.oak_rack": "Oak Rack",
   "block.farmersassortment.spruce_rack": "Spruce Rack",
   "block.farmersassortment.birch_rack": "Birch Rack",
@@ -128,8 +118,6 @@
   "block.farmersassortment.warped_rack": "Warped Rack",
   "block.farmersassortment.alabaster_rack": "Alabaster Rack",
   "container.farmersassortment.rack": "Rack",
-
-
   "block.farmersassortment.copper_cooking_pot": "Copper Cooking Pot",
   "item.farmersassortment.copper_cooking_pot": "Copper Cooking Pot",
   "block.farmersassortment.golden_cooking_pot": "Golden Cooking Pot",
@@ -138,20 +126,16 @@
   "item.farmersassortment.alabaster_cooking_pot": "Alabaster Cooking Pot",
   "block.farmersassortment.terracotta_cooking_pot": "Terracotta Cooking Pot",
   "item.farmersassortment.terracotta_cooking_pot": "Terracotta Cooking Pot",
-
   "block.farmersassortment.alabaster_stove": "Alabaster Stove",
-
   "tooltip.farmersassortment.terracotta_cooking_pot.undyed": "Undyed",
   "tooltip.farmersassortment.terracotta_cooking_pot.dyed": "Dyed: %s",
   "tooltip.farmersassortment.stool.covered": "Covered with: %s",
   "tooltip.farmersassortment.table.covered": "Covered with: %s",
-
   "container.farmersassortment.alabaster_cooking_pot": "Alabaster Cooking Pot",
   "container.farmersassortment.copper_cooking_pot": "Copper Cooking Pot",
   "container.farmersassortment.golden_cooking_pot": "Golden Cooking Pot",
   "container.farmersassortment.terracotta_cooking_pot": "Terracotta Cooking Pot",
   "container.farmersassortment.butcher_block_cabinet": "Butcher Block Cabinet",
-
   "block.farmersassortment.palm_butcher_block_cabinet": "Palm Butcher Block Cabinet",
   "block.farmersassortment.palm_cutting_board": "Palm Cutting Board",
   "block.farmersassortment.pearlescent_cooking_pot": "Pearlescent Cooking Pot",
@@ -171,7 +155,6 @@
   "block.farmersassortment.warped_crab_trap": "Warped Crab Trap",
   "block.farmersassortment.palm_crab_trap": "Palm Crab Trap",
   "block.farmersassortment.lilac_crab_trap": "Lilac Crab Trap",
-
   "block.farmersassortment.lilac_cutting_board": "Lilac Cutting Board",
   "block.farmersassortment.lilac_butcher_block_cabinet": "Lilac Butcher Block Cabinet",
   "block.farmersassortment.amethyst_diffuser": "Amethyst Diffuser",
@@ -180,7 +163,6 @@
   "item.farmersassortment.alabaster_diffuser": "Alabaster Diffuser",
   "block.farmersassortment.pearlescent_diffuser": "Pearlescent Diffuser",
   "item.farmersassortment.pearlescent_diffuser": "Pearlescent Diffuser",
-
   "advancements.farmersassortment.main.root.title": "Farmer's Assortment",
   "advancements.farmersassortment.main.root.description": "Start adding to your collection of assortments!",
   "advancements.farmersassortment.main.cutting_board.title": "Cut To The Chase",
@@ -197,10 +179,28 @@
   "advancements.farmersassortment.main.flip_table.description": "Become enraged, gaining the Strength to flip a table!",
   "advancements.farmersassortment.main.transmutation.title": "Farmer's Alchemy?",
   "advancements.farmersassortment.main.transmutation.description": "Transmute Quartz and Gold in a Cooking Pot!",
-
   "farmersdelight.block.cutting_board.invalid_item": "This doesn't seem cuttable...",
   "farmersdelight.block.cutting_board.invalid_tool": "Maybe with a different tool...",
-  "farmersdelight.block.cutting_board.remaining_items": "%s remaining..."
-
+  "farmersdelight.block.cutting_board.remaining_items": "%s remaining...",
+  "block.farmersassortment.yellow_pumpkin": "Yellow Pumpkin",
+  "block.farmersassortment.carved_yellow_pumpkin": "Carved Yellow Pumpkin",
+  "block.farmersassortment.yellow_jack_o_lantern": "Yellow Jack o'Lantern",
+  "block.farmersassortment.yellow_pumpkin_stem": "Yellow Pumpkin Stem",
+  "block.farmersassortment.attached_yellow_pumpkin_stem": "Attached Yellow Pumpkin Stem",
+  "item.farmersassortment.yellow_pumpkin_seeds": "Yellow Pumpkin Seeds",
+  "item.farmersassortment.yellow_pumpkin_slice": "Yellow Pumpkin Slice",
+  "block.farmersassortment.white_pumpkin": "White Pumpkin",
+  "block.farmersassortment.carved_white_pumpkin": "Carved White Pumpkin",
+  "block.farmersassortment.white_jack_o_lantern": "White Jack o'Lantern",
+  "block.farmersassortment.white_pumpkin_stem": "White Pumpkin Stem",
+  "block.farmersassortment.attached_white_pumpkin_stem": "Attached White Pumpkin Stem",
+  "item.farmersassortment.white_pumpkin_seeds": "White Pumpkin Seeds",
+  "item.farmersassortment.white_pumpkin_slice": "White Pumpkin Slice",
+  "block.farmersassortment.red_pumpkin": "Red Pumpkin",
+  "block.farmersassortment.carved_red_pumpkin": "Carved Red Pumpkin",
+  "block.farmersassortment.red_jack_o_lantern": "Red Jack o'Lantern",
+  "block.farmersassortment.red_pumpkin_stem": "Red Pumpkin Stem",
+  "block.farmersassortment.attached_red_pumpkin_stem": "Attached Red Pumpkin Stem",
+  "item.farmersassortment.red_pumpkin_seeds": "Red Pumpkin Seeds",
+  "item.farmersassortment.red_pumpkin_slice": "Red Pumpkin Slice"
 }
-

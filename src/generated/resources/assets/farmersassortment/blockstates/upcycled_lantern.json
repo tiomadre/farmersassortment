@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "farmersassortment:block/upcycled_lantern"
+    },
+    "hanging=true": {
+      "model": "farmersassortment:block/upcycled_lantern_hanging"
+    }
+  }
+}

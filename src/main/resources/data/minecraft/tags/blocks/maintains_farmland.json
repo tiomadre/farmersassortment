@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "farmersassortment:yellow_pumpkin_stem",
+    "farmersassortment:attached_yellow_pumpkin_stem",
+    "farmersassortment:white_pumpkin_stem",
+    "farmersassortment:attached_white_pumpkin_stem",
+    "farmersassortment:red_pumpkin_stem",
+    "farmersassortment:attached_red_pumpkin_stem"
+  ]
+}

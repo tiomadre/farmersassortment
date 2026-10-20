@@ -1,0 +1,1084 @@
+{
+  "variants": {
+    "canvas=0,facing=east,part=0,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_0_part_0",
+      "y": 270
+    },
+    "canvas=0,facing=east,part=0,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_0_part_0",
+      "y": 270
+    },
+    "canvas=0,facing=east,part=0,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_0_part_0",
+      "y": 270
+    },
+    "canvas=0,facing=east,part=1,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_0_part_1",
+      "y": 270
+    },
+    "canvas=0,facing=east,part=1,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_0_part_1",
+      "y": 270
+    },
+    "canvas=0,facing=east,part=1,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_0_part_1",
+      "y": 270
+    },
+    "canvas=0,facing=east,part=2,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_0_part_2",
+      "y": 270
+    },
+    "canvas=0,facing=east,part=2,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_0_part_2",
+      "y": 270
+    },
+    "canvas=0,facing=east,part=2,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_0_part_2",
+      "y": 270
+    },
+    "canvas=0,facing=east,part=3,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_0_part_3",
+      "y": 270
+    },
+    "canvas=0,facing=east,part=3,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_0_part_3",
+      "y": 270
+    },
+    "canvas=0,facing=east,part=3,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_0_part_3",
+      "y": 270
+    },
+    "canvas=0,facing=east,part=4,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_0_part_4",
+      "y": 270
+    },
+    "canvas=0,facing=east,part=4,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_0_part_4",
+      "y": 270
+    },
+    "canvas=0,facing=east,part=4,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_0_part_4",
+      "y": 270
+    },
+    "canvas=0,facing=east,part=5,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_0_part_5",
+      "y": 270
+    },
+    "canvas=0,facing=east,part=5,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_0_part_5",
+      "y": 270
+    },
+    "canvas=0,facing=east,part=5,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_0_part_5",
+      "y": 270
+    },
+    "canvas=0,facing=north,part=0,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_0_part_0",
+      "y": 180
+    },
+    "canvas=0,facing=north,part=0,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_0_part_0",
+      "y": 180
+    },
+    "canvas=0,facing=north,part=0,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_0_part_0",
+      "y": 180
+    },
+    "canvas=0,facing=north,part=1,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_0_part_1",
+      "y": 180
+    },
+    "canvas=0,facing=north,part=1,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_0_part_1",
+      "y": 180
+    },
+    "canvas=0,facing=north,part=1,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_0_part_1",
+      "y": 180
+    },
+    "canvas=0,facing=north,part=2,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_0_part_2",
+      "y": 180
+    },
+    "canvas=0,facing=north,part=2,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_0_part_2",
+      "y": 180
+    },
+    "canvas=0,facing=north,part=2,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_0_part_2",
+      "y": 180
+    },
+    "canvas=0,facing=north,part=3,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_0_part_3",
+      "y": 180
+    },
+    "canvas=0,facing=north,part=3,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_0_part_3",
+      "y": 180
+    },
+    "canvas=0,facing=north,part=3,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_0_part_3",
+      "y": 180
+    },
+    "canvas=0,facing=north,part=4,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_0_part_4",
+      "y": 180
+    },
+    "canvas=0,facing=north,part=4,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_0_part_4",
+      "y": 180
+    },
+    "canvas=0,facing=north,part=4,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_0_part_4",
+      "y": 180
+    },
+    "canvas=0,facing=north,part=5,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_0_part_5",
+      "y": 180
+    },
+    "canvas=0,facing=north,part=5,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_0_part_5",
+      "y": 180
+    },
+    "canvas=0,facing=north,part=5,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_0_part_5",
+      "y": 180
+    },
+    "canvas=0,facing=south,part=0,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_0_part_0"
+    },
+    "canvas=0,facing=south,part=0,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_0_part_0"
+    },
+    "canvas=0,facing=south,part=0,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_0_part_0"
+    },
+    "canvas=0,facing=south,part=1,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_0_part_1"
+    },
+    "canvas=0,facing=south,part=1,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_0_part_1"
+    },
+    "canvas=0,facing=south,part=1,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_0_part_1"
+    },
+    "canvas=0,facing=south,part=2,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_0_part_2"
+    },
+    "canvas=0,facing=south,part=2,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_0_part_2"
+    },
+    "canvas=0,facing=south,part=2,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_0_part_2"
+    },
+    "canvas=0,facing=south,part=3,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_0_part_3"
+    },
+    "canvas=0,facing=south,part=3,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_0_part_3"
+    },
+    "canvas=0,facing=south,part=3,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_0_part_3"
+    },
+    "canvas=0,facing=south,part=4,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_0_part_4"
+    },
+    "canvas=0,facing=south,part=4,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_0_part_4"
+    },
+    "canvas=0,facing=south,part=4,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_0_part_4"
+    },
+    "canvas=0,facing=south,part=5,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_0_part_5"
+    },
+    "canvas=0,facing=south,part=5,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_0_part_5"
+    },
+    "canvas=0,facing=south,part=5,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_0_part_5"
+    },
+    "canvas=0,facing=west,part=0,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_0_part_0",
+      "y": 90
+    },
+    "canvas=0,facing=west,part=0,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_0_part_0",
+      "y": 90
+    },
+    "canvas=0,facing=west,part=0,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_0_part_0",
+      "y": 90
+    },
+    "canvas=0,facing=west,part=1,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_0_part_1",
+      "y": 90
+    },
+    "canvas=0,facing=west,part=1,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_0_part_1",
+      "y": 90
+    },
+    "canvas=0,facing=west,part=1,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_0_part_1",
+      "y": 90
+    },
+    "canvas=0,facing=west,part=2,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_0_part_2",
+      "y": 90
+    },
+    "canvas=0,facing=west,part=2,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_0_part_2",
+      "y": 90
+    },
+    "canvas=0,facing=west,part=2,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_0_part_2",
+      "y": 90
+    },
+    "canvas=0,facing=west,part=3,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_0_part_3",
+      "y": 90
+    },
+    "canvas=0,facing=west,part=3,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_0_part_3",
+      "y": 90
+    },
+    "canvas=0,facing=west,part=3,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_0_part_3",
+      "y": 90
+    },
+    "canvas=0,facing=west,part=4,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_0_part_4",
+      "y": 90
+    },
+    "canvas=0,facing=west,part=4,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_0_part_4",
+      "y": 90
+    },
+    "canvas=0,facing=west,part=4,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_0_part_4",
+      "y": 90
+    },
+    "canvas=0,facing=west,part=5,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_0_part_5",
+      "y": 90
+    },
+    "canvas=0,facing=west,part=5,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_0_part_5",
+      "y": 90
+    },
+    "canvas=0,facing=west,part=5,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_0_part_5",
+      "y": 90
+    },
+    "canvas=1,facing=east,part=0,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_1_part_0",
+      "y": 270
+    },
+    "canvas=1,facing=east,part=0,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_1_part_0",
+      "y": 270
+    },
+    "canvas=1,facing=east,part=0,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_1_part_0",
+      "y": 270
+    },
+    "canvas=1,facing=east,part=1,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_1_part_1",
+      "y": 270
+    },
+    "canvas=1,facing=east,part=1,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_1_part_1",
+      "y": 270
+    },
+    "canvas=1,facing=east,part=1,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_1_part_1",
+      "y": 270
+    },
+    "canvas=1,facing=east,part=2,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_1_part_2",
+      "y": 270
+    },
+    "canvas=1,facing=east,part=2,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_1_part_2",
+      "y": 270
+    },
+    "canvas=1,facing=east,part=2,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_1_part_2",
+      "y": 270
+    },
+    "canvas=1,facing=east,part=3,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_1_part_3",
+      "y": 270
+    },
+    "canvas=1,facing=east,part=3,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_1_part_3",
+      "y": 270
+    },
+    "canvas=1,facing=east,part=3,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_1_part_3",
+      "y": 270
+    },
+    "canvas=1,facing=east,part=4,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_1_part_4",
+      "y": 270
+    },
+    "canvas=1,facing=east,part=4,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_1_part_4",
+      "y": 270
+    },
+    "canvas=1,facing=east,part=4,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_1_part_4",
+      "y": 270
+    },
+    "canvas=1,facing=east,part=5,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_1_part_5",
+      "y": 270
+    },
+    "canvas=1,facing=east,part=5,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_1_part_5",
+      "y": 270
+    },
+    "canvas=1,facing=east,part=5,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_1_part_5",
+      "y": 270
+    },
+    "canvas=1,facing=north,part=0,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_1_part_0",
+      "y": 180
+    },
+    "canvas=1,facing=north,part=0,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_1_part_0",
+      "y": 180
+    },
+    "canvas=1,facing=north,part=0,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_1_part_0",
+      "y": 180
+    },
+    "canvas=1,facing=north,part=1,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_1_part_1",
+      "y": 180
+    },
+    "canvas=1,facing=north,part=1,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_1_part_1",
+      "y": 180
+    },
+    "canvas=1,facing=north,part=1,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_1_part_1",
+      "y": 180
+    },
+    "canvas=1,facing=north,part=2,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_1_part_2",
+      "y": 180
+    },
+    "canvas=1,facing=north,part=2,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_1_part_2",
+      "y": 180
+    },
+    "canvas=1,facing=north,part=2,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_1_part_2",
+      "y": 180
+    },
+    "canvas=1,facing=north,part=3,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_1_part_3",
+      "y": 180
+    },
+    "canvas=1,facing=north,part=3,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_1_part_3",
+      "y": 180
+    },
+    "canvas=1,facing=north,part=3,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_1_part_3",
+      "y": 180
+    },
+    "canvas=1,facing=north,part=4,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_1_part_4",
+      "y": 180
+    },
+    "canvas=1,facing=north,part=4,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_1_part_4",
+      "y": 180
+    },
+    "canvas=1,facing=north,part=4,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_1_part_4",
+      "y": 180
+    },
+    "canvas=1,facing=north,part=5,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_1_part_5",
+      "y": 180
+    },
+    "canvas=1,facing=north,part=5,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_1_part_5",
+      "y": 180
+    },
+    "canvas=1,facing=north,part=5,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_1_part_5",
+      "y": 180
+    },
+    "canvas=1,facing=south,part=0,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_1_part_0"
+    },
+    "canvas=1,facing=south,part=0,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_1_part_0"
+    },
+    "canvas=1,facing=south,part=0,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_1_part_0"
+    },
+    "canvas=1,facing=south,part=1,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_1_part_1"
+    },
+    "canvas=1,facing=south,part=1,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_1_part_1"
+    },
+    "canvas=1,facing=south,part=1,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_1_part_1"
+    },
+    "canvas=1,facing=south,part=2,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_1_part_2"
+    },
+    "canvas=1,facing=south,part=2,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_1_part_2"
+    },
+    "canvas=1,facing=south,part=2,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_1_part_2"
+    },
+    "canvas=1,facing=south,part=3,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_1_part_3"
+    },
+    "canvas=1,facing=south,part=3,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_1_part_3"
+    },
+    "canvas=1,facing=south,part=3,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_1_part_3"
+    },
+    "canvas=1,facing=south,part=4,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_1_part_4"
+    },
+    "canvas=1,facing=south,part=4,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_1_part_4"
+    },
+    "canvas=1,facing=south,part=4,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_1_part_4"
+    },
+    "canvas=1,facing=south,part=5,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_1_part_5"
+    },
+    "canvas=1,facing=south,part=5,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_1_part_5"
+    },
+    "canvas=1,facing=south,part=5,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_1_part_5"
+    },
+    "canvas=1,facing=west,part=0,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_1_part_0",
+      "y": 90
+    },
+    "canvas=1,facing=west,part=0,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_1_part_0",
+      "y": 90
+    },
+    "canvas=1,facing=west,part=0,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_1_part_0",
+      "y": 90
+    },
+    "canvas=1,facing=west,part=1,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_1_part_1",
+      "y": 90
+    },
+    "canvas=1,facing=west,part=1,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_1_part_1",
+      "y": 90
+    },
+    "canvas=1,facing=west,part=1,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_1_part_1",
+      "y": 90
+    },
+    "canvas=1,facing=west,part=2,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_1_part_2",
+      "y": 90
+    },
+    "canvas=1,facing=west,part=2,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_1_part_2",
+      "y": 90
+    },
+    "canvas=1,facing=west,part=2,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_1_part_2",
+      "y": 90
+    },
+    "canvas=1,facing=west,part=3,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_1_part_3",
+      "y": 90
+    },
+    "canvas=1,facing=west,part=3,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_1_part_3",
+      "y": 90
+    },
+    "canvas=1,facing=west,part=3,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_1_part_3",
+      "y": 90
+    },
+    "canvas=1,facing=west,part=4,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_1_part_4",
+      "y": 90
+    },
+    "canvas=1,facing=west,part=4,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_1_part_4",
+      "y": 90
+    },
+    "canvas=1,facing=west,part=4,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_1_part_4",
+      "y": 90
+    },
+    "canvas=1,facing=west,part=5,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_1_part_5",
+      "y": 90
+    },
+    "canvas=1,facing=west,part=5,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_1_part_5",
+      "y": 90
+    },
+    "canvas=1,facing=west,part=5,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_1_part_5",
+      "y": 90
+    },
+    "canvas=2,facing=east,part=0,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_2_part_0",
+      "y": 270
+    },
+    "canvas=2,facing=east,part=0,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_2_part_0",
+      "y": 270
+    },
+    "canvas=2,facing=east,part=0,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_2_part_0",
+      "y": 270
+    },
+    "canvas=2,facing=east,part=1,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_2_part_1",
+      "y": 270
+    },
+    "canvas=2,facing=east,part=1,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_2_part_1",
+      "y": 270
+    },
+    "canvas=2,facing=east,part=1,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_2_part_1",
+      "y": 270
+    },
+    "canvas=2,facing=east,part=2,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_2_part_2",
+      "y": 270
+    },
+    "canvas=2,facing=east,part=2,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_2_part_2",
+      "y": 270
+    },
+    "canvas=2,facing=east,part=2,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_2_part_2",
+      "y": 270
+    },
+    "canvas=2,facing=east,part=3,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_2_part_3",
+      "y": 270
+    },
+    "canvas=2,facing=east,part=3,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_2_part_3",
+      "y": 270
+    },
+    "canvas=2,facing=east,part=3,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_2_part_3",
+      "y": 270
+    },
+    "canvas=2,facing=east,part=4,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_2_part_4",
+      "y": 270
+    },
+    "canvas=2,facing=east,part=4,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_2_part_4",
+      "y": 270
+    },
+    "canvas=2,facing=east,part=4,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_2_part_4",
+      "y": 270
+    },
+    "canvas=2,facing=east,part=5,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_2_part_5",
+      "y": 270
+    },
+    "canvas=2,facing=east,part=5,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_2_part_5",
+      "y": 270
+    },
+    "canvas=2,facing=east,part=5,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_2_part_5",
+      "y": 270
+    },
+    "canvas=2,facing=north,part=0,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_2_part_0",
+      "y": 180
+    },
+    "canvas=2,facing=north,part=0,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_2_part_0",
+      "y": 180
+    },
+    "canvas=2,facing=north,part=0,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_2_part_0",
+      "y": 180
+    },
+    "canvas=2,facing=north,part=1,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_2_part_1",
+      "y": 180
+    },
+    "canvas=2,facing=north,part=1,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_2_part_1",
+      "y": 180
+    },
+    "canvas=2,facing=north,part=1,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_2_part_1",
+      "y": 180
+    },
+    "canvas=2,facing=north,part=2,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_2_part_2",
+      "y": 180
+    },
+    "canvas=2,facing=north,part=2,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_2_part_2",
+      "y": 180
+    },
+    "canvas=2,facing=north,part=2,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_2_part_2",
+      "y": 180
+    },
+    "canvas=2,facing=north,part=3,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_2_part_3",
+      "y": 180
+    },
+    "canvas=2,facing=north,part=3,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_2_part_3",
+      "y": 180
+    },
+    "canvas=2,facing=north,part=3,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_2_part_3",
+      "y": 180
+    },
+    "canvas=2,facing=north,part=4,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_2_part_4",
+      "y": 180
+    },
+    "canvas=2,facing=north,part=4,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_2_part_4",
+      "y": 180
+    },
+    "canvas=2,facing=north,part=4,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_2_part_4",
+      "y": 180
+    },
+    "canvas=2,facing=north,part=5,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_2_part_5",
+      "y": 180
+    },
+    "canvas=2,facing=north,part=5,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_2_part_5",
+      "y": 180
+    },
+    "canvas=2,facing=north,part=5,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_2_part_5",
+      "y": 180
+    },
+    "canvas=2,facing=south,part=0,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_2_part_0"
+    },
+    "canvas=2,facing=south,part=0,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_2_part_0"
+    },
+    "canvas=2,facing=south,part=0,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_2_part_0"
+    },
+    "canvas=2,facing=south,part=1,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_2_part_1"
+    },
+    "canvas=2,facing=south,part=1,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_2_part_1"
+    },
+    "canvas=2,facing=south,part=1,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_2_part_1"
+    },
+    "canvas=2,facing=south,part=2,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_2_part_2"
+    },
+    "canvas=2,facing=south,part=2,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_2_part_2"
+    },
+    "canvas=2,facing=south,part=2,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_2_part_2"
+    },
+    "canvas=2,facing=south,part=3,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_2_part_3"
+    },
+    "canvas=2,facing=south,part=3,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_2_part_3"
+    },
+    "canvas=2,facing=south,part=3,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_2_part_3"
+    },
+    "canvas=2,facing=south,part=4,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_2_part_4"
+    },
+    "canvas=2,facing=south,part=4,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_2_part_4"
+    },
+    "canvas=2,facing=south,part=4,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_2_part_4"
+    },
+    "canvas=2,facing=south,part=5,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_2_part_5"
+    },
+    "canvas=2,facing=south,part=5,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_2_part_5"
+    },
+    "canvas=2,facing=south,part=5,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_2_part_5"
+    },
+    "canvas=2,facing=west,part=0,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_2_part_0",
+      "y": 90
+    },
+    "canvas=2,facing=west,part=0,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_2_part_0",
+      "y": 90
+    },
+    "canvas=2,facing=west,part=0,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_2_part_0",
+      "y": 90
+    },
+    "canvas=2,facing=west,part=1,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_2_part_1",
+      "y": 90
+    },
+    "canvas=2,facing=west,part=1,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_2_part_1",
+      "y": 90
+    },
+    "canvas=2,facing=west,part=1,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_2_part_1",
+      "y": 90
+    },
+    "canvas=2,facing=west,part=2,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_2_part_2",
+      "y": 90
+    },
+    "canvas=2,facing=west,part=2,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_2_part_2",
+      "y": 90
+    },
+    "canvas=2,facing=west,part=2,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_2_part_2",
+      "y": 90
+    },
+    "canvas=2,facing=west,part=3,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_2_part_3",
+      "y": 90
+    },
+    "canvas=2,facing=west,part=3,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_2_part_3",
+      "y": 90
+    },
+    "canvas=2,facing=west,part=3,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_2_part_3",
+      "y": 90
+    },
+    "canvas=2,facing=west,part=4,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_2_part_4",
+      "y": 90
+    },
+    "canvas=2,facing=west,part=4,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_2_part_4",
+      "y": 90
+    },
+    "canvas=2,facing=west,part=4,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_2_part_4",
+      "y": 90
+    },
+    "canvas=2,facing=west,part=5,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_2_part_5",
+      "y": 90
+    },
+    "canvas=2,facing=west,part=5,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_2_part_5",
+      "y": 90
+    },
+    "canvas=2,facing=west,part=5,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_2_part_5",
+      "y": 90
+    },
+    "canvas=3,facing=east,part=0,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_3_part_0",
+      "y": 270
+    },
+    "canvas=3,facing=east,part=0,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_3_part_0",
+      "y": 270
+    },
+    "canvas=3,facing=east,part=0,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_3_part_0",
+      "y": 270
+    },
+    "canvas=3,facing=east,part=1,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_3_part_1",
+      "y": 270
+    },
+    "canvas=3,facing=east,part=1,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_3_part_1",
+      "y": 270
+    },
+    "canvas=3,facing=east,part=1,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_3_part_1",
+      "y": 270
+    },
+    "canvas=3,facing=east,part=2,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_3_part_2",
+      "y": 270
+    },
+    "canvas=3,facing=east,part=2,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_3_part_2",
+      "y": 270
+    },
+    "canvas=3,facing=east,part=2,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_3_part_2",
+      "y": 270
+    },
+    "canvas=3,facing=east,part=3,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_3_part_3",
+      "y": 270
+    },
+    "canvas=3,facing=east,part=3,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_3_part_3",
+      "y": 270
+    },
+    "canvas=3,facing=east,part=3,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_3_part_3",
+      "y": 270
+    },
+    "canvas=3,facing=east,part=4,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_3_part_4",
+      "y": 270
+    },
+    "canvas=3,facing=east,part=4,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_3_part_4",
+      "y": 270
+    },
+    "canvas=3,facing=east,part=4,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_3_part_4",
+      "y": 270
+    },
+    "canvas=3,facing=east,part=5,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_3_part_5",
+      "y": 270
+    },
+    "canvas=3,facing=east,part=5,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_3_part_5",
+      "y": 270
+    },
+    "canvas=3,facing=east,part=5,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_3_part_5",
+      "y": 270
+    },
+    "canvas=3,facing=north,part=0,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_3_part_0",
+      "y": 180
+    },
+    "canvas=3,facing=north,part=0,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_3_part_0",
+      "y": 180
+    },
+    "canvas=3,facing=north,part=0,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_3_part_0",
+      "y": 180
+    },
+    "canvas=3,facing=north,part=1,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_3_part_1",
+      "y": 180
+    },
+    "canvas=3,facing=north,part=1,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_3_part_1",
+      "y": 180
+    },
+    "canvas=3,facing=north,part=1,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_3_part_1",
+      "y": 180
+    },
+    "canvas=3,facing=north,part=2,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_3_part_2",
+      "y": 180
+    },
+    "canvas=3,facing=north,part=2,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_3_part_2",
+      "y": 180
+    },
+    "canvas=3,facing=north,part=2,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_3_part_2",
+      "y": 180
+    },
+    "canvas=3,facing=north,part=3,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_3_part_3",
+      "y": 180
+    },
+    "canvas=3,facing=north,part=3,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_3_part_3",
+      "y": 180
+    },
+    "canvas=3,facing=north,part=3,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_3_part_3",
+      "y": 180
+    },
+    "canvas=3,facing=north,part=4,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_3_part_4",
+      "y": 180
+    },
+    "canvas=3,facing=north,part=4,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_3_part_4",
+      "y": 180
+    },
+    "canvas=3,facing=north,part=4,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_3_part_4",
+      "y": 180
+    },
+    "canvas=3,facing=north,part=5,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_3_part_5",
+      "y": 180
+    },
+    "canvas=3,facing=north,part=5,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_3_part_5",
+      "y": 180
+    },
+    "canvas=3,facing=north,part=5,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_3_part_5",
+      "y": 180
+    },
+    "canvas=3,facing=south,part=0,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_3_part_0"
+    },
+    "canvas=3,facing=south,part=0,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_3_part_0"
+    },
+    "canvas=3,facing=south,part=0,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_3_part_0"
+    },
+    "canvas=3,facing=south,part=1,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_3_part_1"
+    },
+    "canvas=3,facing=south,part=1,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_3_part_1"
+    },
+    "canvas=3,facing=south,part=1,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_3_part_1"
+    },
+    "canvas=3,facing=south,part=2,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_3_part_2"
+    },
+    "canvas=3,facing=south,part=2,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_3_part_2"
+    },
+    "canvas=3,facing=south,part=2,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_3_part_2"
+    },
+    "canvas=3,facing=south,part=3,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_3_part_3"
+    },
+    "canvas=3,facing=south,part=3,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_3_part_3"
+    },
+    "canvas=3,facing=south,part=3,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_3_part_3"
+    },
+    "canvas=3,facing=south,part=4,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_3_part_4"
+    },
+    "canvas=3,facing=south,part=4,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_3_part_4"
+    },
+    "canvas=3,facing=south,part=4,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_3_part_4"
+    },
+    "canvas=3,facing=south,part=5,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_3_part_5"
+    },
+    "canvas=3,facing=south,part=5,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_3_part_5"
+    },
+    "canvas=3,facing=south,part=5,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_3_part_5"
+    },
+    "canvas=3,facing=west,part=0,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_3_part_0",
+      "y": 90
+    },
+    "canvas=3,facing=west,part=0,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_3_part_0",
+      "y": 90
+    },
+    "canvas=3,facing=west,part=0,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_3_part_0",
+      "y": 90
+    },
+    "canvas=3,facing=west,part=1,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_3_part_1",
+      "y": 90
+    },
+    "canvas=3,facing=west,part=1,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_3_part_1",
+      "y": 90
+    },
+    "canvas=3,facing=west,part=1,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_3_part_1",
+      "y": 90
+    },
+    "canvas=3,facing=west,part=2,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_3_part_2",
+      "y": 90
+    },
+    "canvas=3,facing=west,part=2,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_3_part_2",
+      "y": 90
+    },
+    "canvas=3,facing=west,part=2,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_3_part_2",
+      "y": 90
+    },
+    "canvas=3,facing=west,part=3,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_3_part_3",
+      "y": 90
+    },
+    "canvas=3,facing=west,part=3,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_3_part_3",
+      "y": 90
+    },
+    "canvas=3,facing=west,part=3,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_3_part_3",
+      "y": 90
+    },
+    "canvas=3,facing=west,part=4,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_3_part_4",
+      "y": 90
+    },
+    "canvas=3,facing=west,part=4,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_3_part_4",
+      "y": 90
+    },
+    "canvas=3,facing=west,part=4,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_3_part_4",
+      "y": 90
+    },
+    "canvas=3,facing=west,part=5,state=closed": {
+      "model": "farmersassortment:block/divider_closed_canvas_3_part_5",
+      "y": 90
+    },
+    "canvas=3,facing=west,part=5,state=half_open": {
+      "model": "farmersassortment:block/divider_half_open_canvas_3_part_5",
+      "y": 90
+    },
+    "canvas=3,facing=west,part=5,state=open": {
+      "model": "farmersassortment:block/divider_open_canvas_3_part_5",
+      "y": 90
+    }
+  }
+}

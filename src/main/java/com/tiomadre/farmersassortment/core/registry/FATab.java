@@ -121,6 +121,10 @@ public final class FATab {
     );
 
     private static boolean shouldDisplay(ResourceLocation id) {
+        if (FAPumpkins.VARIANTS.stream().anyMatch(variant ->
+                variant.stem.getId().equals(id) || variant.attachedStem.getId().equals(id))) {
+            return false;
+        }
         String path = id.getPath();
         if ((CRABBERS_ITEMS.contains(path) || path.endsWith("_crab_trap")) && !ModList.get().isLoaded("crabbersdelight")) {
             return false;

@@ -1,0 +1,93 @@
+{
+  "ambientocclusion": false,
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "texture": "#0",
+          "tintindex": 0,
+          "uv": [
+            0.0,
+            1.0,
+            16.0,
+            2.0
+          ]
+        },
+        "east": {
+          "texture": "#0",
+          "tintindex": 0,
+          "uv": [
+            14.0,
+            0.0,
+            15.0,
+            8.0
+          ]
+        },
+        "north": {
+          "texture": "#0",
+          "tintindex": 0,
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            8.0
+          ]
+        },
+        "south": {
+          "texture": "#0",
+          "tintindex": 0,
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            8.0
+          ]
+        },
+        "up": {
+          "texture": "#0",
+          "tintindex": 0,
+          "uv": [
+            0.0,
+            7.0,
+            16.0,
+            8.0
+          ]
+        },
+        "west": {
+          "texture": "#0",
+          "tintindex": 0,
+          "uv": [
+            15.0,
+            0.0,
+            16.0,
+            16.0
+          ]
+        }
+      },
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        16,
+        8,
+        1
+      ]
+    }
+  ],
+  "textures": {
+    "0": "farmersassortment:block/divider_top",
+    "1": "farmersassortment:block/divider_bottom",
+    "particle": "farmersassortment:block/divider_top"
+  }
+}

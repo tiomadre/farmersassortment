@@ -1,0 +1,245 @@
+{
+  "parent": "block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "cullface": "down",
+          "texture": "#all",
+          "uv": [
+            2,
+            14,
+            4,
+            16
+          ]
+        },
+        "east": {
+          "cullface": "east",
+          "texture": "#all",
+          "uv": [
+            0,
+            2,
+            2,
+            16
+          ]
+        },
+        "north": {
+          "texture": "#all",
+          "uv": [
+            0,
+            2,
+            2,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#all",
+          "uv": [
+            0,
+            2,
+            2,
+            16
+          ]
+        },
+        "up": {
+          "texture": "#all",
+          "uv": [
+            2,
+            14,
+            4,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#all",
+          "uv": [
+            0,
+            2,
+            2,
+            16
+          ]
+        }
+      },
+      "from": [
+        14,
+        0,
+        7
+      ],
+      "name": "east_post",
+      "to": [
+        16,
+        14,
+        9
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "cullface": "down",
+          "texture": "#all",
+          "uv": [
+            2,
+            14,
+            4,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#all",
+          "uv": [
+            0,
+            2,
+            2,
+            16
+          ]
+        },
+        "north": {
+          "texture": "#all",
+          "uv": [
+            0,
+            2,
+            2,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#all",
+          "uv": [
+            0,
+            2,
+            2,
+            16
+          ]
+        },
+        "up": {
+          "texture": "#all",
+          "uv": [
+            2,
+            14,
+            4,
+            16
+          ]
+        },
+        "west": {
+          "cullface": "west",
+          "texture": "#all",
+          "uv": [
+            0,
+            2,
+            2,
+            16
+          ]
+        }
+      },
+      "from": [
+        0,
+        0,
+        7
+      ],
+      "name": "west_post",
+      "to": [
+        2,
+        14,
+        9
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#open",
+          "tintindex": 0,
+          "uv": [
+            2,
+            2,
+            4,
+            6
+          ]
+        },
+        "east": {
+          "texture": "#open",
+          "tintindex": 0,
+          "uv": [
+            2,
+            0,
+            6,
+            8
+          ]
+        },
+        "north": {
+          "texture": "#open",
+          "tintindex": 0,
+          "uv": [
+            4,
+            0,
+            6,
+            8
+          ]
+        },
+        "south": {
+          "texture": "#open",
+          "tintindex": 0,
+          "uv": [
+            0,
+            0,
+            2,
+            8
+          ]
+        },
+        "up": {
+          "texture": "#open",
+          "tintindex": 0,
+          "uv": [
+            2,
+            3,
+            4,
+            7
+          ]
+        },
+        "west": {
+          "texture": "#open",
+          "tintindex": 0,
+          "uv": [
+            6,
+            0,
+            2,
+            8
+          ]
+        }
+      },
+      "from": [
+        1,
+        4,
+        6
+      ],
+      "name": "coiled_gate",
+      "to": [
+        3,
+        12,
+        10
+      ]
+    }
+  ],
+  "format_version": "1.9.0",
+  "groups": [
+    {
+      "children": [
+        0,
+        1,
+        2
+      ],
+      "color": 0,
+      "name": "open",
+      "origin": [
+        15,
+        9,
+        8
+      ]
+    }
+  ],
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "all": "farmersdelight:block/rope_fence_gate",
+    "open": "farmersdelight:block/rope_fence_gate_open",
+    "particle": "farmersdelight:block/rope_fence_gate"
+  }
+}

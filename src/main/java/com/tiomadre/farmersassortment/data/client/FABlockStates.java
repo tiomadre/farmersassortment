@@ -15,14 +15,18 @@ import net.minecraft.server.packs.PackType;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.client.model.generators.*;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 import vectorwing.farmersdelight.common.block.*;
 import vectorwing.farmersdelight.common.block.state.CookingPotSupport;
-import com.tiomadre.farmersassortment.core.block.state.StoolRugType;
-import com.tiomadre.farmersassortment.core.block.state.TableCoverType;
+import com.tiomadre.farmersassortment.core.block.state.FurnitureCoverType;
+import net.minecraft.data.CachedOutput;
+import net.minecraft.data.DataProvider;
+import java.nio.file.Path;
+import java.util.concurrent.CompletableFuture;
 
 import java.util.*;
 import com.google.gson.*;
@@ -31,11 +35,17 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
 public class FABlockStates extends BlockStateProvider {
+    private static final List<String> ROPE_MODELS = List.of(
+            "rope_fence_post", "rope_fence_side", "rope_fence_side_alt", "rope_fence_inventory",
+            "rope_fence_gate", "rope_fence_gate_open", "rope_fence_gate_wall", "rope_fence_gate_wall_open");
+
+    private final Path output;
     private final ExistingFileHelper fileHelper;
     private JsonArray nonCanvasTableElements;
 
     public FABlockStates(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, FarmersAssortment.MOD_ID, existingFileHelper);
+        this.output = output.getOutputFolder();
         this.fileHelper = existingFileHelper;
         CompatTexture("crabbersdelight", "block/stripped_palm_log");
         CompatTexture("crabbersdelight", "block/stripped_palm_log_top");
@@ -45,6 +55,53 @@ public class FABlockStates extends BlockStateProvider {
         CompatTexture("farmersdelight", "block/canvas_rug");
         CompatTexture("farmersdelight", "block/straw_bale_side");
         CompatTexture("farmersdelight", "block/straw_bale_end");
+
+    }
+
+    @Override
+    public CompletableFuture<?> run(CachedOutput cache) {
+        return CompletableFuture.allOf(
+                super.run(cache),
+                generateRopeColorModels(cache));
+    }
+
+    private CompletableFuture<?> generateRopeColorModels(CachedOutput cache) {
+        List<CompletableFuture<?>> saves = new ArrayList<>();
+
+        for (String name : ROPE_MODELS) {
+            String resource = "assets/farmersdelight/models/block/" + name + ".json";
+
+            try (var stream = FABlockStates.class.getClassLoader().getResourceAsStream(resource)) {
+                if (stream == null) {
+                    throw new IOException("Missing Farmer's Delight model: " + resource);
+                }
+
+                JsonObject model = JsonParser.parseReader(
+                        new InputStreamReader(stream, StandardCharsets.UTF_8)).getAsJsonObject();
+
+                model.addProperty("render_type", "minecraft:cutout");
+
+                for (JsonElement entry : model.getAsJsonArray("elements")) {
+                    JsonObject element = entry.getAsJsonObject();
+
+                    if (!element.has("name")) {
+                        throw new IOException("Unnamed element in " + resource);
+                    }
+
+                    if (element.get("name").getAsString().contains("post")) continue;
+
+                    for (var face : element.getAsJsonObject("faces").entrySet()) {
+                        face.getValue().getAsJsonObject().addProperty("tintindex", 0);
+                    }
+                }
+
+                saves.add(DataProvider.saveStable(cache, model, output.resolve(resource)));
+            } catch (IOException exception) {
+                return CompletableFuture.failedFuture(exception);
+            }
+        }
+
+        return CompletableFuture.allOf(saves.toArray(CompletableFuture[]::new));
     }
 
     private void CompatTexture(String namespace, String path) {
@@ -73,6 +130,7 @@ public class FABlockStates extends BlockStateProvider {
         registerTrapdoors();
         registerDivider();
         registerAlabasterLantern();
+        registerUpcycledLantern();
 
         //Other
         ResourceLocation strawSide =
@@ -102,20 +160,130 @@ public class FABlockStates extends BlockStateProvider {
                         .build(), BlockStateProperties.WATERLOGGED);
     }
 
-    private void registerDivider() {
-        getVariantBuilder(FABlocks.UPCYCLED_DIVIDER.get()).forAllStates(state -> {
-            String model = "upcycled_divider_"
-                    + state.getValue(
-                    com.tiomadre.farmersassortment.core.block.DividerBlock.STATE
-            ).getSerializedName();
+    private void registerUpcycledLantern() {
+        BlockModelBuilder standing = models()
+                .withExistingParent("upcycled_lantern", mcLoc("block/template_lantern"))
+                .texture("lantern", modLoc("block/upcycled_lantern"))
+                .renderType("minecraft:cutout");
 
+        BlockModelBuilder hanging = models()
+                .withExistingParent("upcycled_lantern_hanging", mcLoc("block/template_hanging_lantern"))
+                .texture("lantern", modLoc("block/upcycled_lantern"))
+                .renderType("minecraft:cutout");
+
+        getVariantBuilder(FABlocks.UPCYCLED_LANTERN.get())
+                .forAllStatesExcept(state -> ConfiguredModel.builder()
+                        .modelFile(state.getValue(BlockStateProperties.HANGING) ? hanging : standing)
+                        .build(), BlockStateProperties.WATERLOGGED);
+    }
+
+    private void registerDivider() {
+        Map<String, ModelFile[]> variants = new HashMap<>();
+        for (var dividerState : com.tiomadre.farmersassortment.core.block.state.DividerState.values()) {
+            String name = dividerState.getSerializedName();
+            JsonObject base = readDividerModel(name);
+            JsonObject addition = readDividerModel(name + "_additional");
+            for (int canvas = 0; canvas <= 3; canvas++) {
+                BlockModelBuilder[] parts = new BlockModelBuilder[6];
+                for (int part = 0; part < parts.length; part++) {
+                    parts[part] = models().getBuilder("divider_" + name
+                            + "_canvas_" + canvas + "_part_" + part).ao(false);
+                    for (var texture : base.getAsJsonObject("textures").entrySet()) {
+                        parts[part].texture(texture.getKey(), texture.getValue().getAsString());
+                    }
+                }
+                for (JsonElement entry : base.getAsJsonArray("elements")) {
+                    addDividerElement(parts, entry.getAsJsonObject(), 0);
+                }
+                for (int layer = 0; layer < canvas; layer++) {
+                    for (JsonElement entry : addition.getAsJsonArray("elements")) {
+                        addDividerElement(parts, entry.getAsJsonObject(), 8 + layer * 8);
+                    }
+                }
+                variants.put(name + "_" + canvas, parts);
+            }
+        }
+        getVariantBuilder(FABlocks.DIVIDER.get()).forAllStates(state -> {
+            String name = state.getValue(DividerBlock.STATE).getSerializedName();
+            int canvas = state.getValue(DividerBlock.CANVAS);
+            int part = state.getValue(DividerBlock.PART);
             return ConfiguredModel.builder()
-                    .modelFile(models().getExistingFile(modLoc("block/" + model)))
-                    .rotationY((int) state.getValue(
-                            BlockStateProperties.HORIZONTAL_FACING
-                    ).toYRot())
+                    .modelFile(variants.get(name + "_" + canvas)[part])
+                    .rotationY((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot())
                     .build();
         });
+    }
+
+    private JsonObject readDividerModel(String name) {
+        ResourceLocation location = modLoc("block/divider_" + name);
+        try (var stream = fileHelper.getResource(location, PackType.CLIENT_RESOURCES, ".json", "models").open();
+             var reader = new InputStreamReader(stream, StandardCharsets.UTF_8)) {
+            return JsonParser.parseReader(reader).getAsJsonObject();
+        } catch (IOException exception) {
+            throw new IllegalStateException("Cannot read " + location, exception);
+        }
+    }
+
+    private void addDividerElement(BlockModelBuilder[] parts, JsonObject elementSource, float shift) {
+        JsonArray from = elementSource.getAsJsonArray("from");
+        JsonArray to = elementSource.getAsJsonArray("to");
+        float fromX = from.get(0).getAsFloat();
+        float fromY = from.get(1).getAsFloat() + shift;
+        float fromZ = from.get(2).getAsFloat();
+        float toX = to.get(0).getAsFloat();
+        float toY = to.get(1).getAsFloat() + shift;
+        float toZ = to.get(2).getAsFloat();
+        int column = (int) Math.floor(fromX / 16);
+        int row = (int) Math.floor(fromY / 16);
+        if (column < 0 || column > 1 || row < 0 || row > 2
+                || toX > (column + 1) * 16 || toY > (row + 1) * 16
+                || fromZ < 0 || toZ > 16) {
+            throw new IllegalStateException("Divider element crosses a block boundary: " + elementSource);
+        }
+        int part = switch (row) {
+            case 0 -> column == 0 ? 0 : 2;
+            case 1 -> column == 0 ? 1 : 3;
+            default -> column == 0 ? 4 : 5;
+        };
+        float offsetX = column * 16;
+        float offsetY = row * 16;
+        var element = parts[part].element()
+                .from(fromX - offsetX, fromY - offsetY, fromZ)
+                .to(toX - offsetX, toY - offsetY, toZ);
+        if (elementSource.has("shade")) {
+            element.shade(elementSource.get("shade").getAsBoolean());
+        }
+        if (elementSource.has("rotation")) {
+            JsonObject rotation = elementSource.getAsJsonObject("rotation");
+            JsonArray origin = rotation.getAsJsonArray("origin");
+            element.rotation()
+                    .origin(origin.get(0).getAsFloat() - offsetX,
+                            origin.get(1).getAsFloat() + shift - offsetY,
+                            origin.get(2).getAsFloat())
+                    .axis(Direction.Axis.valueOf(rotation.get("axis").getAsString().toUpperCase(Locale.ROOT)))
+                    .angle(rotation.get("angle").getAsFloat())
+                    .rescale(rotation.has("rescale") && rotation.get("rescale").getAsBoolean()).end();
+        }
+        for (var faceEntry : elementSource.getAsJsonObject("faces").entrySet()) {
+            JsonObject faceSource = faceEntry.getValue().getAsJsonObject();
+            var face = element.face(Objects.requireNonNull(Direction.byName(faceEntry.getKey())))
+                    .texture(faceSource.get("texture").getAsString());
+            if (faceSource.has("uv")) {
+                JsonArray uv = faceSource.getAsJsonArray("uv");
+                face.uvs(uv.get(0).getAsFloat(), uv.get(1).getAsFloat(),
+                        uv.get(2).getAsFloat(), uv.get(3).getAsFloat());
+            }
+            if (faceSource.has("rotation")) {
+                face.rotation(ModelBuilder.FaceRotation.values()[faceSource.get("rotation").getAsInt() / 90]);
+            }
+            if ("#0".equals(faceSource.get("texture").getAsString())) {
+                face.tintindex(0);
+            } else if (faceSource.has("tintindex")) {
+                face.tintindex(faceSource.get("tintindex").getAsInt());
+            }
+            face.end();
+        }
+        element.end();
     }
 
     private void registerUpcycledBuildingBlocks() {
@@ -748,7 +916,7 @@ public class FABlockStates extends BlockStateProvider {
                 .texture("side", modLoc("block/" + name))
                 .texture("bottom", modLoc("block/" + name))
                 .renderType("minecraft:cutout");
-        FABlockStateHelper.horizontalFacingBlock(this, block.get(), model);
+        horizontalFacingBlock(block.get(), model);
     }
 
     //BUTCHER BLOCK VARIANTS
@@ -990,20 +1158,20 @@ private void registerStools() {
         String name = Objects.requireNonNull(stool.block().getId()).getPath();
         ModelFile baseModel = stoolModel(name, stool.legTexture(), stool.seatTexture());
         ModelFile pushedModel = stoolPushedModel(name + "_pushed", stool.legTexture(), stool.seatTexture());
-        Map<StoolRugType, ModelFile> rugModels = Arrays.stream(StoolRugType.values())
-                .filter(StoolRugType::hasRug)
+        Map<FurnitureCoverType, ModelFile> rugModels = Arrays.stream(FurnitureCoverType.values())
+                .filter(FurnitureCoverType::hasRug)
                 .collect(LinkedHashMap::new, (models, rugType) ->
                                 models.put(rugType, stoolRugModel(name + "_" + rugType.getSerializedName(), stool.woodType(), stool.legTexture(), stool.seatTexture(), rugType)),
                         Map::putAll);
-        Map<StoolRugType, ModelFile> pushedRugModels = Arrays.stream(StoolRugType.values())
-                .filter(StoolRugType::hasRug)
+        Map<FurnitureCoverType, ModelFile> pushedRugModels = Arrays.stream(FurnitureCoverType.values())
+                .filter(FurnitureCoverType::hasRug)
                 .collect(LinkedHashMap::new, (models, rugType) ->
                                 models.put(rugType, stoolPushedRugModel(name + "_" + rugType.getSerializedName() + "_pushed", stool.woodType(), stool.legTexture(), stool.seatTexture(), rugType)),
                         Map::putAll);
 
         getVariantBuilder(stool.block().get()).forAllStates(state -> {
             Direction facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
-            StoolRugType rugType = state.getValue(StoolBlock.RUG);
+            FurnitureCoverType rugType = state.getValue(StoolBlock.RUG);
          boolean pushed = state.getValue(StoolBlock.PUSHED);
             ModelFile selectedModel;
             if (pushed) {
@@ -1037,7 +1205,7 @@ private void registerStools() {
         return builder;
     }
 
-    private BlockModelBuilder stoolRugModel(String name, String woodType, ResourceLocation legTexture, ResourceLocation seatTexture, StoolRugType rugType) {
+    private BlockModelBuilder stoolRugModel(String name, String woodType, ResourceLocation legTexture, ResourceLocation seatTexture, FurnitureCoverType rugType) {
         boolean bamboo = "bamboo".equals(woodType);
         BlockModelBuilder builder = models().getBuilder(name)
                 .renderType("minecraft:cutout")
@@ -1047,10 +1215,13 @@ private void registerStools() {
                 .texture(bamboo ? "5" : "4", new ResourceLocation(Objects.requireNonNull(rugType.texturePath())))
                 .texture("particle", legTexture);
         addStoolCoreElements(builder, true, false, bamboo ? "#2" : "#6", bamboo ? "#3" : "#5");
+        if (rugType.isCanvas()) {
+            addStoolRugExtrudes(builder, bamboo ? "#4" : "#3", 5, 6);
+        }
         return builder;
     }
 
-    private BlockModelBuilder stoolPushedRugModel(String name, String woodType, ResourceLocation legTexture, ResourceLocation seatTexture, StoolRugType rugType) {
+    private BlockModelBuilder stoolPushedRugModel(String name, String woodType, ResourceLocation legTexture, ResourceLocation seatTexture, FurnitureCoverType rugType) {
         boolean bamboo = "bamboo".equals(woodType);
         BlockModelBuilder builder = models().getBuilder(name)
                 .renderType("minecraft:cutout")
@@ -1060,6 +1231,9 @@ private void registerStools() {
                 .texture(bamboo ? "5" : "4", new ResourceLocation(Objects.requireNonNull(rugType.texturePath())))
                 .texture("particle", legTexture);
         addStoolCoreElements(builder, true, true, bamboo ? "#2" : "#6", bamboo ? "#3" : "#5");
+        if (rugType.isCanvas()) {
+            addStoolRugExtrudes(builder, bamboo ? "#4" : "#3", 5, 0);
+        }
         return builder;
     }
 
@@ -1104,10 +1278,6 @@ private void registerStools() {
                 .face(Direction.UP).uvs(0, 0, 16, 10).texture(logTexture).end()
                 .face(Direction.DOWN).uvs(3, 0, 13, 16).rotation(ModelBuilder.FaceRotation.CLOCKWISE_90).texture(logTexture).end()
                 .end();
-
-        if (rugged) {
-            addStoolRugExtrudes(builder, strippedTexture.equals("#2") ? "#4" : "#3", 5, seatStart);
-        }
 
         addStoolLeg(builder, 0, 1, seatEnd - 2, 2, 3, seatEnd, strippedTexture, logTexture);
         addStoolLeg(builder, 0, 1, seatStart, 2, 3, seatStart + 2, strippedTexture, logTexture);
@@ -1162,7 +1332,7 @@ private void registerStools() {
         Map<String, ModelFile> modelsByState = new HashMap<>();
 
         getVariantBuilder(table.block().get()).forAllStates(state -> {
-            TableCoverType rugType = state.getValue(TableBlock.RUG);
+            FurnitureCoverType rugType = state.getValue(TableBlock.RUG);
             boolean north = state.getValue(TableBlock.NORTH);
             boolean east = state.getValue(TableBlock.EAST);
             boolean south = state.getValue(TableBlock.SOUTH);
@@ -1196,7 +1366,7 @@ private void registerStools() {
     }
 
     private BlockModelBuilder tableModel(String name, String woodType, ResourceLocation legTexture,
-                                         ResourceLocation topTexture, TableCoverType rugType,
+                                         ResourceLocation topTexture, FurnitureCoverType rugType,
                                          boolean north, boolean east, boolean south, boolean west) {
         if (rugType.hasRug()) {
             return coveredTableModel(name, woodType, legTexture, topTexture,
@@ -1725,4 +1895,13 @@ private void registerStools() {
                                    ResourceLocation legTexture, ResourceLocation seatTexture) {
     }
 
+    private void horizontalFacingBlock(Block block, ModelFile model) {
+        getVariantBuilder(block).forAllStates(state -> buildHorizontalFacingModel(state, model));
+    }
+
+    private static ConfiguredModel[] buildHorizontalFacingModel(BlockState state, ModelFile model) {
+        Direction direction = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
+        int rotation = (int) direction.toYRot();
+        return ConfiguredModel.builder().modelFile(model).rotationY((rotation + 360) % 360).build();
+    }
 }

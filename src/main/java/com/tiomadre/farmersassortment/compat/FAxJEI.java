@@ -8,6 +8,20 @@ import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.RecipeTypes;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
+import mezz.jei.api.registration.IRecipeRegistration;
+import com.tiomadre.farmersassortment.core.util.DyeColors;
+import net.minecraft.client.Minecraft;
+import net.minecraft.core.NonNullList;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.DyeItem;
+import net.minecraft.world.item.crafting.CraftingBookCategory;
+import net.minecraft.world.item.crafting.CraftingRecipe;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.ShapedRecipe;
+import net.minecraft.world.item.crafting.ShapelessRecipe;
+import net.minecraft.world.item.Items;
+import java.util.ArrayList;
+import java.util.List;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.CampfireCookingRecipe;
@@ -30,6 +44,47 @@ public class FAxJEI implements IModPlugin {
     @Override
     public ResourceLocation getPluginUid() {
         return ID;
+    }
+
+    @Override
+    public void registerRecipes(IRecipeRegistration registration) {
+        var level = Minecraft.getInstance().level;
+        if (level == null) return;
+        List<CraftingRecipe> recipes = new ArrayList<>();
+        for (boolean gate : new boolean[]{false, true}) {
+            String name = gate ? "rope_fence_gate_dye" : "rope_fence_dye";
+            if (level.getRecipeManager().byKey(new ResourceLocation(FarmersAssortment.MOD_ID, name)).isEmpty()) continue;
+            var block = gate ? ModBlocks.ROPE_FENCE_GATE.get() : ModBlocks.ROPE_FENCE.get();
+            for (DyeColor color : DyeColor.values()) {
+                DyeItem dye = DyeItem.byColor(color);
+                NonNullList<Ingredient> ingredients = NonNullList.withSize(9, Ingredient.EMPTY);
+                for (int slot = 0; slot < 9; slot++) {
+                    boolean corner = slot == 0 || slot == 2 || slot == 6 || slot == 8;
+                    if (slot == 4) ingredients.set(slot, Ingredient.of(dye));
+                    else if (!gate || !corner) ingredients.set(slot, Ingredient.of(block));
+                }
+                ItemStack result = new ItemStack(block, gate ? 4 : 8);
+                DyeColors.setColor(result, DyeColors.blend(List.of(), dye));
+                recipes.add(new ShapedRecipe(new ResourceLocation(FarmersAssortment.MOD_ID,
+                        "jei/" + name + "/" + color.getName()), "", CraftingBookCategory.MISC,
+                        3, 3, ingredients, result));
+            }
+        }
+        for (boolean gate : new boolean[]{false, true}) {
+            String name = gate ? "rope_fence_gate_wash" : "rope_fence_wash";
+            if (level.getRecipeManager().byKey(new ResourceLocation(FarmersAssortment.MOD_ID, name)).isEmpty()) continue;
+            var block = gate ? ModBlocks.ROPE_FENCE_GATE.get() : ModBlocks.ROPE_FENCE.get();
+            for (DyeColor color : DyeColor.values()) {
+                ItemStack dyed = new ItemStack(block);
+                DyeColors.setColor(dyed, DyeColors.blend(List.of(), DyeItem.byColor(color)));
+                NonNullList<Ingredient> ingredients = NonNullList.of(Ingredient.EMPTY,
+                        Ingredient.of(dyed), Ingredient.of(Items.WATER_BUCKET));
+                recipes.add(new ShapelessRecipe(new ResourceLocation(FarmersAssortment.MOD_ID,
+                        "jei/" + name + "/" + color.getName()), "", CraftingBookCategory.MISC,
+                        new ItemStack(block), ingredients));
+            }
+        }
+        registration.addRecipes(RecipeTypes.CRAFTING, recipes);
     }
 
     @Override

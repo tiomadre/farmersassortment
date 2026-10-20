@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "farmersdelight:pumpkin_slice",
+    "farmersassortment:yellow_pumpkin_slice",
+    "farmersassortment:white_pumpkin_slice",
+    "farmersassortment:red_pumpkin_slice"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "P",
+    "T"
+  ],
+  "key": {
+    "P": {
+      "item": "farmersassortment:carved_yellow_pumpkin"
+    },
+    "T": {
+      "item": "minecraft:torch"
+    }
+  },
+  "result": {
+    "item": "farmersassortment:yellow_jack_o_lantern"
+  }
+}

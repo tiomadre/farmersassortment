@@ -1,6 +1,6 @@
 package com.tiomadre.farmersassortment.core.block;
 
-import com.tiomadre.farmersassortment.core.block.state.TableCoverType;
+import com.tiomadre.farmersassortment.core.block.state.FurnitureCoverType;
 import com.tiomadre.farmersassortment.core.block.entity.TableBlockEntity;
 import com.tiomadre.farmersassortment.core.item.TableItem;
 import com.tiomadre.farmersassortment.core.registry.FAAdvanceTriggers;
@@ -46,7 +46,7 @@ import java.util.Queue;
 import java.util.stream.Collectors;
 
 public class TableBlock extends HorizontalDirectionalBlock implements EntityBlock {
-    public static final EnumProperty<TableCoverType> RUG = EnumProperty.create("rug", TableCoverType.class);
+    public static final EnumProperty<FurnitureCoverType> RUG = EnumProperty.create("rug", FurnitureCoverType.class);
     public static final BooleanProperty NORTH = BooleanProperty.create("north");
     public static final BooleanProperty EAST = BooleanProperty.create("east");
     public static final BooleanProperty SOUTH = BooleanProperty.create("south");
@@ -65,7 +65,7 @@ public class TableBlock extends HorizontalDirectionalBlock implements EntityBloc
     public TableBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any()
-                .setValue(RUG, TableCoverType.NONE)
+                .setValue(RUG, FurnitureCoverType.NONE)
                 .setValue(NORTH, false)
                 .setValue(EAST, false)
                 .setValue(SOUTH, false)
@@ -81,7 +81,7 @@ public class TableBlock extends HorizontalDirectionalBlock implements EntityBloc
     @Override
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
         super.setPlacedBy(level, pos, state, placer, stack);
-        if (state.getValue(RUG) == TableCoverType.CUSTOM_CARPET
+        if (state.getValue(RUG) == FurnitureCoverType.CUSTOM_CARPET
                 && level.getBlockEntity(pos) instanceof TableBlockEntity table) {
             table.setCovering(TableItem.getCovering(stack));
         }
@@ -136,12 +136,12 @@ public class TableBlock extends HorizontalDirectionalBlock implements EntityBloc
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
 
-        TableCoverType currentRug = state.getValue(RUG);
-        TableCoverType heldRug = rugTypeFromItem(heldStack.getItem());
+        FurnitureCoverType currentRug = state.getValue(RUG);
+        FurnitureCoverType heldRug = rugTypeFromItem(heldStack.getItem());
         ItemStack currentCover = getCovering(level, pos, state);
 
         if (heldRug != null && (heldRug != currentRug
-                || heldRug == TableCoverType.CUSTOM_CARPET && !ItemStack.isSameItemSameTags(heldStack, currentCover))) {
+                || heldRug == FurnitureCoverType.CUSTOM_CARPET && !ItemStack.isSameItemSameTags(heldStack, currentCover))) {
             if (!level.isClientSide) {
                 ItemStack newCover = heldStack.copyWithCount(1);
                 if (!player.isCreative()) {
@@ -151,11 +151,11 @@ public class TableBlock extends HorizontalDirectionalBlock implements EntityBloc
                     Block.popResource(level, pos, currentCover);
                 }
                 level.setBlock(pos, state.setValue(RUG, heldRug), Block.UPDATE_ALL);
-                if (heldRug == TableCoverType.CUSTOM_CARPET && level.getBlockEntity(pos) == null) {
+                if (heldRug == FurnitureCoverType.CUSTOM_CARPET && level.getBlockEntity(pos) == null) {
                     level.setBlockEntity(new TableBlockEntity(pos, level.getBlockState(pos)));
                 }
                 if (level.getBlockEntity(pos) instanceof TableBlockEntity table) {
-                    table.setCovering(heldRug == TableCoverType.CUSTOM_CARPET ? newCover : ItemStack.EMPTY);
+                    table.setCovering(heldRug == FurnitureCoverType.CUSTOM_CARPET ? newCover : ItemStack.EMPTY);
                 }
             }
             return InteractionResult.sidedSuccess(level.isClientSide);
@@ -163,7 +163,7 @@ public class TableBlock extends HorizontalDirectionalBlock implements EntityBloc
 
         if (heldStack.getItem() instanceof ShearsItem && currentRug.hasRug()) {
             if (!level.isClientSide) {
-                level.setBlock(pos, state.setValue(RUG, TableCoverType.NONE), Block.UPDATE_ALL);
+                level.setBlock(pos, state.setValue(RUG, FurnitureCoverType.NONE), Block.UPDATE_ALL);
                 Block.popResource(level, pos, currentCover);
                 if (level.getBlockEntity(pos) instanceof TableBlockEntity table) {
                     table.setCovering(ItemStack.EMPTY);
@@ -259,8 +259,8 @@ public class TableBlock extends HorizontalDirectionalBlock implements EntityBloc
     }
 
     private ItemStack getCovering(BlockGetter level, BlockPos pos, BlockState state) {
-        TableCoverType cover = state.getValue(RUG);
-        if (cover == TableCoverType.CUSTOM_CARPET) {
+        FurnitureCoverType cover = state.getValue(RUG);
+        if (cover == FurnitureCoverType.CUSTOM_CARPET) {
             return level.getBlockEntity(pos) instanceof TableBlockEntity table ? table.getCovering() : ItemStack.EMPTY;
         }
         return cover.rugItem() == null ? ItemStack.EMPTY : new ItemStack(cover.rugItem());
@@ -270,8 +270,8 @@ public class TableBlock extends HorizontalDirectionalBlock implements EntityBloc
         return neighborState.is(this);
     }
     @Nullable
-    private TableCoverType rugTypeFromItem(Item item) {
-        return TableCoverType.fromItem(item);
+    private FurnitureCoverType rugTypeFromItem(Item item) {
+        return FurnitureCoverType.fromItem(item);
     }
     private void grantFlipTableAdvancement(ServerPlayer player) {
         Advancement advancement = player.server.getAdvancements().getAdvancement(FAAdvanceTriggers.FLIP_TABLE);

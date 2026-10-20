@@ -1,0 +1,82 @@
+{
+  "parent": "block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "cullface": "down",
+          "texture": "#all",
+          "uv": [
+            5,
+            14,
+            7,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#all",
+          "uv": [
+            7,
+            0,
+            9,
+            16
+          ]
+        },
+        "north": {
+          "texture": "#all",
+          "uv": [
+            7,
+            0,
+            9,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#all",
+          "uv": [
+            7,
+            0,
+            9,
+            16
+          ]
+        },
+        "up": {
+          "cullface": "up",
+          "texture": "#all",
+          "uv": [
+            5,
+            14,
+            7,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#all",
+          "uv": [
+            7,
+            0,
+            9,
+            16
+          ]
+        }
+      },
+      "from": [
+        7,
+        0,
+        7
+      ],
+      "name": "post",
+      "to": [
+        9,
+        16,
+        9
+      ]
+    }
+  ],
+  "format_version": "1.9.0",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "all": "farmersdelight:block/rope_fence",
+    "particle": "farmersdelight:block/rope_fence"
+  }
+}

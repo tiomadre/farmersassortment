@@ -1,0 +1,82 @@
+{
+  "parent": "block/block",
+  "display": {
+    "fixed": {
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "gui": {
+      "rotation": [
+        30,
+        45,
+        0
+      ],
+      "scale": [
+        0.625,
+        0.7,
+        0.7
+      ]
+    }
+  },
+  "elements": [
+    {
+      "faces": {
+        "north": {
+          "texture": "#all",
+          "tintindex": 0,
+          "uv": [
+            0,
+            3,
+            16,
+            12
+          ]
+        },
+        "south": {
+          "texture": "#all",
+          "tintindex": 0,
+          "uv": [
+            0,
+            3,
+            16,
+            12
+          ]
+        }
+      },
+      "from": [
+        0,
+        4,
+        8
+      ],
+      "name": "gate",
+      "to": [
+        16,
+        13,
+        8
+      ]
+    }
+  ],
+  "format_version": "1.9.0",
+  "groups": [
+    {
+      "children": [
+        0
+      ],
+      "color": 0,
+      "name": "wall_closed",
+      "origin": [
+        15,
+        9,
+        8
+      ]
+    }
+  ],
+  "gui_light": "front",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "all": "farmersdelight:block/rope_fence_gate_wall",
+    "particle": "farmersdelight:block/rope_fence_gate"
+  }
+}

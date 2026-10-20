@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "farmersassortment:block/carved_yellow_pumpkin",
+      "y": 0
+    },
+    "facing=east": {
+      "model": "farmersassortment:block/carved_yellow_pumpkin",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "farmersassortment:block/carved_yellow_pumpkin",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "farmersassortment:block/carved_yellow_pumpkin",
+      "y": 270
+    }
+  }
+}

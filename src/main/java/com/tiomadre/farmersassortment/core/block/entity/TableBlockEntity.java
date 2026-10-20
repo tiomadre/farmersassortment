@@ -1,6 +1,6 @@
 package com.tiomadre.farmersassortment.core.block.entity;
 
-import com.tiomadre.farmersassortment.core.block.state.TableCoverType;
+import com.tiomadre.farmersassortment.core.block.state.FurnitureCoverType;
 import com.tiomadre.farmersassortment.core.registry.FABlockEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -25,7 +25,7 @@ public class TableBlockEntity extends BlockEntity {
     }
 
     public void setCovering(ItemStack stack) {
-        covering = TableCoverType.isCarpet(stack.getItem()) ? stack.copyWithCount(1) : ItemStack.EMPTY;
+        covering = FurnitureCoverType.isCarpet(stack.getItem()) ? stack.copyWithCount(1) : ItemStack.EMPTY;
         setChanged();
         requestModelDataUpdate();
         if (level != null) {
@@ -45,7 +45,7 @@ public class TableBlockEntity extends BlockEntity {
     public void load(CompoundTag tag) {
         super.load(tag);
         ItemStack stored = ItemStack.of(tag.getCompound("Covering"));
-        covering = TableCoverType.isCarpet(stored.getItem()) ? stored.copyWithCount(1) : ItemStack.EMPTY;
+        covering = FurnitureCoverType.isCarpet(stored.getItem()) ? stored.copyWithCount(1) : ItemStack.EMPTY;
     }
 
     @Override

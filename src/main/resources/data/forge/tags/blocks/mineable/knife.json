@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "farmersassortment:yellow_pumpkin",
+    "farmersassortment:carved_yellow_pumpkin",
+    "farmersassortment:yellow_jack_o_lantern",
+    "farmersassortment:white_pumpkin",
+    "farmersassortment:carved_white_pumpkin",
+    "farmersassortment:white_jack_o_lantern",
+    "farmersassortment:red_pumpkin",
+    "farmersassortment:carved_red_pumpkin",
+    "farmersassortment:red_jack_o_lantern"
+  ]
+}

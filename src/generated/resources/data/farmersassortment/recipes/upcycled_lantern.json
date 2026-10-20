@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "farmersdelight:canvas"
+    },
+    "S": {
+      "item": "farmersdelight:straw"
+    },
+    "T": {
+      "item": "minecraft:torch"
+    }
+  },
+  "pattern": [
+    "CSC",
+    "CTC",
+    "CSC"
+  ],
+  "result": {
+    "item": "farmersassortment:upcycled_lantern"
+  },
+  "show_notification": true
+}

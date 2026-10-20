@@ -10,8 +10,9 @@
     "DiffuserMenuMixin",
     "DiffuserMixin",
     "VariantPotMenu",
-    "BambooSlatsPlacementMixin",
-    "BambooSlatsSurvivalMixin"
+    "BambooSlatsMixin",
+    "BambooStalkSlatsMixin",
+    "RopeColorMixin"
   ],
   "injectors": {
     "defaultRequire": 1

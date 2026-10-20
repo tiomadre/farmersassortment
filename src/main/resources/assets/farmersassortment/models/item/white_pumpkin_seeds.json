@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "farmersassortment:item/white_pumpkin_seed"
+  }
+}

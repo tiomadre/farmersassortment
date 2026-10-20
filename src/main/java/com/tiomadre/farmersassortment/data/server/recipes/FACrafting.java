@@ -196,6 +196,17 @@ public final class FACrafting extends RecipeProvider {
                 .unlockedBy(getHasName(FAItems.ALABASTER.get()), has(FAItems.ALABASTER.get()))
                 .save(output);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, FABlocks.UPCYCLED_LANTERN.get())
+                .pattern("CSC")
+                .pattern("CTC")
+                .pattern("CSC")
+                .define('C', item("farmersdelight", "canvas"))
+                .define('S', item("farmersdelight", "straw"))
+                .define('T', Items.TORCH)
+                .unlockedBy("has_canvas", has(item("farmersdelight", "canvas")))
+                .unlockedBy("has_straw", has(item("farmersdelight", "straw")))
+                .save(output);
+
         //Straw
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, FABlocks.STRAW_SLAB.get(), 6)
                 .define('#', ModBlocks.STRAW_BALE.get())
@@ -539,10 +550,13 @@ public final class FACrafting extends RecipeProvider {
                 .define('#', upcycled)
                 .pattern("###").pattern("###")
                 .unlockedBy(getHasName(upcycled), has(upcycled)).save(output);
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, FABlocks.UPCYCLED_DIVIDER.get(), 3)
-                .define('#', upcycled)
-                .pattern("###").pattern("###").pattern("###")
-                .unlockedBy(getHasName(upcycled), has(upcycled)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, FABlocks.DIVIDER.get(), 3)
+                .define('C', canvas)
+                .define('T', treeBark)
+                .pattern("CCC")
+                .pattern("TTT")
+                .pattern("TTT")
+                .unlockedBy("has_canvas", has(canvas)).save(output);
     }
 
     private void ropeFence(Consumer<FinishedRecipe> output, RegistryObject<? extends ItemLike> fence,
