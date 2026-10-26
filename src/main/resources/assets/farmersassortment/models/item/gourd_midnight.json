@@ -1,0 +1,7 @@
+{
+  "parent": "farmersassortment:item/gourd_base",
+  "textures": {
+    "1": "farmersassortment:block/gourd_midnight",
+    "particle": "farmersassortment:block/gourd_midnight"
+  }
+}

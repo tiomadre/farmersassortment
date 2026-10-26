@@ -340,7 +340,15 @@ public final class FADynamicFurniture extends AbstractPackResources {
                 value = definition.ingredientId().toString();
             } else if (Set.of("minecraft:block/oak_log", "minecraft:block/oak_log_top",
                     "minecraft:block/stripped_oak_log", "minecraft:block/stripped_oak_log_top").contains(value)) {
-                value = inferLogTexture(definition.texture(), value).toString();
+                if (definition.kind().equals("rack")
+                        && definition.ingredientId().equals(new ResourceLocation("foragersinsight", "lilac_planks"))) {
+                    value = new ResourceLocation(FarmersAssortment.MOD_ID,
+                            value.endsWith("_top")
+                                    ? "block/stripped_lilac_log_big_top"
+                                    : "block/stripped_lilac_log_big").toString();
+                } else {
+                    value = inferLogTexture(definition.texture(), value).toString();
+                }
             } else {
                 String prefix = FarmersAssortment.MOD_ID + ":";
                 String name = definition.id().getPath();

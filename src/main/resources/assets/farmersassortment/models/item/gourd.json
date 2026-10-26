@@ -1,0 +1,29 @@
+{
+  "parent": "farmersassortment:item/gourd_jarrahdale",
+  "overrides": [
+    {
+      "predicate": {
+        "farmersassortment:variant": 1
+      },
+      "model": "farmersassortment:item/gourd_wax"
+    },
+    {
+      "predicate": {
+        "farmersassortment:variant": 2
+      },
+      "model": "farmersassortment:item/gourd_midnight"
+    },
+    {
+      "predicate": {
+        "farmersassortment:variant": 3
+      },
+      "model": "farmersassortment:item/gourd_delicata"
+    },
+    {
+      "predicate": {
+        "farmersassortment:variant": 4
+      },
+      "model": "farmersassortment:item/gourd_honeynut"
+    }
+  ]
+}

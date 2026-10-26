@@ -104,6 +104,7 @@ public class FALoot extends LootTableProvider {
             return ForgeRegistries.BLOCKS.getValues().stream()
                     .filter(block -> Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getNamespace().equals(FarmersAssortment.MOD_ID))
                     .filter(block -> !FAPumpkins.owns(block))
+                    .filter(block -> !com.tiomadre.farmersassortment.core.registry.FAGourds.owns(block))
                     .collect(Collectors.toSet());
         }
     }

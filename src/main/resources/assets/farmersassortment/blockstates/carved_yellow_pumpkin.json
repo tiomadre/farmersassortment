@@ -1,19 +1,48 @@
 {
   "variants": {
-    "facing=north": {
-      "model": "farmersassortment:block/carved_yellow_pumpkin",
-      "y": 0
+    "facing=north,type=bottom": {
+      "model": "farmersassortment:block/carved_yellow_pumpkin"
     },
-    "facing=east": {
+    "facing=north,type=top": {
+      "model": "farmersassortment:block/carved_yellow_pumpkin_top"
+    },
+    "facing=north,type=double": {
+      "model": "farmersassortment:block/carved_yellow_pumpkin_double"
+    },
+    "facing=east,type=bottom": {
       "model": "farmersassortment:block/carved_yellow_pumpkin",
       "y": 90
     },
-    "facing=south": {
+    "facing=east,type=top": {
+      "model": "farmersassortment:block/carved_yellow_pumpkin_top",
+      "y": 90
+    },
+    "facing=east,type=double": {
+      "model": "farmersassortment:block/carved_yellow_pumpkin_double",
+      "y": 90
+    },
+    "facing=south,type=bottom": {
       "model": "farmersassortment:block/carved_yellow_pumpkin",
       "y": 180
     },
-    "facing=west": {
+    "facing=south,type=top": {
+      "model": "farmersassortment:block/carved_yellow_pumpkin_top",
+      "y": 180
+    },
+    "facing=south,type=double": {
+      "model": "farmersassortment:block/carved_yellow_pumpkin_double",
+      "y": 180
+    },
+    "facing=west,type=bottom": {
       "model": "farmersassortment:block/carved_yellow_pumpkin",
+      "y": 270
+    },
+    "facing=west,type=top": {
+      "model": "farmersassortment:block/carved_yellow_pumpkin_top",
+      "y": 270
+    },
+    "facing=west,type=double": {
+      "model": "farmersassortment:block/carved_yellow_pumpkin_double",
       "y": 270
     }
   }

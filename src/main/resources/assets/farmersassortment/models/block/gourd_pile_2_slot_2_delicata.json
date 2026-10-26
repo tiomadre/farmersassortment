@@ -1,0 +1,7 @@
+{
+  "parent": "farmersassortment:block/gourd_pile_2_slot_2",
+  "textures": {
+    "1": "farmersassortment:block/gourd_delicata",
+    "particle": "farmersassortment:block/gourd_delicata"
+  }
+}

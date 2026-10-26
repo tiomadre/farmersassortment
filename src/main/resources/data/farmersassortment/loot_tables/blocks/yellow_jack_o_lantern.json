@@ -6,7 +6,22 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "farmersassortment:yellow_jack_o_lantern"
+          "name": "farmersassortment:yellow_jack_o_lantern",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 2,
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "farmersassortment:yellow_jack_o_lantern",
+                  "properties": {
+                    "type": "double"
+                  }
+                }
+              ]
+            }
+          ]
         }
       ],
       "conditions": [

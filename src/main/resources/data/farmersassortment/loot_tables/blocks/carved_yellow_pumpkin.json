@@ -6,7 +6,22 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "farmersassortment:carved_yellow_pumpkin"
+          "name": "farmersassortment:carved_yellow_pumpkin",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 2,
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "farmersassortment:carved_yellow_pumpkin",
+                  "properties": {
+                    "type": "double"
+                  }
+                }
+              ]
+            }
+          ]
         }
       ],
       "conditions": [

@@ -1,8 +1,7 @@
 package com.tiomadre.farmersassortment.core.mixin;
 
-import com.tiomadre.farmersassortment.core.block.UniqueStoveBlock;
+import com.tiomadre.farmersassortment.core.config.FAConfig;
 import com.tiomadre.farmersassortment.core.registry.FABlocks;
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
@@ -10,38 +9,60 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import vectorwing.farmersdelight.common.block.StoveBlock;
 import vectorwing.farmersdelight.common.block.entity.CookingPotBlockEntity;
+import vectorwing.farmersdelight.common.crafting.CookingPotRecipe;
 
 @Mixin(value = CookingPotBlockEntity.class, remap = false)
 public abstract class CookingPotCookingAccelerator {
-    @Unique
-    private int farmersassortment$alabasterBonusCounter;
     @Shadow
     private int cookTime;
-    @Shadow
-    private int cookTimeTotal;
-    @Shadow
-    public abstract boolean isHeated();
 
-    @Inject(method = "cookingTick", at = @At("TAIL"))
-    private static void farmersassortment$accelerateAboveAlabasterStove(Level level, BlockPos pos, BlockState state, CookingPotBlockEntity cookingPot, CallbackInfo ci) {
-        CookingPotCookingAccelerator self = (CookingPotCookingAccelerator) (Object) cookingPot;
+    @Unique
+    private double farmersassortment$bonusProgress;
 
-        if (level.isClientSide || !self.isHeated() || !state.is(FABlocks.ALABASTER_COOKING_POT.get())) {
-            self.farmersassortment$alabasterBonusCounter = 0;
+    @Inject(method = "processCooking", at = @At("HEAD"))
+    private void farmersassortment$applyCookingBoost(
+            CookingPotRecipe recipe,
+            CookingPotBlockEntity cookingPot,
+            CallbackInfoReturnable<Boolean> cir
+    ) {
+        Level level = cookingPot.getLevel();
+
+        if (level == null || level.isClientSide) {
+            farmersassortment$bonusProgress = 0.0D;
             return;
         }
 
-        BlockState belowState = level.getBlockState(pos.below());
-        if (belowState.is(FABlocks.ALABASTER_STOVE.get()) && belowState.hasProperty(UniqueStoveBlock.LIT) && belowState.getValue(UniqueStoveBlock.LIT)) {
-            self.farmersassortment$alabasterBonusCounter++;
-            if (self.farmersassortment$alabasterBonusCounter >= 5) {
-                self.cookTime = Math.min(self.cookTime + 1, self.cookTimeTotal);
-                self.farmersassortment$alabasterBonusCounter = 0;
-            }
-        } else {
-            self.farmersassortment$alabasterBonusCounter = 0;
+        double boost = FAConfig.ALABASTER_STOVE_COOKING_BOOST.get();
+
+        if (boost <= 0.0D
+                || (FAConfig.ALABASTER_STOVE_ALABASTER_POTS_ONLY.get()
+                && !cookingPot.getBlockState().is(FABlocks.ALABASTER_COOKING_POT.get()))) {
+            farmersassortment$bonusProgress = 0.0D;
+            return;
         }
+
+        BlockState stove = level.getBlockState(cookingPot.getBlockPos().below());
+
+        if (!stove.is(FABlocks.ALABASTER_STOVE.get())
+                || !stove.hasProperty(StoveBlock.LIT)
+                || !stove.getValue(StoveBlock.LIT)) {
+            farmersassortment$bonusProgress = 0.0D;
+            return;
+        }
+
+        if (cookTime == 0) {
+            farmersassortment$bonusProgress = 0.0D;
+        }
+
+        farmersassortment$bonusProgress += boost;
+
+        int extraProgress = (int) farmersassortment$bonusProgress;
+        farmersassortment$bonusProgress -= extraProgress;
+
+        int remainingProgress = Math.max(0, recipe.getCookTime() - cookTime - 1);
+        cookTime += Math.min(extraProgress, remainingProgress);
     }
 }

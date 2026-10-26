@@ -1,0 +1,139 @@
+{
+  "variants": {
+    "age=0,variant=jarrahdale": {
+      "model": "farmersassortment:block/gourd_crop_stage0"
+    },
+    "age=1,variant=jarrahdale": {
+      "model": "farmersassortment:block/gourd_crop_stage1"
+    },
+    "age=2,variant=jarrahdale": {
+      "model": "farmersassortment:block/gourd_crop_stage2"
+    },
+    "age=3,variant=jarrahdale": {
+      "model": "farmersassortment:block/gourd_crop_stage3"
+    },
+    "age=4,variant=jarrahdale": {
+      "model": "farmersassortment:block/gourd_crop_stage4"
+    },
+    "age=5,variant=jarrahdale": {
+      "model": "farmersassortment:block/gourd_crop_stage5"
+    },
+    "age=6,variant=jarrahdale": {
+      "model": "farmersassortment:block/gourd_crop_stage6"
+    },
+    "age=7,variant=jarrahdale": {
+      "model": "farmersassortment:block/gourd_crop_stage7"
+    },
+    "age=8,variant=jarrahdale": {
+      "model": "farmersassortment:block/gourd_crop_mature_jarrahdale"
+    },
+    "age=0,variant=wax": {
+      "model": "farmersassortment:block/gourd_crop_stage0"
+    },
+    "age=1,variant=wax": {
+      "model": "farmersassortment:block/gourd_crop_stage1"
+    },
+    "age=2,variant=wax": {
+      "model": "farmersassortment:block/gourd_crop_stage2"
+    },
+    "age=3,variant=wax": {
+      "model": "farmersassortment:block/gourd_crop_stage3"
+    },
+    "age=4,variant=wax": {
+      "model": "farmersassortment:block/gourd_crop_stage4"
+    },
+    "age=5,variant=wax": {
+      "model": "farmersassortment:block/gourd_crop_stage5"
+    },
+    "age=6,variant=wax": {
+      "model": "farmersassortment:block/gourd_crop_stage6"
+    },
+    "age=7,variant=wax": {
+      "model": "farmersassortment:block/gourd_crop_stage7"
+    },
+    "age=8,variant=wax": {
+      "model": "farmersassortment:block/gourd_crop_mature_wax"
+    },
+    "age=0,variant=midnight": {
+      "model": "farmersassortment:block/gourd_crop_stage0"
+    },
+    "age=1,variant=midnight": {
+      "model": "farmersassortment:block/gourd_crop_stage1"
+    },
+    "age=2,variant=midnight": {
+      "model": "farmersassortment:block/gourd_crop_stage2"
+    },
+    "age=3,variant=midnight": {
+      "model": "farmersassortment:block/gourd_crop_stage3"
+    },
+    "age=4,variant=midnight": {
+      "model": "farmersassortment:block/gourd_crop_stage4"
+    },
+    "age=5,variant=midnight": {
+      "model": "farmersassortment:block/gourd_crop_stage5"
+    },
+    "age=6,variant=midnight": {
+      "model": "farmersassortment:block/gourd_crop_stage6"
+    },
+    "age=7,variant=midnight": {
+      "model": "farmersassortment:block/gourd_crop_stage7"
+    },
+    "age=8,variant=midnight": {
+      "model": "farmersassortment:block/gourd_crop_mature_midnight"
+    },
+    "age=0,variant=delicata": {
+      "model": "farmersassortment:block/gourd_crop_stage0"
+    },
+    "age=1,variant=delicata": {
+      "model": "farmersassortment:block/gourd_crop_stage1"
+    },
+    "age=2,variant=delicata": {
+      "model": "farmersassortment:block/gourd_crop_stage2"
+    },
+    "age=3,variant=delicata": {
+      "model": "farmersassortment:block/gourd_crop_stage3"
+    },
+    "age=4,variant=delicata": {
+      "model": "farmersassortment:block/gourd_crop_stage4"
+    },
+    "age=5,variant=delicata": {
+      "model": "farmersassortment:block/gourd_crop_stage5"
+    },
+    "age=6,variant=delicata": {
+      "model": "farmersassortment:block/gourd_crop_stage6"
+    },
+    "age=7,variant=delicata": {
+      "model": "farmersassortment:block/gourd_crop_stage7"
+    },
+    "age=8,variant=delicata": {
+      "model": "farmersassortment:block/gourd_crop_mature_delicata"
+    },
+    "age=0,variant=honeynut": {
+      "model": "farmersassortment:block/gourd_crop_stage0"
+    },
+    "age=1,variant=honeynut": {
+      "model": "farmersassortment:block/gourd_crop_stage1"
+    },
+    "age=2,variant=honeynut": {
+      "model": "farmersassortment:block/gourd_crop_stage2"
+    },
+    "age=3,variant=honeynut": {
+      "model": "farmersassortment:block/gourd_crop_stage3"
+    },
+    "age=4,variant=honeynut": {
+      "model": "farmersassortment:block/gourd_crop_stage4"
+    },
+    "age=5,variant=honeynut": {
+      "model": "farmersassortment:block/gourd_crop_stage5"
+    },
+    "age=6,variant=honeynut": {
+      "model": "farmersassortment:block/gourd_crop_stage6"
+    },
+    "age=7,variant=honeynut": {
+      "model": "farmersassortment:block/gourd_crop_stage7"
+    },
+    "age=8,variant=honeynut": {
+      "model": "farmersassortment:block/gourd_crop_mature_honeynut"
+    }
+  }
+}

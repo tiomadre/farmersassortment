@@ -1,0 +1,671 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "minecraft:block/stem_fruit",
+  "ambientocclusion": false,
+  "textures": {
+    "2": "farmersassortment:block/gourd_wax",
+    "particle": "farmersassortment:block/small_gourd_stem",
+    "stem": "farmersassortment:block/small_gourd_stem",
+    "upperstem": "farmersassortment:block/attached_small_gourd_stem"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        8,
+        8
+      ],
+      "rotation": {
+        "angle": 45,
+        "axis": "y",
+        "origin": [
+          8,
+          9,
+          8
+        ],
+        "rescale": true
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            4,
+            16,
+            12
+          ],
+          "texture": "#stem",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            16,
+            4,
+            0,
+            12
+          ],
+          "texture": "#stem",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        8,
+        0,
+        0
+      ],
+      "to": [
+        8,
+        8,
+        16
+      ],
+      "rotation": {
+        "angle": 45,
+        "axis": "y",
+        "origin": [
+          8,
+          9,
+          8
+        ],
+        "rescale": true
+      },
+      "faces": {
+        "east": {
+          "uv": [
+            16,
+            4,
+            0,
+            12
+          ],
+          "texture": "#stem",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            4,
+            16,
+            12
+          ],
+          "texture": "#stem",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        8,
+        0,
+        0
+      ],
+      "to": [
+        8,
+        8,
+        16
+      ],
+      "rotation": {
+        "angle": 45,
+        "axis": "y",
+        "origin": [
+          8,
+          9,
+          8
+        ],
+        "rescale": true
+      },
+      "faces": {
+        "east": {
+          "uv": [
+            0,
+            4,
+            16,
+            12
+          ],
+          "texture": "#stem",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            16,
+            4,
+            0,
+            12
+          ],
+          "texture": "#stem",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        8,
+        8
+      ],
+      "rotation": {
+        "angle": 45,
+        "axis": "y",
+        "origin": [
+          8,
+          9,
+          8
+        ],
+        "rescale": true
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            4,
+            0,
+            12
+          ],
+          "texture": "#stem",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            4,
+            16,
+            12
+          ],
+          "texture": "#stem",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        9,
+        16,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            10,
+            0,
+            1,
+            16
+          ],
+          "texture": "#upperstem",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            1,
+            0,
+            10,
+            16
+          ],
+          "texture": "#upperstem",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        8,
+        0,
+        0
+      ],
+      "to": [
+        8,
+        16,
+        9
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            10,
+            0,
+            1,
+            16
+          ],
+          "texture": "#upperstem",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            1,
+            0,
+            10,
+            16
+          ],
+          "texture": "#upperstem",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "name": "gourd",
+      "from": [
+        6,
+        0,
+        1
+      ],
+      "to": [
+        10,
+        6,
+        5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1,
+            9,
+            5,
+            15
+          ],
+          "texture": "#2"
+        },
+        "east": {
+          "uv": [
+            1,
+            9,
+            5,
+            15
+          ],
+          "texture": "#2"
+        },
+        "south": {
+          "uv": [
+            1,
+            9,
+            5,
+            15
+          ],
+          "texture": "#2"
+        },
+        "west": {
+          "uv": [
+            1,
+            9,
+            5,
+            15
+          ],
+          "texture": "#2"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#2"
+        },
+        "down": {
+          "uv": [
+            10,
+            4,
+            14,
+            8
+          ],
+          "texture": "#2"
+        }
+      }
+    },
+    {
+      "name": "stem",
+      "from": [
+        8,
+        6,
+        2
+      ],
+      "to": [
+        8,
+        7,
+        4
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            1,
+            1,
+            3,
+            2
+          ],
+          "texture": "#2"
+        },
+        "north": {
+          "uv": [
+            1,
+            1,
+            3,
+            2
+          ],
+          "texture": "#2"
+        },
+        "east": {
+          "uv": [
+            1,
+            1,
+            3,
+            2
+          ],
+          "texture": "#2"
+        },
+        "south": {
+          "uv": [
+            1,
+            1,
+            3,
+            2
+          ],
+          "texture": "#2"
+        },
+        "up": {
+          "uv": [
+            1,
+            1,
+            3,
+            2
+          ],
+          "texture": "#2"
+        },
+        "down": {
+          "uv": [
+            1,
+            1,
+            3,
+            2
+          ],
+          "texture": "#2"
+        }
+      }
+    },
+    {
+      "name": "stem",
+      "from": [
+        7,
+        6,
+        3
+      ],
+      "to": [
+        9,
+        7,
+        3
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1,
+            1,
+            3,
+            2
+          ],
+          "texture": "#2"
+        },
+        "east": {
+          "uv": [
+            1,
+            1,
+            3,
+            2
+          ],
+          "texture": "#2"
+        },
+        "south": {
+          "uv": [
+            1,
+            1,
+            3,
+            2
+          ],
+          "texture": "#2"
+        },
+        "west": {
+          "uv": [
+            1,
+            1,
+            3,
+            2
+          ],
+          "texture": "#2"
+        },
+        "up": {
+          "uv": [
+            1,
+            1,
+            3,
+            2
+          ],
+          "texture": "#2"
+        },
+        "down": {
+          "uv": [
+            1,
+            1,
+            3,
+            2
+          ],
+          "texture": "#2"
+        }
+      }
+    },
+    {
+      "name": "gourd",
+      "from": [
+        1,
+        0,
+        6
+      ],
+      "to": [
+        5,
+        6,
+        10
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1,
+            9,
+            5,
+            15
+          ],
+          "texture": "#2"
+        },
+        "east": {
+          "uv": [
+            1,
+            9,
+            5,
+            15
+          ],
+          "texture": "#2"
+        },
+        "south": {
+          "uv": [
+            1,
+            9,
+            5,
+            15
+          ],
+          "texture": "#2"
+        },
+        "west": {
+          "uv": [
+            1,
+            9,
+            5,
+            15
+          ],
+          "texture": "#2"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#2"
+        },
+        "down": {
+          "uv": [
+            10,
+            4,
+            14,
+            8
+          ],
+          "texture": "#2"
+        }
+      }
+    },
+    {
+      "name": "stem",
+      "from": [
+        3,
+        6,
+        7
+      ],
+      "to": [
+        3,
+        7,
+        9
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            1,
+            1,
+            3,
+            2
+          ],
+          "texture": "#2"
+        },
+        "north": {
+          "uv": [
+            1,
+            1,
+            3,
+            2
+          ],
+          "texture": "#2"
+        },
+        "east": {
+          "uv": [
+            1,
+            1,
+            3,
+            2
+          ],
+          "texture": "#2"
+        },
+        "south": {
+          "uv": [
+            1,
+            1,
+            3,
+            2
+          ],
+          "texture": "#2"
+        },
+        "up": {
+          "uv": [
+            1,
+            1,
+            3,
+            2
+          ],
+          "texture": "#2"
+        },
+        "down": {
+          "uv": [
+            1,
+            1,
+            3,
+            2
+          ],
+          "texture": "#2"
+        }
+      }
+    },
+    {
+      "name": "stem",
+      "from": [
+        2,
+        6,
+        8
+      ],
+      "to": [
+        4,
+        7,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1,
+            1,
+            3,
+            2
+          ],
+          "texture": "#2"
+        },
+        "east": {
+          "uv": [
+            1,
+            1,
+            3,
+            2
+          ],
+          "texture": "#2"
+        },
+        "south": {
+          "uv": [
+            1,
+            1,
+            3,
+            2
+          ],
+          "texture": "#2"
+        },
+        "west": {
+          "uv": [
+            1,
+            1,
+            3,
+            2
+          ],
+          "texture": "#2"
+        },
+        "up": {
+          "uv": [
+            1,
+            1,
+            3,
+            2
+          ],
+          "texture": "#2"
+        },
+        "down": {
+          "uv": [
+            1,
+            1,
+            3,
+            2
+          ],
+          "texture": "#2"
+        }
+      }
+    }
+  ]
+}

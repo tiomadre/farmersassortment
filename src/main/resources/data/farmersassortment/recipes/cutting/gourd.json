@@ -1,0 +1,31 @@
+{
+  "type": "farmersassortment:gourd_cutting",
+  "ingredients": [
+    {
+      "item": "farmersassortment:gourd"
+    }
+  ],
+  "tool": [
+    {
+      "type": "farmersdelight:tool_action",
+      "action": "knife_dig"
+    },
+    {
+      "tag": "forge:tools/knives"
+    }
+  ],
+  "result": [
+    {
+      "item": "farmersassortment:gourd_shell",
+      "count": 2
+    },
+    {
+      "item": "farmersassortment:gourd_seeds",
+      "count": 1,
+      "nbt": {
+        "GourdVariant": "jarrahdale"
+      }
+    }
+  ],
+  "sound": "minecraft:block.pumpkin.carve"
+}

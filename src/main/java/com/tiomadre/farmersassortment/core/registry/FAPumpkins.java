@@ -40,10 +40,23 @@ import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.RegistryObject;
 import vectorwing.farmersdelight.common.FoodValues;
+import net.minecraft.world.entity.EquipmentSlot;
+
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.SlabType;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
 
 import java.util.List;
 
 public final class FAPumpkins {
+    private static final SlabBlock SLAB = (SlabBlock) Blocks.OAK_SLAB;
     public static final Variant YELLOW = new Variant("yellow", 0, 8);
     public static final Variant WHITE = new Variant("white", 2, 12);
     public static final Variant RED = new Variant("red", 2, 16);
@@ -88,17 +101,23 @@ public final class FAPumpkins {
             VoxelShape shape = Block.box(inset, 0, inset, 16 - inset, height, 16 - inset);
 
             pumpkin = FABlocks.BLOCKS.createBlock(name,
-                    () -> new VariantPumpkinBlock(this, shape,
+                    () -> color.equals("yellow")
+                            ? new YellowPumpkinBlock(this, shape, BlockBehaviour.Properties.copy(Blocks.PUMPKIN).noOcclusion())
+                            : new VariantPumpkinBlock(this, shape,
                             BlockBehaviour.Properties.copy(Blocks.PUMPKIN).noOcclusion()),
                     new Item.Properties());
 
             carved = FABlocks.BLOCKS.createBlock("carved_" + name,
-                    () -> new VariantCarvedPumpkinBlock(shape,
+                    () -> color.equals("yellow")
+                            ? new YellowCarvedPumpkinBlock(shape, BlockBehaviour.Properties.copy(Blocks.CARVED_PUMPKIN).noOcclusion())
+                            : new VariantCarvedPumpkinBlock(shape,
                             BlockBehaviour.Properties.copy(Blocks.CARVED_PUMPKIN).noOcclusion()),
                     new Item.Properties());
 
             lantern = FABlocks.BLOCKS.createBlock(color + "_jack_o_lantern",
-                    () -> new VariantCarvedPumpkinBlock(shape,
+                    () -> color.equals("yellow")
+                            ? new YellowCarvedPumpkinBlock(shape, BlockBehaviour.Properties.copy(Blocks.JACK_O_LANTERN).noOcclusion().lightLevel(state -> 15))
+                            : new VariantCarvedPumpkinBlock(shape,
                             BlockBehaviour.Properties.copy(Blocks.JACK_O_LANTERN)
                                     .noOcclusion().lightLevel(state -> 15)),
                     new Item.Properties());
@@ -123,7 +142,7 @@ public final class FAPumpkins {
         }
     }
 
-    public static final class VariantPumpkinBlock extends PumpkinBlock {
+    public static class VariantPumpkinBlock extends PumpkinBlock {
         private final Variant variant;
         private final VoxelShape shape;
 
@@ -166,14 +185,22 @@ public final class FAPumpkins {
                 level.playSound(null, pos, SoundEvents.PUMPKIN_CARVE,
                         SoundSource.BLOCKS, 1.0F, 1.0F);
 
-                level.setBlock(pos, variant.carved.get().defaultBlockState()
-                        .setValue(CarvedPumpkinBlock.FACING, facing), 11);
+                BlockState carvedState = variant.carved.get().defaultBlockState()
+                        .setValue(CarvedPumpkinBlock.FACING, facing);
+                if (state.hasProperty(BlockStateProperties.SLAB_TYPE)) {
+                    carvedState = carvedState
+                            .setValue(BlockStateProperties.SLAB_TYPE, state.getValue(BlockStateProperties.SLAB_TYPE))
+                            .setValue(BlockStateProperties.WATERLOGGED, state.getValue(BlockStateProperties.WATERLOGGED));
+                }
+                level.setBlock(pos, carvedState, 11);
 
                 ItemEntity seeds = new ItemEntity(level,
                         pos.getX() + 0.5D + facing.getStepX() * 0.65D,
                         pos.getY() + 0.1D,
                         pos.getZ() + 0.5D + facing.getStepZ() * 0.65D,
-                        new ItemStack(variant.seeds.get(), 4));
+                        new ItemStack(variant.seeds.get(),
+                                state.hasProperty(BlockStateProperties.SLAB_TYPE)
+                                        && state.getValue(BlockStateProperties.SLAB_TYPE) == SlabType.DOUBLE ? 8 : 4));
 
                 seeds.setDeltaMovement(
                         0.05D * facing.getStepX() + level.random.nextDouble() * 0.02D,
@@ -190,7 +217,7 @@ public final class FAPumpkins {
         }
     }
 
-    public static final class VariantCarvedPumpkinBlock extends CarvedPumpkinBlock {
+    public static class VariantCarvedPumpkinBlock extends CarvedPumpkinBlock {
         private final VoxelShape shape;
         private BlockPattern snowPattern;
         private BlockPattern ironPattern;
@@ -237,6 +264,9 @@ public final class FAPumpkins {
             if (snow != null) {
                 SnowGolem golem = EntityType.SNOW_GOLEM.create(level);
                 if (golem != null) {
+                    golem.setItemSlot(EquipmentSlot.HEAD,
+                            new ItemStack(snow.getBlock(0, 0, 0).getState().getBlock()));
+                    golem.setDropChance(EquipmentSlot.HEAD, 0.0F);
                     spawn(level, snow, golem, snow.getBlock(0, 2, 0).getPos());
                 }
                 return;
@@ -265,6 +295,168 @@ public final class FAPumpkins {
             }
 
             CarvedPumpkinBlock.updatePatternBlocks(level, match);
+        }
+    }
+
+    public static final class YellowPumpkinBlock extends VariantPumpkinBlock implements SimpleWaterloggedBlock {
+        private YellowPumpkinBlock(Variant variant, VoxelShape shape, BlockBehaviour.Properties properties) {
+            super(variant, shape, properties);
+            registerDefaultState(defaultBlockState().setValue(BlockStateProperties.SLAB_TYPE, SlabType.BOTTOM)
+                    .setValue(BlockStateProperties.WATERLOGGED, false));
+        }
+
+        @Override
+        protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+            super.createBlockStateDefinition(builder);
+            builder.add(BlockStateProperties.SLAB_TYPE, BlockStateProperties.WATERLOGGED);
+        }
+
+        @Override
+        public BlockState getStateForPlacement(BlockPlaceContext context) {
+            BlockState state = super.getStateForPlacement(context);
+            BlockState existing = context.getLevel().getBlockState(context.getClickedPos());
+            if (existing.is(this)) {
+                return existing.setValue(BlockStateProperties.SLAB_TYPE, SlabType.DOUBLE)
+                        .setValue(BlockStateProperties.WATERLOGGED, false);
+            }
+            BlockState slab = SLAB.getStateForPlacement(context);
+            return state.setValue(BlockStateProperties.SLAB_TYPE, slab.getValue(BlockStateProperties.SLAB_TYPE))
+                    .setValue(BlockStateProperties.WATERLOGGED, slab.getValue(BlockStateProperties.WATERLOGGED));
+        }
+
+        @Override
+        public boolean canBeReplaced(BlockState state, BlockPlaceContext context) {
+            SlabType type = state.getValue(BlockStateProperties.SLAB_TYPE);
+            if (type == SlabType.DOUBLE || !context.getItemInHand().is(asItem())) {
+                return false;
+            }
+            if (!context.replacingClickedOnBlock()) {
+                return true;
+            }
+            boolean upper = context.getClickLocation().y - context.getClickedPos().getY() > 0.5D;
+            Direction face = context.getClickedFace();
+            return type == SlabType.BOTTOM
+                    ? face == Direction.UP || face.getAxis().isHorizontal() && upper
+                    : face == Direction.DOWN || face.getAxis().isHorizontal() && !upper;
+        }
+
+        @Override
+        public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos,
+                                   CollisionContext context) {
+            return SLAB.getShape(state, level, pos, context);
+        }
+
+        @Override
+        public FluidState getFluidState(BlockState state) {
+            return state.getValue(BlockStateProperties.WATERLOGGED)
+                    ? Fluids.WATER.getSource(false) : super.getFluidState(state);
+        }
+
+        @Override
+        public boolean canPlaceLiquid(BlockGetter level, BlockPos pos, BlockState state, Fluid fluid) {
+            return state.getValue(BlockStateProperties.SLAB_TYPE) != SlabType.DOUBLE
+                    && SimpleWaterloggedBlock.super.canPlaceLiquid(level, pos, state, fluid);
+        }
+
+        @Override
+        public boolean placeLiquid(LevelAccessor level, BlockPos pos, BlockState state, FluidState fluid) {
+            return state.getValue(BlockStateProperties.SLAB_TYPE) != SlabType.DOUBLE
+                    && SimpleWaterloggedBlock.super.placeLiquid(level, pos, state, fluid);
+        }
+
+        @Override
+        public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState,
+                                      LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
+            if (state.getValue(BlockStateProperties.WATERLOGGED)) {
+                level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+            }
+            return super.updateShape(state, direction, neighborState, level, pos, neighborPos);
+        }
+
+        @Override
+        public boolean useShapeForLightOcclusion(BlockState state) {
+            return state.getValue(BlockStateProperties.SLAB_TYPE) != SlabType.DOUBLE;
+        }
+    }
+
+    public static final class YellowCarvedPumpkinBlock extends VariantCarvedPumpkinBlock implements SimpleWaterloggedBlock {
+        private YellowCarvedPumpkinBlock(VoxelShape shape, BlockBehaviour.Properties properties) {
+            super(shape, properties);
+            registerDefaultState(defaultBlockState().setValue(BlockStateProperties.SLAB_TYPE, SlabType.BOTTOM)
+                    .setValue(BlockStateProperties.WATERLOGGED, false));
+        }
+
+        @Override
+        protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+            super.createBlockStateDefinition(builder);
+            builder.add(BlockStateProperties.SLAB_TYPE, BlockStateProperties.WATERLOGGED);
+        }
+
+        @Override
+        public BlockState getStateForPlacement(BlockPlaceContext context) {
+            BlockState state = super.getStateForPlacement(context);
+            BlockState existing = context.getLevel().getBlockState(context.getClickedPos());
+            if (existing.is(this)) {
+                return existing.setValue(BlockStateProperties.SLAB_TYPE, SlabType.DOUBLE)
+                        .setValue(BlockStateProperties.WATERLOGGED, false);
+            }
+            BlockState slab = SLAB.getStateForPlacement(context);
+            return state.setValue(BlockStateProperties.SLAB_TYPE, slab.getValue(BlockStateProperties.SLAB_TYPE))
+                    .setValue(BlockStateProperties.WATERLOGGED, slab.getValue(BlockStateProperties.WATERLOGGED));
+        }
+
+        @Override
+        public boolean canBeReplaced(BlockState state, BlockPlaceContext context) {
+            SlabType type = state.getValue(BlockStateProperties.SLAB_TYPE);
+            if (type == SlabType.DOUBLE || !context.getItemInHand().is(asItem())) {
+                return false;
+            }
+            if (!context.replacingClickedOnBlock()) {
+                return true;
+            }
+            boolean upper = context.getClickLocation().y - context.getClickedPos().getY() > 0.5D;
+            Direction face = context.getClickedFace();
+            return type == SlabType.BOTTOM
+                    ? face == Direction.UP || face.getAxis().isHorizontal() && upper
+                    : face == Direction.DOWN || face.getAxis().isHorizontal() && !upper;
+        }
+
+        @Override
+        public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos,
+                                   CollisionContext context) {
+            return SLAB.getShape(state, level, pos, context);
+        }
+
+        @Override
+        public FluidState getFluidState(BlockState state) {
+            return state.getValue(BlockStateProperties.WATERLOGGED)
+                    ? Fluids.WATER.getSource(false) : super.getFluidState(state);
+        }
+
+        @Override
+        public boolean canPlaceLiquid(BlockGetter level, BlockPos pos, BlockState state, Fluid fluid) {
+            return state.getValue(BlockStateProperties.SLAB_TYPE) != SlabType.DOUBLE
+                    && SimpleWaterloggedBlock.super.canPlaceLiquid(level, pos, state, fluid);
+        }
+
+        @Override
+        public boolean placeLiquid(LevelAccessor level, BlockPos pos, BlockState state, FluidState fluid) {
+            return state.getValue(BlockStateProperties.SLAB_TYPE) != SlabType.DOUBLE
+                    && SimpleWaterloggedBlock.super.placeLiquid(level, pos, state, fluid);
+        }
+
+        @Override
+        public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState,
+                                      LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
+            if (state.getValue(BlockStateProperties.WATERLOGGED)) {
+                level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+            }
+            return super.updateShape(state, direction, neighborState, level, pos, neighborPos);
+        }
+
+        @Override
+        public boolean useShapeForLightOcclusion(BlockState state) {
+            return state.getValue(BlockStateProperties.SLAB_TYPE) != SlabType.DOUBLE;
         }
     }
 }

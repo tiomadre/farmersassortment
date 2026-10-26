@@ -28,6 +28,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import com.tiomadre.farmersassortment.client.screen.FloatingDrawerScreen;
+import com.tiomadre.farmersassortment.client.renderer.FASnowGolemRenderer;
+import net.minecraft.world.entity.EntityType;
 
 @Mod.EventBusSubscriber(modid = FarmersAssortment.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public final class FAClientEvents {
@@ -39,6 +41,7 @@ public final class FAClientEvents {
         event.registerBlockEntityRenderer(FABlockEntityTypes.BUTCHER_BLOCK_CABINET.get(), ButcherBlockCabinetRenderer::new);
         event.registerBlockEntityRenderer(FABlockEntityTypes.RACK.get(), RackRenderer::new);
         event.registerBlockEntityRenderer(FABlockEntityTypes.FLOATING_COUNTER.get(), FloatingDrawerRenderer::new);
+        event.registerEntityRenderer(EntityType.SNOW_GOLEM, FASnowGolemRenderer::new);
     }
 
     @SubscribeEvent

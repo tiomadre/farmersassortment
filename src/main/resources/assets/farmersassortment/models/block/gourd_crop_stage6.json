@@ -1,0 +1,187 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "minecraft:block/stem_growth6",
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "farmersassortment:block/small_gourd_stem",
+    "stem": "farmersassortment:block/small_gourd_stem"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        -1,
+        8
+      ],
+      "to": [
+        16,
+        13,
+        8
+      ],
+      "rotation": {
+        "angle": 45,
+        "axis": "y",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "rescale": true
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            2,
+            16,
+            16
+          ],
+          "texture": "#stem",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            16,
+            2,
+            0,
+            16
+          ],
+          "texture": "#stem",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        8,
+        -1,
+        0
+      ],
+      "to": [
+        8,
+        13,
+        16
+      ],
+      "rotation": {
+        "angle": 45,
+        "axis": "y",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "rescale": true
+      },
+      "faces": {
+        "east": {
+          "uv": [
+            16,
+            2,
+            0,
+            16
+          ],
+          "texture": "#stem",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            2,
+            16,
+            16
+          ],
+          "texture": "#stem",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        8,
+        -1,
+        0
+      ],
+      "to": [
+        8,
+        13,
+        16
+      ],
+      "rotation": {
+        "angle": 45,
+        "axis": "y",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "rescale": true
+      },
+      "faces": {
+        "east": {
+          "uv": [
+            0,
+            2,
+            16,
+            16
+          ],
+          "texture": "#stem",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            16,
+            2,
+            0,
+            16
+          ],
+          "texture": "#stem",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        0,
+        -1,
+        8
+      ],
+      "to": [
+        16,
+        13,
+        8
+      ],
+      "rotation": {
+        "angle": 45,
+        "axis": "y",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "rescale": true
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            2,
+            0,
+            16
+          ],
+          "texture": "#stem",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            2,
+            16,
+            16
+          ],
+          "texture": "#stem",
+          "tintindex": 0
+        }
+      }
+    }
+  ]
+}

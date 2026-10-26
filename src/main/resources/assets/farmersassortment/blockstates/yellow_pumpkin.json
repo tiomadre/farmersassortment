@@ -1,7 +1,13 @@
 {
   "variants": {
-    "": {
+    "type=bottom": {
       "model": "farmersassortment:block/yellow_pumpkin"
+    },
+    "type=top": {
+      "model": "farmersassortment:block/yellow_pumpkin_top"
+    },
+    "type=double": {
+      "model": "farmersassortment:block/yellow_pumpkin_double"
     }
   }
 }

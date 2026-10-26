@@ -1,6 +1,7 @@
 package com.tiomadre.farmersassortment.data;
 
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
+import com.tiomadre.farmersassortment.data.server.FAWorldgen;
 import com.tiomadre.farmersassortment.data.client.FABlockStates;
 import com.tiomadre.farmersassortment.data.client.FAItemModels;
 import com.tiomadre.farmersassortment.data.client.FAParticleDef;
@@ -25,6 +26,7 @@ public final class FADatagen {
     public static void gatherData(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
         if (event.includeServer()) {
+            generator.addProvider(true, new FAWorldgen(generator.getPackOutput(), event.getLookupProvider()));
             FABlockTags blockTags = new FABlockTags(event);
             generator.addProvider(true, blockTags);
             generator.addProvider(true, new FAItemTags(event, blockTags));

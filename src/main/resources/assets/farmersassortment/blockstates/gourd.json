@@ -1,0 +1,464 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "gourd_2": "5",
+        "gourd_1": "0"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_1_slot_1_jarrahdale"
+      }
+    },
+    {
+      "when": {
+        "gourd_2": "5",
+        "gourd_1": "1"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_1_slot_1_wax"
+      }
+    },
+    {
+      "when": {
+        "gourd_2": "5",
+        "gourd_1": "2"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_1_slot_1_midnight"
+      }
+    },
+    {
+      "when": {
+        "gourd_2": "5",
+        "gourd_1": "3"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_1_slot_1_delicata"
+      }
+    },
+    {
+      "when": {
+        "gourd_2": "5",
+        "gourd_1": "4"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_1_slot_1_honeynut"
+      }
+    },
+    {
+      "when": {
+        "gourd_2": "0|1|2|3|4",
+        "gourd_3": "5",
+        "gourd_1": "0"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_2_slot_1_jarrahdale"
+      }
+    },
+    {
+      "when": {
+        "gourd_2": "0|1|2|3|4",
+        "gourd_3": "5",
+        "gourd_1": "1"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_2_slot_1_wax"
+      }
+    },
+    {
+      "when": {
+        "gourd_2": "0|1|2|3|4",
+        "gourd_3": "5",
+        "gourd_1": "2"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_2_slot_1_midnight"
+      }
+    },
+    {
+      "when": {
+        "gourd_2": "0|1|2|3|4",
+        "gourd_3": "5",
+        "gourd_1": "3"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_2_slot_1_delicata"
+      }
+    },
+    {
+      "when": {
+        "gourd_2": "0|1|2|3|4",
+        "gourd_3": "5",
+        "gourd_1": "4"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_2_slot_1_honeynut"
+      }
+    },
+    {
+      "when": {
+        "gourd_2": "0",
+        "gourd_3": "5"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_2_slot_2_jarrahdale"
+      }
+    },
+    {
+      "when": {
+        "gourd_2": "1",
+        "gourd_3": "5"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_2_slot_2_wax"
+      }
+    },
+    {
+      "when": {
+        "gourd_2": "2",
+        "gourd_3": "5"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_2_slot_2_midnight"
+      }
+    },
+    {
+      "when": {
+        "gourd_2": "3",
+        "gourd_3": "5"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_2_slot_2_delicata"
+      }
+    },
+    {
+      "when": {
+        "gourd_2": "4",
+        "gourd_3": "5"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_2_slot_2_honeynut"
+      }
+    },
+    {
+      "when": {
+        "gourd_3": "0|1|2|3|4",
+        "gourd_4": "5",
+        "gourd_1": "0"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_3_slot_1_jarrahdale"
+      }
+    },
+    {
+      "when": {
+        "gourd_3": "0|1|2|3|4",
+        "gourd_4": "5",
+        "gourd_1": "1"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_3_slot_1_wax"
+      }
+    },
+    {
+      "when": {
+        "gourd_3": "0|1|2|3|4",
+        "gourd_4": "5",
+        "gourd_1": "2"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_3_slot_1_midnight"
+      }
+    },
+    {
+      "when": {
+        "gourd_3": "0|1|2|3|4",
+        "gourd_4": "5",
+        "gourd_1": "3"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_3_slot_1_delicata"
+      }
+    },
+    {
+      "when": {
+        "gourd_3": "0|1|2|3|4",
+        "gourd_4": "5",
+        "gourd_1": "4"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_3_slot_1_honeynut"
+      }
+    },
+    {
+      "when": {
+        "gourd_3": "0|1|2|3|4",
+        "gourd_4": "5",
+        "gourd_2": "0"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_3_slot_2_jarrahdale"
+      }
+    },
+    {
+      "when": {
+        "gourd_3": "0|1|2|3|4",
+        "gourd_4": "5",
+        "gourd_2": "1"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_3_slot_2_wax"
+      }
+    },
+    {
+      "when": {
+        "gourd_3": "0|1|2|3|4",
+        "gourd_4": "5",
+        "gourd_2": "2"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_3_slot_2_midnight"
+      }
+    },
+    {
+      "when": {
+        "gourd_3": "0|1|2|3|4",
+        "gourd_4": "5",
+        "gourd_2": "3"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_3_slot_2_delicata"
+      }
+    },
+    {
+      "when": {
+        "gourd_3": "0|1|2|3|4",
+        "gourd_4": "5",
+        "gourd_2": "4"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_3_slot_2_honeynut"
+      }
+    },
+    {
+      "when": {
+        "gourd_3": "0",
+        "gourd_4": "5"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_3_slot_3_jarrahdale"
+      }
+    },
+    {
+      "when": {
+        "gourd_3": "1",
+        "gourd_4": "5"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_3_slot_3_wax"
+      }
+    },
+    {
+      "when": {
+        "gourd_3": "2",
+        "gourd_4": "5"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_3_slot_3_midnight"
+      }
+    },
+    {
+      "when": {
+        "gourd_3": "3",
+        "gourd_4": "5"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_3_slot_3_delicata"
+      }
+    },
+    {
+      "when": {
+        "gourd_3": "4",
+        "gourd_4": "5"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_3_slot_3_honeynut"
+      }
+    },
+    {
+      "when": {
+        "gourd_4": "0|1|2|3|4",
+        "gourd_1": "0"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_4_slot_1_jarrahdale"
+      }
+    },
+    {
+      "when": {
+        "gourd_4": "0|1|2|3|4",
+        "gourd_1": "1"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_4_slot_1_wax"
+      }
+    },
+    {
+      "when": {
+        "gourd_4": "0|1|2|3|4",
+        "gourd_1": "2"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_4_slot_1_midnight"
+      }
+    },
+    {
+      "when": {
+        "gourd_4": "0|1|2|3|4",
+        "gourd_1": "3"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_4_slot_1_delicata"
+      }
+    },
+    {
+      "when": {
+        "gourd_4": "0|1|2|3|4",
+        "gourd_1": "4"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_4_slot_1_honeynut"
+      }
+    },
+    {
+      "when": {
+        "gourd_4": "0|1|2|3|4",
+        "gourd_2": "0"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_4_slot_2_jarrahdale"
+      }
+    },
+    {
+      "when": {
+        "gourd_4": "0|1|2|3|4",
+        "gourd_2": "1"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_4_slot_2_wax"
+      }
+    },
+    {
+      "when": {
+        "gourd_4": "0|1|2|3|4",
+        "gourd_2": "2"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_4_slot_2_midnight"
+      }
+    },
+    {
+      "when": {
+        "gourd_4": "0|1|2|3|4",
+        "gourd_2": "3"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_4_slot_2_delicata"
+      }
+    },
+    {
+      "when": {
+        "gourd_4": "0|1|2|3|4",
+        "gourd_2": "4"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_4_slot_2_honeynut"
+      }
+    },
+    {
+      "when": {
+        "gourd_4": "0|1|2|3|4",
+        "gourd_3": "0"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_4_slot_3_jarrahdale"
+      }
+    },
+    {
+      "when": {
+        "gourd_4": "0|1|2|3|4",
+        "gourd_3": "1"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_4_slot_3_wax"
+      }
+    },
+    {
+      "when": {
+        "gourd_4": "0|1|2|3|4",
+        "gourd_3": "2"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_4_slot_3_midnight"
+      }
+    },
+    {
+      "when": {
+        "gourd_4": "0|1|2|3|4",
+        "gourd_3": "3"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_4_slot_3_delicata"
+      }
+    },
+    {
+      "when": {
+        "gourd_4": "0|1|2|3|4",
+        "gourd_3": "4"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_4_slot_3_honeynut"
+      }
+    },
+    {
+      "when": {
+        "gourd_4": "0"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_4_slot_4_jarrahdale"
+      }
+    },
+    {
+      "when": {
+        "gourd_4": "1"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_4_slot_4_wax"
+      }
+    },
+    {
+      "when": {
+        "gourd_4": "2"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_4_slot_4_midnight"
+      }
+    },
+    {
+      "when": {
+        "gourd_4": "3"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_4_slot_4_delicata"
+      }
+    },
+    {
+      "when": {
+        "gourd_4": "4"
+      },
+      "apply": {
+        "model": "farmersassortment:block/gourd_pile_4_slot_4_honeynut"
+      }
+    }
+  ]
+}

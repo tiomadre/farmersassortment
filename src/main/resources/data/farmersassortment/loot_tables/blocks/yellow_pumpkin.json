@@ -49,12 +49,40 @@
                 {
                   "function": "minecraft:set_count",
                   "count": 4
+                },
+                {
+                  "function": "minecraft:set_count",
+                  "count": 8,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:block_state_property",
+                      "block": "farmersassortment:yellow_pumpkin",
+                      "properties": {
+                        "type": "double"
+                      }
+                    }
+                  ]
                 }
               ]
             },
             {
               "type": "minecraft:item",
-              "name": "farmersassortment:yellow_pumpkin"
+              "name": "farmersassortment:yellow_pumpkin",
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": 2,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:block_state_property",
+                      "block": "farmersassortment:yellow_pumpkin",
+                      "properties": {
+                        "type": "double"
+                      }
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }

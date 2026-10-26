@@ -1,5 +1,6 @@
 package com.tiomadre.farmersassortment.core;
 
+import com.tiomadre.farmersassortment.core.config.FAConfig;
 import com.tiomadre.farmersassortment.core.mixin.BlockEntityTypeAccessor;
 import com.tiomadre.farmersassortment.core.registry.*;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
@@ -8,6 +9,8 @@ import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -31,6 +34,7 @@ public class FarmersAssortment {
     private static boolean foragersCompatEnabled;
 
     public FarmersAssortment() {
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, FAConfig.COMMON_SPEC);
         LOGGER.info("Loading Farmer's Assortment");
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
@@ -44,6 +48,8 @@ public class FarmersAssortment {
         FARugs.init();
         FASoundEvents.register(modEventBus);
         FAParticleTypes.register(modEventBus);
+        FAGourds.init(modEventBus);
+        FAFeatures.register(modEventBus);
         REGISTRY_HELPER.register(modEventBus);
         FABlockEntityTypes.register(modEventBus);
         FATab.register(modEventBus);

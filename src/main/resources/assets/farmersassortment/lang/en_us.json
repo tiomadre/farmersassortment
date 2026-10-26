@@ -202,5 +202,14 @@
   "block.farmersassortment.red_pumpkin_stem": "Red Pumpkin Stem",
   "block.farmersassortment.attached_red_pumpkin_stem": "Attached Red Pumpkin Stem",
   "item.farmersassortment.red_pumpkin_seeds": "Red Pumpkin Seeds",
-  "item.farmersassortment.red_pumpkin_slice": "Red Pumpkin Slice"
+  "item.farmersassortment.red_pumpkin_slice": "Red Pumpkin Slice",
+  "block.farmersassortment.gourd": "Gourd",
+  "block.farmersassortment.gourd_crop": "Gourd Crop",
+  "item.farmersassortment.gourd_seeds": "Gourd Seeds",
+  "item.farmersassortment.gourd_shell": "Gourd Shell",
+  "variant.farmersassortment.gourd.jarrahdale": "Jarrahdale",
+  "variant.farmersassortment.gourd.wax": "Wax",
+  "variant.farmersassortment.gourd.midnight": "Midnight",
+  "variant.farmersassortment.gourd.delicata": "Delicata",
+  "variant.farmersassortment.gourd.honeynut": "Honeynut"
 }
