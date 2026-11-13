@@ -4,6 +4,7 @@ import com.tiomadre.farmersassortment.core.config.FAConfig;
 import com.tiomadre.farmersassortment.core.mixin.BlockEntityTypeAccessor;
 import com.tiomadre.farmersassortment.core.registry.*;
 import com.tiomadre.farmersassortment.core.registry.compat.FAxCrabbersBlocks;
+import com.tiomadre.farmersassortment.core.worldgen.FABiomeModifiers;
 import com.tiomadre.farmersassortment.data.server.recipes.FACrafting;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraft.world.level.block.Block;
@@ -50,6 +51,7 @@ public class FarmersAssortment {
         FAParticleTypes.register(modEventBus);
         FAGourds.init(modEventBus);
         FAFeatures.register(modEventBus);
+        FABiomeModifiers.register(modEventBus);
         REGISTRY_HELPER.register(modEventBus);
         FABlockEntityTypes.register(modEventBus);
         FATab.register(modEventBus);
