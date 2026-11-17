@@ -15,8 +15,8 @@ public class FAConfig {
         builder.push("general");
 
         ALABASTER_STOVE_COOKING_BOOST = builder
-                .comment("Additional cooking progress granted each tick when a pot sits on a lit Alabaster Stove.",
-                        "Set to 0 to disable the speed boost entirely, otherwise the default speed is 25% faster."
+                .comment("Additional cooking progress granted each tick when a Cooking Pot sits on a lit Alabaster Stove.",
+                        "Set to 0 to disable the cooking progress boost entirely, otherwise the default speed is 25% faster."
                 )
                 .defineInRange("alabasterStoveCookingBoost", 0.25D, 0.0D, 100.0D);
 
@@ -26,7 +26,7 @@ public class FAConfig {
                 .define("alabasterStoveAlabasterPotsOnly", true);
 
         BONEMEAL_MATURE_GOURD_STEMS = builder
-                .comment("When true, lets bone meal make mature pumpkin and melon stems produce fruit if there is an empty adjacent block",
+                .comment("When true, lets Bone Meal make mature Pumpkin and Melon stems produce fruit if there is an empty adjacent block",
                         "Each stem can make fruit again after its attached fruit is removed.")
                 .define("bonemealMatureGourdStems", true);
         builder.pop();

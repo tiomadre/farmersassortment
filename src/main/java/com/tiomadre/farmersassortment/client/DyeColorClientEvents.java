@@ -36,7 +36,7 @@ public final class DyeColorClientEvents {
     private static int DividerColor(int color) {
         if (color < 0) return -1;
 
-        float strength = 0.3F;
+        float strength = 0.375F;
         int red = color >> 16 & 255;
         int green = color >> 8 & 255;
         int blue = color & 255;

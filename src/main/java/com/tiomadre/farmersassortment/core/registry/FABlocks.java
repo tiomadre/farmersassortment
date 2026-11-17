@@ -37,6 +37,9 @@ import java.util.stream.Stream;
 public final class FABlocks {
     public static final BlockSubRegistryHelper BLOCKS = FarmersAssortment.REGISTRY_HELPER.getBlockSubHelper();
     public static final SoundType ALABASTER_SOUND_TYPE = layeredAlabasterSoundType();
+    //Feasts
+    public static final RegistryObject<CandiedPumpkinBlock> CANDIED_PUMPKIN = BLOCKS.createBlock("candied_pumpkin", () -> new CandiedPumpkinBlock(BlockBehaviour.Properties.copy(ModBlocks.ROAST_CHICKEN_BLOCK.get())), new Item.Properties().stacksTo(1));
+
     //IDs
     private static final ResourceLocation COPPER_COOKING_POT_ID = new ResourceLocation(FarmersAssortment.MOD_ID, "copper_cooking_pot");
     private static final ResourceLocation GOLDEN_COOKING_POT_ID = new ResourceLocation(FarmersAssortment.MOD_ID, "golden_cooking_pot");
@@ -70,12 +73,7 @@ public final class FABlocks {
     public static final RegistryObject<WallBlock> ALABASTER_WALL = registerWall("alabaster", ALABASTER_BLOCK);
     public static final RegistryObject<RotatedPillarBlock> ALABASTER_PILLAR = registerPillar("alabaster", ALABASTER_BLOCK);
     public static final RegistryObject<LanternBlock> ALABASTER_LANTERN = BLOCKS.createBlock("alabaster_lantern", () -> new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).mapColor(MapColor.TERRACOTTA_WHITE).sound(ALABASTER_SOUND_TYPE)), new Item.Properties());
-    public static final RegistryObject<LanternBlock> UPCYCLED_LANTERN = BLOCKS.createBlock(
-            "upcycled_lantern",
-            () -> new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN)
-                    .mapColor(MapColor.WOOD)
-                    .sound(SoundType.WOOD)),
-            new Item.Properties());
+    public static final RegistryObject<LanternBlock> UPCYCLED_LANTERN = BLOCKS.createBlock("upcycled_lantern", () -> new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).mapColor(MapColor.WOOD).sound(SoundType.WOOD)), new Item.Properties());
 
     //Upcycled
     public static final RegistryObject<Block> UPCYCLED_BLOCK = BLOCKS.createBlock("upcycled_block",

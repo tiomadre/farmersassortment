@@ -26,7 +26,7 @@ public final class FATab {
     public static final RegistryObject<CreativeModeTab> FA_TAB = TABS.register("fa_tab", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.farmersassortment"))
             .icon(() -> new ItemStack(FABlocks.OAK_BUTCHER_BLOCK_CABINET.get()))
-            .displayItems((parameters, output) ->
+            .displayItems((parameters, output) -> {
                     Stream.concat(
                                     FABlocks.BLOCKS.getDeferredRegister().getEntries().stream()
                                             .map(registryObject -> Map.<ResourceLocation, Supplier<? extends ItemLike>>entry(
@@ -46,7 +46,14 @@ public final class FATab {
                             .map(Map.Entry::getValue)
                             .map(Supplier::get)
                             .map(ItemStack::new)
-                            .forEach(output::accept))
+                            .forEach(output::accept);
+
+                    for (FAGourds.Variant variant : FAGourds.Variant.values()) {
+                        output.accept(FAGourds.stack(FAGourds.GOURD.get(), 1, variant));
+                        output.accept(FAGourds.stack(FAGourds.SEEDS.get(), 1, variant));
+                    }
+                    output.accept(FAGourds.GOURD_SHELL.get());
+            })
             .build());
 
     private FATab() {
@@ -95,6 +102,9 @@ public final class FATab {
         }
         if (path.endsWith("_table")) {
             return 12;
+        }
+        if (path.contains("pumpkin") || path.endsWith("_jack_o_lantern") || path.equals("toasted_pepitas")) {
+            return 14;
         }
         return 13;
     }

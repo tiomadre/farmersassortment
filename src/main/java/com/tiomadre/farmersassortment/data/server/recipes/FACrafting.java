@@ -18,6 +18,7 @@ import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
@@ -48,6 +49,7 @@ public final class FACrafting extends RecipeProvider {
 
     @Override
     protected void buildRecipes(@NotNull Consumer<FinishedRecipe> output) {
+        toastedPepitas(output);
 
         //Butcher Block Cabinets
         butcherBlockCabinet(output, FABlocks.OAK_BUTCHER_BLOCK_CABINET, blockItem("farmersdelight", "cutting_board"), blockItem("farmersdelight", "oak_cabinet"));
@@ -357,6 +359,49 @@ public final class FACrafting extends RecipeProvider {
                 .pattern("QTQ")
                 .unlockedBy(getHasName(FAItems.ALABASTER.get()), has(FAItems.ALABASTER.get()))
                 .save(output);
+    }
+
+    private static void toastedPepitas(Consumer<FinishedRecipe> output) {
+        Ingredient seeds = Ingredient.of(FATags.Items.PEPITA_SEEDS);
+        ResourceLocation result = FAItems.TOASTED_PEPITAS.getId();
+        output.accept(new FoodCookingRecipe(result, RecipeSerializer.SMELTING_RECIPE, seeds, result, 0.1F, 200));
+        output.accept(new FoodCookingRecipe(result.withSuffix("_from_smoking"),
+                RecipeSerializer.SMOKING_RECIPE, seeds, result, 0.1F, 100));
+        output.accept(new FoodCookingRecipe(result.withSuffix("_from_campfire_cooking"),
+                RecipeSerializer.CAMPFIRE_COOKING_RECIPE, seeds, result, 0.1F, 600));
+    }
+
+    private record FoodCookingRecipe(ResourceLocation id, RecipeSerializer<?> serializer, Ingredient ingredient,
+                                     ResourceLocation result, float experience, int cookingTime) implements FinishedRecipe {
+        @Override
+        public void serializeRecipeData(JsonObject json) {
+            json.addProperty("category", "food");
+            json.add("ingredient", ingredient.toJson());
+            json.addProperty("result", result.toString());
+            json.addProperty("experience", experience);
+            json.addProperty("cookingtime", cookingTime);
+        }
+
+        @Override
+        public ResourceLocation getId() {
+            return id;
+        }
+
+        @Override
+        public RecipeSerializer<?> getType() {
+            return serializer;
+        }
+
+        // Toasted Pepitas uses one advancement to unlock all three recipes.
+        @Override
+        public @Nullable JsonObject serializeAdvancement() {
+            return null;
+        }
+
+        @Override
+        public @Nullable ResourceLocation getAdvancementId() {
+            return null;
+        }
     }
 
     private void alabasterBlock(Consumer<FinishedRecipe> output) {

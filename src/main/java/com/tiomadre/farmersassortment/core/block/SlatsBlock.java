@@ -116,6 +116,14 @@ public class SlatsBlock extends Block implements EntityBlock, BonemealableBlock,
         }
 
         boolean sneaking = context.getPlayer() != null && context.getPlayer().isShiftKeyDown();
+        if (!context.replacingClickedOnBlock()) {
+            BlockState clicked = context.getLevel().getBlockState(context.getClickedPos().relative(face.getOpposite()));
+            if (clicked.getBlock() instanceof SlatsBlock && clicked.getValue(MODE) == Mode.SIDE) {
+                return sneaking
+                        ? placement.setValue(FACING, face).setValue(MODE, Mode.VERTICAL)
+                        : placement.setValue(FACING, clicked.getValue(FACING)).setValue(MODE, Mode.SIDE);
+            }
+        }
         return placement.setValue(FACING, face).setValue(MODE, sneaking ? Mode.SIDE : Mode.VERTICAL);
     }
 

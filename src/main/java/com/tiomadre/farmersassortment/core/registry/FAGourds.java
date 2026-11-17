@@ -34,7 +34,6 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.ToolAction;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -107,17 +106,6 @@ public final class FAGourds {
             ComposterBlock.COMPOSTABLES.put(SEEDS.get(), 0.3F);
             ComposterBlock.COMPOSTABLES.put(GOURD.get(), 0.65F);
         });
-    }
-
-    @SubscribeEvent
-    public static void creativeTab(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTab() == FATab.FA_TAB.get()) {
-            for (Variant variant : Variant.values()) {
-                event.accept(stack(GOURD.get(), 1, variant));
-                event.accept(stack(SEEDS.get(), 1, variant));
-            }
-            event.accept(GOURD_SHELL.get());
-        }
     }
 
     public enum Variant implements StringRepresentable {
@@ -331,7 +319,9 @@ public final class FAGourds {
         @Override
         public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
             BlockPos below = pos.below();
-            return level.getBlockState(below).isFaceSturdy(level, below, Direction.UP);
+            BlockState support = level.getBlockState(below);
+            return support.is(FAPumpkins.RED.pumpkin.get())
+                    || support.isFaceSturdy(level, below, Direction.UP);
         }
 
         @Override

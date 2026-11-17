@@ -25,13 +25,12 @@ public final class FACooking implements DataProvider {
 
     @Override
     public CompletableFuture<?> run(CachedOutput cachedOutput) {
-        return saveCookingRecipe(cachedOutput, new ResourceLocation(FarmersAssortment.MOD_ID, "alabaster"),
-                FAItems.ALABASTER.get(), 2,
+        return saveCookingPotRecipe(cachedOutput, "alabaster", FAItems.ALABASTER.get(), 2,
                 ingredient(Items.QUARTZ), ingredient(Items.QUARTZ), ingredient(Items.GOLD_INGOT));
     }
 
-    private CompletableFuture<?> saveCookingRecipe(CachedOutput cachedOutput, ResourceLocation id, ItemLike result, int count,
-                                                   JsonObject... ingredients) {
+    private CompletableFuture<?> saveCookingPotRecipe(CachedOutput cachedOutput, String name, ItemLike result, int count,
+                                                       JsonObject... ingredients) {
         JsonObject recipe = new JsonObject();
         recipe.addProperty("type", "farmersdelight:cooking");
         recipe.addProperty("recipe_book_tab", "misc");
@@ -50,7 +49,7 @@ public final class FACooking implements DataProvider {
         recipe.add("result", recipeResult);
         recipe.addProperty("cookingtime", 200);
 
-        Path path = this.recipes.json(id);
+        Path path = this.recipes.json(new ResourceLocation(FarmersAssortment.MOD_ID, name));
         return DataProvider.saveStable(cachedOutput, recipe, path);
     }
 

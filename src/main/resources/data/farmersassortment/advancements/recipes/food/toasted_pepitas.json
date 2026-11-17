@@ -1,0 +1,27 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_seeds": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "farmersassortment:pepita_seeds"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_seeds"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "farmersassortment:toasted_pepitas",
+      "farmersassortment:toasted_pepitas_from_smoking",
+      "farmersassortment:toasted_pepitas_from_campfire_cooking"
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_pumpkin_slice": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "farmersdelight:pumpkin_slice",
+              "farmersassortment:yellow_pumpkin_slice",
+              "farmersassortment:white_pumpkin_slice",
+              "farmersassortment:red_pumpkin_slice"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "farmersassortment:candied_pumpkin"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_pumpkin_slice",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "farmersassortment:candied_pumpkin"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -74,12 +74,14 @@ public final class FADynamicFurniture extends AbstractPackResources {
         JsonArray slats = new JsonArray();
         JsonObject language = new JsonObject();
         for (FurnitureDefinition definition : FURNITURE_DEFINITIONS) {
+            if (type == PackType.CLIENT_RESOURCES) {
+                language.addProperty("block." + FarmersAssortment.MOD_ID + "."
+                        + definition.id().getPath(), definition.name());
+            }
             String source = "oak_" + definition.kind();
             if (definition.kind().equals("slats")) {
                 if (type == PackType.CLIENT_RESOURCES) {
                     addSlatsClient(definition);
-                    language.addProperty("block." + FarmersAssortment.MOD_ID + "."
-                            + definition.id().getPath(), definition.name());
                 } else {
                     addSlatsServer(definition);
                 }

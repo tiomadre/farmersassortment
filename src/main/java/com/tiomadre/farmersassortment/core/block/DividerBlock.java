@@ -154,44 +154,28 @@ public class DividerBlock extends HorizontalDirectionalBlock implements EntityBl
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
+        Level level = context.getLevel();
+        BlockPos pos = context.getClickedPos();
+        if (!canOccupy(level, pos.above())) {
+            return null;
+        }
+
         BlockState state = defaultBlockState()
                 .setValue(FACING, context.getHorizontalDirection().getOpposite());
 
-        DividerState adjacent = getAdjacentDividerState(context);
-        state = state.setValue(STATE,
-                adjacent == null ? DividerState.HALF_OPEN : adjacent);
-
-        if (!canOccupy(context.getLevel(), context.getClickedPos().above())) {
-            return null;
+        Direction face = context.getClickedFace();
+        if (face.getAxis().isHorizontal() && !context.replacingClickedOnBlock()) {
+            BlockState clicked = level.getBlockState(pos.relative(face.getOpposite()));
+            if (clicked.is(this)) {
+                state = state.setValue(FACING, clicked.getValue(FACING))
+                        .setValue(STATE, clicked.getValue(STATE));
+            }
         }
 
-        if (state.getValue(STATE) == DividerState.OPEN
-                && !canOpen(context.getLevel(), context.getClickedPos(), state)) {
-            return null;
+        if (state.getValue(STATE) == DividerState.OPEN && !canOpen(level, pos, state)) {
+            return state.setValue(STATE, DividerState.HALF_OPEN);
         }
         return state;
-    }
-
-    private DividerState getAdjacentDividerState(BlockPlaceContext context) {
-        BlockPos pos = context.getClickedPos();
-        Direction face = context.getClickedFace();
-
-        if (face.getAxis().isHorizontal()) {
-            BlockState clicked =
-                    context.getLevel().getBlockState(pos.relative(face.getOpposite()));
-            if (clicked.is(this)) {
-                return clicked.getValue(STATE);
-            }
-        }
-
-        for (Direction direction : Direction.Plane.HORIZONTAL) {
-            BlockState neighbor =
-                    context.getLevel().getBlockState(pos.relative(direction));
-            if (neighbor.is(this)) {
-                return neighbor.getValue(STATE);
-            }
-        }
-        return null;
     }
 
     @Override

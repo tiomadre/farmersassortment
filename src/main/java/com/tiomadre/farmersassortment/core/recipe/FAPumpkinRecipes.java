@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import com.mojang.logging.LogUtils;
 import com.tiomadre.farmersassortment.core.FarmersAssortment;
 import com.tiomadre.farmersassortment.core.registry.FAPumpkins;
+import com.tiomadre.farmersassortment.data.server.tags.FATags;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
@@ -106,7 +107,7 @@ public final class FAPumpkinRecipes {
                 && object.get("item").isJsonPrimitive()
                 && object.get("item").getAsString().equals("farmersdelight:pumpkin_slice")) {
             object.remove("item");
-            object.addProperty("tag", "farmersassortment:pumpkin_slices");
+            object.addProperty("tag", FATags.Items.PUMPKIN_SLICES.location().toString());
             return true;
         }
 
